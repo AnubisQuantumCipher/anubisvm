@@ -1,7 +1,13 @@
-// Package tokenomics defines the AEGIS token economic parameters.
+// Package tokenomics defines the ANUBIS token economic parameters.
 //
 // This file contains all token economics constants as specified in the
-// AegisVM Cosmos Chain blueprint v1.0.
+// ANUBIS Token Specification v4.0 (anubis_token.ads).
+//
+// Key Properties:
+// - Fixed supply: 1,000,000,000 ANUBIS (no inflation, ever)
+// - Deflationary: 80% of base fees burned
+// - 18 decimals (like ETH)
+// - Milestone-based vesting for builder allocation
 package tokenomics
 
 import (
@@ -11,77 +17,65 @@ import (
 )
 
 // ============================================================================
-// Token Parameters
+// Token Parameters (ANUBIS Spec v4.0)
 // ============================================================================
 
 const (
-	// TokenDenom is the base denomination (micro AEGIS = 10^-6)
-	TokenDenom = "uaegis"
+	// TokenDenom is the base denomination (atto ANUBIS = 10^-18)
+	TokenDenom = "aanubis"
 
 	// TokenName is the human-readable token name
-	TokenName = "AEGIS"
+	TokenName = "ANUBIS"
 
 	// TokenSymbol is the token symbol
-	TokenSymbol = "AEGIS"
+	TokenSymbol = "ANUBIS"
 
-	// TokenDecimals is the number of decimal places
-	TokenDecimals = 6
+	// TokenDecimals is the number of decimal places (like ETH)
+	TokenDecimals = 18
 
-	// Supply (in AEGIS, multiply by 10^6 for uaegis)
+	// TotalSupply is 1 billion ANUBIS - FIXED, NO INFLATION
+	TotalSupply = 1_000_000_000
 
-	// InitialSupply is 1 billion AEGIS
-	InitialSupply = 1_000_000_000
-
-	// MaxSupply is 10 billion AEGIS (with inflation)
-	MaxSupply = 10_000_000_000
-
-	// InitialSupplyUAegis is initial supply in micro units
-	InitialSupplyUAegis = InitialSupply * 1_000_000
-
-	// MaxSupplyUAegis is max supply in micro units
-	MaxSupplyUAegis = MaxSupply * 1_000_000
+	// TotalSupplyAtto is total supply in smallest units (10^18)
+	// Note: Go doesn't support 10^18 as a constant, use string math
+	TotalSupplyAtto = "1000000000000000000000000000" // 1B * 10^18
 )
 
 // ============================================================================
-// Inflation Parameters
+// NO INFLATION - Fixed Supply Economics
+// ============================================================================
+
+// The ANUBIS token has NO inflation. Supply is fixed at 1 billion tokens.
+// Deflation occurs through burn mechanisms:
+// - 80% of base transaction fees are burned
+// - 100% of failed proposal bonds are burned
+// - 50% of slashing amounts are burned
+// - 5% of privacy operation fees are burned
+
+// ============================================================================
+// Burn Rates (Basis Points, 10000 = 100%)
 // ============================================================================
 
 const (
-	// InitialInflation is 7% initial annual inflation
-	InitialInflationBP = 700 // Basis points (700 = 7%)
+	// BaseFee burn - 80% of all base fees are burned
+	BaseFeeeBurnBP = 8000
 
-	// MinInflation is 2% floor
-	MinInflationBP = 200 // Basis points (200 = 2%)
+	// Failed proposal bond - 100% burned
+	FailedProposalBurnBP = 10000
 
-	// InflationDecay is 10% reduction per year
-	InflationDecayBP = 1000 // Basis points (1000 = 10%)
+	// Slashing burn - 50% of slashed amount burned
+	SlashingBurnBP = 5000
 
-	// BlocksPerYear estimates (5 second blocks)
-	BlocksPerYear = 6_307_200 // ~365.25 * 24 * 60 * 12
+	// Privacy fee burn - 5% of privacy operation fees
+	PrivacyFeeBurnBP = 500
 )
 
-// InflationDistribution defines how inflation is distributed
-type InflationDistribution struct {
-	StakingRewards uint64 // Basis points (4000 = 40%)
-	ProverRewards  uint64 // Basis points (3000 = 30%)
-	Treasury       uint64 // Basis points (2000 = 20%)
-	Burn           uint64 // Basis points (1000 = 10%)
-}
-
-// DefaultInflationDistribution per blueprint
-var DefaultInflationDistribution = InflationDistribution{
-	StakingRewards: 4000, // 40%
-	ProverRewards:  3000, // 30%
-	Treasury:       2000, // 20%
-	Burn:           1000, // 10%
-}
-
 // ============================================================================
-// Gas Costs (per blueprint Part VII.2)
+// Gas Costs (per ANUBIS Spec)
 // ============================================================================
 
 const (
-	// MinGasPrice is 0.001 uaegis per gas unit
+	// MinGasPrice is 0.001 aanubis per gas unit
 	MinGasPriceNumerator   = 1
 	MinGasPriceDenominator = 1000
 
@@ -125,13 +119,38 @@ func CalculateDeployGas(bytecodeLen int) uint64 {
 }
 
 // ============================================================================
+// Certification Gas Discounts
+// ============================================================================
+
+const (
+	// Discount for Bronze certification (SPARK Mode enabled)
+	DiscountBronzeBP = 0 // 0%
+
+	// Discount for Silver certification (All VCs proven)
+	DiscountSilverBP = 1000 // 10%
+
+	// Discount for Gold certification (Constant-time verified)
+	DiscountGoldBP = 2000 // 20%
+
+	// Discount for Platinum certification (Third-party audited)
+	DiscountPlatinumBP = 3000 // 30%
+)
+
+// Certification deposit requirements (in ANUBIS tokens)
+const (
+	DepositBronze   = 1_000   // 1,000 ANUBIS
+	DepositSilver   = 10_000  // 10,000 ANUBIS
+	DepositGold     = 50_000  // 50,000 ANUBIS
+	DepositPlatinum = 100_000 // 100,000 ANUBIS
+)
+
+// ============================================================================
 // Staking Parameters
 // ============================================================================
 
 const (
 	// Validator requirements
-	MinValidatorStakeAegis = 100_000          // 100,000 AEGIS
-	MinValidatorStake      = 100_000_000_000  // In uaegis
+	MinValidatorStakeANUBIS = 100_000 // 100,000 ANUBIS
 
 	// MaxValidators is the maximum number of validators
 	MaxValidators = 150
@@ -145,9 +164,8 @@ const (
 	SlashInvalidProofBP = 1000 // 10% for submitting invalid ZK proof
 
 	// Prover staking
-	MinProverStakeAegis = 10_000            // 10,000 AEGIS
-	MinProverStake      = 10_000_000_000    // In uaegis
-	ProverSlashInvalidBP = 2000             // 20% for invalid proof
+	MinProverStakeANUBIS = 10_000 // 10,000 ANUBIS
+	ProverSlashInvalidBP = 2000   // 20% for invalid proof
 )
 
 // ============================================================================
@@ -156,8 +174,7 @@ const (
 
 const (
 	// Proposals
-	MinDepositAegis = 1_000          // 1,000 AEGIS
-	MinDeposit      = 1_000_000_000  // In uaegis
+	MinDepositANUBIS = 1_000 // 1,000 ANUBIS
 
 	// MaxDepositPeriod is 14 days
 	MaxDepositPeriod = 14 * 24 * time.Hour
@@ -181,95 +198,170 @@ const (
 )
 
 // ============================================================================
-// Token Allocation (Genesis Distribution)
+// Token Allocation (Genesis Distribution) - ANUBIS v4.0
 // ============================================================================
+
+// AllocationCategory represents the token allocation categories
+type AllocationCategory string
+
+const (
+	AllocSoloBuilder       AllocationCategory = "solo_builder"
+	AllocProtocolTreasury  AllocationCategory = "protocol_treasury"
+	AllocGenesisValidators AllocationCategory = "genesis_validators"
+	AllocGenesisProvers    AllocationCategory = "genesis_provers"
+	AllocDeveloperEcosystem AllocationCategory = "developer_ecosystem"
+	AllocQuantumInsurance  AllocationCategory = "quantum_insurance"
+	AllocBugBounties       AllocationCategory = "bug_bounties"
+)
 
 // GenesisAllocation defines token distribution at genesis
 type GenesisAllocation struct {
-	Name       string
-	Percentage uint64 // Basis points (10000 = 100%)
-	Amount     uint64 // In uaegis
-	Address    string // Bech32 address (set at genesis)
+	Category    AllocationCategory
+	Name        string
+	Percentage  uint64 // Basis points (10000 = 100%)
+	Amount      uint64 // In ANUBIS tokens (not smallest units)
+	Vesting     string // Vesting schedule description
+	Description string
 }
 
-// DefaultGenesisAllocations per blueprint
+// DefaultGenesisAllocations per ANUBIS Token Spec v4.0
 var DefaultGenesisAllocations = []GenesisAllocation{
 	{
-		Name:       "Treasury",
-		Percentage: 2000, // 20%
-		Amount:     200_000_000_000_000, // 200M AEGIS in uaegis
+		Category:    AllocSoloBuilder,
+		Name:        "Solo Builder",
+		Percentage:  3000, // 30%
+		Amount:      300_000_000,
+		Vesting:     "Milestone-based over 6 years",
+		Description: "Builder allocation, vested via verified milestone delivery",
 	},
 	{
-		Name:       "Foundation",
-		Percentage: 1000, // 10%
-		Amount:     100_000_000_000_000, // 100M AEGIS in uaegis
+		Category:    AllocProtocolTreasury,
+		Name:        "Protocol Treasury",
+		Percentage:  3000, // 30%
+		Amount:      300_000_000,
+		Vesting:     "DAO-controlled from day 1",
+		Description: "DAO treasury, builder has ZERO access",
 	},
 	{
-		Name:       "Community Pool",
-		Percentage: 1500, // 15%
-		Amount:     150_000_000_000_000,
+		Category:    AllocGenesisValidators,
+		Name:        "Genesis Validators",
+		Percentage:  1500, // 15%
+		Amount:      150_000_000,
+		Vesting:     "Earned via block production",
+		Description: "Rewards for genesis validator set",
 	},
 	{
-		Name:       "Ecosystem Development",
-		Percentage: 1500, // 15%
-		Amount:     150_000_000_000_000,
+		Category:    AllocGenesisProvers,
+		Name:        "Genesis Provers",
+		Percentage:  800, // 8%
+		Amount:      80_000_000,
+		Vesting:     "Earned via proof generation over 3 years",
+		Description: "Rewards for ZK proof miners",
 	},
 	{
-		Name:       "Initial Validators",
-		Percentage: 1000, // 10%
-		Amount:     100_000_000_000_000,
+		Category:    AllocDeveloperEcosystem,
+		Name:        "Developer Ecosystem",
+		Percentage:  700, // 7%
+		Amount:      70_000_000,
+		Vesting:     "Earned via verified code commits",
+		Description: "Code mining rewards for contributors",
 	},
 	{
-		Name:       "Prover Incentives",
-		Percentage: 1000, // 10%
-		Amount:     100_000_000_000_000,
+		Category:    AllocQuantumInsurance,
+		Name:        "Quantum Insurance Reserve",
+		Percentage:  500, // 5%
+		Amount:      50_000_000,
+		Vesting:     "Immutably locked for 20 years",
+		Description: "Emergency fund for post-quantum migration",
 	},
 	{
-		Name:       "Team & Advisors",
-		Percentage: 1000, // 10% (vested)
-		Amount:     100_000_000_000_000,
+		Category:    AllocBugBounties,
+		Name:        "Bug Bounties & Audits",
+		Percentage:  500, // 5%
+		Amount:      50_000_000,
+		Vesting:     "On-chain claim system",
+		Description: "Security rewards and audit funding",
 	},
-	{
-		Name:       "Public Sale",
-		Percentage: 1000, // 10%
-		Amount:     100_000_000_000_000,
-	},
+}
+
+// ============================================================================
+// Builder Milestone Vesting (30% = 300M ANUBIS)
+// ============================================================================
+
+// Milestone represents a vesting milestone for the builder allocation
+type Milestone struct {
+	ID           uint8
+	Name         string
+	Allocation   uint64 // ANUBIS tokens
+	Percentage   uint64 // Basis points of builder allocation
+	Verification string
+}
+
+// BuilderMilestones defines the 9 vesting milestones
+var BuilderMilestones = []Milestone{
+	{1, "ML-DSA-87 SPARK Implementation", 50_000_000, 1667, "GNATprove + Audit"},
+	{2, "ML-KEM-1024 SPARK Implementation", 50_000_000, 1667, "GNATprove + Audit"},
+	{3, "Core VM with WCET Gas Model", 50_000_000, 1667, "Test Suite + Audit"},
+	{4, "Cosmos SDK PQ Integration", 50_000_000, 1667, "Testnet Launch"},
+	{5, "zk-STARK Prover (Basic)", 30_000_000, 1000, "Proof Verification"},
+	{6, "Privacy Layer (Shield, Whisper)", 30_000_000, 1000, "Testnet Demo"},
+	{7, "Mainnet Launch", 20_000_000, 667, "Block 1 Produced"},
+	{8, "1 Year Mainnet Stability", 10_000_000, 333, "99.9% Uptime"},
+	{9, "2 Year Mainnet Stability", 10_000_000, 333, "No Critical Bugs"},
 }
 
 // ============================================================================
 // Helper Functions
 // ============================================================================
 
-// NewCoin creates a new uaegis coin
+// NewCoin creates a new aanubis coin
 func NewCoin(amount int64) sdk.Coin {
 	return sdk.NewInt64Coin(TokenDenom, amount)
 }
 
-// NewCoins creates a new uaegis coin set
+// NewCoins creates a new aanubis coin set
 func NewCoins(amount int64) sdk.Coins {
 	return sdk.NewCoins(NewCoin(amount))
 }
 
-// AegisToUAegis converts AEGIS to uaegis (micro AEGIS)
-func AegisToUAegis(aegis uint64) uint64 {
-	return aegis * 1_000_000
+// ANUBISToAtto converts ANUBIS to aanubis (atto ANUBIS, 10^-18)
+func ANUBISToAtto(anubis uint64) string {
+	// Since Go can't handle 10^18 as uint64, return as string
+	// In production, use big.Int
+	return sdk.NewIntFromUint64(anubis).Mul(sdk.NewIntFromUint64(1_000_000_000_000_000_000)).String()
 }
 
-// UAegisToAegis converts uaegis to AEGIS
-func UAegisToAegis(uaegis uint64) uint64 {
-	return uaegis / 1_000_000
+// GetAllocationAmount returns the allocation for a category
+func GetAllocationAmount(category AllocationCategory) uint64 {
+	for _, alloc := range DefaultGenesisAllocations {
+		if alloc.Category == category {
+			return alloc.Amount
+		}
+	}
+	return 0
+}
+
+// GetMilestoneAllocation returns allocation for a specific milestone
+func GetMilestoneAllocation(milestoneID uint8) uint64 {
+	for _, m := range BuilderMilestones {
+		if m.ID == milestoneID {
+			return m.Allocation
+		}
+	}
+	return 0
 }
 
 // ============================================================================
 // Denom Metadata
 // ============================================================================
 
-// DenomMetadata returns bank module denom metadata for AEGIS
+// DenomMetadata returns bank module denom metadata for ANUBIS
 func DenomMetadata() []DenomUnit {
 	return []DenomUnit{
-		{Denom: "uaegis", Exponent: 0, Aliases: []string{"microaegis"}},
-		{Denom: "maegis", Exponent: 3, Aliases: []string{"milliaegis"}},
-		{Denom: "aegis", Exponent: 6, Aliases: []string{}},
+		{Denom: "aanubis", Exponent: 0, Aliases: []string{"attoanubis"}},
+		{Denom: "uanubis", Exponent: 12, Aliases: []string{"microanubis"}},
+		{Denom: "manubis", Exponent: 15, Aliases: []string{"millianubis"}},
+		{Denom: "anubis", Exponent: 18, Aliases: []string{"ANUBIS"}},
 	}
 }
 
@@ -278,4 +370,35 @@ type DenomUnit struct {
 	Denom    string
 	Exponent uint32
 	Aliases  []string
+}
+
+// ============================================================================
+// Verification
+// ============================================================================
+
+// VerifyTotalAllocation ensures all allocations sum to 100%
+func VerifyTotalAllocation() bool {
+	var total uint64
+	for _, alloc := range DefaultGenesisAllocations {
+		total += alloc.Percentage
+	}
+	return total == 10000 // 100%
+}
+
+// VerifyBuilderMilestones ensures milestone allocations sum to 300M
+func VerifyBuilderMilestones() bool {
+	var total uint64
+	for _, m := range BuilderMilestones {
+		total += m.Allocation
+	}
+	return total == 300_000_000
+}
+
+func init() {
+	if !VerifyTotalAllocation() {
+		panic("tokenomics: genesis allocations do not sum to 100%")
+	}
+	if !VerifyBuilderMilestones() {
+		panic("tokenomics: builder milestones do not sum to 300M")
+	}
 }

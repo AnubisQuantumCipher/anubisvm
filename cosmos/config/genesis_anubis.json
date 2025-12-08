@@ -1,0 +1,290 @@
+{
+  "genesis_time": "2026-01-01T00:00:00Z",
+  "chain_id": "anubis-1",
+  "initial_height": "1",
+  "consensus_params": {
+    "block": {
+      "max_bytes": "22020096",
+      "max_gas": "100000000"
+    },
+    "evidence": {
+      "max_age_num_blocks": "100000",
+      "max_age_duration": "172800000000000",
+      "max_bytes": "1048576"
+    },
+    "validator": {
+      "pub_key_types": ["ml-dsa-87"]
+    },
+    "version": {
+      "app": "0"
+    },
+    "abci": {
+      "vote_extensions_enable_height": "0"
+    }
+  },
+  "app_hash": "",
+  "app_state": {
+    "auth": {
+      "params": {
+        "max_memo_characters": "256",
+        "tx_sig_limit": "7",
+        "tx_size_cost_per_byte": "10",
+        "sig_verify_cost_ed25519": "590",
+        "sig_verify_cost_secp256k1": "1000",
+        "sig_verify_cost_mldsa87": "600"
+      },
+      "accounts": []
+    },
+    "bank": {
+      "params": {
+        "send_enabled": [],
+        "default_send_enabled": true
+      },
+      "balances": [
+        {
+          "_comment": "Solo Builder (30%) - 300,000,000 ANUBIS - Milestone vesting over 6 years",
+          "address": "mldsa87:main:u:pz04kw47-8q9k1brf-sx6gn8rg-xfx9egm2-p0mtpjjj-145zqbvp-e780-gshm2",
+          "coins": [{"denom": "aanubis", "amount": "300000000000000000000000000"}]
+        },
+        {
+          "_comment": "Protocol Treasury (30%) - 300,000,000 ANUBIS - DAO controlled",
+          "address": "anubis1treasury_dao_multisig_placeholder",
+          "coins": [{"denom": "aanubis", "amount": "300000000000000000000000000"}]
+        },
+        {
+          "_comment": "Genesis Validators (15%) - 150,000,000 ANUBIS - Earned via block production",
+          "address": "anubis1validators_staking_pool",
+          "coins": [{"denom": "aanubis", "amount": "150000000000000000000000000"}]
+        },
+        {
+          "_comment": "Genesis Provers (8%) - 80,000,000 ANUBIS - Earned via proof generation over 3 years",
+          "address": "anubis1provers_reward_pool",
+          "coins": [{"denom": "aanubis", "amount": "80000000000000000000000000"}]
+        },
+        {
+          "_comment": "Developer Ecosystem (7%) - 70,000,000 ANUBIS - Code mining rewards",
+          "address": "anubis1developer_ecosystem_pool",
+          "coins": [{"denom": "aanubis", "amount": "70000000000000000000000000"}]
+        },
+        {
+          "_comment": "Quantum Insurance Reserve (5%) - 50,000,000 ANUBIS - Immutably locked 20 years",
+          "address": "anubis1quantum_insurance_timelocked",
+          "coins": [{"denom": "aanubis", "amount": "50000000000000000000000000"}]
+        },
+        {
+          "_comment": "Bug Bounties & Audits (5%) - 50,000,000 ANUBIS - On-chain claim system",
+          "address": "anubis1bug_bounty_claim_contract",
+          "coins": [{"denom": "aanubis", "amount": "50000000000000000000000000"}]
+        }
+      ],
+      "supply": [{"denom": "aanubis", "amount": "1000000000000000000000000000"}],
+      "denom_metadata": [{
+        "description": "ANUBIS - The native post-quantum secure token of the ANUBIS network. Fixed supply, deflationary (80% of base fees burned). 18 decimals.",
+        "denom_units": [
+          {"denom": "aanubis", "exponent": 0, "aliases": ["attoanubis"]},
+          {"denom": "uanubis", "exponent": 12, "aliases": ["microanubis"]},
+          {"denom": "manubis", "exponent": 15, "aliases": ["millianubis"]},
+          {"denom": "anubis", "exponent": 18, "aliases": ["ANUBIS"]}
+        ],
+        "base": "aanubis",
+        "display": "anubis",
+        "name": "ANUBIS",
+        "symbol": "ANUBIS",
+        "uri": "",
+        "uri_hash": ""
+      }],
+      "send_enabled": []
+    },
+    "staking": {
+      "params": {
+        "unbonding_time": "1814400s",
+        "max_validators": 150,
+        "max_entries": 7,
+        "historical_entries": 10000,
+        "bond_denom": "aanubis",
+        "min_commission_rate": "0.050000000000000000"
+      },
+      "last_total_power": "0",
+      "last_validator_powers": [],
+      "validators": [],
+      "delegations": [],
+      "unbonding_delegations": [],
+      "redelegations": [],
+      "exported": false
+    },
+    "slashing": {
+      "params": {
+        "signed_blocks_window": "100",
+        "min_signed_per_window": "0.500000000000000000",
+        "downtime_jail_duration": "600s",
+        "slash_fraction_double_sign": "0.050000000000000000",
+        "slash_fraction_downtime": "0.010000000000000000",
+        "slash_fraction_invalid_proof": "0.100000000000000000"
+      },
+      "signing_infos": [],
+      "missed_blocks": []
+    },
+    "gov": {
+      "starting_proposal_id": "1",
+      "deposits": [],
+      "votes": [],
+      "proposals": [],
+      "deposit_params": null,
+      "voting_params": null,
+      "tally_params": null,
+      "params": {
+        "min_deposit": [{"denom": "aanubis", "amount": "1000000000000000000000"}],
+        "max_deposit_period": "1209600s",
+        "voting_period": "604800s",
+        "quorum": "0.334000000000000000",
+        "threshold": "0.500000000000000000",
+        "veto_threshold": "0.334000000000000000",
+        "min_initial_deposit_ratio": "0.000000000000000000",
+        "proposal_cancel_ratio": "0.500000000000000000",
+        "proposal_cancel_dest": "",
+        "expedited_voting_period": "86400s",
+        "expedited_threshold": "0.667000000000000000",
+        "expedited_min_deposit": [{"denom": "aanubis", "amount": "5000000000000000000000"}],
+        "burn_vote_quorum": false,
+        "burn_proposal_deposit_prevote": false,
+        "burn_vote_veto": true,
+        "min_deposit_ratio": "0.010000000000000000",
+        "_critical_quorum": "0.600000000000000000",
+        "_critical_threshold": "0.800000000000000000",
+        "_critical_veto": "0.200000000000000000"
+      },
+      "constitution": "ANUBIS Token Specification v4.0 - Fixed Supply, No Inflation, Deflationary via burn mechanisms."
+    },
+    "distribution": {
+      "params": {
+        "community_tax": "0.000000000000000000",
+        "withdraw_addr_enabled": true
+      },
+      "fee_pool": {
+        "community_pool": []
+      },
+      "delegator_withdraw_infos": [],
+      "previous_proposer": "",
+      "outstanding_rewards": [],
+      "validator_accumulated_commissions": [],
+      "validator_historical_rewards": [],
+      "validator_current_rewards": [],
+      "delegator_starting_infos": [],
+      "validator_slash_events": []
+    },
+    "mint": {
+      "_comment": "NO INFLATION - Fixed supply of 1 billion ANUBIS tokens",
+      "minter": {
+        "inflation": "0.000000000000000000",
+        "annual_provisions": "0.000000000000000000"
+      },
+      "params": {
+        "mint_denom": "aanubis",
+        "inflation_rate_change": "0.000000000000000000",
+        "inflation_max": "0.000000000000000000",
+        "inflation_min": "0.000000000000000000",
+        "goal_bonded": "0.670000000000000000",
+        "blocks_per_year": "6307200"
+      }
+    },
+    "aegisvm": {
+      "params": {
+        "profile": "PQ-L5-Strict",
+        "max_code_size": "24576",
+        "max_gas_per_block": "100000000",
+        "require_governance": true,
+        "certification_enabled": true,
+        "gas_discount_bronze_bp": 0,
+        "gas_discount_silver_bp": 1000,
+        "gas_discount_gold_bp": 2000,
+        "gas_discount_platinum_bp": 3000,
+        "approved_code_hashes": []
+      },
+      "contracts": [],
+      "codes": []
+    },
+    "anubis": {
+      "params": {
+        "commitment_key": "",
+        "nullifier_set_root": "0000000000000000000000000000000000000000000000000000000000000000",
+        "prover_min_stake": "10000000000000000000000",
+        "proof_deadline_blocks": "100",
+        "max_private_gas": "10000000",
+        "enable_privacy": true,
+        "encryption_scheme": "ML-KEM-1024-AES-GCM",
+        "base_fee_burn_bp": 8000,
+        "failed_proposal_burn_bp": 10000,
+        "slashing_burn_bp": 5000,
+        "privacy_fee_burn_bp": 500
+      },
+      "provers": [],
+      "nullifiers": [],
+      "notes": [],
+      "disclosures": [],
+      "builder_vesting": {
+        "_comment": "Solo Builder milestone vesting schedule",
+        "builder_address": "mldsa87:main:u:pz04kw47-8q9k1brf-sx6gn8rg-xfx9egm2-p0mtpjjj-145zqbvp-e780-gshm2",
+        "total_allocation": "300000000000000000000000000",
+        "milestones": [
+          {"id": 1, "name": "ML-DSA-87 SPARK Implementation", "amount": "50000000000000000000000000", "verified": false},
+          {"id": 2, "name": "ML-KEM-1024 SPARK Implementation", "amount": "50000000000000000000000000", "verified": false},
+          {"id": 3, "name": "Core VM with WCET Gas Model", "amount": "50000000000000000000000000", "verified": false},
+          {"id": 4, "name": "Cosmos SDK PQ Integration", "amount": "50000000000000000000000000", "verified": false},
+          {"id": 5, "name": "zk-STARK Prover (Basic)", "amount": "30000000000000000000000000", "verified": false},
+          {"id": 6, "name": "Privacy Layer (Shield, Whisper)", "amount": "30000000000000000000000000", "verified": false},
+          {"id": 7, "name": "Mainnet Launch", "amount": "20000000000000000000000000", "verified": false},
+          {"id": 8, "name": "1 Year Mainnet Stability", "amount": "10000000000000000000000000", "verified": false},
+          {"id": 9, "name": "2 Year Mainnet Stability", "amount": "10000000000000000000000000", "verified": false}
+        ]
+      }
+    },
+    "ibc": {
+      "client_genesis": {
+        "clients": [],
+        "clients_consensus": [],
+        "clients_metadata": [],
+        "params": {
+          "allowed_clients": ["07-tendermint", "09-localhost"]
+        },
+        "create_localhost": false,
+        "next_client_sequence": "0"
+      },
+      "connection_genesis": {
+        "connections": [],
+        "client_connection_paths": [],
+        "next_connection_sequence": "0",
+        "params": {
+          "max_expected_time_per_block": "30000000000"
+        }
+      },
+      "channel_genesis": {
+        "channels": [],
+        "acknowledgements": [],
+        "commitments": [],
+        "receipts": [],
+        "send_sequences": [],
+        "recv_sequences": [],
+        "ack_sequences": [],
+        "next_channel_sequence": "0"
+      }
+    },
+    "transfer": {
+      "port_id": "transfer",
+      "denom_traces": [],
+      "params": {
+        "send_enabled": true,
+        "receive_enabled": true
+      },
+      "total_escrowed": []
+    },
+    "crisis": {
+      "constant_fee": {
+        "denom": "aanubis",
+        "amount": "1000000000000000000"
+      }
+    },
+    "genutil": {
+      "gen_txs": []
+    }
+  }
+}

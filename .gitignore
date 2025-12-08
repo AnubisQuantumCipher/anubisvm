@@ -41,6 +41,11 @@ temp/
 *.secret
 *_secret_key*
 *_private_key*
+BUILDER_KEYPAIR.txt
+
+# Binaries
+cosmos/keygen
+cosmos/aegisd
 
 # Local config
 .env

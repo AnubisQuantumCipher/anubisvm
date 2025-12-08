@@ -6,11 +6,14 @@ package pqcrypto
 
 import (
 	"bytes"
+	"crypto/sha256"
 	"crypto/subtle"
+	"encoding/base64"
+	"encoding/json"
 	"fmt"
 	"io"
 
-	"github.com/cometbft/cometbft/crypto"
+	cmtcrypto "github.com/cometbft/cometbft/crypto"
 	"github.com/cosmos/cosmos-sdk/codec"
 	codectypes "github.com/cosmos/cosmos-sdk/codec/types"
 	cryptotypes "github.com/cosmos/cosmos-sdk/crypto/types"
@@ -33,9 +36,9 @@ const (
 )
 
 var (
-	// Interface assertions for Cosmos SDK compatibility
-	_ cryptotypes.PrivKey = &PrivKey{}
-	_ cryptotypes.PubKey  = &PubKey{}
+	// Interface assertions for CometBFT compatibility (required for FilePV)
+	_ cmtcrypto.PrivKey = &PrivKey{}
+	_ cmtcrypto.PubKey  = &PubKey{}
 )
 
 // PrivKey implements crypto.PrivKey for ML-DSA-87.
@@ -78,7 +81,7 @@ func (privKey *PrivKey) Sign(msg []byte) ([]byte, error) {
 }
 
 // PubKey extracts the public key from the private key.
-func (privKey *PrivKey) PubKey() cryptotypes.PubKey {
+func (privKey *PrivKey) PubKey() cmtcrypto.PubKey {
 	pk := privKey.Key.Public()
 	return &PubKey{Key: pk}
 }
@@ -88,8 +91,8 @@ func (privKey *PrivKey) Type() string {
 	return KeyType
 }
 
-// Equals compares two private keys.
-func (privKey *PrivKey) Equals(other cryptotypes.LedgerPrivKey) bool {
+// Equals compares two private keys (CometBFT crypto.PrivKey interface).
+func (privKey *PrivKey) Equals(other cmtcrypto.PrivKey) bool {
 	if otherMLDSA, ok := other.(*PrivKey); ok {
 		return subtle.ConstantTimeCompare(privKey.Key[:], otherMLDSA.Key[:]) == 1
 	}
@@ -109,6 +112,30 @@ func (privKey *PrivKey) String() string {
 // ProtoMessage implements proto.Message
 func (privKey *PrivKey) ProtoMessage() {}
 
+// MarshalJSON implements json.Marshaler for PrivKey.
+// Returns base64-encoded key bytes for CometBFT JSON compatibility.
+func (privKey *PrivKey) MarshalJSON() ([]byte, error) {
+	return json.Marshal(base64.StdEncoding.EncodeToString(privKey.Key[:]))
+}
+
+// UnmarshalJSON implements json.Unmarshaler for PrivKey.
+// Expects base64-encoded key bytes.
+func (privKey *PrivKey) UnmarshalJSON(data []byte) error {
+	var s string
+	if err := json.Unmarshal(data, &s); err != nil {
+		return err
+	}
+	bz, err := base64.StdEncoding.DecodeString(s)
+	if err != nil {
+		return err
+	}
+	if len(bz) != SecretKeySize {
+		return fmt.Errorf("invalid ML-DSA-87 secret key size: got %d, expected %d", len(bz), SecretKeySize)
+	}
+	copy(privKey.Key[:], bz)
+	return nil
+}
+
 // PubKey implements crypto.PubKey for ML-DSA-87.
 type PubKey struct {
 	Key PublicKey
@@ -124,17 +151,28 @@ func NewPubKey(bz []byte) (*PubKey, error) {
 	return &PubKey{Key: pk}, nil
 }
 
-// Address returns the 32-byte account ID derived from the public key.
-// Uses domain-separated SHA3-256 hashing per AAS-001 v3.1:
+// Address returns a 20-byte address for CometBFT compatibility.
+// This is SHA256(pubkey) truncated to 20 bytes, matching ed25519 address derivation.
+// Note: For full 32-byte AAS-001 account IDs, use AccountID() instead.
+func (pubKey *PubKey) Address() cmtcrypto.Address {
+	// Use SHA256 and truncate to 20 bytes for CometBFT (matches tmhash.SumTruncated)
+	hash := sha256.Sum256(pubKey.Key[:])
+	return cmtcrypto.Address(hash[:20])
+}
+
+// AccountID returns the full 32-byte AAS-001 v3.1 account ID.
+// Uses domain-separated SHA3-256 hashing:
 // SHA3-256("aegis-v1-mldsa87-u" || public_key)
-func (pubKey *PubKey) Address() crypto.Address {
+func (pubKey *PubKey) AccountID() AccountID {
 	accountID, err := DeriveAccountID(pubKey.Key, AddressTypeUser)
 	if err != nil {
 		// Fallback to direct hash if FFI fails
 		hash := sha3.Sum256(pubKey.Key[:])
-		return crypto.Address(hash[:AccountIDSize])
+		var id AccountID
+		copy(id[:], hash[:])
+		return id
 	}
-	return crypto.Address(accountID[:])
+	return accountID
 }
 
 // CanonicalAddress returns the full AAS-001 v3.1 canonical address string.
@@ -172,8 +210,8 @@ func (pubKey *PubKey) Type() string {
 	return KeyType
 }
 
-// Equals compares two public keys.
-func (pubKey *PubKey) Equals(other cryptotypes.PubKey) bool {
+// Equals compares two public keys (CometBFT crypto.PubKey interface).
+func (pubKey *PubKey) Equals(other cmtcrypto.PubKey) bool {
 	if otherMLDSA, ok := other.(*PubKey); ok {
 		return bytes.Equal(pubKey.Key[:], otherMLDSA.Key[:])
 	}
@@ -192,6 +230,30 @@ func (pubKey *PubKey) String() string {
 
 // ProtoMessage implements proto.Message
 func (pubKey *PubKey) ProtoMessage() {}
+
+// MarshalJSON implements json.Marshaler for PubKey.
+// Returns base64-encoded key bytes for CometBFT JSON compatibility.
+func (pubKey *PubKey) MarshalJSON() ([]byte, error) {
+	return json.Marshal(base64.StdEncoding.EncodeToString(pubKey.Key[:]))
+}
+
+// UnmarshalJSON implements json.Unmarshaler for PubKey.
+// Expects base64-encoded key bytes.
+func (pubKey *PubKey) UnmarshalJSON(data []byte) error {
+	var s string
+	if err := json.Unmarshal(data, &s); err != nil {
+		return err
+	}
+	bz, err := base64.StdEncoding.DecodeString(s)
+	if err != nil {
+		return err
+	}
+	if len(bz) != PublicKeySize {
+		return fmt.Errorf("invalid ML-DSA-87 public key size: got %d, expected %d", len(bz), PublicKeySize)
+	}
+	copy(pubKey.Key[:], bz)
+	return nil
+}
 
 // Hash uses SHA3-256 for hashing (replacing SHA256).
 func Hash(data []byte) []byte {
@@ -232,6 +294,210 @@ func RegisterLegacyAminoCodec(cdc *codec.LegacyAmino) {
 
 // RegisterInterfaces registers the ML-DSA-87 types with the interface registry.
 func RegisterInterfaces(registry codectypes.InterfaceRegistry) {
-	registry.RegisterImplementations((*cryptotypes.PubKey)(nil), &PubKey{})
-	registry.RegisterImplementations((*cryptotypes.PrivKey)(nil), &PrivKey{})
+	registry.RegisterImplementations((*cryptotypes.PubKey)(nil), &SDKPubKey{})
+	registry.RegisterImplementations((*cryptotypes.PrivKey)(nil), &SDKPrivKey{})
+}
+
+// ============================================================================
+// Cosmos SDK Interface Wrappers
+// ============================================================================
+// These wrapper types implement Cosmos SDK's cryptotypes interfaces while
+// delegating to our CometBFT-compatible core types. This is necessary because
+// CometBFT and Cosmos SDK have incompatible Equals() method signatures.
+
+// SDKPrivKey wraps PrivKey to implement cryptotypes.PrivKey
+type SDKPrivKey struct {
+	*PrivKey
+}
+
+// sdkPrivKeyJSON is the JSON structure for SDKPrivKey in protobuf Any format
+type sdkPrivKeyJSON struct {
+	Key string `json:"key"`
+}
+
+// MarshalJSON implements json.Marshaler for SDKPrivKey.
+func (sk *SDKPrivKey) MarshalJSON() ([]byte, error) {
+	if sk.PrivKey == nil {
+		return []byte("null"), nil
+	}
+	return json.Marshal(sdkPrivKeyJSON{
+		Key: base64.StdEncoding.EncodeToString(sk.PrivKey.Key[:]),
+	})
+}
+
+// UnmarshalJSON implements json.Unmarshaler for SDKPrivKey.
+func (sk *SDKPrivKey) UnmarshalJSON(data []byte) error {
+	var j sdkPrivKeyJSON
+	if err := json.Unmarshal(data, &j); err != nil {
+		return err
+	}
+	bz, err := base64.StdEncoding.DecodeString(j.Key)
+	if err != nil {
+		return err
+	}
+	if len(bz) != SecretKeySize {
+		return fmt.Errorf("invalid ML-DSA-87 secret key size: got %d, expected %d", len(bz), SecretKeySize)
+	}
+	if sk.PrivKey == nil {
+		sk.PrivKey = &PrivKey{}
+	}
+	copy(sk.PrivKey.Key[:], bz)
+	return nil
+}
+
+// Ensure SDKPrivKey implements cryptotypes.PrivKey
+var _ cryptotypes.PrivKey = &SDKPrivKey{}
+
+// Bytes returns the byte representation of the private key.
+func (sk *SDKPrivKey) Bytes() []byte {
+	return sk.PrivKey.Bytes()
+}
+
+// Sign signs the message using ML-DSA-87.
+func (sk *SDKPrivKey) Sign(msg []byte) ([]byte, error) {
+	return sk.PrivKey.Sign(msg)
+}
+
+// PubKey extracts the public key from the private key.
+func (sk *SDKPrivKey) PubKey() cryptotypes.PubKey {
+	pk := sk.PrivKey.Key.Public()
+	return &SDKPubKey{Key: pk[:]}
+}
+
+// Type returns the key type string.
+func (sk *SDKPrivKey) Type() string {
+	return sk.PrivKey.Type()
+}
+
+// Equals compares two private keys (Cosmos SDK cryptotypes.LedgerPrivKey interface).
+func (sk *SDKPrivKey) Equals(other cryptotypes.LedgerPrivKey) bool {
+	if otherSDK, ok := other.(*SDKPrivKey); ok {
+		return subtle.ConstantTimeCompare(sk.PrivKey.Key[:], otherSDK.PrivKey.Key[:]) == 1
+	}
+	// Compare by bytes for any other type
+	if other != nil && other.Type() == KeyType {
+		return subtle.ConstantTimeCompare(sk.Bytes(), other.Bytes()) == 1
+	}
+	return false
+}
+
+// Reset implements proto.Message
+func (sk *SDKPrivKey) Reset() {
+	if sk.PrivKey != nil {
+		sk.PrivKey.Reset()
+	}
+}
+
+// String implements proto.Message
+func (sk *SDKPrivKey) String() string {
+	if sk.PrivKey != nil {
+		return sk.PrivKey.String()
+	}
+	return "SDKPrivKeyMLDSA87{nil}"
+}
+
+// ProtoMessage implements proto.Message
+func (sk *SDKPrivKey) ProtoMessage() {}
+
+// SDKPubKey wraps PubKey to implement cryptotypes.PubKey
+// The Key field is exported with JSON tag to match protobuf field name
+type SDKPubKey struct {
+	Key []byte `json:"key,omitempty" protobuf:"bytes,1,opt,name=key"`
+}
+
+// getPubKey returns the embedded PubKey for internal use
+func (pk *SDKPubKey) getPubKey() *PubKey {
+	if pk == nil || len(pk.Key) == 0 {
+		return nil
+	}
+	p := &PubKey{}
+	if len(pk.Key) == PublicKeySize {
+		copy(p.Key[:], pk.Key)
+	}
+	return p
+}
+
+// Ensure SDKPubKey implements cryptotypes.PubKey
+var _ cryptotypes.PubKey = &SDKPubKey{}
+
+// Address returns the address derived from the public key.
+func (pk *SDKPubKey) Address() cmtcrypto.Address {
+	if p := pk.getPubKey(); p != nil {
+		return p.Address()
+	}
+	return nil
+}
+
+// Bytes returns the byte representation of the public key.
+func (pk *SDKPubKey) Bytes() []byte {
+	if pk == nil {
+		return nil
+	}
+	return pk.Key
+}
+
+// VerifySignature verifies an ML-DSA-87 signature.
+func (pk *SDKPubKey) VerifySignature(msg []byte, sig []byte) bool {
+	if p := pk.getPubKey(); p != nil {
+		return p.VerifySignature(msg, sig)
+	}
+	return false
+}
+
+// Type returns the key type string.
+func (pk *SDKPubKey) Type() string {
+	return KeyType
+}
+
+// Equals compares two public keys (Cosmos SDK cryptotypes.PubKey interface).
+func (pk *SDKPubKey) Equals(other cryptotypes.PubKey) bool {
+	if otherSDK, ok := other.(*SDKPubKey); ok {
+		return bytes.Equal(pk.Key, otherSDK.Key)
+	}
+	// Compare by bytes for any other type
+	if other != nil && other.Type() == KeyType {
+		return bytes.Equal(pk.Bytes(), other.Bytes())
+	}
+	return false
+}
+
+// Reset implements proto.Message
+func (pk *SDKPubKey) Reset() {
+	if pk != nil {
+		pk.Key = nil
+	}
+}
+
+// String implements proto.Message
+func (pk *SDKPubKey) String() string {
+	if pk != nil && len(pk.Key) >= 8 {
+		return fmt.Sprintf("SDKPubKeyMLDSA87{%X...}", pk.Key[:8])
+	}
+	return "SDKPubKeyMLDSA87{nil}"
+}
+
+// ProtoMessage implements proto.Message
+func (pk *SDKPubKey) ProtoMessage() {}
+
+// WrapPrivKey wraps a CometBFT-compatible PrivKey for Cosmos SDK use.
+func WrapPrivKey(pk *PrivKey) *SDKPrivKey {
+	return &SDKPrivKey{pk}
+}
+
+// WrapPubKey wraps a CometBFT-compatible PubKey for Cosmos SDK use.
+func WrapPubKey(pk *PubKey) *SDKPubKey {
+	if pk == nil {
+		return &SDKPubKey{}
+	}
+	return &SDKPubKey{Key: pk.Key[:]}
+}
+
+// NewSDKPubKey creates a new SDKPubKey from raw bytes.
+func NewSDKPubKey(bz []byte) (*SDKPubKey, error) {
+	if len(bz) != PublicKeySize {
+		return nil, fmt.Errorf("invalid ML-DSA-87 public key size: got %d, expected %d", len(bz), PublicKeySize)
+	}
+	key := make([]byte, PublicKeySize)
+	copy(key, bz)
+	return &SDKPubKey{Key: key}, nil
 }

@@ -6,6 +6,7 @@
 
 pragma SPARK_Mode (Off);  --  FFI layer uses C convention
 
+with Ada.Text_IO;
 with Ada.Unchecked_Conversion;
 with Ada.Unchecked_Deallocation;
 with System; use System;
@@ -170,31 +171,50 @@ package body Aegis_FFI is
       Sig_Data  : constant Sig_Ptr := To_Sig_Ptr (Signature);
       Success   : Boolean;
    begin
+      Ada.Text_IO.Put_Line ("DEBUG: Aegis_MLDSA87_Sign entered");
+      Ada.Text_IO.Put_Line ("DEBUG: Msg_Len = " & Interfaces.C.size_t'Image (Msg_Len));
+
       if Signature = System.Null_Address or
          Sig_Len = null or
          Secret_Key = System.Null_Address or
          (Msg_Len > 0 and Message = System.Null_Address)
       then
+         Ada.Text_IO.Put_Line ("DEBUG: Invalid input detected");
          return Result_Code (AEGIS_ERROR_INVALID_INPUT);
       end if;
+
+      Ada.Text_IO.Put_Line ("DEBUG: Input validation passed");
 
       --  Check message length against ML-DSA limit
       if Msg_Len > Interfaces.C.size_t (Anubis_MLDSA.Max_Msg_Length) then
+         Ada.Text_IO.Put_Line ("DEBUG: Message too long");
          return Result_Code (AEGIS_ERROR_INVALID_INPUT);
       end if;
 
-      --  Create message array and call sign
+      Ada.Text_IO.Put_Line ("DEBUG: Creating message array");
+
+      --  Create message array and safely copy bytes from C pointer
       declare
-         Msg_Array : Anubis_Types.Byte_Array (0 .. Natural (Msg_Len) - 1);
-         type Msg_Ptr is access all Anubis_Types.Byte_Array;
-         function To_Msg_Ptr is new Ada.Unchecked_Conversion (System.Address, Msg_Ptr);
-         Msg_Data : constant Msg_Ptr := To_Msg_Ptr (Message);
+         Msg_Array : Anubis_Types.Byte_Array (0 .. Natural (Msg_Len) - 1) := (others => 0);
          Zero_Random : constant Anubis_MLDSA_Types.Seed := (others => 0);
       begin
+         Ada.Text_IO.Put_Line ("DEBUG: Message array created, copying bytes");
+         --  Safely copy message bytes using Storage_Array overlay
          if Msg_Len > 0 then
-            Msg_Array := Msg_Data.all (0 .. Natural (Msg_Len) - 1);
+            declare
+               --  Overlay Storage_Array at Message address for safe byte access
+               Src : Storage_Array (1 .. Storage_Offset (Msg_Len));
+               for Src'Address use Message;
+               pragma Import (Ada, Src);  --  Suppress initialization
+            begin
+               for I in 0 .. Natural (Msg_Len) - 1 loop
+                  Msg_Array (I) := Anubis_Types.Byte (Src (Storage_Offset (I + 1)));
+               end loop;
+            end;
          end if;
+         Ada.Text_IO.Put_Line ("DEBUG: Calling Anubis_MLDSA.Sign");
          Anubis_MLDSA.Sign (SK_Data.all, Msg_Array, Zero_Random, Sig_Data.all, Success);
+         Ada.Text_IO.Put_Line ("DEBUG: Sign returned, Success = " & Boolean'Image (Success));
       end;
 
       if Success then
@@ -244,16 +264,23 @@ package body Aegis_FFI is
          return Result_Code (AEGIS_ERROR_INVALID_INPUT);
       end if;
 
-      --  Create message array and call verify
+      --  Create message array and safely copy bytes from C pointer
       declare
-         Msg_Array : Anubis_Types.Byte_Array (0 .. Natural (Msg_Len) - 1);
-         type Msg_Ptr is access all Anubis_Types.Byte_Array;
-         function To_Msg_Ptr is new Ada.Unchecked_Conversion (System.Address, Msg_Ptr);
-         Msg_Data : constant Msg_Ptr := To_Msg_Ptr (Message);
+         Msg_Array : Anubis_Types.Byte_Array (0 .. Natural (Msg_Len) - 1) := (others => 0);
          Is_Valid : Boolean;
       begin
+         --  Safely copy message bytes using Storage_Array overlay
          if Msg_Len > 0 then
-            Msg_Array := Msg_Data.all (0 .. Natural (Msg_Len) - 1);
+            declare
+               --  Overlay Storage_Array at Message address for safe byte access
+               Src : Storage_Array (1 .. Storage_Offset (Msg_Len));
+               for Src'Address use Message;
+               pragma Import (Ada, Src);  --  Suppress initialization
+            begin
+               for I in 0 .. Natural (Msg_Len) - 1 loop
+                  Msg_Array (I) := Anubis_Types.Byte (Src (Storage_Offset (I + 1)));
+               end loop;
+            end;
          end if;
          Is_Valid := Anubis_MLDSA.Verify (PK_Data.all, Msg_Array, Sig_Data.all);
          Valid.all := Interfaces.C.C_bool (Is_Valid);

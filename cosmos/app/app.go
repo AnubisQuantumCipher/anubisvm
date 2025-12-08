@@ -71,8 +71,8 @@ const (
 	// Token denom
 	BaseDenom = "uaegis"
 
-	// Default chain ID for testnet
-	DefaultChainID = "aegis-testnet-1"
+	// Default chain ID for mainnet
+	DefaultChainID = "anubis-mainnet-1"
 )
 
 var (

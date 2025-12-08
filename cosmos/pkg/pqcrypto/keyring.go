@@ -53,7 +53,8 @@ func (a MLDSAAlgo) Generate() hd.GenerateFn {
 		if err != nil {
 			panic(err)
 		}
-		return &PrivKey{Key: sk}
+		// Return SDK-wrapped key for Cosmos SDK compatibility
+		return &SDKPrivKey{&PrivKey{Key: sk}}
 	}
 }
 

@@ -51,7 +51,7 @@ project Anubis_Node is
                "-gnatp",          -- Suppress checks for speed
                "-ffunction-sections",
                "-fdata-sections",
-               "-mcpu=apple-m4"); -- M4 Max optimization
+               "-mcpu=apple-m3"); -- Apple Silicon optimization (M4 compat)
 
          when "debug" =>
             for Default_Switches ("Ada") use

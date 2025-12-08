@@ -1,0 +1,26 @@
+# Anubis VM Devnet Configuration
+# Single-node development environment
+
+[server]
+bind = "127.0.0.1"
+port = 26659
+log_level = "debug"
+
+[chain]
+chain_id = "aegis-dev-1"
+gas_limit = 100000000
+
+[storage]
+data_dir = "~/.anubisvm/devnet"
+state_dir = "~/.anubisvm/devnet/state"
+contracts_dir = "~/.anubisvm/devnet/contracts"
+
+[vm]
+max_contracts = 256
+max_memory_kb = 65536
+max_call_depth = 64
+
+[crypto]
+signature_scheme = "ML-DSA-87"
+encryption_scheme = "ML-KEM-1024"
+hash_function = "SHA3-256"

@@ -190,10 +190,47 @@ is
             Response.Result_Size := 0;
 
          when Method_Execute | Method_Query | Method_Deploy =>
-            --  Execution methods require further parsing
+            --  Legacy execution methods - redirect to VM methods
             Response.Has_Result := False;
             Response.Error_Code := Error_Invalid_Params;
-            Set_Error_Msg (Response, "Not implemented");
+            Set_Error_Msg (Response, "Use vm_deployContract or vm_invoke");
+
+         when Method_VM_Deploy =>
+            --  Contract deployment - params should contain hex-encoded ELF
+            --  For now, return "ready" to indicate the endpoint exists
+            Response.Has_Result := True;
+            Response.Result (0) := Character'Pos ('r');
+            Response.Result (1) := Character'Pos ('e');
+            Response.Result (2) := Character'Pos ('a');
+            Response.Result (3) := Character'Pos ('d');
+            Response.Result (4) := Character'Pos ('y');
+            Response.Result_Size := 5;
+
+         when Method_VM_Invoke =>
+            --  Contract invocation - params should contain to, entry, args
+            Response.Has_Result := True;
+            Response.Result (0) := Character'Pos ('r');
+            Response.Result (1) := Character'Pos ('e');
+            Response.Result (2) := Character'Pos ('a');
+            Response.Result (3) := Character'Pos ('d');
+            Response.Result (4) := Character'Pos ('y');
+            Response.Result_Size := 5;
+
+         when Method_VM_Call =>
+            --  Read-only contract call
+            Response.Has_Result := True;
+            Response.Result (0) := Character'Pos ('r');
+            Response.Result (1) := Character'Pos ('e');
+            Response.Result (2) := Character'Pos ('a');
+            Response.Result (3) := Character'Pos ('d');
+            Response.Result (4) := Character'Pos ('y');
+            Response.Result_Size := 5;
+
+         when Method_VM_GetState =>
+            --  Raw state query
+            Response.Has_Result := False;
+            Response.Error_Code := Error_Invalid_Params;
+            Set_Error_Msg (Response, "Params required");
 
          when Method_GetBalance | Method_GetNonce |
               Method_GetCode | Method_GetStorage =>
@@ -324,9 +361,205 @@ is
          return Method_GetNodeInfo;
       elsif Str = "health" or Str = "net_version" then
          return Method_Health;
+      elsif Str = "vm_deployContract" or Str = "vm_deploy" then
+         return Method_VM_Deploy;
+      elsif Str = "vm_invoke" then
+         return Method_VM_Invoke;
+      elsif Str = "vm_call" then
+         return Method_VM_Call;
+      elsif Str = "vm_getState" then
+         return Method_VM_GetState;
       else
          return Method_Unknown;
       end if;
    end Parse_Method;
+
+   ---------------------------------------------------------------------------
+   --  Contract Deployment
+   ---------------------------------------------------------------------------
+
+   procedure Set_Deploy_Error (
+      Result : in out Deploy_Result;
+      Code   : RPC_Error_Code;
+      Msg    : String
+   ) with
+      Global => null,
+      Pre    => Msg'Length <= Max_Error_Message_Length
+   is
+      Len : constant Natural := Msg'Length;
+   begin
+      Result.Success := False;
+      Result.Error_Code := Code;
+      Result.Error_Msg := (others => ' ');
+      for I in 1 .. Len loop
+         Result.Error_Msg (I) := Msg (Msg'First + I - 1);
+      end loop;
+      Result.Error_Msg_Len := Len;
+   end Set_Deploy_Error;
+
+   procedure Deploy_Contract (
+      VM       : in Out VM_Instance;
+      From     : in     Contract_Address;
+      Code     : in     Node_Code_Buffer;
+      Code_Size : in    Natural;
+      Manifest : in     Node_Contract_Manifest;
+      Gas_Limit : in    Gas_Amount;
+      Result   : out    Deploy_Result
+   ) is
+      pragma Unreferenced (From, Gas_Limit);
+      Code_Hash    : Hash256;
+      Contract_ID  : Contract_Address;
+      Slot         : Contract_Index;
+   begin
+      Result := Empty_Deploy_Result;
+
+      --  Hash the code to create contract ID
+      declare
+         Code_Bytes : Anubis_Types.Byte_Array (0 .. Code_Size - 1);
+         Digest     : Anubis_SHA3.SHA3_256_Digest;
+      begin
+         --  Convert code buffer to byte array for hashing
+         for I in 0 .. Code_Size - 1 loop
+            Code_Bytes (I) := Anubis_Types.Byte (Code (Node_Code_Index (I)));
+         end loop;
+
+         Anubis_SHA3.SHA3_256 (Code_Bytes, Digest);
+
+         --  Copy digest to code hash
+         for I in 0 .. 31 loop
+            Code_Hash (I) := Byte (Digest (I));
+         end loop;
+      end;
+
+      --  Generate contract address from code hash
+      for I in 0 .. 31 loop
+         Contract_ID (I) := Code_Hash (I);
+      end loop;
+
+      --  Find empty slot
+      Slot := Contract_Index (VM.Contract_Count);
+
+      --  Register contract
+      VM.Contracts (Slot) := (
+         Address   => Contract_ID,
+         Code_Hash => Code_Hash,
+         Is_Loaded => True
+      );
+
+      VM.Contract_Count := VM.Contract_Count + 1;
+
+      --  Set success result
+      Result.Success := True;
+      Result.Contract_ID := Contract_ID;
+      Result.Code_Hash := Code_Hash;
+      Result.Gas_Used := Gas_Amount (Code_Size * 200);  -- Base gas cost
+
+      --  Log deployment
+      --  In production, this would store the manifest and code
+
+      pragma Unreferenced (Manifest);
+   end Deploy_Contract;
+
+   ---------------------------------------------------------------------------
+   --  Contract Invocation
+   ---------------------------------------------------------------------------
+
+   procedure Set_Invoke_Error (
+      Result : in Out Invoke_Result;
+      Code   : RPC_Error_Code;
+      Msg    : String
+   ) with
+      Global => null,
+      Pre    => Msg'Length <= Max_Error_Message_Length
+   is
+      Len : constant Natural := Msg'Length;
+   begin
+      Result.Success := False;
+      Result.Error_Code := Code;
+      Result.Error_Msg := (others => ' ');
+      for I in 1 .. Len loop
+         Result.Error_Msg (I) := Msg (Msg'First + I - 1);
+      end loop;
+      Result.Error_Msg_Len := Len;
+   end Set_Invoke_Error;
+
+   procedure Invoke_Contract (
+      VM       : in Out VM_Instance;
+      Request  : in     Invoke_Request;
+      Result   : out    Invoke_Result
+   ) is
+      Found : Boolean := False;
+   begin
+      Result := Empty_Invoke_Result;
+
+      --  Check if contract exists
+      for I in 0 .. Contract_Index (VM.Contract_Count - 1) loop
+         if VM.Contracts (I).Is_Loaded and then
+            VM.Contracts (I).Address = Request.To then
+            Found := True;
+            exit;
+         end if;
+      end loop;
+
+      if not Found then
+         Set_Invoke_Error (Result, Error_Invalid_Params, "Contract not found");
+         return;
+      end if;
+
+      --  Check gas limit
+      if Request.Gas_Limit = 0 then
+         Set_Invoke_Error (Result, Error_Invalid_Params, "Gas limit required");
+         return;
+      end if;
+
+      --  Execute contract (stub - would invoke AegisVM here)
+      --  In production:
+      --  1. Load contract code from storage
+      --  2. Create execution context
+      --  3. Execute entry point with args
+      --  4. Capture return data and logs
+
+      Result.Success := True;
+      Result.Gas_Used := Request.Gas_Limit / 10;  -- Placeholder
+      Result.Return_Size := 0;
+      Result.Log_Count := 0;
+
+      --  Note: Request fields Entry_Point, Entry_Len, Args, Args_Size,
+      --  Value are parsed from params and used by AegisVM execution
+   end Invoke_Contract;
+
+   procedure Call_Contract (
+      VM       : in     VM_Instance;
+      Request  : in     Invoke_Request;
+      Result   : out    Invoke_Result
+   ) is
+      Found : Boolean := False;
+   begin
+      Result := Empty_Invoke_Result;
+
+      --  Check if contract exists
+      for I in 0 .. Contract_Index (VM.Contract_Count - 1) loop
+         if VM.Contracts (I).Is_Loaded and then
+            VM.Contracts (I).Address = Request.To then
+            Found := True;
+            exit;
+         end if;
+      end loop;
+
+      if not Found then
+         Set_Invoke_Error (Result, Error_Invalid_Params, "Contract not found");
+         return;
+      end if;
+
+      --  Execute read-only call (stub)
+      --  Same as Invoke but without state changes
+
+      Result.Success := True;
+      Result.Gas_Used := 21000;  -- Base call cost
+      Result.Return_Size := 0;
+      Result.Log_Count := 0;
+
+      --  Note: Request fields used by AegisVM read-only execution
+   end Call_Contract;
 
 end Anubis_Node;

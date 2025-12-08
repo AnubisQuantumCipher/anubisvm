@@ -89,6 +89,12 @@ is
       Method_Query,            -- Read-only query
       Method_Deploy,           -- Deploy contract
 
+      --  VM Contract methods (primary API)
+      Method_VM_Deploy,        -- vm_deployContract: Deploy KHEPRI contract
+      Method_VM_Invoke,        -- vm_invoke: Call contract method (state change)
+      Method_VM_Call,          -- vm_call: Read-only contract call
+      Method_VM_GetState,      -- vm_getState: Raw state query
+
       --  State methods
       Method_GetBalance,       -- Get account balance
       Method_GetNonce,         -- Get account nonce
@@ -217,6 +223,135 @@ is
       ),
       Pending_Txs  => 0,
       Connections  => 0
+   );
+
+   ---------------------------------------------------------------------------
+   --  Contract Deployment Types
+   ---------------------------------------------------------------------------
+
+   --  Maximum contract name length
+   Max_Contract_Name_Length : constant := 64;
+   subtype Contract_Name is String (1 .. Max_Contract_Name_Length);
+
+   --  Contract certification level
+   type Cert_Level is (
+      Cert_None,     -- No verification
+      Cert_Bronze,   -- Basic type safety
+      Cert_Silver,   -- Partial proofs
+      Cert_Gold,     -- Full SPARK proofs
+      Cert_Platinum  -- With side-channel analysis
+   );
+
+   --  Contract manifest (metadata for deployment)
+   type Node_Contract_Manifest is record
+      Name          : Contract_Name;
+      Name_Len      : Natural;
+      Version_Major : Natural;
+      Version_Minor : Natural;
+      Version_Patch : Natural;
+      Cert          : Cert_Level;
+   end record;
+
+   --  Maximum ELF code size (1 MB) - Node specific
+   Node_Max_Code_Size : constant := 1024 * 1024;
+   subtype Node_Code_Index is Natural range 0 .. Node_Max_Code_Size - 1;
+   type Node_Code_Buffer is array (Node_Code_Index) of Byte;
+
+   --  Deployment result
+   type Deploy_Result is record
+      Success       : Boolean;
+      Contract_ID   : Contract_Address;
+      Code_Hash     : Hash256;
+      Gas_Used      : Gas_Amount;
+      Error_Code    : RPC_Error_Code;
+      Error_Msg     : Error_Message;
+      Error_Msg_Len : Natural;
+   end record;
+
+   --  Empty deploy result
+   Empty_Deploy_Result : constant Deploy_Result := (
+      Success       => False,
+      Contract_ID   => (others => 0),
+      Code_Hash     => (others => 0),
+      Gas_Used      => 0,
+      Error_Code    => Error_None,
+      Error_Msg     => (others => ' '),
+      Error_Msg_Len => 0
+   );
+
+   ---------------------------------------------------------------------------
+   --  Contract Invocation Types
+   ---------------------------------------------------------------------------
+
+   --  Maximum entry point name length
+   Max_Entry_Name_Length : constant := 64;
+   subtype Entry_Name is String (1 .. Max_Entry_Name_Length);
+
+   --  Maximum arguments size (8 KB)
+   Max_Args_Size : constant := 8 * 1024;
+   subtype Args_Index is Natural range 0 .. Max_Args_Size - 1;
+   type Args_Buffer is array (Args_Index) of Byte;
+
+   --  Invoke request
+   type Invoke_Request is record
+      From         : Contract_Address;
+      To           : Contract_Address;
+      Entry_Point  : Entry_Name;    -- 'Entry' is reserved, use Entry_Point
+      Entry_Len    : Natural;
+      Args         : Args_Buffer;
+      Args_Size    : Natural;
+      Gas_Limit    : Gas_Amount;
+      Value        : U256;
+   end record;
+
+   --  Maximum return data size (32 KB)
+   Max_Return_Size : constant := 32 * 1024;
+   subtype Return_Index is Natural range 0 .. Max_Return_Size - 1;
+   type Return_Buffer is array (Return_Index) of Byte;
+
+   --  Maximum log entries
+   Max_Logs : constant := 64;
+   subtype Log_Index is Natural range 0 .. Max_Logs - 1;
+
+   --  Log entry (event)
+   type Log_Entry is record
+      Contract    : Contract_Address;
+      Topic_Hash  : Hash256;
+      Data        : Args_Buffer;
+      Data_Size   : Natural;
+   end record;
+
+   type Log_Array is array (Log_Index) of Log_Entry;
+
+   --  Invoke result
+   type Invoke_Result is record
+      Success      : Boolean;
+      Gas_Used     : Gas_Amount;
+      Return_Data  : Return_Buffer;
+      Return_Size  : Natural;
+      Logs         : Log_Array;
+      Log_Count    : Natural;
+      Error_Code   : RPC_Error_Code;
+      Error_Msg    : Error_Message;
+      Error_Msg_Len : Natural;
+   end record;
+
+   --  Empty invoke result
+   Empty_Invoke_Result : constant Invoke_Result := (
+      Success      => False,
+      Gas_Used     => 0,
+      Return_Data  => (others => 0),
+      Return_Size  => 0,
+      Logs         => (others => (
+         Contract   => (others => 0),
+         Topic_Hash => (others => 0),
+         Data       => (others => 0),
+         Data_Size  => 0
+      )),
+      Log_Count    => 0,
+      Error_Code   => Error_None,
+      Error_Msg    => (others => ' '),
+      Error_Msg_Len => 0
    );
 
 end Anubis_Node_Types;

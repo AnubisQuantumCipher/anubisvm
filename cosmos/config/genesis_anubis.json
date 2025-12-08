@@ -43,7 +43,7 @@
       "balances": [
         {
           "_comment": "Solo Builder (30%) - 300,000,000 ANUBIS - Milestone vesting over 6 years",
-          "address": "mldsa87:main:u:pz04kw47-8q9k1brf-sx6gn8rg-xfx9egm2-p0mtpjjj-145zqbvp-e780-gshm2",
+          "address": "mldsa87:main:u:82k8tnws-nzpar3f3-rxt5kxty-gxnhy2sp-fvf0hk21-jr7savyh-8j3g-wat0w",
           "coins": [{"denom": "aanubis", "amount": "300000000000000000000000000"}]
         },
         {
@@ -223,7 +223,7 @@
       "disclosures": [],
       "builder_vesting": {
         "_comment": "Solo Builder milestone vesting schedule",
-        "builder_address": "mldsa87:main:u:pz04kw47-8q9k1brf-sx6gn8rg-xfx9egm2-p0mtpjjj-145zqbvp-e780-gshm2",
+        "builder_address": "mldsa87:main:u:82k8tnws-nzpar3f3-rxt5kxty-gxnhy2sp-fvf0hk21-jr7savyh-8j3g-wat0w",
         "total_allocation": "300000000000000000000000000",
         "milestones": [
           {"id": 1, "name": "ML-DSA-87 SPARK Implementation", "amount": "50000000000000000000000000", "verified": false},

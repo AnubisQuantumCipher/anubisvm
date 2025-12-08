@@ -1,0 +1,273 @@
+V "GNAT Lib v14"
+A -O0
+A -gnatA
+A -gnat2022
+A -gnatwa
+A -gnatyO
+A -gnatVa
+A -gnatw.F
+A -gnata
+A -g
+A -gnateE
+A -gnatVa
+A -mmacosx-version-min=16.0.0
+A -mcpu=apple-m1
+A -mlittle-endian
+A -mabi=lp64
+A -fPIC
+P ZX
+
+RN
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U anubis_mldsa_poly%b	anubis_mldsa_poly.adb	2ed11c01 NE OO PK
+W interfaces%s		interfac.ads		interfac.ali
+Z system.assertions%s	s-assert.adb		s-assert.ali
+
+U anubis_mldsa_poly%s	anubis_mldsa_poly.ads	4731d7ba EE NE OO PK
+W anubis_mldsa_config%s	anubis_mldsa_config.ads	anubis_mldsa_config.ali
+W anubis_mldsa_field%s	anubis_mldsa_field.adb	anubis_mldsa_field.ali
+W anubis_mldsa_types%s	anubis_mldsa_types.ads	anubis_mldsa_types.ali
+
+D ada.ads		20240808082856 76789da1 ada%s
+D a-assert.ads		20240808082856 ba465f5c ada.assertions%s
+D a-unccon.ads		20240808082856 0e9b276f ada.unchecked_conversion%s
+D anubis_mldsa_config.ads  20251205141650 21404e58 anubis_mldsa_config%s
+D anubis_mldsa_field.ads  20251205160739 b52aaacb anubis_mldsa_field%s
+D anubis_mldsa_field.adb  20251205160731 1c60055c anubis_mldsa_field%b
+D anubis_mldsa_poly.ads	20251205160827 63d6cf5b anubis_mldsa_poly%s
+D anubis_mldsa_poly.adb	20251205161452 dc162a9b anubis_mldsa_poly%b
+D anubis_mldsa_types.ads  20251204160229 b08dfc72 anubis_mldsa_types%s
+D anubis_types.ads	20251203093723 4fb35097 anubis_types%s
+D interfac.ads		20240808082856 9111f9c1 interfaces%s
+D system.ads		20240808082856 70765b54 system%s
+D s-assert.ads		20240808082856 9c4520c7 system.assertions%s
+D s-exctab.ads		20240808082856 91bef6ef system.exception_table%s
+D s-stalib.ads		20240808082856 1c9580f6 system.standard_library%s
+G a e
+G c Z s b [poly_add anubis_mldsa_poly 17 14 none]
+G c Z s b [poly_sub anubis_mldsa_poly 26 14 none]
+G c Z s b [poly_reduce anubis_mldsa_poly 35 14 none]
+G c Z s b [poly_from_mont anubis_mldsa_poly 40 14 none]
+G c Z s b [poly_shiftl anubis_mldsa_poly 45 14 none]
+G c Z s b [poly_chk_norm anubis_mldsa_poly 55 13 none]
+G c Z s b [vec_add_l anubis_mldsa_poly 59 14 none]
+G c Z s b [vec_sub_l anubis_mldsa_poly 66 14 none]
+G c Z s b [vec_add_k anubis_mldsa_poly 73 14 none]
+G c Z s b [vec_sub_k anubis_mldsa_poly 80 14 none]
+G c Z s b [vec_reduce_k anubis_mldsa_poly 87 14 none]
+G c Z s b [vec_reduce_l anubis_mldsa_poly 91 14 none]
+G c Z s b [vec_from_mont_k anubis_mldsa_poly 95 14 none]
+G c Z s b [vec_from_mont_l anubis_mldsa_poly 99 14 none]
+G c Z s b [vec_center_k anubis_mldsa_poly 103 14 none]
+G c Z s b [vec_center_l anubis_mldsa_poly 107 14 none]
+G c Z s b [vec_chk_norm_l anubis_mldsa_poly 111 13 none]
+G c Z s b [vec_chk_norm_k anubis_mldsa_poly 115 13 none]
+G c Z s b [poly_power2round anubis_mldsa_poly 119 14 none]
+G c Z s b [vec_power2round_k anubis_mldsa_poly 127 14 none]
+G c Z s b [poly_decompose anubis_mldsa_poly 135 14 none]
+G c Z s b [vec_highbits_k anubis_mldsa_poly 143 14 none]
+G c Z s b [vec_lowbits_k anubis_mldsa_poly 150 14 none]
+G c Z s b [vec_makehint_k anubis_mldsa_poly 157 14 none]
+G c Z s b [vec_usehint_k anubis_mldsa_poly 165 14 none]
+G c Z b b [poly_center anubis_mldsa_poly 169 14 none]
+G r c none [poly_from_mont anubis_mldsa_poly 40 14 none] [from_mont anubis_mldsa_field 88 13 none]
+G r c none [poly_chk_norm anubis_mldsa_poly 55 13 none] [freeze anubis_mldsa_field 95 13 none]
+G r c none [poly_chk_norm anubis_mldsa_poly 55 13 none] [center anubis_mldsa_field 100 13 none]
+G r c none [vec_from_mont_k anubis_mldsa_poly 95 14 none] [from_mont anubis_mldsa_field 88 13 none]
+G r c none [vec_from_mont_l anubis_mldsa_poly 99 14 none] [from_mont anubis_mldsa_field 88 13 none]
+G r c none [vec_chk_norm_l anubis_mldsa_poly 111 13 none] [freeze anubis_mldsa_field 95 13 none]
+G r c none [vec_chk_norm_l anubis_mldsa_poly 111 13 none] [center anubis_mldsa_field 100 13 none]
+G r c none [vec_chk_norm_k anubis_mldsa_poly 115 13 none] [freeze anubis_mldsa_field 95 13 none]
+G r c none [vec_chk_norm_k anubis_mldsa_poly 115 13 none] [center anubis_mldsa_field 100 13 none]
+G r c none [poly_power2round anubis_mldsa_poly 119 14 none] [freeze anubis_mldsa_field 95 13 none]
+G r c none [poly_power2round anubis_mldsa_poly 119 14 none] [power2round anubis_mldsa_field 105 14 none]
+G r c none [vec_power2round_k anubis_mldsa_poly 127 14 none] [freeze anubis_mldsa_field 95 13 none]
+G r c none [vec_power2round_k anubis_mldsa_poly 127 14 none] [power2round anubis_mldsa_field 105 14 none]
+G r c none [poly_decompose anubis_mldsa_poly 135 14 none] [freeze anubis_mldsa_field 95 13 none]
+G r c none [poly_decompose anubis_mldsa_poly 135 14 none] [decompose anubis_mldsa_field 113 14 none]
+G r c none [vec_highbits_k anubis_mldsa_poly 143 14 none] [freeze anubis_mldsa_field 95 13 none]
+G r c none [vec_highbits_k anubis_mldsa_poly 143 14 none] [decompose anubis_mldsa_field 113 14 none]
+G r c none [vec_lowbits_k anubis_mldsa_poly 150 14 none] [freeze anubis_mldsa_field 95 13 none]
+G r c none [vec_lowbits_k anubis_mldsa_poly 150 14 none] [decompose anubis_mldsa_field 113 14 none]
+G r c none [vec_makehint_k anubis_mldsa_poly 157 14 none] [freeze anubis_mldsa_field 95 13 none]
+G r c none [vec_makehint_k anubis_mldsa_poly 157 14 none] [makehint anubis_mldsa_field 130 13 none]
+G r c none [vec_usehint_k anubis_mldsa_poly 165 14 none] [freeze anubis_mldsa_field 95 13 none]
+G r c none [vec_usehint_k anubis_mldsa_poly 165 14 none] [usehint anubis_mldsa_field 134 13 none]
+X 4 anubis_mldsa_config.ads
+14K9*Anubis_MLDSA_Config 91e24 7|3w6 3r31
+21N4*Q 7|22r56 31r56 37r51 52r56 8|22r53 39r53 50r44 77r61 78r42 81r53 170r29
+. 174r30 229r38 261r38
+24N4*N 8|298r35
+27N4*K 8|298r31
+X 5 anubis_mldsa_field.ads
+14K9*Anubis_MLDSA_Field 137e23 7|4w6 4r30
+20M9*Field_Element 8|79r24 227r23 229r23 259r23 261r23
+23M12*Valid_Field{20M9} 8|90r30 219r14 223r23 252r14 256r21
+53V13*Add{23M12} 8|20s24
+58V13*Sub{23M12} 8|37s24
+88V13*From_Mont{23M12} 8|58s19
+95V13*Freeze{23M12} 8|20s29 20s45 37s29 37s45 48s19 90s43 223s36 256s34 306s28
+. 306s48 329s58
+100V13*Center{integer} 8|90s22
+105U14*Power2Round 8|223s10
+113U14*Decompose 8|256s10
+130V13*MakeHint{boolean} 8|306s18
+134V13*UseHint{23M12} 8|329s31
+X 7 anubis_mldsa_poly.ads
+11K9*Anubis_MLDSA_Poly 171l5 171e22 8|5b14 334l5 334t22
+17U14*Poly_Add 18>7 18>10 19<7 8|10b14 105s10 126s10
+18a7 A{9|23A9} 8|11b7 20r37
+18a10 B{9|23A9} 8|11b10 20r53
+19a7 Result{9|23A9} 22r43 8|12b7 16m7 20m10 22r40
+22i24 I{9|20I12} 22r51
+26U14*Poly_Sub 27>7 27>10 28<7 8|27b14 115s10 136s10
+27a7 A{9|23A9} 8|28b7 37r37
+27a10 B{9|23A9} 8|28b10 37r53
+28a7 Result{9|23A9} 31r43 8|29b7 33m7 37m10 39r40
+31i24 I{9|20I12} 31r51
+35U14*Poly_Reduce 35=27 8|44b14 143s10 150s10
+35a27 F{9|23A9} 37r43 8|44b27 48m10 48r27 50r36
+37i24 I{9|20I12} 37r46
+40U14*Poly_From_Mont 40=30 8|55b14 60l8 60t22 157s10 164s10
+40a30 F{9|23A9} 8|55b30 58m10 58r30
+45U14*Poly_ShiftL 46>7 47>7 48<7 8|64b14
+46a7 A{9|23A9} 8|65b7 77r29
+47i7 Shift{natural} 51r14 8|66b7 70r67
+48a7 Result{9|23A9} 52r43 8|67b7 74m7 79m10 81r40
+52i24 I{9|20I12} 52r51
+55V13*Poly_Chk_Norm{boolean} 55>28 55>44 8|86b13 96l8 96t21 196s17 206s17
+55a28 F{9|23A9} 8|86b28 90r51
+55i44 Bound{natural} 8|86b44 91r31
+59U14*Vec_Add_L 60>7 60>10 61<7 8|99b14 107l8 107t17
+60a7 A{9|31A9} 8|100b7 105r20
+60a10 B{9|31A9} 8|100b10 105r27
+61a7 Result{9|31A9} 8|101b7 105m34 105r34
+66U14*Vec_Sub_L 67>7 67>10 68<7 8|109b14 117l8 117t17
+67a7 A{9|31A9} 8|110b7 115r20
+67a10 B{9|31A9} 8|110b10 115r27
+68a7 Result{9|31A9} 8|111b7 115m34 115r34
+73U14*Vec_Add_K 74>7 74>10 75<7 8|120b14 128l8 128t17
+74a7 A{9|30A9} 8|121b7 126r20
+74a10 B{9|30A9} 8|121b10 126r27
+75a7 Result{9|30A9} 8|122b7 126m34 126r34
+80U14*Vec_Sub_K 81>7 81>10 82<7 8|130b14 138l8 138t17
+81a7 A{9|30A9} 8|131b7 136r20
+81a10 B{9|30A9} 8|131b10 136r27
+82a7 Result{9|30A9} 8|132b7 136m34 136r34
+87U14*Vec_Reduce_K 87=28 8|140b14 145l8 145t20
+87a28 V{9|30A9} 8|140b28 143m23 143r23
+91U14*Vec_Reduce_L 91=28 8|147b14 152l8 152t20
+91a28 V{9|31A9} 8|147b28 150m23 150r23
+95U14*Vec_From_Mont_K 95=31 8|154b14 159l8 159t23
+95a31 V{9|30A9} 8|154b31 157m26 157r26
+99U14*Vec_From_Mont_L 99=31 8|161b14 166l8 166t23
+99a31 V{9|31A9} 8|161b31 164m26 164r26
+103U14*Vec_Center_K 103=28 8|179b14 184l8 184t20
+103a28 V{9|30A9} 8|179b28 182m23 182r23
+107U14*Vec_Center_L 107=28 8|186b14 191l8 191t20
+107a28 V{9|31A9} 8|186b28 189m23 189r23
+111V13*Vec_Chk_Norm_L{boolean} 111>29 111>48 8|193b13 201l8 201t22
+111a29 V{9|31A9} 8|193b29 196r32
+111i48 Bound{natural} 8|193b48 196r39
+115V13*Vec_Chk_Norm_K{boolean} 115>29 115>48 8|203b13 211l8 211t22
+115a29 V{9|30A9} 8|203b29 206r32
+115i48 Bound{natural} 8|203b48 206r39
+119U14*Poly_Power2Round 120>7 121<7 122<7 8|214b14 232l8 232t24 242s10
+120a7 A{9|23A9} 8|215b7 223r44
+121a7 A1{9|23A9} 8|216b7 224m10
+122a7 A0{9|23A9} 8|217b7 227m13 229m13
+127U14*Vec_Power2Round_K 128>7 129<7 130<7 8|235b14 244l8 244t25
+128a7 V{9|30A9} 8|236b7 242r28
+129a7 V1{9|30A9} 8|237b7 242m35 242r35
+130a7 V0{9|30A9} 8|238b7 242m43 242r43
+135U14*Poly_Decompose 136>7 137<7 138<7 8|247b14 264l8 264t22 274s10 286s10
+136a7 A{9|23A9} 8|248b7 256r42
+137a7 A1{9|23A9} 8|249b7 257m10
+138a7 A0{9|23A9} 8|250b7 259m13 261m13
+143U14*Vec_HighBits_K 144>7 145<7 8|267b14 276l8 276t22
+144a7 V{9|30A9} 8|268b7 274r26
+145a7 Result{9|30A9} 8|269b7 274m33 274r33
+150U14*Vec_LowBits_K 151>7 152<7 8|279b14 288l8 288t21
+151a7 V{9|30A9} 8|280b7 286r26
+152a7 Result{9|30A9} 8|281b7 286m40 286r40
+157U14*Vec_MakeHint_K 158>7 158>10 159<7 160<7 8|291b14 316l8 316t22
+158a7 Z{9|30A9} 8|292b7 306r36
+158a10 R{9|30A9} 8|292b10 306r56
+159a7 Hint{9|30A9} 8|293b7 302m7 308m16
+160i7 Count{natural} 8|294b7 300m7 310r19 311m19 311r28
+165U14*Vec_UseHint_K 166>7 166>13 167<7 8|319b14 332l8 332t21
+166a7 Hint{9|30A9} 8|320b7 329r40
+166a13 R{9|30A9} 8|320b13 329r66
+167a7 Result{9|30A9} 8|321b7 325m7 329m13
+X 8 anubis_mldsa_poly.adb
+17i11 I{9|20I12} 20r18 20r40 20r56
+22i21 J{9|20I12} 22r48
+34i11 I{9|20I12} 37r18 37r40 37r56
+39i21 J{9|20I12} 39r48
+46i11 I{9|20I12} 48r13 48r30 50r31
+50i21 J{integer} 50r39
+57i11 I{9|20I12} 58r13 58r33
+70m7 Mult{11|84M9} 77r38
+71m7 R{11|84M9} 77m10 78r25 79r39
+75i11 I{9|20I12} 77r32 79r18
+81i21 J{9|20I12} 81r48
+87i7 Centered{integer} 90m10 91r18
+89i11 I{9|20I12} 90r54
+104i11 I{9|27I12} 105r23 105r30 105r42
+114i11 I{9|27I12} 115r23 115r30 115r42
+125i11 I{9|26I12} 126r23 126r30 126r42
+135i11 I{9|26I12} 136r23 136r30 136r42
+142i11 I{9|26I12} 143r26
+149i11 I{9|27I12} 150r26
+156i11 I{9|26I12} 157r29
+163i11 I{9|27I12} 164r29
+169U14 Poly_Center 169b14 169=27 177l8 177t19 182s10 189s10
+169a27 F{9|23A9} 173r13 174m13 174r22
+170N7 Half_Q 173r21
+172i11 I{9|20I12} 173r16 174r16 174r25
+181i11 I{9|26I12} 182r26
+188i11 I{9|27I12} 189r26
+195i11 I{9|27I12} 196r35
+205i11 I{9|26I12} 206r35
+219m7 High{5|23M12} 223m53 224r20
+220i7 Low{integer} 223m59 226r13 227r38 229r42
+222i11 I{9|20I12} 223r47 224r14 227r17 229r17
+241i11 I{9|26I12} 242r31 242r39 242r47
+252m7 High{5|23M12} 256m51 257r20
+253i7 Low{integer} 256m57 258r13 259r38 261r42
+255i11 I{9|20I12} 256r45 257r14 259r17 261r17
+271a7 Dummy{9|23A9} 274m45
+273i11 I{9|26I12} 274r29 274r41
+283a7 Dummy{9|23A9} 286m33
+285i11 I{9|26I12} 286r29 286r48
+296b7 H{boolean} 306m13 307r16
+298N7 Max_Count 310r27
+304i11 I{9|26I12} 306r39 306r59 308r22
+305i14 J{9|20I12} 306r43 306r63 308r26
+327i11 I{9|26I12} 329r21 329r46 329r69
+328i14 J{9|20I12} 329r25 329r50 329r73
+X 9 anubis_mldsa_types.ads
+14K9*Anubis_MLDSA_Types 7|5w6 5r30 9|64e23
+20I12*Poly_Index{natural} 7|22r29 31r29 37r29 52r29 8|17r16 22r26 34r16 39r26
+. 46r16 57r16 75r16 81r26 89r16 172r16 222r16 255r16 305r19 328r19
+23A9*Polynomial(5|20M9)<integer> 7|18r20 19r20 27r20 28r20 35r38 40r41 46r20
+. 48r20 55r32 120r16 121r16 122r16 136r16 137r16 138r16 8|11r20 12r20 28r20
+. 29r20 44r38 55r41 65r20 67r20 86r32 169r38 215r16 216r16 217r16 248r16
+. 249r16 250r16 271r15 283r15
+26I12*K_Index{natural} 8|125r16 135r16 142r16 156r16 181r16 205r16 241r16
+. 273r16 285r16 304r16 327r16
+27I12*L_Index{natural} 8|104r16 114r16 149r16 163r16 188r16 195r16
+30A9*Poly_Vector_K(23A9)<integer> 7|74r20 75r20 81r20 82r20 87r39 95r42 103r39
+. 115r33 128r16 129r16 130r16 144r20 145r20 151r20 152r20 158r20 159r20 166r21
+. 167r21 8|121r20 122r20 131r20 132r20 140r39 154r42 179r39 203r33 236r16
+. 237r16 238r16 268r20 269r20 280r20 281r20 292r20 293r20 320r21 321r21
+31A9*Poly_Vector_L(23A9)<integer> 7|60r20 61r20 67r20 68r20 91r39 99r42 107r39
+. 111r33 8|100r20 101r20 110r20 111r20 147r39 161r42 186r39 193r33
+X 11 interfac.ads
+38K9*Interfaces 8|3w6 3r22 11|233e15
+84M9*Unsigned_64 8|70r23 70r50 71r11 77r16 77r48 78r29
+166V13*Shift_Left{84M9} 8|70s38
+

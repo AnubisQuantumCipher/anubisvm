@@ -1,0 +1,43 @@
+[
+{
+  "name": "Anubis_Address_Checksum.Compute_Checksum.Preimage_Str",
+  "location": "anubis_address_checksum.adb:79:7",
+  "Size": 560,
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Address_Checksum.Compute_Checksum.Preimage_Length",
+  "location": "anubis_address_checksum.adb:80:7",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Anubis_Address_Checksum.Compute_Checksum.Preimage_Bytes",
+  "location": "anubis_address_checksum.adb:83:7",
+  "Size": 560,
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Address_Checksum.Compute_Checksum.Digest",
+  "location": "anubis_address_checksum.adb:84:7",
+  "Size": 256,
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Address_Checksum.Verify_Checksum.Computed",
+  "location": "anubis_address_checksum.adb:111:7",
+  "Size": 24,
+  "Alignment": 4
+}
+,
+{
+  "name": "Anubis_Address_Checksum.Verify_Checksum.Diff",
+  "location": "anubis_address_checksum.adb:112:7",
+  "Size": 8,
+  "Alignment": 1
+}
+]

@@ -1,0 +1,48 @@
+# Build artifacts
+obj/
+bin/
+lib/*.a
+lib/*.dylib
+lib/*.so
+*.o
+*.ali
+*.gcda
+*.gcno
+
+# Alire
+alire/cache/
+alire/build/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# macOS
+.DS_Store
+._*
+
+# Go
+cosmos/aegisd
+cosmos/*.test
+cosmos/coverage.out
+
+# Temporary
+tmp/
+temp/
+*.tmp
+*.log
+
+# Keys - NEVER commit
+*.pem
+*.key
+*.secret
+*_secret_key*
+*_private_key*
+
+# Local config
+.env
+.env.local
+config.local.toml

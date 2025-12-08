@@ -1,0 +1,223 @@
+[
+{
+  "name": "Anubis_Genesis_Provers.Hardware_Tier",
+  "location": "anubis_genesis_provers.ads:36:9",
+  "Object_Size": 8,
+  "Value_Size": 2,
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Genesis_Provers.Tier_Ram_Requirements",
+  "location": "anubis_genesis_provers.ads:43:4",
+  "Size": 128,
+  "Alignment": 8
+}
+,
+{
+  "name": "Anubis_Genesis_Provers.Tier_Reward_Multiplier",
+  "location": "anubis_genesis_provers.ads:51:4",
+  "Size": 128,
+  "Alignment": 8
+}
+,
+{
+  "name": "Anubis_Genesis_Provers.Prover_Index",
+  "location": "anubis_genesis_provers.ads:58:12",
+  "Object_Size": 32,
+  "Value_Size": 6,
+  "Alignment": 4
+}
+,
+{
+  "name": "Anubis_Genesis_Provers.Prover_Status",
+  "location": "anubis_genesis_provers.ads:64:9",
+  "Object_Size": 8,
+  "Value_Size": 3,
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Genesis_Provers.Prover_Record",
+  "location": "anubis_genesis_provers.ads:74:9",
+  "Size": 1280,
+  "Alignment": 8,
+  "record": [
+    {
+      "name": "Index",
+      "Position":   0,
+      "First_Bit": 0,
+      "Size": 32
+    },
+    {
+      "name": "Address",
+      "Position":   4,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Pk_Hash",
+      "Position":  36,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Status",
+      "Position":  68,
+      "First_Bit": 0,
+      "Size": 8
+    },
+    {
+      "name": "Tier",
+      "Position":  69,
+      "First_Bit": 0,
+      "Size": 8
+    },
+    {
+      "name": "Is_Genesis",
+      "Position":  70,
+      "First_Bit": 0,
+      "Size": 8
+    },
+    {
+      "name": "Proofs_Generated",
+      "Position":  72,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Proofs_Failed",
+      "Position":  80,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Avg_Proof_Time_Ms",
+      "Position":  88,
+      "First_Bit": 0,
+      "Size": 32
+    },
+    {
+      "name": "Total_Rewards",
+      "Position":  96,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Pending_Rewards",
+      "Position": 104,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Stake_Amount",
+      "Position": 112,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Times_Slashed",
+      "Position": 120,
+      "First_Bit": 0,
+      "Size": 32
+    },
+    {
+      "name": "Total_Slashed",
+      "Position": 128,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Registered_At",
+      "Position": 136,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Active_Since",
+      "Position": 144,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Last_Proof_Block",
+      "Position": 152,
+      "First_Bit": 0,
+      "Size": 64
+    }
+  ]
+}
+,
+{
+  "name": "Anubis_Genesis_Provers.Prover_Array",
+  "location": "anubis_genesis_provers.ads:100:9",
+  "Size": 64000,
+  "Alignment": 8,
+  "Component_Size": 1280
+}
+,
+{
+  "name": "Anubis_Genesis_Provers.Prover_Set_State",
+  "location": "anubis_genesis_provers.ads:102:9",
+  "Size": 64384,
+  "Alignment": 8,
+  "record": [
+    {
+      "name": "Provers",
+      "Position":    0,
+      "First_Bit": 0,
+      "Size": 64000
+    },
+    {
+      "name": "Active_Count",
+      "Position": 8000,
+      "First_Bit": 0,
+      "Size": 32
+    },
+    {
+      "name": "Genesis_Count",
+      "Position": 8004,
+      "First_Bit": 0,
+      "Size": 32
+    },
+    {
+      "name": "Total_Distributed",
+      "Position": 8008,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Remaining_Pool",
+      "Position": 8016,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Open_Entry_Active",
+      "Position": 8024,
+      "First_Bit": 0,
+      "Size": 8
+    },
+    {
+      "name": "Genesis_Block",
+      "Position": 8032,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Current_Block",
+      "Position": 8040,
+      "First_Bit": 0,
+      "Size": 64
+    }
+  ]
+}
+,
+{
+  "name": "Anubis_Genesis_Provers.Register_Result",
+  "location": "anubis_genesis_provers.ads:117:9",
+  "Object_Size": 8,
+  "Value_Size": 3,
+  "Alignment": 1
+}
+]

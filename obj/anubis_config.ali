@@ -1,0 +1,80 @@
+V "GNAT Lib v14"
+A -O0
+A -gnatA
+A -gnatwa
+A -gnatQ
+A -gnata
+A -gnatf
+A -gnatyM120
+A -gnatyO
+A -gnat2012
+A -g
+A -gnateE
+A -fstack-check=specific
+A -mmacosx-version-min=16.0.0
+A -mcpu=apple-m1
+A -mlittle-endian
+A -mabi=lp64
+A -fPIC
+P ZX
+
+RN
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U anubis_config%s	anubis_config.ads	19c7b4b2 NE OO PU PK
+
+D anubis_config.ads	20251207191107 19c7b4b2 anubis_config%s
+D system.ads		20240808082856 70765b54 system%s
+G a e
+X 1 anubis_config.ads
+3K9*Anubis_Config 112l5 112e18
+12N4*PQ_Security_Level
+17N4*MLKEM_K
+18N4*MLKEM_Eta1
+19N4*MLKEM_Eta2
+20N4*MLKEM_Du
+21N4*MLKEM_Dv
+22N4*MLKEM_Public_Key_Bytes
+23N4*MLKEM_Secret_Key_Bytes
+24N4*MLKEM_Ciphertext_Bytes
+25N4*MLKEM_Shared_Secret_Bytes
+28N4*MLDSA_K
+29N4*MLDSA_L
+30N4*MLDSA_Public_Key_Bytes
+31N4*MLDSA_Secret_Key_Bytes
+32N4*MLDSA_Signature_Bytes
+35N4*Q
+38N4*N
+43N4*SHA3_256_Rate
+44N4*SHA3_384_Rate
+45N4*SHA3_512_Rate
+48N4*SHAKE128_Rate
+49N4*SHAKE256_Rate
+52N4*Keccak_State_Bits
+53N4*Keccak_Rounds
+58N4*Max_Stack_Depth
+61N4*Max_Memory_Words
+64N4*Max_Storage_Keys
+67N4*Max_Contract_Size
+72N4*Gas_Zero
+73N4*Gas_Base
+74N4*Gas_VeryLow
+75N4*Gas_Low
+76N4*Gas_Mid
+77N4*Gas_High
+80N4*Gas_SHA3_Base
+81N4*Gas_SHA3_Per_Word
+82N4*Gas_MLKEM_Keygen
+83N4*Gas_MLKEM_Encaps
+84N4*Gas_MLKEM_Decaps
+85N4*Gas_MLDSA_Keygen
+86N4*Gas_MLDSA_Sign
+87N4*Gas_MLDSA_Verify
+90N4*Gas_SLoad
+91N4*Gas_SStore_Set
+92N4*Gas_SStore_Reset
+97N4*Max_Signers
+98N4*Signature_Threshold
+101N4*Proposal_Delay_Blocks
+110a4*Target_Proof_Level{string}
+

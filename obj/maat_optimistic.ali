@@ -1,0 +1,444 @@
+V "GNAT Lib v14"
+A -O0
+A -gnatA
+A -gnatwa
+A -gnatQ
+A -gnata
+A -gnatf
+A -gnatyM120
+A -gnatyO
+A -gnat2012
+A -g
+A -gnateE
+A -fstack-check=specific
+A -mmacosx-version-min=16.0.0
+A -mcpu=apple-m1
+A -mlittle-endian
+A -mabi=lp64
+A -fPIC
+P ZX
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+
+U maat_optimistic%b	maat_optimistic.adb	0cdf785e NE OO PK
+Z system.assertions%s	s-assert.adb		s-assert.ali
+
+U maat_optimistic%s	maat_optimistic.ads	331926f7 EE NE OO PK
+W anubis_bytes%s	anubis_bytes.adb	anubis_bytes.ali
+W anubis_types%s	anubis_types.ads	anubis_types.ali
+W interfaces%s		interfac.ads		interfac.ali
+
+D ada.ads		20240808082856 76789da1 ada%s
+D a-assert.ads		20240808082856 ba465f5c ada.assertions%s
+D a-unccon.ads		20240808082856 0e9b276f ada.unchecked_conversion%s
+D anubis_bytes.ads	20251207191105 9e5d5cad anubis_bytes%s
+D anubis_types.ads	20251207191105 4fb35097 anubis_types%s
+D anubis_word.ads	20251207191105 ec44f66b anubis_word%s
+D interfac.ads		20240808082856 9111f9c1 interfaces%s
+D maat_optimistic.ads	20251207191105 73e6d30c maat_optimistic%s
+D maat_optimistic.adb	20251208004238 7f39ab52 maat_optimistic%b
+D system.ads		20240808082856 70765b54 system%s
+D s-assert.ads		20240808082856 9c4520c7 system.assertions%s
+D s-exctab.ads		20240808082856 91bef6ef system.exception_table%s
+D s-stalib.ads		20240808082856 1c9580f6 system.standard_library%s
+G a e
+G c Z s b [submit_transaction maat_optimistic 251 14 none]
+G c Z s b [classify_transaction maat_optimistic 265 13 none]
+G c Z s b [select_operator maat_optimistic 275 14 none]
+G c Z s b [validate_tx_signature maat_optimistic 284 13 none]
+G c Z s b [create_batch maat_optimistic 296 14 none]
+G c Z s b [add_to_batch maat_optimistic 305 14 none]
+G c Z s b [finalize_batch maat_optimistic 315 14 none]
+G c Z s b [settle_batch maat_optimistic 325 14 none]
+G c Z s b [submit_challenge maat_optimistic 340 14 none]
+G c Z s b [defend_challenge maat_optimistic 356 14 none]
+G c Z s b [resolve_challenge maat_optimistic 366 14 none]
+G c Z s b [escalate_challenge maat_optimistic 377 14 none]
+G c Z s b [verify_fraud_proof maat_optimistic 387 13 none]
+G c Z s b [register_operator maat_optimistic 401 14 none]
+G c Z s b [add_bond maat_optimistic 415 14 none]
+G c Z s b [begin_exit maat_optimistic 424 14 none]
+G c Z s b [complete_exit maat_optimistic 433 14 none]
+G c Z s b [slash_operator maat_optimistic 444 14 none]
+G c Z s b [update_reputation maat_optimistic 457 14 none]
+G c Z s b [operator_capacity maat_optimistic 465 13 none]
+G c Z s b [calculate_fee maat_optimistic 475 13 none]
+G c Z s b [calculate_operator_reward maat_optimistic 482 13 none]
+G c Z s b [calculate_insurance maat_optimistic 488 13 none]
+G c Z s b [should_promote maat_optimistic 498 13 none]
+G c Z s b [promote_to_tier2 maat_optimistic 505 14 none]
+G c Z s b [promote_to_tier1 maat_optimistic 513 14 none]
+G c Z s b [generate_inclusion_proof maat_optimistic 526 14 none]
+G c Z s b [verify_inclusion_proof maat_optimistic 538 13 none]
+G c Z s b [verify_state_transition maat_optimistic 554 13 none]
+G c Z s b [compute_post_state maat_optimistic 564 14 none]
+G c Z s b [insurance_claim maat_optimistic 579 14 none]
+G c Z s b [insurance_balance maat_optimistic 592 13 none]
+G c Z s b [get_statistics maat_optimistic 601 14 none]
+G c Z s b [get_operator_stats maat_optimistic 612 14 none]
+G c Z s b [zeroize_transaction maat_optimistic 626 14 none]
+G c Z s b [zeroize_batch maat_optimistic 629 14 none]
+G c Z s b [zeroize_challenge maat_optimistic 632 14 none]
+G c Z s b [zeroize_operator maat_optimistic 635 14 none]
+G c Z s s [opt_transactionIP maat_optimistic 116 9 none]
+G c Z s s [opt_tx_arrayIP maat_optimistic 132 9 none]
+G c Z s s [operator_recordIP maat_optimistic 138 9 none]
+G c Z s s [Toperator_arrayBIP maat_optimistic 154 4 none]
+G c Z s s [batch_recordIP maat_optimistic 160 9 none]
+G c Z s s [batch_arrayIP maat_optimistic 175 9 none]
+G c Z s s [challenge_recordIP maat_optimistic 181 9 none]
+G c Z s s [challenge_arrayIP maat_optimistic 195 9 none]
+G c Z s s [optimistic_stateIP maat_optimistic 201 9 none]
+X 4 anubis_bytes.ads
+7K9*Anubis_Bytes 52e17 8|30w6 30r24
+X 5 anubis_types.ads
+5K9*Anubis_Types 40e17 8|29w6 29r24
+13M12*Byte{7|70M9}
+14A9*Byte_Array(13M12)<integer> 8|117r24 118r24 119r24 124r24 125r24 140r24
+. 141r24 165r24 166r24 167r24 185r24 188r24 192r24 286r24 317r24 344r24 345r24
+. 358r24 390r24 403r24 404r24 448r24 515r28 529r28 539r24 540r24 541r24 555r24
+. 556r24 565r24 567r28 581r24 583r24 9|64r24 114r24 151r24 152r24 181r24
+. 225r24 238r24 239r24 313r24 400r28 416r28 428r24 429r24 430r24 443r24 444r24
+. 453r24 455r28 470r24 472r24
+X 7 interfac.ads
+38K9*Interfaces 233e15 8|28w6 28r22
+70M9*Unsigned_8
+81M9*Unsigned_32 8|122r24 146r24 147r24 477r24 9|351r24 524r26
+84M9*Unsigned_64 8|120r24 121r24 123r24 126r24 142r24 143r24 145r27 149r24
+. 150r24 164r24 168r24 169r24 170r28 182r24 187r24 190r24 191r24 203r28 205r28
+. 208r28 209r28 210r28 211r28 266r24 277r24 328r24 346r24 370r28 371r28 379r24
+. 405r24 417r24 436r24 437r28 447r24 465r61 476r24 478r13 483r24 484r13 489r24
+. 490r13 507r28 582r24 584r28 592r65 604r28 9|30r24 45r24 127r24 153r24 160r25
+. 194r28 195r28 213r24 240r24 273r24 295r24 296r28 312r24 340r61 350r24 352r13
+. 353r18 356r25 360r24 361r13 368r24 369r13 389r28 471r24 473r28 488r65 500r28
+X 8 maat_optimistic.ads
+32K9*MAAT_Optimistic 638l5 638e20 9|9b14 199r48 620l5 620t20
+40N4*Tier3_Max_Value 259r26 271r27 9|36r18 384r25
+41N4*Tier3_Dust_Threshold 260r30
+44N4*Min_Operator_Bond 412r26 9|319r33
+45N4*Max_Exposure_Multiplier 468r32 9|342r31 528r58
+48N4*Challenge_Period_Blocks
+49N4*Settlement_Delay_Blocks
+50N4*Operator_Timeout_Blocks
+53N4*Max_Batch_Size 312r35
+54N4*Min_Batch_Size 322r36
+55N4*Batch_Timeout_Blocks
+58N4*Tier3_Base_Fee_BP 9|355r28 364r15 372r15
+59N4*Tier3_Operator_Fee_BP 9|363r28 364r35 372r35
+60N4*Tier3_Insurance_Fee_BP 9|364r59 371r28 372r59
+63N4*Max_Pending_Value
+64N4*Max_Pending_Count
+67N4*Fraud_Proof_Reward_BP
+68N4*Min_Fraud_Proof_Bond 353r26 384r37
+75E9*Transaction_Tier 79e5 269r13 9|33r13
+76n7*Tier1_STARK{75E9} 9|37r17
+77n7*Tier2_Aggregate{75E9}
+78n7*Tier3_Optimistic{75E9} 272r50 9|39r17
+82E9*Opt_TX_State 89e5 127r24
+83n7*Pending{82E9}
+84n7*Batched{82E9}
+85n7*Challenged{82E9}
+86n7*Settled{82E9}
+87n7*Reverted{82E9}
+88n7*Expired{82E9} 9|567r19
+92E9*Operator_Status 98e5 148r24
+93n7*Active{92E9} 429r32 9|54r36 255r29
+94n7*Suspended{92E9}
+95n7*Slashed{92E9} 9|320r29
+96n7*Banned{92E9} 9|305r26 614r26
+97n7*Exiting{92E9} 430r50 441r32 9|285r29
+101E9*Challenge_Status 107e5 189r24 9|199r30
+102n7*Open{101E9} 363r37 374r33 383r33 9|167r25
+103n7*Defended{101E9} 374r60 9|186r27
+104n7*Fraud_Proven{101E9} 9|199r64
+105n7*Dismissed{101E9} 9|204r30 597r27
+106n7*Escalated{101E9} 9|218r27
+109I12*Operator_Index{natural} 128r24 139r24 154r34 162r24 186r24 255r28
+. 278r28 298r24 9|19r28 46r28 77r24 246r29
+110I12*Batch_Index{natural} 129r24 161r24 175r31 183r24 206r28 342r24 9|149r24
+116R9*Opt_Transaction 130e14 132r53 253r24 285r24 307r24 499r24 506r24 514r24
+. 626r47 9|17r24 63r24 103r24 380r24 388r24 399r24 555r47
+117a7*TX_Hash{5|14A9} 9|557m10
+118a7*Sender{5|14A9} 9|558m10
+119a7*Recipient{5|14A9} 9|559m10
+120m7*Value{7|84M9} 259r17 260r21 9|108r51 384r17 560m10
+121m7*Nonce{7|84M9} 9|561m10
+122m7*Gas_Limit{7|81M9} 9|562m10
+123m7*Gas_Price{7|84M9} 9|563m10
+124a7*Data_Hash{5|14A9} 9|564m10
+125a7*Signature{5|14A9} 9|565m10
+126m7*Submitted_At{7|84M9} 9|566m10
+127e7*State{82E9} 9|567m10
+128i7*Operator_ID{109I12} 9|568m10
+129i7*Batch_ID{110I12} 9|569m10
+132A9*Opt_TX_Array(116R9)<integer> 557r24 566r24 9|445r24 454r24
+138R9*Operator_Record 152e14 154r53 406r28 416r31 425r31 435r31 446r31 458r31
+. 465r37 613r24 635r50 9|241r28 272r31 280r31 294r31 311r31 325r31 340r37
+. 519r24 603r50
+139i7*ID{109I12} 9|246m10 605m16
+140a7*Address{5|14A9} 9|247m10 261m19 606m16
+141a7*PK_Hash{5|14A9} 9|248m10 264m19 607m16
+142m7*Bond_Amount{7|84M9} 421r24 421r47 452r37 453r24 453r47 468r18 9|249m10
+. 276m16 276r40 301r29 304m16 317m16 317r40 319r19 342r17 526r19 528r44 608m16
+143m7*Pending_Value{7|84M9} 9|250m10 527r44 609m16
+144i7*Pending_Count{natural} 9|251m10 284r19 610m16
+145m7*Batches_Processed{7|84M9} 9|252m10 536r19 611m16
+146m7*Challenges_Won{7|81M9} 9|253m10 542r36 544r51 612m16
+147m7*Challenges_Lost{7|81M9} 9|254m10 542r62 613m16
+148e7*Status{92E9} 429r23 430r41 441r23 9|54r27 255m10 285m19 305m16 320m19
+. 614m16
+149m7*Registered_At{7|84M9} 9|256m10 615m16
+150m7*Last_Activity{7|84M9} 9|257m10 616m16
+151i7*Reputation{natural} 462r24 9|258m10 330r36 332m19 334m19 336m19 617m16
+154A9*Operator_Array(138R9)<integer> 254r24 276r24 603r24 9|18r24 44r24 499r24
+160R9*Batch_Record 173e14 175r56 299r28 306r31 316r31 327r31 388r24 527r24
+. 629r44 9|78r28 102r31 113r31 126r31 223r24 414r24 572r44
+161i7*ID{110I12} 9|84m10 574m13
+162i7*Operator_ID{109I12} 9|85m10 575m13
+163i7*TX_Count{natural} 312r24 322r24 394r35 534r31 9|86m10 107m13 107r31
+. 576m13
+164m7*Total_Value{7|84M9} 9|87m10 108m13 108r34 577m13
+165a7*State_Root_Pre{5|14A9} 9|88m10 578m13
+166a7*State_Root_Post{5|14A9} 9|89m10 119m16 579m13
+167a7*TX_Root{5|14A9} 9|90m10 580m13
+168m7*Created_At{7|84M9} 9|91m10 581m13
+169m7*Settled_At{7|84M9} 9|92m10 138m16 582m13
+170m7*Challenge_Deadline{7|84M9} 9|93m10 134r35 583m13
+171b7*Challenged{boolean} 9|94m10 132r16 584m13
+172b7*Settled{boolean} 311r24 332r24 333r47 9|95m10 137m16 585m13
+175A9*Batch_Array(160R9)<integer>
+181R9*Challenge_Record 193e14 195r56 347r28 357r31 368r31 378r31 632r52 9|154r28
+. 180r31 192r31 212r31 588r52
+182m7*ID{7|84M9} 9|160m10 590m17
+183i7*Batch_ID{110I12} 9|161m10 591m17
+184i7*TX_Index{natural} 9|162m10 592m17
+185a7*Challenger{5|14A9} 9|163m10 173m20 593m17
+186i7*Operator_ID{109I12} 9|164m10 594m17
+187m7*Bond_Amount{7|84M9} 9|165m10 200r36 595m17
+188a7*Claim_Hash{5|14A9} 9|166m10 596m17
+189e7*Status{101E9} 363r28 374r24 374r51 383r24 9|167m10 186m17 199m20 204m20
+. 218m17 597m17
+190m7*Submitted_At{7|84M9} 9|168m10 598m17
+191m7*Resolved_At{7|84M9} 9|169m10 599m17
+192a7*Resolution{5|14A9} 9|170m10 600m17
+195A9*Challenge_Array(181R9)<integer>
+201R9*Optimistic_State 212e14 252r31 297r31 326r31 341r31 367r31 402r31 434r31
+. 445r31 580r31 592r40 602r24 9|16r31 76r31 125r31 148r31 191r31 237r31 293r31
+. 310r31 469r31 488r40 498r24
+202i7*Active_Operators{natural} 9|246r51 266m13 266r39 303m13 303r39
+203m7*Total_Bonded{7|84M9} 9|267m13 267r35 302m13 302r35
+204i7*Pending_TX_Count{natural} 262r25 262r50 9|26m13 26r39 511r52
+205m7*Pending_Value{7|84M9}
+206i7*Current_Batch{110I12} 9|84r35 97m13 97r36
+207i7*Open_Challenges{natural} 9|160r44 175m13 175r38 208m13 208r38 510r43
+208m7*Insurance_Pool{7|84M9} 594r48 9|478r26 479m16 479r40 490r20
+209m7*Total_Processed{7|84M9} 9|507r29 509r16
+210m7*Total_Slashed{7|84M9} 454r25 454r47 9|202m16 202r39 318m13 318r36
+211m7*Current_Block{7|84M9} 9|91r35 168r32 256r35 257r35
+218E9*Submit_Result 227e5 256r28 9|20r28
+219n7*Accepted{218E9} 261r28
+220n7*Value_Too_High{218E9}
+221n7*Operator_Busy{218E9}
+222n7*Bond_Insufficient{218E9}
+223n7*Invalid_Signature{218E9}
+224n7*Nonce_Mismatch{218E9}
+225n7*Sender_Blacklisted{218E9}
+226n7*System_Paused{218E9} 9|25r17
+229E9*Settle_Result 235e5 329r28 9|128r28
+230n7*Settled{229E9} 333r28 9|139r20
+231n7*Challenge_Pending{229E9} 9|133r20
+232n7*Already_Settled{229E9}
+233n7*Batch_Not_Found{229E9}
+234n7*Challenge_Period_Active{229E9} 9|135r20
+237E9*Challenge_Result 244e5 348r28 9|155r28
+238n7*Challenge_Accepted{237E9} 9|176r17
+239n7*Invalid_Proof{237E9}
+240n7*Bond_Too_Low{237E9}
+241n7*Already_Challenged{237E9}
+242n7*Batch_Settled{237E9}
+243n7*Challenge_Expired{237E9}
+251U14*Submit_Transaction 252=7 253>7 254>7 255<7 256<7 9|15b14
+252r7 State{201R9} 262r19 262r44 9|16b7 26m7 26r33
+253r7 TX{116R9} 259r14 260r18 9|17b7 22r28
+254a7 Operators{154A9} 9|18b7 22r32
+255i7 Selected_Op{109I12} 9|19b7 24m7
+256e7 Result{218E9} 261r19 9|20b7 25m7
+265V13*Classify_Transaction{75E9} 266>7 267>7 268>7 272r19 9|29b13
+266m7 Value{7|84M9} 271r19 9|30b7 36r10
+267i7 Sender_History{natural} 9|31b7 34r28
+268i7 Contract_Risk{natural} 9|32b7 34r44
+275U14*Select_Operator 276>7 277>7 278<7 279<7 9|43b14 60l8 60t23
+276a7 Operators{154A9} 9|44b7 53r16 54r13
+277m7 TX_Value{7|84M9} 9|45b7 49r28
+278i7 Selected{109I12} 9|46b7 51m7 55m13
+279b7 Success{boolean} 9|47b7 52m7 56m13
+284V13*Validate_TX_Signature{boolean} 285>7 286>7 9|62b13 69l8 69t29
+285r7 TX{116R9} 9|63b7 66r28
+286a7 Sender_PK{5|14A9} 289r14 9|64b7 66r32
+296U14*Create_Batch 297=7 298>7 299<7 300<7 9|75b14 99l8 99t20
+297r7 State{201R9} 9|76b7 84r29 91r29 97m7 97r30
+298i7 Operator_ID{109I12} 9|77b7 81r28
+299r7 Batch{160R9} 9|78b7 83m7
+300b7 Success{boolean} 9|79b7 98m7
+305U14*Add_To_Batch 306=7 307>7 308<7 9|101b14 110l8 110t20
+306r7 Batch{160R9} 311r18 312r18 9|102b7 107m7 107r25 108m7 108r28
+307r7 TX{116R9} 9|103b7 108r48
+308b7 Success{boolean} 9|104b7 109m7
+315U14*Finalize_Batch 316=7 317>7 318<7 9|112b14 122l8 122t22
+316r7 Batch{160R9} 322r18 9|113b7 119m10
+317a7 State_Root{5|14A9} 321r14 9|114b7 118r16 119r37 119r58
+318b7 Success{boolean} 9|115b7 121m7
+325U14*Settle_Batch 326=7 327=7 328>7 329<7 9|124b14
+326r7 State{201R9} 9|125b7 130r28
+327r7 Batch{160R9} 332r18 333r41 9|126b7 132r10 134r29 137m10 138m10
+328m7 Current_Block{7|84M9} 9|127b7 134r13 138r30
+329e7 Result{229E9} 333r19 9|128b7 133m10 135m10 139m10
+340U14*Submit_Challenge 341=7 342>7 343>7 344>7 345>7 346>7 347<7 348<7 9|147b14
+. 177l8 177t24
+341r7 State{201R9} 9|148b7 160r38 168r26 175m7 175r32
+342i7 Batch_ID{110I12} 9|149b7 161r25
+343i7 TX_Index{natural} 9|150b7 162r25
+344a7 Challenger{5|14A9} 351r14 9|151b7 172r16 173r36 173r57
+345a7 Fraud_Proof{5|14A9} 352r18 9|152b7 157r28
+346m7 Bond{7|84M9} 353r18 9|153b7 165r25
+347r7 Challenge{181R9} 9|154b7 159m7 173m10
+348e7 Result{237E9} 9|155b7 176m7
+356U14*Defend_Challenge 357=7 358>7 359<7 9|179b14 188l8 188t24
+357r7 Challenge{181R9} 363r18 9|180b7 186m7
+358a7 Defense_Proof{5|14A9} 362r14 9|181b7 184r28
+359b7 Success{boolean} 9|182b7 187m7
+366U14*Resolve_Challenge 367=7 368=7 369>7 370<7 371<7 9|190b14 209l8 209t25
+367r7 State{201R9} 9|191b7 202m10 202r33 208m7 208r32
+368r7 Challenge{181R9} 374r14 374r41 9|192b7 199m10 200r26 204m10
+369b7 Fraud_Proven{boolean} 9|193b7 198r10
+370m7 Slash_Amount{7|84M9} 9|194b7 200m10 201r27 202r55 205m10
+371m7 Reward_Amount{7|84M9} 9|195b7 201m10 206m10
+377U14*Escalate_Challenge 378=7 379>7 380<7 9|211b14 220l8 220t26
+378r7 Challenge{181R9} 383r14 9|212b7 218m7
+379m7 Escalation_Bond{7|84M9} 384r18 9|213b7 216r28
+380b7 Success{boolean} 9|214b7 219m7
+387V13*Verify_Fraud_Proof{boolean} 388>7 389>7 390>7 9|222b13 230l8 230t26
+388r7 Batch{160R9} 394r29 9|223b7 227r28
+389i7 TX_Index{natural} 394r18 9|224b7 227r35
+390a7 Proof{5|14A9} 393r14 9|225b7 227r45
+401U14*Register_Operator 402=7 403>7 404>7 405>7 406<7 407<7 9|236b14 269l8
+. 269t25
+402r7 State{201R9} 9|237b7 246r45 256r29 257r29 266m7 266r33 267m7 267r29
+403a7 Address{5|14A9} 410r14 9|238b7 260r16 261r32 261r50
+404a7 PK_Hash{5|14A9} 411r18 9|239b7 263r16 264r32 264r50
+405m7 Bond{7|84M9} 412r18 9|240b7 249r29 267r50
+406r7 Operator{138R9} 9|241b7 245m7 261m10 264m10
+407b7 Success{boolean} 9|242b7 268m7
+415U14*Add_Bond 416=7 417>7 9|271b14
+416r7 Operator{138R9} 421r15 421r38 9|272b7 276m7 276r31
+417m7 Amount{7|84M9} 420r14 421r65 9|273b7 276r54
+424U14*Begin_Exit 425=7 426<7 9|279b14
+425r7 Operator{138R9} 429r14 430r32 9|280b7 284r10 285m10
+426b7 Success{boolean} 430r19 9|281b7 286m10 288m10
+433U14*Complete_Exit 434=7 435=7 436>7 437<7 438<7 9|292b14 307l8 307t21
+434r7 State{201R9} 9|293b7 302m7 302r29 303m7 303r33
+435r7 Operator{138R9} 441r14 9|294b7 301r20 304m7 305m7
+436m7 Current_Block{7|84M9} 9|295b7 299r28
+437m7 Withdrawn{7|84M9} 9|296b7 301m7 302r50
+438b7 Success{boolean} 9|297b7 306m7
+444U14*Slash_Operator 445=7 446=7 447>7 448>7 9|309b14
+445r7 State{201R9} 454r19 454r41 9|310b7 318m7 318r30
+446r7 Operator{138R9} 452r28 453r15 453r38 9|311b7 317m7 317r31 319r10 320m10
+447m7 Amount{7|84M9} 452r18 453r65 454r67 9|312b7 317r54 318r52
+448a7 Reason{5|14A9} 451r14 9|313b7 315r28
+457U14*Update_Reputation 458=7 459>7 9|324b14
+458r7 Operator{138R9} 462r15 9|325b7 330r27 332m10 334m10 336m10
+459i7 Change_Amount{integer} 9|326b7 330r50
+465V13*Operator_Capacity{7|84M9} 465>32 467r15 9|340b13
+465r32 Op{138R9} 468r15 9|340b32 342r14
+475V13*Calculate_Fee{7|84M9} 476>7 477>7 9|349b13 357l8 357t21
+476m7 Value{7|84M9} 9|350b7 355r20
+477m7 Gas_Used{7|81M9} 9|351b7 356r38
+482V13*Calculate_Operator_Reward{7|84M9} 483>7 9|359b13 365l8 365t33
+483m7 Total_Fees{7|84M9} 9|360b7 363r15
+488V13*Calculate_Insurance{7|84M9} 489>7 9|367b13 373l8 373t27
+489m7 Total_Fees{7|84M9} 9|368b7 371r15
+498V13*Should_Promote{boolean} 499>7 500>7 9|379b13 385l8 385t22
+499r7 TX{116R9} 9|380b7 384r14
+500i7 Risk_Score{natural} 9|381b7 384r44
+505U14*Promote_To_Tier2 506>7 507<7 508<7 9|387b14 396l8 396t24
+506r7 TX{116R9} 9|388b7 392r28
+507m7 Aggregate_ID{7|84M9} 9|389b7 394m7
+508b7 Success{boolean} 9|390b7 395m7
+513U14*Promote_To_Tier1 514>7 515<7 516<7 9|398b14 407l8 407t24
+514r7 TX{116R9} 9|399b7 403r28
+515a7 Proof_Request{5|14A9} 519r14 9|400b7 405m7
+516b7 Success{boolean} 9|401b7 406m7
+526U14*Generate_Inclusion_Proof 527>7 528>7 529<7 530<7 531<7 9|413b14 425l8
+. 425t32
+527r7 Batch{160R9} 534r25 9|414b7 420r28
+528i7 TX_Index{natural} 534r14 9|415b7 420r35
+529a7 Proof{5|14A9} 535r18 9|416b7 422m7
+530i7 Proof_Length{natural} 9|417b7 423m7
+531b7 Success{boolean} 9|418b7 424m7
+538V13*Verify_Inclusion_Proof{boolean} 539>7 540>7 541>7 542>7 9|427b13 436l8
+. 436t30
+539a7 TX_Hash{5|14A9} 545r14 9|428b7 433r28
+540a7 Batch_Root{5|14A9} 546r18 9|429b7 433r37
+541a7 Proof{5|14A9} 547r18 9|430b7 433r49
+542i7 TX_Index{natural} 9|431b7 433r56
+554V13*Verify_State_Transition{boolean} 555>7 556>7 557>7 9|442b13 450l8
+. 450t31
+555a7 Pre_State{5|14A9} 560r14 9|443b7 447r28
+556a7 Post_State{5|14A9} 561r18 9|444b7 447r39
+557a7 TXs{132A9} 9|445b7 447r51
+564U14*Compute_Post_State 565>7 566>7 567<7 568<7 9|452b14 462l8 462t26
+565a7 Pre_State{5|14A9} 571r14 9|453b7 460r21
+566a7 TXs{132A9} 9|454b7 458r28
+567a7 Post_State{5|14A9} 572r18 9|455b7 460m7
+568b7 Success{boolean} 9|456b7 461m7
+579U14*Insurance_Claim 580=7 581>7 582>7 583>7 584<7 585<7 9|468b14 486l8
+. 486t23
+580r7 State{201R9} 9|469b7 478r20 479m10 479r34
+581a7 Claimant{5|14A9} 588r14 9|470b7 476r28
+582m7 Amount{7|84M9} 9|471b7 478r10 479r57 480r18
+583a7 Proof{5|14A9} 589r18 9|472b7 476r38
+584m7 Paid{7|84M9} 9|473b7 480m10 483m10
+585b7 Success{boolean} 9|474b7 481m10 484m10
+592V13*Insurance_Balance{7|84M9} 592>32 594r15 9|488b13
+592r32 State{201R9} 594r42 9|488b32 490r14
+601U14*Get_Statistics 602>7 603>7 604<7 605<7 606<7 607<7 9|497b14 516l8
+. 516t22
+602r7 State{201R9} 9|498b7 507r23 509r10 510r37 511r46
+603a7 Operators{154A9} 9|499b7 505r28
+604m7 Total_Volume{7|84M9} 9|500b7 507m7
+605i7 Avg_Settle_Time{natural} 9|501b7 508m7
+606i7 Challenge_Rate{natural} 9|502b7 510m10 513m10
+607i7 Success_Rate{natural} 9|503b7 515m7
+612U14*Get_Operator_Stats 613>7 614<7 615<7 616<7 9|518b14
+613r7 Operator{138R9} 9|519b7 526r10 527r35 528r35 536r10 542r27 542r53 544r42
+614i7 Utilization{natural} 619r15 9|520b7 527m10 529r13 530m13 533m10
+615i7 Avg_Batch_Size{natural} 9|521b7 537m10 539m10
+616i7 Challenge_Win_Rate{natural} 620r19 9|522b7 544m10 547m10
+626U14*Zeroize_Transaction 626=35 9|555b14 570l8 570t27
+626r35 TX{116R9} 9|555b35 557m7 558m7 559m7 560m7 561m7 562m7 563m7 564m7
+. 565m7 566m7 567m7 568m7 569m7
+629U14*Zeroize_Batch 629=29 9|572b14 586l8 586t21
+629r29 Batch{160R9} 9|572b29 574m7 575m7 576m7 577m7 578m7 579m7 580m7 581m7
+. 582m7 583m7 584m7 585m7
+632U14*Zeroize_Challenge 632=33 9|588b14 601l8 601t25
+632r33 Challenge{181R9} 9|588b33 590m7 591m7 592m7 593m7 594m7 595m7 596m7
+. 597m7 598m7 599m7 600m7
+635U14*Zeroize_Operator 635=32 9|603b14 618l8 618t24
+635r32 Operator{138R9} 9|603b32 605m7 606m7 607m7 608m7 609m7 610m7 611m7
+. 612m7 613m7 614m7 615m7 616m7 617m7
+X 9 maat_optimistic.adb
+53i11 I{integer} 54r24 55r25
+118i11 I{integer} 119r33 119r70
+172i11 I{integer} 173r32 173r69
+260i11 I{integer} 261r28 261r59
+263i11 I{integer} 264r28 264r59
+328i7 New_Rep{integer} 330m7 331r10 333r13 336r42
+353m7 Base_Fee{7|84M9} 355m7 356r14
+524m7 Total_Challenges{7|81M9} 542m7 543r10 545r41
+

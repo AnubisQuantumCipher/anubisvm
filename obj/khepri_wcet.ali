@@ -1,0 +1,264 @@
+V "GNAT Lib v14"
+A -O0
+A -gnatA
+A -gnatwa
+A -gnatQ
+A -gnata
+A -gnatf
+A -gnatyM120
+A -gnatyO
+A -gnat2012
+A -g
+A -gnateE
+A -fstack-check=specific
+A -mmacosx-version-min=16.0.0
+A -mcpu=apple-m1
+A -mlittle-endian
+A -mabi=lp64
+A -fPIC
+P ZX
+
+RN
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U khepri_wcet%b		khepri_wcet.adb		210824c1 NE OO PK
+Z system.assertions%s	s-assert.adb		s-assert.ali
+
+U khepri_wcet%s		khepri_wcet.ads		188982ed EE NE OO PK
+W interfaces%s		interfac.ads		interfac.ali
+W khepri_types%s	khepri_types.adb	khepri_types.ali
+
+D ada.ads		20240808082856 76789da1 ada%s
+D a-assert.ads		20240808082856 ba465f5c ada.assertions%s
+D a-unccon.ads		20240808082856 0e9b276f ada.unchecked_conversion%s
+D aegis_u256.ads	20251207191105 ff2dfe4b aegis_u256%s
+D aegis_vm_types.ads	20251207191105 dcd101d9 aegis_vm_types%s
+D interfac.ads		20240808082856 9111f9c1 interfaces%s
+D khepri_types.ads	20251207191106 06f3822d khepri_types%s
+D khepri_wcet.ads	20251207191106 8f6bf901 khepri_wcet%s
+D khepri_wcet.adb	20251207191106 ae63ddc0 khepri_wcet%b
+D system.ads		20240808082856 70765b54 system%s
+D s-assert.ads		20240808082856 9c4520c7 system.assertions%s
+D s-exctab.ads		20240808082856 91bef6ef system.exception_table%s
+D s-stalib.ads		20240808082856 1c9580f6 system.standard_library%s
+G a e
+G c Z s s [instruction_costsIP khepri_wcet 59 9 none]
+G c Z s s [storage_costsIP khepri_wcet 120 9 none]
+G c Z s s [crypto_costsIP khepri_wcet 143 9 none]
+G c Z s s [call_costsIP khepri_wcet 189 9 none]
+G c Z s s [cost_modelIP khepri_wcet 216 9 none]
+G c Z s s [execution_boundIP khepri_wcet 236 9 none]
+G c Z s s [is_exact khepri_wcet 252 13 none]
+G c Z s s [is_proven khepri_wcet 257 13 none]
+G c Z s b [loop_gas khepri_wcet 274 13 none]
+G c Z s b [hash_gas khepri_wcet 323 13 none]
+G c Z s b [verify_gas khepri_wcet 331 13 none]
+G c Z s b [copy_gas khepri_wcet 338 13 none]
+G c Z s b [storage_read_gas khepri_wcet 346 13 none]
+G c Z s b [storage_write_gas khepri_wcet 354 13 none]
+G c Z s b [sequence khepri_wcet 367 13 none]
+G c Z s b [branch khepri_wcet 372 13 none]
+G c Z s b [scale khepri_wcet 376 13 none]
+G c Z s b [with_margin khepri_wcet 385 13 none]
+G c Z s s [is_safe khepri_wcet 394 13 none]
+G c Z s s [entry_wcetIP khepri_wcet 299 9 none]
+G c Z s s [Tentry_wcet_arrayBIP khepri_wcet 306 4 none]
+G c Z s s [contract_analysisIP khepri_wcet 309 9 none]
+G c Z s s [wcet_reportIP khepri_wcet 405 9 none]
+G c Z s s [loop_boundIP khepri_wcet 266 9 none]
+G c Z s s [function_wcetIP khepri_wcet 283 9 none]
+X 5 aegis_vm_types.ads
+31M12*Byte{6|70M9}
+X 6 interfac.ads
+38K9*Interfaces 233e15 8|25w6 25r22
+70M9*Unsigned_8
+81M9*Unsigned_32 8|43r23
+84M9*Unsigned_64 8|37r19 40r22 409r25
+X 7 khepri_types.ads
+25K9*Khepri_Types 345e17 8|26w6 26r24
+317A9*Bytes4(5|31M12)<integer>
+322A12*Selector{317A9}<integer> 8|300r23
+335R9*Bounded_String 338e14 8|284r21 406r25
+340r4*Empty_String{335R9} 8|415r24
+X 8 khepri_wcet.ads
+28K9*Khepri_WCET 434l5 434e16 9|4b14 203l5 203t16
+37M12*Gas{6|84M9} 46r24 49r35 52r29 61r26 62r26 63r26 64r26 65r26 66r26 67r26
+. 70r26 71r26 72r26 73r26 74r26 77r26 80r26 81r26 82r26 85r26 86r26 87r26
+. 88r26 121r24 122r24 123r24 124r24 125r24 126r24 145r26 146r26 147r26 148r26
+. 151r26 152r26 153r26 154r26 157r26 158r26 161r26 162r26 163r26 164r26 190r26
+. 191r26 192r26 193r26 196r26 197r26 198r26 237r21 238r21 239r21 246r21 258r56
+. 269r25 285r21 286r21 327r13 334r13 341r13 350r13 358r13 369r30 378r53 378r64
+. 391r34 391r62 396r19 9|13r17 14r17 15r17 17r18 18r18 39r13 41r19 42r19
+. 60r21 66r13 83r13 88r14 95r13 96r18 104r14 111r13 112r18 120r14 144r25
+. 147r25 170r41 171r41 172r41 187r18 192r34
+40M12*Cycles{6|84M9}
+43M12*Mem_Ops{6|81M9}
+46m4*Gas_Zero{37M12}
+49m4*Max_Transaction_Gas{37M12}
+52m4*Max_Block_Gas{37M12}
+59R9*Instruction_Costs 89e14 92r30 217r22
+61m7*Add_Cost{37M12} 93m7
+62m7*Sub_Cost{37M12} 94m7
+63m7*Mul_Cost{37M12} 95m7
+64m7*Div_Cost{37M12} 96m7
+65m7*Mod_Cost{37M12} 97m7
+66m7*Exp_Cost{37M12} 98m7
+67m7*Exp_Per_Byte{37M12} 99m7
+70m7*And_Cost{37M12} 100m7
+71m7*Or_Cost{37M12} 101m7
+72m7*Xor_Cost{37M12} 102m7
+73m7*Not_Cost{37M12} 103m7
+74m7*Shift_Cost{37M12} 104m7
+77m7*Cmp_Cost{37M12} 105m7
+80m7*Load_Cost{37M12} 106m7
+81m7*Store_Cost{37M12} 107m7
+82m7*Copy_Per_Word{37M12} 108m7 9|88r47
+85m7*Jump_Cost{37M12} 109m7
+86m7*Branch_Cost{37M12} 110m7
+87m7*Call_Cost{37M12} 111m7
+88m7*Return_Cost{37M12} 112m7
+92r4*Standard_Costs{59R9} 225r23
+120R9*Storage_Costs 127e14 130r32 218r22
+121m7*SLOAD_Cold{37M12} 131m7 352r68 9|99r36
+122m7*SLOAD_Warm{37M12} 132m7 9|101r36
+123m7*SSTORE_Set{37M12} 133m7 360r68 9|115r36
+124m7*SSTORE_Reset{37M12} 134m7 9|117r36
+125m7*SSTORE_Clear{37M12} 135m7
+126m7*SSTORE_Refund{37M12} 136m7
+130r4*Standard_Storage{120R9} 226r23
+143R9*Crypto_Costs 165e14 168r31 219r22
+145m7*SHA3_Base{37M12} 169m7 9|49r34 56r34
+146m7*SHA3_Per_Word{37M12} 170m7 9|50r38 57r38
+147m7*BLAKE2_Base{37M12} 171m7 9|52r34
+148m7*BLAKE2_Per_Word{37M12} 172m7 9|53r38
+151m7*ECDSA_Verify{37M12} 173m7 9|70r33 76r33
+152m7*ED25519_Verify{37M12} 174m7 9|72r33
+153m7*MLDSA_Verify{37M12} 175m7 9|74r33
+154m7*MLDSA_Sign{37M12} 176m7
+157m7*MLKEM_Encaps{37M12} 177m7
+158m7*MLKEM_Decaps{37M12} 178m7
+161m7*EC_Add{37M12} 179m7
+162m7*EC_Mul{37M12} 180m7
+163m7*Pairing_Base{37M12} 181m7
+164m7*Pairing_Per_Pair{37M12} 182m7
+168r4*Standard_Crypto{143R9} 227r23
+189R9*Call_Costs 199e14 202r29 220r22
+190m7*Call_Base{37M12} 203m7
+191m7*Call_Value{37M12} 204m7
+192m7*Call_New_Account{37M12} 205m7
+193m7*Call_Stipend{37M12} 206m7
+196m7*Create_Base{37M12} 207m7
+197m7*Create_Per_Byte{37M12} 208m7
+198m7*Create2_Base{37M12} 209m7
+202r4*Standard_Call{189R9} 228r23
+216R9*Cost_Model 221e14 224r30 326r20 333r19 340r15 349r20 357r20 408r25
+. 9|38r20 65r19 82r15 94r20 110r20
+217r7*Instructions{59R9} 225m7 9|88r34
+218r7*Storage{120R9} 226m7 352r60 360r60 9|99r28 101r28 115r28 117r28
+219r7*Crypto{143R9} 227m7 9|49r27 50r31 52r27 53r31 56r27 57r31 70r26 72r26
+. 74r26 76r26
+220r7*Calls{189R9} 228m7
+224r4*Standard_Model{216R9} 429r27
+236R9*Execution_Bound 241e14 244r29 252r31 257r32 274r50 288r21 301r23 367r30
+. 367r54 372r28 372r52 376r28 376r70 386r17 388r13 395r19 9|12r50 127r30
+. 127r54 128r16 140r28 140r52 141r16 158r28 158r70 159r16 183r17 185r13 186r18
+237m7*Min_Gas{37M12} 245m7 253r14 9|24m10 130m14 130r27 130r39 144m14 144r36
+. 144r47 163m13 170m14 170r31
+238m7*Max_Gas{37M12} 246m7 253r30 258r46 369r19 369r43 378r42 391r23 391r52
+. 398r14 9|25m10 131m14 131r27 131r39 147m14 147r36 147r47 164m13 171m14
+. 171r31 192r24 195m14 195r31 198r49
+239m7*Avg_Gas{37M12} 247m7 9|26m10 132m14 132r27 132r39 150m14 150r28 150r40
+. 165m13 172m14 172r31 198m14 198r32
+240i7*Confidence{natural} 248m7 258r14 9|27m10 135m14 135r43 135r57 153m14
+. 153r43 153r57 166m13 173m14 173r34
+244r4*Unknown_Bound{236R9} 419r30
+252V13*Is_Exact{boolean} 252>23
+252r23 Bound{236R9} 253r8 253r24
+257V13*Is_Proven{boolean} 257>24
+257r24 Bound{236R9} 258r8 258r40
+266R9*Loop_Bound 271e14 274r31 9|12r31
+267i7*Min_Iterations{natural} 9|17r29
+268i7*Max_Iterations{natural} 276r23 9|18r29
+269m7*Body_Cost{37M12} 276r71 9|17r53 18r53
+270b7*Proven{boolean} 9|27r34
+274V13*Loop_Gas{236R9} 274>23 9|12b13 29l8 29t16
+274r23 Bound{266R9} 276r17 276r65 9|12b23 17r23 17r47 18r23 18r47 27r28
+283R9*Function_WCET 289e14
+284r7*Name{7|335R9}
+285m7*Base_Cost{37M12}
+286m7*Per_Byte{37M12}
+287i7*Max_Input{natural}
+288r7*Bound{236R9}
+296N4*Max_Entry_Points 297r35
+297I9*Entry_Index<short_integer> 306r36
+299R9*Entry_WCET 304e14 306r52
+300a7*Func_Selector{7|322A12} 418m13
+301r7*Bound{236R9} 419m13
+302b7*May_Revert{boolean} 420m13
+303b7*State_Write{boolean} 421m13
+306A9*Entry_WCET_Array(299R9)<297I9> 310r25
+309R9*Contract_Analysis 316e14 407r25
+310a7*Entry_Points{306A9} 417m10
+311i7*Entry_Count{natural} 423m10
+312i7*Total_Code_Size{natural} 424m10
+313i7*Storage_Slots{natural} 425m10
+314i7*Max_Stack_Depth{natural} 426m10
+315b7*Proven_Safe{boolean} 427m10
+323V13*Hash_Gas{37M12} 324>7 325>7 326>7 9|35b13 61l8 61t16
+324i7 Algorithm{natural} 9|36b7 47r12
+325i7 Input_Size{natural} 9|37b7 45r17
+326r7 Model{216R9} 9|38b7 49r21 50r25 52r21 53r25 56r21 57r25
+331V13*Verify_Gas{37M12} 332>7 333>7 9|63b13 78l8 78t18
+332i7 Algorithm{natural} 9|64b7 68r12
+333r7 Model{216R9} 9|65b7 70r20 72r20 74r20 76r20
+338V13*Copy_Gas{37M12} 339>7 340>7 9|80b13 89l8 89t16
+339i7 Bytes{natural} 343r16 9|81b7 87r17
+340r7 Model{216R9} 9|82b7 88r28
+346V13*Storage_Read_Gas{37M12} 347>7 348>7 349>7 9|91b13 105l8 105t24
+347i7 Slot_Count{natural} 352r16 9|92b7 104r19
+348b7 Cold{boolean} 9|93b7 98r10
+349r7 Model{216R9} 352r54 9|94b7 99r22 101r22
+354V13*Storage_Write_Gas{37M12} 355>7 356>7 357>7 9|107b13 121l8 121t25
+355i7 Slot_Count{natural} 360r16 9|108b7 120r19
+356b7 Is_Set{boolean} 9|109b7 114r10
+357r7 Model{216R9} 360r54 9|110b7 115r22 117r22
+367V13*Sequence{236R9} 367>23 367>26 9|127b13 138l8 138t16
+367r23 A{236R9} 369r17 9|127b23 130r25 131r25 132r25 135r41
+367r26 B{236R9} 369r41 9|127b26 130r37 131r37 132r37 135r55
+372V13*Branch{236R9} 372>21 372>24 9|140b13 156l8 156t14
+372r21 A{236R9} 9|140b21 144r34 147r34 150r26 153r41
+372r24 B{236R9} 9|140b24 144r45 147r45 150r38 153r55
+376V13*Scale{236R9} 376>20 376>45 9|158b13 176l8 176t13
+376r20 Bound{236R9} 378r36 9|158b20 170r25 171r25 172r25 173r28
+376i45 Factor{natural} 378r17 378r69 9|158b45 161r10 170r46 171r46 172r46
+385V13*With_Margin{236R9} 386>7 387>7 9|182b13 201l8 201t19
+386r7 Bound{236R9} 391r17 391r46 9|183b7 189r17 192r18 195r25 198r26
+387i7 Percent{natural} 390r17 391r67 9|184b7 192r39
+394V13*Is_Safe{boolean} 395>7 396>7
+395r7 Bound{236R9} 398r8
+396m7 Gas_Limit{37M12} 398r25
+405R9*WCET_Report 411e14 414r28
+406r7*Contract_Name{7|335R9} 415m7
+407r7*Analysis{309R9} 416m7
+408r7*Model_Used{216R9} 429m7
+409m7*Generated_At{6|84M9} 430m7
+410i7*Analyzer_Version{natural} 431m7
+414r4*Empty_Report{405R9}
+X 9 khepri_wcet.adb
+13m7 Min_Gas{8|37M12} 17m7 21r19 24r24
+14m7 Max_Gas{8|37M12} 18m7 21r29 25r24
+15m7 Avg_Gas{8|37M12} 21m7 26r24
+40i7 Words{natural} 45m7 60r26
+41m7 Base{8|37M12} 49m13 52m13 56m13 60r14
+42m7 Per_Word{8|37M12} 50m13 53m13 57m13 60r35
+84i7 Words{natural} 87m7 88r19
+96m7 Per_Slot{8|37M12} 99m10 101m10 104r33
+112m7 Per_Slot{8|37M12} 115m10 117m10 120r33
+128r7 Result{8|236R9} 130m7 131m7 132m7 135m7 137r14
+141r7 Result{8|236R9} 144m7 147m7 150m7 153m7 155r14
+159r7 Result{8|236R9} 170m7 171m7 172m7 173m7 175r14
+186r7 Result{8|236R9} 189m7 195m7 198m7 198r42 200r14
+187m7 Margin{8|37M12} 192m7 195r41
+

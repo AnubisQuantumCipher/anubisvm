@@ -1,0 +1,274 @@
+V "GNAT Lib v14"
+A -O0
+A -gnatA
+A -gnatwa
+A -gnatQ
+A -gnata
+A -gnatf
+A -gnatyM120
+A -gnatyO
+A -gnat2012
+A -g
+A -gnateE
+A -fstack-check=specific
+A -mmacosx-version-min=16.0.0
+A -mcpu=apple-m1
+A -mlittle-endian
+A -mabi=lp64
+A -fPIC
+P ZX
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+RV NO_ELABORATION_CODE
+
+U khepri_events%b	khepri_events.adb	214c5db5 OO PK
+W aegis_u256%s		aegis_u256.adb		aegis_u256.ali
+W khepri_crypto%s	khepri_crypto.adb	khepri_crypto.ali
+Z system.assertions%s	s-assert.adb		s-assert.ali
+
+U khepri_events%s	khepri_events.ads	deb2db56 EE NE OO PK
+W aegis_vm_types%s	aegis_vm_types.ads	aegis_vm_types.ali
+W interfaces%s		interfac.ads		interfac.ali
+W khepri_types%s	khepri_types.adb	khepri_types.ali
+
+D ada.ads		20240808082856 76789da1 ada%s
+D a-assert.ads		20240808082856 ba465f5c ada.assertions%s
+D a-unccon.ads		20240808082856 0e9b276f ada.unchecked_conversion%s
+D aegis_u256.ads	20251207191105 ff2dfe4b aegis_u256%s
+D aegis_vm_types.ads	20251207191105 dcd101d9 aegis_vm_types%s
+D interfac.ads		20240808082856 9111f9c1 interfaces%s
+D khepri_crypto.ads	20251207191106 c09bc661 khepri_crypto%s
+D khepri_events.ads	20251207191106 9581a163 khepri_events%s
+D khepri_events.adb	20251207191106 8b7bc4fc khepri_events%b
+D khepri_types.ads	20251207191106 06f3822d khepri_types%s
+D system.ads		20240808082856 70765b54 system%s
+D s-assert.ads		20240808082856 9c4520c7 system.assertions%s
+D s-exctab.ads		20240808082856 91bef6ef system.exception_table%s
+D s-stalib.ads		20240808082856 1c9580f6 system.standard_library%s
+G a e
+G c Z s b [emit_log0 khepri_events 80 14 none]
+G c Z s b [emit_log1 khepri_events 88 14 none]
+G c Z s b [emit_log2 khepri_events 97 14 none]
+G c Z s b [emit_log3 khepri_events 107 14 none]
+G c Z s b [emit_log4 khepri_events 118 14 none]
+G c Z s b [emit_transfer khepri_events 135 14 none]
+G c Z s b [emit_approval khepri_events 144 14 none]
+G c Z s b [emit_ownership_transferred khepri_events 152 14 none]
+G c Z s b [new_event khepri_events 166 13 none]
+G c Z s b [add_topic khepri_events 170 13 none]
+G c Z s b [add_address_topic khepri_events 177 13 none]
+G c Z s b [add_u256_topic khepri_events 184 13 none]
+G c Z s b [add_u256_data khepri_events 191 13 none]
+G c Z s b [add_address_data khepri_events 198 13 none]
+G c Z s b [add_bytes_data khepri_events 205 13 none]
+G c Z s b [emit khepri_events 213 14 none]
+G c Z s b [calculate_signature khepri_events 222 13 none]
+G c Z s b [encode_address khepri_events 233 13 none]
+G c Z s b [encode_u256 khepri_events 237 13 none]
+G c Z s b [encode_bool khepri_events 241 13 none]
+G c Z s b [encode_natural khepri_events 245 13 none]
+G c Z s s [Ttopic_arrayBIP khepri_events 251 4 none]
+G c Z s s [Tdata_arrayBIP khepri_events 252 4 none]
+G c Z s s [event_builderIP khepri_events 254 9 none]
+G c Z b b [log_recordIP khepri_events 14 9 none]
+G c Z b b [Tlog_array_typeBIP khepri_events 21 4 none]
+G c Z b b [clear_events khepri_events 31 14 none]
+G c Z b b [get_event_count khepri_events 43 13 none]
+G c Z b b [internal_emit khepri_events 48 14 none]
+G r c none [emit_transfer khepri_events 135 14 none] [to_bytes_be aegis_u256 172 13 none]
+G r c none [emit_approval khepri_events 144 14 none] [to_bytes_be aegis_u256 172 13 none]
+G r c none [add_u256_topic khepri_events 184 13 none] [to_bytes_be aegis_u256 172 13 none]
+G r c none [add_u256_data khepri_events 191 13 none] [to_bytes_be aegis_u256 172 13 none]
+G r c none [calculate_signature khepri_events 222 13 none] [keccak_256 khepri_crypto 93 13 none]
+G r c none [encode_u256 khepri_events 237 13 none] [to_bytes_be aegis_u256 172 13 none]
+G r c none [encode_natural khepri_events 245 13 none] [from_word64 aegis_u256 155 13 none]
+G r c none [encode_natural khepri_events 245 13 none] [to_bytes_be aegis_u256 172 13 none]
+X 4 aegis_u256.ads
+21K9*Aegis_U256 276e15 9|3w6 3r22
+155V13*From_Word64{5|41R9} 9|369s27
+172V13*To_Bytes_BE{5|56A9} 9|355s14
+X 5 aegis_vm_types.ads
+21K9*Aegis_VM_Types 279e19 8|5w6 5r26
+31M12*Byte{6|70M9} 8|252r57 9|334r42
+32A9*Byte_Array(31M12)<integer> 8|81r20 90r20 100r20 111r20 123r20 207r17
+. 9|83r20 97r20 113r20 131r20 151r20 177r14 197r14 215r29 301r17 331r14
+35M12*Word64{6|84M9} 9|369r40
+56A9*Hash256(31M12)<integer>
+70A9*Contract_Address(31M12)<integer>
+X 6 interfac.ads
+38K9*Interfaces 233e15 8|3w6 3r22
+70M9*Unsigned_8
+84M9*Unsigned_64
+X 7 khepri_crypto.ads
+30K9*Khepri_Crypto 245e18 9|4w6 336r14
+39A12*Hash_256{10|49A12}<integer>
+93V13*Keccak_256{39A12} 9|336s28
+X 8 khepri_events.ads
+29K9*Khepri_Events 251E9 269l5 269e18 9|6b14 372l5 372t18
+38N4*Max_Topics 251r36 9|64r25 244r31
+41N4*Max_Data_Size 85r30 94r30 104r30 115r30 127r30 210r32 252r35 9|64r53
+. 274r35 290r35 305r44
+44A12*Event_Signature{10|49A12}<integer> 52r28 60r28 68r41 166r36 224r13
+. 9|230r36 330r13
+52a4*Transfer_Sig{44A12} 9|183r20
+60a4*Approval_Sig{44A12} 9|203r20
+68a4*Ownership_Transferred_Sig{44A12} 9|218r20
+80U14*Emit_Log0 81>7 82>7 9|82b14 93l8 93t17
+81a7 Data{5|32A9} 85r48 9|83b7 90r26 90r32
+82i7 Data_Size{natural} 85r17 85r63 9|84b7 89r21 92r43
+88U14*Emit_Log1 89>7 90>7 91>7 9|95b14 108l8 108t17
+89a7 Topic0{10|49A12} 9|96b7 103r21
+90a7 Data{5|32A9} 94r48 9|97b7 105r26 105r32
+91i7 Data_Size{natural} 94r17 94r63 9|98b7 104r21 107r43
+97U14*Emit_Log2 98>7 99>7 100>7 101>7 9|110b14 125l8 125t17
+98a7 Topic0{10|49A12} 9|111b7 119r21
+99a7 Topic1{10|49A12} 9|112b7 120r21
+100a7 Data{5|32A9} 104r48 9|113b7 122r26 122r32
+101i7 Data_Size{natural} 104r17 104r63 9|114b7 121r21 124r43
+107U14*Emit_Log3 108>7 109>7 110>7 111>7 112>7 9|127b14 144l8 144t17 182s7
+. 202s7 217s7
+108a7 Topic0{10|49A12} 9|128b7 137r21 183r10 203r10 218r10
+109a7 Topic1{10|49A12} 9|129b7 138r21 184r10 204r10 219r10
+110a7 Topic2{10|49A12} 9|130b7 139r21 185r10 205r10 220r10
+111a7 Data{5|32A9} 115r48 9|131b7 141r26 141r32 186r10 206r10 221r10
+112i7 Data_Size{natural} 115r17 115r63 9|132b7 140r21 143r43 187r10 207r10
+. 222r10
+118U14*Emit_Log4 119>7 120>7 121>7 122>7 123>7 124>7 9|146b14 165l8 165t17
+119a7 Topic0{10|49A12} 9|147b7 157r21
+120a7 Topic1{10|49A12} 9|148b7 158r21
+121a7 Topic2{10|49A12} 9|149b7 159r21
+122a7 Topic3{10|49A12} 9|150b7 160r21
+123a7 Data{5|32A9} 127r48 9|151b7 162r26 162r32
+124i7 Data_Size{natural} 127r17 127r63 9|152b7 161r21 164r43
+135U14*Emit_Transfer 136>7 137>7 138>7 9|171b14 189l8 189t21
+136a7 From{10|43A12} 9|172b7 184r36
+137a7 To{10|43A12} 9|173b7 185r36
+138r7 Amount{10|34R12} 9|174b7 176r55
+144U14*Emit_Approval 145>7 146>7 147>7 9|191b14 209l8 209t21
+145a7 Owner{10|43A12} 9|192b7 204r36
+146a7 Spender{10|43A12} 9|193b7 205r36
+147r7 Amount{10|34R12} 9|194b7 196r55
+152U14*Emit_Ownership_Transferred 153>7 154>7 9|211b14 224l8 224t34
+153a7 Previous_Owner{10|43A12} 9|212b7 219r36
+154a7 New_Owner{10|43A12} 9|213b7 220r36
+163R9*Event_Builder 166r60 171r17 173r13 178r17 180r13 185r17 187r13 192r17
+. 194r13 199r17 201r13 206r17 208r13 213r30 254c9 259e14 262r29 9|230r60
+. 231r17 239r17 241r13 242r16 252r17 254r13 260r17 262r13 268r17 270r13 271r16
+. 284r17 286r13 287r16 300r17 302r13 303r16 314r30
+166V13*New_Event{163R9} 166>24 9|230b13 236l8 236t17
+166a24 Signature{44A12} 9|230b24 233r29
+170V13*Add_Topic{163R9} 171>7 172>7 9|238b13 249l8 249t17 256s14 264s14
+171r7 Builder{163R9} 9|239b7 242r33
+172a7 Topic{10|49A12} 9|240b7 245r48
+177V13*Add_Address_Topic{163R9} 178>7 179>7 9|251b13 257l8 257t25
+178r7 Builder{163R9} 9|252b7 256r25
+179a7 Addr{10|43A12} 9|253b7 256r50
+184V13*Add_U256_Topic{163R9} 185>7 186>7 9|259b13 265l8 265t22
+185r7 Builder{163R9} 9|260b7 264r25
+186r7 Value{10|34R12} 9|261b7 264r47
+191V13*Add_U256_Data{163R9} 192>7 193>7 9|267b13 281l8 281t21
+192r7 Builder{163R9} 9|268b7 271r33
+193r7 Value{10|34R12} 9|269b7 272r49
+198V13*Add_Address_Data{163R9} 199>7 200>7 9|283b13 297l8 297t24
+199r7 Builder{163R9} 9|284b7 287r33
+200a7 Addr{10|43A12} 9|285b7 288r52
+205V13*Add_Bytes_Data{163R9} 206>7 207>7 9|299b13 312l8 312t22
+206r7 Builder{163R9} 9|300b7 303r33
+207a7 Data{5|32A9} 210r17 9|301b7 305r29 306r19 307r49 307r64 309r49
+213U14*Emit 213>20 9|314b14 322l8 322t12
+213r20 Builder{163R9} 9|314b20 317r10 318r10 319r10 320r10
+222V13*Calculate_Signature{44A12} 223>7 9|328b13 337l8 337t27
+223a7 Declaration{string} 226r17 9|329b7 331r31 333r16 334r20 334r63
+233V13*Encode_Address{10|49A12} 233>29 9|184s20 185s20 204s20 205s20 219s20
+. 220s20 256s34 288s36 343b13 351l8 351t22
+233a29 Addr{10|43A12} 9|343b29 348r24
+237V13*Encode_U256{10|49A12} 237>26 9|176s42 196s42 264s34 272s36 353b13
+. 356l8 356t19 369s14
+237r26 Value{10|34R12} 9|353b26 355r27
+241V13*Encode_Bool{10|49A12} 241>26 9|358b13 365l8 365t19
+241b26 Value{boolean} 9|358b26 361r10
+245V13*Encode_Natural{10|49A12} 245>29 9|367b13 370l8 370t22
+245i29 Value{natural} 9|367b29 369r48
+251A9 Topic_Array(10|49A12)<integer> 255r22 9|15r21 49r21 86r16 100r16 116r16
+. 134r16 154r16
+252A9 Data_Array(5|31M12)<integer> 257r22 9|17r21 51r21 87r18 101r18 117r18
+. 135r18 155r18
+255a7*Topics{251A9} 263m7 9|233m15 245m17 317r18
+256i7*Topic_Count{natural} 264m7 9|234m15 244r17 245r32 246m17 246r39 318r18
+257a7*Data{252A9} 265m7 9|276m20 292m20 307m20 319r18
+258i7*Data_Size{natural} 266m7 9|274r17 276r33 278m17 278r37 290r17 292r33
+. 294m17 294r37 305r17 307r33 309m17 309r37 320r18
+262r4 Empty_Builder{163R9} 9|231r34
+X 9 khepri_events.adb
+13N4 Max_Logs 21r39 65r24
+14R9 Log_Record 20e14 21r56
+15a7*Topics{8|251A9} 23m7 35m10 68m13
+16i7*Topic_Count{natural} 24m7 36m10 69m13
+17a7*Data{8|252A9} 25m7 37m10 70m13
+18i7*Data_Size{natural} 26m7 38m10 71m13
+19b7*Valid{boolean} 27m7 39m10 72m13
+21A9 Log_Array_Type(14R9)<integer> 22r17
+22a4 Event_Logs{21A9} 34m7 54r29 67m10
+29i4 Event_Count{natural} 33m7 45r14 54r41 65r10 67r22 74m10 74r25
+31U14 Clear_Events 31b14 41l8 41t20
+43V13 Get_Event_Count{natural} 43b13 46l8 46t23
+48U14 Internal_Emit 48b14 49>7 50>7 51>7 52>7 76l8 76t21 92s7 107s7 124s7
+. 143s7 164s7 316s7
+49a7 Topics{8|251A9} 68r28
+50i7 Topic_Count{natural} 64r10 69r28
+51a7 Data{8|252A9} 70r28
+52i7 Data_Size{natural} 64r40 71r28
+86a7 Topics{8|251A9} 92r22
+87a7 Log_Data{8|252A9} 90m10 92r33
+89i11 I{integer} 90r20 90r45
+100a7 Topics{8|251A9} 103m7 107r22
+101a7 Log_Data{8|252A9} 105m10 107r33
+104i11 I{integer} 105r20 105r45
+116a7 Topics{8|251A9} 119m7 120m7 124r22
+117a7 Log_Data{8|252A9} 122m10 124r33
+121i11 I{integer} 122r20 122r45
+134a7 Topics{8|251A9} 137m7 138m7 139m7 143r22
+135a7 Log_Data{8|252A9} 141m10 143r33
+140i11 I{integer} 141r20 141r45
+154a7 Topics{8|251A9} 157m7 158m7 159m7 160m7 164r22
+155a7 Log_Data{8|252A9} 162m10 164r33
+161i11 I{integer} 162r20 162r45
+176a7 Amount_Bytes{10|49A12} 180r22
+177a7 Data{5|32A9} 180m10 186r20
+179i11 I{integer} 180r16 180r36
+196a7 Amount_Bytes{10|49A12} 200r22
+197a7 Data{5|32A9} 200m10 206r20
+199i11 I{integer} 200r16 200r36
+215a7 Empty_Data{5|32A9} 221r20
+231r7 Builder{8|163R9} 233m7 234m7 235r14
+242r7 Result{8|163R9} 244r10 245m10 245r25 246m10 246r32 248r14
+271r7 Result{8|163R9} 274r10 276m13 276r26 278m10 278r30 280r14
+272a7 Bytes{10|49A12} 276r51
+275i14 I{integer} 276r45 276r58
+287r7 Result{8|163R9} 290r10 292m13 292r26 294m10 294r30 296r14
+288a7 Bytes{10|49A12} 292r51
+291i14 I{integer} 292r45 292r58
+303r7 Result{8|163R9} 305r10 307m13 307r26 309m10 309r30 311r14
+306i14 I{integer} 307r45 307r70
+331a7 Data{5|32A9} 334m10 336r40
+333i11 I{integer} 334r16 334r76
+344a7 Result{10|49A12} 348m10 350r14
+347i11 I{integer} 348r18 348r30
+359a7 Result{10|49A12} 362m10 364r14
+X 10 khepri_types.ads
+25K9*Khepri_Types 8|4w6 4r24 10|345e17
+34R12*Uint256{5|41R9} 8|138r16 147r17 186r17 193r17 237r34 9|174r16 194r17
+. 261r17 269r17 353r34
+43A12*Address{5|70A9}<integer> 8|136r16 137r16 145r17 146r17 153r24 154r24
+. 179r17 200r17 233r36 9|172r16 173r16 192r17 193r17 212r24 213r24 253r17
+. 285r17 343r36
+49A12*Bytes32{5|56A9}<integer> 8|44r31 89r20 98r20 99r20 108r20 109r20 110r20
+. 119r20 120r20 121r20 122r20 172r17 233r52 237r50 241r50 245r53 251r55 9|96r20
+. 111r20 112r20 128r20 129r20 130r20 147r20 148r20 149r20 150r20 176r31 196r31
+. 240r17 272r25 288r25 343r52 344r16 353r50 358r50 359r16 367r53
+

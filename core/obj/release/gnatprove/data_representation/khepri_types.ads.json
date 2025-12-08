@@ -1,0 +1,550 @@
+[
+{
+  "name": "Khepri_Types.Uint256",
+  "location": "khepri_types.ads:34:12",
+  "Size": 256,
+  "Alignment": 8,
+  "record": [
+    {
+      "name": "Limbs",
+      "Position": 0,
+      "First_Bit": 0,
+      "Size": 256
+    }
+  ]
+}
+,
+{
+  "name": "Khepri_Types.Zero",
+  "location": "khepri_types.ads:37:4",
+  "Size": 256,
+  "Alignment": 8
+}
+,
+{
+  "name": "Khepri_Types.One",
+  "location": "khepri_types.ads:38:4",
+  "Size": 256,
+  "Alignment": 8
+}
+,
+{
+  "name": "Khepri_Types.Max",
+  "location": "khepri_types.ads:39:4",
+  "Size": 256,
+  "Alignment": 8
+}
+,
+{
+  "name": "Khepri_Types.Address",
+  "location": "khepri_types.ads:43:12",
+  "Size": 256,
+  "Alignment": 1,
+  "Component_Size": 8
+}
+,
+{
+  "name": "Khepri_Types.Null_Address",
+  "location": "khepri_types.ads:46:4",
+  "Size": 256,
+  "Alignment": 1
+}
+,
+{
+  "name": "Khepri_Types.Bytes32",
+  "location": "khepri_types.ads:49:12",
+  "Size": 256,
+  "Alignment": 1,
+  "Component_Size": 8
+}
+,
+{
+  "name": "Khepri_Types.Bytes64",
+  "location": "khepri_types.ads:50:12",
+  "Size": 512,
+  "Alignment": 1,
+  "Component_Size": 8
+}
+,
+{
+  "name": "Khepri_Types.Bytes32_Zero",
+  "location": "khepri_types.ads:52:4",
+  "Size": 256,
+  "Alignment": 1
+}
+,
+{
+  "name": "Khepri_Types.Map_Entry",
+  "location": "khepri_types.ads:140:9",
+  "Object_Size": 576,
+  "Value_Size": 520,
+  "Alignment": 8,
+  "record": [
+    {
+      "name": "Key",
+      "Position":  0,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Value",
+      "Position": 32,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Valid",
+      "Position": 64,
+      "First_Bit": 0,
+      "Size": 8
+    }
+  ]
+}
+,
+{
+  "name": "Khepri_Types.Map_Index",
+  "location": "khepri_types.ads:147:12",
+  "Object_Size": 32,
+  "Value_Size": 8,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Types.Storage_Map",
+  "location": "khepri_types.ads:150:9",
+  "Size": 147456,
+  "Alignment": 8,
+  "Component_Size": 576
+}
+,
+{
+  "name": "Khepri_Types.Empty_Map",
+  "location": "khepri_types.ads:153:4",
+  "Size": 147456,
+  "Alignment": 8
+}
+,
+{
+  "name": "Khepri_Types.Address_Entry",
+  "location": "khepri_types.ads:164:9",
+  "Object_Size": 576,
+  "Value_Size": 520,
+  "Alignment": 8,
+  "record": [
+    {
+      "name": "Addr",
+      "Position":  0,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Value",
+      "Position": 32,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Valid",
+      "Position": 64,
+      "First_Bit": 0,
+      "Size": 8
+    }
+  ]
+}
+,
+{
+  "name": "Khepri_Types.Address_Map",
+  "location": "khepri_types.ads:171:9",
+  "Size": 147456,
+  "Alignment": 8,
+  "Component_Size": 576
+}
+,
+{
+  "name": "Khepri_Types.Empty_Address_Map",
+  "location": "khepri_types.ads:174:4",
+  "Size": 147456,
+  "Alignment": 8
+}
+,
+{
+  "name": "Khepri_Types.Balance",
+  "location": "khepri_types.ads:185:12",
+  "Size": 256,
+  "Alignment": 8,
+  "record": [
+    {
+      "name": "Limbs",
+      "Position": 0,
+      "First_Bit": 0,
+      "Size": 256
+    }
+  ]
+}
+,
+{
+  "name": "Khepri_Types.Wei",
+  "location": "khepri_types.ads:188:12",
+  "Size": 256,
+  "Alignment": 8,
+  "record": [
+    {
+      "name": "Limbs",
+      "Position": 0,
+      "First_Bit": 0,
+      "Size": 256
+    }
+  ]
+}
+,
+{
+  "name": "Khepri_Types.Token_Id",
+  "location": "khepri_types.ads:191:12",
+  "Size": 256,
+  "Alignment": 8,
+  "record": [
+    {
+      "name": "Limbs",
+      "Position": 0,
+      "First_Bit": 0,
+      "Size": 256
+    }
+  ]
+}
+,
+{
+  "name": "Khepri_Types.Error_Code",
+  "location": "khepri_types.ads:198:9",
+  "Object_Size": 8,
+  "Value_Size": 4,
+  "Alignment": 1
+}
+,
+{
+  "name": "Khepri_Types.Result",
+  "location": "khepri_types.ads:212:9",
+  "Object_Size": 320,
+  "Value_Size": "??",
+  "Alignment": 8,
+  "record": [
+    {
+      "name": "Success",
+      "discriminant": 1,
+      "Position": 0,
+      "First_Bit": 0,
+      "Size": 8
+    }
+  ],
+  "variant" : [
+    {
+      "present": "??",
+      "record": [
+        {
+          "name": "Value",
+          "Position": 8,
+          "First_Bit": 0,
+          "Size": 256
+        }
+      ]
+    },
+    {
+      "present": 1,
+      "record": [
+        {
+          "name": "Error",
+          "Position": 8,
+          "First_Bit": 0,
+          "Size": 8
+        }
+      ]
+    }
+  ]
+}
+,
+{
+  "name": "Khepri_Types.Bool_Result",
+  "location": "khepri_types.ads:235:9",
+  "Size": 16,
+  "Alignment": 1,
+  "record": [
+    {
+      "name": "Success",
+      "discriminant": 1,
+      "Position": 0,
+      "First_Bit": 0,
+      "Size": 8
+    }
+  ],
+  "variant" : [
+    {
+      "present": "??",
+      "record": [
+        {
+          "name": "Value",
+          "Position": 1,
+          "First_Bit": 0,
+          "Size": 8
+        }
+      ]
+    },
+    {
+      "present": 1,
+      "record": [
+        {
+          "name": "Error",
+          "Position": 1,
+          "First_Bit": 0,
+          "Size": 8
+        }
+      ]
+    }
+  ]
+}
+,
+{
+  "name": "Khepri_Types.Topic_Index_T",
+  "location": "khepri_types.ads:256:12",
+  "Object_Size": 32,
+  "Value_Size": 2,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Types.Event_Topics",
+  "location": "khepri_types.ads:259:9",
+  "Size": 1024,
+  "Alignment": 1,
+  "Component_Size": 256
+}
+,
+{
+  "name": "Khepri_Types.Event_Data_Index",
+  "location": "khepri_types.ads:265:12",
+  "Object_Size": 32,
+  "Value_Size": 8,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Types.Event_Data",
+  "location": "khepri_types.ads:266:9",
+  "Size": 2048,
+  "Alignment": 1,
+  "Component_Size": 8
+}
+,
+{
+  "name": "Khepri_Types.Event",
+  "location": "khepri_types.ads:269:9",
+  "Size": 3136,
+  "Alignment": 4,
+  "record": [
+    {
+      "name": "Topics",
+      "Position":   0,
+      "First_Bit": 0,
+      "Size": 1024
+    },
+    {
+      "name": "Topic_Count",
+      "Position": 128,
+      "First_Bit": 0,
+      "Size": 32
+    },
+    {
+      "name": "Data",
+      "Position": 132,
+      "First_Bit": 0,
+      "Size": 2048
+    },
+    {
+      "name": "Data_Length",
+      "Position": 388,
+      "First_Bit": 0,
+      "Size": 32
+    }
+  ]
+}
+,
+{
+  "name": "Khepri_Types.Empty_Event",
+  "location": "khepri_types.ads:277:4",
+  "Size": 3136,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Types.Msg_Context",
+  "location": "khepri_types.ads:289:9",
+  "Size": 768,
+  "Alignment": 8,
+  "record": [
+    {
+      "name": "Sender",
+      "Position":  0,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Value",
+      "Position": 32,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Data",
+      "Position": 64,
+      "First_Bit": 0,
+      "Size": 256
+    }
+  ]
+}
+,
+{
+  "name": "Khepri_Types.Block_Context",
+  "location": "khepri_types.ads:296:9",
+  "Size": 1536,
+  "Alignment": 8,
+  "record": [
+    {
+      "name": "Number",
+      "Position":   0,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Timestamp",
+      "Position":  32,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Coinbase",
+      "Position":  64,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Gas_Limit",
+      "Position":  96,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Base_Fee",
+      "Position": 128,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Chain_Id",
+      "Position": 160,
+      "First_Bit": 0,
+      "Size": 256
+    }
+  ]
+}
+,
+{
+  "name": "Khepri_Types.Tx_Context",
+  "location": "khepri_types.ads:306:9",
+  "Size": 768,
+  "Alignment": 8,
+  "record": [
+    {
+      "name": "Origin",
+      "Position":  0,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Gas_Price",
+      "Position": 32,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Gas_Limit",
+      "Position": 64,
+      "First_Bit": 0,
+      "Size": 256
+    }
+  ]
+}
+,
+{
+  "name": "Khepri_Types.Bytes4",
+  "location": "khepri_types.ads:317:9",
+  "Size": 32,
+  "Alignment": 1,
+  "Component_Size": 8
+}
+,
+{
+  "name": "Khepri_Types.Bytes8",
+  "location": "khepri_types.ads:318:9",
+  "Size": 64,
+  "Alignment": 1,
+  "Component_Size": 8
+}
+,
+{
+  "name": "Khepri_Types.Bytes20",
+  "location": "khepri_types.ads:319:9",
+  "Size": 160,
+  "Alignment": 1,
+  "Component_Size": 8
+}
+,
+{
+  "name": "Khepri_Types.Selector",
+  "location": "khepri_types.ads:322:12",
+  "Size": 32,
+  "Alignment": 1,
+  "Component_Size": 8
+}
+,
+{
+  "name": "Khepri_Types.String_Index",
+  "location": "khepri_types.ads:331:12",
+  "Object_Size": 32,
+  "Value_Size": 5,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Types.Contract_String",
+  "location": "khepri_types.ads:332:9",
+  "Size": 256,
+  "Alignment": 1,
+  "Component_Size": 8
+}
+,
+{
+  "name": "Khepri_Types.Bounded_String",
+  "location": "khepri_types.ads:335:9",
+  "Size": 288,
+  "Alignment": 4,
+  "record": [
+    {
+      "name": "Data",
+      "Position":  0,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Length",
+      "Position": 32,
+      "First_Bit": 0,
+      "Size": 32
+    }
+  ]
+}
+,
+{
+  "name": "Khepri_Types.Empty_String",
+  "location": "khepri_types.ads:340:4",
+  "Size": 288,
+  "Alignment": 4
+}
+]

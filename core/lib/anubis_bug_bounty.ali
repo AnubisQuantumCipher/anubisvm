@@ -1,0 +1,205 @@
+V "GNAT Lib v14"
+A -O2
+A -gnatA
+A -gnat2022
+A -gnatwa
+A -gnatyO
+A -gnatVa
+A -gnatw.F
+A -gnata
+A -gnatn
+A -ffunction-sections
+A -fdata-sections
+A -mmacosx-version-min=16.0.0
+A -mcpu=apple-m1
+A -mlittle-endian
+A -mabi=lp64
+A -fPIC
+P SL ZX
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+
+U anubis_bug_bounty%b	anubis_bug_bounty.adb	c05471ad NE OO PK
+Z system.assertions%s	s-assert.adb		s-assert.ali
+
+U anubis_bug_bounty%s	anubis_bug_bounty.ads	92e803a6 EE NE OO PK
+W anubis_types%s	anubis_types.ads	anubis_types.ali
+W interfaces%s		interfac.ads		interfac.ali
+
+D ada.ads		20240808082856 76789da1 ada%s
+D a-assert.ads		20240808082856 ba465f5c ada.assertions%s
+D a-unccon.ads		20240808082856 0e9b276f ada.unchecked_conversion%s
+D anubis_bug_bounty.ads	20251207191107 4c4aaaf0 anubis_bug_bounty%s
+D anubis_bug_bounty.adb	20251207191107 8c1edb5d anubis_bug_bounty%b
+D anubis_types.ads	20251207191105 4fb35097 anubis_types%s
+D interfac.ads		20240808082856 9111f9c1 interfaces%s
+D system.ads		20240808082856 70765b54 system%s
+D s-assert.ads		20240808082856 9c4520c7 system.assertions%s
+D s-exctab.ads		20240808082856 91bef6ef system.exception_table%s
+D s-stalib.ads		20240808082856 1c9580f6 system.standard_library%s
+G a e
+G c Z s s [reward_rangeIP anubis_bug_bounty 34 9 none]
+G c Z s b [init_bug_bounty anubis_bug_bounty 157 14 none]
+G c Z s b [submit_report anubis_bug_bounty 169 14 none]
+G c Z s b [assess_report anubis_bug_bounty 189 14 none]
+G c Z s b [calculate_reward anubis_bug_bounty 200 13 none]
+G c Z s b [process_payout anubis_bug_bounty 212 14 none]
+G c Z s b [get_remaining_pool anubis_bug_bounty 224 13 none]
+G c Z s b [get_reward_range anubis_bug_bounty 227 13 none]
+G c Z s b [zeroize_bounty_state anubis_bug_bounty 234 14 none]
+G c Z s b [zeroize_report anubis_bug_bounty 237 14 none]
+G c Z s s [bug_reportIP anubis_bug_bounty 90 9 none]
+G c Z s s [report_arrayIP anubis_bug_bounty 115 9 none]
+G c Z s s [bounty_stateIP anubis_bug_bounty 117 9 none]
+X 4 anubis_bug_bounty.ads
+21K9*Anubis_Bug_Bounty 240l5 240e22 5|10b14 150r26 156r27 282l5 282t22
+28N4*Bounty_Allocation 162r38 5|25r33 26r31
+31E9*Severity_Level 31e56 39r39 61r57 94r26 104r26 193r24 227r42 5|137r24
+. 172r27 241r42
+31n28*Critical{31E9} 40r7 62r29 63r29 68r29 69r29
+31n38*High{31E9} 41r7 64r29 65r29 70r29
+31n44*Medium{31E9} 42r7 66r29 67r29
+31n52*Low{31E9} 43r7 71r29 72r29 5|57r25 63r34 267r21 273r30
+34R9*Reward_Range 37e14 39r58 227r65 5|173r28 241r65
+35m7*Min_Reward{7|84M9} 5|181r27 182r45
+36m7*Max_Reward{7|84M9} 5|182r22 186r29 187r30
+39a4*Severity_Rewards(34R9) 5|173r44 243r14
+47E9*Bug_Category 59e5 61r40 93r26 172r24 201r24 5|42r24 168r24
+48n7*Consensus_Break{47E9} 62r7
+49n7*Fund_Theft{47E9} 63r7
+50n7*State_Corruption{47E9} 64r7
+51n7*Denial_Of_Service{47E9} 65r7
+52n7*Privacy_Leak{47E9} 66r7
+53n7*Gas_Manipulation{47E9} 67r7
+54n7*Signature_Bypass{47E9} 68r7
+55n7*Cryptographic_Flaw{47E9} 69r7
+56n7*Access_Control{47E9} 70r7
+57n7*Minor_Bug{47E9} 71r7 5|56r25 266r21
+58n7*UX_Issue{47E9} 72r7
+61a4*Category_Severity(31E9) 5|88r26 172r45
+79E9*Report_Status 88e5 95r26
+80n7*Submitted{79E9} 5|89r24 144r27
+81n7*Triaging{79E9} 5|144r63
+82n7*Confirmed{79E9} 218r30 5|150r44 156r45 204r27
+83n7*Fixed{79E9} 218r59 5|150r78 204r63
+84n7*Disputed{79E9}
+85n7*Rejected{79E9} 5|58r23 160r27 268r19
+86n7*Paid{79E9} 5|226r24
+87n7*Duplicate{79E9}
+90R9*Bug_Report 113e14 115r53 176r28 190r31 214r31 237r38 5|46r28 134r31
+. 199r31 262r38
+91m7*ID{7|84M9} 5|54m13 77m14 264m9
+92a7*Reporter{6|14A9} 5|55m13 80m14 82r42 83m20 265m9
+93e7*Category{47E9} 5|56m13 87m14 266m9
+94e7*Severity{31E9} 5|57m13 88m14 116r42 267m9
+95e7*Status{79E9} 218r21 218r50 5|58m13 89m14 144r17 144r53 150r17 150r69
+. 156m17 160m17 204r17 204r53 226m14 268m9
+98a7*Title_Hash{6|14A9} 5|59m13 92m14 94r44 95m20 269m9
+99a7*Description_Hash{6|14A9} 5|60m13 100m14 102r45 103m20 270m9
+100a7*POC_Hash{6|14A9} 5|61m13 108m14 110r42 111m20 271m9
+101a7*IPFS_Report{6|14A9} 5|62m13 115m14 272m9
+104e7*Assessed_Severity{31E9} 5|63m13 116m14 157m17 273m9
+105m7*Final_Reward{7|84M9} 5|64m13 117m14 158m17 161m17 216r17 222r61 223r53
+. 274m9
+106a7*Fix_Commit{6|14A9} 5|65m13 118m14 275m9
+109m7*Submitted_At{7|84M9} 5|66m13 119m14 276m9
+110m7*Confirmed_At{7|84M9} 5|67m13 120m14 277m9
+111m7*Fixed_At{7|84M9} 5|68m13 121m14 278m9
+112m7*Paid_At{7|84M9} 5|69m13 122m14 210r17 227m14 279m9
+115A9*Report_Array(90R9)<integer>
+117R9*Bounty_State 126e14 158r28 170r31 213r31 224r41 234r48 5|21r28 40r31
+. 198r31 236r41 250r48
+118m7*Total_Allocation{7|84M9} 5|25m13 252m13
+119m7*Remaining_Pool{7|84M9} 162r21 5|26m13 51r16 216r38 222m13 222r37 238r20
+. 253m13
+120m7*Total_Paid{7|84M9} 163r25 5|27m13 223m13 223r33 254m13
+121m7*Total_Reports{7|84M9} 5|28m13 124m13 124r36 255m13
+122m7*Reports_Confirmed{7|84M9} 5|29m13 224m13 224r40 256m13
+123m7*Reports_Rejected{7|84M9} 5|30m13 257m13
+124m7*Genesis_Block{7|84M9} 5|31m13 258m13
+125m7*Current_Block{7|84M9} 5|32m13 119r36 227r31 259m13
+132E9*Submit_Result 138e5 177r28 5|47r28
+133n7*Submitted{132E9} 5|126r17
+134n7*Invalid_Category{132E9}
+135n7*Duplicate_Report{132E9}
+136n7*Pool_Exhausted{132E9} 5|52r20
+137n7*Reporter_Banned{132E9}
+140E9*Assess_Result 144e5 195r28 5|139r28
+141n7*Assessed{140E9} 5|164r17
+142n7*Invalid_Report{140E9} 5|145r20
+143n7*Already_Assessed{140E9} 5|151r20
+146E9*Payout_Result 151e5 215r28 5|200r28
+147n7*Paid{146E9} 5|229r17
+148n7*Not_Confirmed{146E9} 5|205r20
+149n7*Already_Paid{146E9} 5|211r20
+150n7*Insufficient_Pool{146E9} 5|217r20
+157U14*Init_Bug_Bounty 158<7 159>7 5|20b14
+158r7 State{117R9} 162r15 163r19 5|21b7 25m7 26m7 27m7 28m7 29m7 30m7 31m7
+. 32m7
+159m7 Genesis_Block{7|84M9} 5|22b7 31r30 32r30
+169U14*Submit_Report 170=7 171>7 172>7 173>7 174>7 175>7 176<7 177<7 5|39b14
+. 127l8 127t21
+170r7 State{117R9} 5|40b7 51r10 119r30 124m7 124r30
+171a7 Reporter{6|14A9} 180r14 5|41b7 81r16 82r17 83r34 83r53
+172e7 Category{47E9} 5|42b7 87r26 88r45
+173a7 Title_Hash{6|14A9} 181r18 5|43b7 93r16 94r17 95r36 95r57
+174a7 Description{6|14A9} 182r18 5|44b7 101r16 102r17 103r42 103r64
+175a7 POC_Hash{6|14A9} 183r18 5|45b7 109r16 110r17 111r34 111r53
+176r7 Report{90R9} 5|46b7 53m10 77m7 80m7 82r35 83m13 87m7 88m7 89m7 92m7
+. 94r37 95m13 100m7 102r38 103m13 108m7 110r35 111m13 115m7 116m7 116r35
+. 117m7 118m7 119m7 120m7 121m7 122m7
+177e7 Result{132E9} 5|47b7 52m10 126m7
+189U14*Assess_Report 190=7 191>7 192>7 193>7 194>7 195<7 5|133b14 165l8 165t21
+190r7 Report{90R9} 5|134b7 144r10 144r46 150r10 150r62 156m10 157m10 158m10
+. 160m10 161m10
+191a7 Assessor{6|14A9} 198r14 5|135b7 141r28
+192b7 Confirmed{boolean} 5|136b7 155r10
+193e7 Final_Severity{31E9} 5|137b7 157r38
+194m7 Reward{7|84M9} 5|138b7 158r33
+195e7 Result{140E9} 5|139b7 145m10 151m10 164m7
+200V13*Calculate_Reward{7|84M9} 201>7 202>7 203>7 5|167b13 191l8 191t24
+201e7 Category{47E9} 5|168b7 172r64
+202i7 Impact_Score{natural} 206r14 5|169b7 178r21
+203i7 Quality_Score{natural} 206r38 5|170b7 178r36
+212U14*Process_Payout 213=7 214=7 215<7 5|197b14 230l8 230t22
+213r7 State{117R9} 5|198b7 216r32 222m7 222r31 223m7 223r27 224m7 224r34
+. 227r25
+214r7 Report{90R9} 218r14 218r43 5|199b7 204r10 204r46 210r10 216r10 222r54
+. 223r46 226m7 227m7
+215e7 Result{146E9} 5|200b7 205m10 211m10 217m10 229m7
+224V13*Get_Remaining_Pool{7|84M9} 224>33 5|236b13 239l8 239t26
+224r33 State{117R9} 5|236b33 238r14
+227V13*Get_Reward_Range{34R9} 227>31 5|241b13 244l8 244t24
+227e31 Severity{31E9} 5|241b31 243r32
+234U14*Zeroize_Bounty_State 234<36 5|250b14 260l8 260t28
+234r36 State{117R9} 5|250b36 252m7 253m7 254m7 255m7 256m7 257m7 258m7 259m7
+237U14*Zeroize_Report 237<30 5|262b14 280l8 280t22
+237r30 R{90R9} 5|262b30 264m7 265m7 266m7 267m7 268m7 269m7 270m7 271m7 272m7
+. 273m7 274m7 275m7 276m7 277m7 278m7 279m7
+X 5 anubis_bug_bounty.adb
+14m4 Report_Counter{7|84M9} 75m7 75r25 77r20
+81i11 I{integer} 82r13 83r30 83r63
+93i11 I{integer} 94r13 95r32 95r69
+101i11 I{integer} 102r13 103r38 103r77
+109i11 I{integer} 110r13 111r30 111r63
+172e7 Severity{4|31E9} 173r62
+173r7 Range_Rec{4|34R9} 181r17 182r12 182r35 186r19 187r20
+174i7 Score_Avg{natural} 178m7 183r24
+175m7 Reward{7|84M9} 181m7 186r10 187m10 190r14
+X 6 anubis_types.ads
+5K9*Anubis_Types 4|19w6 19r24 6|40e17
+13M12*Byte{7|70M9}
+14A9*Byte_Array(13M12)<integer> 4|92r26 98r26 99r26 100r26 101r26 106r26
+. 171r24 173r24 174r24 175r24 191r24 5|41r24 43r24 44r24 45r24 135r24
+X 7 interfac.ads
+38K9*Interfaces 4|18w6 18r22 7|233e15
+70M9*Unsigned_8
+84M9*Unsigned_64 4|35r20 36r20 91r26 105r26 109r26 110r26 111r26 112r26 118r28
+. 119r28 120r28 121r28 122r28 123r28 124r28 125r28 159r24 194r24 204r13 224r62
+. 5|14r21 22r24 138r24 171r13 175r16 183r11 236r62
+

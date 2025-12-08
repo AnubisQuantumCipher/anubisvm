@@ -1,0 +1,15 @@
+name = "anubisvm"
+version = "0.1.0"
+description = "Formally verified post-quantum smart contract VM"
+authors = ["Anubis Project Contributors"]
+maintainers = ["team@anubisvm.org"]
+licenses = "Apache-2.0"
+website = "https://github.com/AnubisQuantumCipher/anubisvm"
+tags = ["post-quantum", "crypto", "spark", "vm"]
+
+[gpr-set-externals]
+BUILD_MODE = "development"
+
+[[actions]]
+type = "post-build"
+command = ["echo", "Build complete. Run 'alr exec -- gnatprove -P anubisvm.gpr' to verify proofs."]

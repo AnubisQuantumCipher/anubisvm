@@ -1,0 +1,73 @@
+project AnubisVM is
+
+   for Languages use ("Ada");
+   for Source_Dirs use ("core/src/**", "stdlib/src", "cli/src", "examples/**");
+   for Object_Dir use "obj";
+   for Create_Missing_Dirs use "True";
+
+   type Build_Mode_Type is ("development", "release", "prove");
+   Build_Mode : Build_Mode_Type := external ("BUILD_MODE", "development");
+
+   package Compiler is
+      Common_Switches := (
+         "-gnatwa",        -- All warnings
+         --  "-gnatwe",        -- Warnings as errors (disabled for initial development)
+         "-gnatQ",         -- Generate ALI even with errors
+         "-gnata",         -- Enable assertions
+         "-gnatf",         -- Full error messages
+         "-gnatyM120",     -- Max line length
+         "-gnatyO",        -- Override indicators
+         "-gnat2012"       -- Ada 2012
+      );
+
+      case Build_Mode is
+         when "development" =>
+            for Default_Switches ("Ada") use Common_Switches & (
+               "-g",              -- Debug info
+               "-O0",             -- No optimization
+               "-gnateE",         -- Extra exception info
+               "-fstack-check"    -- Stack overflow checking
+            );
+
+         when "release" =>
+            for Default_Switches ("Ada") use Common_Switches & (
+               "-O3",             -- Full optimization
+               "-gnatn",          -- Inlining
+               "-gnatp",          -- Suppress checks (only in release!)
+               "-funroll-loops"   -- Loop unrolling
+            );
+
+         when "prove" =>
+            for Default_Switches ("Ada") use Common_Switches & (
+               "-g",              -- Debug info for proofs
+               "-O1",             -- Light optimization
+               "-gnato",          -- Overflow checking
+               "-fno-inline",     -- No inlining for proof
+               "-gnateV"          -- Validity checking
+            );
+      end case;
+   end Compiler;
+
+   package Binder is
+      for Default_Switches ("Ada") use ("-Es");  -- Symbolic tracebacks
+   end Binder;
+
+   package Prove is
+      for Proof_Switches ("Ada") use (
+         "--level=4",
+         "--timeout=60",
+         "--steps=0",           -- No step limit
+         "--memlimit=0",        -- No memory limit
+         "--prover=cvc5,z3,altergo",
+         "--counterexamples=on",
+         "--pedantic",
+         "--warnings=continue",
+         "--report=all"
+      );
+   end Prove;
+
+   package Builder is
+      for Default_Switches ("Ada") use ("-j0");  -- Parallel build
+   end Builder;
+
+end AnubisVM;

@@ -1,0 +1,326 @@
+V "GNAT Lib v14"
+A -O0
+A -gnatA
+A -gnatwa
+A -gnatQ
+A -gnata
+A -gnatf
+A -gnatyM120
+A -gnatyO
+A -gnat2012
+A -g
+A -gnateE
+A -fstack-check=specific
+A -mmacosx-version-min=16.0.0
+A -mcpu=apple-m1
+A -mlittle-endian
+A -mabi=lp64
+A -fPIC
+P SS ZX
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+
+U aegis_crypto_api%b	aegis_crypto_api.adb	3653b7b7 NE OO PK
+W aegis_gas%s		aegis_gas.adb		aegis_gas.ali
+W anubis_mldsa%s	anubis_mldsa.adb	anubis_mldsa.ali
+W anubis_mldsa_types%s	anubis_mldsa_types.ads	anubis_mldsa_types.ali
+W anubis_mlkem%s	anubis_mlkem.adb	anubis_mlkem.ali
+W anubis_mlkem_types%s	anubis_mlkem_types.ads	anubis_mlkem_types.ali
+W anubis_sha3%s		anubis_sha3.adb		anubis_sha3.ali
+W anubis_types%s	anubis_types.ads	anubis_types.ali
+Z system.assertions%s	s-assert.adb		s-assert.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+
+U aegis_crypto_api%s	aegis_crypto_api.ads	4fac3ec3 EE NE OO PK
+W aegis_execution%s	aegis_execution.adb	aegis_execution.ali
+W aegis_vm_types%s	aegis_vm_types.ads	aegis_vm_types.ali
+W interfaces%s		interfac.ads		interfac.ali
+
+D ada.ads		20240808082856 76789da1 ada%s
+D a-assert.ads		20240808082856 ba465f5c ada.assertions%s
+D a-unccon.ads		20240808082856 0e9b276f ada.unchecked_conversion%s
+D aegis_contract.ads	20251207191106 f406fabe aegis_contract%s
+D aegis_crypto_api.ads	20251207191105 f509c946 aegis_crypto_api%s
+D aegis_crypto_api.adb	20251207191105 e60d57b9 aegis_crypto_api%b
+D aegis_execution.ads	20251207191105 f7650f9d aegis_execution%s
+D aegis_gas.ads		20251207191105 2c397305 aegis_gas%s
+D aegis_sandbox.ads	20251207191106 0a9a14d0 aegis_sandbox%s
+D aegis_storage.ads	20251207191106 d62ac4d0 aegis_storage%s
+D aegis_vm_types.ads	20251207191105 dcd101d9 aegis_vm_types%s
+D anubis_config.ads	20251207191107 19c7b4b2 anubis_config%s
+D anubis_field.ads	20251207191105 ccc1c329 anubis_field%s
+D anubis_keccak.ads	20251207191105 19b431a9 anubis_keccak%s
+D anubis_mldsa.ads	20251207191106 df788a13 anubis_mldsa%s
+D anubis_mldsa_config.ads  20251207191106 44e9e9a1 anubis_mldsa_config%s
+D anubis_mldsa_field.ads  20251207191106 b52aaacb anubis_mldsa_field%s
+D anubis_mldsa_types.ads  20251207191106 b08dfc72 anubis_mldsa_types%s
+D anubis_mlkem.ads	20251207191106 0c9c1cc9 anubis_mlkem%s
+D anubis_mlkem_types.ads  20251207191106 4cc71de7 anubis_mlkem_types%s
+D anubis_sha3.ads	20251207191105 69737d95 anubis_sha3%s
+D anubis_types.ads	20251207191105 4fb35097 anubis_types%s
+D interfac.ads		20240808082856 9111f9c1 interfaces%s
+D system.ads		20240808082856 70765b54 system%s
+D s-assert.ads		20240808082856 9c4520c7 system.assertions%s
+D s-exctab.ads		20240808082856 91bef6ef system.exception_table%s
+D s-parame.ads		20240808082856 3597fc11 system.parameters%s
+D s-secsta.ads		20240808082856 578279f5 system.secondary_stack%s
+D s-stalib.ads		20240808082856 1c9580f6 system.standard_library%s
+D s-stoele.ads		20240808082856 ccded4e8 system.storage_elements%s
+G a e
+G c Z s b [sha3_256_hash aegis_crypto_api 106 14 none]
+G c Z s b [sha3_512_hash aegis_crypto_api 117 14 none]
+G c Z s b [keccak256_hash aegis_crypto_api 128 14 none]
+G c Z s b [shake_xof aegis_crypto_api 143 14 none]
+G c Z s b [mldsa87_verify aegis_crypto_api 162 14 none]
+G c Z s b [mlkem1024_decaps aegis_crypto_api 180 14 none]
+G c Z s b [derive_address aegis_crypto_api 195 14 none]
+G c Z s b [constant_time_equal aegis_crypto_api 209 13 none]
+G c Z s b [zeroize_secret aegis_crypto_api 215 14 none]
+G c Z s s [Thash_input_bufferBIP aegis_crypto_api 40 4 none]
+G c Z s s [Tshake_output_bufferBIP aegis_crypto_api 49 4 none]
+G c Z s s [Tmldsa87_signatureBIP aegis_crypto_api 59 4 none]
+G c Z s s [Tmldsa87_public_keyBIP aegis_crypto_api 65 4 none]
+G c Z s s [Tmlkem1024_ciphertextBIP aegis_crypto_api 75 4 none]
+G c Z s s [Tmlkem1024_shared_secretBIP aegis_crypto_api 81 4 none]
+G c Z s s [Tmlkem1024_decaps_keyBIP aegis_crypto_api 87 4 none]
+G c Z b b [to_input_slice aegis_crypto_api 20 13 none]
+G r c none [sha3_256_hash aegis_crypto_api 106 14 none] [gas_hash aegis_gas 218 13 none]
+G r c none [sha3_256_hash aegis_crypto_api 106 14 none] [use_gas aegis_execution 141 14 none]
+G r c none [sha3_256_hash aegis_crypto_api 106 14 none] [sha3_256 anubis_sha3 57 14 none]
+G r c none [sha3_512_hash aegis_crypto_api 117 14 none] [gas_hash aegis_gas 218 13 none]
+G r c none [sha3_512_hash aegis_crypto_api 117 14 none] [use_gas aegis_execution 141 14 none]
+G r c none [sha3_512_hash aegis_crypto_api 117 14 none] [sha3_512 anubis_sha3 76 14 none]
+G r c none [keccak256_hash aegis_crypto_api 128 14 none] [gas_hash aegis_gas 218 13 none]
+G r c none [keccak256_hash aegis_crypto_api 128 14 none] [use_gas aegis_execution 141 14 none]
+G r c none [keccak256_hash aegis_crypto_api 128 14 none] [keccak_256 anubis_sha3 87 14 none]
+G r c none [shake_xof aegis_crypto_api 143 14 none] [gas_hash aegis_gas 218 13 none]
+G r c none [shake_xof aegis_crypto_api 143 14 none] [use_gas aegis_execution 141 14 none]
+G r c none [shake_xof aegis_crypto_api 143 14 none] [shake128 anubis_sha3 97 14 none]
+G r c none [shake_xof aegis_crypto_api 143 14 none] [shake256 anubis_sha3 109 14 none]
+G r c none [mldsa87_verify aegis_crypto_api 162 14 none] [use_gas aegis_execution 141 14 none]
+G r c none [mldsa87_verify aegis_crypto_api 162 14 none] [verify anubis_mldsa 68 13 none]
+G r c none [mlkem1024_decaps aegis_crypto_api 180 14 none] [use_gas aegis_execution 141 14 none]
+G r c none [mlkem1024_decaps aegis_crypto_api 180 14 none] [decaps anubis_mlkem 87 14 none]
+G r c none [derive_address aegis_crypto_api 195 14 none] [gas_hash aegis_gas 218 13 none]
+G r c none [derive_address aegis_crypto_api 195 14 none] [use_gas aegis_execution 141 14 none]
+G r c none [derive_address aegis_crypto_api 195 14 none] [sha3_256 anubis_sha3 57 14 none]
+X 5 aegis_crypto_api.ads
+28K9*Aegis_Crypto_API 221l5 221e21 6|11b14 463l5 463t21
+37N4*Max_Hash_Input 39r51 114r27 125r27 136r27 153r33 172r28 6|25r25 76r38
+. 119r38 163r38 250r47
+39I12*Hash_Input_Index{natural} 40r37
+40A9*Hash_Input_Buffer(11|31M12)<integer> 108r25 119r25 130r25 146r30 164r26
+. 6|21r16 46r25 91r25 134r25 182r30 280r26
+43E9*SHAKE_Variant 43e48 145r30 6|181r30
+43n27*SHAKE_128{43E9} 6|238r24 257r24
+43n38*SHAKE_256{43E9} 6|240r24 259r24
+46N4*Max_SHAKE_Output 48r53 154r34 6|253r48
+48I12*SHAKE_Output_Index{natural} 49r39
+49A9*SHAKE_Output_Buffer(11|31M12)<integer> 148r30 6|184r30
+56N4*MLDSA87_Signature_Size 58r58 6|311r36
+58I12*MLDSA87_Signature_Index{natural} 59r37
+59A9*MLDSA87_Signature(11|31M12)<integer> 166r26 6|282r26
+62N4*MLDSA87_Public_Key_Size 64r59 6|304r24 305r41 397r51 406r39 423r21
+64I12*MLDSA87_Public_Key_Index{natural} 65r38
+65A9*MLDSA87_Public_Key(11|31M12)<integer> 167r26 197r27 6|283r26 391r27
+72N4*MLKEM1024_Ciphertext_Size 74r61 6|369r24
+74I12*MLKEM1024_Ciphertext_Index{natural} 75r40
+75A9*MLKEM1024_Ciphertext(11|31M12)<integer> 182r29 6|342r29
+78N4*MLKEM1024_Secret_Size 80r57 6|377r24
+80I12*MLKEM1024_Secret_Index{natural} 81r43 219r31 6|457r16
+81A9*MLKEM1024_Shared_Secret(11|31M12)<integer> 184r29 216r23 6|344r29 454r23
+84N4*MLKEM1024_Decaps_Key_Size 86r61 6|364r24
+86I12*MLKEM1024_Decaps_Key_Index{natural} 87r40
+87A9*MLKEM1024_Decaps_Key(11|31M12)<integer> 183r29 6|343r29
+93E9*Crypto_Result 99e5 111r25 122r25 133r25 150r30 169r26 185r29 200r27
+. 6|49r25 94r25 137r25 186r30 285r26 345r29 394r27
+94n7*Crypto_OK{93E9} 6|86r17 129r17 172r17 225r20 271r17 333r17 382r17 435r17
+95n7*Crypto_Invalid_Input{93E9}
+96n7*Crypto_Invalid_Signature{93E9}
+97n7*Crypto_Decaps_Failure{93E9}
+98n7*Crypto_Out_Of_Gas{93E9} 6|59r20 103r20 146r20 217r20 293r20 353r20 414r20
+106U14*SHA3_256_Hash 107=7 108>7 109>7 110<7 111<7 6|44b14 87l8 87t21
+107r7 Ctx{7|49R9} 6|45b7 56m16
+108a7 Input{40A9} 6|46b7 72r71
+109i7 Length{natural} 114r17 6|47b7 52r51 64r10 72r78 75r39 76r28
+110a7 Output{11|56A9} 6|48b7 58m10 84m10
+111e7 Result{93E9} 6|49b7 59m10 86m7
+117U14*SHA3_512_Hash 118=7 119>7 120>7 121<7 122<7 6|89b14 130l8 130t21
+118r7 Ctx{7|49R9} 6|90b7 100m16
+119a7 Input{40A9} 6|91b7 116r71
+120i7 Length{natural} 125r17 6|92b7 97r51 108r10 116r78 118r39 119r28
+121a7 Output{11|59A9} 6|93b7 102m10 127m10
+122e7 Result{93E9} 6|94b7 103m10 129m7
+128U14*Keccak256_Hash 129=7 130>7 131>7 132<7 133<7 6|132b14 173l8 173t22
+129r7 Ctx{7|49R9} 6|133b7 143m16
+130a7 Input{40A9} 6|134b7 160r71
+131i7 Length{natural} 136r17 6|135b7 140r51 152r10 160r78 162r39 163r28
+132a7 Output{11|56A9} 6|136b7 145m10 170m10
+133e7 Result{93E9} 6|137b7 146m10 172m7
+143U14*SHAKE_XOF 144=7 145>7 146>7 147>7 148<7 149>7 150<7 6|179b14 272l8
+. 272t17
+144r7 Ctx{7|49R9} 6|180b7 214m16
+145e7 Variant{43E9} 6|181b7 237r21 256r21
+146a7 Input{40A9} 6|182b7 246r74
+147i7 Input_Length{natural} 153r17 6|183b7 194r51 233r13 246r81 249r42 250r31
+148a7 Output{49A9} 6|184b7 216m10 222m7 267m13
+149i7 Output_Length{natural} 154r17 6|185b7 192r44 224r10 231r52 239r66 241r66
+. 252r48 253r31 255r50 258r60 260r60 266r24
+150e7 Result{93E9} 6|186b7 217m10 225m10 271m7
+162U14*MLDSA87_Verify 163=7 164>7 165>7 166>7 167>7 168<7 169<7 6|278b14
+. 334l8 334t22
+163r7 Ctx{7|49R9} 6|279b7 290m16
+164a7 Message{40A9} 6|280b7 326r74
+165i7 Msg_Len{natural} 172r17 6|281b7 318r13 326r83
+166a7 Signature{59A9} 6|282b7 314r43
+167a7 Public_Key{65A9} 6|283b7 306r42
+168b7 Valid{boolean} 6|284b7 292m10 322m16 328m16
+169e7 Result{93E9} 6|285b7 293m10 333m7
+180U14*MLKEM1024_Decaps 181=7 182>7 183>7 184<7 185<7 6|340b14 383l8 383t24
+181r7 Ctx{7|49R9} 6|341b7 350m16
+182a7 Ciphertext{75A9} 6|342b7 370r42
+183a7 Decaps_Key{87A9} 6|343b7 365r42
+184a7 Shared_Secret{81A9} 6|344b7 352m10 378m13
+185e7 Result{93E9} 6|345b7 353m10 382m7
+195U14*Derive_Address 196=7 197>7 198>7 199<7 200<7 6|389b14 436l8 436t22
+196r7 Ctx{7|49R9} 6|390b7 411m16
+197a7 Public_Key{65A9} 6|391b7 424r50
+198m7 Entity{11|31M12} 6|392b7 422r43
+199a7 Address{11|70A9} 6|393b7 413m10 432m10
+200e7 Result{93E9} 6|394b7 414m10 435m7
+209V13*Constant_Time_Equal{boolean} 210>7 210>10 6|442b13 451l8 451t27
+210a7 A{11|56A9} 6|443b7 448r27
+210a10 B{11|56A9} 6|443b10 448r37
+215U14*Zeroize_Secret 216=7 6|453b14
+216a7 Secret{81A9} 219r57 6|454b7 458m10 459r56
+219i26 I{80I12} 219r65
+X 6 aegis_crypto_api.adb
+20V13 To_Input_Slice{22|14A9} 20b13 21>7 22>7 26r15 27r19 28r19 72s55 116s55
+. 160s55 246s58 326s58
+21a7 Input{5|40A9} 35r43
+22i7 Length{natural} 25r15 25r44 27r48 28r50 30r46 32r21 34r47
+30a7 Result{22|14A9} 33r33 34r33 35m10 37r14
+32i11 I{integer} 35r18 35r50
+51b7 Success{boolean} 56m31 57r14
+52i7 Gas_Cost{11|101I9} 56r21
+53a7 Digest{21|32A12} 68m46 78m40 84r45
+66a13 Empty_Msg{22|14A9} 68r35
+72a13 Msg{22|14A9} 75r28 77r28 78r35
+83i11 I{integer} 84r18 84r53
+96b7 Success{boolean} 100m31 101r14
+97i7 Gas_Cost{11|101I9} 100r21
+98a7 Digest{21|38A12} 112m46 121m40 127r45
+110a13 Empty_Msg{22|14A9} 112r35
+116a13 Msg{22|14A9} 118r28 120r28 121r35
+126i11 I{integer} 127r18 127r53
+139b7 Success{boolean} 143m31 144r14
+140i7 Gas_Cost{11|101I9} 143r21
+141a7 Digest{21|32A12} 156m48 165m42 170r45
+154a13 Empty_Msg{22|14A9} 156r37
+160a13 Msg{22|14A9} 162r28 164r28 165r37
+169i11 I{integer} 170r18 170r53
+188b7 Success{boolean} 214m31 215r14
+192i7 Output_Blocks{natural} 193r55
+193i7 Output_Gas{11|101I9} 201r22 207r52 208r33
+194i7 Base_Gas{11|101I9} 202r22 207r10 208r22
+196i7 Gas_Cost{11|101I9} 208m10 211m10 213r22 214r21
+231a10 Shake_Out{22|14A9} 239m55 241m55 252r31 254r31 255r31 258m49 260m49
+. 267r48
+235a16 Empty_Msg{22|14A9} 239r44 241r44
+246a16 Msg{22|14A9} 249r31 251r31 258r44 260r44
+266i14 I{integer} 267r21 267r59
+287b7 Success{boolean} 290m39 291r14
+300a10 PK{18|57A12} 306m13 322r46 328r46
+301a10 Sig{18|59A12} 310r25 311r25 312r19 313r41 313r60 314m13 322r61 328r55
+304i14 I{integer} 305r36 306r17 306r54
+312i14 I{integer} 313r36 313r55 314r18 314r54
+320a16 Empty_Msg{22|14A9} 322r50
+326a16 Msg{22|14A9} 328r50
+347b7 Success{boolean} 350m39 351r14
+359a10 DK{20|76A12} 365m13 374r31
+360a10 CT{20|77A12} 370m13 374r35
+361a10 SS{20|72A12} 374m39 378r55
+364i14 I{integer} 365r17 365r54
+369i14 I{integer} 370r17 370r54
+377i14 I{integer} 378r28 378r59
+396b7 Success{boolean} 411m31 412r14
+397i7 Gas_Cost{11|101I9} 411r21
+400a7 Domain_Prefix{22|14A9} 420r26
+406N7 Preimage_Len 408r48
+408a7 Preimage{22|14A9} 420m10 422m7 424m10 428r29
+409a7 Digest{21|32A12} 428m39 432r46
+419i11 I{integer} 420r20 420r41
+423i11 I{integer} 424r25 424r62
+431i11 I{integer} 432r19 432r54
+445m7 Diff{11|31M12} 448m10 448r18 450r14
+447i11 I{integer} 448r30 448r40
+457i11 I{5|80I12} 458r18 459r51
+459i41 J{integer} 459r64
+X 7 aegis_execution.ads
+32K9*Aegis_Execution 5|5w6 5r27 7|278e20
+49R9*Execution_Context 5|107r25 118r25 129r25 144r30 163r26 181r29 196r27
+. 6|45r25 90r25 133r25 180r30 279r26 341r29 390r27 7|68e14
+141U14*Use_Gas 6|56s7 100s7 143s7 214s7 290s7 350s7 411s7
+X 8 aegis_gas.ads
+30K9*Aegis_Gas 6|3w6 3r21 202r34 207r22 211r22 213r34 8|292e14
+73i4*Gas_MLDSA_Verify{11|101I9} 6|290r21
+78i4*Gas_MLKEM_Decaps{11|101I9} 6|350r21
+149i4*Max_Safe_Base_Gas{11|101I9} 6|202r44 207r32 211r32 213r44
+218V13*Gas_Hash{11|101I9} 6|52s41 97s41 140s41 194s41 397s41
+X 11 aegis_vm_types.ads
+21K9*Aegis_VM_Types 5|4w6 4r26 6|48r25 84r24 93r25 127r24 136r25 170r24 267r27
+. 378r34 392r27 432r25 443r16 445r14 11|279e19
+31M12*Byte{23|70M9} 5|40r58 49r62 59r65 65r67 75r71 81r70 87r71 198r27 6|84r39
+. 127r39 170r39 267r42 378r49 392r42 432r40 445r29
+56A9*Hash256(31M12)<integer> 5|110r25 132r25 210r16 6|48r40 136r40 443r31
+59A9*Hash512(31M12)<integer> 5|121r25 6|93r40
+62a4*Hash256_Zero{56A9} 6|58r20 145r20
+63a4*Hash512_Zero{59A9} 6|102r20
+70A9*Contract_Address(31M12)<integer> 5|199r27 6|393r27
+72a4*Address_Zero{70A9} 6|413r21
+101I9*Gas_Amount<long_integer> 6|52r27 97r27 140r27 193r29 193r43 194r27
+. 196r18 397r27
+X 15 anubis_mldsa.ads
+22K9*Anubis_MLDSA 6|6w6 322r25 328r25 15|76e17
+68V13*Verify{boolean} 6|322s38 328s38
+X 18 anubis_mldsa_types.ads
+14K9*Anubis_MLDSA_Types 6|7w6 300r15 301r16 18|64e23
+57A12*Public_Key{22|14A9}<integer> 6|300r34
+59A12*Signature{22|14A9}<integer> 6|301r35
+X 19 anubis_mlkem.ads
+31K9*Anubis_MLKEM 6|8w6 374r10 19|133e17
+87U14*Decaps 6|374s23
+X 20 anubis_mlkem_types.ads
+26K9*Anubis_MLKEM_Types 6|9w6 359r15 360r15 361r15 20|94e23
+72A12*Shared_Secret{22|14A9}<integer> 6|361r34
+76A12*Decapsulation_Key{22|14A9}<integer> 6|359r34
+77A12*MLKEM_Ciphertext{22|14A9}<integer> 6|360r34
+X 21 anubis_sha3.ads
+27K9*Anubis_SHA3 6|5w6 53r16 68r13 78r13 98r16 112r13 121r13 141r16 156r13
+. 165r13 239r22 241r22 258r22 260r22 409r16 428r7 21|158e16
+32A12*SHA3_256_Digest{22|14A9}<integer> 6|53r28 141r28 409r28
+38A12*SHA3_512_Digest{22|14A9}<integer> 6|98r28
+57U14*SHA3_256 6|68s25 78s25 428s19
+76U14*SHA3_512 6|112s25 121s25
+87U14*Keccak_256 6|156s25 165s25
+97U14*SHAKE128 6|239s34 258s34
+109U14*SHAKE256 6|241s34 260s34
+X 22 anubis_types.ads
+5K9*Anubis_Types 6|4w6 23r13 30r16 35r24 66r34 72r28 110r34 116r28 154r34
+. 160r28 231r22 235r37 246r31 306r23 314r24 320r37 326r31 365r23 370r23 400r32
+. 408r18 422r24 424r31 22|40e17
+13M12*Byte{23|70M9} 6|35r37 306r36 314r37 365r36 370r36 422r37 424r44
+14A9*Byte_Array(13M12)<integer> 6|23r26 30r29 66r47 72r41 110r47 116r41 154r47
+. 160r41 231r35 235r50 246r44 320r50 326r44 400r45 408r31
+X 23 interfac.ads
+38K9*Interfaces 5|3w6 3r22 23|233e15
+70M9*Unsigned_8
+

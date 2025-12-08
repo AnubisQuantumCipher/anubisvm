@@ -1,0 +1,446 @@
+V "GNAT Lib v14"
+A -O0
+A -gnatA
+A -gnatwa
+A -gnatQ
+A -gnata
+A -gnatf
+A -gnatyM120
+A -gnatyO
+A -gnat2012
+A -g
+A -gnateE
+A -fstack-check=specific
+A -mmacosx-version-min=16.0.0
+A -mcpu=apple-m1
+A -mlittle-endian
+A -mabi=lp64
+A -fPIC
+P ZX
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+RV NO_ELABORATION_CODE
+
+U scarab_sekhmet%b	scarab_sekhmet.adb	088b6518 OO PK
+Z system.assertions%s	s-assert.adb		s-assert.ali
+
+U scarab_sekhmet%s	scarab_sekhmet.ads	9dd7f00e EE NE OO PK
+W anubis_stark_field%s	anubis_stark_field.adb	anubis_stark_field.ali
+W anubis_types%s	anubis_types.ads	anubis_types.ali
+W interfaces%s		interfac.ads		interfac.ali
+
+D ada.ads		20240808082856 76789da1 ada%s
+D a-assert.ads		20240808082856 ba465f5c ada.assertions%s
+D a-unccon.ads		20240808082856 0e9b276f ada.unchecked_conversion%s
+D anubis_stark_field.ads  20251207191105 98d82a71 anubis_stark_field%s
+D anubis_types.ads	20251207191105 4fb35097 anubis_types%s
+D interfac.ads		20240808082856 9111f9c1 interfaces%s
+D scarab_sekhmet.ads	20251207191106 dbad7329 scarab_sekhmet%s
+D scarab_sekhmet.adb	20251207191106 d3261631 scarab_sekhmet%b
+D system.ads		20240808082856 70765b54 system%s
+D s-assert.ads		20240808082856 9c4520c7 system.assertions%s
+D s-exctab.ads		20240808082856 91bef6ef system.exception_table%s
+D s-stalib.ads		20240808082856 1c9580f6 system.standard_library%s
+G a e
+G c Z s b [current_simd_level scarab_sekhmet 50 13 none]
+G c Z s b [has_simd scarab_sekhmet 54 13 none]
+G c Z s b [vec4_add scarab_sekhmet 83 13 none]
+G c Z s b [vec4_sub scarab_sekhmet 91 13 none]
+G c Z s b [vec4_mul scarab_sekhmet 99 13 none]
+G c Z s b [vec4_neg scarab_sekhmet 107 13 none]
+G c Z s b [vec8_add scarab_sekhmet 115 13 none]
+G c Z s b [vec8_sub scarab_sekhmet 118 13 none]
+G c Z s b [vec8_mul scarab_sekhmet 121 13 none]
+G c Z s b [vec8_neg scarab_sekhmet 124 13 none]
+G c Z s b [vec4_load scarab_sekhmet 132 14 none]
+G c Z s b [vec4_store scarab_sekhmet 145 14 none]
+G c Z s b [vec4_gather scarab_sekhmet 158 14 none]
+G c Z s b [vec4_scatter scarab_sekhmet 167 14 none]
+G c Z s b [vec8_load scarab_sekhmet 176 14 none]
+G c Z s b [vec8_store scarab_sekhmet 184 14 none]
+G c Z s b [vec4_ct_butterfly scarab_sekhmet 199 14 none]
+G c Z s b [vec4_gs_butterfly scarab_sekhmet 208 14 none]
+G c Z s b [vec8_ct_butterfly scarab_sekhmet 215 14 none]
+G c Z s b [vec8_gs_butterfly scarab_sekhmet 221 14 none]
+G c Z s b [vec_ntt scarab_sekhmet 235 14 none]
+G c Z s b [vec_intt scarab_sekhmet 243 14 none]
+G c Z s b [vec_coset_ntt scarab_sekhmet 251 14 none]
+G c Z s b [vec_coset_intt scarab_sekhmet 260 14 none]
+G c Z s b [vec_poly_mul_eval scarab_sekhmet 273 14 none]
+G c Z s b [vec_poly_add scarab_sekhmet 281 14 none]
+G c Z s b [vec_poly_sub scarab_sekhmet 289 14 none]
+G c Z s b [vec_poly_scale scarab_sekhmet 297 14 none]
+G c Z s b [vec_batch_reduce scarab_sekhmet 310 14 none]
+G c Z s b [vec_batch_mont_mul scarab_sekhmet 319 14 none]
+G c Z s b [vec_batch_inv scarab_sekhmet 327 14 none]
+G c Z s b [prefetch_read scarab_sekhmet 345 14 none]
+G c Z s b [prefetch_write scarab_sekhmet 353 14 none]
+G c Z s b [vec4_store_nt scarab_sekhmet 361 14 none]
+G c Z s b [benchmark_simd scarab_sekhmet 381 14 none]
+G c Z s b [get_simd_info scarab_sekhmet 387 14 none]
+G c Z s b [scalar_ntt scarab_sekhmet 399 14 none]
+G c Z s b [verify_ntt_equivalence scarab_sekhmet 407 13 none]
+G c Z s b [self_test scarab_sekhmet 415 13 none]
+G c Z s s [vector_4x64IP scarab_sekhmet 62 9 none]
+G c Z s s [vector_8x64IP scarab_sekhmet 67 9 none]
+G c Z s s [vector_4x64_arrayIP scarab_sekhmet 72 9 none]
+G c Z s s [vector_8x64_arrayIP scarab_sekhmet 73 9 none]
+G c Z s s [Tindex_array_4BIP scarab_sekhmet 76 4 none]
+G c Z s s [simd_statsIP scarab_sekhmet 373 9 none]
+G r c none [vec4_add scarab_sekhmet 83 13 none] [add anubis_stark_field 65 13 none]
+G r c none [vec4_sub scarab_sekhmet 91 13 none] [sub anubis_stark_field 71 13 none]
+G r c none [vec4_mul scarab_sekhmet 99 13 none] [mul anubis_stark_field 84 13 none]
+G r c none [vec4_neg scarab_sekhmet 107 13 none] [neg anubis_stark_field 77 13 none]
+G r c none [vec8_add scarab_sekhmet 115 13 none] [add anubis_stark_field 65 13 none]
+G r c none [vec8_sub scarab_sekhmet 118 13 none] [sub anubis_stark_field 71 13 none]
+G r c none [vec8_mul scarab_sekhmet 121 13 none] [mul anubis_stark_field 84 13 none]
+G r c none [vec8_neg scarab_sekhmet 124 13 none] [neg anubis_stark_field 77 13 none]
+G r c none [vec4_ct_butterfly scarab_sekhmet 199 14 none] [mul anubis_stark_field 84 13 none]
+G r c none [vec4_ct_butterfly scarab_sekhmet 199 14 none] [sub anubis_stark_field 71 13 none]
+G r c none [vec4_ct_butterfly scarab_sekhmet 199 14 none] [add anubis_stark_field 65 13 none]
+G r c none [vec4_gs_butterfly scarab_sekhmet 208 14 none] [add anubis_stark_field 65 13 none]
+G r c none [vec4_gs_butterfly scarab_sekhmet 208 14 none] [sub anubis_stark_field 71 13 none]
+G r c none [vec4_gs_butterfly scarab_sekhmet 208 14 none] [mul anubis_stark_field 84 13 none]
+G r c none [vec8_ct_butterfly scarab_sekhmet 215 14 none] [mul anubis_stark_field 84 13 none]
+G r c none [vec8_ct_butterfly scarab_sekhmet 215 14 none] [sub anubis_stark_field 71 13 none]
+G r c none [vec8_ct_butterfly scarab_sekhmet 215 14 none] [add anubis_stark_field 65 13 none]
+G r c none [vec8_gs_butterfly scarab_sekhmet 221 14 none] [add anubis_stark_field 65 13 none]
+G r c none [vec8_gs_butterfly scarab_sekhmet 221 14 none] [sub anubis_stark_field 71 13 none]
+G r c none [vec8_gs_butterfly scarab_sekhmet 221 14 none] [mul anubis_stark_field 84 13 none]
+G r c none [vec_ntt scarab_sekhmet 235 14 none] [get_root_of_unity anubis_stark_field 126 13 none]
+G r c none [vec_ntt scarab_sekhmet 235 14 none] [mul anubis_stark_field 84 13 none]
+G r c none [vec_ntt scarab_sekhmet 235 14 none] [add anubis_stark_field 65 13 none]
+G r c none [vec_ntt scarab_sekhmet 235 14 none] [sub anubis_stark_field 71 13 none]
+G r c none [vec_intt scarab_sekhmet 243 14 none] [get_root_of_unity anubis_stark_field 126 13 none]
+G r c none [vec_intt scarab_sekhmet 243 14 none] [inv anubis_stark_field 102 13 none]
+G r c none [vec_intt scarab_sekhmet 243 14 none] [add anubis_stark_field 65 13 none]
+G r c none [vec_intt scarab_sekhmet 243 14 none] [sub anubis_stark_field 71 13 none]
+G r c none [vec_intt scarab_sekhmet 243 14 none] [mul anubis_stark_field 84 13 none]
+G r c none [vec_coset_ntt scarab_sekhmet 251 14 none] [mul anubis_stark_field 84 13 none]
+G r c none [vec_coset_ntt scarab_sekhmet 251 14 none] [get_root_of_unity anubis_stark_field 126 13 none]
+G r c none [vec_coset_ntt scarab_sekhmet 251 14 none] [add anubis_stark_field 65 13 none]
+G r c none [vec_coset_ntt scarab_sekhmet 251 14 none] [sub anubis_stark_field 71 13 none]
+G r c none [vec_coset_intt scarab_sekhmet 260 14 none] [inv anubis_stark_field 102 13 none]
+G r c none [vec_coset_intt scarab_sekhmet 260 14 none] [get_root_of_unity anubis_stark_field 126 13 none]
+G r c none [vec_coset_intt scarab_sekhmet 260 14 none] [add anubis_stark_field 65 13 none]
+G r c none [vec_coset_intt scarab_sekhmet 260 14 none] [sub anubis_stark_field 71 13 none]
+G r c none [vec_coset_intt scarab_sekhmet 260 14 none] [mul anubis_stark_field 84 13 none]
+G r c none [vec_poly_mul_eval scarab_sekhmet 273 14 none] [mul anubis_stark_field 84 13 none]
+G r c none [vec_poly_add scarab_sekhmet 281 14 none] [add anubis_stark_field 65 13 none]
+G r c none [vec_poly_sub scarab_sekhmet 289 14 none] [sub anubis_stark_field 71 13 none]
+G r c none [vec_poly_scale scarab_sekhmet 297 14 none] [mul anubis_stark_field 84 13 none]
+G r c none [vec_batch_reduce scarab_sekhmet 310 14 none] [reduce_128 anubis_stark_field 199 13 none]
+G r c none [vec_batch_mont_mul scarab_sekhmet 319 14 none] [mul anubis_stark_field 84 13 none]
+G r c none [vec_batch_inv scarab_sekhmet 327 14 none] [mul anubis_stark_field 84 13 none]
+G r c none [vec_batch_inv scarab_sekhmet 327 14 none] [inv anubis_stark_field 102 13 none]
+G r c none [scalar_ntt scarab_sekhmet 399 14 none] [get_root_of_unity anubis_stark_field 126 13 none]
+G r c none [scalar_ntt scarab_sekhmet 399 14 none] [mul anubis_stark_field 84 13 none]
+G r c none [scalar_ntt scarab_sekhmet 399 14 none] [add anubis_stark_field 65 13 none]
+G r c none [scalar_ntt scarab_sekhmet 399 14 none] [sub anubis_stark_field 71 13 none]
+G r c none [self_test scarab_sekhmet 415 13 none] [get_root_of_unity anubis_stark_field 126 13 none]
+G r c none [self_test scarab_sekhmet 415 13 none] [mul anubis_stark_field 84 13 none]
+G r c none [self_test scarab_sekhmet 415 13 none] [add anubis_stark_field 65 13 none]
+G r c none [self_test scarab_sekhmet 415 13 none] [sub anubis_stark_field 71 13 none]
+X 4 anubis_stark_field.ads
+16K9*Anubis_STARK_Field 254e23 7|22w6 22r30
+31M12*Field_Element{6|84M9} 7|63r24 68r40 254r16 263r16 299r16 8|269r14 270r17
+. 289r35 290r35 309r15 310r14 311r17 330r35 331r35 345r21 355r16 358r21 374r16
+. 377r28 378r21 433r16 478r17
+35m4*One{31M12} 8|283r24 324r24 358r38 378r38
+65V13*Add{31M12} 7|85s36 86s40 87s40 88s40 8|48s21 49s21 50s21 51s21 84s21
+. 85s21 86s21 87s21 88s21 89s21 90s21 91s21 292s47 333s47 415s13
+71V13*Sub{31M12} 7|93s36 94s40 95s40 96s40 8|56s21 57s21 58s21 59s21 96s21
+. 97s21 98s21 99s21 100s21 101s21 102s21 103s21 293s58 334s63 427s13
+77V13*Neg{31M12} 7|109s36 110s40 111s40 112s40 8|72s21 73s21 74s21 75s21
+. 120s21 121s21 122s21 123s21 124s21 125s21 126s21 127s21
+84V13*Mul{31M12} 7|101s36 102s40 103s40 104s40 8|64s21 65s21 66s21 67s21
+. 108s21 109s21 110s21 111s21 112s21 113s21 114s21 115s21 290s52 296s27 334s58
+. 337s27 348s22 363s35 364s25 386s35 387s25 403s13 439s49 468s13 488s24 497s39
+. 498s21
+102V13*Inv{31M12} 8|320s18 345s16 377s45 492s18
+126V13*Get_Root_Of_Unity{31M12} 8|279s18 320s23
+141A9*Field_Array(31M12)<integer> 7|133r16 147r23 159r17 169r24 177r16 186r23
+. 236r23 244r23 252r23 261r23 274r16 275r20 282r16 283r20 290r16 291r20 298r16
+. 300r20 311r16 312r16 313r20 320r16 321r20 328r16 329r20 346r16 354r16 363r23
+. 400r23 408r23 409r23 8|135r16 148r23 159r17 172r24 183r16 200r23 265r23
+. 305r23 353r23 372r23 396r16 397r20 408r16 409r20 420r16 421r20 432r16 434r20
+. 448r16 449r16 450r20 461r16 462r20 473r16 474r20 477r16 508r16 519r16 529r23
+. 570r23 578r23 579r23 592r19 593r19
+199V13*Reduce_128{31M12} 8|456s13
+X 5 anubis_types.ads
+5K9*Anubis_Types 40e17 7|21w6 21r24
+X 6 interfac.ads
+38K9*Interfaces 233e15 7|20w6 20r22
+84M9*Unsigned_64 7|375r25 376r25 377r25
+X 7 scarab_sekhmet.ads
+24K9*Scarab_Sekhmet 374r25 418l5 418e19 8|7b14 604l5 604t19
+32E9*SIMD_Level 38e5 41r35 50r39 54r31 374r40 8|15r21 21r39 26r31
+33n7*None{32E9} 42r7 8|15r35 29r15 603r22
+34n7*SSE2{32E9} 43r7 8|31r15 32r38
+35n7*AVX2{32E9} 44r7 8|32r45 33r15 34r38
+36n7*AVX512{32E9} 45r7 8|32r52 34r45 35r15 36r37
+37n7*NEON{32E9} 46r7 8|37r15 38r37
+41a4*Vector_Width(natural)
+50V13*Current_SIMD_Level{32E9} 8|21b13 24l8 24t26
+54V13*Has_SIMD{boolean} 54>23 8|26b13 40l8 40t16
+54e23 Level{32E9} 8|26b23 28r12
+62R9*Vector_4x64 64e15 72r58 83r30 83r50 91r30 91r50 99r30 99r50 107r27 107r47
+. 135r20 146r16 161r21 168r17 200r23 201r16 209r23 210r16 362r16 8|46r30
+. 46r50 54r30 54r50 62r30 62r50 70r27 70r47 137r20 147r16 161r21 171r17 219r23
+. 220r16 222r20 229r23 230r16 232r23 233r23 528r16
+63m7*E0{4|31M12} 85r31 85r43 85r49 93r31 93r43 93r49 101r31 101r43 101r49
+. 109r31 109r43 139r19 152r46 8|48m15 48r28 48r34 56m15 56r28 56r34 64m15
+. 64r28 64r34 72m15 72r28 140m11 152r39 164m11 176r44
+63m11*E1{4|31M12} 86r35 86r47 86r53 94r35 94r47 94r53 102r35 102r47 102r53
+. 110r35 110r47 140r23 153r54 8|49m15 49r28 49r34 57m15 57r28 57r34 65m15
+. 65r28 65r34 73m15 73r28 141m11 153r43 165m11 177r44
+63m15*E2{4|31M12} 87r35 87r47 87r53 95r35 95r47 95r53 103r35 103r47 103r53
+. 111r35 111r47 141r23 154r54 8|50m15 50r28 50r34 58m15 58r28 58r34 66m15
+. 66r28 66r34 74m15 74r28 142m11 154r43 166m11 178r44
+63m19*E3{4|31M12} 88r35 88r47 88r53 96r35 96r47 96r53 104r35 104r47 104r53
+. 112r35 112r47 142r23 155r54 8|51m15 51r28 51r34 59m15 59r28 59r34 67m15
+. 67r28 67r34 75m15 75r28 143m11 155r43 167m11 179r44
+67R9*Vector_8x64 69e15 73r58 115r30 115r50 118r30 118r50 121r30 121r50 124r27
+. 124r47 179r20 185r16 216r23 217r16 222r23 223r16 8|82r30 82r50 94r30 94r50
+. 106r30 106r50 118r27 118r47 185r20 199r16 240r23 241r16 243r20 250r23 251r16
+. 253r23 254r23
+68m7*E0{4|31M12} 8|84m15 84r28 84r34 96m15 96r28 96r34 108m15 108r28 108r34
+. 120m15 120r28 188m11 204r39
+68m11*E1{4|31M12} 8|85m15 85r28 85r34 97m15 97r28 97r34 109m15 109r28 109r34
+. 121m15 121r28 189m11 205r43
+68m15*E2{4|31M12} 8|86m15 86r28 86r34 98m15 98r28 98r34 110m15 110r28 110r34
+. 122m15 122r28 190m11 206r43
+68m19*E3{4|31M12} 8|87m15 87r28 87r34 99m15 99r28 99r34 111m15 111r28 111r34
+. 123m15 123r28 191m11 207r43
+68m23*E4{4|31M12} 8|88m15 88r28 88r34 100m15 100r28 100r34 112m15 112r28
+. 112r34 124m15 124r28 192m11 208r43
+68m27*E5{4|31M12} 8|89m15 89r28 89r34 101m15 101r28 101r34 113m15 113r28
+. 113r34 125m15 125r28 193m11 209r43
+68m31*E6{4|31M12} 8|90m15 90r28 90r34 102m15 102r28 102r34 114m15 114r28
+. 114r34 126m15 126r28 194m11 210r43
+68m35*E7{4|31M12} 8|91m15 91r28 91r34 103m15 103r28 103r34 115m15 115r28
+. 115r34 127m15 127r28 195m11 211r43
+72A9*Vector_4x64_Array(62R9)<integer>
+73A9*Vector_8x64_Array(67R9)<integer>
+76A9*Index_Array_4(natural)<integer> 160r17 170r17 8|160r17 173r17
+83V13*Vec4_Add{62R9} 83>23 83>26 85r15 86r19 87r19 88r19 8|46b13 225s12 232s38
+83r23 A{62R9} 85r41 86r45 87r45 88r45 8|46b23 48r26 49r26 50r26 51r26
+83r26 B{62R9} 85r47 86r51 87r51 88r51 8|46b26 48r32 49r32 50r32 51r32
+91V13*Vec4_Sub{62R9} 91>23 91>26 93r15 94r19 95r19 96r19 8|54b13 224s12 233s38
+91r23 A{62R9} 93r41 94r45 95r45 96r45 8|54b23 56r26 57r26 58r26 59r26
+91r26 B{62R9} 93r47 94r51 95r51 96r51 8|54b26 56r32 57r32 58r32 59r32
+99V13*Vec4_Mul{62R9} 99>23 99>26 101r15 102r19 103r19 104r19 8|62b13 222s35
+. 236s12
+99r23 A{62R9} 101r41 102r45 103r45 104r45 8|62b23 64r26 65r26 66r26 67r26
+99r26 B{62R9} 101r47 102r51 103r51 104r51 8|62b26 64r32 65r32 66r32 67r32
+107V13*Vec4_Neg{62R9} 107>23 109r15 110r19 111r19 112r19 8|70b13
+107r23 A{62R9} 109r41 110r45 111r45 112r45 8|70b23 72r26 73r26 74r26 75r26
+115V13*Vec8_Add{67R9} 115>23 115>26 8|82b13 92l8 92t16 246s12 253s38
+115r23 A{67R9} 8|82b23 84r26 85r26 86r26 87r26 88r26 89r26 90r26 91r26
+115r26 B{67R9} 8|82b26 84r32 85r32 86r32 87r32 88r32 89r32 90r32 91r32
+118V13*Vec8_Sub{67R9} 118>23 118>26 8|94b13 104l8 104t16 245s12 254s38
+118r23 A{67R9} 8|94b23 96r26 97r26 98r26 99r26 100r26 101r26 102r26 103r26
+118r26 B{67R9} 8|94b26 96r32 97r32 98r32 99r32 100r32 101r32 102r32 103r32
+121V13*Vec8_Mul{67R9} 121>23 121>26 8|106b13 116l8 116t16 243s35 257s12
+121r23 A{67R9} 8|106b23 108r26 109r26 110r26 111r26 112r26 113r26 114r26
+. 115r26
+121r26 B{67R9} 8|106b26 108r32 109r32 110r32 111r32 112r32 113r32 114r32
+. 115r32
+124V13*Vec8_Neg{67R9} 124>23 8|118b13 128l8 128t16
+124r23 A{67R9} 8|118b23 120r26 121r26 122r26 123r26 124r26 125r26 126r26
+. 127r26
+132U14*Vec4_Load 133>7 134>7 135<7 8|134b14
+133a7 Arr{4|141A9} 138r28 138r39 139r24 139r29 140r28 140r33 141r28 141r33
+. 142r28 142r33 8|135b7 140r17 140r22 141r17 141r22 142r17 142r22 143r17
+. 143r22
+134i7 Offset{natural} 138r14 139r41 140r45 141r45 142r45 8|136b7 140r34 141r34
+. 142r34 143r34
+135r7 Vec{62R9} 139r15 140r19 141r19 142r19 8|137b7 140m7 141m7 142m7 143m7
+145U14*Vec4_Store 146>7 147=7 148>7 8|146b14 534s7
+146r7 Vec{62R9} 152r42 153r50 154r50 155r50 8|147b7 152r35 153r39 154r39
+. 155r39
+147a7 Arr{4|141A9} 151r28 151r39 152r15 152r20 153r19 153r24 154r19 154r24
+. 155r19 155r24 8|148b7 152m7 152r12 153m7 153r12 154m7 154r12 155m7 155r12
+148i7 Offset{natural} 151r14 152r32 153r36 154r36 155r36 8|149b7 152r24 153r24
+. 154r24 155r24
+158U14*Vec4_Gather 159>7 160>7 161<7 8|158b14 168l8 168t19
+159a7 Arr{4|141A9} 164r53 164r64 8|159b7 164r17 164r22 165r17 165r22 166r17
+. 166r22 167r17 167r22
+160a7 Indices{76A9} 164r38 8|160b7 164r34 165r34 166r34 167r34
+161r7 Vec{62R9} 8|161b7 164m7 165m7 166m7 167m7
+164i23 I{integer} 164r47
+167U14*Vec4_Scatter 168>7 169=7 170>7 8|170b14 180l8 180t20
+168r7 Vec{62R9} 8|171b7 176r40 177r40 178r40 179r40
+169a7 Arr{4|141A9} 173r53 173r64 8|172b7 176m7 176r12 177m7 177r12 178m7
+. 178r12 179m7 179r12
+170a7 Indices{76A9} 173r38 8|173b7 176r24 177r24 178r24 179r24
+173i23 I{integer} 173r47
+176U14*Vec8_Load 177>7 178>7 179<7 8|182b14 196l8 196t17
+177a7 Arr{4|141A9} 182r28 182r39 8|183b7 188r17 188r22 189r17 189r22 190r17
+. 190r22 191r17 191r22 192r17 192r22 193r17 193r22 194r17 194r22 195r17 195r22
+178i7 Offset{natural} 182r14 8|184b7 188r34 189r34 190r34 191r34 192r34 193r34
+. 194r34 195r34
+179r7 Vec{67R9} 8|185b7 188m7 189m7 190m7 191m7 192m7 193m7 194m7 195m7
+184U14*Vec8_Store 185>7 186=7 187>7 8|198b14 212l8 212t18
+185r7 Vec{67R9} 8|199b7 204r35 205r39 206r39 207r39 208r39 209r39 210r39
+. 211r39
+186a7 Arr{4|141A9} 190r28 190r39 8|200b7 204m7 204r12 205m7 205r12 206m7
+. 206r12 207m7 207r12 208m7 208r12 209m7 209r12 210m7 210r12 211m7 211r12
+187i7 Offset{natural} 190r14 8|201b7 204r24 205r24 206r24 207r24 208r24 209r24
+. 210r24 211r24
+199U14*Vec4_CT_Butterfly 200=7 200=10 201>7 8|218b14 226l8 226t25
+200r7 A{62R9} 8|219b7 224r22 225m7 225r22
+200r10 B{62R9} 8|219b10 222r45 224m7
+201r7 Twiddle{62R9} 8|220b7 222r48
+208U14*Vec4_GS_Butterfly 209=7 209=10 210>7 8|228b14 237l8 237t25
+209r7 A{62R9} 8|229b7 232r48 233r48 235m7
+209r10 B{62R9} 8|229b10 232r51 233r51 236m7
+210r7 Twiddle{62R9} 8|230b7 236r28
+215U14*Vec8_CT_Butterfly 216=7 216=10 217>7 8|239b14 247l8 247t25
+216r7 A{67R9} 8|240b7 245r22 246m7 246r22
+216r10 B{67R9} 8|240b10 243r45 245m7
+217r7 Twiddle{67R9} 8|241b7 243r48
+221U14*Vec8_GS_Butterfly 222=7 222=10 223>7 8|249b14 258l8 258t25
+222r7 A{67R9} 8|250b7 253r48 254r48 256m7
+222r10 B{67R9} 8|250b10 253r51 254r51 257m7
+223r7 Twiddle{67R9} 8|251b7 257r28
+232N4*Max_Vec_NTT_Size
+235U14*Vec_NTT 236=7 237>7 8|264b14 302l8 302t15 368s7 574s7 595s7
+236a7 Data{4|141A9} 240r30 8|265b7 289r52 289r58 290r57 290r63 292m22 292r28
+. 293m22 293r28
+237i7 Log_N{natural} 240r14 240r49 8|266b7 268r36 276r25
+243U14*Vec_INTT 244=7 245>7 8|304b14 350l8 350t16 381s7
+244a7 Data{4|141A9} 248r30 8|305b7 330r52 330r58 331r52 331r58 333m22 333r28
+. 334m22 334r28 346r16 347r38 347r58 348m10 348r27
+245i7 Log_N{natural} 248r14 248r49 8|306b7 308r36 317r33 318r50
+251U14*Vec_Coset_NTT 252=7 253>7 254>7 8|352b14 369l8 369t21
+252a7 Data{4|141A9} 257r30 8|353b7 363m10 363r16 363r40 363r46 368m16
+253i7 Log_N{natural} 257r14 257r49 8|354b7 357r36 368r22
+254m7 Offset{4|31M12} 8|355b7 364r43
+260U14*Vec_Coset_INTT 261=7 262>7 263>7 8|371b14 389l8 389t22
+261a7 Data{4|141A9} 266r30 8|372b7 381m17 386m10 386r16 386r40 386r46
+262i7 Log_N{natural} 266r14 266r49 8|373b7 376r36 381r23
+263m7 Offset{4|31M12} 8|374b7 377r50
+273U14*Vec_Poly_Mul_Eval 274>7 274>10 275<7 8|395b14 405l8 405t25
+274a7 A{4|141A9} 278r14 278r38 8|396b7 400r16 401r38 401r55 402r37 403r18
+. 403r42
+274a10 B{4|141A9} 278r25 8|396b10 403r25 403r28
+275a7 Result{4|141A9} 278r49 8|397b7 402m10 402r18
+281U14*Vec_Poly_Add 282>7 282>10 283<7 8|407b14 417l8 417t20
+282a7 A{4|141A9} 286r14 286r38 8|408b7 412r16 413r38 413r55 414r37 415r18
+. 415r42
+282a10 B{4|141A9} 286r25 8|408b10 415r25 415r28
+283a7 Result{4|141A9} 286r49 8|409b7 414m10 414r18
+289U14*Vec_Poly_Sub 290>7 290>10 291<7 8|419b14 429l8 429t20
+290a7 A{4|141A9} 294r14 294r38 8|420b7 424r16 425r38 425r55 426r37 427r18
+. 427r42
+290a10 B{4|141A9} 294r25 8|420b10 427r25 427r28
+291a7 Result{4|141A9} 294r49 8|421b7 426m10 426r18
+297U14*Vec_Poly_Scale 298>7 299>7 300<7 8|431b14 441l8 441t22
+298a7 A{4|141A9} 303r14 8|432b7 437r16 438r38 438r55 439r37 439r54
+299m7 Scalar{4|31M12} 8|433b7 439r61
+300a7 Result{4|141A9} 303r25 8|434b7 439m10 439r18
+310U14*Vec_Batch_Reduce 311>7 312>7 313<7 8|447b14 458l8 458t24
+311a7 High{4|141A9} 316r14 8|448b7 453r16 454r38 454r58 455r37 456r25 456r56
+312a7 Low{4|141A9} 316r28 316r43 8|449b7 456r35 456r40
+313a7 Result{4|141A9} 316r56 8|450b7 455m10 455r18
+319U14*Vec_Batch_Mont_Mul 320>7 320>10 321<7 8|460b14 470l8 470t26
+320a7 A{4|141A9} 324r14 8|461b7 465r16 466r38 466r55 467r37 468r18 468r42
+320a10 B{4|141A9} 324r25 324r38 8|461b10 468r25 468r28
+321a7 Result{4|141A9} 324r49 8|462b7 467m10 467r18
+327U14*Vec_Batch_Inv 328>7 329<7 8|472b14 501l8 501t21
+328a7 A{4|141A9} 332r14 8|473b7 476r31 485r21 485r24 488r45 488r48 498r35
+. 498r38
+329a7 Result{4|141A9} 332r25 8|474b7 497m10 497r18 500m7 500r15
+339N4*Cache_Line_Size
+342N4*Prefetch_Distance
+345U14*Prefetch_Read 346>7 347>7 8|507b14 516l8 516t21
+346a7 Arr{4|141A9} 350r24 8|508b7 511r28
+347i7 Offset{natural} 350r14 8|509b7 511r33
+353U14*Prefetch_Write 354>7 355>7 8|518b14 525l8 525t22
+354a7 Arr{4|141A9} 358r24 8|519b7 522r28
+355i7 Offset{natural} 358r14 8|520b7 522r33
+361U14*Vec4_Store_NT 362>7 363=7 364>7 8|527b14 535l8 535t21
+362r7 Vec{62R9} 8|528b7 534r19
+363a7 Arr{4|141A9} 367r28 367r39 8|529b7 534m24
+364i7 Offset{natural} 367r14 8|530b7 534r29
+373R9*SIMD_Stats 378e14 382r20 8|542r20
+374e7*SIMD_Level{32E9} 8|545m13
+375m7*NTT_Throughput{6|84M9} 8|546m13
+376m7*Mul_Throughput{6|84M9} 8|547m13
+377m7*Memory_BW{6|84M9} 8|548m13
+381U14*Benchmark_SIMD 382<7 8|541b14 549l8 549t22
+382r7 Stats{373R9} 8|542b7 545m7 546m7 547m7 548m7
+387U14*Get_SIMD_Info 388<7 389<7 8|551b14 563l8 563t21
+388a7 Info{string} 392r14 8|552b7 557m7 558r42 561m10 561r16
+389i7 Length{natural} 8|553b7 558m7 559r21 560r38
+399U14*Scalar_NTT 400=7 401>7 8|569b14 575l8 575t18 596s7
+400a7 Data{4|141A9} 404r30 8|570b7 574m16
+401i7 Log_N{natural} 404r14 404r49 8|571b7 574r22
+407V13*Verify_NTT_Equivalence{boolean} 408>7 409>7 8|577b13 589l8 589t30
+. 597s14
+408a7 SIMD_Result{4|141A9} 412r14 8|578b7 582r16 583r38 583r65 584r13 584r73
+409a7 Scalar_Result{4|141A9} 412r35 8|579b7 584r32 584r47
+415V13*Self_Test{boolean} 8|591b13 598l8 598t17
+X 8 scarab_sekhmet.adb
+15e4 Detected_Level{7|32E9} 23r14 32r20 34r20 36r20 38r20 545r27 603m4
+222r7 T{7|62R9} 224r25 225r25
+232r7 Sum{7|62R9} 235r12
+233r7 Diff{7|62R9} 236r22
+243r7 T{7|67R9} 245r25 246r25
+253r7 Sum{7|67R9} 256r12
+254r7 Diff{7|67R9} 257r22
+268i7 N{natural} 275r19 277r44 281r20 287r34
+269m7 Root{4|31M12} 279m10 296r41
+270m7 Twiddle{4|31M12} 283m13 290r91 296m16 296r32
+271i7 Half_Len{natural} 275m7 277r33 282r47 284r27 285r43 287r23 290r80 293r45
+. 298r26 300m10 300r22
+272i7 J{natural} 280m10 281r16 282r36 286r21 298m13 298r18
+272i10 K{natural} 286m16 287r19 289r71 290r76 292r41 293r41
+276i11 Layer{integer} 277r54 279r37
+284i17 I{integer} 285r39 286r25
+289m22 U{4|31M12} 292r52 293r63
+290m22 V{4|31M12} 292r55 293r66
+308i7 N{natural} 322r20 328r34 345r36
+309m7 N_Inv{4|31M12} 345m7 348r37
+310m7 Root{4|31M12} 320m10 337r41
+311m7 Twiddle{4|31M12} 324m13 334r75 337m16 337r32
+312i7 Half_Len{natural} 316m7 318r33 323r47 325r27 326r43 328r23 331r75 334r45
+. 339r26 341m10 341r22
+313i7 J{natural} 321m10 322r16 323r36 323r64 327r21 339m13 339r18
+313i10 K{natural} 327m16 328r19 330r71 331r71 333r41 334r41
+317i11 Layer{integer} 318r58 320r42
+325i17 I{integer} 326r39 327r25
+330m22 U{4|31M12} 333r52 334r68
+331m22 V{4|31M12} 333r55 334r71
+346i11 I{integer} 347r33 347r53 348r16 348r33
+357i7 N{natural} 361r21 362r37
+358m7 Coset_Power{4|31M12} 363r63 364m10 364r30
+361i11 I{integer} 362r33 363r29 363r59
+376i7 N{natural} 384r21 385r37
+377m7 Coset_Inv{4|31M12} 387r43
+378m7 Coset_Power{4|31M12} 386r63 387m10 387r30
+384i11 I{integer} 385r33 386r29 386r59
+400i11 I{integer} 401r33 401r50 402r33 403r21 403r38
+412i11 I{integer} 413r33 413r50 414r33 415r21 415r38
+424i11 I{integer} 425r33 425r50 426r33 427r21 427r38
+437i11 I{integer} 438r33 438r50 439r33 439r57
+453i11 I{integer} 454r33 454r53 455r33 456r31 456r52
+465i11 I{integer} 466r33 466r50 467r33 468r21 468r38
+476i7 N{natural} 477r34 480r10 486r21 487r37 492r31 495r29 496r37
+477a7 Prefix{4|141A9} 485m7 488m10 488r29 492r23 497r53
+478m7 Inv_All{4|31M12} 492m7 497r44 498m10 498r26 500r32
+486i11 I{integer} 487r33 488r18 488r37 488r58
+495i11 I{integer} 496r33 497r33 497r61 498r48
+555a7 Msg{string} 558r30 561r39
+559i11 I{integer} 560r33 561r29 561r44
+582i11 I{integer} 583r33 583r60 584r26 584r69
+592a7 Test_Data{4|141A9} 595m16 595r16 597r38
+593a7 Reference{4|141A9} 596m19 596r19 597r49
+

@@ -1,0 +1,54 @@
+=============== Dec 7, 2025 (EST) ===============
+10:00:12.168699 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+10:00:12.189467 db@open opening
+10:00:12.189849 version@stat F·[] S·0B[] Sc·[]
+10:00:12.199622 db@janitor F·2 G·0
+10:00:12.199650 db@open done T·10.153292ms
+10:00:12.200377 db@close closing
+10:00:12.200457 db@close done T·77.167µs
+=============== Dec 7, 2025 (EST) ===============
+10:00:17.175761 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+10:00:17.175951 version@stat F·[] S·0B[] Sc·[]
+10:00:17.175962 db@open opening
+10:00:17.175990 journal@recovery F·1
+10:00:17.176025 journal@recovery recovering @1
+10:00:17.181587 memdb@flush created L0@2 N·5 S·277B "s/k..ion,v3":"s/k..ion,v5"
+10:00:17.181890 version@stat F·[1] S·277B[277B] Sc·[0.25]
+10:00:17.203675 db@janitor F·3 G·0
+10:00:17.203695 db@open done T·27.725208ms
+10:00:17.204202 db@close closing
+10:00:17.204240 db@close done T·37.25µs
+=============== Dec 7, 2025 (EST) ===============
+10:24:31.686195 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+10:24:31.687004 version@stat F·[1] S·277B[277B] Sc·[0.25]
+10:24:31.687018 db@open opening
+10:24:31.687054 journal@recovery F·1
+10:24:31.687461 journal@recovery recovering @3
+10:24:31.687983 version@stat F·[1] S·277B[277B] Sc·[0.25]
+10:24:31.713495 db@janitor F·3 G·0
+10:24:31.713736 db@open done T·26.710125ms
+10:24:31.716478 db@close closing
+10:24:31.716523 db@close done T·43.458µs
+=============== Dec 7, 2025 (EST) ===============
+10:24:42.304778 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+10:24:42.304964 version@stat F·[1] S·277B[277B] Sc·[0.25]
+10:24:42.304975 db@open opening
+10:24:42.305003 journal@recovery F·1
+10:24:42.305082 journal@recovery recovering @5
+10:24:42.310762 memdb@flush created L0@7 N·1 S·212B "s/k..ion,v7":"s/k..ion,v7"
+10:24:42.310881 version@stat F·[2] S·489B[489B] Sc·[0.50]
+10:24:42.332892 db@janitor F·4 G·0
+10:24:42.333022 db@open done T·28.039792ms
+10:24:42.334685 db@close closing
+10:24:42.334743 db@close done T·54.625µs
+=============== Dec 7, 2025 (EST) ===============
+14:53:59.292694 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+14:53:59.292931 version@stat F·[2] S·489B[489B] Sc·[0.50]
+14:53:59.292941 db@open opening
+14:53:59.292970 journal@recovery F·1
+14:53:59.293011 journal@recovery recovering @8
+14:53:59.293226 version@stat F·[2] S·489B[489B] Sc·[0.50]
+14:53:59.314219 db@janitor F·4 G·0
+14:53:59.314239 db@open done T·21.291375ms
+14:53:59.363119 db@close closing
+14:53:59.363152 db@close done T·33.083µs

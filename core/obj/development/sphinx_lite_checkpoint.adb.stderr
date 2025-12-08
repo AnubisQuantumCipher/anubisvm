@@ -1,0 +1,4 @@
+sphinx_lite_checkpoint.adb:18:04: warning: variable "Committee_Hash" is assigned but never read [-gnatwm]
+sphinx_lite_checkpoint.adb:18:32: warning: array aggregate using () is an obsolescent syntax, use [] instead [-gnatwj]
+sphinx_lite_checkpoint.adb:185:07: warning: useless assignment to "Result", value overwritten at line 188 [-gnatwm]
+sphinx_lite_checkpoint.adb:300:16: warning: array aggregate using () is an obsolescent syntax, use [] instead [-gnatwj]

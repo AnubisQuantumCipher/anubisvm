@@ -1,0 +1,7 @@
+scarab_mldsa_circuit.adb:10:06: warning: redundant with clause in body [-gnatwr]
+scarab_mldsa_circuit.adb:10:18: warning: "Interfaces" is already use-visible through previous use_clause at scarab_mldsa_circuit.ads:12 [-gnatwr]
+scarab_mldsa_circuit.adb:10:18: warning: use clause for package "Interfaces" has no effect [-gnatwu]
+scarab_mldsa_circuit.adb:233:17: warning: formal parameter "Out2_Col" is not referenced [-gnatwf]
+scarab_mldsa_circuit.adb:331:14: warning: formal parameter "B_Col" is not referenced [-gnatwf]
+scarab_mldsa_circuit.adb:573:07: warning: formal parameter "Trace_Poly" is not referenced [-gnatwf]
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]

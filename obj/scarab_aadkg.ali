@@ -1,0 +1,404 @@
+V "GNAT Lib v14"
+A -O0
+A -gnatA
+A -gnatwa
+A -gnatQ
+A -gnata
+A -gnatf
+A -gnatyM120
+A -gnatyO
+A -gnat2012
+A -g
+A -gnateE
+A -fstack-check=specific
+A -mmacosx-version-min=16.0.0
+A -mcpu=apple-m1
+A -mlittle-endian
+A -mabi=lp64
+A -fPIC
+P ZX
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+
+U scarab_aadkg%b	scarab_aadkg.adb	f203cf20 NE OO PK
+W anubis_mlkem%s	anubis_mlkem.adb	anubis_mlkem.ali
+W anubis_mlkem_types%s	anubis_mlkem_types.ads	anubis_mlkem_types.ali
+W anubis_sha3%s		anubis_sha3.adb		anubis_sha3.ali
+W interfaces%s		interfac.ads		interfac.ali
+Z system.assertions%s	s-assert.adb		s-assert.ali
+Z system.exp_llu%s	s-expllu.ads		s-expllu.ali
+
+U scarab_aadkg%s	scarab_aadkg.ads	5ccd4814 EE NE OO PK
+W anubis_bytes%s	anubis_bytes.adb	anubis_bytes.ali
+W anubis_types%s	anubis_types.ads	anubis_types.ali
+W interfaces%s		interfac.ads		interfac.ali
+
+D ada.ads		20240808082856 76789da1 ada%s
+D a-assert.ads		20240808082856 ba465f5c ada.assertions%s
+D a-unccon.ads		20240808082856 0e9b276f ada.unchecked_conversion%s
+D anubis_bytes.ads	20251207191105 9e5d5cad anubis_bytes%s
+D anubis_config.ads	20251207191107 19c7b4b2 anubis_config%s
+D anubis_field.ads	20251207191105 ccc1c329 anubis_field%s
+D anubis_keccak.ads	20251207191105 19b431a9 anubis_keccak%s
+D anubis_mlkem.ads	20251207191106 0c9c1cc9 anubis_mlkem%s
+D anubis_mlkem_types.ads  20251207191106 4cc71de7 anubis_mlkem_types%s
+D anubis_sha3.ads	20251207191105 69737d95 anubis_sha3%s
+D anubis_types.ads	20251207191105 4fb35097 anubis_types%s
+D anubis_word.ads	20251207191105 ec44f66b anubis_word%s
+D interfac.ads		20240808082856 9111f9c1 interfaces%s
+D scarab_aadkg.ads	20251207191106 1c32bdef scarab_aadkg%s
+D scarab_aadkg.adb	20251207191106 5608f7b5 scarab_aadkg%b
+D system.ads		20240808082856 70765b54 system%s
+D s-assert.ads		20240808082856 9c4520c7 system.assertions%s
+D s-exctab.ads		20240808082856 91bef6ef system.exception_table%s
+D s-expllu.ads		20240808082856 ad7cdd87 system.exp_llu%s
+D s-exponu.ads		20240808082856 5feafca7 system.exponu%s
+D s-stalib.ads		20240808082856 1c9580f6 system.standard_library%s
+D s-unstyp.ads		20240808082856 fa2a7f59 system.unsigned_types%s
+G a e
+G c Z s b [generate_commitment scarab_aadkg 134 14 none]
+G c Z s b [verify_reveal scarab_aadkg 146 13 none]
+G c Z s b [select_committee scarab_aadkg 155 14 none]
+G c Z s b [generate_and_encrypt_shares scarab_aadkg 171 14 none]
+G c Z s b [post_share scarab_aadkg 183 14 none]
+G c Z s b [verify_share_commitment scarab_aadkg 195 13 none]
+G c Z s b [generate_fraud_proof scarab_aadkg 202 14 none]
+G c Z s b [aggregate_my_share scarab_aadkg 216 14 none]
+G c Z s b [recover_from_chain scarab_aadkg 234 14 none]
+G c Z s b [can_recover scarab_aadkg 247 13 none]
+G c Z s b [sign_partial scarab_aadkg 258 14 none]
+G c Z s b [combine_signatures scarab_aadkg 268 14 none]
+G c Z s b [verify_threshold_sig scarab_aadkg 280 13 none]
+G c Z s b [advance_phase scarab_aadkg 293 14 none]
+G c Z s b [is_complete scarab_aadkg 300 13 none]
+G c Z s b [get_phase scarab_aadkg 304 13 none]
+G c Z s b [check_slash scarab_aadkg 319 14 none]
+G c Z s b [zeroize_share scarab_aadkg 331 14 none]
+G c Z s b [zeroize_encrypted scarab_aadkg 334 14 none]
+G c Z s s [Tpolynomial_coeffsBIP scarab_aadkg 55 4 none]
+G c Z s s [encrypted_shareIP scarab_aadkg 58 9 none]
+G c Z s s [Tcommit_arrayBIP scarab_aadkg 67 4 none]
+G c Z s s [poly_commitmentIP scarab_aadkg 70 9 none]
+G c Z s s [Tshare_registryBIP scarab_aadkg 77 4 none]
+G c Z s s [Tcommitment_registryBIP scarab_aadkg 80 4 none]
+G c Z s s [committee_memberIP scarab_aadkg 83 9 none]
+G c Z s s [Tcommittee_typeBIP scarab_aadkg 92 4 none]
+G c Z s s [key_shareIP scarab_aadkg 96 9 none]
+G c Z s s [threshold_pkIP scarab_aadkg 103 9 none]
+G c Z s s [reveal_arrayIP scarab_aadkg 110 9 none]
+G c Z s s [stake_arrayIP scarab_aadkg 111 9 none]
+G c Z s s [member_arrayIP scarab_aadkg 112 9 none]
+G c Z s s [Tpk_arrayBIP scarab_aadkg 113 4 none]
+G c Z s s [Tshare_arrayBIP scarab_aadkg 114 4 none]
+G c Z s s [partial_sig_arrayIP scarab_aadkg 115 9 none]
+G c Z s s [index_arrayIP scarab_aadkg 116 9 none]
+G c Z s s [aadkg_stateIP scarab_aadkg 119 9 none]
+G c Z b b [hash_to_field scarab_aadkg 22 14 none]
+G c Z b b [polynomial_eval scarab_aadkg 30 14 none]
+G r c none [generate_commitment scarab_aadkg 134 14 none] [sha3_256 anubis_sha3 57 14 none]
+G r c none [verify_reveal scarab_aadkg 146 13 none] [sha3_256 anubis_sha3 57 14 none]
+G r c none [select_committee scarab_aadkg 155 14 none] [sha3_256 anubis_sha3 57 14 none]
+G r c none [select_committee scarab_aadkg 155 14 none] [shake256 anubis_sha3 109 14 none]
+G r c none [generate_and_encrypt_shares scarab_aadkg 171 14 none] [shake256 anubis_sha3 109 14 none]
+G r c none [generate_and_encrypt_shares scarab_aadkg 171 14 none] [encaps anubis_mlkem 67 14 none]
+G r c none [generate_fraud_proof scarab_aadkg 202 14 none] [sha3_256 anubis_sha3 57 14 none]
+G r c none [aggregate_my_share scarab_aadkg 216 14 none] [decaps anubis_mlkem 87 14 none]
+G r c none [aggregate_my_share scarab_aadkg 216 14 none] [shake256 anubis_sha3 109 14 none]
+G r c none [recover_from_chain scarab_aadkg 234 14 none] [decaps anubis_mlkem 87 14 none]
+G r c none [recover_from_chain scarab_aadkg 234 14 none] [shake256 anubis_sha3 109 14 none]
+G r c none [sign_partial scarab_aadkg 258 14 none] [sha3_256 anubis_sha3 57 14 none]
+G r c none [sign_partial scarab_aadkg 258 14 none] [shake256 anubis_sha3 109 14 none]
+G r c none [verify_threshold_sig scarab_aadkg 280 13 none] [sha3_256 anubis_sha3 57 14 none]
+G r c none [hash_to_field scarab_aadkg 22 14 none] [sha3_256 anubis_sha3 57 14 none]
+X 4 anubis_bytes.ads
+7K9*Anubis_Bytes 52e17 14|15w6 15r24
+X 8 anubis_mlkem.ads
+31K9*Anubis_MLKEM 133e17 15|12w6 224r16 363r19
+67U14*Encaps 15|224s29
+68a7 EK{9|75A12} 15|225r19
+69a7 Random_M{9|69A12} 15|226r19
+70a7 SS{9|72A12} 15|227r19
+71a7 CT{9|77A12} 15|228r19
+87U14*Decaps 15|363s32
+88a7 DK{9|76A12} 15|364r22
+89a7 CT{9|77A12} 15|365r22
+90a7 SS{9|72A12} 15|366r22
+X 9 anubis_mlkem_types.ads
+26K9*Anubis_MLKEM_Types 94e23 15|13w6 13r30 208r28 351r28
+69A12*Seed{11|14A9}<integer> 15|209r30
+72A12*Shared_Secret{11|14A9}<integer> 15|208r47 351r47
+75A12*Encapsulation_Key{11|14A9}<integer> 15|210r28
+76A12*Decapsulation_Key{11|14A9}<integer> 15|352r28
+77A12*MLKEM_Ciphertext{11|14A9}<integer> 15|207r28 353r28
+X 10 anubis_sha3.ads
+27K9*Anubis_SHA3 158e16 15|11w6 27r7 131r7 138r10 189r7 199r10 312r10 396r7
+. 409r10 479r10 487r7 560r10 565r7
+57U14*SHA3_256 15|27s19 131s19 312s22 479s22 560s22 565s19
+109U14*SHAKE256 15|138s22 189s19 199s22 396s19 409s22 487s19
+X 11 anubis_types.ads
+5K9*Anubis_Types 40e17 14|14w6 14r24
+14A9*Byte_Array(13M12)<integer> 14|55r57 61r24 63r24 67r52 73r24 84r24 85r24
+. 86r24 98r24 99r24 104r24 110r53 113r44 115r58 135r24 137r28 138r28 147r24
+. 148r24 160r28 173r24 185r28 205r24 206r28 218r24 236r24 260r24 261r28 271r28
+. 282r24 283r24 15|23r16 24r20 33r20 36r13 57r24 59r28 60r28 62r15 63r21
+. 80r24 81r24 84r18 85r22 105r28 108r18 135r27 166r24 173r21 206r30 249r28
+. 293r24 294r28 327r24 334r20 350r34 400r20 422r24 465r24 466r28 469r20 495r28
+. 499r13 549r24 550r24 552r23 553r22
+X 13 interfac.ads
+38K9*Interfaces 233e15 14|13w6 13r22 15|10w6 10r22
+70M9*Unsigned_8 15|32r16 45r27 67r29 91r17 145r36 213r41 257r22 258r22 259r22
+. 260r22 308r30 309r30 483r26 511r22 512r27 512r41 518r36 518r50 519r37 520r37
+. 523r35 536r22 569r17
+73M9*Unsigned_16 15|42r32 43r19 43r43 524r29 524r52 525r28 536r35 537r35
+84M9*Unsigned_64 14|87r24 111r52 125r24 126r24 136r24 149r24 295r24 15|58r24
+. 82r24 109r21 143r37 148r19 584r24
+X 14 scarab_aadkg.ads
+17K9*Scarab_AADKG 337l5 337e17 15|15b14 693l5 693t17
+25N4*Committee_Size 92r57 15|144r43 149r36 402r42 655r50
+28N4*Threshold 41r50 276r47 15|342r32 388r24 456r29 504r28 593r41
+31N4*Max_Parties 40r46 15|347r22 449r22
+34N4*Phase_Timeout 15|592r52 601r56 606r56 611r56
+40I12*Party_Index{natural} 59r24 60r24 71r24 77r34 77r47 80r39 88r24 92r34
+. 97r24 113r28 114r31 116r52 172r24 217r24 235r24 248r24 320r24 15|152r55
+. 165r24 203r24 326r24 346r21 402r19 421r24 442r24 448r21 635r24 655r27
+41I12*Threshold_Range{natural} 55r37 67r32
+44E9*AADKG_Phase 52e5 120r24 304r52 15|625r52
+45n7*Phase_0_Commitment{44E9} 15|590r15
+46n7*Phase_1_Distribution{44E9} 15|594r34 600r15 645r25
+47n7*Phase_2_Verification{44E9} 15|602r31 605r15 654r25
+48n7*Phase_3_Aggregation{44E9} 243r35 15|607r31 610r15
+49n7*Phase_4_Recovery{44E9} 15|615r15
+50n7*Complete{44E9} 15|612r31 615r34 622r28
+51n7*Failed{44E9} 15|596r34 615r45
+55A9*Polynomial_Coeffs(11|14A9)<integer> 15|31r16 172r16
+58R9*Encrypted_Share 64e14 77r63 114r47 184r24 196r24 203r24 334r44 15|248r24
+. 276r24 291r24 349r33 680r44
+59i7*Sender{40I12} 15|177m24 236m38 257r40 281r16 308r48 682m9
+60i7*Recipient{40I12} 15|178m24 237m38 258r40 309r48 355r49 683m9
+61a7*Ciphertext{11|14A9} 15|179m24 238m38 264r38 360r38 371r51 684r18 685m12
+62i7*CT_Length{natural} 15|180m24 239m38 259r40 260r41 262r27 268r30 355r25
+. 450r54 656r48 687m9
+63a7*Signature{11|14A9} 15|181m24 688r18 689m12
+67A9*Commit_Array(11|14A9)<integer> 72r24
+70R9*Poly_Commitment 74e14 80r55 176r28 197r24 204r24 15|169r28 277r24 292r24
+71i7*Party{40I12} 15|183m21 197m21 281r37 646r39
+72a7*Commits{67A9} 15|184m21 199m58 313r24 403r38 405r66
+73a7*Signature{11|14A9} 15|185m21
+77A9*Share_Registry(58R9)<integer><integer> 122r24 219r24 15|328r24
+80A9*Commitment_Registry(70R9)<integer> 123r24 220r24 15|329r24
+83R9*Committee_Member 89e14 93r10 112r53
+84a7*Address{11|14A9} 15|113m24
+85a7*KEM_PK{11|14A9} 15|114m24
+86a7*DSA_PK{11|14A9} 15|115m24
+87m7*Stake{13|84M9} 15|116m24
+88i7*Index{40I12} 15|117m24 152m46
+92A9*Committee_Type(83R9)<integer> 121r24 159r28 15|104r28
+96R9*Key_Share 100e14 221r28 238r28 259r24 331r40 15|330r28 424r28 464r24
+. 669r40
+97i7*Index{40I12} 15|337m22 392m22 483r44 671m9
+98a7*Share_Value{11|14A9} 15|338m22 393m22 475r37 672r18 673m12
+99a7*Verification{11|14A9} 15|339m22 396m56 675r18 676m12
+103R9*Threshold_PK 107e14 222r28 239r28 281r24 15|331r28 425r28 548r24
+104a7*Combined{11|14A9} 15|340m19 409m53 556r36
+105i7*Participants{natural} 15|341m19 412m19
+106i7*Threshold{natural} 15|342m19
+110A9*Reveal_Array(11|14A9)<integer> 156r24 15|101r24
+111A9*Stake_Array(13|84M9)<integer> 157r24 15|102r24
+112A9*Member_Array(83R9)<integer> 158r24 15|103r24
+113A9*PK_Array(11|14A9)<integer> 174r24 15|167r24
+114A9*Share_Array(58R9)<integer> 175r28 15|168r28
+115A9*Partial_Sig_Array(11|14A9)<integer> 269r24 15|493r24
+116A9*Index_Array(40I12)<integer> 270r24 15|494r24
+119R9*AADKG_State 127e14 237r24 249r24 294r31 300r34 304r32 321r24 15|423r24
+. 443r24 583r31 620r34 625r32 636r24
+120e7*Phase{44E9} 243r26 15|589r18 594m25 596m25 602m22 607m22 612m22 622r20
+. 627r20 645r16 654r16
+121a7*Committee{92A9}
+122a7*Shares{77A9} 15|433r22 450r28 656r22
+123a7*Commitments{80A9} 15|434r22 646r19
+124i7*Participants{natural} 15|593r25
+125m7*Start_Block{13|84M9} 15|592r38 601r38 606r38 611r38
+126m7*Current_Block{13|84M9} 15|587m13
+134U14*Generate_Commitment 135>7 136>7 137<7 138<7 15|56b14 77l8 77t27 87s7
+135a7 My_Random{11|14A9} 141r14 15|57b7 71r22 74r26
+136m7 My_Stake{13|84M9} 15|58b7 67r42
+137a7 Commitment{11|14A9} 142r18 15|59b7 76m29
+138a7 Reveal_Data{11|14A9} 143r18 15|60b7 71m7
+146V13*Verify_Reveal{boolean} 147>7 148>7 149>7 15|79b13 98l8 98t21
+147a7 Commitment{11|14A9} 152r14 15|80b7 94r30
+148a7 Reveal{11|14A9} 152r41 15|81b7 87r28
+149m7 Stake{13|84M9} 15|82b7 87r36
+155U14*Select_Committee 156>7 157>7 158>7 159<7 160<7 15|100b14 158l8 158t24
+156a7 All_Reveals{110A9} 163r14 15|101b7 123r16 125r46
+157a7 All_Stakes{111A9} 163r35 15|102b7 127r39 144r20
+158a7 All_Keys{112A9} 15|103b7 140r19 146r40 151r49
+159a7 Committee{92A9} 15|104b7 112r16 113m10 114m10 115m10 116m10 117m10
+. 151m19 152m19
+160a7 Selection_Seed{11|14A9} 164r18 15|105b7 119m7 131m39 138r32
+171U14*Generate_And_Encrypt_Shares 172>7 173>7 174>7 175<7 176<7 177<7 15|164b14
+. 245l8 245t35
+172i7 My_Index{40I12} 15|165b7 197r30 236r48
+173a7 My_Randomness{11|14A9} 180r14 15|166b7 189r29 217r38
+174a7 Recipient_PKs{113A9} 15|167b7 221r29
+175a7 Encrypted{114A9} 15|168b7 176r16 177m10 178m10 179m10 180m10 181m10
+. 204r25 236m16 237m16 238m16 239m16
+176r7 My_Commitment{70R9} 15|169b7 183m7 184m7 185m7 197m7 199m44 199r44
+177b7 Success{boolean} 15|170b7 186m7 244m7
+183U14*Post_Share 184>7 185<7 186<7 15|247b14 269l8 269t18
+184r7 Share{58R9} 15|248b7 257r34 258r34 259r34 260r35 262r21 264r32 268r24
+185a7 Tx_Data{11|14A9} 15|249b7 255m7 257m7 258m7 259m7 260m7 263r21 264m13
+186i7 Tx_Length{natural} 15|250b7 268m7
+195V13*Verify_Share_Commitment{boolean} 196>7 197>7 15|275b13 288l8 288t31
+. 375s22
+196r7 Share{58R9} 15|276b7 281r10
+197r7 Commitment{70R9} 15|277b7 281r26
+202U14*Generate_Fraud_Proof 203>7 204>7 205>7 206<7 207<7 15|290b14 319l8
+. 319t28
+203r7 Share{58R9} 15|291b7 308r42 309r42
+204r7 Commitment{70R9} 15|292b7 313r13
+205a7 Decrypted{11|14A9} 15|293b7 303r10 305r35 305r46 305r65
+206a7 Fraud_Proof{11|14A9} 15|294b7 298m7 305m10 308m10 309m10 314m13 314r13
+207b7 Success{boolean} 15|295b7 299m7 317m10
+216U14*Aggregate_My_Share 217>7 218>7 219>7 220>7 221<7 222<7 223<7 15|325b14
+. 414l8 414t26 430s7
+217i7 My_Index{40I12} 15|326b7 349r72 355r61 392r31
+218a7 My_KEM_SK{11|14A9} 226r14 15|327b7 357r32
+219a7 All_Shares{77A9} 15|328b7 349r52
+220a7 All_Commits{80A9} 15|329b7 375r54 403r22 405r50
+221r7 My_Final_Share{96R9} 15|330b7 337m7 338m7 339m7 392m7 393m7 396m41
+. 396r41
+222r7 Combined_PK{103R9} 15|331b7 340m7 341m7 342m7 409m41 409r41 412m7
+223b7 Success{boolean} 15|332b7 343m7 413m7
+234U14*Recover_From_Chain 235>7 236>7 237>7 238<7 239<7 240<7 15|420b14 439l8
+. 439t26
+235i7 My_Index{40I12} 15|421b7 431r10
+236a7 My_KEM_SK{11|14A9} 244r18 15|422b7 432r10
+237r7 Chain_State{119R9} 243r14 15|423b7 433r10 434r10
+238r7 My_Final_Share{96R9} 15|424b7 435m10
+239r7 Combined_PK{103R9} 15|425b7 436m10
+240b7 Success{boolean} 15|426b7 437m10
+247V13*Can_Recover{boolean} 248>7 249>7 15|441b13 457l8 457t19
+248i7 My_Index{40I12} 15|442b7 450r44
+249r7 Chain_State{119R9} 15|443b7 450r16
+258U14*Sign_Partial 259>7 260>7 261<7 262<7 15|463b14 490l8 490t20
+259r7 Share{96R9} 15|464b7 475r31 483r38
+260a7 Message{11|14A9} 15|465b7 476r10 477r35 477r44 477r61 479r32
+261a7 Partial_Sig{11|14A9} 265r14 15|466b7 471m7 487m41 487r41 487r54 487r75
+262b7 Success{boolean} 15|467b7 472m7 489m7
+268U14*Combine_Signatures 269>7 270>7 271<7 272<7 15|492b14 545l8 545t26
+269a7 Partials{115A9} 275r14 276r27 15|493b7 504r10 509r16 515r22 534r23
+. 536r48
+270a7 Indices{116A9} 275r32 15|494b7 512r53 518r62
+271a7 Combined_Sig{11|14A9} 277r18 15|495b7 501m7 543m7
+272b7 Success{boolean} 15|496b7 502m7 544m7
+280V13*Verify_Threshold_Sig{boolean} 281>7 282>7 283>7 15|547b13 576l8 576t28
+281r7 PK{103R9} 15|548b7 556r33
+282a7 Message{11|14A9} 15|549b7 557r10 558r37 558r46 558r63 560r32
+283a7 Signature{11|14A9} 286r14 15|550b7 562r35 562r46 562r65 572r52 572r63
+293U14*Advance_Phase 294=7 295>7 15|582b14 618l8 618t21
+294r7 State{119R9} 15|583b7 587m7 589r12 592r32 593r19 594m19 596m19 601r32
+. 602m16 606r32 607m16 611r32 612m16
+295m7 Current_Block{13|84M9} 15|584b7 587r30 592r16 601r16 606r16 611r16
+300V13*Is_Complete{boolean} 300>26 15|620b13 623l8 623t19
+300r26 State{119R9} 15|620b26 622r14
+304V13*Get_Phase{44E9} 304>24 15|625b13 628l8 628t17
+304r24 State{119R9} 15|625b24 627r14
+311E9*Slashing_Reason 316e5 323r28 15|638r28
+312n7*Invalid_Share{311E9}
+313n7*Missing_Commitment{311E9} 15|642r17 647r23
+314n7*Missing_Share{311E9} 15|657r26
+315n7*Equivocation{311E9}
+319U14*Check_Slash 320>7 321>7 322<7 323<7 15|634b14 663l8 663t19
+320i7 Party{40I12} 15|635b7 646r32 646r48 656r30
+321r7 State{119R9} 15|636b7 645r10 646r13 654r10 656r16
+322b7 Should_Slash{boolean} 15|637b7 641m7 648m13 658m16
+323e7 Reason{311E9} 15|638b7 642m7 647m13 657m16
+331U14*Zeroize_Share 331=29 15|669b14 678l8 678t21
+331r29 S{96R9} 15|669b29 671m7 672r16 673m10 675r16 676m10
+334U14*Zeroize_Encrypted 334=33 15|680b14 691l8 691t25
+334r33 E{58R9} 15|680b33 682m7 683m7 684r16 685m10 687m7 688r16 689m10
+X 15 scarab_aadkg.adb
+22U14 Hash_To_Field 22b14 23>7 24<7 28l8 28t21 76s7
+23a7 Data{11|14A9} 27r29
+24a7 Result{11|14A9} 27m35
+30U14 Polynomial_Eval 30b14 31>7 32>7 33<7 50l8 50t23 213s16
+31a7 Coeffs{14|55A9} 38r24 45r57
+32m7 X{13|70M9} 43r56
+33a7 Result{11|14A9} 49m7
+36a7 Acc{11|14A9} 40r19 43r32 45m16 49r17
+38i11 I{integer} 45r65
+40i14 J{integer} 43r37 45r21 45r68
+42m16 Temp{13|73M9} 45r39
+62a7 Input{11|14A9} 74m7 75m7 76r22
+63a7 Stake_Bytes{11|14A9} 67m10 75r27
+66i11 I{integer} 67r23 67r61
+84a7 Expected{11|14A9} 87m43 94r49
+85a7 Dummy_Reveal{11|14A9} 87m53
+91m10 Diff{13|70M9} 94m13 94r21 96r17
+93i14 I{integer} 94r42 94r59
+108a7 Combined{11|14A9} 122m7 125m13 125r29 131r29
+109m7 Total_Stake{13|84M9} 127m10 127r25 144r61
+112i11 I{integer} 113r21 114r21 115r21 116r21 117r21
+123i11 I{integer} 125r59 127r51
+124i14 J{integer} 125r23 125r39 125r62
+135a10 Selection_Hash{11|14A9} 138m48 146r19
+136i10 Selected_Count{natural} 149r19 151r30 152r30 152r68 153m19 153r37
+140i14 I{integer} 144r32 146r36 151r59
+143m16 Threshold{13|84M9} 148r44
+145m16 Hash_Val{13|70M9} 148r32
+172a7 Coeffs{14|55A9} 190r16 192m13 198r16 199r32 213r33
+173a7 Coeffs_Seed{11|14A9} 189m44 192r30
+176i11 I{integer} 177r21 178r21 179r21 180r21 181r21
+190i11 I{integer} 192r21 192r43
+191i14 J{integer} 192r24 192r52
+198i11 I{integer} 199r40 199r67
+203i11 Recipient{14|40I12} 204r13 213r53 221r44 236r27 237r27 237r51 238r27
+. 239r27
+206a16 Share_Value{11|14A9} 213m69 232r25 233r36
+207a16 CT_Buffer{9|77A12} 228m31 233m19 238r52
+208a16 SS_Buffer{9|72A12} 227m31 233r56
+209a16 Random_Seed{9|69A12} 217m19 226r31
+210a16 EK_Buffer{9|75A12} 221m16 225r31
+216i20 J{integer} 217r32 217r58
+232i20 J{integer} 233r30 233r49 233r67
+262i11 I{integer} 263r17 264r26 264r50
+334a7 Aggregated{11|14A9} 377r31 378m25 378r43 393r37 396r29
+335i7 Share_Count{natural} 380m22 380r37 388r10 412r35
+346i11 Sender{14|40I12} 347r13 349r64 375r67
+349r16 Share{14|58R9} 355r19 355r43 360r32 371r45 375r47
+350a16 Decrypted_Share{11|14A9} 370r28 371m22 378r62
+351a16 SS_Buffer{9|72A12} 366m28 371r70
+352a16 DK_Buffer{9|76A12} 357m19 364r28
+353a16 CT_Buffer{9|77A12} 360m19 365r28
+370i23 J{integer} 371r39 371r63 371r81
+377i26 J{integer} 378r37 378r55 378r79
+400a10 PK_Data{11|14A9} 405m19 405r34 409r32
+402i14 I{integer} 403r35 405r63
+403i17 J{integer} 404r19 405r28 405r43 405r78
+445i7 Share_Count{natural} 451m16 451r31 456r14
+448i11 Sender{14|40I12} 449r13 450r36
+469a7 Sign_Input{11|14A9} 475m7 477m10 479m41 479r41 483m7 484m7 487r29
+499a7 Acc{11|14A9} 535m19 535r30 543r23
+509i11 I{integer} 512r62 516r24 534r33 536r58
+511m13 Lambda{13|70M9} 523m25 524r42 537r48
+512m13 Xi{13|70M9} 520r51
+515i17 J{integer} 516r19 518r71
+518m22 Xj{13|70M9} 519r55 520r56
+519m22 Num{13|70M9} 524r65
+520m22 Den{13|70M9} 522r25 525r41
+533i17 K{integer} 534r19 535r24 535r35 536r61
+552a7 Expected_Hash{11|14A9} 565m43 572r30
+553a7 Verify_Input{11|14A9} 556m7 558m10 560m41 560r41 562m7 565r29
+569m10 Diff{13|70M9} 572m13 572r21 574r17
+571i14 I{integer} 572r45 572r86
+655i14 Recipient{integer} 656r37
+672i11 I{integer} 673r25
+675i11 I{integer} 676r26
+684i11 I{integer} 685r24
+688i11 I{integer} 689r23
+

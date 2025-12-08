@@ -1,0 +1,183 @@
+[
+{
+  "name": "Anubis_Token.Genesis_Mint.Remaining",
+  "location": "anubis_token.adb:81:7",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Anubis_Token.Apply_Certification.Required",
+  "location": "anubis_token.adb:152:7",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Anubis_Token.Upgrade_Certification.Required_New",
+  "location": "anubis_token.adb:185:7",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Anubis_Token.Upgrade_Certification.Total_Deposit",
+  "location": "anubis_token.adb:186:7",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Anubis_Token.Revoke_Certification.Deposit",
+  "location": "anubis_token.adb:221:7",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Anubis_Token.Revoke_Certification.Burn_Amount",
+  "location": "anubis_token.adb:222:7",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Anubis_Token.Burn_Base_Fee.Burn_Amount",
+  "location": "anubis_token.adb:276:7",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Anubis_Token.Burn_Proposal_Bond.Burn_Amount",
+  "location": "anubis_token.adb:290:7",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Anubis_Token.Burn_Slashing.Burn_Amount",
+  "location": "anubis_token.adb:305:7",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Anubis_Token.Burn_Privacy_Fee.Burn_Amount",
+  "location": "anubis_token.adb:319:7",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Anubis_Token.Get_Remaining.Alloc",
+  "location": "anubis_token.adb:349:7",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Anubis_Token.Get_Remaining.Used",
+  "location": "anubis_token.adb:350:7",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Anubis_Token.To_Display_String.Temp",
+  "location": "anubis_token.adb:386:7",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Anubis_Token.To_Display_String.Idx",
+  "location": "anubis_token.adb:387:7",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Anubis_Token.To_Display_String.Decimals_Placed",
+  "location": "anubis_token.adb:388:7",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Anubis_Token.From_Display_String.Temp",
+  "location": "anubis_token.adb:427:7",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Anubis_Token.From_Display_String.Decimal_Pos",
+  "location": "anubis_token.adb:428:7",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Anubis_Token.From_Display_String.Decimals",
+  "location": "anubis_token.adb:429:7",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Anubis_Token.Serialize_Account.Idx",
+  "location": "anubis_token.adb:560:7",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Anubis_Token.Serialize_Account.B_7.Bal",
+  "location": "anubis_token.adb:574:10",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Anubis_Token.Serialize_Account.B_9.N",
+  "location": "anubis_token.adb:587:10",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Anubis_Token.Serialize_Account.B_11.D",
+  "location": "anubis_token.adb:612:10",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Anubis_Token.Deserialize_Account.Idx",
+  "location": "anubis_token.adb:631:7",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Anubis_Token.Serialize_Token_State.Idx",
+  "location": "anubis_token.adb:705:7",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Anubis_Token.Serialize_Token_State.Write_U64.V",
+  "location": "anubis_token.adb:708:10",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Anubis_Token.Deserialize_Token_State.Idx",
+  "location": "anubis_token.adb:743:7",
+  "Size": 32,
+  "Alignment": 4
+}
+]

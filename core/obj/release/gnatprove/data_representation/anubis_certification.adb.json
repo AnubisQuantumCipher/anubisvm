@@ -1,0 +1,57 @@
+[
+{
+  "name": "Anubis_Certification.Apply_Certification.Required_Deposit",
+  "location": "anubis_certification.adb:47:7",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Anubis_Certification.Verify_Certification.B_5.Has_Audit",
+  "location": "anubis_certification.adb:176:16",
+  "Size": 8,
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Certification.Upgrade_Level.Required",
+  "location": "anubis_certification.adb:225:7",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Anubis_Certification.Downgrade_Level.Old_Deposit",
+  "location": "anubis_certification.adb:248:7",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Anubis_Certification.Downgrade_Level.New_Deposit",
+  "location": "anubis_certification.adb:249:7",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Anubis_Certification.Calculate_Discounted_Gas.Discount_Bp",
+  "location": "anubis_certification.adb:305:7",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Anubis_Certification.Calculate_Discounted_Gas.Discount_Amount",
+  "location": "anubis_certification.adb:306:7",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Anubis_Certification.Apply_Gas_Discount.Saved",
+  "location": "anubis_certification.adb:319:7",
+  "Size": 64,
+  "Alignment": 8
+}
+]

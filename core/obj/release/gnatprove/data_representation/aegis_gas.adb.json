@@ -1,0 +1,57 @@
+[
+{
+  "name": "Aegis_Gas.Consume_Gas_Discounted.Discounted",
+  "location": "aegis_gas.adb:61:7",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Gas_Memory_Expansion.B_1.Mem_Cost.W",
+  "location": "aegis_gas.adb:121:13",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Gas_Memory_Expansion.B_1.New_Cost",
+  "location": "aegis_gas.adb:126:10",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Gas_Memory_Expansion.B_1.Old_Cost",
+  "location": "aegis_gas.adb:127:10",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Gas_Call_Complex.Cost",
+  "location": "aegis_gas.adb:138:7",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Gas_Call_Complex.B_2.Max_For_Call",
+  "location": "aegis_gas.adb:150:10",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Gas_Privacy_Operation.Base_Cost",
+  "location": "aegis_gas.adb:204:7",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Gas_Privacy_Operation.Per_Byte",
+  "location": "aegis_gas.adb:205:7",
+  "Size": 64,
+  "Alignment": 8
+}
+]

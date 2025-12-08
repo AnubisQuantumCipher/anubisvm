@@ -1,0 +1,160 @@
+anubis_mldsa_sample.adb:21:07: info: initialization of "Buffer" proved
+anubis_mldsa_sample.adb:24:07: info: initialization of "Val" proved
+anubis_mldsa_sample.adb:29:22: info: assertion proved
+anubis_mldsa_sample.adb:32:07: info: precondition proved
+
+anubis_mldsa_sample.adb:35:26: medium: aspect Always_Terminates on "RejNTTPoly" could be incorrect, loop might be nonterminating
+   35 |      while Coef_Idx < N loop
+      |                         ^~~~
+  possible fix: add loop variant in the loop body
+anubis_mldsa_sample.adb:36:33: info: loop invariant initialization proved
+anubis_mldsa_sample.adb:36:33: info: loop invariant preservation proved
+anubis_mldsa_sample.adb:37:33: info: loop invariant preservation proved
+anubis_mldsa_sample.adb:37:33: info: loop invariant initialization proved
+anubis_mldsa_sample.adb:42:13: info: precondition proved
+anubis_mldsa_sample.adb:47:25: info: assertion proved
+anubis_mldsa_sample.adb:48:25: info: assertion proved
+anubis_mldsa_sample.adb:48:33: info: overflow check proved
+anubis_mldsa_sample.adb:51:38: info: index check proved
+anubis_mldsa_sample.adb:52:58: info: overflow check proved
+anubis_mldsa_sample.adb:52:58: info: index check proved
+anubis_mldsa_sample.adb:53:58: info: overflow check proved
+anubis_mldsa_sample.adb:53:58: info: index check proved
+anubis_mldsa_sample.adb:55:29: info: overflow check proved
+anubis_mldsa_sample.adb:59:19: info: index check proved
+anubis_mldsa_sample.adb:60:34: info: overflow check proved
+anubis_mldsa_sample.adb:71:07: info: initialization of "Buffer" proved
+anubis_mldsa_sample.adb:74:07: info: initialization of "B" proved
+anubis_mldsa_sample.adb:75:07: info: initialization of "T0" proved
+anubis_mldsa_sample.adb:75:11: info: initialization of "T1" proved
+anubis_mldsa_sample.adb:80:22: info: assertion proved
+anubis_mldsa_sample.adb:83:07: info: precondition proved
+
+anubis_mldsa_sample.adb:86:26: medium: aspect Always_Terminates on "RejBoundedPoly" could be incorrect, loop might be nonterminating
+   86 |      while Coef_Idx < N loop
+      |                         ^~~~
+  possible fix: add loop variant in the loop body
+anubis_mldsa_sample.adb:88:13: info: precondition proved
+anubis_mldsa_sample.adb:92:23: info: index check proved
+anubis_mldsa_sample.adb:93:29: info: overflow check proved
+anubis_mldsa_sample.adb:102:20: info: overflow check proved
+anubis_mldsa_sample.adb:103:22: info: index check proved
+anubis_mldsa_sample.adb:103:54: info: overflow check proved
+anubis_mldsa_sample.adb:103:54: info: range check proved
+anubis_mldsa_sample.adb:105:22: info: index check proved
+anubis_mldsa_sample.adb:105:52: info: overflow check proved
+anubis_mldsa_sample.adb:105:52: info: range check proved
+anubis_mldsa_sample.adb:105:59: info: overflow check proved
+anubis_mldsa_sample.adb:107:34: info: overflow check proved
+anubis_mldsa_sample.adb:111:20: info: overflow check proved
+anubis_mldsa_sample.adb:112:22: info: index check proved
+anubis_mldsa_sample.adb:112:54: info: overflow check proved
+anubis_mldsa_sample.adb:112:54: info: range check proved
+anubis_mldsa_sample.adb:114:22: info: index check proved
+anubis_mldsa_sample.adb:114:52: info: overflow check proved
+anubis_mldsa_sample.adb:114:52: info: range check proved
+anubis_mldsa_sample.adb:114:59: info: overflow check proved
+anubis_mldsa_sample.adb:116:34: info: overflow check proved
+anubis_mldsa_sample.adb:140:13: info: precondition proved
+anubis_mldsa_sample.adb:161:41: info: division check proved
+anubis_mldsa_sample.adb:161:41: info: range check proved
+anubis_mldsa_sample.adb:162:41: info: division check proved
+anubis_mldsa_sample.adb:162:41: info: range check proved
+anubis_mldsa_sample.adb:163:29: info: overflow check proved
+anubis_mldsa_sample.adb:165:10: info: precondition proved
+anubis_mldsa_sample.adb:165:26: info: range check proved
+anubis_mldsa_sample.adb:170:41: info: division check proved
+anubis_mldsa_sample.adb:170:41: info: range check proved
+anubis_mldsa_sample.adb:171:41: info: division check proved
+anubis_mldsa_sample.adb:171:41: info: range check proved
+anubis_mldsa_sample.adb:172:29: info: overflow check proved
+anubis_mldsa_sample.adb:174:10: info: precondition proved
+anubis_mldsa_sample.adb:174:26: info: range check proved
+anubis_mldsa_sample.adb:186:07: info: initialization of "Buffer" proved
+anubis_mldsa_sample.adb:187:07: info: initialization of "Buf_Idx" proved
+anubis_mldsa_sample.adb:188:07: info: initialization of "Val" proved
+anubis_mldsa_sample.adb:189:07: info: initialization of "Centered" proved
+anubis_mldsa_sample.adb:204:49: info: overflow check proved
+anubis_mldsa_sample.adb:204:49: info: range check proved
+anubis_mldsa_sample.adb:206:44: info: division check proved
+anubis_mldsa_sample.adb:206:44: info: range check proved
+anubis_mldsa_sample.adb:207:45: info: division check proved
+anubis_mldsa_sample.adb:207:52: info: division check proved
+anubis_mldsa_sample.adb:207:52: info: range check proved
+anubis_mldsa_sample.adb:211:10: info: precondition proved
+anubis_mldsa_sample.adb:211:20: info: range check proved
+anubis_mldsa_sample.adb:218:36: info: loop invariant initialization proved
+anubis_mldsa_sample.adb:218:36: info: loop invariant preservation proved
+anubis_mldsa_sample.adb:218:49: info: division check proved
+anubis_mldsa_sample.adb:219:36: info: loop invariant initialization proved
+anubis_mldsa_sample.adb:219:36: info: loop invariant preservation proved
+anubis_mldsa_sample.adb:222:18: info: division check proved
+anubis_mldsa_sample.adb:225:44: info: index check proved
+anubis_mldsa_sample.adb:226:64: info: overflow check proved
+anubis_mldsa_sample.adb:226:64: info: index check proved
+anubis_mldsa_sample.adb:227:64: info: overflow check proved
+anubis_mldsa_sample.adb:227:64: info: index check proved
+anubis_mldsa_sample.adb:231:65: info: overflow check proved
+anubis_mldsa_sample.adb:231:65: info: index check proved
+anubis_mldsa_sample.adb:232:64: info: overflow check proved
+anubis_mldsa_sample.adb:232:64: info: index check proved
+anubis_mldsa_sample.adb:233:64: info: overflow check proved
+anubis_mldsa_sample.adb:233:64: info: index check proved
+anubis_mldsa_sample.adb:235:35: info: overflow check proved
+anubis_mldsa_sample.adb:240:57: info: range check proved
+anubis_mldsa_sample.adb:243:44: info: range check proved
+anubis_mldsa_sample.adb:245:56: info: overflow check proved
+anubis_mldsa_sample.adb:245:56: info: range check proved
+anubis_mldsa_sample.adb:259:07: info: initialization of "Buffer" proved
+anubis_mldsa_sample.adb:260:07: info: initialization of "Signs" proved
+
+anubis_mldsa_sample.adb:262:07: warning: initialization of "J" has no effect
+  262 |      J : Natural := 0;  --  Initialize to avoid garbage
+      |      ^~~~~~~~~~~~~~~~
+anubis_mldsa_sample.adb:263:07: info: initialization of "B" proved
+anubis_mldsa_sample.adb:269:22: info: assertion proved
+anubis_mldsa_sample.adb:272:07: info: precondition proved
+
+anubis_mldsa_sample.adb:288:10: medium: aspect Always_Terminates on "SampleInBall" could be incorrect, loop might be nonterminating
+  288 |         loop
+      |         ^~~~
+  possible fix: add loop variant in the loop body
+anubis_mldsa_sample.adb:296:26: info: index check proved
+anubis_mldsa_sample.adb:297:32: info: overflow check proved
+anubis_mldsa_sample.adb:304:22: info: index check proved
+anubis_mldsa_sample.adb:308:16: info: index check proved
+anubis_mldsa_sample.adb:310:16: info: index check proved
+anubis_mldsa_sample.ads:19:14: info: aspect Always_Terminates on "ExpandA" has been proved, subprogram will terminate
+anubis_mldsa_sample.ads:21:07: info: initialization of "A_Hat" proved
+anubis_mldsa_sample.ads:23:07: info: data dependencies proved
+
+anubis_mldsa_sample.ads:25:04: warning: Terminating, Always_Return, and Might_Not_Return annotations are deprecated, ignored
+   25 |   pragma Annotate (GNATprove, Terminating, ExpandA);
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  replace "pragma Annotate (gnatprove, terminating, ...)" by "with Always_Terminates" on the corresponding entity
+anubis_mldsa_sample.ads:32:07: info: initialization of "S1" proved
+anubis_mldsa_sample.ads:33:07: info: initialization of "S2" proved
+anubis_mldsa_sample.ads:35:07: info: data dependencies proved
+anubis_mldsa_sample.ads:45:07: info: initialization of "Y" proved
+anubis_mldsa_sample.ads:47:07: info: data dependencies proved
+anubis_mldsa_sample.ads:54:07: info: initialization of "C" proved
+anubis_mldsa_sample.ads:56:07: info: data dependencies proved
+
+anubis_mldsa_sample.ads:59:04: warning: Terminating, Always_Return, and Might_Not_Return annotations are deprecated, ignored
+   59 |   pragma Annotate (GNATprove, Terminating, SampleInBall);
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  replace "pragma Annotate (gnatprove, terminating, ...)" by "with Always_Terminates" on the corresponding entity
+anubis_mldsa_sample.ads:64:07: info: initialization of "Poly" proved
+anubis_mldsa_sample.ads:66:07: info: data dependencies proved
+
+anubis_mldsa_sample.ads:69:04: warning: Terminating, Always_Return, and Might_Not_Return annotations are deprecated, ignored
+   69 |   pragma Annotate (GNATprove, Terminating, RejNTTPoly);
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  replace "pragma Annotate (gnatprove, terminating, ...)" by "with Always_Terminates" on the corresponding entity
+anubis_mldsa_sample.ads:74:07: info: initialization of "Poly" proved
+anubis_mldsa_sample.ads:76:07: info: data dependencies proved
+
+anubis_mldsa_sample.ads:79:04: warning: Terminating, Always_Return, and Might_Not_Return annotations are deprecated, ignored
+   79 |   pragma Annotate (GNATprove, Terminating, RejBoundedPoly);
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  replace "pragma Annotate (gnatprove, terminating, ...)" by "with Always_Terminates" on the corresponding entity

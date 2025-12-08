@@ -1,0 +1,8 @@
+anubis_session.adb:103:35: warning: condition is always True [-gnatwc]
+anubis_session.adb:109:35: warning: explicit membership test may be optimized away [enabled by default]
+anubis_session.adb:109:35: warning: use 'Valid attribute instead [enabled by default]
+anubis_session.adb:115:35: warning: range test optimized away [-gnatwc]
+anubis_session.adb:115:35: warning: value is known to be in range [-gnatwc]
+anubis_session.adb:125:35: warning: explicit membership test may be optimized away [enabled by default]
+anubis_session.adb:125:35: warning: use 'Valid attribute instead [enabled by default]
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]

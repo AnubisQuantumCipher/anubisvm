@@ -1,0 +1,386 @@
+{
+  "spark": {
+    " 4": "all",
+    " 3": "all",
+    " 2": "all",
+    " 1": "all",
+    " 5": "all"
+  },
+  "skip_flow_proof": [
+  ],
+  "skip_proof": [
+  ],
+  "progress": "PROGRESS_PROOF",
+  "stop_reason": "STOP_REASON_NONE",
+  "flow": [
+    {
+      "file": "anubis_address_types.ads",
+      "line": 118,
+      "col": 13,
+      "rule": "SUBPROGRAM_TERMINATION",
+      "severity": "info",
+      "entity": 1,
+      "check_tree": {
+      },
+      "msg_id": 0,
+      "how_proved": "flow"
+    },
+    {
+      "file": "anubis_address_types.ads",
+      "line": 108,
+      "col": 13,
+      "rule": "SUBPROGRAM_TERMINATION",
+      "severity": "info",
+      "entity": 2,
+      "check_tree": {
+      },
+      "msg_id": 1,
+      "how_proved": "flow"
+    },
+    {
+      "file": "anubis_address_types.ads",
+      "line": 97,
+      "col": 13,
+      "rule": "SUBPROGRAM_TERMINATION",
+      "severity": "info",
+      "entity": 3,
+      "check_tree": {
+      },
+      "msg_id": 2,
+      "how_proved": "flow"
+    }
+  ],
+  "pragma_assume": [
+  ],
+  "proof": [
+    {
+      "file": "anubis_address_types.ads",
+      "line": 115,
+      "col": 15,
+      "rule": "VC_POSTCONDITION",
+      "severity": "info",
+      "entity": 2,
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC5": {
+              "result": "Valid",
+              "steps": 1,
+              "time": 0
+            },
+            "Z3": {
+              "result": "High failure",
+              "steps": 1,
+              "time": 0
+            },
+            "altergo": {
+              "result": "High failure",
+              "steps": 1,
+              "time": 0
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "anubis_address_types.ads",
+      "check_line": 115,
+      "check_col": 15,
+      "msg_id": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC5": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 0.00000000000000E+00
+        }
+      }
+    },
+    {
+      "file": "anubis_address_types.ads",
+      "line": 105,
+      "col": 15,
+      "rule": "VC_POSTCONDITION",
+      "severity": "info",
+      "entity": 3,
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC5": {
+              "result": "Valid",
+              "steps": 1,
+              "time": 1.00000000000000E-02
+            },
+            "Z3": {
+              "result": "High failure",
+              "steps": 1,
+              "time": 0
+            },
+            "altergo": {
+              "result": "High failure",
+              "steps": 1,
+              "time": 0
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "anubis_address_types.ads",
+      "check_line": 105,
+      "check_col": 15,
+      "msg_id": 4,
+      "how_proved": "prover",
+      "stats": {
+        "CVC5": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 9.99999977648258E-03
+        }
+      }
+    },
+    {
+      "file": "anubis_address_types.ads",
+      "line": 125,
+      "col": 15,
+      "rule": "VC_POSTCONDITION",
+      "severity": "info",
+      "entity": 1,
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC5": {
+              "result": "Valid",
+              "steps": 1,
+              "time": 0
+            },
+            "Z3": {
+              "result": "High failure",
+              "steps": 1,
+              "time": 1.00000000000000E-02
+            },
+            "altergo": {
+              "result": "High failure",
+              "steps": 1,
+              "time": 0
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "anubis_address_types.ads",
+      "check_line": 125,
+      "check_col": 15,
+      "msg_id": 5,
+      "how_proved": "prover",
+      "stats": {
+        "CVC5": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 0.00000000000000E+00
+        }
+      }
+    }
+  ],
+  "assumptions": [
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_POST",
+        "arg": 1
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": 1
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": 5
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_POST",
+        "arg": 2
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": 2
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_POST",
+        "arg": 3
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": 3
+      }
+    }
+  ],
+  "timings": {
+    "global": {
+      "init_why_sections": 1.86999997822568E-04,
+      "globals (advanced)": 2.32000005780719E-04,
+      "flow analysis": 1.05299998540431E-03,
+      "marking": 4.63000003946945E-04,
+      "translation of standard": 1.15699996240437E-03,
+      "properties (advanced)": 1.89999991562217E-05,
+      "globals (basic)": 4.36000002082437E-04
+    },
+    " 2": {
+      "gnatwhy3.transformations.inline_trivial": 0.00000000000000E+00,
+      "gnatwhy3.transformations.eliminate_algebraic": 0.00000000000000E+00,
+      "gnatwhy3.transformations.detect_polymorphism": 0.00000000000000E+00,
+      "gnat2why.vc_generation": 1.05170002207160E-02,
+      "gnatwhy3.transformations.eliminate_literal": 0.00000000000000E+00,
+      "gnatwhy3.run_vcs": 1.99900000552589E-06,
+      "gnatwhy3.transformations.eliminate_algebraic_if_poly": 0.00000000000000E+00,
+      "gnatwhy3.transformations.eliminate_projections_sums": 0.00000000000000E+00,
+      "gnatwhy3.transformations.eliminate_gnatprove_guard_epsilon": 0.00000000000000E+00,
+      "gnatwhy3.transformations.simplify_formula": 0.00000000000000E+00,
+      "gnatwhy3.transformations.eliminate_recursion": 0.00000000000000E+00,
+      "gnatwhy3.transformations.eliminate_definition_conditionally": 0.00000000000000E+00,
+      "gnatwhy3.transformations.counterexamples_dependent_intros": 0.00000000000000E+00,
+      "gnatwhy3.register_vcs": 0.00000000000000E+00,
+      "gnatwhy3.transformations.eliminate_epsilon": 9.99000008050643E-07,
+      "gnatwhy3.transformations.remove_unused_keep_constants": 0.00000000000000E+00,
+      "gnatwhy3.schedule_vcs": 6.06099888682365E-03,
+      "gnatwhy3.transformations.prepare_for_counterexmp": 0.00000000000000E+00,
+      "gnatwhy3.save_session": 2.11998994927853E-04,
+      "gnatwhy3.transformations.eliminate_inductive": 9.99000008050643E-07,
+      "gnatwhy3.transformations.encoding_smt_if_poly": 0.00000000000000E+00,
+      "gnatwhy3.transformations.eliminate_builtin": 0.00000000000000E+00,
+      "gnatwhy3.transformations.discriminate_if_poly": 9.99000008050643E-07,
+      "gnatwhy3.transformations.introduce_premises": 0.00000000000000E+00,
+      "gnatwhy3.init": 1.55543997883797E-01
+    },
+    " 3": {
+      "gnatwhy3.transformations.inline_trivial": 0.00000000000000E+00,
+      "gnatwhy3.transformations.eliminate_algebraic": 0.00000000000000E+00,
+      "gnatwhy3.transformations.detect_polymorphism": 0.00000000000000E+00,
+      "gnat2why.vc_generation": 6.56699994578958E-03,
+      "gnatwhy3.transformations.eliminate_literal": 9.99000008050643E-07,
+      "gnatwhy3.run_vcs": 1.99900000552589E-06,
+      "gnatwhy3.transformations.eliminate_algebraic_if_poly": 0.00000000000000E+00,
+      "gnatwhy3.transformations.eliminate_projections_sums": 0.00000000000000E+00,
+      "gnatwhy3.transformations.eliminate_gnatprove_guard_epsilon": 0.00000000000000E+00,
+      "gnatwhy3.transformations.simplify_formula": 0.00000000000000E+00,
+      "gnatwhy3.transformations.eliminate_recursion": 0.00000000000000E+00,
+      "gnatwhy3.transformations.eliminate_definition_conditionally": 0.00000000000000E+00,
+      "gnatwhy3.transformations.counterexamples_dependent_intros": 9.99000008050643E-07,
+      "gnatwhy3.register_vcs": 0.00000000000000E+00,
+      "gnatwhy3.transformations.eliminate_epsilon": 9.99000008050643E-07,
+      "gnatwhy3.transformations.remove_unused_keep_constants": 0.00000000000000E+00,
+      "gnatwhy3.schedule_vcs": 1.51239987462759E-02,
+      "gnatwhy3.transformations.prepare_for_counterexmp": 0.00000000000000E+00,
+      "gnatwhy3.save_session": 3.76000010874122E-04,
+      "gnatwhy3.transformations.eliminate_inductive": 0.00000000000000E+00,
+      "gnatwhy3.transformations.encoding_smt_if_poly": 0.00000000000000E+00,
+      "gnatwhy3.transformations.eliminate_builtin": 0.00000000000000E+00,
+      "gnatwhy3.transformations.discriminate_if_poly": 0.00000000000000E+00,
+      "gnatwhy3.transformations.introduce_premises": 0.00000000000000E+00,
+      "gnatwhy3.init": 1.68090000748634E-01
+    },
+    " 5": {
+      "gnat2why.vc_generation": 6.53199991211295E-03
+    },
+    " 1": {
+      "gnatwhy3.transformations.inline_trivial": 9.99000008050643E-07,
+      "gnatwhy3.transformations.eliminate_algebraic": 0.00000000000000E+00,
+      "gnatwhy3.transformations.detect_polymorphism": 0.00000000000000E+00,
+      "gnat2why.vc_generation": 2.16199993155897E-03,
+      "gnatwhy3.transformations.eliminate_literal": 0.00000000000000E+00,
+      "gnatwhy3.run_vcs": 1.99900000552589E-06,
+      "gnatwhy3.transformations.eliminate_algebraic_if_poly": 0.00000000000000E+00,
+      "gnatwhy3.transformations.eliminate_projections_sums": 0.00000000000000E+00,
+      "gnatwhy3.transformations.eliminate_gnatprove_guard_epsilon": 9.99000008050643E-07,
+      "gnatwhy3.transformations.simplify_formula": 0.00000000000000E+00,
+      "gnatwhy3.transformations.eliminate_recursion": 9.99000008050643E-07,
+      "gnatwhy3.transformations.eliminate_definition_conditionally": 0.00000000000000E+00,
+      "gnatwhy3.transformations.counterexamples_dependent_intros": 0.00000000000000E+00,
+      "gnatwhy3.register_vcs": 0.00000000000000E+00,
+      "gnatwhy3.transformations.eliminate_epsilon": 0.00000000000000E+00,
+      "gnatwhy3.transformations.remove_unused_keep_constants": 9.99000008050643E-07,
+      "gnatwhy3.schedule_vcs": 1.69089995324612E-02,
+      "gnatwhy3.transformations.prepare_for_counterexmp": 0.00000000000000E+00,
+      "gnatwhy3.save_session": 1.88998994417489E-04,
+      "gnatwhy3.transformations.eliminate_inductive": 9.99000008050643E-07,
+      "gnatwhy3.transformations.encoding_smt_if_poly": 0.00000000000000E+00,
+      "gnatwhy3.transformations.eliminate_builtin": 0.00000000000000E+00,
+      "gnatwhy3.transformations.discriminate_if_poly": 0.00000000000000E+00,
+      "gnatwhy3.transformations.introduce_premises": 9.99000008050643E-07,
+      "gnatwhy3.init": 1.62784993648529E-01
+    }
+  },
+  "entities": {
+    " 1": {
+      "name": "Anubis_Address_Types.Entity_String",
+      "sloc": [
+        {
+          "file": "anubis_address_types.ads",
+          "line": 118
+        }
+      ]
+    },
+    " 2": {
+      "name": "Anubis_Address_Types.Entity_Char",
+      "sloc": [
+        {
+          "file": "anubis_address_types.ads",
+          "line": 108
+        }
+      ]
+    },
+    " 3": {
+      "name": "Anubis_Address_Types.Network_String",
+      "sloc": [
+        {
+          "file": "anubis_address_types.ads",
+          "line": 97
+        }
+      ]
+    },
+    " 4": {
+      "name": "Anubis_Address_Types",
+      "sloc": [
+        {
+          "file": "anubis_address_types.ads",
+          "line": 28
+        }
+      ]
+    },
+    " 5": {
+      "name": "Anubis_Address_Types.Base32_Charpredicate",
+      "sloc": [
+        {
+          "file": "anubis_address_types.ads",
+          "line": 65
+        }
+      ]
+    }
+  }
+}

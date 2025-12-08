@@ -1,0 +1,3 @@
+khepri_governance.ads:11:06: warning: no entities of "Aegis_U256" are referenced in spec [-gnatwu]
+khepri_governance.ads:11:06: warning: with clause might be moved to body [-gnatwu]
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]

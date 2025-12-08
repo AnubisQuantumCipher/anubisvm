@@ -1,0 +1,243 @@
+anubis_mlkem.adb:19:07: info: initialization of "Output" proved
+anubis_mlkem.adb:21:07: info: initialization of "Digest" proved, in call inlined at anubis_mlkem.adb:138
+anubis_mlkem.adb:21:07: info: initialization of "Digest" proved, in call inlined at anubis_mlkem.adb:478
+anubis_mlkem.adb:21:07: info: initialization of "Digest" proved
+anubis_mlkem.adb:21:07: info: initialization of "Digest" proved, in call inlined at anubis_mlkem.adb:377
+anubis_mlkem.adb:21:07: info: initialization of "Digest" proved, in call inlined at anubis_mlkem.adb:374
+anubis_mlkem.adb:21:07: info: initialization of "Digest" proved, in call inlined at anubis_mlkem.adb:394
+anubis_mlkem.adb:23:07: info: precondition proved, in call inlined at anubis_mlkem.adb:374
+anubis_mlkem.adb:23:07: info: precondition proved, in call inlined at anubis_mlkem.adb:377
+anubis_mlkem.adb:23:07: info: precondition proved, in call inlined at anubis_mlkem.adb:394
+anubis_mlkem.adb:23:07: info: precondition proved, in call inlined at anubis_mlkem.adb:138
+anubis_mlkem.adb:23:07: info: precondition proved, in call inlined at anubis_mlkem.adb:478
+anubis_mlkem.adb:23:17: info: initialization check proved, in call inlined at anubis_mlkem.adb:138
+anubis_mlkem.adb:23:17: info: range check proved, in call inlined at anubis_mlkem.adb:138
+anubis_mlkem.adb:25:33: info: loop invariant initialization proved, in call inlined at anubis_mlkem.adb:374
+anubis_mlkem.adb:25:33: info: loop invariant preservation proved, in call inlined at anubis_mlkem.adb:374
+anubis_mlkem.adb:25:33: info: loop invariant initialization proved, in call inlined at anubis_mlkem.adb:377
+anubis_mlkem.adb:25:33: info: loop invariant preservation proved, in call inlined at anubis_mlkem.adb:377
+anubis_mlkem.adb:25:33: info: loop invariant preservation proved, in call inlined at anubis_mlkem.adb:394
+anubis_mlkem.adb:25:33: info: loop invariant initialization proved, in call inlined at anubis_mlkem.adb:394
+anubis_mlkem.adb:25:33: info: loop invariant preservation proved, in call inlined at anubis_mlkem.adb:138
+anubis_mlkem.adb:25:33: info: loop invariant initialization proved, in call inlined at anubis_mlkem.adb:138
+anubis_mlkem.adb:25:33: info: loop invariant preservation proved, in call inlined at anubis_mlkem.adb:478
+anubis_mlkem.adb:25:33: info: loop invariant initialization proved, in call inlined at anubis_mlkem.adb:478
+anubis_mlkem.adb:33:07: info: initialization of "Out1" proved
+anubis_mlkem.adb:34:07: info: initialization of "Out2" proved
+anubis_mlkem.adb:36:07: info: initialization of "Digest" proved, in call inlined at anubis_mlkem.adb:78
+anubis_mlkem.adb:36:07: info: initialization of "Digest" proved, in call inlined at anubis_mlkem.adb:463
+anubis_mlkem.adb:36:07: info: initialization of "Digest" proved, in call inlined at anubis_mlkem.adb:385
+anubis_mlkem.adb:36:07: info: initialization of "Digest" proved
+anubis_mlkem.adb:38:07: info: precondition proved, in call inlined at anubis_mlkem.adb:385
+anubis_mlkem.adb:38:07: info: precondition proved, in call inlined at anubis_mlkem.adb:78
+anubis_mlkem.adb:38:07: info: precondition proved, in call inlined at anubis_mlkem.adb:463
+anubis_mlkem.adb:40:33: info: loop invariant preservation proved, in call inlined at anubis_mlkem.adb:385
+anubis_mlkem.adb:40:33: info: loop invariant initialization proved, in call inlined at anubis_mlkem.adb:385
+anubis_mlkem.adb:40:33: info: loop invariant preservation proved, in call inlined at anubis_mlkem.adb:78
+anubis_mlkem.adb:40:33: info: loop invariant initialization proved, in call inlined at anubis_mlkem.adb:78
+anubis_mlkem.adb:40:33: info: loop invariant initialization proved, in call inlined at anubis_mlkem.adb:463
+anubis_mlkem.adb:40:33: info: loop invariant preservation proved, in call inlined at anubis_mlkem.adb:463
+anubis_mlkem.adb:49:07: info: initialization of "Output" proved
+anubis_mlkem.adb:52:07: info: precondition proved, in call inlined at anubis_mlkem.adb:400
+anubis_mlkem.adb:52:07: info: precondition proved, in call inlined at anubis_mlkem.adb:492
+anubis_mlkem.adb:63:07: info: initialization of "Rho" proved
+anubis_mlkem.adb:63:12: info: initialization of "Sigma" proved
+anubis_mlkem.adb:66:07: info: initialization of "A_Hat" proved
+anubis_mlkem.adb:67:07: info: initialization of "S" proved
+anubis_mlkem.adb:67:10: info: initialization of "E" proved
+anubis_mlkem.adb:68:07: info: initialization of "S_Hat" proved
+anubis_mlkem.adb:68:14: info: initialization of "E_Hat" proved
+anubis_mlkem.adb:68:21: info: initialization of "T_Hat" proved
+anubis_mlkem.adb:68:28: info: initialization of "T_Hat_Temp" proved
+anubis_mlkem.adb:71:07: info: initialization of "T_Encoded" proved
+anubis_mlkem.adb:72:07: info: initialization of "S_Encoded" proved
+anubis_mlkem.adb:75:07: info: initialization of "H_EK" proved
+anubis_mlkem.adb:84:07: info: precondition proved
+anubis_mlkem.adb:85:07: info: precondition proved
+anubis_mlkem.adb:89:07: info: precondition proved
+anubis_mlkem.adb:91:07: info: precondition proved
+anubis_mlkem.adb:99:33: info: loop invariant initialization proved
+anubis_mlkem.adb:99:33: info: loop invariant preservation proved
+anubis_mlkem.adb:104:32: info: initialization check proved
+anubis_mlkem.adb:107:33: info: loop invariant initialization proved
+anubis_mlkem.adb:107:33: info: loop invariant preservation proved
+anubis_mlkem.adb:108:33: info: loop invariant initialization proved
+anubis_mlkem.adb:108:33: info: loop invariant preservation proved
+anubis_mlkem.adb:108:64: info: index check proved
+anubis_mlkem.adb:113:33: info: loop invariant initialization proved
+anubis_mlkem.adb:113:33: info: loop invariant preservation proved
+anubis_mlkem.adb:114:33: info: loop invariant initialization proved
+anubis_mlkem.adb:114:33: info: loop invariant preservation proved
+anubis_mlkem.adb:115:33: info: loop invariant initialization proved
+anubis_mlkem.adb:115:33: info: loop invariant preservation proved
+anubis_mlkem.adb:115:106: info: index check proved
+anubis_mlkem.adb:120:32: info: initialization check proved
+anubis_mlkem.adb:124:33: info: loop invariant preservation proved
+anubis_mlkem.adb:124:33: info: loop invariant initialization proved
+anubis_mlkem.adb:125:33: info: loop invariant preservation proved
+anubis_mlkem.adb:125:33: info: loop invariant initialization proved
+anubis_mlkem.adb:125:64: info: index check proved
+anubis_mlkem.adb:131:33: info: loop invariant preservation proved
+anubis_mlkem.adb:131:33: info: loop invariant initialization proved
+anubis_mlkem.adb:132:33: info: loop invariant initialization proved
+anubis_mlkem.adb:132:33: info: loop invariant preservation proved
+anubis_mlkem.adb:133:33: info: loop invariant initialization proved
+anubis_mlkem.adb:133:33: info: loop invariant preservation proved
+anubis_mlkem.adb:133:106: info: index check proved
+anubis_mlkem.adb:134:43: info: initialization check proved
+anubis_mlkem.adb:138:07: info: initialization check proved
+anubis_mlkem.adb:140:33: info: loop invariant preservation proved
+anubis_mlkem.adb:140:33: info: loop invariant initialization proved
+anubis_mlkem.adb:141:33: info: loop invariant initialization proved
+anubis_mlkem.adb:141:33: info: loop invariant preservation proved
+anubis_mlkem.adb:142:33: info: loop invariant preservation proved
+anubis_mlkem.adb:142:33: info: loop invariant initialization proved
+anubis_mlkem.adb:142:144: info: index check proved
+anubis_mlkem.adb:148:33: info: loop invariant initialization proved
+anubis_mlkem.adb:148:33: info: loop invariant preservation proved
+anubis_mlkem.adb:149:33: info: loop invariant initialization proved
+anubis_mlkem.adb:149:33: info: loop invariant preservation proved
+anubis_mlkem.adb:150:33: info: loop invariant initialization proved
+anubis_mlkem.adb:150:33: info: loop invariant preservation proved
+anubis_mlkem.adb:150:154: info: index check proved
+anubis_mlkem.adb:163:07: info: initialization of "T_Hat" proved
+anubis_mlkem.adb:164:07: info: initialization of "Rho" proved
+anubis_mlkem.adb:165:07: info: initialization of "T_Encoded" proved
+anubis_mlkem.adb:168:07: info: initialization of "A_Hat_T" proved
+anubis_mlkem.adb:169:07: info: initialization of "R" proved
+anubis_mlkem.adb:169:10: info: initialization of "E1" proved
+anubis_mlkem.adb:170:07: info: initialization of "E2" proved
+anubis_mlkem.adb:171:07: info: initialization of "R_Hat" proved
+anubis_mlkem.adb:174:07: info: initialization of "U" proved
+anubis_mlkem.adb:174:10: info: initialization of "U_Temp" proved
+anubis_mlkem.adb:174:18: info: initialization of "U_Compressed" proved
+anubis_mlkem.adb:175:07: info: initialization of "V" proved
+anubis_mlkem.adb:175:10: info: initialization of "V_Temp" proved
+anubis_mlkem.adb:175:18: info: initialization of "V_Compressed" proved
+anubis_mlkem.adb:176:07: info: initialization of "M_Poly" proved
+anubis_mlkem.adb:180:07: info: initialization of "V_Encoded" proved
+anubis_mlkem.adb:184:33: info: loop invariant initialization proved
+anubis_mlkem.adb:184:33: info: loop invariant preservation proved
+anubis_mlkem.adb:190:33: info: loop invariant initialization proved
+anubis_mlkem.adb:190:33: info: loop invariant preservation proved
+anubis_mlkem.adb:198:07: info: precondition proved
+anubis_mlkem.adb:199:07: info: precondition proved
+anubis_mlkem.adb:204:07: info: precondition proved
+anubis_mlkem.adb:227:33: info: loop invariant preservation proved
+anubis_mlkem.adb:227:33: info: loop invariant initialization proved
+anubis_mlkem.adb:228:33: info: loop invariant initialization proved
+anubis_mlkem.adb:228:33: info: loop invariant preservation proved
+anubis_mlkem.adb:229:24: info: index check proved
+anubis_mlkem.adb:231:13: info: initialization of "Buf" proved
+anubis_mlkem.adb:232:44: info: range check proved
+anubis_mlkem.adb:234:46: info: initialization check proved
+anubis_mlkem.adb:236:39: info: loop invariant initialization proved
+anubis_mlkem.adb:236:39: info: loop invariant preservation proved
+anubis_mlkem.adb:237:39: info: loop invariant initialization proved
+anubis_mlkem.adb:237:39: info: loop invariant preservation proved
+anubis_mlkem.adb:238:30: info: index check proved
+anubis_mlkem.adb:239:39: info: loop invariant preservation proved
+anubis_mlkem.adb:239:39: info: loop invariant initialization proved
+anubis_mlkem.adb:239:69: info: overflow check proved
+anubis_mlkem.adb:240:30: info: index check proved
+anubis_mlkem.adb:241:34: info: overflow check proved
+anubis_mlkem.adb:241:34: info: index check proved
+anubis_mlkem.adb:246:35: info: initialization check proved
+anubis_mlkem.adb:250:33: info: loop invariant initialization proved
+anubis_mlkem.adb:250:33: info: loop invariant preservation proved
+anubis_mlkem.adb:251:33: info: loop invariant initialization proved
+anubis_mlkem.adb:251:33: info: loop invariant preservation proved
+anubis_mlkem.adb:251:64: info: index check proved
+anubis_mlkem.adb:252:20: info: initialization check proved
+anubis_mlkem.adb:256:33: info: loop invariant initialization proved
+anubis_mlkem.adb:256:33: info: loop invariant preservation proved
+anubis_mlkem.adb:257:33: info: loop invariant initialization proved
+anubis_mlkem.adb:257:33: info: loop invariant preservation proved
+anubis_mlkem.adb:258:33: info: loop invariant initialization proved
+anubis_mlkem.adb:258:33: info: loop invariant preservation proved
+anubis_mlkem.adb:258:102: info: index check proved
+anubis_mlkem.adb:270:07: info: initialization of "S_Hat" proved
+anubis_mlkem.adb:271:07: info: initialization of "S_Encoded" proved
+anubis_mlkem.adb:274:07: info: initialization of "U" proved
+anubis_mlkem.adb:274:10: info: initialization of "U_Decompressed" proved
+anubis_mlkem.adb:275:07: info: initialization of "V" proved
+anubis_mlkem.adb:275:10: info: initialization of "V_Decompressed" proved
+anubis_mlkem.adb:278:07: info: initialization of "W" proved
+anubis_mlkem.adb:278:10: info: initialization of "W_Temp" proved
+anubis_mlkem.adb:283:33: info: loop invariant initialization proved
+anubis_mlkem.adb:283:33: info: loop invariant preservation proved
+anubis_mlkem.adb:284:33: info: loop invariant initialization proved
+anubis_mlkem.adb:284:33: info: loop invariant preservation proved
+anubis_mlkem.adb:284:46: info: overflow check proved
+anubis_mlkem.adb:285:48: info: overflow check proved
+anubis_mlkem.adb:285:48: info: index check proved
+anubis_mlkem.adb:295:33: info: loop invariant preservation proved
+anubis_mlkem.adb:295:33: info: loop invariant initialization proved
+anubis_mlkem.adb:297:14: info: loop invariant preservation proved
+anubis_mlkem.adb:297:14: info: loop invariant initialization proved
+anubis_mlkem.adb:298:47: info: index check proved
+anubis_mlkem.adb:300:13: info: initialization of "Buf" proved
+anubis_mlkem.adb:301:44: info: range check proved
+anubis_mlkem.adb:304:39: info: loop invariant initialization proved
+anubis_mlkem.adb:304:39: info: loop invariant preservation proved
+anubis_mlkem.adb:305:38: info: overflow check proved
+anubis_mlkem.adb:305:38: info: index check proved
+anubis_mlkem.adb:307:33: info: initialization check proved
+anubis_mlkem.adb:313:10: info: initialization of "V_Encoded" proved
+anubis_mlkem.adb:316:36: info: loop invariant preservation proved
+anubis_mlkem.adb:316:36: info: loop invariant initialization proved
+anubis_mlkem.adb:319:35: info: initialization check proved
+anubis_mlkem.adb:323:07: info: precondition proved
+anubis_mlkem.adb:324:07: info: precondition proved
+anubis_mlkem.adb:327:07: info: precondition proved
+anubis_mlkem.adb:337:33: info: loop invariant initialization proved
+anubis_mlkem.adb:337:33: info: loop invariant preservation proved
+anubis_mlkem.adb:342:39: info: loop invariant initialization proved
+anubis_mlkem.adb:342:39: info: loop invariant preservation proved
+anubis_mlkem.adb:347:54: info: division check proved
+anubis_mlkem.adb:347:59: info: range check proved
+anubis_mlkem.adb:365:07: info: initialization of "M_Hat" proved
+anubis_mlkem.adb:366:07: info: initialization of "H_EK" proved
+anubis_mlkem.adb:368:07: info: initialization of "K_Bar" proved
+anubis_mlkem.adb:368:14: info: initialization of "R" proved
+anubis_mlkem.adb:381:33: info: loop invariant initialization proved
+anubis_mlkem.adb:381:33: info: loop invariant preservation proved
+anubis_mlkem.adb:388:46: info: initialization check proved
+anubis_mlkem.adb:392:10: info: initialization of "H_CT" proved
+anubis_mlkem.adb:396:36: info: loop invariant initialization proved
+anubis_mlkem.adb:396:36: info: loop invariant preservation proved
+anubis_mlkem.adb:417:07: info: initialization of "DK_PKE" proved
+anubis_mlkem.adb:418:07: info: initialization of "EK" proved
+anubis_mlkem.adb:419:07: info: initialization of "H_EK" proved
+anubis_mlkem.adb:420:07: info: initialization of "Z" proved
+anubis_mlkem.adb:423:07: info: initialization of "M_Prime" proved
+anubis_mlkem.adb:427:07: info: initialization of "K_Bar" proved
+anubis_mlkem.adb:427:14: info: initialization of "R" proved
+anubis_mlkem.adb:428:07: info: initialization of "CT_Prime" proved
+anubis_mlkem.adb:431:07: info: initialization of "CT_Match" proved
+anubis_mlkem.adb:435:07: info: initialization of "H_CT" proved
+anubis_mlkem.adb:439:33: info: loop invariant preservation proved
+anubis_mlkem.adb:439:33: info: loop invariant initialization proved
+anubis_mlkem.adb:444:33: info: loop invariant initialization proved
+anubis_mlkem.adb:444:33: info: loop invariant preservation proved
+anubis_mlkem.adb:449:33: info: loop invariant preservation proved
+anubis_mlkem.adb:449:33: info: loop invariant initialization proved
+anubis_mlkem.adb:455:07: info: precondition proved
+anubis_mlkem.adb:459:33: info: loop invariant initialization proved
+anubis_mlkem.adb:459:33: info: loop invariant preservation proved
+anubis_mlkem.adb:466:38: info: initialization check proved
+anubis_mlkem.adb:471:33: info: loop invariant initialization proved
+anubis_mlkem.adb:471:33: info: loop invariant preservation proved
+anubis_mlkem.adb:483:33: info: loop invariant initialization proved
+anubis_mlkem.adb:483:33: info: loop invariant preservation proved
+anubis_mlkem.ads:52:07: info: data dependencies proved
+anubis_mlkem.ads:54:15: info: postcondition proved
+anubis_mlkem.ads:70:07: info: initialization of "SS" proved
+anubis_mlkem.ads:71:07: info: initialization of "CT" proved
+anubis_mlkem.ads:73:07: info: data dependencies proved
+anubis_mlkem.ads:90:07: info: initialization of "SS" proved
+anubis_mlkem.ads:92:07: info: data dependencies proved
+anubis_mlkem.ads:111:07: info: data dependencies proved
+anubis_mlkem.ads:113:15: info: postcondition proved
+anubis_mlkem.ads:128:07: info: initialization of "Msg" proved
+anubis_mlkem.ads:130:07: info: data dependencies proved

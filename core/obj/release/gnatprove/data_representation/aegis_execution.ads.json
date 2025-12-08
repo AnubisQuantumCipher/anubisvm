@@ -1,0 +1,85 @@
+[
+{
+  "name": "Aegis_Execution.Execution_Mode",
+  "location": "aegis_execution.ads:41:9",
+  "Object_Size": 8,
+  "Value_Size": 2,
+  "Alignment": 1
+}
+,
+{
+  "name": "Aegis_Execution.Execution_Context",
+  "location": "aegis_execution.ads:49:9",
+  "Object_Size": 11030464,
+  "Value_Size": 11030440,
+  "Alignment": 8,
+  "record": [
+    {
+      "name": "Origin",
+      "Position":       0,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Gas_Price",
+      "Position":      32,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Block_Number",
+      "Position":      64,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Timestamp",
+      "Position":      96,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Chain_Id",
+      "Position":     128,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Mode",
+      "Position":     160,
+      "First_Bit": 0,
+      "Size": 8
+    },
+    {
+      "name": "Sandbox",
+      "Position":     168,
+      "First_Bit": 0,
+      "Size": 6375808
+    },
+    {
+      "name": "Effects",
+      "Position":  797144,
+      "First_Bit": 0,
+      "Size": 4456640
+    },
+    {
+      "name": "Snapshots",
+      "Position": 1354224,
+      "First_Bit": 0,
+      "Size": 196608
+    },
+    {
+      "name": "Snapshot_Depth",
+      "Position": 1378800,
+      "First_Bit": 0,
+      "Size": 32
+    },
+    {
+      "name": "Certification",
+      "Position": 1378804,
+      "First_Bit": 0,
+      "Size": 8
+    }
+  ]
+}
+]

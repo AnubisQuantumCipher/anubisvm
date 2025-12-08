@@ -1,0 +1,33 @@
+--  GPR file for constant-time verification tests
+
+project Test_CT is
+
+   for Source_Dirs use (".");
+   for Object_Dir use "obj";
+   for Exec_Dir use "../../bin";
+   for Main use ("test_constant_time.adb");
+
+   package Compiler is
+      --  Compile without optimizations to preserve timing behavior
+      --  In production, also test with -O2 to verify compiler doesn't
+      --  introduce timing leaks through optimization
+      for Default_Switches ("Ada") use
+        ("-gnat2022",        --  Ada 2022
+         "-gnatwa",          --  All warnings
+         "-gnatwe",          --  Warnings as errors
+         "-gnata",           --  Enable assertions
+         "-gnatVa",          --  All validity checks
+         "-O0",              --  No optimization (preserve timing)
+         "-g",               --  Debug info
+         "-fstack-check");   --  Stack checking
+   end Compiler;
+
+   package Binder is
+      for Default_Switches ("Ada") use ("-E");  --  Store tracebacks
+   end Binder;
+
+   package Linker is
+      for Default_Switches ("Ada") use ("-g");
+   end Linker;
+
+end Test_CT;

@@ -1,0 +1,311 @@
+[
+{
+  "name": "Khepri_Storage_Trie.Storage_Entry",
+  "location": "khepri_storage_trie.adb:15:9",
+  "Object_Size": 320,
+  "Value_Size": 296,
+  "Alignment": 4,
+  "record": [
+    {
+      "name": "Contract",
+      "Position":  0,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Trie",
+      "Position": 32,
+      "First_Bit": 0,
+      "Size": 32
+    },
+    {
+      "name": "Used",
+      "Position": 36,
+      "First_Bit": 0,
+      "Size": 8
+    }
+  ]
+}
+,
+{
+  "name": "Khepri_Storage_Trie.Storage_Array_Type",
+  "location": "khepri_storage_trie.adb:21:9",
+  "Size": 3200320,
+  "Alignment": 4,
+  "Component_Size": 320
+}
+,
+{
+  "name": "Khepri_Storage_Trie.Contract_Entry",
+  "location": "khepri_storage_trie.adb:24:9",
+  "Object_Size": 320,
+  "Value_Size": 296,
+  "Alignment": 4,
+  "record": [
+    {
+      "name": "Contract",
+      "Position":  0,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Storage_Ref",
+      "Position": 32,
+      "First_Bit": 0,
+      "Size": 32
+    },
+    {
+      "name": "Used",
+      "Position": 36,
+      "First_Bit": 0,
+      "Size": 8
+    }
+  ]
+}
+,
+{
+  "name": "Khepri_Storage_Trie.Contract_Map_Type",
+  "location": "khepri_storage_trie.adb:30:9",
+  "Size": 3200000,
+  "Alignment": 4,
+  "Component_Size": 320
+}
+,
+{
+  "name": "Khepri_Storage_Trie.Storage_Array",
+  "location": "khepri_storage_trie.adb:36:4",
+  "Size": 3200320,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Storage_Trie.Contract_Map",
+  "location": "khepri_storage_trie.adb:42:4",
+  "Size": 3200000,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Storage_Trie.U256_To_Key.Hash",
+  "location": "khepri_storage_trie.adb:89:7",
+  "Size": 256,
+  "Alignment": 1
+}
+,
+{
+  "name": "Khepri_Storage_Trie.Bytes_To_U256.Result",
+  "location": "khepri_storage_trie.adb:101:7",
+  "Size": 256,
+  "Alignment": 8
+}
+,
+{
+  "name": "Khepri_Storage_Trie.Bytes_To_U256.Max_Idx",
+  "location": "khepri_storage_trie.adb:102:7",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Storage_Trie.Node_Value_To_Bytes.Result",
+  "location": "khepri_storage_trie.adb:122:7",
+  "Size": "??",
+  "Alignment": 1
+}
+,
+{
+  "name": "Khepri_Storage_Trie.Create_Storage.New_Storage",
+  "location": "khepri_storage_trie.adb:141:7",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Storage_Trie.Create_Storage.New_Trie",
+  "location": "khepri_storage_trie.adb:142:7",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Storage_Trie.Create_Storage.Trie_Success",
+  "location": "khepri_storage_trie.adb:143:7",
+  "Size": 8,
+  "Alignment": 1
+}
+,
+{
+  "name": "Khepri_Storage_Trie.Create_Storage.Map_Slot",
+  "location": "khepri_storage_trie.adb:144:7",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Storage_Trie.Create_Storage.Existing_Slot",
+  "location": "khepri_storage_trie.adb:145:7",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Storage_Trie.Load_Storage.New_Storage",
+  "location": "khepri_storage_trie.adb:199:7",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Storage_Trie.Load_Storage.New_Trie",
+  "location": "khepri_storage_trie.adb:200:7",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Storage_Trie.Load_Storage.Trie_Success",
+  "location": "khepri_storage_trie.adb:201:7",
+  "Size": 8,
+  "Alignment": 1
+}
+,
+{
+  "name": "Khepri_Storage_Trie.Load_Storage.Map_Slot",
+  "location": "khepri_storage_trie.adb:202:7",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Storage_Trie.Sload.Key",
+  "location": "khepri_storage_trie.adb:275:7",
+  "Size": 256,
+  "Alignment": 1
+}
+,
+{
+  "name": "Khepri_Storage_Trie.Sload.Val_Data",
+  "location": "khepri_storage_trie.adb:276:7",
+  "Size": 288,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Storage_Trie.Sload.Found",
+  "location": "khepri_storage_trie.adb:277:7",
+  "Size": 8,
+  "Alignment": 1
+}
+,
+{
+  "name": "Khepri_Storage_Trie.Sload.Mpt_Error",
+  "location": "khepri_storage_trie.adb:278:7",
+  "Size": 8,
+  "Alignment": 1
+}
+,
+{
+  "name": "Khepri_Storage_Trie.Sload.B_8.Val_Bytes",
+  "location": "khepri_storage_trie.adb:302:13",
+  "Size": "??",
+  "Alignment": 1
+}
+,
+{
+  "name": "Khepri_Storage_Trie.Sstore.Key",
+  "location": "khepri_storage_trie.adb:321:7",
+  "Size": 256,
+  "Alignment": 1
+}
+,
+{
+  "name": "Khepri_Storage_Trie.Sstore.Val",
+  "location": "khepri_storage_trie.adb:322:7",
+  "Size": 256,
+  "Alignment": 1
+}
+,
+{
+  "name": "Khepri_Storage_Trie.Sstore.Mpt_Error",
+  "location": "khepri_storage_trie.adb:323:7",
+  "Size": 8,
+  "Alignment": 1
+}
+,
+{
+  "name": "Khepri_Storage_Trie.Sdelete.Key",
+  "location": "khepri_storage_trie.adb:358:7",
+  "Size": 256,
+  "Alignment": 1
+}
+,
+{
+  "name": "Khepri_Storage_Trie.Sdelete.Mpt_Error",
+  "location": "khepri_storage_trie.adb:359:7",
+  "Size": 8,
+  "Alignment": 1
+}
+,
+{
+  "name": "Khepri_Storage_Trie.Slot_Exists.Key",
+  "location": "khepri_storage_trie.adb:385:7",
+  "Size": 256,
+  "Alignment": 1
+}
+,
+{
+  "name": "Khepri_Storage_Trie.Clear_Storage.New_Trie",
+  "location": "khepri_storage_trie.adb:432:7",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Storage_Trie.Clear_Storage.Trie_Success",
+  "location": "khepri_storage_trie.adb:433:7",
+  "Size": 8,
+  "Alignment": 1
+}
+,
+{
+  "name": "Khepri_Storage_Trie.Revert_Snapshot.Error",
+  "location": "khepri_storage_trie.adb:482:7",
+  "Size": 8,
+  "Alignment": 1
+}
+,
+{
+  "name": "Khepri_Storage_Trie.Generate_Storage_Proof.Key",
+  "location": "khepri_storage_trie.adb:515:7",
+  "Size": 256,
+  "Alignment": 1
+}
+,
+{
+  "name": "Khepri_Storage_Trie.Generate_Storage_Proof.Error",
+  "location": "khepri_storage_trie.adb:516:7",
+  "Size": 8,
+  "Alignment": 1
+}
+,
+{
+  "name": "Khepri_Storage_Trie.Verify_Storage_Proof.Error",
+  "location": "khepri_storage_trie.adb:542:7",
+  "Size": 8,
+  "Alignment": 1
+}
+,
+{
+  "name": "Khepri_Storage_Trie.Verify_Storage_Proof.B_9.Val_Bytes",
+  "location": "khepri_storage_trie.adb:550:13",
+  "Size": "??",
+  "Alignment": 1
+}
+,
+{
+  "name": "Khepri_Storage_Trie.Find_Storage.Idx",
+  "location": "khepri_storage_trie.adb:563:7",
+  "Size": 32,
+  "Alignment": 4
+}
+]

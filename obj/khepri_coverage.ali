@@ -1,0 +1,400 @@
+V "GNAT Lib v14"
+A -O0
+A -gnatA
+A -gnatwa
+A -gnatQ
+A -gnata
+A -gnatf
+A -gnatyM120
+A -gnatyO
+A -gnat2012
+A -g
+A -gnateE
+A -fstack-check=specific
+A -mmacosx-version-min=16.0.0
+A -mcpu=apple-m1
+A -mlittle-endian
+A -mabi=lp64
+A -fPIC
+P SS ZX
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_SECONDARY_STACK
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+RV NO_OBSOLESCENT_FEATURES
+
+U khepri_coverage%b	khepri_coverage.adb	11bbf63a NE OO PK
+Z system.assertions%s	s-assert.adb		s-assert.ali
+Z system.concat_3%s	s-conca3.adb		s-conca3.ali
+Z system.img_int%s	s-imgint.ads		s-imgint.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+
+U khepri_coverage%s	khepri_coverage.ads	9d24d8d4 EE NE OO PK
+W aegis_vm_types%s	aegis_vm_types.ads	aegis_vm_types.ali
+W interfaces%s		interfac.ads		interfac.ali
+W khepri_types%s	khepri_types.adb	khepri_types.ali
+
+D ada.ads		20240808082856 76789da1 ada%s
+D a-assert.ads		20240808082856 ba465f5c ada.assertions%s
+D a-unccon.ads		20240808082856 0e9b276f ada.unchecked_conversion%s
+D aegis_u256.ads	20251207191105 ff2dfe4b aegis_u256%s
+D aegis_vm_types.ads	20251207191105 dcd101d9 aegis_vm_types%s
+D interfac.ads		20240808082856 9111f9c1 interfaces%s
+D khepri_coverage.ads	20251207191105 d617a2e1 khepri_coverage%s
+D khepri_coverage.adb	20251207191105 c7ac54db khepri_coverage%b
+D khepri_types.ads	20251207191106 06f3822d khepri_types%s
+D system.ads		20240808082856 70765b54 system%s
+D s-assert.ads		20240808082856 9c4520c7 system.assertions%s
+D s-conca3.ads		20240808082856 8a7a19a2 system.concat_3%s
+D s-exctab.ads		20240808082856 91bef6ef system.exception_table%s
+D s-imagei.ads		20240808082856 5e131ce0 system.image_i%s
+D s-imgint.ads		20240808082856 67e4edfb system.img_int%s
+D s-parame.ads		20240808082856 3597fc11 system.parameters%s
+D s-secsta.ads		20240808082856 578279f5 system.secondary_stack%s
+D s-stalib.ads		20240808082856 1c9580f6 system.standard_library%s
+D s-stoele.ads		20240808082856 ccded4e8 system.storage_elements%s
+D s-unstyp.ads		20240808082856 fa2a7f59 system.unsigned_types%s
+D s-valspe.ads		20240808082856 b0fcd073 system.val_spec%s
+D s-vaispe.ads		20240808082856 8280550e system.value_i_spec%s
+D s-vauspe.ads		20240808082856 89269ba5 system.value_u_spec%s
+D s-vs_int.ads		20240808082856 06b6b724 system.vs_int%s
+D s-vs_uns.ads		20240808082856 e7f47a27 system.vs_uns%s
+G a e
+G c Z s b [create_session khepri_coverage 154 13 none]
+G c Z s b [set_target khepri_coverage 158 14 none]
+G c Z s b [start_collection khepri_coverage 167 14 none]
+G c Z s b [stop_collection khepri_coverage 173 14 none]
+G c Z s b [reset_coverage khepri_coverage 179 14 none]
+G c Z s b [record_instruction khepri_coverage 189 14 none]
+G c Z s b [record_branch khepri_coverage 196 14 none]
+G c Z s b [record_path khepri_coverage 205 14 none]
+G c Z s b [record_opcode khepri_coverage 212 14 none]
+G c Z s b [get_stats khepri_coverage 223 13 none]
+G c Z s b [get_line_coverage khepri_coverage 229 14 none]
+G c Z s b [get_branch_coverage khepri_coverage 237 14 none]
+G c Z s b [get_path_coverage khepri_coverage 245 14 none]
+G c Z s b [is_covered khepri_coverage 253 13 none]
+G c Z s b [get_hit_count khepri_coverage 260 13 none]
+G c Z s b [find_uncovered khepri_coverage 271 14 none]
+G c Z s b [find_hot_spots khepri_coverage 279 14 none]
+G c Z s b [find_cold_spots khepri_coverage 288 14 none]
+G c Z s b [coverage_delta khepri_coverage 297 13 none]
+G c Z s b [calculate_feedback khepri_coverage 317 13 none]
+G c Z s b [merge_coverage khepri_coverage 324 14 none]
+G c Z s b [get_opcode_coverage khepri_coverage 348 13 none]
+G c Z s b [generate_report khepri_coverage 366 14 none]
+G c Z s b [summary_line khepri_coverage 377 13 none]
+G c Z s s [coverage_pointIP khepri_coverage 57 9 none]
+G c Z s s [Tcoverage_point_arrayBIP khepri_coverage 66 4 none]
+G c Z s s [coverage_mapIP khepri_coverage 69 9 none]
+G c Z s s [branch_infoIP khepri_coverage 86 9 none]
+G c Z s s [Tbranch_arrayBIP khepri_coverage 96 4 none]
+G c Z s s [branch_mapIP khepri_coverage 99 9 none]
+G c Z s s [path_infoIP khepri_coverage 119 9 none]
+G c Z s s [Tpath_arrayBIP khepri_coverage 126 4 none]
+G c Z s s [path_mapIP khepri_coverage 129 9 none]
+G c Z s s [Topcode_hit_arrayBIP khepri_coverage 338 4 none]
+G c Z s s [Ttrace_arrayBIP khepri_coverage 387 4 none]
+G c Z s s [execution_traceIP khepri_coverage 389 9 none]
+G c Z s s [coverage_statsIP khepri_coverage 142 9 none]
+G c Z s s [coverage_sessionIP khepri_coverage 394 9 none]
+G c Z s s [coverage_feedbackIP khepri_coverage 308 9 none]
+G c Z s s [opcode_coverageIP khepri_coverage 341 9 none]
+G c Z b b [min khepri_coverage 9 13 none]
+G c Z b b [percent khepri_coverage 12 13 none]
+X 5 aegis_vm_types.ads
+21K9*Aegis_VM_Types 279e19 7|4w6 4r26
+31M12*Byte{6|70M9} 7|214r24 8|377r24 726r16
+32A9*Byte_Array(31M12)<integer> 7|160r30 369r24 8|80r30 711r24
+56A9*Hash256(31M12)<integer> 7|112r25
+X 6 interfac.ads
+38K9*Interfaces 233e15 7|3w6 3r22
+70M9*Unsigned_8
+X 7 khepri_coverage.ads
+24K9*Khepri_Coverage 385E4 415l5 415e20 8|3b14 747l5 747t20
+33E9*Coverage_Type 38e5 59r22
+34n7*Coverage_Line{33E9} 8|33r32 99r29 465r26 496r26 527r26
+35n7*Coverage_Branch{33E9}
+36n7*Coverage_Path{33E9}
+37n7*Coverage_Opcode{33E9}
+41E9*Coverage_State 46e5 61r22
+42n7*State_Not_Covered{41E9} 8|35r32 101r29 201r64 467r26 498r26 529r26 622r56
+43n7*State_Covered{41E9} 8|259r52 623r57
+44n7*State_Hot{41E9} 8|261r52
+45n7*State_Cold{41E9}
+53N4*Max_Coverage_Points 54r38 8|86r31 96r46 106r64 478r36 509r36 542r36
+54I9*Coverage_Index<short_integer> 66r40 8|97r35 136r31 136r49 200r35 201r35
+. 250r25 250r43 439r39 450r39 475r28 475r46 479r30 506r28 506r46 510r24 537r28
+. 537r46 543r25 616r28 616r46
+57R9*Coverage_Point 64e14 66r59
+58i7*PC{natural} 8|32m16 98m13 464m10 495m10 526m10
+59e7*Point_Type{33E9} 8|33m16 99m13 465m10 496m10 527m10
+60i7*Hit_Count{natural} 8|34m16 100m13 138r49 140r52 142r55 200m55 251r72
+. 254m43 260r46 439r60 450r60 466m10 477r46 497m10 508r46 528m10 539r46 540r46
+. 618r45 619m45 620r48 621r48
+61e7*State{41E9} 8|35m16 101m13 201m55 259m43 261m43 467m10 498m10 529m10
+. 622r48 623m48
+62b7*Is_Branch{boolean} 8|36m16 102m13 468m10 499m10 530m10
+63b7*Branch_Taken{boolean} 8|37m16 103m13 469m10 500m10 531m10
+66A9*Coverage_Point_Array(57R9)<54I9> 70r21 273r23 281r22 290r22 8|459r23
+. 489r22 520r22
+69R9*Coverage_Map 75e14 231r22 403r22 8|403r22
+70a7*Points{66A9} 8|31m13 97m27 138r36 140r39 142r42 200m27 201m27 251r59
+. 254m30 259m30 260r33 261m30 439r31 450r31 477r33 479r74 508r33 510r68 539r33
+. 540r33 543r69 618r32 619m32 620r35 621r35 622r35 623m35
+71i7*Point_Count{natural} 8|39m13 106m24 134r41 149r57 153r76 199r38 245r33
+. 436r33 447r33 473r38 504r38 535r38 614r42 614r71
+72i7*Total_Hits{natural} 8|40m13 203m24 264m27 264r58
+73i7*Total_Lines{natural} 8|41m13 93m24
+74i7*Total_Branches{natural} 8|42m13
+82N4*Max_Branches 83r36 8|291r58 656r73
+83I9*Branch_Index<short_integer> 96r32 8|162r31 162r47 207r40 208r40 209r40
+. 210r40 275r15 283r43 285r20 294r17 632r32 632r48 638r38 638r54 658r38 659r22
+86R9*Branch_Info 94e14 96r49
+87i7*PC{natural} 8|46m16 283r61 296m13 640r60 641r60
+88i7*Target_True{natural} 8|47m16 297m13 310m45
+89i7*Target_False{natural} 8|48m16 298m13 317m45
+90b7*Taken_True{boolean} 8|49m16 164r54 207m58 299m13 309m45 644r63 645m63
+91b7*Taken_False{boolean} 8|50m16 165r54 208m58 300m13 316m45 647r63 648m63
+92i7*Hit_Count_T{natural} 8|51m16 209m58 301m13 311r48 312m48 313r51
+93i7*Hit_Count_F{natural} 8|52m16 210m58 302m13 318r48 319m48 320r51
+96A9*Branch_Array(86R9)<83I9> 100r22
+99R9*Branch_Map 105e14 239r21 404r22 8|413r21
+100a7*Branches{96A9} 8|45m13 164r39 165r39 207m30 208m30 209m30 210m30 283r33
+. 295m30 309m30 310m30 311r33 312m33 313r36 316m30 317m30 318r33 319m33 320r36
+. 640r41 641r41 644r44 645m44 647r44 648m44 661m38 662r41
+101i7*Branch_Count{natural} 8|54m13 160r44 174r56 206r41 214r62 282r41 291r33
+. 294r51 304m30 304r66 630r40 636r46 656r49 659r55 663m38 664r41
+102i7*Covered_Both{natural} 8|55m13 172m30 212m27
+103i7*Covered_One{natural} 8|56m13 213m27
+104i7*Not_Covered{natural} 8|57m13 214m27
+112A12*Path_Hash{5|56A9}<integer> 120r19 207r24 8|333r24
+115N4*Max_Paths 116r34 8|358r54
+116I9*Path_Index<short_integer> 126r30 8|343r38 345r41 346r41 347r44 349r41
+. 350r41 362r28 362r42
+119R9*Path_Info 124e14 126r45
+120a7*Hash{112A12} 8|61m16 343r54 365m16
+121i7*Hit_Count{natural} 8|62m16 345r57 346m57 347r60 349r57 366m16
+122i7*Length{natural} 8|63m16 367m16
+123b7*Is_Hot{boolean} 8|64m16 350m57 368m16
+126A9*Path_Array(119R9)<116I9> 130r21
+129R9*Path_Map 133e14 247r21 405r22 8|423r21
+130a7*Paths{126A9} 8|60m13 343r31 345r34 346m34 347r37 349r34 350m34 364m31
+131i7*Path_Count{natural} 8|66m13 179r37 217m25 342r39 358r31 362r72 370m31
+. 370r63 584r32
+132i7*Total_Paths{natural} 8|67m13 179r83
+139R9*Coverage_Session 154r35 159r30 168r24 174r24 180r24 190r24 197r27 206r24
+. 213r24 224r17 230r22 238r21 246r21 254r17 261r17 272r23 280r22 289r22 318r17
+. 325r23 326r23 349r17 367r24 378r17 394c9 413e14 8|24r35 79r30 112r24 123r24
+. 195r24 237r24 269r27 332r24 376r24 395r17 402r22 412r21 422r21 432r17 443r17
+. 458r23 488r22 519r22 573r17 609r23 610r23 687r17 709r24 735r17
+142R9*Coverage_Stats 151e14 225r13 298r16 299r16 300r13 319r20 412r22 8|396r13
+. 552r16 553r16 554r13 574r20 576r26
+143i7*Line_Coverage{natural} 8|153m24 557m10 557r35 557r58 738r24 739r67
+. 740r27 741r71 743r66
+144i7*Branch_Coverage{natural} 8|173m24 558m10 558r35 558r60 580r22 580r51
+. 581r24 581r53
+145i7*Path_Coverage{natural} 8|178m21 559m10 559r35 559r58
+146i7*Opcode_Coverage{natural} 8|190m24 560m10 560r35 560r60
+147i7*Total_Points{natural} 8|149m24 561m10 561r35
+148i7*Covered_Points{natural} 8|150m24 562m10 562r35 562r59 578r18 578r46
+149i7*Hot_Points{natural} 8|151m24 563m10 563r35 563r55
+150i7*Cold_Points{natural} 8|152m24 564m10 564r35 564r56
+154V13*Create_Session{139R9} 8|24b13 76l8 76t22
+158U14*Set_Target 159=7 160>7 161>7 162<7 8|78b14 109l8 109t18
+159r7 Session{139R9} 8|79b7 91m7 92m7 93m7 97m10 106m7
+160a7 Contract_Code{5|32A9} 8|80b7 84r28
+161i7 Code_Size{natural} 8|81b7 86r10 91r28 93r39 96r26 106r44
+162b7 Success{boolean} 8|82b7 87m10 108m7
+167U14*Start_Collection 168=7 8|111b14 120l8 120t24
+168r7 Session{139R9} 8|112b7 115m7 116m7
+173U14*Stop_Collection 174=7 8|122b14 192l8 192t23
+174r7 Session{139R9} 8|123b7 126m7 134r24 138r19 140r22 142r25 149m10 149r40
+. 150m10 151m10 152m10 153m10 153r59 160r24 164r19 165r19 172m10 173m10 174r36
+. 178m7 179r19 179r65 186r16 190m10
+179U14*Reset_Coverage 180=7 8|194b14 230l8 230t22
+180r7 Session{139R9} 8|195b7 199r21 200m10 201m10 203m7 206r21 207m10 208m10
+. 209m10 210m10 212m7 213m7 214m7 214r42 217m7 220m7 223m7 226m7
+189U14*Record_Instruction 190=7 191>7 8|236b14 266l8 266t26
+190r7 Session{139R9} 8|237b7 241r14 245r16 251r42 254m13 259m13 260r16 261m13
+. 264m10 264r41
+191i7 PC{natural} 8|238b7 245r10 250r59
+196U14*Record_Branch 197=7 198>7 199>7 200>7 8|268b14 329l8 329t21
+197r7 Session{139R9} 8|269b7 277r14 282r21 283r13 291r13 294r31 295m10 304m10
+. 304r46 309m10 310m10 311r13 312m13 313r16 316m10 317m10 318r13 319m13 320r16
+. 325r10 326m10 326r55 327m10 327r42
+198i7 PC{natural} 8|270b7 283r66 296r29 326r89
+199b7 Taken{boolean} 8|271b7 308r10
+200i7 Target{natural} 8|272b7 297r29 310r60 317r61
+205U14*Record_Path 206=7 207>7 8|331b14 373l8 373t19
+206r7 Session{139R9} 8|332b7 337r14 342r21 343r13 345r16 346m16 347r19 349r16
+. 350m16 358r13 362r54 364m13 367r29 370m13 370r45
+207a7 Hash{112A12} 8|333b7 343r61 365r29
+212U14*Record_Opcode 213=7 214>7 8|375b14 388l8 388t21
+213r7 Session{139R9} 8|376b7 381r14 385r10 386m10 386r39
+214m7 Opcode{5|31M12} 8|377b7 379r52
+223V13*Get_Stats{142R9} 224>7 8|394b13 399l8 399t17
+224r7 Session{139R9} 8|395b7 398r14
+229U14*Get_Line_Coverage 230>7 231<7 232<7 8|401b14 409l8 409t25
+230r7 Session{139R9} 8|402b7 407r14 408r18
+231r7 Map{69R9} 8|403b7 407m7
+232b7 Success{boolean} 8|404b7 408m7
+237U14*Get_Branch_Coverage 238>7 239<7 240<7 8|411b14 419l8 419t27
+238r7 Session{139R9} 8|412b7 417r14 418r18
+239r7 Map{99R9} 8|413b7 417m7
+240b7 Success{boolean} 8|414b7 418m7
+245U14*Get_Path_Coverage 246>7 247<7 248<7 8|421b14 429l8 429t25
+246r7 Session{139R9} 8|422b7 427r14 428r18
+247r7 Map{129R9} 8|423b7 427m7
+248b7 Success{boolean} 8|424b7 428m7
+253V13*Is_Covered{boolean} 254>7 255>7 8|431b13 440l8 440t18
+254r7 Session{139R9} 8|432b7 436r16 439r14
+255i7 PC{natural} 8|433b7 436r10 439r55
+260V13*Get_Hit_Count{natural} 261>7 262>7 8|442b13 451l8 451t21
+261r7 Session{139R9} 8|443b7 447r16 450r14
+262i7 PC{natural} 8|444b7 447r10 450r55
+271U14*Find_Uncovered 272>7 273<7 274<7 8|457b14 485l8 485t22
+272r7 Session{139R9} 8|458b7 473r21 477r16 479r57
+273a7 Uncovered{66A9} 8|459b7 463m7 479m19
+274i7 Count{natural} 8|460b7 471m7 478r19 479r46 480m19 480r28
+279U14*Find_Hot_Spots 280>7 281<7 282<7 283>7 8|487b14 516l8 516t22
+280r7 Session{139R9} 8|488b7 504r21 508r16 510r51
+281a7 Hot{66A9} 8|489b7 494m7 510m19
+282i7 Count{natural} 8|490b7 502m7 509r19 510r40 511m19 511r28
+283i7 Min_Hits{natural} 8|491b7 508r59
+288U14*Find_Cold_Spots 289>7 290<7 291<7 292>7 8|518b14 549l8 549t23
+289r7 Session{139R9} 8|519b7 535r21 539r16 540r16 543r52
+290a7 Cold{66A9} 8|520b7 525m7 543m19
+291i7 Count{natural} 8|521b7 533m7 542r19 543r41 544m19 544r28
+292i7 Max_Hits{natural} 8|522b7 540r59
+297V13*Coverage_Delta{142R9} 298>7 299>7 8|551b13 566l8 566t22
+298r7 Before{142R9} 8|552b7 557r51 558r53 559r51 560r53 562r52 563r48 564r49
+299r7 After{142R9} 8|553b7 557r29 558r29 559r29 560r29 561r29 562r29 563r29
+. 564r29
+308R9*Coverage_Feedback 314e14 320r13 8|575r13
+309b7*New_Coverage{boolean} 8|600m10
+310i7*New_Branches{natural} 8|601m10
+311i7*New_Paths{natural} 8|602m10
+312i7*Interest_Score{natural} 8|603m10
+313b7*Should_Save{boolean} 8|604m10
+317V13*Calculate_Feedback{308R9} 318>7 319>7 8|572b13 606l8 606t26
+318r7 Session{139R9} 8|573b7 576r44 584r14
+319r7 Prev_Stats{142R9} 8|574b7 578r35 580r40 581r42
+324U14*Merge_Coverage 325=7 326>7 8|608b14 680l8 680t22
+325r7 Target{139R9} 8|609b7 614r26 619m16 620r19 622r19 623m19 636r27 640r22
+. 645m25 648m25 656r30 659r36 661m19 663m19 664r22 673r16 674m16 674r42 676m16
+326r7 Source{139R9} 8|610b7 614r55 618r16 621r19 630r21 641r22 644r25 647r25
+. 662r22 672r13 673r57 674r67
+335N4*Max_Opcodes 336r36
+336I9*Opcode_Index<short_integer> 338r36 8|185r19 379r22 379r38 671r16 691r16
+338A9*Opcode_Hit_Array(natural)<336I9> 342r22 406r22
+341R9*Opcode_Coverage 345e14 350r13 8|688r13
+342a7*Hits{338A9} 8|698m10
+343i7*Covered{natural} 8|699m10
+344i7*Total_Valid{natural} 8|700m10
+348V13*Get_Opcode_Coverage{341R9} 349>7 8|686b13 702l8 702t27
+349r7 Session{139R9} 8|687b7 692r13 698r25
+358E9*Coverage_Report_Format 363e5 368r24 8|710r24
+359n7*Format_Text{358E9}
+360n7*Format_HTML{358E9}
+361n7*Format_LCOV{358E9}
+362n7*Format_JSON{358E9}
+366U14*Generate_Report 367>7 368>7 369<7 370<7 371<7 8|708b14 732l8 732t23
+367r7 Session{139R9} 8|709b7 731r18
+368e7 Format{358E9} 8|710b7 715r28
+369a7 Output{5|32A9} 374r17 8|711b7 717m7 725m13 725r21
+370i7 Size{natural} 8|712b7 728m10
+371b7 Success{boolean} 8|713b7 731m7
+377V13*Summary_Line{string} 378>7 8|734b13 745l8 745t20
+378r7 Session{139R9} 8|735b7 738r10 739r53 740r13 741r57 743r52
+385N4 Max_Trace_Length 386r35 8|325r50
+386I9 Trace_Index<short_integer> 387r31 8|326r42
+387A9 Trace_Array(natural)<386I9> 390r20
+389R9 Execution_Trace 392e14 409r23
+390a7*Branches{387A9} 8|71m13 117m10 227m10 326m32
+391i7*Length{natural} 8|72m13 118m10 228m10 325r32 326r77 327m32 327r64 367r51
+396b7*Has_Target{boolean} 8|27m10 92m15 408r26 418r26 428r26 731r26
+397i7*Code_Size{natural} 8|28m10 91m15
+400b7*Is_Collecting{boolean} 8|29m10 115m15 126m15 241r22 277r22 337r22 381r22
+403r7*Line_Map{69R9} 8|30m10 93m15 97m18 106m15 134r32 138r27 140r30 142r33
+. 149r48 153r67 199r29 200m18 201m18 203m15 245r24 251r50 254m21 259m21 260r24
+. 261m21 264m18 264r49 407r22 436r24 439r22 447r24 450r22 473r29 477r24 479r65
+. 504r29 508r24 510r59 535r29 539r24 540r24 543r60 614r33 614r62 618r23 619m23
+. 620r26 621r26 622r26 623m26
+404r7*Branch_Info{99R9} 8|44m10 160r32 164r27 165r27 172m18 174r44 206r29
+. 207m18 208m18 209m18 210m18 212m15 213m15 214m15 214r50 282r29 283r21 291r21
+. 294r39 295m18 304m18 304r54 309m18 310m18 311r21 312m21 313r24 316m18 317m18
+. 318r21 319m21 320r24 417r22 630r28 636r34 640r29 641r29 644r32 645m32 647r32
+. 648m32 656r37 659r43 661m26 662r29 663m26 664r29
+405r7*Path_Info{129R9} 8|59m10 179r27 179r73 217m15 342r29 343r21 345r24
+. 346m24 347r27 349r24 350m24 358r21 362r62 364m21 370m21 370r53 427r22 584r22
+406a7*Opcode_Hits{338A9} 8|69m10 186r24 220m15 385r18 386m18 386r47 672r20
+. 673r23 673r64 674m23 674r49 674r74 676m23 692r21 698r33
+409r7*Current_Trace{389R9} 8|70m10 116m15 226m15 325r18 326m18 326r63 327m18
+. 327r50 367r37
+412r7*Stats{142R9} 8|74m10 149m18 150m18 151m18 152m18 153m18 173m18 178m15
+. 190m18 223m15 398r22 576r52 738r18 739r61 740r21 741r65 743r60
+X 8 khepri_coverage.adb
+9V13 Min{natural} 9>18 9>21 96s21 106s39 614s21
+9i18 A{natural} 10r11 10r22
+9i21 B{natural} 10r15 10r29
+12V13 Percent{natural} 12b13 12>22 12>28 18l8 18t15 153s41 174s13 179s10
+. 190s43
+12i22 Part{natural} 17r15
+12i28 Total{natural} 14r10 17r29
+96i11 I{integer} 97r51 98r29
+130i10 Covered{natural} 139m19 139r30 150r42 153r50
+131i10 Hot{natural} 141m22 141r29 151r38
+132i10 Cold{natural} 143m22 143r30 152r39
+134i14 I{integer} 136r65
+136i16 Idx{7|54I9} 138r44 140r47 142r50
+158i10 Covered_Both{natural} 167m19 167r35 172r46 174r22
+160i14 I{integer} 162r61
+162i16 Idx{7|83I9} 164r49 165r49
+183i10 Opcode_Count{natural} 187m16 187r32 190r52
+185i14 I{7|336I9} 186r37
+199i11 I{integer} 200r51 201r51
+206i11 I{integer} 207r54 208r54 209r54 210r54
+250i10 Idx{7|54I9} 251r67 254r38 259r38 260r41 261r38
+251i10 Old_Count{natural} 253r13 254r56 258r13
+274b7 Found{boolean} 284m13 290r14
+275i7 Idx{7|83I9} 285m13 294m10 295r40 309r40 310r40 311r43 312r43 313r46
+. 316r40 317r40 318r43 319r43 320r46
+282i11 I{integer} 283r57 285r34
+335b7 Found{boolean} 344m13 357r14
+342i11 I{integer} 343r50 345r53 346r53 347r56 349r53 350r53
+362i13 Idx{7|116I9} 364r38
+379i7 Idx{7|336I9} 385r31 386r31 386r60
+473i11 I{integer} 475r62
+475i13 Idx{7|54I9} 477r41 479r82
+504i11 I{integer} 506r62
+506i13 Idx{7|54I9} 508r41 510r76
+535i11 I{integer} 537r62
+537i13 Idx{7|54I9} 539r41 540r41 543r77
+576r7 Current{7|142R9} 578r10 580r14 581r16
+577b7 New_Cov{boolean} 589r10 600r28
+579i7 New_Branches{natural} 592r24 601r28
+583i7 New_Paths{natural} 593r24 602r28
+585i7 Score{natural} 588m7 590m10 590r19 592m7 592r16 593m7 593r16 595r10
+. 596m10 603r28 604r28
+614i11 I{integer} 616r62
+616i13 Idx{7|54I9} 618r40 619r40 620r43 621r43 622r43 623r43
+630i11 I{integer} 632r62
+632i13 Src_Idx{7|83I9} 641r51 644r54 647r54 662r51
+633b13 Found{boolean} 643m22 656r20
+636i17 J{integer} 638r68
+638i19 Tgt_Idx{7|83I9} 640r51 645r54 648r54
+658i19 New_Idx{7|83I9} 661r48
+671i11 I{7|336I9} 672r33 673r36 673r77 674r36 674r62 674r87 676r36
+689i7 Count{natural} 693m13 693r22 699r25
+691i11 I{7|336I9} 692r34
+720a10 Header{string} 724r19 725r40 726r37 728r18
+724i14 I{integer} 725r36 726r45
+X 9 khepri_types.ads
+25K9*Khepri_Types 7|5w6 5r24 9|345e17
+

@@ -1,0 +1,177 @@
+anubis_quantum_insurance.adb:157:15: info: overflow check proved
+anubis_quantum_insurance.adb:158:47: info: overflow check proved
+anubis_quantum_insurance.adb:158:47: info: index check proved
+anubis_quantum_insurance.adb:168:15: info: overflow check proved
+anubis_quantum_insurance.adb:169:48: info: overflow check proved
+anubis_quantum_insurance.adb:169:48: info: index check proved
+anubis_quantum_insurance.adb:176:15: info: overflow check proved
+anubis_quantum_insurance.adb:178:51: info: overflow check proved
+anubis_quantum_insurance.adb:178:51: info: index check proved
+anubis_quantum_insurance.adb:237:07: info: initialization of "Quorum_Required" proved
+anubis_quantum_insurance.adb:238:07: info: initialization of "Total_Votes" proved
+anubis_quantum_insurance.adb:239:07: info: initialization of "Threshold_Votes" proved
+anubis_quantum_insurance.adb:249:51: info: division check proved
+anubis_quantum_insurance.adb:262:68: info: division check proved
+anubis_quantum_insurance.adb:326:15: info: overflow check proved
+anubis_quantum_insurance.adb:327:45: info: overflow check proved
+
+anubis_quantum_insurance.adb:327:45: medium: array index check might fail
+  327 |            if Address (I) /= Builder_PK (I - Address'First) then
+      |                                          ~~^~~~~~~~~~~~~~~
+  e.g. when Address'First = 0
+        and Address'Last = 31
+        and Builder_PK'First = 1
+        and Builder_PK'Last = 32
+        and I = 0
+  reason for check: result of subtraction must be a valid index into the array
+anubis_quantum_insurance.adb:342:18: info: precondition proved
+anubis_quantum_insurance.adb:435:30: info: range check proved
+anubis_quantum_insurance.adb:442:24: info: index check proved, in call inlined at anubis_quantum_insurance.adb:452
+anubis_quantum_insurance.adb:442:24: info: index check proved, in call inlined at anubis_quantum_insurance.adb:453
+anubis_quantum_insurance.adb:442:24: info: index check proved, in call inlined at anubis_quantum_insurance.adb:454
+anubis_quantum_insurance.adb:442:24: info: index check proved, in call inlined at anubis_quantum_insurance.adb:462
+anubis_quantum_insurance.adb:442:24: info: index check proved, in call inlined at anubis_quantum_insurance.adb:463
+anubis_quantum_insurance.adb:442:24: info: index check proved, in call inlined at anubis_quantum_insurance.adb:464
+anubis_quantum_insurance.adb:442:46: info: division check proved, in call inlined at anubis_quantum_insurance.adb:452
+anubis_quantum_insurance.adb:442:46: info: range check proved, in call inlined at anubis_quantum_insurance.adb:452
+anubis_quantum_insurance.adb:442:46: info: division check proved, in call inlined at anubis_quantum_insurance.adb:453
+anubis_quantum_insurance.adb:442:46: info: range check proved, in call inlined at anubis_quantum_insurance.adb:453
+anubis_quantum_insurance.adb:442:46: info: division check proved, in call inlined at anubis_quantum_insurance.adb:454
+anubis_quantum_insurance.adb:442:46: info: range check proved, in call inlined at anubis_quantum_insurance.adb:454
+anubis_quantum_insurance.adb:442:46: info: division check proved, in call inlined at anubis_quantum_insurance.adb:462
+anubis_quantum_insurance.adb:442:46: info: range check proved, in call inlined at anubis_quantum_insurance.adb:462
+anubis_quantum_insurance.adb:442:46: info: division check proved, in call inlined at anubis_quantum_insurance.adb:463
+anubis_quantum_insurance.adb:442:46: info: range check proved, in call inlined at anubis_quantum_insurance.adb:463
+anubis_quantum_insurance.adb:442:46: info: division check proved, in call inlined at anubis_quantum_insurance.adb:464
+anubis_quantum_insurance.adb:442:46: info: range check proved, in call inlined at anubis_quantum_insurance.adb:464
+anubis_quantum_insurance.adb:443:23: info: division check proved, in call inlined at anubis_quantum_insurance.adb:452
+anubis_quantum_insurance.adb:443:23: info: division check proved, in call inlined at anubis_quantum_insurance.adb:453
+anubis_quantum_insurance.adb:443:23: info: division check proved, in call inlined at anubis_quantum_insurance.adb:454
+anubis_quantum_insurance.adb:443:23: info: division check proved, in call inlined at anubis_quantum_insurance.adb:462
+anubis_quantum_insurance.adb:443:23: info: division check proved, in call inlined at anubis_quantum_insurance.adb:463
+anubis_quantum_insurance.adb:443:23: info: division check proved, in call inlined at anubis_quantum_insurance.adb:464
+anubis_quantum_insurance.adb:444:27: info: overflow check proved, in call inlined at anubis_quantum_insurance.adb:452
+anubis_quantum_insurance.adb:444:27: info: overflow check proved, in call inlined at anubis_quantum_insurance.adb:453
+anubis_quantum_insurance.adb:444:27: info: overflow check proved, in call inlined at anubis_quantum_insurance.adb:454
+anubis_quantum_insurance.adb:444:27: info: overflow check proved, in call inlined at anubis_quantum_insurance.adb:462
+anubis_quantum_insurance.adb:444:27: info: overflow check proved, in call inlined at anubis_quantum_insurance.adb:463
+anubis_quantum_insurance.adb:444:27: info: overflow check proved, in call inlined at anubis_quantum_insurance.adb:464
+anubis_quantum_insurance.adb:450:14: info: length check proved
+anubis_quantum_insurance.adb:458:18: info: index check proved
+anubis_quantum_insurance.adb:459:21: info: overflow check proved
+anubis_quantum_insurance.adb:468:18: info: index check proved
+anubis_quantum_insurance.adb:469:21: info: overflow check proved
+
+anubis_quantum_insurance.adb:475:21: medium: array index check might fail
+  475 |            Output (Idx) := State.Lock_Hash (I);
+      |                    ^~~
+  reason for check: value must be a valid index into the array
+  possible fix: loop at line 473 should mention Idx in a loop invariant
+  473 |      for I in State.Lock_Hash'Range loop
+      |                                     ^ here
+
+anubis_quantum_insurance.adb:476:24: medium: overflow check might fail
+  476 |            Idx := Idx + 1;
+      |                   ~~~~^~~
+  reason for check: result of addition must fit in a 32-bits machine integer
+  possible fix: loop at line 473 should mention Idx in a loop invariant
+  473 |      for I in State.Lock_Hash'Range loop
+      |                                     ^ here
+anubis_quantum_insurance.adb:480:21: info: overflow check proved
+anubis_quantum_insurance.adb:480:21: info: range check proved
+
+anubis_quantum_insurance.adb:488:29: medium: range check might fail
+  488 |      Idx : Natural := Input'First;
+      |                       ~~~~~^~~~~~
+  e.g. when Input'Last = -2
+  reason for check: default component value must fit in the type
+  possible fix: add or complete related loop invariants or postconditions
+anubis_quantum_insurance.adb:490:27: info: initialization of "Val" proved
+anubis_quantum_insurance.adb:495:49: info: index check proved, in call inlined at anubis_quantum_insurance.adb:509
+anubis_quantum_insurance.adb:495:49: info: index check proved, in call inlined at anubis_quantum_insurance.adb:510
+anubis_quantum_insurance.adb:495:49: info: index check proved, in call inlined at anubis_quantum_insurance.adb:511
+anubis_quantum_insurance.adb:495:49: info: index check proved, in call inlined at anubis_quantum_insurance.adb:524
+anubis_quantum_insurance.adb:495:49: info: index check proved, in call inlined at anubis_quantum_insurance.adb:525
+anubis_quantum_insurance.adb:495:49: info: index check proved, in call inlined at anubis_quantum_insurance.adb:526
+anubis_quantum_insurance.adb:496:27: info: overflow check proved, in call inlined at anubis_quantum_insurance.adb:509
+anubis_quantum_insurance.adb:496:27: info: overflow check proved, in call inlined at anubis_quantum_insurance.adb:510
+anubis_quantum_insurance.adb:496:27: info: overflow check proved, in call inlined at anubis_quantum_insurance.adb:511
+anubis_quantum_insurance.adb:496:27: info: overflow check proved, in call inlined at anubis_quantum_insurance.adb:524
+anubis_quantum_insurance.adb:496:27: info: overflow check proved, in call inlined at anubis_quantum_insurance.adb:525
+anubis_quantum_insurance.adb:496:27: info: overflow check proved, in call inlined at anubis_quantum_insurance.adb:526
+anubis_quantum_insurance.adb:515:29: info: index check proved
+anubis_quantum_insurance.adb:519:42: info: range check proved
+anubis_quantum_insurance.adb:519:58: info: index check proved
+anubis_quantum_insurance.adb:521:21: info: overflow check proved
+anubis_quantum_insurance.adb:530:46: info: index check proved
+anubis_quantum_insurance.adb:531:21: info: overflow check proved
+
+anubis_quantum_insurance.adb:537:43: medium: array index check might fail
+  537 |            State.Lock_Hash (I) := Input (Idx);
+      |                                          ^~~
+  reason for check: value must be a valid index into the array
+  possible fix: loop at line 535 should mention Idx in a loop invariant
+  535 |      for I in State.Lock_Hash'Range loop
+      |                                     ^ here
+
+anubis_quantum_insurance.adb:538:24: medium: overflow check might fail
+  538 |            Idx := Idx + 1;
+      |                   ~~~~^~~
+  reason for check: result of addition must fit in a 32-bits machine integer
+  possible fix: loop at line 535 should mention Idx in a loop invariant
+  535 |      for I in State.Lock_Hash'Range loop
+      |                                     ^ here
+anubis_quantum_insurance.ads:157:07: info: initialization of "State" proved
+anubis_quantum_insurance.ads:160:07: info: data dependencies proved
+anubis_quantum_insurance.ads:161:15: info: postcondition proved
+anubis_quantum_insurance.ads:174:07: info: initialization of "Result" proved
+anubis_quantum_insurance.ads:176:07: info: data dependencies proved
+anubis_quantum_insurance.ads:179:13: info: implicit aspect Always_Terminates on "Verify_Oracle_Signature" has been proved, subprogram will terminate
+anubis_quantum_insurance.ads:183:07: info: data dependencies proved
+anubis_quantum_insurance.ads:187:13: info: implicit aspect Always_Terminates on "Get_Threat_Level" has been proved, subprogram will terminate
+anubis_quantum_insurance.ads:190:07: info: data dependencies proved
+anubis_quantum_insurance.ads:191:15: info: postcondition proved
+anubis_quantum_insurance.ads:205:07: info: initialization of "Result" proved
+anubis_quantum_insurance.ads:207:07: info: data dependencies proved
+anubis_quantum_insurance.ads:220:07: info: initialization of "Success" proved
+anubis_quantum_insurance.ads:222:07: info: data dependencies proved
+anubis_quantum_insurance.ads:232:07: info: initialization of "Success" proved
+anubis_quantum_insurance.ads:234:07: info: data dependencies proved
+anubis_quantum_insurance.ads:241:07: info: initialization of "Result" proved
+anubis_quantum_insurance.ads:243:07: info: data dependencies proved
+anubis_quantum_insurance.ads:255:13: info: implicit aspect Always_Terminates on "Is_Builder" has been proved, subprogram will terminate
+anubis_quantum_insurance.ads:259:07: info: data dependencies proved
+anubis_quantum_insurance.ads:264:13: info: implicit aspect Always_Terminates on "Is_Valid_Recipient" has been proved, subprogram will terminate
+anubis_quantum_insurance.ads:268:07: info: data dependencies proved
+anubis_quantum_insurance.ads:271:15: info: postcondition proved
+anubis_quantum_insurance.ads:272:20: info: precondition proved
+anubis_quantum_insurance.ads:275:13: info: implicit aspect Always_Terminates on "Verify_Lock_Integrity" has been proved, subprogram will terminate
+anubis_quantum_insurance.ads:278:07: info: data dependencies proved
+anubis_quantum_insurance.ads:285:13: info: implicit aspect Always_Terminates on "Is_Sunset" has been proved, subprogram will terminate
+anubis_quantum_insurance.ads:289:07: info: data dependencies proved
+anubis_quantum_insurance.ads:290:15: info: postcondition proved
+anubis_quantum_insurance.ads:297:07: info: initialization of "Success" proved
+anubis_quantum_insurance.ads:299:07: info: data dependencies proved
+anubis_quantum_insurance.ads:308:13: info: implicit aspect Always_Terminates on "Get_Balance" has been proved, subprogram will terminate
+anubis_quantum_insurance.ads:311:07: info: data dependencies proved
+anubis_quantum_insurance.ads:312:15: info: postcondition proved
+anubis_quantum_insurance.ads:315:13: info: implicit aspect Always_Terminates on "Get_Total_Released" has been proved, subprogram will terminate
+anubis_quantum_insurance.ads:318:07: info: data dependencies proved
+anubis_quantum_insurance.ads:319:15: info: postcondition proved
+anubis_quantum_insurance.ads:322:13: info: implicit aspect Always_Terminates on "Blocks_Until_Sunset" has been proved, subprogram will terminate
+anubis_quantum_insurance.ads:326:07: info: data dependencies proved
+anubis_quantum_insurance.ads:329:13: info: implicit aspect Always_Terminates on "Can_Release" has been proved, subprogram will terminate
+anubis_quantum_insurance.ads:332:07: info: data dependencies proved
+anubis_quantum_insurance.ads:333:15: info: postcondition proved
+anubis_quantum_insurance.ads:342:07: info: initialization of "Output" proved
+anubis_quantum_insurance.ads:343:07: info: initialization of "Length" proved
+anubis_quantum_insurance.ads:345:07: info: data dependencies proved
+anubis_quantum_insurance.ads:350:07: info: initialization of "State" proved
+anubis_quantum_insurance.ads:351:07: info: initialization of "Success" proved
+anubis_quantum_insurance.ads:353:07: info: data dependencies proved
+anubis_quantum_insurance.ads:359:39: info: initialization of "State" proved
+anubis_quantum_insurance.ads:360:07: info: data dependencies proved
+anubis_quantum_insurance.ads:362:35: info: initialization of "A" proved
+anubis_quantum_insurance.ads:363:07: info: data dependencies proved
+anubis_quantum_insurance.ads:365:32: info: initialization of "P" proved
+anubis_quantum_insurance.ads:366:07: info: data dependencies proved

@@ -1,0 +1,1545 @@
+{
+  "spark": {
+    " 14": "all",
+    " 1": "all",
+    " 7": "all",
+    " 5": "all",
+    " 10": "all",
+    " 3": "all",
+    " 8": "all",
+    " 12": "all",
+    " 4": "all",
+    " 11": "all",
+    " 2": "all",
+    " 6": "all",
+    " 9": "all",
+    " 13": "all"
+  },
+  "skip_flow_proof": [
+  ],
+  "skip_proof": [
+  ],
+  "progress": "PROGRESS_PROOF",
+  "stop_reason": "STOP_REASON_NONE",
+  "flow": [
+    {
+      "file": "anubis_genesis_provers.ads",
+      "line": 130,
+      "col": 7,
+      "rule": "UNINITIALIZED",
+      "severity": "info",
+      "entity": 1,
+      "check_tree": {
+      },
+      "msg_id": 0,
+      "how_proved": "flow"
+    },
+    {
+      "file": "anubis_genesis_provers.ads",
+      "line": 133,
+      "col": 7,
+      "rule": "GLOBAL_WRONG",
+      "severity": "info",
+      "entity": 1,
+      "check_tree": {
+      },
+      "msg_id": 1,
+      "how_proved": "flow"
+    },
+    {
+      "file": "anubis_genesis_provers.ads",
+      "line": 225,
+      "col": 13,
+      "rule": "SUBPROGRAM_TERMINATION",
+      "severity": "info",
+      "entity": 2,
+      "check_tree": {
+      },
+      "msg_id": 2,
+      "how_proved": "flow"
+    },
+    {
+      "file": "anubis_genesis_provers.ads",
+      "line": 228,
+      "col": 7,
+      "rule": "GLOBAL_WRONG",
+      "severity": "info",
+      "entity": 2,
+      "check_tree": {
+      },
+      "msg_id": 3,
+      "how_proved": "flow"
+    },
+    {
+      "file": "anubis_genesis_provers.adb",
+      "line": 181,
+      "col": 7,
+      "rule": "UNINITIALIZED",
+      "severity": "info",
+      "entity": 3,
+      "check_tree": {
+      },
+      "msg_id": 4,
+      "how_proved": "flow"
+    },
+    {
+      "file": "anubis_genesis_provers.ads",
+      "line": 179,
+      "col": 13,
+      "rule": "SUBPROGRAM_TERMINATION",
+      "severity": "info",
+      "entity": 3,
+      "check_tree": {
+      },
+      "msg_id": 5,
+      "how_proved": "flow"
+    },
+    {
+      "file": "anubis_genesis_provers.ads",
+      "line": 184,
+      "col": 7,
+      "rule": "GLOBAL_WRONG",
+      "severity": "info",
+      "entity": 3,
+      "check_tree": {
+      },
+      "msg_id": 6,
+      "how_proved": "flow"
+    },
+    {
+      "file": "anubis_genesis_provers.adb",
+      "line": 245,
+      "col": 7,
+      "rule": "UNINITIALIZED",
+      "severity": "info",
+      "entity": 4,
+      "check_tree": {
+      },
+      "msg_id": 7,
+      "how_proved": "flow"
+    },
+    {
+      "file": "anubis_genesis_provers.ads",
+      "line": 211,
+      "col": 7,
+      "rule": "GLOBAL_WRONG",
+      "severity": "info",
+      "entity": 4,
+      "check_tree": {
+      },
+      "msg_id": 8,
+      "how_proved": "flow"
+    },
+    {
+      "file": "anubis_genesis_provers.ads",
+      "line": 165,
+      "col": 7,
+      "rule": "GLOBAL_WRONG",
+      "severity": "info",
+      "entity": 5,
+      "check_tree": {
+      },
+      "msg_id": 9,
+      "how_proved": "flow"
+    },
+    {
+      "file": "anubis_genesis_provers.ads",
+      "line": 238,
+      "col": 7,
+      "rule": "GLOBAL_WRONG",
+      "severity": "info",
+      "entity": 6,
+      "check_tree": {
+      },
+      "msg_id": 10,
+      "how_proved": "flow"
+    },
+    {
+      "file": "anubis_genesis_provers.ads",
+      "line": 148,
+      "col": 7,
+      "rule": "UNINITIALIZED",
+      "severity": "info",
+      "entity": 7,
+      "check_tree": {
+      },
+      "msg_id": 11,
+      "how_proved": "flow"
+    },
+    {
+      "file": "anubis_genesis_provers.ads",
+      "line": 150,
+      "col": 7,
+      "rule": "GLOBAL_WRONG",
+      "severity": "info",
+      "entity": 7,
+      "check_tree": {
+      },
+      "msg_id": 12,
+      "how_proved": "flow"
+    },
+    {
+      "file": "anubis_genesis_provers.ads",
+      "line": 191,
+      "col": 7,
+      "rule": "GLOBAL_WRONG",
+      "severity": "info",
+      "entity": 8,
+      "check_tree": {
+      },
+      "msg_id": 13,
+      "how_proved": "flow"
+    },
+    {
+      "file": "anubis_genesis_provers.ads",
+      "line": 245,
+      "col": 34,
+      "rule": "UNINITIALIZED",
+      "severity": "info",
+      "entity": 9,
+      "check_tree": {
+      },
+      "msg_id": 14,
+      "how_proved": "flow"
+    },
+    {
+      "file": "anubis_genesis_provers.ads",
+      "line": 246,
+      "col": 7,
+      "rule": "GLOBAL_WRONG",
+      "severity": "info",
+      "entity": 9,
+      "check_tree": {
+      },
+      "msg_id": 15,
+      "how_proved": "flow"
+    },
+    {
+      "file": "anubis_genesis_provers.ads",
+      "line": 172,
+      "col": 7,
+      "rule": "GLOBAL_WRONG",
+      "severity": "info",
+      "entity": 10,
+      "check_tree": {
+      },
+      "msg_id": 16,
+      "how_proved": "flow"
+    },
+    {
+      "file": "anubis_genesis_provers.ads",
+      "line": 219,
+      "col": 13,
+      "rule": "SUBPROGRAM_TERMINATION",
+      "severity": "info",
+      "entity": 11,
+      "check_tree": {
+      },
+      "msg_id": 17,
+      "how_proved": "flow"
+    },
+    {
+      "file": "anubis_genesis_provers.ads",
+      "line": 223,
+      "col": 7,
+      "rule": "GLOBAL_WRONG",
+      "severity": "info",
+      "entity": 11,
+      "check_tree": {
+      },
+      "msg_id": 18,
+      "how_proved": "flow"
+    },
+    {
+      "file": "anubis_genesis_provers.ads",
+      "line": 196,
+      "col": 7,
+      "rule": "UNINITIALIZED",
+      "severity": "info",
+      "entity": 12,
+      "check_tree": {
+      },
+      "msg_id": 19,
+      "how_proved": "flow"
+    },
+    {
+      "file": "anubis_genesis_provers.ads",
+      "line": 197,
+      "col": 7,
+      "rule": "UNINITIALIZED",
+      "severity": "info",
+      "entity": 12,
+      "check_tree": {
+      },
+      "msg_id": 20,
+      "how_proved": "flow"
+    },
+    {
+      "file": "anubis_genesis_provers.ads",
+      "line": 199,
+      "col": 7,
+      "rule": "GLOBAL_WRONG",
+      "severity": "info",
+      "entity": 12,
+      "check_tree": {
+      },
+      "msg_id": 21,
+      "how_proved": "flow"
+    },
+    {
+      "file": "anubis_genesis_provers.ads",
+      "line": 248,
+      "col": 30,
+      "rule": "UNINITIALIZED",
+      "severity": "info",
+      "entity": 13,
+      "check_tree": {
+      },
+      "msg_id": 22,
+      "how_proved": "flow"
+    },
+    {
+      "file": "anubis_genesis_provers.ads",
+      "line": 249,
+      "col": 7,
+      "rule": "GLOBAL_WRONG",
+      "severity": "info",
+      "entity": 13,
+      "check_tree": {
+      },
+      "msg_id": 23,
+      "how_proved": "flow"
+    }
+  ],
+  "pragma_assume": [
+  ],
+  "proof": [
+    {
+      "file": "anubis_genesis_provers.ads",
+      "line": 134,
+      "col": 15,
+      "rule": "VC_POSTCONDITION",
+      "severity": "info",
+      "entity": 1,
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC5": {
+              "result": "Valid",
+              "steps": 1,
+              "time": 1.00000000000000E-02
+            },
+            "Z3": {
+              "result": "Failure\n(interrupted)",
+              "steps": 1,
+              "time": 0
+            },
+            "altergo": {
+              "result": "Failure\n(interrupted)",
+              "steps": 1,
+              "time": 0
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "anubis_genesis_provers.ads",
+      "check_line": 134,
+      "check_col": 15,
+      "msg_id": 24,
+      "how_proved": "prover",
+      "stats": {
+        "CVC5": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 9.99999977648258E-03
+        }
+      }
+    },
+    {
+      "file": "anubis_genesis_provers.adb",
+      "line": 98,
+      "col": 45,
+      "rule": "VC_OVERFLOW_CHECK",
+      "severity": "info",
+      "entity": 7,
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC5": {
+              "result": "Valid",
+              "steps": 1,
+              "time": 1.00000000000000E-02
+            },
+            "Z3": {
+              "result": "High failure",
+              "steps": 1,
+              "time": 0
+            },
+            "altergo": {
+              "result": "Failure\n(interrupted)",
+              "steps": 1,
+              "time": 0
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "CVC5": {
+              "result": "Valid",
+              "steps": 1,
+              "time": 1.00000000000000E-02
+            },
+            "Z3": {
+              "result": "Valid",
+              "steps": 1,
+              "time": 1.00000000000000E-02
+            },
+            "altergo": {
+              "result": "High failure",
+              "steps": 1,
+              "time": 4.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "anubis_genesis_provers.adb",
+      "check_line": 98,
+      "check_col": 45,
+      "msg_id": 25,
+      "how_proved": "prover",
+      "stats": {
+        "CVC5": {
+          "count": 2,
+          "max_steps": 1,
+          "max_time": 9.99999977648258E-03
+        }
+      }
+    },
+    {
+      "file": "anubis_genesis_provers.adb",
+      "line": 98,
+      "col": 45,
+      "rule": "VC_INDEX_CHECK",
+      "severity": "info",
+      "entity": 7,
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC5": {
+              "result": "Valid",
+              "steps": 1,
+              "time": 1.00000000000000E-02
+            },
+            "Z3": {
+              "result": "Failure\n(interrupted)",
+              "steps": 1,
+              "time": 0
+            },
+            "altergo": {
+              "result": "Failure\n(interrupted)",
+              "steps": 1,
+              "time": 0
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "CVC5": {
+              "result": "Valid",
+              "steps": 1,
+              "time": 1.00000000000000E-02
+            },
+            "Z3": {
+              "result": "High failure",
+              "steps": 1,
+              "time": 0
+            },
+            "altergo": {
+              "result": "Failure\n(interrupted)",
+              "steps": 1,
+              "time": 0
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "anubis_genesis_provers.adb",
+      "check_line": 98,
+      "check_col": 45,
+      "msg_id": 26,
+      "how_proved": "prover",
+      "stats": {
+        "CVC5": {
+          "count": 2,
+          "max_steps": 1,
+          "max_time": 9.99999977648258E-03
+        }
+      }
+    },
+    {
+      "file": "anubis_genesis_provers.adb",
+      "line": 97,
+      "col": 15,
+      "rule": "VC_OVERFLOW_CHECK",
+      "severity": "info",
+      "entity": 7,
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC5": {
+              "result": "Valid",
+              "steps": 1,
+              "time": 1.00000000000000E-02
+            },
+            "Z3": {
+              "result": "High failure",
+              "steps": 1,
+              "time": 0
+            },
+            "altergo": {
+              "result": "Failure\n(interrupted)",
+              "steps": 1,
+              "time": 0
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "CVC5": {
+              "result": "Valid",
+              "steps": 1,
+              "time": 1.00000000000000E-02
+            },
+            "Z3": {
+              "result": "Valid",
+              "steps": 1,
+              "time": 1.00000000000000E-02
+            },
+            "altergo": {
+              "result": "High failure",
+              "steps": 1,
+              "time": 4.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "anubis_genesis_provers.adb",
+      "check_line": 97,
+      "check_col": 15,
+      "msg_id": 27,
+      "how_proved": "prover",
+      "stats": {
+        "CVC5": {
+          "count": 2,
+          "max_steps": 1,
+          "max_time": 9.99999977648258E-03
+        }
+      }
+    },
+    {
+      "file": "anubis_genesis_provers.adb",
+      "line": 105,
+      "col": 45,
+      "rule": "VC_OVERFLOW_CHECK",
+      "severity": "info",
+      "entity": 7,
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC5": {
+              "result": "Valid",
+              "steps": 1,
+              "time": 2.00000000000000E-02
+            },
+            "Z3": {
+              "result": "High failure",
+              "steps": 1,
+              "time": 0
+            },
+            "altergo": {
+              "result": "Failure\n(interrupted)",
+              "steps": 1,
+              "time": 0
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "CVC5": {
+              "result": "Valid",
+              "steps": 1,
+              "time": 2.00000000000000E-02
+            },
+            "Z3": {
+              "result": "Valid",
+              "steps": 1,
+              "time": 1.00000000000000E-02
+            },
+            "altergo": {
+              "result": "High failure",
+              "steps": 1,
+              "time": 3.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "anubis_genesis_provers.adb",
+      "check_line": 105,
+      "check_col": 45,
+      "msg_id": 28,
+      "how_proved": "prover",
+      "stats": {
+        "CVC5": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 1.99999995529652E-02
+        },
+        "Z3": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 9.99999977648258E-03
+        }
+      }
+    },
+    {
+      "file": "anubis_genesis_provers.adb",
+      "line": 105,
+      "col": 45,
+      "rule": "VC_INDEX_CHECK",
+      "severity": "info",
+      "entity": 7,
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC5": {
+              "result": "Valid",
+              "steps": 1,
+              "time": 2.00000000000000E-02
+            },
+            "Z3": {
+              "result": "High failure",
+              "steps": 1,
+              "time": 0
+            },
+            "altergo": {
+              "result": "Failure\n(interrupted)",
+              "steps": 1,
+              "time": 0
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "CVC5": {
+              "result": "Valid",
+              "steps": 1,
+              "time": 2.00000000000000E-02
+            },
+            "Z3": {
+              "result": "Valid",
+              "steps": 1,
+              "time": 1.00000000000000E-02
+            },
+            "altergo": {
+              "result": "High failure",
+              "steps": 1,
+              "time": 1.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "anubis_genesis_provers.adb",
+      "check_line": 105,
+      "check_col": 45,
+      "msg_id": 29,
+      "how_proved": "prover",
+      "stats": {
+        "CVC5": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 1.99999995529652E-02
+        },
+        "Z3": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 9.99999977648258E-03
+        }
+      }
+    },
+    {
+      "file": "anubis_genesis_provers.adb",
+      "line": 104,
+      "col": 15,
+      "rule": "VC_OVERFLOW_CHECK",
+      "severity": "info",
+      "entity": 7,
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC5": {
+              "result": "Valid",
+              "steps": 1,
+              "time": 2.00000000000000E-02
+            },
+            "Z3": {
+              "result": "High failure",
+              "steps": 1,
+              "time": 0
+            },
+            "altergo": {
+              "result": "Failure\n(interrupted)",
+              "steps": 1,
+              "time": 0
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "CVC5": {
+              "result": "Valid",
+              "steps": 1,
+              "time": 2.00000000000000E-02
+            },
+            "Z3": {
+              "result": "Valid",
+              "steps": 1,
+              "time": 1.00000000000000E-02
+            },
+            "altergo": {
+              "result": "High failure",
+              "steps": 1,
+              "time": 7.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "anubis_genesis_provers.adb",
+      "check_line": 104,
+      "check_col": 15,
+      "msg_id": 30,
+      "how_proved": "prover",
+      "stats": {
+        "CVC5": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 1.99999995529652E-02
+        },
+        "Z3": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 9.99999977648258E-03
+        }
+      }
+    },
+    {
+      "file": "anubis_genesis_provers.adb",
+      "line": 116,
+      "col": 53,
+      "rule": "VC_OVERFLOW_CHECK",
+      "severity": "info",
+      "entity": 7,
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC5": {
+              "result": "Valid",
+              "steps": 1,
+              "time": 1.00000000000000E-02
+            },
+            "Z3": {
+              "result": "High failure",
+              "steps": 1,
+              "time": 0
+            },
+            "altergo": {
+              "result": "Failure\n(interrupted)",
+              "steps": 1,
+              "time": 0
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "CVC5": {
+              "result": "Valid",
+              "steps": 287,
+              "time": 3.00000000000000E-02
+            },
+            "Z3": {
+              "result": "Valid",
+              "steps": 1,
+              "time": 2.00000000000000E-02
+            },
+            "altergo": {
+              "result": "High failure",
+              "steps": 1,
+              "time": 1.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "anubis_genesis_provers.adb",
+      "check_line": 116,
+      "check_col": 53,
+      "msg_id": 31,
+      "how_proved": "prover",
+      "stats": {
+        "CVC5": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 9.99999977648258E-03
+        },
+        "Z3": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 1.99999995529652E-02
+        }
+      }
+    },
+    {
+      "file": "anubis_genesis_provers.adb",
+      "line": 147,
+      "col": 79,
+      "rule": "VC_DIVISION_CHECK",
+      "severity": "info",
+      "entity": 5,
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC5": {
+              "result": "Valid",
+              "steps": 1,
+              "time": 0
+            },
+            "Z3": {
+              "result": "High failure",
+              "steps": 1,
+              "time": 0
+            },
+            "altergo": {
+              "result": "Failure\n(interrupted)",
+              "steps": 1,
+              "time": 0
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "anubis_genesis_provers.adb",
+      "check_line": 147,
+      "check_col": 79,
+      "msg_id": 32,
+      "how_proved": "prover",
+      "stats": {
+        "CVC5": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 0.00000000000000E+00
+        }
+      }
+    },
+    {
+      "file": "anubis_genesis_provers.adb",
+      "line": 184,
+      "col": 45,
+      "rule": "VC_DIVISION_CHECK",
+      "severity": "info",
+      "entity": 3,
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC5": {
+              "result": "Valid",
+              "steps": 1,
+              "time": 0
+            },
+            "Z3": {
+              "result": "High failure",
+              "steps": 1,
+              "time": 0
+            },
+            "altergo": {
+              "result": "Failure\n(interrupted)",
+              "steps": 1,
+              "time": 0
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "anubis_genesis_provers.adb",
+      "check_line": 184,
+      "check_col": 45,
+      "msg_id": 33,
+      "how_proved": "prover",
+      "stats": {
+        "CVC5": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 0.00000000000000E+00
+        }
+      }
+    },
+    {
+      "file": "anubis_genesis_provers.adb",
+      "line": 187,
+      "col": 63,
+      "rule": "VC_DIVISION_CHECK",
+      "severity": "info",
+      "entity": 3,
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC5": {
+              "result": "Valid",
+              "steps": 1,
+              "time": 0
+            },
+            "Z3": {
+              "result": "High failure",
+              "steps": 1,
+              "time": 0
+            },
+            "altergo": {
+              "result": "Failure\n(interrupted)",
+              "steps": 1,
+              "time": 0
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "anubis_genesis_provers.adb",
+      "check_line": 187,
+      "check_col": 63,
+      "msg_id": 34,
+      "how_proved": "prover",
+      "stats": {
+        "CVC5": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 0.00000000000000E+00
+        }
+      }
+    },
+    {
+      "file": "anubis_genesis_provers.adb",
+      "line": 249,
+      "col": 53,
+      "rule": "VC_DIVISION_CHECK",
+      "severity": "info",
+      "entity": 4,
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC5": {
+              "result": "Valid",
+              "steps": 1,
+              "time": 0
+            },
+            "Z3": {
+              "result": "High failure",
+              "steps": 1,
+              "time": 0
+            },
+            "altergo": {
+              "result": "Failure\n(interrupted)",
+              "steps": 1,
+              "time": 0
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "anubis_genesis_provers.adb",
+      "check_line": 249,
+      "check_col": 53,
+      "msg_id": 35,
+      "how_proved": "prover",
+      "stats": {
+        "CVC5": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 0.00000000000000E+00
+        }
+      }
+    },
+    {
+      "file": "anubis_genesis_provers.adb",
+      "line": 260,
+      "col": 51,
+      "rule": "VC_OVERFLOW_CHECK",
+      "severity": "medium",
+      "entity": 4,
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC5": {
+              "result": "Unknown\n(unknown + incomplete)",
+              "steps": 10968,
+              "time": 2.85000000000000E+00
+            },
+            "Z3": {
+              "result": "Timeout",
+              "steps": 1,
+              "time": 60
+            },
+            "altergo": {
+              "result": "Timeout",
+              "steps": 1,
+              "time": 60
+            }
+          },
+          "transformations": {
+            "introduce_premises": [
+              {
+                "proof_attempts": {
+                  "CVC5_CE": {
+                    "result": "Unknown\n(unknown + incomplete)",
+                    "steps": 11360,
+                    "time": 2.40000000000000E+00
+                  }
+                },
+                "transformations": {
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "check_file": "anubis_genesis_provers.adb",
+      "check_line": 260,
+      "check_col": 51,
+      "msg_id": 36,
+      "how_proved": "prover"
+    },
+    {
+      "file": "anubis_genesis_provers.adb",
+      "line": 268,
+      "col": 54,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": 4,
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC5": {
+              "result": "Valid",
+              "steps": 8017,
+              "time": 1.30000000000000E-01
+            },
+            "Z3": {
+              "result": "High failure",
+              "steps": 1,
+              "time": 0
+            },
+            "altergo": {
+              "result": "Failure\n(interrupted)",
+              "steps": 1,
+              "time": 0
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "anubis_genesis_provers.adb",
+      "check_line": 268,
+      "check_col": 54,
+      "msg_id": 39,
+      "how_proved": "prover",
+      "stats": {
+        "CVC5": {
+          "count": 1,
+          "max_steps": 8017,
+          "max_time": 1.29999995231628E-01
+        }
+      }
+    }
+  ],
+  "assumptions": [
+    {
+      "assumptions": [
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": 13
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": 13
+        }
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": 9
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": 3
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_EFFECTS",
+        "arg": 10
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": 10
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_POST",
+        "arg": 1
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": 1
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": 7
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_EFFECTS",
+        "arg": 8
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": 8
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_EFFECTS",
+        "arg": 5
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": 5
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": 11
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_EFFECTS",
+        "arg": 6
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": 6
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": 14
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": 2
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": 12
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": 13
+      }
+    }
+  ],
+  "timings": {
+    "global": {
+      "init_why_sections": 4.19999996665865E-04,
+      "globals (advanced)": 3.94000002415851E-04,
+      "flow analysis": 1.71319991350174E-02,
+      "marking": 4.69999999040738E-04,
+      "translation of standard": 1.18400005158037E-03,
+      "properties (advanced)": 3.09999995806720E-05,
+      "globals (basic)": 4.00999997509643E-04
+    },
+    " 7": {
+      "gnatwhy3.transformations.inline_trivial": 1.20000004244503E-05,
+      "gnatwhy3.transformations.eliminate_algebraic": 0.00000000000000E+00,
+      "gnatwhy3.transformations.detect_polymorphism": 1.99900000552589E-06,
+      "gnat2why.vc_generation": 3.31120006740093E-02,
+      "gnatwhy3.transformations.eliminate_literal": 1.49990000863909E-05,
+      "gnatwhy3.run_vcs": 2.30000005103648E-05,
+      "gnatwhy3.transformations.eliminate_algebraic_if_poly": 7.99900044512469E-06,
+      "gnatwhy3.transformations.eliminate_projections_sums": 3.00000010611257E-06,
+      "gnatwhy3.transformations.eliminate_gnatprove_guard_epsilon": 1.29990003188141E-05,
+      "gnatwhy3.transformations.simplify_formula": 7.00000009601354E-06,
+      "gnatwhy3.transformations.eliminate_recursion": 1.99900000552589E-06,
+      "gnatwhy3.transformations.eliminate_definition_conditionally": 1.99900000552589E-06,
+      "gnatwhy3.transformations.counterexamples_dependent_intros": 1.20000004244503E-05,
+      "gnatwhy3.register_vcs": 9.99000008050643E-07,
+      "gnatwhy3.transformations.eliminate_epsilon": 9.99900021270150E-06,
+      "gnatwhy3.transformations.remove_unused_keep_constants": 7.99900044512469E-06,
+      "gnatwhy3.schedule_vcs": 5.73275029659271E-01,
+      "gnatwhy3.transformations.prepare_for_counterexmp": 3.00000010611257E-06,
+      "gnatwhy3.save_session": 5.14199994504452E-02,
+      "gnatwhy3.transformations.eliminate_inductive": 9.00000031833770E-06,
+      "gnatwhy3.transformations.encoding_smt_if_poly": 3.00000010611257E-06,
+      "gnatwhy3.transformations.eliminate_builtin": 1.29990003188141E-05,
+      "gnatwhy3.transformations.discriminate_if_poly": 4.99899988426478E-06,
+      "gnatwhy3.transformations.introduce_premises": 0.00000000000000E+00,
+      "gnatwhy3.init": 3.05222988128662E-01
+    },
+    " 12": {
+      "gnat2why.vc_generation": 4.82000003103167E-04
+    },
+    " 11": {
+      "gnat2why.vc_generation": 3.12939994037151E-02
+    },
+    " 8": {
+      "gnat2why.vc_generation": 2.76120007038116E-02
+    },
+    " 13": {
+      "gnat2why.vc_generation": 6.37000019196421E-04
+    },
+    " 4": {
+      "gnatwhy3.transformations.inline_trivial": 1.20000004244503E-05,
+      "gnatwhy3.transformations.eliminate_algebraic": 0.00000000000000E+00,
+      "gnatwhy3.transformations.detect_polymorphism": 9.99900021270150E-06,
+      "gnat2why.vc_generation": 9.35000018216670E-04,
+      "gnatwhy3.transformations.eliminate_literal": 1.89990005310392E-05,
+      "gnatwhy3.run_vcs": 1.20000004244503E-05,
+      "gnatwhy3.transformations.eliminate_algebraic_if_poly": 3.99900000047637E-06,
+      "gnatwhy3.transformations.eliminate_projections_sums": 1.99900000552589E-06,
+      "gnatwhy3.transformations.eliminate_gnatprove_guard_epsilon": 7.99900044512469E-06,
+      "gnatwhy3.transformations.simplify_formula": 9.99900021270150E-06,
+      "gnatwhy3.transformations.eliminate_recursion": 0.00000000000000E+00,
+      "gnatwhy3.transformations.eliminate_definition_conditionally": 3.00000010611257E-06,
+      "gnatwhy3.transformations.counterexamples_dependent_intros": 4.99899988426478E-06,
+      "gnatwhy3.register_vcs": 0.00000000000000E+00,
+      "gnatwhy3.transformations.eliminate_epsilon": 9.00000031833770E-06,
+      "gnatwhy3.transformations.remove_unused_keep_constants": 7.99900044512469E-06,
+      "gnatwhy3.schedule_vcs": 2.72938013076782E-01,
+      "gnatwhy3.transformations.prepare_for_counterexmp": 3.99900000047637E-06,
+      "gnatwhy3.save_session": 7.46200000867248E-03,
+      "gnatwhy3.transformations.eliminate_inductive": 7.00000009601354E-06,
+      "gnatwhy3.transformations.encoding_smt_if_poly": 7.00000009601354E-06,
+      "gnatwhy3.transformations.eliminate_builtin": 9.00000031833770E-06,
+      "gnatwhy3.transformations.discriminate_if_poly": 3.00000010611257E-06,
+      "gnatwhy3.transformations.introduce_premises": 9.99000008050643E-07,
+      "gnatwhy3.init": 2.64530003070831E-01
+    },
+    " 3": {
+      "gnatwhy3.transformations.inline_trivial": 0.00000000000000E+00,
+      "gnatwhy3.transformations.eliminate_algebraic": 0.00000000000000E+00,
+      "gnatwhy3.transformations.detect_polymorphism": 9.99000008050643E-07,
+      "gnat2why.vc_generation": 3.19999991916120E-04,
+      "gnatwhy3.transformations.eliminate_literal": 3.99900000047637E-06,
+      "gnatwhy3.run_vcs": 1.99900000552589E-06,
+      "gnatwhy3.transformations.eliminate_algebraic_if_poly": 9.99000008050643E-07,
+      "gnatwhy3.transformations.eliminate_projections_sums": 9.99000008050643E-07,
+      "gnatwhy3.transformations.eliminate_gnatprove_guard_epsilon": 0.00000000000000E+00,
+      "gnatwhy3.transformations.simplify_formula": 9.99000008050643E-07,
+      "gnatwhy3.transformations.eliminate_recursion": 0.00000000000000E+00,
+      "gnatwhy3.transformations.eliminate_definition_conditionally": 0.00000000000000E+00,
+      "gnatwhy3.transformations.counterexamples_dependent_intros": 0.00000000000000E+00,
+      "gnatwhy3.register_vcs": 0.00000000000000E+00,
+      "gnatwhy3.transformations.eliminate_epsilon": 1.99900000552589E-06,
+      "gnatwhy3.transformations.remove_unused_keep_constants": 0.00000000000000E+00,
+      "gnatwhy3.schedule_vcs": 1.70239999890327E-01,
+      "gnatwhy3.transformations.prepare_for_counterexmp": 0.00000000000000E+00,
+      "gnatwhy3.save_session": 1.05399894528091E-03,
+      "gnatwhy3.transformations.eliminate_inductive": 1.99900000552589E-06,
+      "gnatwhy3.transformations.encoding_smt_if_poly": 0.00000000000000E+00,
+      "gnatwhy3.transformations.eliminate_builtin": 9.99000008050643E-07,
+      "gnatwhy3.transformations.discriminate_if_poly": 3.00000010611257E-06,
+      "gnatwhy3.transformations.introduce_premises": 0.00000000000000E+00,
+      "gnatwhy3.init": 2.46161997318268E-01
+    },
+    " 6": {
+      "gnat2why.vc_generation": 2.39000000874512E-04
+    },
+    " 10": {
+      "gnat2why.vc_generation": 2.91639994829893E-02
+    },
+    " 9": {
+      "gnat2why.vc_generation": 5.31000026967376E-04
+    },
+    " 5": {
+      "gnatwhy3.transformations.inline_trivial": 9.99000008050643E-07,
+      "gnatwhy3.transformations.eliminate_algebraic": 0.00000000000000E+00,
+      "gnatwhy3.transformations.detect_polymorphism": 0.00000000000000E+00,
+      "gnat2why.vc_generation": 4.75520007312298E-02,
+      "gnatwhy3.transformations.eliminate_literal": 9.99000008050643E-07,
+      "gnatwhy3.run_vcs": 7.99900044512469E-06,
+      "gnatwhy3.transformations.eliminate_algebraic_if_poly": 0.00000000000000E+00,
+      "gnatwhy3.transformations.eliminate_projections_sums": 0.00000000000000E+00,
+      "gnatwhy3.transformations.eliminate_gnatprove_guard_epsilon": 9.99000008050643E-07,
+      "gnatwhy3.transformations.simplify_formula": 0.00000000000000E+00,
+      "gnatwhy3.transformations.eliminate_recursion": 9.99000008050643E-07,
+      "gnatwhy3.transformations.eliminate_definition_conditionally": 0.00000000000000E+00,
+      "gnatwhy3.transformations.counterexamples_dependent_intros": 9.99000008050643E-07,
+      "gnatwhy3.register_vcs": 0.00000000000000E+00,
+      "gnatwhy3.transformations.eliminate_epsilon": 0.00000000000000E+00,
+      "gnatwhy3.transformations.remove_unused_keep_constants": 9.99000008050643E-07,
+      "gnatwhy3.schedule_vcs": 1.27497002482414E-01,
+      "gnatwhy3.transformations.prepare_for_counterexmp": 0.00000000000000E+00,
+      "gnatwhy3.save_session": 5.97900012508035E-03,
+      "gnatwhy3.transformations.eliminate_inductive": 9.99000008050643E-07,
+      "gnatwhy3.transformations.encoding_smt_if_poly": 0.00000000000000E+00,
+      "gnatwhy3.transformations.eliminate_builtin": 0.00000000000000E+00,
+      "gnatwhy3.transformations.discriminate_if_poly": 9.99000008050643E-07,
+      "gnatwhy3.transformations.introduce_premises": 9.99000008050643E-07,
+      "gnatwhy3.init": 2.55066007375717E-01
+    },
+    " 2": {
+      "gnat2why.vc_generation": 1.50000007124618E-04
+    },
+    " 1": {
+      "gnatwhy3.transformations.inline_trivial": 0.00000000000000E+00,
+      "gnatwhy3.transformations.eliminate_algebraic": 0.00000000000000E+00,
+      "gnatwhy3.transformations.detect_polymorphism": 0.00000000000000E+00,
+      "gnat2why.vc_generation": 6.16700015962124E-03,
+      "gnatwhy3.transformations.eliminate_literal": 9.99000008050643E-07,
+      "gnatwhy3.run_vcs": 6.00000021222513E-06,
+      "gnatwhy3.transformations.eliminate_algebraic_if_poly": 0.00000000000000E+00,
+      "gnatwhy3.transformations.eliminate_projections_sums": 0.00000000000000E+00,
+      "gnatwhy3.transformations.eliminate_gnatprove_guard_epsilon": 0.00000000000000E+00,
+      "gnatwhy3.transformations.simplify_formula": 0.00000000000000E+00,
+      "gnatwhy3.transformations.eliminate_recursion": 0.00000000000000E+00,
+      "gnatwhy3.transformations.eliminate_definition_conditionally": 0.00000000000000E+00,
+      "gnatwhy3.transformations.counterexamples_dependent_intros": 9.99000008050643E-07,
+      "gnatwhy3.register_vcs": 0.00000000000000E+00,
+      "gnatwhy3.transformations.eliminate_epsilon": 9.99000008050643E-07,
+      "gnatwhy3.transformations.remove_unused_keep_constants": 0.00000000000000E+00,
+      "gnatwhy3.schedule_vcs": 1.38242006301880E-01,
+      "gnatwhy3.transformations.prepare_for_counterexmp": 9.99000008050643E-07,
+      "gnatwhy3.save_session": 4.96099889278412E-03,
+      "gnatwhy3.transformations.eliminate_inductive": 1.99900000552589E-06,
+      "gnatwhy3.transformations.encoding_smt_if_poly": 0.00000000000000E+00,
+      "gnatwhy3.transformations.eliminate_builtin": 9.99000008050643E-07,
+      "gnatwhy3.transformations.discriminate_if_poly": 0.00000000000000E+00,
+      "gnatwhy3.transformations.introduce_premises": 0.00000000000000E+00,
+      "gnatwhy3.init": 2.60917991399765E-01
+    }
+  },
+  "entities": {
+    " 1": {
+      "name": "Anubis_Genesis_Provers.Init_Prover_Set",
+      "sloc": [
+        {
+          "file": "anubis_genesis_provers.ads",
+          "line": 129
+        }
+      ]
+    },
+    " 2": {
+      "name": "Anubis_Genesis_Provers.Get_Active_Count",
+      "sloc": [
+        {
+          "file": "anubis_genesis_provers.ads",
+          "line": 225
+        }
+      ]
+    },
+    " 3": {
+      "name": "Anubis_Genesis_Provers.Calculate_Proof_Reward",
+      "sloc": [
+        {
+          "file": "anubis_genesis_provers.ads",
+          "line": 179
+        }
+      ]
+    },
+    " 4": {
+      "name": "Anubis_Genesis_Provers.Slash_Prover",
+      "sloc": [
+        {
+          "file": "anubis_genesis_provers.ads",
+          "line": 205
+        }
+      ]
+    },
+    " 5": {
+      "name": "Anubis_Genesis_Provers.Record_Proof",
+      "sloc": [
+        {
+          "file": "anubis_genesis_provers.ads",
+          "line": 158
+        }
+      ]
+    },
+    " 6": {
+      "name": "Anubis_Genesis_Provers.Enable_Open_Entry",
+      "sloc": [
+        {
+          "file": "anubis_genesis_provers.ads",
+          "line": 234
+        }
+      ]
+    },
+    " 7": {
+      "name": "Anubis_Genesis_Provers.Register_Prover",
+      "sloc": [
+        {
+          "file": "anubis_genesis_provers.ads",
+          "line": 141
+        }
+      ]
+    },
+    " 8": {
+      "name": "Anubis_Genesis_Provers.Distribute_Proof_Reward",
+      "sloc": [
+        {
+          "file": "anubis_genesis_provers.ads",
+          "line": 186
+        }
+      ]
+    },
+    " 9": {
+      "name": "Anubis_Genesis_Provers.Zeroize_Prover_Set",
+      "sloc": [
+        {
+          "file": "anubis_genesis_provers.ads",
+          "line": 245
+        }
+      ]
+    },
+    " 10": {
+      "name": "Anubis_Genesis_Provers.Record_Proof_Failed",
+      "sloc": [
+        {
+          "file": "anubis_genesis_provers.ads",
+          "line": 167
+        }
+      ]
+    },
+    " 11": {
+      "name": "Anubis_Genesis_Provers.Get_Prover",
+      "sloc": [
+        {
+          "file": "anubis_genesis_provers.ads",
+          "line": 219
+        }
+      ]
+    },
+    " 12": {
+      "name": "Anubis_Genesis_Provers.Claim_Rewards",
+      "sloc": [
+        {
+          "file": "anubis_genesis_provers.ads",
+          "line": 193
+        }
+      ]
+    },
+    " 13": {
+      "name": "Anubis_Genesis_Provers.Zeroize_Prover",
+      "sloc": [
+        {
+          "file": "anubis_genesis_provers.ads",
+          "line": 248
+        }
+      ]
+    },
+    " 14": {
+      "name": "Anubis_Genesis_Provers",
+      "sloc": [
+        {
+          "file": "anubis_genesis_provers.ads",
+          "line": 23
+        }
+      ]
+    }
+  }
+}

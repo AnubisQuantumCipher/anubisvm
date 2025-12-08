@@ -1,0 +1,275 @@
+V "GNAT Lib v14"
+A -x
+A ada
+A -gnatA
+A -gnat2022
+A -gnatwa
+A -gnatyO
+A -gnatVa
+A -gnatw.F
+A -gnata
+A -O2
+A -gnatn
+A -ffunction-sections
+A -fdata-sections
+A -gnatc
+A -fPIC
+P GP
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_ELABORATION_CODE
+
+U anubis_genesis_provers%b  anubis_genesis_provers.adb  16707d48 OO PK
+
+U anubis_genesis_provers%s  anubis_genesis_provers.ads  e0d26931 OO PK
+W anubis_types%s	anubis_types.ads	anubis_types.ali
+W interfaces%s		interfac.ads		interfac.ali
+
+D anubis_genesis_provers.ads  20251207133327 3e70c067 anubis_genesis_provers%s
+D anubis_genesis_provers.adb  20251207133327 2800bd2f anubis_genesis_provers%b
+D anubis_types.ads	20251203093723 4fb35097 anubis_types%s
+D interfac.ads		20240601155135 9111f9c1 interfaces%s
+D system.ads		20240601155135 70765b54 system%s
+G a Z
+X 1 anubis_genesis_provers.ads
+23K9*Anubis_Genesis_Provers 251l5 251e27 2|10b14 345l5 345t27
+30N4*Prover_Allocation 135r42 2|48r31
+31N4*Genesis_Prover_Count 58r47 2|87r53
+32N4*Open_Entry_Block 239r31
+33N4*Distribution_Period_Blocks
+36E9*Hardware_Tier 41e5 43r44 51r45 79r28 145r24 181r24 2|62r24 176r24
+37n7*Light{36E9} 44r7 52r7 2|29r34 330r17
+38n7*Standard{36E9} 45r7 53r7
+39n7*Heavy{36E9} 46r7 54r7
+40n7*Enterprise{36E9} 47r7 55r7
+43a4*Tier_RAM_Requirements(natural)
+51a4*Tier_Reward_Multiplier(natural) 2|180r40
+58I12*Prover_Index{natural} 75r28 100r32 160r24 169r24 188r24 195r24 207r24
+. 221r24 2|23r16 67r14 71r16 128r24 157r24 199r24 215r24 240r24 279r24 311r16
+64E9*Prover_Status 72e5 78r28
+65n7*Pending_Application{64E9} 2|28r34 72r40 329r19
+66n7*Approved{64E9} 2|109r38
+67n7*Active{64E9} 2|136r46 151r47 162r46
+68n7*Busy{64E9} 2|137r46 163r46
+69n7*Suspended{64E9}
+70n7*Slashed{64E9} 2|266r47
+71n7*Removed{64E9}
+74R9*Prover_Record 98e14 100r49 222r13 248r38 2|280r13 324r38
+75i7*Index{58I12} 2|25m13 93m28 326m9
+76a7*Address{3|14A9} 2|26m13 97r55 98m34 327m9
+77a7*PK_Hash{3|14A9} 2|27m13 104r55 105m34 328m9
+78e7*Status{64E9} 2|28m13 72r31 109m28 136r37 137r37 151m37 162r37 163r37
+. 266m37 329m9
+79e7*Tier{36E9} 2|29m13 110m28 330m9
+80b7*Is_Genesis{boolean} 2|30m13 111m28 331m9
+83m7*Proofs_Generated{4|84M9} 2|31m13 139m37 140r40 332m9
+84m7*Proofs_Failed{4|84M9} 2|32m13 165m37 166r40 333m9
+85m7*Avg_Proof_Time_Ms{4|81M9} 2|33m13 143r40 144m40 146m40 147r44 334m9
+86m7*Total_Rewards{4|84M9} 2|34m13 227m34 228r37 335m9
+87m7*Pending_Rewards{4|84M9} 2|35m13 209m34 210r37 220r45 229m34 336m9
+90m7*Stake_Amount{4|84M9} 2|36m13 112m28 248r51 252r53 253m37 255m37 256r40
+. 265r37 337m9
+91i7*Times_Slashed{natural} 2|37m13 259m34 260r37 338m9
+92m7*Total_Slashed{4|84M9} 2|38m13 261m34 262r37 339m9
+95m7*Registered_At{4|84M9} 2|39m13 73r31 113m28 340m9
+96m7*Active_Since{4|84M9} 2|40m13 341m9
+97m7*Last_Proof_Block{4|84M9} 2|41m13 150m37 342m9
+100A9*Prover_Array(74R9)<integer> 103r28
+102R9*Prover_Set_State 111e14 130r28 142r31 159r31 168r31 180r24 187r31 194r31
+. 206r31 220r24 226r24 235r31 245r46 2|18r28 59r31 127r31 156r31 175r24 198r31
+. 214r31 239r31 278r24 286r24 297r31 309r46
+103a7*Provers{100A9} 2|24m16 72r19 73r19 93m13 97r40 98m19 104r40 105m19
+. 109m13 110m13 111m13 112m13 113m13 136r16 137r16 139m16 140r19 143r19 144m19
+. 146m19 147r23 150m16 151m16 162r16 163r16 165m16 166r19 209m13 210r16 220r24
+. 227m13 228r16 229m13 248r30 252r32 253m16 255m16 256r19 259m13 260r16 261m13
+. 262r16 265r16 266m16 282r20 312m32
+104i7*Active_Count{natural} 134r21 2|45m13 267r19 268m19 268r41 289r20 315m13
+105i7*Genesis_Count{natural} 2|46m13 87r36 116m16 116r39 316m13
+106m7*Total_Distributed{4|84M9} 2|47m13 208m13 208r40 317m13
+107m7*Remaining_Pool{4|84M9} 135r25 2|48m13 190r43 191r23 203r25 207m13 207r37
+. 318m13
+108b7*Open_Entry_Active{boolean} 2|49m13 302m13 319m13
+109m7*Genesis_Block{4|84M9} 2|50m13 320m13
+110m7*Current_Block{4|84M9} 2|51m13 113r51 321m13
+117E9*Register_Result 123e5 148r28 2|65r28
+118n7*Registered{117E9} 2|119r17
+119n7*Not_Approved{117E9} 2|82r20 88r20
+120n7*Insufficient_Stake{117E9}
+121n7*Invalid_Hardware{117E9}
+122n7*Invalid_Signature{117E9}
+129U14*Init_Prover_Set 130<7 131>7 2|17b14 52l8 52t23
+130r7 State{102R9} 134r15 135r19 2|18b7 24m10 45m7 46m7 47m7 48m7 49m7 50m7
+. 51m7
+131m7 Genesis_Block{4|84M9} 2|19b7 50r30 51r30
+141U14*Register_Prover 142=7 143>7 144>7 145>7 146>7 147>7 148<7 2|58b14
+. 120l8 120t23
+142r7 State{102R9} 2|59b7 72r13 73r13 87r30 93m7 97r34 98m13 104r34 105m13
+. 109m7 110m7 111m7 112m7 113m7 113r45 116m10 116r33
+143a7 Address{3|14A9} 151r14 2|60b7 96r16 97r17 98r47 98r65
+144a7 PK_Hash{3|14A9} 152r18 2|61b7 103r16 104r17 105r47 105r65
+145e7 Tier{36E9} 2|62b7 110r36
+146m7 Stake{4|84M9} 2|63b7 112r44
+147b7 Is_Genesis{boolean} 2|64b7 87r10 111r42 115r10
+148e7 Result{117E9} 2|65b7 82m10 88m10 119m7
+158U14*Record_Proof 159=7 160>7 161>7 162>7 163>7 2|126b14 153l8 153t20
+159r7 State{102R9} 2|127b7 136r10 137r10 139m10 140r13 143r13 144m13 146m13
+. 147r17 150m10 151m10
+160i7 Prover_Idx{58I12} 2|128b7 136r25 137r25 139r25 140r28 143r28 144r28
+. 146r28 147r32 150r25 151r25
+161m7 Proof_Size{4|81M9} 2|129b7 133r28
+162m7 Proof_Time_Ms{4|81M9} 2|130b7 144r61 147r64
+163m7 Block_Number{4|84M9} 2|131b7 150r57
+167U14*Record_Proof_Failed 168=7 169>7 170>7 2|155b14 168l8 168t27
+168r7 State{102R9} 2|156b7 162r10 163r10 165m10 166r13
+169i7 Prover_Idx{58I12} 2|157b7 162r25 163r25 165r25 166r28
+170a7 Reason_Hash{3|14A9} 173r14 2|158b7 160r28
+179V13*Calculate_Proof_Reward{4|84M9} 180>7 181>7 182>7 2|174b13 195l8 195t30
+180r7 State{102R9} 2|175b7 190r37 191r17
+181e7 Tier{36E9} 2|176b7 180r64
+182m7 Proof_Size{4|81M9} 2|177b7 184r34
+186U14*Distribute_Proof_Reward 187=7 188>7 189>7 2|197b14 211l8 211t31
+187r7 State{102R9} 2|198b7 203r19 207m7 207r31 208m7 208r34 209m7 210r10
+188i7 Prover_Idx{58I12} 2|199b7 209r22 210r25
+189m7 Reward{4|84M9} 2|200b7 203r10 207r54 208r60 210r55
+193U14*Claim_Rewards 194=7 195>7 196<7 197<7 2|213b14 232l8 232t21
+194r7 State{102R9} 2|214b7 220r18 227m7 228r10 229m7
+195i7 Prover_Idx{58I12} 2|215b7 220r33 227r22 228r25 229r22
+196m7 Claimed{4|84M9} 2|216b7 220m7 222r10 228r53
+197b7 Success{boolean} 2|217b7 223m10 231m7
+205U14*Slash_Prover 206=7 207>7 208>7 209>7 2|238b14 271l8 271t20
+206r7 State{102R9} 2|239b7 248r24 252r26 253m10 255m10 256r13 259m7 260r10
+. 261m7 262r10 265r10 266m10 267r13 268m13 268r35
+207i7 Prover_Idx{58I12} 2|240b7 248r39 252r41 253r25 255r25 256r28 259r22
+. 260r25 261r22 262r25 265r25 266r25
+208i7 Slash_Rate_BP{natural} 213r18 2|241b7 249r37
+209a7 Reason_Hash{3|14A9} 212r14 2|242b7 244r28
+219V13*Get_Prover{74R9} 220>7 221>7 2|277b13 283l8 283t18
+220r7 State{102R9} 2|278b7 282r14
+221i7 Index{58I12} 2|279b7 282r29
+225V13*Get_Active_Count{natural} 226>7 2|285b13 290l8 290t24
+226r7 State{102R9} 2|286b7 289r14
+234U14*Enable_Open_Entry 235=7 236>7 2|296b14 303l8 303t25
+235r7 State{102R9} 2|297b7 302m7
+236m7 Current_Block{4|84M9} 239r14 2|298b7 300r28
+245U14*Zeroize_Prover_Set 245<34 2|309b14 322l8 322t26
+245r34 State{102R9} 2|309b34 312m26 312r26 315m7 316m7 317m7 318m7 319m7
+. 320m7 321m7
+248U14*Zeroize_Prover 248<30 2|312s10 324b14 343l8 343t22
+248r30 P{74R9} 2|324b30 326m7 327m7 328m7 329m7 330m7 331m7 332m7 333m7 334m7
+. 335m7 336m7 337m7 338m7 339m7 340m7 341m7 342m7
+X 2 anubis_genesis_provers.adb
+23i11 I{1|58I12} 24r25 25r34
+67i7 Slot{1|58I12} 75m13 93r22 93r37 97r49 98r28 104r49 105r28 109r22 110r22
+. 111r22 112r22 113r22
+68b7 Found_Slot{boolean} 76m13 81r14
+71i11 I{1|58I12} 72r28 73r28 75r21
+96i11 I{integer} 97r13 98r43 98r74
+103i11 I{integer} 104r13 105r43 105r74
+179m7 Base_Reward{4|84M9} 187m7 187r23 190r10 194r14
+180i7 Multiplier{natural} 187r50
+181m7 Size_Bonus{4|84M9} 184m7 190r24 194r28
+245m7 Slash_Amount{4|84M9} 248m7 252r10 256r55 262r53
+311i11 I{1|58I12} 312r41
+X 3 anubis_types.ads
+5K9*Anubis_Types 1|21w6 21r24 3|40e17
+13M12*Byte{4|70M9}
+14A9*Byte_Array(13M12)<integer> 1|76r28 77r28 143r24 144r24 170r24 209r24
+. 2|60r24 61r24 158r24 242r24
+X 4 interfac.ads
+38K9*Interfaces 1|20w6 20r22 4|233e15
+70M9*Unsigned_8
+81M9*Unsigned_32 1|85r28 161r24 162r24 182r24 2|129r24 130r24 177r24
+84M9*Unsigned_64 1|83r28 84r28 86r28 87r28 90r28 92r28 95r28 96r28 97r28
+. 106r28 107r28 109r28 110r28 131r24 146r24 163r24 183r13 189r24 196r28 236r24
+. 2|19r24 63r24 131r24 178r13 179r21 181r20 184r21 187r37 200r24 216r28 245r22
+. 249r24 298r24
+
+QQ SPARKVERSION 0.0w
+GG EK_DIRECT_CALLS anubis_genesis_provers__init_prover_set 0
+GG EK_PROOF_DEPENDENCIES anubis_genesis_provers__init_prover_set 0
+GG EK_GLOBALS anubis_genesis_provers__init_prover_set local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 anubis_genesis_provers proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_genesis_provers__register_prover 0
+GG EK_PROOF_DEPENDENCIES anubis_genesis_provers__register_prover 0
+GG EK_GLOBALS anubis_genesis_provers__register_prover local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 anubis_genesis_provers proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_genesis_provers__record_proof 0
+GG EK_PROOF_DEPENDENCIES anubis_genesis_provers__record_proof 0
+GG EK_GLOBALS anubis_genesis_provers__record_proof local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 anubis_genesis_provers proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_genesis_provers__record_proof_failed 0
+GG EK_PROOF_DEPENDENCIES anubis_genesis_provers__record_proof_failed 0
+GG EK_GLOBALS anubis_genesis_provers__record_proof_failed local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 anubis_genesis_provers proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_genesis_provers__calculate_proof_reward 0
+GG EK_PROOF_DEPENDENCIES anubis_genesis_provers__calculate_proof_reward 0
+GG EK_GLOBALS anubis_genesis_provers__calculate_proof_reward local FALSE E_FUNCTION FALSE ORIGIN_FLOW 1 anubis_genesis_provers proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_genesis_provers__distribute_proof_reward 0
+GG EK_PROOF_DEPENDENCIES anubis_genesis_provers__distribute_proof_reward 0
+GG EK_GLOBALS anubis_genesis_provers__distribute_proof_reward local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 anubis_genesis_provers proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_genesis_provers__claim_rewards 0
+GG EK_PROOF_DEPENDENCIES anubis_genesis_provers__claim_rewards 0
+GG EK_GLOBALS anubis_genesis_provers__claim_rewards local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 anubis_genesis_provers proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_genesis_provers__slash_prover 0
+GG EK_PROOF_DEPENDENCIES anubis_genesis_provers__slash_prover 0
+GG EK_GLOBALS anubis_genesis_provers__slash_prover local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 anubis_genesis_provers proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_genesis_provers__get_prover 0
+GG EK_PROOF_DEPENDENCIES anubis_genesis_provers__get_prover 0
+GG EK_GLOBALS anubis_genesis_provers__get_prover local FALSE E_FUNCTION FALSE ORIGIN_FLOW 1 anubis_genesis_provers proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_genesis_provers__get_active_count 0
+GG EK_PROOF_DEPENDENCIES anubis_genesis_provers__get_active_count 0
+GG EK_GLOBALS anubis_genesis_provers__get_active_count local FALSE E_FUNCTION FALSE ORIGIN_FLOW 1 anubis_genesis_provers proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_genesis_provers__enable_open_entry 0
+GG EK_PROOF_DEPENDENCIES anubis_genesis_provers__enable_open_entry 0
+GG EK_GLOBALS anubis_genesis_provers__enable_open_entry local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 anubis_genesis_provers proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_genesis_provers__zeroize_prover_set 1 anubis_genesis_provers__zeroize_prover
+GG EK_PROOF_DEPENDENCIES anubis_genesis_provers__zeroize_prover_set 0
+GG EK_GLOBALS anubis_genesis_provers__zeroize_prover_set local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 anubis_genesis_provers proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_genesis_provers__zeroize_prover 0
+GG EK_PROOF_DEPENDENCIES anubis_genesis_provers__zeroize_prover 0
+GG EK_GLOBALS anubis_genesis_provers__zeroize_prover local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 anubis_genesis_provers proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_genesis_provers 0
+GG EK_PROOF_DEPENDENCIES anubis_genesis_provers 0
+GG EK_GLOBALS anubis_genesis_provers local FALSE E_PACKAGE TRUE ORIGIN_FLOW 0 proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 initializes 0 refined_initializes 0 calls_proof 0 calls 0 calls_conditional 0 local_packages 0 local_var 0 TRUE FALSE FALSE FALSE FALSE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_FLOW_SCOPE interfaces__rotate_left__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_genesis_provers__init_prover_set FALSE FALSE FALSE FALSE TRUE anubis_genesis_provers VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_genesis_provers__get_active_count FALSE FALSE FALSE FALSE TRUE anubis_genesis_provers VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_genesis_provers__calculate_proof_reward FALSE FALSE FALSE FALSE TRUE anubis_genesis_provers VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE anubis_genesis_provers__slash_prover FALSE FALSE FALSE FALSE TRUE anubis_genesis_provers VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_genesis_provers__record_proof FALSE FALSE FALSE FALSE TRUE anubis_genesis_provers VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_genesis_provers__enable_open_entry FALSE FALSE FALSE FALSE TRUE anubis_genesis_provers VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_genesis_provers__register_prover FALSE FALSE FALSE FALSE TRUE anubis_genesis_provers VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_genesis_provers__distribute_proof_reward FALSE FALSE FALSE FALSE TRUE anubis_genesis_provers VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_genesis_provers__zeroize_prover_set FALSE FALSE FALSE FALSE TRUE anubis_genesis_provers VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_genesis_provers__record_proof_failed FALSE FALSE FALSE FALSE TRUE anubis_genesis_provers VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_genesis_provers__get_prover FALSE FALSE FALSE FALSE TRUE anubis_genesis_provers VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_types TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE anubis_genesis_provers TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE interfaces__shift_left__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_genesis_provers__claim_rewards FALSE FALSE FALSE FALSE TRUE anubis_genesis_provers VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_genesis_provers__zeroize_prover FALSE FALSE FALSE FALSE TRUE anubis_genesis_provers VISIBLE_PART
+GG EK_END_MARKER

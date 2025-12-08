@@ -1,0 +1,323 @@
+V "GNAT Lib v14"
+A -O0
+A -gnatA
+A -gnatwa
+A -gnatQ
+A -gnata
+A -gnatf
+A -gnatyM120
+A -gnatyO
+A -gnat2012
+A -g
+A -gnateE
+A -fstack-check=specific
+A -mmacosx-version-min=16.0.0
+A -mcpu=apple-m1
+A -mlittle-endian
+A -mabi=lp64
+A -fPIC
+P SS ZX
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_SECONDARY_STACK
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+
+U sphinx_native%b	sphinx_native.adb	582688ec NE OO PK
+Z system.assertions%s	s-assert.adb		s-assert.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+
+U sphinx_native%s	sphinx_native.ads	17182b17 EE NE OO PK
+W aegis_sandbox%s	aegis_sandbox.adb	aegis_sandbox.ali
+W aegis_vm_types%s	aegis_vm_types.ads	aegis_vm_types.ali
+W anubis_sha3%s		anubis_sha3.adb		anubis_sha3.ali
+W anubis_types%s	anubis_types.ads	anubis_types.ali
+W interfaces%s		interfac.ads		interfac.ali
+
+D ada.ads		20240808082856 76789da1 ada%s
+D a-assert.ads		20240808082856 ba465f5c ada.assertions%s
+D a-unccon.ads		20240808082856 0e9b276f ada.unchecked_conversion%s
+D aegis_sandbox.ads	20251207191106 0a9a14d0 aegis_sandbox%s
+D aegis_storage.ads	20251207191106 d62ac4d0 aegis_storage%s
+D aegis_vm_types.ads	20251207191105 dcd101d9 aegis_vm_types%s
+D anubis_keccak.ads	20251207191105 19b431a9 anubis_keccak%s
+D anubis_sha3.ads	20251207191105 69737d95 anubis_sha3%s
+D anubis_types.ads	20251207191105 4fb35097 anubis_types%s
+D interfac.ads		20240808082856 9111f9c1 interfaces%s
+D sphinx_native.ads	20251207191105 7682eadd sphinx_native%s
+D sphinx_native.adb	20251207191105 2ea46231 sphinx_native%b
+D system.ads		20240808082856 70765b54 system%s
+D s-assert.ads		20240808082856 9c4520c7 system.assertions%s
+D s-exctab.ads		20240808082856 91bef6ef system.exception_table%s
+D s-parame.ads		20240808082856 3597fc11 system.parameters%s
+D s-secsta.ads		20240808082856 578279f5 system.secondary_stack%s
+D s-stalib.ads		20240808082856 1c9580f6 system.standard_library%s
+D s-stoele.ads		20240808082856 ccded4e8 system.storage_elements%s
+G a e
+G c Z s s [loaded_contractIP sphinx_native 98 9 none]
+G c Z s b [load_elf sphinx_native 162 13 none]
+G c Z s b [validate_header sphinx_native 170 13 none]
+G c Z s b [get_entry_point sphinx_native 177 13 none]
+G c Z s b [get_architecture sphinx_native 184 13 none]
+G c Z s b [execute sphinx_native 213 13 none]
+G c Z s b [execute_function sphinx_native 223 13 none]
+G c Z s b [validate_security sphinx_native 250 13 none]
+G c Z s b [is_secure sphinx_native 256 13 none]
+G c Z s b [analyze_wcet sphinx_native 273 13 none]
+G c Z s b [get_wcet_annotation sphinx_native 280 13 none]
+G c Z s b [create_layout sphinx_native 315 13 none]
+G c Z s b [lookup_symbol sphinx_native 334 13 none]
+G c Z s b [disassemble sphinx_native 341 13 none]
+G c Z s b [read_le16 sphinx_native 352 13 none]
+G c Z s b [read_le32 sphinx_native 360 13 none]
+G c Z s b [read_le64 sphinx_native 368 13 none]
+G c Z s s [Tbinary_bufferBIP sphinx_native 60 4 none]
+G c Z s s [section_descIP sphinx_native 75 9 none]
+G c Z s s [Tsection_tableBIP sphinx_native 88 4 none]
+G c Z s s [load_resultIP sphinx_native 152 9 none]
+G c Z s s [exec_resultIP sphinx_native 206 9 none]
+G c Z s s [Tsecurity_resultBIP sphinx_native 248 4 none]
+G c Z s s [wcet_resultIP sphinx_native 265 9 none]
+G c Z s s [memory_region_descIP sphinx_native 300 9 none]
+G c Z s s [Tregion_layoutBIP sphinx_native 312 4 none]
+G c Z s s [symbol_entryIP sphinx_native 325 9 none]
+G r c none [execute sphinx_native 213 13 none] [sha3_256 anubis_sha3 57 14 none]
+G r c none [execute_function sphinx_native 223 13 none] [sha3_256 anubis_sha3 57 14 none]
+X 4 aegis_sandbox.ads
+27K9*Aegis_Sandbox 307e18 11|5w6 215r21 225r21 12|213r21 297r21
+127R9*Sandbox_Context 151e14 11|215r35 225r35 12|213r35 297r35
+X 6 aegis_vm_types.ads
+21K9*Aegis_VM_Types 279e19 11|4w6 4r26 12|258r35
+31M12*Byte{10|70M9} 11|46r43 60r50 329r21 330r21 12|258r50 305r23 306r23
+. 307r23 308r23
+32A9*Byte_Array(31M12)<integer> 11|216r21 227r21 12|214r21 299r21 302r18
+34M12*Word32{10|81M9} 11|76r21 226r21 326r21 355r13 363r13 12|12r13 14r14
+. 15r26 21r13 23r14 24r26 25r26 26r26 68r29 98r26 139r32 140r32 152r39 298r21
+35M12*Word64{10|84M9} 11|78r21 79r21 80r21 81r21 82r21 95r28 100r22 101r22
+. 102r22 103r22 104r22 105r22 301r20 302r20 327r21 328r21 336r18 343r18 371r13
+. 12|32r13 34r14 35r26 138r32 153r39 154r39 155r39 469r18 485r18
+56A9*Hash256(31M12)<integer> 11|209r22 12|219r21
+62a4*Hash256_Zero{56A9} 12|219r32 223r83 231r78 242r83 268r86
+101I9*Gas_Amount<long_integer> 11|117r22 208r22 217r21 228r21 268r20 12|215r21
+. 218r21 300r21
+X 8 anubis_sha3.ads
+27K9*Anubis_SHA3 158e16 11|7w6 12|249r17
+32A12*SHA3_256_Digest{9|14A9}<integer> 12|251r22
+57U14*SHA3_256 12|256s13
+X 9 anubis_types.ads
+5K9*Anubis_Types 40e17 11|6w6 12|248r17 250r30 254r55
+13M12*Byte{10|70M9} 12|254r68
+14A9*Byte_Array(13M12)<integer> 12|250r43
+X 10 interfac.ads
+38K9*Interfaces 233e15 11|3w6 3r22
+70M9*Unsigned_8
+81M9*Unsigned_32
+84M9*Unsigned_64
+141V13*Shift_Left{81M9} 12|15s14 24s14 25s14 26s14
+146V13*Shift_Right{81M9} 12|305s29 306s29 307s29
+166V13*Shift_Left{84M9} 12|35s14
+X 11 sphinx_native.ads
+34K9*Sphinx_Native 352E13 375l5 375e18 12|3b14 493l5 493t18
+43N4*Max_Binary_Size 59r36 167r25 357r30 365r30 373r30 12|120r17
+46a4*ELF_Magic(6|31M12) 12|53r24 54r24 55r24 56r24
+49E9*ELF_Class 49e38 112r22
+49n23*ELF_32{49E9}
+49n31*ELF_64{49E9} 130r21 12|132r25
+52E9*Target_Arch 56e5 111r22 186r13 12|97r13
+53n7*Arch_ARM64{52E9} 129r21 12|102r20 108r20
+54n7*Arch_X86_64{52E9} 12|104r20
+55n7*Arch_RISCV64{52E9} 12|106r20
+59I9*Binary_Index<short_integer> 60r33 12|14r28 15r40 23r28 24r40 25r40 26r40
+60A9*Binary_Buffer(6|31M12)<59I9> 163r16 171r16 178r16 185r16 353r16 361r16
+. 369r16 12|10r16 19r16 30r16 43r16 86r16 96r16 113r16
+63E9*Section_Type 72e5 77r21
+64n7*Section_Null{63E9}
+65n7*Section_Progbits{63E9}
+66n7*Section_Symtab{63E9}
+67n7*Section_Strtab{63E9}
+68n7*Section_Rela{63E9}
+69n7*Section_Nobits{63E9}
+70n7*Section_Note{63E9}
+71n7*Section_Unknown{63E9}
+75R9*Section_Desc 83e14 88r51
+76m7*Name_Offset{6|34M12}
+77e7*Sec_Type{63E9}
+78m7*Flags{6|35M12}
+79m7*Address{6|35M12}
+80m7*Offset{6|35M12}
+81m7*Size{6|35M12}
+82m7*Align{6|35M12}
+86N4*Max_Sections 87r37
+87I9*Section_Index<short_short_integer> 88r33
+88A9*Section_Table(75R9)<87I9>
+95M9*Entry_Point<10|84M9> 108r22 180r13 275r24 12|88r13 92r14 356r24
+98R9*Loaded_Contract 118e14 121r32 154r18 214r21 224r21 251r18 274r18 281r18
+. 316r18 335r18 342r18 12|117r22 212r21 296r21 322r18 355r18 374r18 399r18
+. 468r18 484r18
+100m7*Code_Base{6|35M12} 122m7 12|161m34 327r19 412r33
+101m7*Code_Size{6|35M12} 123m7 12|162m34 413r33
+102m7*Data_Base{6|35M12} 124m7 12|165m34 422r33
+103m7*Data_Size{6|35M12} 125m7 12|166m34 423r33
+104m7*BSS_Base{6|35M12} 126m7 12|169m31 432r33 442r33 452r33
+105m7*BSS_Size{6|35M12} 127m7 12|170m31 433r33 442r53 452r53
+108m7*Entry_Addr{95M9} 128m7 12|133m16 179r19
+111e7*Arch{52E9} 129m7 12|131m16
+112e7*Class{49E9} 130m7 12|132m16
+115b7*Is_Valid{boolean} 131m7 220r26 231r26 12|183m16 222r23 333r23
+116b7*Has_Proof{boolean} 132m7 12|229r19 377r19
+117i7*WCET_Bound{6|101I9} 133m7 12|230r34 234r31 380r45 381r36
+121r4*Invalid_Contract{98R9} 12|117r41 121r55 127r53 144r65 180r59
+140E9*Load_Error 150e5 153r18 173r13 12|45r13 116r22
+141n7*Load_Success{140E9} 12|82r14 126r26 184r24
+142n7*Load_Invalid_Magic{140E9} 12|49r17 58r17
+143n7*Load_Unsupported_Class{140E9} 12|63r17
+144n7*Load_Unsupported_Arch{140E9} 12|78r23
+145n7*Load_Too_Large{140E9} 12|121r27
+146n7*Load_Invalid_Sections{140E9} 12|144r30
+147n7*Load_Missing_Entry{140E9} 12|180r27
+148n7*Load_Security_Violation{140E9}
+149n7*Load_Memory_Error{140E9}
+152R9*Load_Result 155e14 165r13 12|115r13
+153e7*Error{140E9} 12|121m18 127m18 144m21 180m18 184m15
+154r7*Contract{98R9} 12|121m43 127m41 144m53 180m47 184m38
+162V13*Load_ELF{152R9} 163>7 164>7 12|112b13 185l8 185t16
+163a7 Binary{60A9} 12|113b7 125r40 131r42 133r47 138r53 139r53 140r53 152r60
+. 153r60 154r60 155r60
+164i7 Size{natural} 167r17 12|114b7 120r10 125r48 133r55 150r54
+170V13*Validate_Header{140E9} 171>7 172>7 12|42b13 83l8 83t23 125s23
+171a7 Binary{60A9} 12|43b7 53r10 54r10 55r10 56r10 62r10 68r50
+172i7 Size{natural} 12|44b7 48r10
+177V13*Get_Entry_Point{95M9} 178>7 179>7 12|85b13 93l8 93t23 133s30
+178a7 Binary{60A9} 12|86b7 92r38
+179i7 Size{natural} 12|87b7 89r28
+184V13*Get_Architecture{52E9} 185>7 12|95b13 110l8 110t24 131s24
+185a7 Binary{60A9} 12|96b7 98r47
+194E9*Exec_Status 204e5 207r22
+195n7*Exec_Success{194E9} 12|289r25
+196n7*Exec_Reverted{194E9}
+197n7*Exec_Out_Of_Gas{194E9} 12|231r31
+198n7*Exec_Security_Violation{194E9} 12|223r28 242r28 268r31
+199n7*Exec_Invalid_Syscall{194E9}
+200n7*Exec_Stack_Overflow{194E9}
+201n7*Exec_Segmentation_Fault{194E9}
+202n7*Exec_Illegal_Instruction{194E9}
+203n7*Exec_Timeout{194E9}
+206R9*Exec_Result 210e14 218r13 229r13 12|216r13 301r13
+207e7*Status{194E9} 12|223m18 231m21 242m18 268m21 289m10
+208i7*Gas_Used{6|101I9} 12|223m53 231m48 242m53 268m56 290m10
+209a7*Return_Data{6|56A9} 12|223m68 231m63 242m68 268m71 291m10
+213V13*Execute{206R9} 214>7 215>7 216>7 217>7 12|211b13 293l8 293t15 314s14
+214r7 Contract{98R9} 220r17 12|212b7 222r14 226r32 229r10 230r25 234r22 265r68
+215r7 Sandbox{4|127R9} 12|213b7 286r28
+216a7 Calldata{6|32A9} 220r39 12|214b7 241r10 246r10 250r60 253r22 254r36
+. 254r74
+217i7 Gas_Limit{6|101I9} 12|215b7 230r13 237r22
+223V13*Execute_Function{206R9} 224>7 225>7 226>7 227>7 228>7 12|295b13 315l8
+. 315t24
+224r7 Contract{98R9} 231r17 12|296b7 314r23
+225r7 Sandbox{4|127R9} 12|297b7 314r33
+226m7 Selector{6|34M12} 12|298b7 305r42 306r42 307r42 308r29
+227a7 Args{6|32A9} 231r39 12|299b7 302r35 310r16 311r28 311r43
+228i7 Gas_Limit{6|101I9} 12|300b7 314r52
+238E9*Security_Check 246e5 248r35 258r50 12|342r16
+239n7*Check_WXE{238E9} 12|328r18
+240n7*Check_Stack_Guard{238E9}
+241n7*Check_No_Absolute{238E9}
+242n7*Check_Bounded_Stack{238E9}
+243n7*Check_No_Syscalls{238E9}
+244n7*Check_Valid_GOT{238E9}
+245n7*Check_Valid_PLT{238E9}
+248A9*Security_Result(boolean)<238E9> 252r13 256r33 12|265r30 323r13 324r16
+. 340r33
+250V13*Validate_Security{248A9} 251>7 12|265s49 321b13 338l8 338t25
+251r7 Contract{98R9} 12|322b7 327r10 333r14
+256V13*Is_Secure{boolean} 256>24 258r17 12|267s17 340b13
+256a24 Checks{248A9} 258r68 12|340b24 343r17
+258e45 C{238E9} 258r76
+265R9*WCET_Result 270e14 276r13 282r13 12|357r13 375r13
+266b7*Valid{boolean} 12|366m10 379m13 386m13
+267i7*Cycles{natural} 12|367m10 380m13 387m13
+268i7*Gas_Bound{6|101I9} 12|368m10 381m13 388m13
+269i7*Call_Depth{natural} 12|369m10 382m13 389m13
+273V13*Analyze_WCET{265R9} 274>7 275>7 12|354b13 371l8 371t20
+274r7 Contract{98R9} 12|355b7 358r28
+275m7 Function_Entry{95M9} 12|356b7 358r38
+280V13*Get_WCET_Annotation{265R9} 281>7 12|373b13 392l8 392t27
+281r7 Contract{98R9} 12|374b7 377r10 380r36 381r27
+290E9*Region_Type 297e5 303r20
+291n7*Region_Code{290E9} 12|414r24
+292n7*Region_Data{290E9} 12|424r24
+293n7*Region_BSS{290E9} 12|434r24
+294n7*Region_Stack{290E9} 12|444r24
+295n7*Region_Heap{290E9}
+296n7*Region_Guard{290E9} 12|404r24 454r24
+300R9*Memory_Region_Desc 307e14 312r50
+301m7*Base{6|35M12} 12|402m10 412m10 422m10 432m10 442m10 452m10
+302m7*Size{6|35M12} 12|403m10 413m10 423m10 433m10 443m10 453m10
+303e7*Reg_Type{290E9} 12|404m10 414m10 424m10 434m10 444m10 454m10
+304b7*Readable{boolean} 12|405m10 415m10 425m10 435m10 445m10 455m10
+305b7*Writable{boolean} 12|406m10 416m10 426m10 436m10 446m10 456m10
+306b7*Executable{boolean} 12|407m10 417m10 427m10 437m10 447m10 457m10
+310N4*Max_Regions 311r36
+311I9*Region_Index<short_short_integer> 312r33
+312A9*Region_Layout(300R9)<311I9> 317r13 12|217r21 400r13 401r16
+315V13*Create_Layout{312A9} 316>7 12|226s17 398b13 461l8 461t21
+316r7 Contract{98R9} 12|399b7 412r24 413r24 422r24 423r24 432r24 433r24 442r24
+. 442r44 452r24 452r44
+325R9*Symbol_Entry 331e14 337r13 12|470r13
+326m7*Name_Offset{6|34M12} 12|475m10
+327m7*Value{6|35M12} 12|476m10
+328m7*Size{6|35M12} 12|477m10
+329m7*Sym_Type{6|31M12} 12|478m10
+330m7*Binding{6|31M12} 12|479m10
+334V13*Lookup_Symbol{325R9} 335>7 336>7 12|467b13 481l8 481t21
+335r7 Contract{98R9} 12|468b7 471r28
+336m7 Address{6|35M12} 12|469b7 471r38
+341V13*Disassemble{string} 342>7 343>7 12|483b13 491l8 491t19
+342r7 Contract{98R9} 12|484b7 487r28
+343m7 Address{6|35M12} 12|485b7 487r38
+352V13 Read_LE16{6|34M12} 353>7 354>7 12|9b13 16l8 16t17 68s39 98s36 139s42
+. 140s42
+353a7 Data{60A9} 12|10b7 14r22 15r34
+354i7 Offset{natural} 357r17 12|11b7 14r42 15r54
+360V13 Read_LE32{6|34M12} 361>7 362>7 12|18b13 27l8 27t17 34s22 35s34 152s49
+361a7 Data{60A9} 12|19b7 23r22 24r34 25r34 26r34
+362i7 Offset{natural} 365r17 12|20b7 23r42 24r54 25r54 26r54
+368V13 Read_LE64{6|35M12} 369>7 370>7 12|29b13 36l8 36t17 92s27 138s42 153s49
+. 154s49 155s49
+369a7 Data{60A9} 12|30b7 34r33 35r45
+370i7 Offset{natural} 373r17 12|31b7 34r39 35r51
+X 12 sphinx_native.adb
+68m10 Machine{6|34M12} 70r15
+98m7 Machine{6|34M12} 100r12
+116e7 Header_Error{11|140E9} 125m7 126r10 127r27
+117r7 Contract{11|98R9} 131m7 132m7 133m7 161m25 162m25 165m25 166m25 169m22
+. 170m22 179r10 183m7 184r50
+138m10 SH_Off{6|35M12} 143r13 148r34
+139m10 SH_Entsize{6|34M12} 150r39 174r51
+140m10 SH_Num{6|34M12} 143r27 149r24
+141i10 Current_Off{natural} 148m10 150r16 152r68 153r68 154r68 155r68 174m13
+. 174r28
+149m14 I{10|81M9}
+152m19 Sh_Type{6|34M12} 158r22 168r25
+153m19 Sh_Flags{6|35M12} 159r26 163r29
+154m19 Sh_Addr{6|35M12} 161r47 165r47 169r43
+155m19 Sh_Size{6|35M12} 162r47 166r47 170r43
+217a7 Layout{11|312A9} 226m7 286r37
+218i7 Gas_Used{6|101I9} 234m10 237m10 290r25
+219a7 Result_Hash{6|56A9} 258m16 291r25
+250a13 Calldata_Bytes{9|14A9} 254m16 256r23
+251a13 Digest{8|32A12} 256m39 258r56
+253i17 I{integer} 254r32 254r84
+257i17 I{integer} 258r29 258r64
+265a10 Security{11|248A9} 267r28
+302a7 Calldata{6|32A9} 305m7 306m7 307m7 308m7 311m10 314r42
+310i11 I{integer} 311r24 311r49
+324a7 Result{11|248A9} 328m10 334m10 337r14
+342e11 C{11|238E9} 343r25
+401a7 Layout{11|312A9} 411m7 421m7 431m7 441m7 451m7 460r14
+

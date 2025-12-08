@@ -1,0 +1,263 @@
+V "GNAT Lib v14"
+A -O0
+A -gnatA
+A -gnatwa
+A -gnatQ
+A -gnata
+A -gnatf
+A -gnatyM120
+A -gnatyO
+A -gnat2012
+A -g
+A -gnateE
+A -fstack-check=specific
+A -mmacosx-version-min=16.0.0
+A -mcpu=apple-m1
+A -mlittle-endian
+A -mabi=lp64
+A -fPIC
+P ZX
+
+RN
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+
+U sphinx_lite_iot%b	sphinx_lite_iot.adb	259e63a5 NE OO PK
+Z system.assertions%s	s-assert.adb		s-assert.ali
+
+U sphinx_lite_iot%s	sphinx_lite_iot.ads	fc8686b8 EE NE OO PK
+W aegis_u256%s		aegis_u256.adb		aegis_u256.ali
+W aegis_vm_types%s	aegis_vm_types.ads	aegis_vm_types.ali
+W interfaces%s		interfac.ads		interfac.ali
+W sphinx_lite_types%s	sphinx_lite_types.adb	sphinx_lite_types.ali
+
+D ada.ads		20240808082856 76789da1 ada%s
+D a-assert.ads		20240808082856 ba465f5c ada.assertions%s
+D a-unccon.ads		20240808082856 0e9b276f ada.unchecked_conversion%s
+D aegis_u256.ads	20251207191105 ff2dfe4b aegis_u256%s
+D aegis_vm_types.ads	20251207191105 dcd101d9 aegis_vm_types%s
+D interfac.ads		20240808082856 9111f9c1 interfaces%s
+D sphinx_lite_iot.ads	20251207191104 906f10eb sphinx_lite_iot%s
+D sphinx_lite_iot.adb	20251207191104 b5f1734e sphinx_lite_iot%b
+D sphinx_lite_types.ads	20251207191104 de049000 sphinx_lite_types%s
+D system.ads		20240808082856 70765b54 system%s
+D s-assert.ads		20240808082856 9c4520c7 system.assertions%s
+D s-exctab.ads		20240808082856 91bef6ef system.exception_table%s
+D s-stalib.ads		20240808082856 1c9580f6 system.standard_library%s
+G a e
+G c Z s s [iot_trusted_stateIP sphinx_lite_iot 58 9 none]
+G c Z s s [sync_responseIP sphinx_lite_iot 102 9 none]
+G c Z s b [initialize sphinx_lite_iot 123 14 none]
+G c Z s b [is_initialized sphinx_lite_iot 132 13 none]
+G c Z s b [reset sphinx_lite_iot 136 14 none]
+G c Z s b [get_trusted_state sphinx_lite_iot 144 13 none]
+G c Z s b [get_block_number sphinx_lite_iot 148 13 none]
+G c Z s b [get_checkpoint_hash sphinx_lite_iot 152 13 none]
+G c Z s b [get_chain_id sphinx_lite_iot 156 13 none]
+G c Z s b [create_sync_request sphinx_lite_iot 164 14 none]
+G c Z s b [process_sync_response sphinx_lite_iot 172 14 none]
+G c Z s b [needs_sync sphinx_lite_iot 180 13 none]
+G c Z s b [verify_checkpoint_update sphinx_lite_iot 188 14 none]
+G c Z s b [apply_checkpoint sphinx_lite_iot 198 14 none]
+G c Z s b [needs_committee_update sphinx_lite_iot 211 13 none]
+G c Z s b [update_committee_root sphinx_lite_iot 215 14 none]
+G c Z s b [get_sync_interval sphinx_lite_iot 235 13 none]
+G c Z s b [should_skip_sync sphinx_lite_iot 240 13 none]
+G c Z s b [serialize_state sphinx_lite_iot 253 14 none]
+G c Z s b [deserialize_state sphinx_lite_iot 260 14 none]
+G c Z s b [save_state sphinx_lite_iot 268 14 none]
+G c Z s b [load_state sphinx_lite_iot 274 14 none]
+G c Z s b [total_syncs sphinx_lite_iot 285 13 none]
+G c Z s b [bytes_received sphinx_lite_iot 289 13 none]
+G c Z s b [checkpoint_updates sphinx_lite_iot 293 13 none]
+G c Z s s [sync_requestIP sphinx_lite_iot 85 9 none]
+G c Z s s [Tserialized_iot_stateBIP sphinx_lite_iot 250 4 none]
+G c Z b b [compute_checkpoint_hash sphinx_lite_iot 25 13 none]
+X 4 aegis_u256.ads
+21K9*Aegis_U256 276e15 7|26w6 26r22
+X 5 aegis_vm_types.ads
+21K9*Aegis_VM_Types 279e19 7|25w6 25r26
+41R9*U256 43e14 7|106r26
+46r4*U256_Zero{41R9} 7|114r27
+56A9*Hash256(31M12)<integer> 7|60r26 66r26 126r31 152r40 190r30 216r25 8|25r62
+. 26r16 29r16 49r31 109r40 216r30 289r25
+70A9*Contract_Address(31M12)<integer> 7|89r26 166r27 8|129r27
+X 6 interfac.ads
+38K9*Interfaces 233e15 7|24w6 24r22
+70M9*Unsigned_8 7|250r72 8|36r13 361r25 369r25 377r25
+81M9*Unsigned_32 7|62r26 63r26 87r26 125r31 156r33 211r49 217r25 235r58 242r24
+. 8|48r31 118r33 279r49 290r25 315r58 331r24 333r27 406r15 407r15 432r25
+. 441r25
+84M9*Unsigned_64 7|61r26 86r26 148r37 180r41 289r35 8|17r21 100r37 204r41
+. 405r19 423r25 504r35
+141V13*Shift_Left{81M9} 8|432s13 441s13
+146V13*Shift_Right{81M9} 8|370s13 378s13
+166V13*Shift_Left{84M9} 8|423s13
+171V13*Shift_Right{84M9} 8|36s25 362s13
+X 7 sphinx_lite_iot.ads
+29K9*Sphinx_Lite_IoT 296l5 296e20 8|5b14 518l5 518t20
+31@22*IoT_State 32r19 128r28 133r17 137r28 145r17 149r17 153r17 157r17 169r17
+. 177r28 181r17 194r17 203r28 212r17 221r28 271r17 278r28 286r17 290r17 294r17
+. 8|7r22
+40N4*Trusted_State_Size 250r45 8|353r27 360r27 368r27 376r27 384r27 390r16
+. 414r27 421r27 430r27 439r27 448r27 454r16
+43N4*Max_Sync_Message_Size
+46N4*Default_Sync_Interval 8|318r40 319r40 320r40
+49N4*Max_Checkpoint_Age_Seconds 8|321r40
+52N4*Low_Battery_Threshold
+58R9*IoT_Trusted_State 70e14 72r30 144r38 254r19 262r21 8|15r21 91r38 344r19
+. 401r21
+60a7*Checkpoint_Hash{5|56A9} 73m7 8|53m10 111r28 166m33 266m21 352r22 354r31
+. 413r22 415m16
+61m7*Block_Number{6|84M9} 74m7 8|54m10 102r28 134r42 163r72 165m33 207r44
+. 225r55 265m21 362r32 426m13
+62m7*Chain_ID{6|81M9} 75m7 8|55m10 120r28 370r32 435m13
+63m7*Committee_Epoch{6|81M9} 76m7 8|56m10 135r42 281r40 299r37 306m21 378r32
+. 444m13
+66a7*Committee_Root{5|56A9} 77m7 8|57m10 305m21 383r22 385r31 447r22 449m16
+69b7*Initialized{boolean} 78m7 8|58m10 72r28 391r35 455m16
+72r4*Null_IoT_State{58R9} 8|15r42 81r24 409r16 485r24
+85R9*Sync_Request 90e14 167r27 8|130r27
+86m7*Client_Block{6|84M9} 8|134m10
+87m7*Client_Epoch{6|81M9} 8|135m10
+88b7*Request_Proof{boolean} 8|136m10
+89a7*Proof_Address{5|70A9} 8|137m10
+92E9*Sync_Response_Status 100e5 103r26
+93n7*Sync_OK{92E9} 8|160r15
+94n7*Sync_Already_Current{92E9} 8|181r15
+95n7*Sync_Checkpoint_Available{92E9} 8|160r25
+96n7*Sync_Committee_Rotation{92E9} 8|185r15
+97n7*Sync_Error_Invalid{92E9} 8|189r15
+98n7*Sync_Error_Stale{92E9} 8|192r15
+99n7*Sync_Error_No_Data{92E9} 111r27 8|195r15
+102R9*Sync_Response 108e14 110r34 173r22 8|146r22
+103e7*Status{92E9} 111m7 8|159r21
+104r7*New_Checkpoint{9|75R9} 112m7 8|162r25 163r28 165r58 167r56
+105b7*Has_Account_Proof{boolean} 113m7
+106r7*Account_Balance{5|41R9} 114m7
+107b7*Proof_Valid{boolean} 115m7
+110r4*Null_Sync_Response{102R9}
+123U14*Initialize 124>7 125>7 126>7 8|46b14 64l8 64t18
+124r7 Genesis_Checkpoint{9|75R9} 129r17 8|47b7 53r55 54r30
+125m7 Chain_ID{6|81M9} 8|48b7 55r30
+126a7 Committee_Root{5|56A9} 8|49b7 57r30
+132V13*Is_Initialized{boolean} 8|70b13 73l8 73t22
+136U14*Reset 8|79b14 85l8 85t13
+144V13*Get_Trusted_State{58R9} 8|91b13 94l8 94t25
+148V13*Get_Block_Number{6|84M9} 8|100b13 103l8 103t24
+152V13*Get_Checkpoint_Hash{5|56A9} 8|109b13 112l8 112t27
+156V13*Get_Chain_ID{6|81M9} 8|118b13 121l8 121t20
+164U14*Create_Sync_Request 165>7 166>7 167<7 8|127b14 139l8 139t27
+165b7 Request_Proof{boolean} 8|128b7 136r28
+166a7 Proof_Address{5|70A9} 8|129b7 137r28
+167r7 Request{85R9} 8|130b7 133m7
+172U14*Process_Sync_Response 173>7 174<7 175<7 8|145b14 198l8 198t29
+173r7 Response{102R9} 8|146b7 159r12 162r16 163r19 165r49 167r47
+174b7 Success{boolean} 8|147b7 151m7 173m19 183m13
+175e7 Error{9|217E9} 8|148b7 152m7 175m19 178m16 187m13 190m13 193m13 196m13
+180V13*Needs_Sync{boolean} 180>25 8|204b13 208l8 208t18
+180m25 Current_Block{6|84M9} 8|204b25 207r14
+188U14*Verify_Checkpoint_Update 189>7 190>7 191<7 192<7 8|214b14 243l8 243t32
+189r7 New_Checkpoint{9|75R9} 195r17 8|215b7 225r10 231r10 237r10
+190a7 Expected_Root{5|56A9} 8|216b7 237r39
+191b7 Valid{boolean} 8|217b7 221m7 242m7
+192e7 Error{9|217E9} 8|218b7 222m7 226m10 232m10 238m10
+198U14*Apply_Checkpoint 199>7 200<7 201<7 8|249b14 273l8 273t24
+199r7 New_Checkpoint{9|75R9} 204r17 8|250b7 259r10 265r37 266r65
+200b7 Success{boolean} 8|251b7 255m7 272m7
+201e7 Error{9|217E9} 8|252b7 256m7 260m10
+211V13*Needs_Committee_Update{boolean} 211>37 8|279b13 282l8 282t30
+211m37 New_Epoch{6|81M9} 8|279b37 281r14
+215U14*Update_Committee_Root 216>7 217>7 218<7 219<7 8|288b14 309l8 309t29
+216a7 New_Root{5|56A9} 8|289b7 305r39
+217m7 New_Epoch{6|81M9} 8|290b7 299r10 306r40
+218b7 Success{boolean} 8|291b7 295m7 308m7
+219e7 Error{9|217E9} 8|292b7 296m7 300m10
+227E9*Power_Mode 232e5 235r39 241r24 8|315r39 330r24
+228n7*Power_Normal{227E9} 8|318r15
+229n7*Power_Low{227E9} 8|319r15
+230n7*Power_Critical{227E9} 8|320r15
+231n7*Power_Sleep{227E9} 8|321r15
+235V13*Get_Sync_Interval{6|81M9} 235>32 237r17 8|315b13 333s42
+235e32 Mode{227E9} 8|315b32 317r12
+240V13*Should_Skip_Sync{boolean} 241>7 242>7 8|329b13 337l8 337t24
+241e7 Mode{227E9} 8|330b7 333r61
+242m7 Seconds_Since{6|81M9} 8|331b7 336r14
+250A9*Serialized_IoT_State(6|70M9)<integer> 255r19 261r21 269r19 275r21 8|345r19
+. 400r21 466r19 477r21
+253U14*Serialize_State 254>7 255<7 8|343b14 393l8 393t23 469s7
+254r7 State{58R9} 8|344b7 352r16 354r25 362r26 370r26 378r26 383r16 385r25
+. 391r29
+255a7 Bytes{250A9} 8|345b7 349m7 354m10 361m10 369m10 377m10 385m10 391m10
+260U14*Deserialize_State 261>7 262<7 263<7 8|399b14 459l8 459t25 488s7
+261a7 Bytes{250A9} 8|400b7 415r39 423r38 432r38 441r38 449r38 455r31
+262r7 State{58R9} 8|401b7 409m7 413r16 415m10 426m7 435m7 444m7 447r16 449m10
+. 455m10
+263b7 Success{boolean} 8|402b7 410m7 458m7
+268U14*Save_State 269<7 8|465b14 470l8 470t18
+269a7 Bytes{250A9} 8|466b7 469m39
+274U14*Load_State 275>7 276<7 8|476b14 489l8 489t18
+275a7 Bytes{250A9} 8|477b7 488r26
+276b7 Success{boolean} 8|478b7 488m48
+285V13*Total_Syncs{natural} 8|495b13 498l8 498t19
+289V13*Bytes_Received{6|84M9} 8|504b13 507l8 507t22
+293V13*Checkpoint_Updates{natural} 8|513b13 516l8 516t26
+X 8 sphinx_lite_iot.adb
+15r4 Current_State{7|58R9} 8r7 52m7 72r14 81m7 93r14 102r14 111r14 120r14
+. 134r28 135r28 163r58 165m19 166m19 207r30 225r41 265m7 266m7 281r26 299r23
+. 305m7 306m7 469r24 485m7 488m33
+16i4 Sync_Count{natural} 8r22 61m7 82m7 155r10 156m10 156r24 482m7 497r14
+17m4 Bytes_Total{6|84M9} 8r34 62m7 83m7 483m7 506r14
+18i4 CP_Updates{natural} 8r47 63m7 84m7 169r22 170m22 170r36 268r10 269m10
+. 269r24 484m7 515r14
+25V13 Compute_Checkpoint_Hash{5|56A9} 25b13 25>38 40l8 40t31 53s30 167s22
+. 266s40
+25r38 CP{9|75R9} 30r24 30r46 36r38
+26a7 Result{5|56A9} 30m10 35m10 35r24 39r14
+29i11 I{integer} 30r18 30r39 30r61
+34i11 I{integer} 35r18 35r32 36r55
+333m7 Interval{6|81M9} 336r30
+347i7 Idx{natural} 353r20 354r17 355m10 355r17 360r20 361r17 363m10 363r17
+. 368r20 369r17 371m10 371r17 376r20 377r17 379m10 379r17 384r20 385r17 386m10
+. 386r17 390r10 391r17
+352i11 I{integer} 354r48
+359i11 I{integer} 362r46
+367i11 I{integer} 370r42
+375i11 I{integer} 378r49
+383i11 I{integer} 385r47
+404i7 Idx{natural} 414r20 415r46 416m10 416r17 421r20 423r45 424m10 424r17
+. 430r20 432r45 433m10 433r17 439r20 441r45 442m10 442r17 448r20 449r45 450m10
+. 450r17 454r10 455r38
+405m7 Block_Num{6|84M9} 422m10 422r23 426r29
+406m7 Chain{6|81M9} 431m10 431r19 435r25
+407m7 Epoch{6|81M9} 440m10 440r19 444r32
+413i11 I{integer} 415r33
+420i11 I{integer} 423r52
+429i11 I{integer} 432r52
+438i11 I{integer} 441r52
+447i11 I{integer} 449r32
+X 9 sphinx_lite_types.ads
+22K9*Sphinx_Lite_Types 7|27w6 27r29 9|275e22
+34N4*Threshold 8|231r37 259r37
+48I12*Signature_Count{natural}
+75R9*Checkpoint 7|104r26 124r31 189r30 199r28 8|25r43 47r31 215r30 250r28
+. 9|90e14
+77m7*Block_Number{6|84M9} 8|36r41 54r49 163r43 165r73 225r25 265r52
+78a7*Block_Hash{5|56A9} 8|30r27
+79a7*State_Root{5|56A9} 8|30r49 237r25
+86i7*Sig_Count{48I12} 8|231r25 259r25
+89b7*Valid{boolean} 7|129r36 195r32 204r32 8|162r40
+92r4*Null_Checkpoint{75R9} 7|112r27
+217E9*Sphinx_Lite_Error 7|175r22 192r30 201r28 219r25 8|148r22 218r30 252r28
+. 292r25 9|231e5
+218n7*Error_None{217E9} 8|152r16 222r16 256r16 296r16
+219n7*Error_Not_Initialized{217E9} 8|196r22
+220n7*Error_Invalid_Checkpoint{217E9} 8|178r25 190r22
+221n7*Error_Insufficient_Signatures{217E9} 8|232r19 260r19
+223n7*Error_Stale_Checkpoint{217E9} 8|175r28 193r22 226r19
+225n7*Error_Committee_Changed{217E9} 8|187r22
+228n7*Error_Invalid_Block_Number{217E9} 8|300r19
+230n7*Error_State_Root_Mismatch{217E9} 8|238r19
+

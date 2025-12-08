@@ -1,0 +1,215 @@
+V "GNAT Lib v14"
+A -O0
+A -gnatA
+A -gnatwa
+A -gnatQ
+A -gnata
+A -gnatf
+A -gnatyM120
+A -gnatyO
+A -gnat2012
+A -g
+A -gnateE
+A -fstack-check=specific
+A -mmacosx-version-min=16.0.0
+A -mcpu=apple-m1
+A -mlittle-endian
+A -mabi=lp64
+A -fPIC
+P ZX
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+
+U anubis_genesis_provers%b  anubis_genesis_provers.adb  2d2196d7 NE OO PK
+Z system.assertions%s	s-assert.adb		s-assert.ali
+
+U anubis_genesis_provers%s  anubis_genesis_provers.ads  72c64f9a EE NE OO PK
+W anubis_types%s	anubis_types.ads	anubis_types.ali
+W interfaces%s		interfac.ads		interfac.ali
+
+D ada.ads		20240808082856 76789da1 ada%s
+D a-assert.ads		20240808082856 ba465f5c ada.assertions%s
+D a-unccon.ads		20240808082856 0e9b276f ada.unchecked_conversion%s
+D anubis_genesis_provers.ads  20251207191107 ac64e6cc anubis_genesis_provers%s
+D anubis_genesis_provers.adb  20251207191107 8145701b anubis_genesis_provers%b
+D anubis_types.ads	20251207191105 4fb35097 anubis_types%s
+D interfac.ads		20240808082856 9111f9c1 interfaces%s
+D system.ads		20240808082856 70765b54 system%s
+D s-assert.ads		20240808082856 9c4520c7 system.assertions%s
+D s-exctab.ads		20240808082856 91bef6ef system.exception_table%s
+D s-stalib.ads		20240808082856 1c9580f6 system.standard_library%s
+G a e
+G c Z s b [init_prover_set anubis_genesis_provers 129 14 none]
+G c Z s b [register_prover anubis_genesis_provers 141 14 none]
+G c Z s b [record_proof anubis_genesis_provers 158 14 none]
+G c Z s b [record_proof_failed anubis_genesis_provers 167 14 none]
+G c Z s b [calculate_proof_reward anubis_genesis_provers 179 13 none]
+G c Z s b [distribute_proof_reward anubis_genesis_provers 186 14 none]
+G c Z s b [claim_rewards anubis_genesis_provers 193 14 none]
+G c Z s b [slash_prover anubis_genesis_provers 205 14 none]
+G c Z s b [get_prover anubis_genesis_provers 219 13 none]
+G c Z s b [get_active_count anubis_genesis_provers 225 13 none]
+G c Z s b [enable_open_entry anubis_genesis_provers 234 14 none]
+G c Z s b [zeroize_prover_set anubis_genesis_provers 245 14 none]
+G c Z s b [zeroize_prover anubis_genesis_provers 248 14 none]
+G c Z s s [prover_recordIP anubis_genesis_provers 74 9 none]
+G c Z s s [Tprover_arrayBIP anubis_genesis_provers 100 4 none]
+G c Z s s [prover_set_stateIP anubis_genesis_provers 102 9 none]
+X 4 anubis_genesis_provers.ads
+23K9*Anubis_Genesis_Provers 251l5 251e27 5|10b14 345l5 345t27
+30N4*Prover_Allocation 135r42 5|48r31
+31N4*Genesis_Prover_Count 58r47 5|87r53
+32N4*Open_Entry_Block 239r31
+33N4*Distribution_Period_Blocks
+36E9*Hardware_Tier 41e5 43r44 51r45 79r28 145r24 181r24 5|62r24 176r24
+37n7*Light{36E9} 44r7 52r7 5|29r34 330r17
+38n7*Standard{36E9} 45r7 53r7
+39n7*Heavy{36E9} 46r7 54r7
+40n7*Enterprise{36E9} 47r7 55r7
+43a4*Tier_RAM_Requirements(natural)
+51a4*Tier_Reward_Multiplier(natural) 5|180r40
+58I12*Prover_Index{natural} 75r28 100r32 160r24 169r24 188r24 195r24 207r24
+. 221r24 5|23r16 67r14 71r16 128r24 157r24 199r24 215r24 240r24 279r24 311r16
+64E9*Prover_Status 72e5 78r28
+65n7*Pending_Application{64E9} 5|28r34 72r40 329r19
+66n7*Approved{64E9} 5|109r38
+67n7*Active{64E9} 5|136r46 151r47 162r46
+68n7*Busy{64E9} 5|137r46 163r46
+69n7*Suspended{64E9}
+70n7*Slashed{64E9} 5|266r47
+71n7*Removed{64E9}
+74R9*Prover_Record 98e14 100r49 222r13 248r38 5|280r13 324r38
+75i7*Index{58I12} 5|25m13 93m28 326m9
+76a7*Address{6|14A9} 5|26m13 97r55 98m34 327m9
+77a7*PK_Hash{6|14A9} 5|27m13 104r55 105m34 328m9
+78e7*Status{64E9} 5|28m13 72r31 109m28 136r37 137r37 151m37 162r37 163r37
+. 266m37 329m9
+79e7*Tier{36E9} 5|29m13 110m28 330m9
+80b7*Is_Genesis{boolean} 5|30m13 111m28 331m9
+83m7*Proofs_Generated{7|84M9} 5|31m13 139m37 140r40 332m9
+84m7*Proofs_Failed{7|84M9} 5|32m13 165m37 166r40 333m9
+85m7*Avg_Proof_Time_Ms{7|81M9} 5|33m13 143r40 144m40 146m40 147r44 334m9
+86m7*Total_Rewards{7|84M9} 5|34m13 227m34 228r37 335m9
+87m7*Pending_Rewards{7|84M9} 5|35m13 209m34 210r37 220r45 229m34 336m9
+90m7*Stake_Amount{7|84M9} 5|36m13 112m28 248r51 252r53 253m37 255m37 256r40
+. 265r37 337m9
+91i7*Times_Slashed{natural} 5|37m13 259m34 260r37 338m9
+92m7*Total_Slashed{7|84M9} 5|38m13 261m34 262r37 339m9
+95m7*Registered_At{7|84M9} 5|39m13 73r31 113m28 340m9
+96m7*Active_Since{7|84M9} 5|40m13 341m9
+97m7*Last_Proof_Block{7|84M9} 5|41m13 150m37 342m9
+100A9*Prover_Array(74R9)<integer> 103r28
+102R9*Prover_Set_State 111e14 130r28 142r31 159r31 168r31 180r24 187r31 194r31
+. 206r31 220r24 226r24 235r31 245r46 5|18r28 59r31 127r31 156r31 175r24 198r31
+. 214r31 239r31 278r24 286r24 297r31 309r46
+103a7*Provers{100A9} 5|24m16 72r19 73r19 93m13 97r40 98m19 104r40 105m19
+. 109m13 110m13 111m13 112m13 113m13 136r16 137r16 139m16 140r19 143r19 144m19
+. 146m19 147r23 150m16 151m16 162r16 163r16 165m16 166r19 209m13 210r16 220r24
+. 227m13 228r16 229m13 248r30 252r32 253m16 255m16 256r19 259m13 260r16 261m13
+. 262r16 265r16 266m16 282r20 312m32
+104i7*Active_Count{natural} 134r21 5|45m13 267r19 268m19 268r41 289r20 315m13
+105i7*Genesis_Count{natural} 5|46m13 87r36 116m16 116r39 316m13
+106m7*Total_Distributed{7|84M9} 5|47m13 208m13 208r40 317m13
+107m7*Remaining_Pool{7|84M9} 135r25 5|48m13 190r43 191r23 203r25 207m13 207r37
+. 318m13
+108b7*Open_Entry_Active{boolean} 5|49m13 302m13 319m13
+109m7*Genesis_Block{7|84M9} 5|50m13 320m13
+110m7*Current_Block{7|84M9} 5|51m13 113r51 321m13
+117E9*Register_Result 123e5 148r28 5|65r28
+118n7*Registered{117E9} 5|119r17
+119n7*Not_Approved{117E9} 5|82r20 88r20
+120n7*Insufficient_Stake{117E9}
+121n7*Invalid_Hardware{117E9}
+122n7*Invalid_Signature{117E9}
+129U14*Init_Prover_Set 130<7 131>7 5|17b14
+130r7 State{102R9} 134r15 135r19 5|18b7 24m10 45m7 46m7 47m7 48m7 49m7 50m7
+. 51m7
+131m7 Genesis_Block{7|84M9} 5|19b7 50r30 51r30
+141U14*Register_Prover 142=7 143>7 144>7 145>7 146>7 147>7 148<7 5|58b14
+. 120l8 120t23
+142r7 State{102R9} 5|59b7 72r13 73r13 87r30 93m7 97r34 98m13 104r34 105m13
+. 109m7 110m7 111m7 112m7 113m7 113r45 116m10 116r33
+143a7 Address{6|14A9} 151r14 5|60b7 96r16 97r17 98r47 98r65
+144a7 PK_Hash{6|14A9} 152r18 5|61b7 103r16 104r17 105r47 105r65
+145e7 Tier{36E9} 5|62b7 110r36
+146m7 Stake{7|84M9} 5|63b7 112r44
+147b7 Is_Genesis{boolean} 5|64b7 87r10 111r42 115r10
+148e7 Result{117E9} 5|65b7 82m10 88m10 119m7
+158U14*Record_Proof 159=7 160>7 161>7 162>7 163>7 5|126b14 153l8 153t20
+159r7 State{102R9} 5|127b7 136r10 137r10 139m10 140r13 143r13 144m13 146m13
+. 147r17 150m10 151m10
+160i7 Prover_Idx{58I12} 5|128b7 136r25 137r25 139r25 140r28 143r28 144r28
+. 146r28 147r32 150r25 151r25
+161m7 Proof_Size{7|81M9} 5|129b7 133r28
+162m7 Proof_Time_Ms{7|81M9} 5|130b7 144r61 147r64
+163m7 Block_Number{7|84M9} 5|131b7 150r57
+167U14*Record_Proof_Failed 168=7 169>7 170>7 5|155b14 168l8 168t27
+168r7 State{102R9} 5|156b7 162r10 163r10 165m10 166r13
+169i7 Prover_Idx{58I12} 5|157b7 162r25 163r25 165r25 166r28
+170a7 Reason_Hash{6|14A9} 173r14 5|158b7 160r28
+179V13*Calculate_Proof_Reward{7|84M9} 180>7 181>7 182>7 5|174b13 195l8 195t30
+180r7 State{102R9} 5|175b7 190r37 191r17
+181e7 Tier{36E9} 5|176b7 180r64
+182m7 Proof_Size{7|81M9} 5|177b7 184r34
+186U14*Distribute_Proof_Reward 187=7 188>7 189>7 5|197b14 211l8 211t31
+187r7 State{102R9} 5|198b7 203r19 207m7 207r31 208m7 208r34 209m7 210r10
+188i7 Prover_Idx{58I12} 5|199b7 209r22 210r25
+189m7 Reward{7|84M9} 5|200b7 203r10 207r54 208r60 210r55
+193U14*Claim_Rewards 194=7 195>7 196<7 197<7 5|213b14 232l8 232t21
+194r7 State{102R9} 5|214b7 220r18 227m7 228r10 229m7
+195i7 Prover_Idx{58I12} 5|215b7 220r33 227r22 228r25 229r22
+196m7 Claimed{7|84M9} 5|216b7 220m7 222r10 228r53
+197b7 Success{boolean} 5|217b7 223m10 231m7
+205U14*Slash_Prover 206=7 207>7 208>7 209>7 5|238b14 271l8 271t20
+206r7 State{102R9} 5|239b7 248r24 252r26 253m10 255m10 256r13 259m7 260r10
+. 261m7 262r10 265r10 266m10 267r13 268m13 268r35
+207i7 Prover_Idx{58I12} 5|240b7 248r39 252r41 253r25 255r25 256r28 259r22
+. 260r25 261r22 262r25 265r25 266r25
+208i7 Slash_Rate_BP{natural} 213r18 5|241b7 249r37
+209a7 Reason_Hash{6|14A9} 212r14 5|242b7 244r28
+219V13*Get_Prover{74R9} 220>7 221>7 5|277b13 283l8 283t18
+220r7 State{102R9} 5|278b7 282r14
+221i7 Index{58I12} 5|279b7 282r29
+225V13*Get_Active_Count{natural} 226>7 5|285b13 290l8 290t24
+226r7 State{102R9} 5|286b7 289r14
+234U14*Enable_Open_Entry 235=7 236>7 5|296b14 303l8 303t25
+235r7 State{102R9} 5|297b7 302m7
+236m7 Current_Block{7|84M9} 239r14 5|298b7 300r28
+245U14*Zeroize_Prover_Set 245<34 5|309b14 322l8 322t26
+245r34 State{102R9} 5|309b34 312m26 312r26 315m7 316m7 317m7 318m7 319m7
+. 320m7 321m7
+248U14*Zeroize_Prover 248<30 5|312s10 324b14 343l8 343t22
+248r30 P{74R9} 5|324b30 326m7 327m7 328m7 329m7 330m7 331m7 332m7 333m7 334m7
+. 335m7 336m7 337m7 338m7 339m7 340m7 341m7 342m7
+X 5 anubis_genesis_provers.adb
+23i11 I{4|58I12} 24r25 25r34
+67i7 Slot{4|58I12} 75m13 93r22 93r37 97r49 98r28 104r49 105r28 109r22 110r22
+. 111r22 112r22 113r22
+68b7 Found_Slot{boolean} 76m13 81r14
+71i11 I{4|58I12} 72r28 73r28 75r21
+96i11 I{integer} 97r13 98r43 98r74
+103i11 I{integer} 104r13 105r43 105r74
+179m7 Base_Reward{7|84M9} 187m7 187r23 190r10 194r14
+180i7 Multiplier{natural} 187r50
+181m7 Size_Bonus{7|84M9} 184m7 190r24 194r28
+245m7 Slash_Amount{7|84M9} 248m7 252r10 256r55 262r53
+311i11 I{4|58I12} 312r41
+X 6 anubis_types.ads
+5K9*Anubis_Types 4|21w6 21r24 6|40e17
+13M12*Byte{7|70M9}
+14A9*Byte_Array(13M12)<integer> 4|76r28 77r28 143r24 144r24 170r24 209r24
+. 5|60r24 61r24 158r24 242r24
+X 7 interfac.ads
+38K9*Interfaces 4|20w6 20r22 7|233e15
+70M9*Unsigned_8
+81M9*Unsigned_32 4|85r28 161r24 162r24 182r24 5|129r24 130r24 177r24
+84M9*Unsigned_64 4|83r28 84r28 86r28 87r28 90r28 92r28 95r28 96r28 97r28
+. 106r28 107r28 109r28 110r28 131r24 146r24 163r24 183r13 189r24 196r28 236r24
+. 5|19r24 63r24 131r24 178r13 179r21 181r20 184r21 187r37 200r24 216r28 245r22
+. 249r24 298r24
+

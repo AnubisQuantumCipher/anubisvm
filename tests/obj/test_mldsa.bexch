@@ -1,0 +1,31 @@
+[GENERATED OBJECT FILE]
+b__test_mldsa.o
+[PROJECT FILES]
+/Users/sicarii/anubisvm/tests/test_mldsa.gpr
+20251204160953 173457a265d3135ddcc00e87d7a54124
+/Users/sicarii/anubisvm/anubisvm.gpr
+20251206034411 9a4f3bc7aa56ac72e4424f8366be9998
+[BOUND OBJECT FILES]
+/Users/sicarii/anubisvm/obj/anubis_mldsa_config.o
+/Users/sicarii/anubisvm/obj/anubis_mldsa_field.o
+/Users/sicarii/anubisvm/obj/anubis_types.o
+/Users/sicarii/anubisvm/obj/anubis_mldsa_types.o
+/Users/sicarii/anubisvm/obj/anubis_keccak.o
+/Users/sicarii/anubisvm/obj/anubis_mldsa_encoding.o
+/Users/sicarii/anubisvm/obj/anubis_mldsa_ntt.o
+/Users/sicarii/anubisvm/obj/anubis_mldsa_poly.o
+/Users/sicarii/anubisvm/obj/anubis_sha3.o
+/Users/sicarii/anubisvm/obj/anubis_mldsa_sample.o
+/Users/sicarii/anubisvm/obj/anubis_mldsa.o
+/Users/sicarii/anubisvm/tests/obj/test_mldsa.o
+[GENERATED SOURCE FILES]
+b__test_mldsa.ads
+b__test_mldsa.adb
+b__test_mldsa.ali
+[RESULTING OPTIONS]
+-L/Users/sicarii/anubisvm/tests/obj/
+-L/Users/sicarii/anubisvm/tests/obj/
+-L/Users/sicarii/anubisvm/obj/
+-L/Users/sicarii/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/adalib/
+-static
+/Users/sicarii/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/adalib/libgnat.a

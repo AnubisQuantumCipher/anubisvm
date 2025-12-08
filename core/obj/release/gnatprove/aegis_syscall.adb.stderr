@@ -1,0 +1,94 @@
+aegis_syscall.adb:55:16: info: initialization of "Raw_Size" proved
+aegis_syscall.adb:63:39: info: range check proved
+aegis_syscall.adb:66:16: info: precondition proved
+aegis_syscall.adb:73:16: info: initialization of "Raw_Size" proved
+aegis_syscall.adb:81:39: info: range check proved
+aegis_syscall.adb:84:16: info: precondition proved
+aegis_syscall.adb:88:13: info: precondition proved
+aegis_syscall.adb:148:13: info: precondition proved
+aegis_syscall.adb:217:07: info: initialization of "Crypto_Res" proved
+aegis_syscall.adb:219:07: info: precondition proved
+
+aegis_syscall.adb:219:45: warning: "Output" is set by "SHA3_256_Hash" but not used after the call
+  219 |      SHA3_256_Hash (Ctx, Input, Data_Size, Output, Crypto_Res);
+      |                                            ^~~~~~
+aegis_syscall.adb:221:27: info: precondition proved
+aegis_syscall.adb:236:07: info: initialization of "Crypto_Res" proved
+aegis_syscall.adb:238:07: info: precondition proved
+
+aegis_syscall.adb:238:46: warning: "Output" is set by "Keccak256_Hash" but not used after the call
+  238 |      Keccak256_Hash (Ctx, Input, Data_Size, Output, Crypto_Res);
+      |                                             ^~~~~~
+aegis_syscall.adb:240:27: info: precondition proved
+aegis_syscall.adb:255:07: info: initialization of "Valid" proved
+aegis_syscall.adb:259:07: info: initialization of "Crypto_Res" proved
+aegis_syscall.adb:261:07: info: precondition proved
+aegis_syscall.adb:281:07: info: initialization of "Shared" proved
+aegis_syscall.adb:284:07: info: initialization of "Crypto_Res" proved
+
+aegis_syscall.adb:286:54: warning: "Shared" is set by "MLKEM1024_Decaps" but not used after the call
+  286 |      MLKEM1024_Decaps (Ctx, Ciphertext, Decaps_Key, Shared, Crypto_Res);
+      |                                                     ^~~~~~
+
+aegis_syscall.adb:290:10: warning: statement has no effect
+  290 |         Zeroize_Secret (Shared);
+      |         ^~~~~~~~~~~~~~~~~~~~~~
+
+aegis_syscall.adb:290:26: warning: "Shared" is set by "Zeroize_Secret" but not used after the call
+  290 |         Zeroize_Secret (Shared);
+      |                         ^~~~~~
+aegis_syscall.adb:453:07: info: initialization of "Success" proved
+aegis_syscall.adb:480:07: info: initialization of "Success" proved
+aegis_syscall.adb:505:07: info: initialization of "Success" proved
+aegis_syscall.adb:530:07: info: initialization of "Exec_Result" proved
+aegis_syscall.adb:546:07: info: initialization of "Exec_Result" proved
+aegis_syscall.adb:561:07: info: initialization of "Exec_Result" proved
+aegis_syscall.adb:585:07: info: initialization of "Success" proved
+aegis_syscall.adb:599:07: info: precondition proved
+aegis_syscall.adb:602:27: info: precondition proved
+aegis_syscall.ads:102:07: info: initialization of "Result" proved
+aegis_syscall.ads:104:07: info: data dependencies proved
+aegis_syscall.ads:137:07: info: initialization of "Result" proved
+aegis_syscall.ads:139:07: info: data dependencies proved
+aegis_syscall.ads:147:07: info: initialization of "Result" proved
+aegis_syscall.ads:149:07: info: data dependencies proved
+aegis_syscall.ads:159:07: info: initialization of "Result" proved
+aegis_syscall.ads:161:07: info: data dependencies proved
+aegis_syscall.ads:169:07: info: initialization of "Result" proved
+aegis_syscall.ads:171:07: info: data dependencies proved
+aegis_syscall.ads:180:07: info: initialization of "Result" proved
+aegis_syscall.ads:182:07: info: data dependencies proved
+aegis_syscall.ads:187:07: info: initialization of "Result" proved
+aegis_syscall.ads:189:07: info: data dependencies proved
+aegis_syscall.ads:194:07: info: initialization of "Result" proved
+aegis_syscall.ads:196:07: info: data dependencies proved
+aegis_syscall.ads:201:07: info: initialization of "Result" proved
+aegis_syscall.ads:203:07: info: data dependencies proved
+aegis_syscall.ads:208:07: info: initialization of "Result" proved
+aegis_syscall.ads:210:07: info: data dependencies proved
+aegis_syscall.ads:215:07: info: initialization of "Result" proved
+aegis_syscall.ads:217:07: info: data dependencies proved
+aegis_syscall.ads:222:07: info: initialization of "Result" proved
+aegis_syscall.ads:224:07: info: data dependencies proved
+aegis_syscall.ads:229:07: info: initialization of "Result" proved
+aegis_syscall.ads:231:07: info: data dependencies proved
+aegis_syscall.ads:264:07: info: initialization of "Result" proved
+aegis_syscall.ads:266:07: info: data dependencies proved
+aegis_syscall.ads:275:07: info: initialization of "Result" proved
+aegis_syscall.ads:277:07: info: data dependencies proved
+aegis_syscall.ads:286:07: info: initialization of "Result" proved
+aegis_syscall.ads:288:07: info: data dependencies proved
+aegis_syscall.ads:298:07: info: initialization of "Result" proved
+aegis_syscall.ads:300:07: info: data dependencies proved
+aegis_syscall.ads:306:07: info: initialization of "Result" proved
+aegis_syscall.ads:308:07: info: data dependencies proved
+aegis_syscall.ads:313:07: info: initialization of "Result" proved
+aegis_syscall.ads:315:07: info: data dependencies proved
+aegis_syscall.ads:328:07: info: initialization of "Result" proved
+aegis_syscall.ads:330:07: info: data dependencies proved
+aegis_syscall.ads:338:13: info: implicit aspect Always_Terminates on "Is_Syscall_Allowed" has been proved, subprogram will terminate
+aegis_syscall.ads:342:07: info: data dependencies proved
+aegis_syscall.ads:345:13: info: implicit aspect Always_Terminates on "Can_Modify_State" has been proved, subprogram will terminate
+aegis_syscall.ads:348:07: info: data dependencies proved
+aegis_syscall.ads:351:13: info: implicit aspect Always_Terminates on "Can_Transfer_Value" has been proved, subprogram will terminate
+aegis_syscall.ads:354:07: info: data dependencies proved

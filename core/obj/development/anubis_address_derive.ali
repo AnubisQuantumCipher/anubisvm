@@ -1,0 +1,105 @@
+V "GNAT Lib v14"
+A -O0
+A -gnatA
+A -gnat2022
+A -gnatwa
+A -gnatyO
+A -gnatVa
+A -gnatw.F
+A -gnata
+A -g
+A -gnateE
+A -gnatVa
+A -mmacosx-version-min=16.0.0
+A -mcpu=apple-m1
+A -mlittle-endian
+A -mabi=lp64
+A -fPIC
+P SS ZX
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U anubis_address_derive%b  anubis_address_derive.adb  fc0fedb6 NE OO PK
+W anubis_sha3%s		anubis_sha3.adb		anubis_sha3.ali
+W anubis_types%s	anubis_types.ads	anubis_types.ali
+Z system.assertions%s	s-assert.adb		s-assert.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+
+U anubis_address_derive%s  anubis_address_derive.ads  635d4dfd EE NE OO PK
+W anubis_address_types%s  anubis_address_types.ads  anubis_address_types.ali
+W interfaces%s		interfac.ads		interfac.ali
+
+D ada.ads		20240808082856 76789da1 ada%s
+D a-assert.ads		20240808082856 ba465f5c ada.assertions%s
+D a-unccon.ads		20240808082856 0e9b276f ada.unchecked_conversion%s
+D anubis_address_derive.ads  20251207191105 10a2d609 anubis_address_derive%s
+D anubis_address_derive.adb  20251207191105 ca6d16bd anubis_address_derive%b
+D anubis_address_types.ads  20251207191105 e2ee6235 anubis_address_types%s
+D anubis_keccak.ads	20251207191105 19b431a9 anubis_keccak%s
+D anubis_sha3.ads	20251207191105 69737d95 anubis_sha3%s
+D anubis_types.ads	20251207191105 4fb35097 anubis_types%s
+D interfac.ads		20240808082856 9111f9c1 interfaces%s
+D system.ads		20240808082856 70765b54 system%s
+D s-assert.ads		20240808082856 9c4520c7 system.assertions%s
+D s-exctab.ads		20240808082856 91bef6ef system.exception_table%s
+D s-parame.ads		20240808082856 3597fc11 system.parameters%s
+D s-secsta.ads		20240808082856 578279f5 system.secondary_stack%s
+D s-stalib.ads		20240808082856 1c9580f6 system.standard_library%s
+D s-stoele.ads		20240808082856 ccded4e8 system.storage_elements%s
+G a e
+G c Z s b [derive_account_id anubis_address_derive 41 14 none]
+G c Z s b [build_domain_separator anubis_address_derive 55 14 none]
+G c Z s s [Tpublic_key_bytesBIP anubis_address_derive 37 4 none]
+G r c none [derive_account_id anubis_address_derive 41 14 none] [sha3_256 anubis_sha3 57 14 none]
+X 4 anubis_address_derive.ads
+30K9*Anubis_Address_Derive 66E4 68l5 68e26 5|6b14 87l5 87t26
+35N4*MLDSA87_Public_Key_Size 36r51 5|54r62
+36I12*Public_Key_Index{natural} 37r36
+37A9*Public_Key_Bytes(10|70M9)<integer> 43r24 5|46r24
+41U14*Derive_Account_ID 42>7 43>7 44<7 5|44b14 85l8 85t25
+42e7 Entity{6|46E9} 5|45b7 61r31
+43a7 Public_Key{37A9} 5|46b7 70r16 72r41 75r41
+44a7 Account{6|57A9} 5|47b7 83m10
+51N4*Max_Domain_Sep_Length 52r52 61r27 5|35r42 54r38 65r37
+52A12*Domain_Separator_String{string}<integer> 57r23 5|14r23 49r23
+55U14*Build_Domain_Separator 56>7 57<7 58<7 5|12b14 61s7
+56e7 Entity{6|46E9} 5|13b7 17r52
+57a7 Separator{52A12} 5|14b7 21m7 28m10 36m10
+58i7 Length{natural} 61r17 5|15b7 40m7
+66a4 Domain_Prefix{string} 5|25r16 28r29
+X 5 anubis_address_derive.adb
+17a7 Type_Str{string} 35r10 36r29 36r39
+18i7 Pos{natural} 27r33 28r21 29m10 29r17 35r35 36r21 37m10 37r17 40r17
+25i11 I{integer} 27r39 28r44
+49a7 Domain_Sep{4|52A12} 61m39 66r40
+50i7 Domain_Length{natural} 61m51 64r21 71r33 72r19 75r25
+54N7 Max_Message_Size 56r41 71r53
+56a7 Message{9|14A9} 66m10 72m10 78r17
+57i7 Message_Length{natural} 75m7 78r31
+58a7 Digest{8|32A12} 78m52 83r25
+64i11 I{integer} 65r33 66r19 66r52
+70i11 I{integer} 71r49 72r35 72r53
+81i11 I{6|56I12} 82r33 83r19 83r33
+X 6 anubis_address_types.ads
+28K9*Anubis_Address_Types 4|3w6 3r32 6|136e25
+46E9*Entity_Type 4|42r24 56r23 5|13r23 45r24 6|51e5
+56I12*Account_ID_Index{natural} 5|81r16 82r38
+57A9*Account_ID(10|70M9)<integer> 4|44r24 5|47r24
+118V13*Entity_String{string} 5|17s37
+X 8 anubis_sha3.ads
+27K9*Anubis_SHA3 5|3w6 3r23 8|158e16
+32A12*SHA3_256_Digest{9|14A9}<integer> 5|58r24
+57U14*SHA3_256 5|78s7
+X 9 anubis_types.ads
+5K9*Anubis_Types 5|4w6 4r24 9|40e17
+14A9*Byte_Array(13M12)<integer> 5|56r24
+X 10 interfac.ads
+38K9*Interfaces 4|4w6 4r22 10|233e15
+70M9*Unsigned_8 4|37r57
+

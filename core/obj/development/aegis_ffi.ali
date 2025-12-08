@@ -1,0 +1,2119 @@
+V "GNAT Lib v14"
+A -O0
+A -gnatA
+A -gnat2022
+A -gnatwa
+A -gnatyO
+A -gnatVa
+A -gnatw.F
+A -gnata
+A -g
+A -gnateE
+A -gnatVa
+A -mmacosx-version-min=16.0.0
+A -mcpu=apple-m1
+A -mlittle-endian
+A -mabi=lp64
+A -fPIC
+P SS ZX
+
+RN
+RV NO_ALLOCATORS
+RV NO_ANONYMOUS_ALLOCATORS
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTIONS
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_LOCAL_ALLOCATORS
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_UNCHECKED_CONVERSION
+RV NO_UNCHECKED_DEALLOCATION
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+
+U aegis_ffi%b		aegis_ffi.adb		a7b03313 NE OO PK
+W ada%s			ada.ads			ada.ali
+W ada.unchecked_conversion%s
+W ada.unchecked_deallocation%s
+W aegis_contract%s	aegis_contract.adb	aegis_contract.ali
+W aegis_execution%s	aegis_execution.adb	aegis_execution.ali
+W aegis_vm_types%s	aegis_vm_types.ads	aegis_vm_types.ali
+W anubis_address%s	anubis_address.adb	anubis_address.ali
+W anubis_address_derive%s  anubis_address_derive.adb  anubis_address_derive.ali
+W anubis_address_types%s  anubis_address_types.ads  anubis_address_types.ali
+W anubis_eye%s		anubis_eye.adb		anubis_eye.ali
+W anubis_gate%s		anubis_gate.adb		anubis_gate.ali
+W anubis_lattice_zk%s	anubis_lattice_zk.adb	anubis_lattice_zk.ali
+W anubis_mldsa%s	anubis_mldsa.adb	anubis_mldsa.ali
+W anubis_mldsa_types%s	anubis_mldsa_types.ads	anubis_mldsa_types.ali
+W anubis_mlkem%s	anubis_mlkem.adb	anubis_mlkem.ali
+W anubis_mlkem_types%s	anubis_mlkem_types.ads	anubis_mlkem_types.ali
+W anubis_sha3%s		anubis_sha3.adb		anubis_sha3.ali
+W anubis_shield%s	anubis_shield.adb	anubis_shield.ali
+W anubis_stark_fri%s	anubis_stark_fri.adb	anubis_stark_fri.ali
+W anubis_types%s	anubis_types.ads	anubis_types.ali
+W anubis_whisper%s	anubis_whisper.adb	anubis_whisper.ali
+W interfaces%s		interfac.ads		interfac.ali
+W khepri_mpt_types%s	khepri_mpt_types.adb	khepri_mpt_types.ali
+W khepri_registry%s	khepri_registry.adb	khepri_registry.ali
+W khepri_storage_trie%s	khepri_storage_trie.adb	khepri_storage_trie.ali
+W khepri_types%s	khepri_types.adb	khepri_types.ali
+W scarab_aadkg%s	scarab_aadkg.adb	scarab_aadkg.ali
+W scarab_horus%s	scarab_horus.adb	scarab_horus.ali
+W scarab_khnum%s	scarab_khnum.adb	scarab_khnum.ali
+W scarab_maat%s		scarab_maat.adb		scarab_maat.ali
+W scarab_sebek%s	scarab_sebek.adb	scarab_sebek.ali
+W scarab_sekhmet%s	scarab_sekhmet.adb	scarab_sekhmet.ali
+W scarab_tefnut%s	scarab_tefnut.adb	scarab_tefnut.ali
+W scarab_thoth%s	scarab_thoth.adb	scarab_thoth.ali
+W system%s		system.ads		system.ali
+W system.storage_elements%s  s-stoele.ads	s-stoele.ali
+
+U aegis_ffi%s		aegis_ffi.ads		a8be8052 EE NE OO PK
+W interfaces%s		interfac.ads		interfac.ali
+W interfaces.c%s	i-c.adb			i-c.ali
+W interfaces.c.strings%s  i-cstrin.adb		i-cstrin.ali
+W system%s		system.ads		system.ali
+
+D ada.ads		20240808082856 76789da1 ada%s
+D a-assert.ads		20240808082856 ba465f5c ada.assertions%s
+D a-unccon.ads		20240808082856 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20240808082856 c3a8ac65 ada.unchecked_deallocation%s
+D aegis_contract.ads	20251207191106 f406fabe aegis_contract%s
+D aegis_execution.ads	20251207191105 f7650f9d aegis_execution%s
+D aegis_ffi.ads		20251207191136 26020c6c aegis_ffi%s
+D aegis_ffi.adb		20251207191119 174125bd aegis_ffi%b
+D aegis_gas.ads		20251207191105 2c397305 aegis_gas%s
+D aegis_sandbox.ads	20251207191106 0a9a14d0 aegis_sandbox%s
+D aegis_storage.ads	20251207191106 d62ac4d0 aegis_storage%s
+D aegis_u256.ads	20251207191105 ff2dfe4b aegis_u256%s
+D aegis_vm_types.ads	20251207191105 dcd101d9 aegis_vm_types%s
+D anubis_address.ads	20251207191105 be68d99a anubis_address%s
+D anubis_address_derive.ads  20251207191105 10a2d609 anubis_address_derive%s
+D anubis_address_types.ads  20251207191105 e2ee6235 anubis_address_types%s
+D anubis_bytes.ads	20251207191105 9e5d5cad anubis_bytes%s
+D anubis_chacha20.ads	20251207191104 d1117266 anubis_chacha20%s
+D anubis_chacha20_poly1305.ads  20251207191105 5ad6e8c6 anubis_chacha20_poly1305%s
+D anubis_config.ads	20251207191107 19c7b4b2 anubis_config%s
+D anubis_eye.ads	20251207191105 be68d1cb anubis_eye%s
+D anubis_field.ads	20251207191105 ccc1c329 anubis_field%s
+D anubis_gate.ads	20251207191105 9e2d43cb anubis_gate%s
+D anubis_keccak.ads	20251207191105 19b431a9 anubis_keccak%s
+D anubis_lattice_zk.ads	20251207191105 008af6ac anubis_lattice_zk%s
+D anubis_mldsa.ads	20251207191106 df788a13 anubis_mldsa%s
+D anubis_mldsa_config.ads  20251207191106 44e9e9a1 anubis_mldsa_config%s
+D anubis_mldsa_field.ads  20251207191106 b52aaacb anubis_mldsa_field%s
+D anubis_mldsa_types.ads  20251207191106 b08dfc72 anubis_mldsa_types%s
+D anubis_mlkem.ads	20251207191106 0c9c1cc9 anubis_mlkem%s
+D anubis_mlkem_types.ads  20251207191106 4cc71de7 anubis_mlkem_types%s
+D anubis_poly1305.ads	20251207191104 9947b0e5 anubis_poly1305%s
+D anubis_sha3.ads	20251207191105 69737d95 anubis_sha3%s
+D anubis_shield.ads	20251207191105 7f5260f3 anubis_shield%s
+D anubis_stark_field.ads  20251207191105 98d82a71 anubis_stark_field%s
+D anubis_stark_fri.ads	20251207191105 10b92e5c anubis_stark_fri%s
+D anubis_stark_poly.ads	20251207191105 a436d12c anubis_stark_poly%s
+D anubis_types.ads	20251207191105 4fb35097 anubis_types%s
+D anubis_whisper.ads	20251207191105 2493970d anubis_whisper%s
+D anubis_word.ads	20251207191105 ec44f66b anubis_word%s
+D interfac.ads		20240808082856 9111f9c1 interfaces%s
+D i-c.ads		20240808082856 aac316ce interfaces.c%s
+D i-cstrin.ads		20240808082856 5409c1a4 interfaces.c.strings%s
+D khepri_mpt.ads	20251207191105 29e9c0a4 khepri_mpt%s
+D khepri_mpt_types.ads	20251207191105 f5c1a441 khepri_mpt_types%s
+D khepri_registry.ads	20251207191107 160d11f7 khepri_registry%s
+D khepri_storage_trie.ads  20251207191105 9433ed8d khepri_storage_trie%s
+D khepri_types.ads	20251207191106 06f3822d khepri_types%s
+D scarab_aadkg.ads	20251207191106 1c32bdef scarab_aadkg%s
+D scarab_horus.ads	20251207191106 0be39e66 scarab_horus%s
+D scarab_khnum.ads	20251207191106 ca0ad73e scarab_khnum%s
+D scarab_maat.ads	20251207191106 9014cf75 scarab_maat%s
+D scarab_sebek.ads	20251207191106 e385b505 scarab_sebek%s
+D scarab_sekhmet.ads	20251207191106 dbad7329 scarab_sekhmet%s
+D scarab_tefnut.ads	20251207191106 fe0e1c00 scarab_tefnut%s
+D scarab_thoth.ads	20251207191106 7dd3a252 scarab_thoth%s
+D system.ads		20240808082856 70765b54 system%s
+D s-assert.ads		20240808082856 9c4520c7 system.assertions%s
+D s-exctab.ads		20240808082856 91bef6ef system.exception_table%s
+D s-parame.ads		20240808082856 3597fc11 system.parameters%s
+D s-secsta.ads		20240808082856 578279f5 system.secondary_stack%s
+D s-stalib.ads		20240808082856 1c9580f6 system.standard_library%s
+D s-stoele.ads		20240808082856 ccded4e8 system.storage_elements%s
+G a e
+G c Z s b [aegis_init aegis_ffi 137 13 none]
+G c Z s b [aegis_cleanup aegis_ffi 140 14 none]
+G c Z s b [aegis_version aegis_ffi 143 13 none]
+G c Z s b [aegis_mldsa87_keygen aegis_ffi 150 13 none]
+G c Z s b [aegis_mldsa87_sign aegis_ffi 157 13 none]
+G c Z s b [aegis_mldsa87_verify aegis_ffi 166 13 none]
+G c Z s b [aegis_mlkem1024_keygen aegis_ffi 180 13 none]
+G c Z s b [aegis_mlkem1024_encaps aegis_ffi 187 13 none]
+G c Z s b [aegis_mlkem1024_decaps aegis_ffi 195 13 none]
+G c Z s b [aegis_sha3_256 aegis_ffi 206 13 none]
+G c Z s b [aegis_sha3_512 aegis_ffi 213 13 none]
+G c Z s b [aegis_keccak256 aegis_ffi 220 13 none]
+G c Z s b [aegis_shake128 aegis_ffi 227 13 none]
+G c Z s b [aegis_shake256 aegis_ffi 235 13 none]
+G c Z s b [aegis_derive_address aegis_ffi 263 13 none]
+G c Z s b [aegis_format_address aegis_ffi 271 13 none]
+G c Z s b [aegis_parse_address aegis_ffi 281 13 none]
+G c Z s b [aegis_vm_create aegis_ffi 295 13 none]
+G c Z s b [aegis_vm_create_with_options aegis_ffi 301 13 none]
+G c Z s b [aegis_vm_set_context aegis_ffi 308 13 none]
+G c Z s b [aegis_vm_load_code aegis_ffi 321 13 none]
+G c Z s b [aegis_vm_execute aegis_ffi 329 13 none]
+G c Z s b [aegis_vm_execute_with_context aegis_ffi 343 13 none]
+G c Z s b [aegis_vm_set_state aegis_ffi 361 13 none]
+G c Z s b [aegis_vm_get_state aegis_ffi 371 13 none]
+G c Z s b [aegis_vm_reset aegis_ffi 381 13 none]
+G c Z s b [aegis_vm_gas_remaining aegis_ffi 384 13 none]
+G c Z s b [aegis_vm_destroy aegis_ffi 390 13 none]
+G c Z s b [aegis_validate_bytecode aegis_ffi 394 13 none]
+G c Z s b [aegis_estimate_gas aegis_ffi 401 13 none]
+G c Z s b [aegis_storage_load aegis_ffi 416 13 none]
+G c Z s b [aegis_storage_store aegis_ffi 424 13 none]
+G c Z s b [aegis_get_state_root aegis_ffi 436 13 none]
+G c Z s b [aegis_get_storage_proof aegis_ffi 442 13 none]
+G c Z s b [aegis_verify_storage_proof aegis_ffi 451 13 none]
+G c Z s b [aegis_get_cert_level aegis_ffi 466 13 none]
+G c Z s b [aegis_apply_gas_discount aegis_ffi 473 13 none]
+G c Z s b [aegis_secure_zero aegis_ffi 484 14 none]
+G c Z s b [aegis_constant_time_compare aegis_ffi 490 13 none]
+G c Z s b [aegis_shield_encrypt_state aegis_ffi 501 13 none]
+G c Z s b [aegis_shield_decrypt_state aegis_ffi 511 13 none]
+G c Z s b [aegis_shield_create_commitment aegis_ffi 521 13 none]
+G c Z s b [aegis_whisper_create_note aegis_ffi 533 13 none]
+G c Z s b [aegis_whisper_compute_nullifier aegis_ffi 541 13 none]
+G c Z s b [aegis_whisper_create_range_proof aegis_ffi 548 13 none]
+G c Z s b [aegis_whisper_verify_range_proof aegis_ffi 557 13 none]
+G c Z s b [aegis_whisper_create_balance_proof aegis_ffi 565 13 none]
+G c Z s b [aegis_whisper_verify_balance_proof aegis_ffi 580 13 none]
+G c Z s b [aegis_eye_derive_viewing_key aegis_ffi 596 13 none]
+G c Z s b [aegis_eye_create_disclosure_proof aegis_ffi 604 13 none]
+G c Z s b [aegis_eye_verify_disclosure aegis_ffi 614 13 none]
+G c Z s b [aegis_gate_init_session aegis_ffi 629 13 none]
+G c Z s b [aegis_gate_encrypt_inputs aegis_ffi 640 13 none]
+G c Z s b [aegis_gate_decrypt_outputs aegis_ffi 650 13 none]
+G c Z s b [aegis_veil_verify_stark_proof aegis_ffi 663 13 none]
+G c Z s b [aegis_veil_verify_lattice_proof aegis_ffi 677 13 none]
+G c Z s s [byte_arrayIP aegis_ffi 94 9 none]
+G c Z s s [Thash256BIP aegis_ffi 98 4 none]
+G c Z s s [Thash512BIP aegis_ffi 102 4 none]
+G c Z s s [Tu256_limbsBIP aegis_ffi 106 4 none]
+G c Z s s [u256IP aegis_ffi 109 9 none]
+G c Z s s [vm_contextIP aegis_ffi 711 9 none]
+G c Z s s [exec_contextIP aegis_ffi 120 9 none]
+G c Z s s [state_entryIP aegis_ffi 695 9 none]
+G c Z s s [Tstate_tableBIP aegis_ffi 704 4 none]
+G c Z s s [Tbytecode_bufferBIP aegis_ffi 707 4 none]
+G c Z b b [free_vm_context aegis_ffi 62 14 none]
+G c Z b b [aegis_khnum_aggregate_signatures aegis_ffi 3302 13 none]
+G c Z b b [aegis_khnum_verify_aggregated aegis_ffi 3410 13 none]
+G c Z b b [aegis_sebek_sign_partial aegis_ffi 3464 13 none]
+G c Z b b [aegis_sebek_combine_signatures aegis_ffi 3577 13 none]
+G c Z b b [aegis_sebek_verify aegis_ffi 3614 13 none]
+G c Z b b [aegis_maat_generate_block_proof aegis_ffi 3645 13 none]
+G c Z b b [aegis_maat_verify_block_proof aegis_ffi 3699 13 none]
+G c Z b b [aegis_maat_verify_epoch_proof aegis_ffi 3722 13 none]
+G c Z b b [aegis_tefnut_generate_proof aegis_ffi 3749 13 none]
+G c Z b b [aegis_tefnut_verify_proof aegis_ffi 3809 13 none]
+G c Z b b [aegis_sekhmet_detect_backend aegis_ffi 3839 13 none]
+G c Z b b [aegis_sekhmet_ntt aegis_ffi 3846 13 none]
+G c Z b b [aegis_sekhmet_poly_mul aegis_ffi 3865 13 none]
+G c Z b b [aegis_khepri_deploy aegis_ffi 3907 13 none]
+G c Z b b [aegis_khepri_execute aegis_ffi 3984 13 none]
+G c Z b b [aegis_khepri_verify_certification aegis_ffi 4034 13 none]
+G r c none [aegis_mldsa87_keygen aegis_ffi 150 13 none] [keygen anubis_mldsa 32 14 none]
+G r c none [aegis_mldsa87_sign aegis_ffi 157 13 none] [sign anubis_mldsa 51 14 none]
+G r c none [aegis_mldsa87_verify aegis_ffi 166 13 none] [verify anubis_mldsa 68 13 none]
+G r c none [aegis_mlkem1024_keygen aegis_ffi 180 13 none] [keygen anubis_mlkem 46 14 none]
+G r c none [aegis_mlkem1024_encaps aegis_ffi 187 13 none] [encaps anubis_mlkem 67 14 none]
+G r c none [aegis_mlkem1024_decaps aegis_ffi 195 13 none] [decaps anubis_mlkem 87 14 none]
+G r c none [aegis_sha3_256 aegis_ffi 206 13 none] [sha3_256 anubis_sha3 57 14 none]
+G r c none [aegis_sha3_512 aegis_ffi 213 13 none] [sha3_512 anubis_sha3 76 14 none]
+G r c none [aegis_keccak256 aegis_ffi 220 13 none] [keccak_256 anubis_sha3 87 14 none]
+G r c none [aegis_shake128 aegis_ffi 227 13 none] [shake128 anubis_sha3 97 14 none]
+G r c none [aegis_shake256 aegis_ffi 235 13 none] [shake256 anubis_sha3 109 14 none]
+G r c none [aegis_derive_address aegis_ffi 263 13 none] [sha3_256 anubis_sha3 57 14 none]
+G r c none [aegis_format_address aegis_ffi 271 13 none] [create_address anubis_address 44 13 none]
+G r c none [aegis_format_address aegis_ffi 271 13 none] [format_address anubis_address 55 14 none]
+G r c none [aegis_parse_address aegis_ffi 281 13 none] [parse_address anubis_address 67 14 none]
+G r s execution_context [aegis_vm_execute aegis_ffi 329 13 none] [execution_contextIP aegis_execution 49 9 none]
+G r c none [aegis_vm_execute aegis_ffi 329 13 none] [create_context aegis_execution 75 13 none]
+G r c none [aegis_vm_execute aegis_ffi 329 13 none] [use_gas aegis_execution 141 14 none]
+G r c none [aegis_vm_execute aegis_ffi 329 13 none] [finalize_success aegis_execution 254 14 none]
+G r c none [aegis_vm_execute aegis_ffi 329 13 none] [gas_remaining aegis_execution 150 13 none]
+G r s execution_context [aegis_vm_execute_with_context aegis_ffi 343 13 none] [execution_contextIP aegis_execution 49 9 none]
+G r c none [aegis_vm_execute_with_context aegis_ffi 343 13 none] [create_context aegis_execution 75 13 none]
+G r c none [aegis_vm_execute_with_context aegis_ffi 343 13 none] [use_gas aegis_execution 141 14 none]
+G r c none [aegis_vm_execute_with_context aegis_ffi 343 13 none] [finalize_success aegis_execution 254 14 none]
+G r c none [aegis_vm_execute_with_context aegis_ffi 343 13 none] [gas_remaining aegis_execution 150 13 none]
+G r c none [aegis_storage_load aegis_ffi 416 13 none] [find_storage khepri_storage_trie 206 13 none]
+G r c none [aegis_storage_load aegis_ffi 416 13 none] [sload khepri_storage_trie 79 14 none]
+G r c none [aegis_storage_store aegis_ffi 424 13 none] [find_storage khepri_storage_trie 206 13 none]
+G r c none [aegis_storage_store aegis_ffi 424 13 none] [create_storage khepri_storage_trie 52 14 none]
+G r c none [aegis_storage_store aegis_ffi 424 13 none] [sstore khepri_storage_trie 89 14 none]
+G r c none [aegis_get_state_root aegis_ffi 436 13 none] [find_storage khepri_storage_trie 206 13 none]
+G r c none [aegis_get_state_root aegis_ffi 436 13 none] [get_root khepri_storage_trie 122 13 none]
+G r c none [aegis_get_storage_proof aegis_ffi 442 13 none] [find_storage khepri_storage_trie 206 13 none]
+G r c none [aegis_get_storage_proof aegis_ffi 442 13 none] [generate_storage_proof khepri_storage_trie 183 14 none]
+G r c none [aegis_verify_storage_proof aegis_ffi 451 13 none] [verify_storage_proof khepri_storage_trie 192 14 none]
+G r c none [aegis_get_cert_level aegis_ffi 466 13 none] [get_level khepri_registry 196 13 none]
+G r c none [aegis_shield_encrypt_state aegis_ffi 501 13 none] [encrypt_state anubis_shield 93 14 none]
+G r c none [aegis_shield_decrypt_state aegis_ffi 511 13 none] [decrypt_state anubis_shield 111 14 none]
+G r c none [aegis_shield_create_commitment aegis_ffi 521 13 none] [create_commitment anubis_shield 178 14 none]
+G r c none [aegis_whisper_create_note aegis_ffi 533 13 none] [create_commitment anubis_whisper 88 14 none]
+G r c none [aegis_whisper_compute_nullifier aegis_ffi 541 13 none] [sha3_256 anubis_sha3 57 14 none]
+G r c none [aegis_whisper_create_range_proof aegis_ffi 548 13 none] [create_range_proof anubis_whisper 122 14 none]
+G r c none [aegis_whisper_verify_range_proof aegis_ffi 557 13 none] [verify_range_proof anubis_whisper 134 13 none]
+G r c none [aegis_whisper_create_balance_proof aegis_ffi 565 13 none] [create_balance_proof anubis_whisper 183 14 none]
+G r c none [aegis_whisper_verify_balance_proof aegis_ffi 580 13 none] [create_commitment anubis_whisper 88 14 none]
+G r c none [aegis_whisper_verify_balance_proof aegis_ffi 580 13 none] [verify_balance_proof anubis_whisper 197 13 none]
+G r c none [aegis_eye_derive_viewing_key aegis_ffi 596 13 none] [derive_view_keys anubis_eye 84 14 none]
+G r c none [aegis_eye_create_disclosure_proof aegis_ffi 604 13 none] [create_disclosure_proof anubis_eye 166 14 none]
+G r c none [aegis_eye_verify_disclosure aegis_ffi 614 13 none] [verify_disclosure anubis_eye 178 13 none]
+G r c none [aegis_gate_init_session aegis_ffi 629 13 none] [create_session anubis_gate 168 14 none]
+G r c none [aegis_gate_encrypt_inputs aegis_ffi 640 13 none] [encrypt_state anubis_gate 114 14 none]
+G r c none [aegis_gate_decrypt_outputs aegis_ffi 650 13 none] [decrypt_state anubis_gate 127 14 none]
+G r c none [aegis_veil_verify_stark_proof aegis_ffi 663 13 none] [fri_verify anubis_stark_fri 207 13 none]
+G r c none [aegis_veil_verify_lattice_proof aegis_ffi 677 13 none] [setup anubis_lattice_zk 118 14 none]
+G r c none [aegis_veil_verify_lattice_proof aegis_ffi 677 13 none] [verify_params anubis_lattice_zk 126 13 none]
+G r c none [aegis_khnum_aggregate_signatures aegis_ffi 3302 13 none] [init_batch scarab_khnum 137 14 none]
+G r c none [aegis_khnum_aggregate_signatures aegis_ffi 3302 13 none] [add_signature scarab_khnum 147 14 none]
+G r c none [aegis_khnum_aggregate_signatures aegis_ffi 3302 13 none] [aggregate scarab_khnum 214 14 none]
+G r c none [aegis_khnum_aggregate_signatures aegis_ffi 3302 13 none] [serialize scarab_khnum 355 14 none]
+G r c none [aegis_khnum_verify_aggregated aegis_ffi 3410 13 none] [deserialize scarab_khnum 364 14 none]
+G r c none [aegis_khnum_verify_aggregated aegis_ffi 3410 13 none] [verify_aggregated scarab_khnum 251 13 none]
+G r c none [aegis_sebek_sign_partial aegis_ffi 3464 13 none] [import_share scarab_sebek 248 14 none]
+G r c none [aegis_sebek_sign_partial aegis_ffi 3464 13 none] [create_group scarab_sebek 188 14 none]
+G r c none [aegis_sebek_sign_partial aegis_ffi 3464 13 none] [start_session scarab_sebek 283 14 none]
+G r c none [aegis_sebek_sign_partial aegis_ffi 3464 13 none] [sign_partial scarab_sebek 295 14 none]
+G r c none [aegis_khepri_deploy aegis_ffi 3907 13 none] [sha3_256 anubis_sha3 57 14 none]
+X 1 ada.ads
+16K9*Ada 20e8 8|9r6 10r6 62r37 124r35 125r33 126r33 166r33 167r34 190r37
+. 222r33 223r34 251r37 281r33 282r33 283r35 329r33 330r33 331r33 332r35 375r33
+. 376r33 377r33
+X 3 a-unccon.ads
+20v14*Unchecked_Conversion 8|9w10 124r39 125r37 126r37 166r37 167r38 190r41
+. 222r37 223r38 251r41 281r37 282r37 283r39 329r37 330r37 331r37 332r39 375r37
+. 376r37 377r37
+X 4 a-uncdea.ads
+17+9 Object 8|63r7
+18P9 Name(17+9) 8|64r7
+20u15*Unchecked_Deallocation 8|10w10 62r41
+X 5 aegis_contract.ads
+28K9*Aegis_Contract 276e19 8|24w6 1037r25 1186r25
+78r4*Empty_Return{70R9} 8|1037r40 1186r40
+X 6 aegis_execution.ads
+32K9*Aegis_Execution 278e20 8|23w6 999r21 1013r19 1025r7 1035r7 1044r10 1134r21
+. 1162r19 1174r7 1184r7 1195r13
+49R9*Execution_Context 68e14 8|999r37 1134r37
+75V13*Create_Context{49R9} 8|1013s35 1162s35
+76a7 Origin{13|70A9} 8|1014r10 1163r10
+77i7 Gas_Limit{13|101I9} 8|1015r10 1164r10
+78r7 Gas_Price{13|41R9} 8|1016r10 1165r10
+79r7 Block_Number{13|41R9} 8|1017r10 1166r10
+80r7 Timestamp{13|41R9} 8|1018r10 1167r10
+81r7 Chain_ID{13|41R9} 8|1019r10 1168r10
+82e7 Certification{13|84E9} 8|1020r10 1169r10
+141U14*Use_Gas 8|1025s23 1174s23
+150V13*Gas_Remaining{13|101I9} 8|1044s26 1195s29
+254U14*Finalize_Success 8|1035s23 1184s23
+256r7 Return_Data{5|70R9} 8|1037r10 1186r10
+257r7 Result{13|206R9} 8|1038r10 1187r10
+X 7 aegis_ffi.ads
+26K9*Aegis_FFI 689E4 739l5 739e14 8|55b14 4089l5 4089t14
+32N4*AEGIS_OK 8|80r30 87r27 150r27 202r30 262r27 312r27 360r27 393r27 440r27
+. 482r27 527r27 570r27 613r27 683r27 762r27 833r27 865r27 895r27 957r27 1048r27
+. 1088r27 1197r27 1260r42 1295r33 1359r39 1367r27 1400r27 1425r27 1473r27
+. 1497r27 1531r27 1613r27 1694r27 1748r27 1829r27 1922r27 1971r27 2000r27
+. 2122r30 2188r30 2236r30 2284r30 2334r30 2390r30 2413r30 2433r30 2541r30
+. 2625r30 2680r30 2755r30 2831r30 2942r30 3035r30 3116r30 3226r30 3288r30
+. 3403r30 3442r33 3452r30 3570r30 3608r27 3634r27 3692r30 3715r27 3738r27
+. 3802r30 3828r27 3859r27 3897r27 3977r30 4028r27 4080r27
+33N4*AEGIS_ERROR_INVALID_INPUT 8|135r30 178r30 183r30 233r30 244r30 291r30
+. 342r30 387r30 417r30 425r33 460r30 467r33 503r30 511r33 542r30 546r30 550r30
+. 585r30 589r30 593r30 643r30 653r33 720r30 731r33 741r33 794r30 807r30 850r30
+. 880r30 1009r30 1069r30 1148r30 1152r30 1217r30 1221r30 1320r30 1324r30
+. 1416r30 1435r30 1486r30 1516r30 1520r30 1556r30 1634r30 1714r30 1770r30
+. 1851r30 1855r30 1943r30 1985r30 2076r30 2080r30 2145r30 2149r30 2207r30
+. 2211r30 2258r30 2301r30 2354r30 2408r30 2460r30 2568r30 2650r30 2701r30
+. 2779r30 2859r30 2962r30 3055r30 3150r30 3253r30 3315r30 3368r39 3423r30
+. 3476r30 3518r33 3588r30 3629r30 3656r30 3710r30 3733r30 3763r30 3823r30
+. 3854r30 3875r30 3922r30 4003r30 4048r30
+34N4*AEGIS_ERROR_INVALID_SIGNATURE 8|238r30
+35N4*AEGIS_ERROR_DECAPS_FAILURE 8|2184r33
+36N4*AEGIS_ERROR_OUT_OF_GAS 8|1030r30 1178r30
+37N4*AEGIS_ERROR_OUT_OF_MEMORY 8|868r30 898r30 1300r27
+38N4*AEGIS_ERROR_INVALID_STATE 8|913r30 1005r30 1065r30 1140r30 1144r30 1213r30
+. 1316r30 1377r30 1412r30 1549r30 1627r30 1710r30 1763r30 1939r30
+39N4*AEGIS_ERROR_ACCESS_VIOLATION
+40N4*AEGIS_ERROR_STACK_OVERFLOW
+41N4*AEGIS_ERROR_INVALID_OPCODE
+42N4*AEGIS_ERROR_REVERTED
+43N4*AEGIS_ERROR_INVALID_BYTECODE 8|1073r30 1490r30
+44N4*AEGIS_ERROR_UNKNOWN 8|90r30 153r30 204r30 208r30 265r30 315r30 363r30
+. 396r30 443r30 485r30 530r30 573r30 616r30 686r30 765r30 836r30 960r30 1054r30
+. 1091r30 1200r30 1303r30 1370r30 1403r30 1428r30 1476r30 1500r30 1534r30
+. 1616r30 1676r36 1690r33 1697r30 1751r30 1832r30 1925r30 1974r30 2003r30
+. 2113r33 2126r30 2192r30 2240r30 2288r30 2338r30 2381r33 2394r30 2437r30
+. 2529r33 2545r30 2632r30 2684r30 2743r33 2759r30 2838r30 2910r33 2946r30
+. 3020r33 3039r30 3102r33 3120r30 3233r30 3295r30 3381r33 3407r30 3457r30
+. 3532r33 3544r33 3556r33 3574r30 3611r30 3638r30 3696r30 3719r30 3742r30
+. 3806r30 3832r30 3862r30 3900r30 3981r30 4031r30 4086r30
+46I9*Result_Code<42|59I9> 137r31 154r13 163r13 173r13 184r13 192r13 199r13
+. 210r13 217r13 224r13 232r13 240r13 267r13 277r13 287r13 297r13 305r13 317r13
+. 325r13 339r13 357r13 367r13 377r13 381r56 387r13 390r58 397r13 409r13 421r13
+. 429r13 439r13 448r13 459r13 470r13 477r13 508r13 518r13 526r13 538r13 545r13
+. 554r13 562r13 577r13 589r13 601r13 611r13 622r13 637r13 647r13 656r13 674r13
+. 683r13 8|77r31 80r17 87r14 90r17 118r13 135r17 150r14 153r17 162r13 178r17
+. 183r17 202r17 204r17 208r17 218r13 233r17 238r17 244r17 262r14 265r17 276r13
+. 291r17 312r14 315r17 323r13 342r17 360r14 363r17 370r13 387r17 393r14 396r17
+. 407r13 417r17 425r20 440r14 443r17 450r13 460r17 467r20 482r14 485r17 492r13
+. 503r17 511r20 527r14 530r17 538r13 542r17 546r17 550r17 570r14 573r17 581r13
+. 585r17 589r17 593r17 613r14 616r17 627r13 643r17 653r20 683r14 686r17 699r13
+. 720r17 731r20 741r20 762r14 765r17 778r13 794r17 807r17 833r14 836r17 846r13
+. 850r17 865r14 868r17 876r13 880r17 895r14 898r17 910r13 913r17 957r14 960r17
+. 973r13 1005r17 1009r17 1030r17 1048r14 1054r17 1062r13 1065r17 1069r17
+. 1073r17 1088r14 1091r17 1109r13 1140r17 1144r17 1148r17 1152r17 1178r17
+. 1197r14 1200r17 1210r13 1213r17 1217r17 1221r17 1260r29 1295r20 1300r14
+. 1303r17 1313r13 1316r17 1320r17 1324r17 1359r26 1367r14 1370r17 1374r56
+. 1377r17 1400r14 1403r17 1409r13 1412r17 1416r17 1425r14 1428r17 1431r58
+. 1435r17 1473r14 1476r17 1483r13 1486r17 1490r17 1497r14 1500r17 1512r13
+. 1516r17 1520r17 1531r14 1534r17 1546r13 1549r17 1556r17 1613r14 1616r17
+. 1624r13 1627r17 1634r17 1676r23 1690r20 1694r14 1697r17 1707r13 1710r17
+. 1714r17 1748r14 1751r17 1760r13 1763r17 1770r17 1829r14 1832r17 1843r13
+. 1851r17 1855r17 1922r14 1925r17 1936r13 1939r17 1943r17 1971r14 1974r17
+. 1981r13 1985r17 2000r14 2003r17 2067r13 2076r17 2080r17 2113r20 2122r17
+. 2126r17 2136r13 2145r17 2149r17 2184r20 2188r17 2192r17 2200r13 2207r17
+. 2211r17 2236r17 2240r17 2252r13 2258r17 2284r17 2288r17 2295r13 2301r17
+. 2334r17 2338r17 2347r13 2354r17 2381r20 2390r17 2394r17 2402r13 2408r17
+. 2413r17 2433r17 2437r17 2452r13 2460r17 2529r20 2541r17 2545r17 2557r13
+. 2568r17 2625r17 2632r17 2644r13 2650r17 2680r17 2684r17 2694r13 2701r17
+. 2743r20 2755r17 2759r17 2770r13 2779r17 2831r17 2838r17 2853r13 2859r17
+. 2910r20 2942r17 2946r17 2956r13 2962r17 3020r20 3035r17 3039r17 3048r13
+. 3055r17 3102r20 3116r17 3120r17 3138r13 3150r17 3226r17 3233r17 3242r13
+. 3253r17 3288r17 3295r17 3309r13 3315r17 3368r26 3381r20 3403r17 3407r17
+. 3417r13 3423r17 3442r20 3452r17 3457r17 3470r13 3476r17 3518r20 3532r20
+. 3544r20 3556r20 3570r17 3574r17 3583r13 3588r17 3608r14 3611r17 3621r13
+. 3629r17 3634r14 3638r17 3651r13 3656r17 3692r17 3696r17 3704r13 3710r17
+. 3715r14 3719r17 3727r13 3733r17 3738r14 3742r17 3757r13 3763r17 3802r17
+. 3806r17 3817r13 3823r17 3828r14 3832r17 3850r13 3854r17 3859r14 3862r17
+. 3870r13 3875r17 3897r14 3900r17 3915r13 3922r17 3977r17 3981r17 3994r13
+. 4003r17 4028r14 4031r17 4039r13 4048r17 4080r14 4086r17
+52N4*AEGIS_CERT_BRONZE 8|857r44 1959r41 1961r41 1990r27
+53N4*AEGIS_CERT_SILVER 8|1963r41 1991r27
+54N4*AEGIS_CERT_GOLD 8|1965r41 1992r27
+55N4*AEGIS_CERT_PLATINUM 8|1967r41 1993r27
+57I9*Cert_Level<42|59I9> 128r22 304r19 469r24 475r18 724r23 8|857r32 875r19
+. 988r35 1123r35 1935r24 1959r29 1961r29 1963r29 1965r29 1967r29 1979r18
+. 1990r15 1991r15 1992r15 1993r15
+63N4*AEGIS_EXEC_SUCCESS 8|1046r34
+64N4*AEGIS_EXEC_REVERT
+65N4*AEGIS_EXEC_OUT_OF_GAS 8|1029r37
+66N4*AEGIS_EXEC_STACK_OVERFLOW
+67N4*AEGIS_EXEC_INVALID_OPCODE
+68N4*AEGIS_EXEC_ACCESS_VIOLATION
+69N4*AEGIS_EXEC_CONTRACT_ERROR 8|1052r40
+71I9*Exec_Status<42|59I9> 338r27 8|972r27 1029r24 1046r21 1052r27
+77N4*MLDSA87_PUBLIC_KEY_SIZE 8|637r53 667r50
+78N4*MLDSA87_SECRET_KEY_SIZE
+79N4*MLDSA87_SIGNATURE_SIZE 8|201r46 236r42
+81N4*MLKEM1024_PUBLIC_KEY_SIZE
+82N4*MLKEM1024_SECRET_KEY_SIZE
+83N4*MLKEM1024_CIPHERTEXT_SIZE
+84N4*MLKEM1024_SHARED_SECRET_SIZE
+86N4*SHA3_256_SIZE
+87N4*SHA3_512_SIZE
+94A9*Byte_Array(42|73M9)<integer> 95r26 696r19 698r19 8|1078r22 1230r30 1251r41
+. 1271r27 1282r32 1333r27 1350r38
+98A9*Hash256(42|73M9)<integer> 99r26 121r22 122r22 713r22 714r22 715r22 8|919r19
+. 928r19 937r19 977r41 1114r41 1719r22 1860r22
+102A9*Hash512(42|73M9)<integer> 103r26
+106A9*U256_Limbs(42|70M9)<integer> 107r26 110r15
+109R9*U256 111e14 112r26 716r22 8|946r19 1573r23 1577r20 1652r20 1655r22
+. 1779r20 1863r20 1910r29
+110a7*Limbs{106A9} 8|1398m24 1460m24 1582r66 1590m28 1604m30 1608m31 1660r66
+. 1661r71 1790r66 1876r66 1914m30
+115R9*VM_Context 116r33 711c9 736e14 737r26 8|63r17 854r22 884r22
+116P9*VM_Handle(115R9) 117r26 296r23 302r26 309r22 322r18 330r20 344r23 362r19
+. 372r19 381r38 385r16 390r40 417r17 425r17 437r16 443r19 467r17 8|64r17
+. 845r23 847r17 873r26 877r17 902r22 964r20 1059r18 1096r23 1205r19 1308r19
+. 1374r38 1407r16 1431r40 1432r24 1542r17 1620r17 1705r16 1755r19 1933r17
+120R9*Exec_Context 130e14 131r26 345r39 8|1097r39
+121a7*Origin{98A9} 8|1158r28 1163r52
+122a7*Caller{98A9} 8|1159r28
+123m7*Gas_Limit{42|70M9} 8|1156r31 1164r43 1177r58 1194r14
+124m7*Gas_Price{42|70M9}
+125m7*Value{42|70M9}
+126i7*Block_Height{42|61I9}
+127i7*Block_Time{42|61I9}
+128i7*Cert_Lvl{57I9} 8|1157r35 1169r46
+129i7*Is_Static{42|59I9}
+137V13*Aegis_Init{46I9} 138i<c,aegis_init>22 8|77b13 91l8 91t18
+140U14*Aegis_Cleanup 141i<c,aegis_cleanup>22 8|93b14 103l8 103t21
+143V13*Aegis_Version{43|60P9} 144i<c,aegis_version>22 8|105b13 108l8 108t21
+150V13*Aegis_MLDSA87_Keygen{46I9} 151>7 152>7 153>7 155i<c,aegis_mldsa87_keygen>22
+. 8|114b13 154l8 154t28
+151m7 Public_Key{57|67M9} 8|115b7 129r49 132r10
+152m7 Secret_Key{57|67M9} 8|116b7 130r49 133r10
+153m7 Seed{57|67M9} 8|117b7 128r53 139r10
+157V13*Aegis_MLDSA87_Sign{46I9} 158>7 159^7 160>7 161>7 162>7 164i<c,aegis_mldsa87_sign>22
+. 8|156b13 209l8 209t26
+158m7 Signature{57|67M9} 8|157b7 170r51 173r10
+159p7 Sig_Len(42|89M9) 8|158b7 174r10 201r10
+160m7 Message{57|67M9} 8|159b7 176r27 191r53
+161m7 Msg_Len{42|89M9} 8|160b7 176r11 182r10 188r61 194r13 195r54
+162m7 Secret_Key{57|67M9} 8|161b7 169r49 175r10
+166V13*Aegis_MLDSA87_Verify{46I9} 167>7 168>7 169>7 170>7 171>7 172^7 174i<c,aegis_mldsa87_verify>22
+. 8|211b13 266l8 266t28
+167m7 Signature{57|67M9} 8|212b7 226r50 228r10
+168m7 Sig_Len{42|89M9} 8|213b7 236r10
+169m7 Message{57|67M9} 8|214b7 231r27 252r53
+170m7 Msg_Len{42|89M9} 8|215b7 231r11 242r10 249r61 255r13 256r54
+171m7 Public_Key{57|67M9} 8|216b7 225r48 229r10
+172p7 Valid(42|93E9) 8|217b7 230r10 237r10 243r10 259r10
+180V13*Aegis_MLKEM1024_Keygen{46I9} 181>7 182>7 183>7 185i<c,aegis_mlkem1024_keygen>22
+. 8|272b13 316l8 316t30
+181m7 Encaps_Key{57|67M9} 8|273b7 285r47 288r10
+182m7 Decaps_Key{57|67M9} 8|274b7 286r47 289r10
+183m7 Seed{57|67M9} 8|275b7 295r10 305r59
+187V13*Aegis_MLKEM1024_Encaps{46I9} 188>7 189>7 190>7 191>7 193i<c,aegis_mlkem1024_encaps>22
+. 8|318b13 364l8 364t30
+188m7 Ciphertext{57|67M9} 8|319b7 336r47 338r10
+189m7 Shared_Secret{57|67M9} 8|320b7 335r47 339r10
+190m7 Encaps_Key{57|67M9} 8|321b7 334r47 340r10
+191m7 Seed{57|67M9} 8|322b7 346r10 354r59
+195V13*Aegis_MLKEM1024_Decaps{46I9} 196>7 197>7 198>7 200i<c,aegis_mlkem1024_decaps>22
+. 8|366b13 397l8 397t30
+196m7 Shared_Secret{57|67M9} 8|367b7 380r47 383r10
+197m7 Ciphertext{57|67M9} 8|368b7 381r47 384r10
+198m7 Decaps_Key{57|67M9} 8|369b7 379r47 385r10
+206V13*Aegis_SHA3_256{46I9} 207>7 208>7 209>7 211i<c,aegis_sha3_256>22 8|403b13
+. 444l8 444t22
+207m7 Output{57|67M9} 8|404b7 411r35 416r10
+208m7 Input{57|67M9} 8|405b7 424r13 429r41
+209m7 Len{42|89M9} 8|406b7 420r10 428r66
+213V13*Aegis_SHA3_512{46I9} 214>7 215>7 216>7 218i<c,aegis_sha3_512>22 8|446b13
+. 486l8 486t22
+214m7 Output{57|67M9} 8|447b7 454r35 459r10
+215m7 Input{57|67M9} 8|448b7 466r13 471r41
+216m7 Len{42|89M9} 8|449b7 463r10 470r66
+220V13*Aegis_Keccak256{46I9} 221>7 222>7 223>7 225i<c,aegis_keccak256>22
+. 8|488b13 531l8 531t23
+221m7 Output{57|67M9} 8|489b7 497r35 502r10
+222m7 Input{57|67M9} 8|490b7 510r13 515r41
+223m7 Len{42|89M9} 8|491b7 506r10 514r66
+227V13*Aegis_SHAKE128{46I9} 228>7 229>7 230>7 231>7 233i<c,aegis_shake128>22
+. 8|533b13 574l8 574t22
+228m7 Output{57|67M9} 8|534b7 541r10 556r39
+229m7 Output_Len{42|89M9} 8|535b7 541r42 545r10 555r64 559r72 565r75
+230m7 Input{57|67M9} 8|536b7 549r28 563r44
+231m7 Input_Len{42|89M9} 8|537b7 549r10 558r13 562r69
+235V13*Aegis_SHAKE256{46I9} 236>7 237>7 238>7 239>7 241i<c,aegis_shake256>22
+. 8|576b13 617l8 617t22
+236m7 Output{57|67M9} 8|577b7 584r10 599r39
+237m7 Output_Len{42|89M9} 8|578b7 584r42 588r10 598r64 602r72 608r75
+238m7 Input{57|67M9} 8|579b7 592r28 606r44
+239m7 Input_Len{42|89M9} 8|580b7 592r10 601r13 605r69
+248N4*AEGIS_ADDR_USER 8|648r15 736r15 826r63
+249N4*AEGIS_ADDR_CONTRACT 8|649r15 737r15 827r63
+250N4*AEGIS_ADDR_VALIDATOR 8|650r15 738r15 828r63
+251N4*AEGIS_ADDR_SYSTEM 8|651r15 739r15 830r48
+254N4*AEGIS_NET_MAIN 8|725r15 817r59
+255N4*AEGIS_NET_TEST 8|726r15 818r59
+256N4*AEGIS_NET_DEV 8|727r15 819r59
+257N4*AEGIS_NET_LAB 8|728r15 820r59
+258N4*AEGIS_NET_STAGING 8|729r15 821r59
+261N4*AEGIS_MAX_ADDRESS_STRING 8|701r37 792r22
+263V13*Aegis_Derive_Address{46I9} 264>7 265>7 266>7 268i<c,aegis_derive_address>22
+. 8|623b13 687l8 687t28
+264m7 Address{57|67M9} 8|624b7 630r33 640r10
+265m7 Public_Key{57|67M9} 8|625b7 641r10 668r34
+266i7 Addr_Type{42|59I9} 8|626b7 647r12
+271V13*Aegis_Format_Address{46I9} 272>7 273^7 274>7 275>7 276>7 278i<c,aegis_format_address>22
+. 8|693b13 766l8 766t28
+272m7 Output{57|67M9} 8|694b7 703r32 716r10
+273p7 Length(42|89M9) 8|695b7 717r10 760r7
+274m7 Public_Key{57|67M9} 8|696b7 718r10 747r34
+275i7 Network{42|59I9} 8|697b7 724r12
+276i7 Addr_Type{42|59I9} 8|698b7 735r12
+281V13*Aegis_Parse_Address{46I9} 282>7 283>7 284>7 285^7 286^7 288i<c,aegis_parse_address>22
+. 8|772b13 837l8 837t27
+282m7 Input{57|67M9} 8|773b7 787r10 800r33
+283m7 Input_Len{42|89M9} 8|774b7 791r10 792r10 799r41
+284m7 Account_ID{57|67M9} 8|775b7 782r33 788r10
+285p7 Network(42|59I9) 8|776b7 789r10 817r26 818r26 819r26 820r26 821r26
+286p7 Addr_Type(42|59I9) 8|777b7 790r10 826r28 827r28 828r28 830r13
+295V13*Aegis_VM_Create{46I9} 296^7 298i<c,aegis_vm_create>22 8|844b13 869l8
+. 869t23
+296p7 Handle(116P9) 8|845b7 849r10 864r7
+301V13*Aegis_VM_Create_With_Options{46I9} 302^7 303>7 304>7 306i<c,aegis_vm_create_with_options>22
+. 8|872b13 899l8 899t36
+302p7 Handle(116P9) 8|873b7 879r10 894r7
+303m7 Gas_Limit{42|70M9} 8|874b7 885r28
+304i7 Cert_Lvl{57I9} 8|875b7 887r32
+308V13*Aegis_VM_Set_Context{46I9} 309>7 310>7 311>7 312>7 313>7 314>7 315>7
+. 316>7 318i<c,aegis_vm_set_context>22 8|901b13 961l8 961t28
+309p7 Handle{116P9} 8|902b7 912r10 912r36 922r13 931r13 940r13 949r13 953r7
+. 954r7 955r7
+310m7 Origin{57|67M9} 8|903b7 917r10 920r33
+311m7 Caller{57|67M9} 8|904b7 926r10 929r33
+312m7 Address{57|67M9} 8|905b7 935r10 938r33
+313m7 Value{57|67M9} 8|906b7 944r10 947r33
+314m7 Block_Number{42|70M9} 8|907b7 953r30
+315m7 Timestamp{42|70M9} 8|908b7 954r27
+316m7 Chain_ID{42|70M9} 8|909b7 955r26
+321V13*Aegis_VM_Load_Code{46I9} 322>7 323>7 324>7 326i<c,aegis_vm_load_code>22
+. 8|1058b13 1092l8 1092t26
+322p7 Handle{116P9} 8|1059b7 1064r10 1064r36 1082r13 1084r10 1085r10
+323m7 Code{57|67M9} 8|1060b7 1068r10 1079r36
+324m7 Code_Len{42|89M9} 8|1061b7 1068r40 1072r10 1078r48 1084r33
+329V13*Aegis_VM_Execute{46I9} 330>7 331>7 332>7 333>7 334>7 335>7 336^7 337^7
+. 338^7 340i<c,aegis_vm_execute>22 8|963b13 1055l8 1055t24
+330p7 Handle{116P9} 8|964b7 1004r10 1004r36 1014r48 1015r39 1020r42 1028r54
+. 1045r23
+331m7 Code{57|67M9} 8|965b7 974r28
+332m7 Code_Len{42|89M9} 8|966b7 974r34
+333m7 Input{57|67M9} 8|967b7 974r44
+334m7 Input_Len{42|89M9} 8|968b7 974r51
+335m7 Output{57|67M9} 8|969b7 974r62
+336p7 Output_Len(42|89M9) 8|970b7 1008r10 1042r7
+337p7 Gas_Used(42|70M9) 8|971b7 1008r31 1028r10 1043r7 1045r7 1045r42
+338p7 Status(71I9) 8|972b7 1008r50 1029r10 1046r7 1051r13 1052r13
+343V13*Aegis_VM_Execute_With_Context{46I9} 344>7 345^7 346>7 347>7 348>7
+. 349>7 350>7 351>7 352>7 353^7 354>7 355^7 356^7 358i<c,aegis_vm_execute_with_context>22
+. 8|1095b13 1201l8 1201t37
+344p7 Handle{116P9} 8|1096b7 1139r10 1139r36 1143r14 1156r7 1157r7 1158r7
+. 1159r7
+345p7 Ctx(120R9) 8|1097b7 1147r10 1156r27 1157r31 1158r24 1159r24 1163r48
+. 1164r39 1169r42 1177r54 1194r10
+346m7 Func{57|67M9} 8|1098b7 1110r28
+347m7 Func_Len{42|89M9} 8|1099b7 1110r34
+348m7 Args{57|67M9} 8|1100b7 1110r44
+349m7 Args_Len{42|89M9} 8|1101b7 1110r50
+350m7 State{57|67M9} 8|1102b7 1110r60
+351m7 State_Len{42|89M9} 8|1103b7 1110r67
+352m7 Output{57|67M9} 8|1104b7 1111r39
+353p7 Output_Len(42|89M9) 8|1105b7 1151r10 1191r7
+354m7 New_State{57|67M9} 8|1106b7 1111r28
+355p7 New_State_Len(42|89M9) 8|1107b7 1151r31 1192r7
+356p7 Gas_Used(42|70M9) 8|1108b7 1151r55 1177r10 1193r7
+361V13*Aegis_VM_Set_State{46I9} 362>7 363>7 364>7 365>7 366>7 368i<c,aegis_vm_set_state>22
+. 8|1204b13 1304l8 1304t26
+362p7 Handle{116P9} 8|1205b7 1212r10 1212r36 1225r16 1226r13 1228r36 1235r41
+. 1245r25 1246r25 1247r25 1255r31 1257r28 1268r16 1269r17 1275r19 1277r16
+. 1286r22 1288r19 1291r16 1294r13
+363m7 Key{57|67M9} 8|1206b7 1216r10 1231r44 1272r41
+364m7 Key_Len{42|89M9} 8|1207b7 1216r39 1220r10 1228r25 1230r56 1271r53 1277r53
+365m7 Value{57|67M9} 8|1208b7 1243r25 1252r55 1280r16 1283r46
+366m7 Value_Len{42|89M9} 8|1209b7 1243r56 1251r67 1257r67 1280r49 1282r58
+. 1288r58
+371V13*Aegis_VM_Get_State{46I9} 372>7 373>7 374>7 375>7 376^7 378i<c,aegis_vm_get_state>22
+. 8|1307b13 1371l8 1371t26
+372p7 Handle{116P9} 8|1308b7 1315r10 1315r36 1328r16 1329r13 1330r33 1338r38
+. 1347r22 1350r55 1354r46 1358r57
+373m7 Key{57|67M9} 8|1309b7 1319r10 1334r41
+374m7 Key_Len{42|89M9} 8|1310b7 1319r39 1330r22 1333r53
+375m7 Value{57|67M9} 8|1311b7 1346r22 1351r52
+376p7 Value_Len(42|89M9) 8|1312b7 1323r10 1358r19 1366r7
+381V13*Aegis_VM_Reset{46I9} 381>29 382i<c,aegis_vm_reset>22 8|1374b13 1404l8
+. 1404t22
+381p29 Handle{116P9} 8|1374b29 1376r10 1376r36 1381r7 1382r7 1385r16 1386r10
+. 1387r10 1388r10 1392r7 1395r7 1396r7 1397r7 1398r7
+384V13*Aegis_VM_Gas_Remaining{46I9} 385>7 386^7 388i<c,aegis_vm_gas_remaining>22
+. 8|1406b13 1429l8 1429t30
+385p7 Handle{116P9} 8|1407b7 1411r10 1411r36 1419r10 1419r28 1422r21 1422r40
+386p7 Gas(42|70M9) 8|1408b7 1415r10 1420r10 1422r10
+390V13*Aegis_VM_Destroy{46I9} 390>31 391i<c,aegis_vm_destroy>22 8|1431b13
+. 1477l8 1477t24
+390p31 Handle{116P9} 8|1431b31 1432r37 1434r10 1442r10 1443r19 1444r13 1448r10
+. 1449r19 1450r13 1451r13 1452r13 1457r7 1458r7 1459r7 1460r7 1461r7 1462r7
+. 1463r7 1464r7 1465r7 1466r7 1467r7 1468r7
+394V13*Aegis_Validate_Bytecode{46I9} 395>7 396>7 398i<c,aegis_validate_bytecode>22
+. 8|1480b13 1501l8 1501t31
+395m7 Code{57|67M9} 8|1481b7 1485r10
+396m7 Code_Len{42|89M9} 8|1482b7 1485r40 1489r10
+401V13*Aegis_Estimate_Gas{46I9} 402>7 403>7 404>7 405>7 406>7 407>7 408^7
+. 410i<c,aegis_estimate_gas>22 8|1504b13 1535l8 1535t26
+402m7 Code{57|67M9} 8|1505b7 1515r10
+403m7 Code_Len{42|89M9} 8|1506b7 1515r40 1529r60
+404m7 Func{57|67M9} 8|1507b7 1513r28
+405m7 Func_Len{42|89M9} 8|1508b7 1513r34
+406m7 Args{57|67M9} 8|1509b7 1513r44
+407m7 Args_Len{42|89M9} 8|1510b7 1513r50
+408p7 Estimate(42|70M9) 8|1511b7 1519r10 1529r7
+416V13*Aegis_Storage_Load{46I9} 417>7 418>7 419>7 420>7 422i<c,aegis_storage_load>22
+. 8|1541b13 1617l8 1617t26
+417p7 Handle{116P9} 8|1542b7 1548r10 1548r36
+418m7 Address{57|67M9} 8|1543b7 1552r10 1562r36
+419m7 Key{57|67M9} 8|1544b7 1553r10 1578r34
+420m7 Value{57|67M9} 8|1545b7 1554r10 1574r37
+424V13*Aegis_Storage_Store{46I9} 425>7 426>7 427>7 428>7 430i<c,aegis_storage_store>22
+. 8|1619b13 1698l8 1698t27
+425p7 Handle{116P9} 8|1620b7 1626r10 1626r36
+426m7 Address{57|67M9} 8|1621b7 1630r10 1640r36
+427m7 Key{57|67M9} 8|1622b7 1631r10 1653r34
+428m7 Value{57|67M9} 8|1623b7 1632r10 1656r36
+436V13*Aegis_Get_State_Root{46I9} 437>7 438>7 440i<c,aegis_get_state_root>22
+. 8|1704b13 1752l8 1752t28
+437p7 Handle{116P9} 8|1705b7 1709r10 1709r36 1727r49
+438m7 Root{57|67M9} 8|1706b7 1713r10 1720r36
+442V13*Aegis_Get_Storage_Proof{46I9} 443>7 444>7 445>7 446>7 447^7 449i<c,aegis_get_storage_proof>22
+. 8|1754b13 1833l8 1833t31
+443p7 Handle{116P9} 8|1755b7 1762r10 1762r36
+444m7 Address{57|67M9} 8|1756b7 1766r10 1776r36
+445m7 Key{57|67M9} 8|1757b7 1767r10 1780r34
+446m7 Proof{57|67M9} 8|1758b7 1808r32 1813r46
+447p7 Proof_Len(42|89M9) 8|1759b7 1768r10 1798r13 1821r19 1824r16
+451V13*Aegis_Verify_Storage_Proof{46I9} 452>7 453>7 454>7 455>7 456>7 457>7
+. 458^7 460i<c,aegis_verify_storage_proof>22 8|1835b13 1926l8 1926t34
+452m7 Root{57|67M9} 8|1836b7 1846r10 1861r36
+453m7 Address{57|67M9} 8|1837b7 1844r28
+454m7 Key{57|67M9} 8|1838b7 1847r10 1864r34
+455m7 Value{57|67M9} 8|1839b7 1848r10 1911r43
+456m7 Proof{57|67M9} 8|1840b7 1854r28 1892r43
+457m7 Proof_Len{42|89M9} 8|1841b7 1854r10 1889r13
+458p7 Valid(42|93E9) 8|1842b7 1849r10 1919r10
+466V13*Aegis_Get_Cert_Level{46I9} 467>7 468>7 469^7 471i<c,aegis_get_cert_level>22
+. 8|1932b13 1975l8 1975t28
+467p7 Handle{116P9} 8|1933b7 1938r10 1938r36
+468m7 Address{57|67M9} 8|1934b7 1942r10 1949r36
+469p7 Level(57I9) 8|1935b7 1942r43 1959r16 1961r16 1963r16 1965r16 1967r16
+473V13*Aegis_Apply_Gas_Discount{46I9} 474>7 475>7 476^7 478i<c,aegis_apply_gas_discount>22
+. 8|1977b13 2004l8 2004t32
+474m7 Base_Gas{42|70M9} 8|1978b7 1998r22
+475i7 Level{57I9} 8|1979b7 1989r12
+476p7 Result(42|70M9) 8|1980b7 1984r10 1998r7
+484U14*Aegis_Secure_Zero 485>7 486>7 488i<c,aegis_secure_zero>22 8|2010b14
+. 2026l8 2026t25
+485m7 Ptr{57|67M9} 8|2011b7 2016r27 2019r10
+486m7 Len{42|89M9} 8|2012b7 2014r52 2019r39
+490V13*Aegis_Constant_Time_Compare{42|59I9} 491>7 492>7 493>7 495i<c,aegis_constant_time_compare>22
+. 8|2028b13 2054l8 2054t35
+491m7 A{57|67M9} 8|2029b7 2035r29 2040r10
+492m7 B{57|67M9} 8|2030b7 2037r29 2040r37
+493m7 Len{42|89M9} 8|2031b7 2033r52 2040r64
+501V13*Aegis_Shield_Encrypt_State{46I9} 502>7 503^7 504>7 505>7 506>7 507>7
+. 509i<c,aegis_shield_encrypt_state>22 8|2060b13 2127l8 2127t34
+502m7 Ciphertext{57|67M9} 8|2061b7 2069r10 2101r34
+503p7 Ciphertext_Len(42|89M9) 8|2062b7 2070r10 2120r10
+504m7 Plaintext{57|67M9} 8|2063b7 2071r10 2086r34
+505m7 Plaintext_Len{42|89M9} 8|2064b7 2072r10 2079r10 2085r59
+506m7 Encaps_Key{57|67M9} 8|2065b7 2073r10 2089r38
+507m7 KEM_Ciphertext{57|67M9} 8|2066b7 2074r10 2093r36
+511V13*Aegis_Shield_Decrypt_State{46I9} 512>7 513^7 514>7 515>7 516>7 517>7
+. 519i<c,aegis_shield_decrypt_state>22 8|2129b13 2193l8 2193t34
+512m7 Plaintext{57|67M9} 8|2130b7 2138r10 2164r33
+513p7 Plaintext_Len(42|89M9) 8|2131b7 2139r10 2187r10
+514m7 Ciphertext{57|67M9} 8|2132b7 2140r10 2161r34
+515m7 Ciphertext_Len{42|89M9} 8|2133b7 2141r10 2148r10 2160r59 2170r43
+516m7 KEM_Ciphertext{57|67M9} 8|2134b7 2142r10
+517m7 Decaps_Key{57|67M9} 8|2135b7 2143r10 2155r38
+521V13*Aegis_Shield_Create_Commitment{46I9} 522>7 523>7 524>7 525>7 527i<c,aegis_shield_create_commitment>22
+. 8|2195b13 2241l8 2241t38
+522m7 Commitment{57|67M9} 8|2196b7 2202r10 2225r38
+523m7 Data{57|67M9} 8|2197b7 2203r10 2217r36
+524m7 Data_Len{42|89M9} 8|2198b7 2204r10 2210r10 2216r61
+525m7 Randomness{57|67M9} 8|2199b7 2205r10 2220r36
+533V13*Aegis_Whisper_Create_Note{46I9} 534>7 535>7 536>7 537>7 539i<c,aegis_whisper_create_note>22
+. 8|2247b13 2289l8 2289t33
+534m7 Note{57|67M9} 8|2248b7 2254r10 2270r36
+535m7 Value{42|70M9} 8|2249b7 2274r40
+536m7 Blinding{57|67M9} 8|2250b7 2255r10 2264r40
+537m7 Owner_PK{57|67M9} 8|2251b7 2256r10
+541V13*Aegis_Whisper_Compute_Nullifier{46I9} 542>7 543>7 544>7 546i<c,aegis_whisper_compute_nullifier>22
+. 8|2291b13 2339l8 2339t39
+542m7 Nullifier{57|67M9} 8|2292b7 2297r10 2314r36
+543m7 Note{57|67M9} 8|2293b7 2298r10 2308r38
+544m7 Owner_SK{57|67M9} 8|2294b7 2299r10 2311r34
+548V13*Aegis_Whisper_Create_Range_Proof{46I9} 549>7 550^7 551>7 552>7 553>7
+. 555i<c,aegis_whisper_create_range_proof>22 8|2341b13 2395l8 2395t40
+549m7 Proof{57|67M9} 8|2342b7 2349r10 2369r37
+550p7 Proof_Len(42|89M9) 8|2343b7 2350r10 2388r10
+551m7 Commitment{57|67M9} 8|2344b7 2351r10 2363r38
+552m7 Value{42|70M9} 8|2345b7 2372r40
+553m7 Blinding{57|67M9} 8|2346b7 2352r10 2360r40
+557V13*Aegis_Whisper_Verify_Range_Proof{46I9} 558>7 559>7 560>7 561^7 563i<c,aegis_whisper_verify_range_proof>22
+. 8|2397b13 2438l8 2438t40
+558m7 Commitment{57|67M9} 8|2398b7 2404r10 2419r38
+559m7 Proof{57|67M9} 8|2399b7 2405r10 2422r37
+560m7 Proof_Len{42|89M9} 8|2400b7 2411r10
+561p7 Valid(42|93E9) 8|2401b7 2406r10 2412r10 2432r10
+565V13*Aegis_Whisper_Create_Balance_Proof{46I9} 566>7 567^7 568>7 569>7 570>7
+. 571>7 572>7 573>7 574>7 575>7 576>7 578i<c,aegis_whisper_create_balance_proof>22
+. 8|2440b13 2546l8 2546t42
+566m7 Proof{57|67M9} 8|2441b7 2455r10 2535r40
+567p7 Proof_Len(42|89M9) 8|2442b7 2455r41 2538r13
+568m7 Input_Commitments{57|67M9} 8|2443b7 2456r10 2471r42
+569m7 Input_Count{42|89M9} 8|2444b7 2458r10 2465r51
+570m7 Output_Commitments{57|67M9} 8|2445b7 2457r10 2476r43
+571m7 Output_Count{42|89M9} 8|2446b7 2458r29 2466r51
+572m7 Fee{42|70M9} 8|2447b7 2523r56
+573m7 Input_Values{57|67M9} 8|2448b7
+574m7 Input_Blindings{57|67M9} 8|2449b7 2481r41
+575m7 Output_Values{57|67M9} 8|2450b7
+576m7 Output_Blindings{57|67M9} 8|2451b7 2485r42
+580V13*Aegis_Whisper_Verify_Balance_Proof{46I9} 581>7 582>7 583>7 584>7 585>7
+. 586>7 587>7 588^7 590i<c,aegis_whisper_verify_balance_proof>22 8|2548b13
+. 2633l8 2633t42
+581m7 Input_Commitments{57|67M9} 8|2549b7 2560r10 2579r42
+582m7 Input_Count{42|89M9} 8|2550b7 2563r26 2573r51
+583m7 Output_Commitments{57|67M9} 8|2551b7 2561r10 2584r43
+584m7 Output_Count{42|89M9} 8|2552b7 2563r45 2574r51
+585m7 Fee{42|70M9} 8|2553b7 2611r51
+586m7 Proof{57|67M9} 8|2554b7 2562r10 2588r37
+587m7 Proof_Len{42|89M9} 8|2555b7 2587r62
+588p7 Valid(42|93E9) 8|2556b7 2563r10 2565r13 2566r13 2624r10 2629r13 2630r13
+596V13*Aegis_Eye_Derive_Viewing_Key{46I9} 597>7 598>7 599>7 600>7 602i<c,aegis_eye_derive_viewing_key>22
+. 8|2639b13 2685l8 2685t36
+597m7 Viewing_Key{57|67M9} 8|2640b7 2647r10 2659r34
+598m7 Master_SK{57|67M9} 8|2641b7 2648r10 2656r38
+599i7 View_Type{42|59I9} 8|2642b7 2669r15
+600m7 Valid_Until{42|70M9} 8|2643b7 2645r28
+604V13*Aegis_Eye_Create_Disclosure_Proof{46I9} 605>7 606^7 607>7 608>7 609>7
+. 610>7 612i<c,aegis_eye_create_disclosure_proof>22 8|2687b13 2760l8 2760t41
+605m7 Proof{57|67M9} 8|2688b7 2697r10 2749r40
+606p7 Proof_Len(42|89M9) 8|2689b7 2697r41 2752r13
+607m7 Viewing_Key{57|67M9} 8|2690b7 2698r10 2707r34
+608m7 Attribute_Mask{42|70M9} 8|2691b7 2736r54
+609m7 Attributes{57|67M9} 8|2692b7 2698r47 2725r41
+610m7 Attr_Count{42|89M9} 8|2693b7 2699r10 2709r47
+614V13*Aegis_Eye_Verify_Disclosure{46I9} 615>7 616>7 617>7 618>7 619>7 620>7
+. 621^7 623i<c,aegis_eye_verify_disclosure>22 8|2762b13 2839l8 2839t35
+615m7 Owner_PK{57|67M9} 8|2763b7 2773r10 2788r34
+616m7 Attribute_Mask{42|70M9} 8|2764b7 2814r64
+617m7 Attributes{57|67M9} 8|2765b7 2773r44 2802r41
+618m7 Attr_Count{42|89M9} 8|2766b7 2774r57 2784r47
+619m7 Proof{57|67M9} 8|2767b7 2774r10 2811r40
+620m7 Proof_Len{42|89M9} 8|2768b7 2810r65 2815r16
+621p7 Valid(42|93E9) 8|2769b7 2774r41 2776r13 2777r13 2830r10 2835r13 2836r13
+629V13*Aegis_Gate_Init_Session{46I9} 630>7 631>7 632>7 633>7 634>7 635>7
+. 636>7 638i<c,aegis_gate_init_session>22 8|2845b13 2947l8 2947t31
+630m7 Session{57|67M9} 8|2846b7 2856r10 2928r38
+631m7 Contract_Addr{57|67M9} 8|2847b7 2856r43 2866r36
+632m7 Initiator_PK{57|67M9} 8|2848b7 2857r10 2871r39
+633m7 Contract_PK{57|67M9} 8|2849b7 2857r48 2874r43
+634i7 Mode{42|59I9} 8|2850b7 2939r39
+635m7 Max_Calls{42|70M9} 8|2851b7 2938r63
+636m7 TTL_Blocks{42|70M9} 8|2852b7
+640V13*Aegis_Gate_Encrypt_Inputs{46I9} 641>7 642^7 643>7 644>7 645>7 646>7
+. 648i<c,aegis_gate_encrypt_inputs>22 8|2949b13 3040l8 3040t33
+641m7 Encrypted{57|67M9} 8|2950b7 2959r10 3027r37
+642p7 Encrypted_Len(42|89M9) 8|2951b7 2959r45 3032r13
+643m7 Session{57|67M9} 8|2952b7 2960r10 2981r34
+644m7 Func{57|67M9} 8|2953b7 2960r43 2989r36
+645m7 Args{57|67M9} 8|2954b7 3004r42
+646m7 Args_Len{42|89M9} 8|2955b7 2984r55 3001r13 3003r67
+650V13*Aegis_Gate_Decrypt_Outputs{46I9} 651>7 652^7 653>7 654>7 655>7 657i<c,aegis_gate_decrypt_outputs>22
+. 8|3042b13 3121l8 3121t34
+651m7 Plaintext{57|67M9} 8|3043b7 3051r10 3108r37
+652p7 Plaintext_Len(42|89M9) 8|3044b7 3051r45 3113r13
+653m7 Session{57|67M9} 8|3045b7 3052r10 3074r34
+654m7 Encrypted{57|67M9} 8|3046b7 3052r43 3079r34
+655m7 Encrypted_Len{42|89M9} 8|3047b7 3053r10 3078r59 3087r43 3088r33
+663V13*Aegis_Veil_Verify_STARK_Proof{46I9} 664>7 665>7 666>7 667>7 668>7
+. 669>7 670>7 671>7 672>7 673^7 675i<c,aegis_veil_verify_stark_proof>22 8|3127b13
+. 3234l8 3234t37
+664m7 Code_Hash{57|67M9} 8|3128b7 3141r10 3157r36
+665m7 Old_State_Root{57|67M9} 8|3129b7 3142r10 3160r40
+666m7 New_State_Root{57|67M9} 8|3130b7 3143r10 3163r40
+667m7 Public_Inputs{57|67M9} 8|3131b7 3190r44
+668m7 Inputs_Len{42|89M9} 8|3132b7 3168r21 3187r13 3189r69 3192r39 3205r45
+669m7 Public_Outputs{57|67M9} 8|3133b7 3202r45
+670m7 Outputs_Len{42|89M9} 8|3134b7 3168r44 3199r13 3201r70 3204r39
+671m7 Proof{57|67M9} 8|3135b7 3144r10 3173r37
+672m7 Proof_Len{42|89M9} 8|3136b7 3145r26 3172r62 3211r13
+673p7 Valid(42|93E9) 8|3137b7 3145r10 3147r13 3148r13 3225r10 3230r13 3231r13
+677V13*Aegis_Veil_Verify_Lattice_Proof{46I9} 678>7 679>7 680>7 681>7 682^7
+. 684i<c,aegis_veil_verify_lattice_proof>22 8|3236b13 3296l8 3296t39
+678m7 Statement{57|67M9} 8|3237b7 3244r10 3262r36
+679m7 Stmt_Len{42|89M9} 8|3238b7 3247r10 3261r61 3268r13 3274r36
+680m7 Proof{57|67M9} 8|3239b7 3245r10
+681m7 Proof_Len{42|89M9} 8|3240b7 3248r10
+682p7 Valid(42|93E9) 8|3241b7 3246r10 3250r13 3251r13 3283r13 3285r13 3292r13
+. 3293r13
+689N4 Max_Bytecode_Size 707r40 8|1072r42 1489r42
+692N4 Max_State_Entries 704r36
+695R9 State_Entry 701e14 702r26 704r62
+696a7*Key{94A9} 8|1235r58 1275m36 1338r55
+697i7*Key_Len{natural} 8|1228r53 1246m42 1277m33 1330r50 1387m27 1451m30
+698a7*Value{94A9} 8|1255m48 1286m39 1354r63
+699i7*Value_Len{natural} 8|1247m42 1257m45 1288m36 1291m33 1347r39 1350r72
+. 1358r74 1388m27 1452m30
+700b7*Used{boolean} 8|1226r30 1245m42 1269r34 1294m30 1329r30 1386m27 1450m30
+704A9 State_Table(695R9)<integer> 731r29 8|860r28 890r28
+707A9 Bytecode_Buffer(42|73M9)<integer> 727r29 8|858r31 888r31
+713a7*Origin{98A9} 8|922m20 1014r55 1158m14 1395m14 1457m14
+714a7*Caller{98A9} 8|931m20 1159m14 1396m14 1458m14
+715a7*Address{98A9} 8|940m20 1397m14 1459m14 1727r56
+716r7*Value{109R9} 8|949m20 1398m14 1460m14
+717m7*Block_Number{42|70M9} 8|953m14 1461m14
+718m7*Timestamp{42|70M9} 8|954m14 1462m14
+719m7*Chain_ID{42|70M9} 8|955m14 1463m14
+722m7*Gas_Limit{42|70M9} 8|855m15 885m15 1015r46 1028r61 1045r30 1156m14
+. 1419r35 1422r28 1464m14
+723m7*Gas_Used{42|70M9} 8|856m15 886m15 1392m14 1419r17 1422r47 1465m14
+724i7*Certification{57I9} 8|857m15 887m15 1020r49 1157m14
+727p7*Bytecode(707A9) 8|858m15 888m15 1082r20 1442r17 1443r26 1444r20
+728m7*Bytecode_Len{42|89M9} 8|859m15 889m15 1084m17 1381m14 1466m14
+731p7*State(704A9) 8|860m15 890m15 1225r23 1226r20 1228r43 1235r48 1245r32
+. 1246r32 1247r32 1255r38 1257r35 1268r23 1269r24 1275r26 1277r23 1286r29
+. 1288r26 1291r23 1294r20 1328r23 1329r20 1330r40 1338r45 1347r29 1350r62
+. 1354r53 1358r64 1385r23 1386r17 1387r17 1388r17 1448r17 1449r26 1450r20
+. 1451r20 1452r20
+734b7*Initialized{boolean} 8|861m15 891m15 912r43 1004r43 1064r43 1139r43
+. 1212r43 1315r43 1376r43 1411r43 1467m14 1548r43 1626r43 1709r43 1762r43
+. 1938r43
+735b7*Code_Loaded{boolean} 8|862m15 892m15 1085m17 1143r21 1382m14 1468m14
+X 8 aegis_ffi.adb
+62U14 Free_VM_Context[4|20] 1471s7
+71b4 Library_Initialized{boolean} 79r10 86m7 95r14 102m7
+120P12 Seed_Ptr(29|37A12) 124r77 128r28
+121P12 PK_Ptr(29|57A12) 125r75 129r28
+122P12 SK_Ptr(29|58A12) 126r75 130r28
+124V16 To_Seed_Ptr[3|20]{120P12} 128s40
+125V16 To_PK_Ptr[3|20]{121P12} 129s38
+126V16 To_SK_Ptr[3|20]{122P12} 130s38
+128p7 Seed_Data{120P12} 147r31
+129p7 PK_Data{121P12} 144r45 147r46
+130p7 SK_Data{122P12} 144r58 147r59
+142a13 Zero_Seed{29|37A12} 144r34
+163P12 SK_Ptr(29|58A12) 166r75 169r28
+164P12 Sig_Ptr(29|59A12) 167r76 170r28
+166V16 To_SK_Ptr[3|20]{163P12} 169s38
+167V16 To_Sig_Ptr[3|20]{164P12} 170s39
+169p7 SK_Data{163P12} 197r29
+170p7 Sig_Data{164P12} 197r66
+171b7 Success{boolean} 197m80 200r10
+188a10 Msg_Array{38|14A9} 195m13 197r42
+189P15 Msg_Ptr(38|14A9) 190r79 191r30
+190V19 To_Msg_Ptr[3|20]{189P15} 191s41
+191p10 Msg_Data{189P15} 195r26
+192a10 Zero_Random{29|37A12} 197r53
+219P12 PK_Ptr(29|57A12) 222r75 225r27
+220P12 Sig_Ptr(29|59A12) 223r76 226r27
+222V16 To_PK_Ptr[3|20]{219P12} 225s37
+223V16 To_Sig_Ptr[3|20]{220P12} 226s38
+225p7 PK_Data{219P12} 258r43
+226p7 Sig_Data{220P12} 258r67
+249a10 Msg_Array{38|14A9} 256m13 258r56
+250P15 Msg_Ptr(38|14A9) 251r79 252r30
+251V19 To_Msg_Ptr[3|20]{250P15} 252s41
+252p10 Msg_Data{250P15} 256r26
+253b10 Is_Valid{boolean} 258m10 259r44
+277P12 EK_Ptr(31|75A12) 281r75 285r26
+278P12 DK_Ptr(31|76A12) 282r75 286r26
+279P12 Seed_Ptr(31|69A12) 283r77 305r34
+281V16 To_EK_Ptr[3|20]{277P12} 285s36
+282V16 To_DK_Ptr[3|20]{278P12} 286s36
+283V16 To_Seed_Ptr[3|20]{279P12} 305s46
+285p7 EK_Data{277P12} 301r50 308r57
+286p7 DK_Data{278P12} 301r63 308r70
+298a13 Zero_D{31|69A12} 301r34
+299a13 Zero_Z{31|69A12} 301r42
+305p13 Seed_Data{279P12} 308r34
+306a13 Zero_Z{31|69A12} 308r49
+324P12 EK_Ptr(31|75A12) 329r75 334r26
+325P12 SS_Ptr(31|72A12) 330r75 335r26
+326P12 CT_Ptr(31|77A12) 331r75 336r26
+327P12 Seed_Ptr(31|69A12) 332r77 354r34
+329V16 To_EK_Ptr[3|20]{324P12} 334s36
+330V16 To_SS_Ptr[3|20]{325P12} 335s36
+331V16 To_CT_Ptr[3|20]{326P12} 336s36
+332V16 To_Seed_Ptr[3|20]{327P12} 354s46
+334p7 EK_Data{324P12} 350r34 356r34
+335p7 SS_Data{325P12} 350r55 356r62
+336p7 CT_Data{326P12} 350r68 356r75
+348a13 Zero_M{31|69A12} 350r47
+354p13 Seed_Data{327P12} 356r47
+371P12 DK_Ptr(31|76A12) 375r75 379r26
+372P12 SS_Ptr(31|72A12) 376r75 380r26
+373P12 CT_Ptr(31|77A12) 377r75 381r26
+375V16 To_DK_Ptr[3|20]{371P12} 379s36
+376V16 To_SS_Ptr[3|20]{372P12} 380s36
+377V16 To_CT_Ptr[3|20]{373P12} 381s36
+379p7 DK_Data{371P12} 391r28
+380p7 SS_Data{372P12} 391r54
+381p7 CT_Data{373P12} 391r41
+409A12 Output_Array(38|13M12)<integer> 410r21
+410a7 Output_View{409A12} 411m11 411r11 437m10
+413a7 Hash_Result{33|32A12} 422m45 431m48 437r29
+414a7 Empty_Input{38|14A9} 422r32
+428a13 Input_Bytes{38|14A9} 429m17 429r17 431r35
+436i11 I{integer} 437r23 437r42
+452A12 Output_Array(38|13M12)<integer> 453r21
+453a7 Output_View{452A12} 454m11 454r11 479m10
+456a7 Hash_Result{33|38A12} 464m45 473m48 479r29
+457a7 Empty_Input{38|14A9} 464r32
+470a13 Input_Bytes{38|14A9} 471m17 471r17 473r35
+478i11 I{integer} 479r23 479r42
+495A12 Output_Array(38|13M12)<integer> 496r21
+496a7 Output_View{495A12} 497m11 497r11 524m10
+499a7 Hash_Result{33|32A12} 508m47 518m50 524r29
+500a7 Empty_Input{38|14A9} 508r34
+514a13 Input_Bytes{38|14A9} 515m17 515r17 518r37
+523i11 I{integer} 524r23 524r42
+539a7 Empty_Input{38|14A9} 559r35
+555a10 Output_Bytes{38|14A9} 556m14 556r14 559m48 565m51
+562a16 Input_Bytes{38|14A9} 563m20 563r20 565r38
+582a7 Empty_Input{38|14A9} 602r35
+598a10 Output_Bytes{38|14A9} 599m14 599r14 602m48 608m51
+605a16 Input_Bytes{38|14A9} 606m20 606r20 608r38
+628A12 Addr_Array(38|13M12)<integer> 629r19
+629a7 Addr_View{628A12} 630m11 630r11 680m10
+633a7 Domain_Prefix{string} 660r16 661r64 663r17 671r23
+634e7 Type_Char{character} 648m39 649m39 650m39 651m39 663r76
+637a7 Combined{38|14A9} 661m10 663m7 671m13 676r29
+638a7 Hash_Out{33|32A12} 676m39 680r27
+660i11 I{integer} 661r20 661r79
+667a10 PK_View{38|14A9} 668m14 668r14 670r19 671r56
+670i14 I{integer} 671r50 671r65
+679i11 I{integer} 680r21 680r37
+701A12 Out_Array(character)<integer> 702r18
+702a7 Out_View{701A12} 703m11 703r11 757m10
+706e7 Net{16|37E9} 725m36 726m36 727m36 728m36 729m36 749r49
+709e7 Entity{16|46E9} 736m39 737m39 738m39 739m39 749r54
+712r7 Addr{16|89R9} 749m10 753r38
+713a7 Addr_Str{16|86A12} 753m44 757r26
+714i7 Addr_Len{natural} 753m54 756r21 760r42
+746a10 PK_View{15|37A9} 747m14 747r14 749r62
+756i11 I{integer} 757r20 757r36
+780A12 Acct_Array(38|13M12)<integer> 781r19
+781a7 Acct_View{780A12} 782m11 782r11 812m10
+785r7 Addr{16|89R9} 802m48 806r14 812r27 816r12 825r12
+799a10 In_Str{string} 800m14 800r14 802r40
+811i11 I{16|56I12} 812r21 812r41
+847p7 New_Ctx{7|116P9} 854m7 855r7 856r7 857r7 858r7 859r7 860r7 861r7 862r7
+. 864r21
+877p7 New_Ctx{7|116P9} 884m7 885r7 886r7 887r7 888r7 889r7 890r7 891r7 892r7
+. 894r21
+919a13 Src{7|98A9} 920m17 920r17 922r30
+928a13 Src{7|98A9} 929m17 929r17 931r30
+937a13 Src{7|98A9} 938m17 938r17 940r31
+946r13 Src{7|109R9} 947m17 947r17 949r29
+977V16 To_Contract_Address{13|70A9} 977b16 977>37 986l11 986t30 1014s27
+977a37 H{7|98A9} 983r48
+980a10 Result{13|70A9} 983m13 985r17
+982i14 I{integer} 983r21 983r51
+988V16 To_Cert_Level{13|84E9} 988b16 988>31 997l11 997t24 1020s27
+988i31 C{7|57I9} 990r24
+999r7 Exec_Ctx{6|49R9} 1013m7 1025m32 1025r32 1036m10 1036r10 1044r41
+1000r7 Exec_Result{13|206R9} 1038m25
+1001i7 Base_Gas{13|101I9} 1024m7 1025r42
+1002b7 Gas_OK{boolean} 1025m52 1027r14
+1078a10 Code_View{7|94A9} 1079m14 1079r14 1081r19 1082r36
+1081i14 I{integer} 1082r30 1082r47
+1114V16 To_Contract_Address{13|70A9} 1114b16 1114>37 1121l11 1121t30 1163s27
+1114a37 H{7|98A9} 1118r48
+1115a10 Result{13|70A9} 1118m13 1120r17
+1117i14 I{integer} 1118r21 1118r51
+1123V16 To_Cert_Level{13|84E9} 1123b16 1123>31 1132l11 1132t24 1169s27
+1123i31 C{7|57I9} 1125r24
+1134r7 Exec_Ctx{6|49R9} 1162m7 1174m32 1174r32 1185m10 1185r10 1195r44
+1135r7 Exec_Result{13|206R9} 1187m25
+1136i7 Base_Gas{13|101I9} 1173m7 1174r42
+1137b7 Gas_OK{boolean} 1174m52 1176r14
+1225i11 I{integer} 1226r27 1228r50 1235r55 1245r39 1246r39 1247r39 1255r45
+. 1257r42
+1230a19 Key_View{7|94A9} 1231m23 1231r23 1234r28 1235r25
+1232b19 Match{boolean} 1236m25 1241r22
+1234i23 J{integer} 1235r35 1235r63
+1251a28 Value_View{7|94A9} 1252m32 1252r32 1254r37 1255r61
+1254i32 J{integer} 1255r55 1255r73
+1268i11 I{integer} 1269r31 1275r33 1277r30 1286r36 1288r33 1291r30 1294r27
+1271a16 Key_View{7|94A9} 1272m20 1272r20 1274r25 1275r47
+1274i20 J{integer} 1275r41 1275r57
+1282a19 Value_View{7|94A9} 1283m23 1283r23 1285r28 1286r52
+1285i23 J{integer} 1286r46 1286r64
+1328i11 I{integer} 1329r27 1330r47 1338r52 1347r36 1350r69 1354r60 1358r71
+1333a16 Key_View{7|94A9} 1334m20 1334r20 1337r25 1338r22
+1335b16 Match{boolean} 1339m22 1344r19
+1337i20 J{integer} 1338r32 1338r60
+1350a25 Value_View{7|94A9} 1351m29 1351r29 1353r34 1354m28
+1353i29 J{integer} 1354r40 1354r70
+1385i11 I{integer} 1386r24 1387r24 1388r24
+1432p7 Mutable_Handle{7|116P9} 1471m24 1471r24
+1443i14 I{integer} 1444r30
+1449i14 I{integer} 1450r27 1451r27 1452r27
+1561a10 Addr_View{48|43A12} 1562m14 1562r14 1586r35
+1565r10 Key_Slot{13|41R9} 1582m13 1595r27
+1566r10 Value_Result{13|41R9} 1596m27 1604r71
+1568i10 Storage{47|32I9} 1586m10 1588r13 1594r27
+1569b10 Load_Success{boolean} 1597m27 1601r16
+1570e10 Load_Error{47|39E9} 1598m27
+1573r10 Value_View{7|109R9} 1574m14 1574r14 1590m13 1604m19 1608m16
+1577r10 Key_FFI{7|109R9} 1578m14 1578r14 1582r58
+1581i14 I{integer} 1582r29 1582r73
+1603i20 I{integer} 1604r37 1604r91
+1639a10 Addr_View{48|43A12} 1640m14 1640r14 1665r35 1670r28
+1643r10 Key_Slot{13|41R9} 1660m13 1683r24
+1644r10 Value_Store{13|41R9} 1661m13 1684r24
+1646i10 Storage{47|32I9} 1665m10 1667r13 1671m28 1682r24
+1647b10 Store_Success{boolean} 1685m24 1689r17
+1648e10 Store_Error{47|39E9} 1686m24
+1649b10 Create_OK{boolean} 1672m28 1675r20
+1652r10 Key_FFI{7|109R9} 1653m14 1653r14 1660r58
+1655r10 Value_FFI{7|109R9} 1656m14 1656r14 1661r61
+1659i14 I{integer} 1660r29 1660r73 1661r32 1661r78
+1719a10 Root_View{7|98A9} 1720m14 1720r14 1735m13 1741r25 1742m19
+1722a10 Addr_View{48|43A12} 1726r19 1727m13 1731r35
+1723i10 Storage{47|32I9} 1731m10 1733r13 1739r75
+1726i14 I{integer} 1727r24 1727r65
+1739a16 MPT_Root{45|61A9} 1742r64
+1741i20 I{integer} 1742r30 1742r74
+1775a10 Addr_View{48|43A12} 1776m14 1776r14 1794r35
+1779r10 Key_FFI{7|109R9} 1780m14 1780r14 1790r58
+1782r10 Key_Slot{13|41R9} 1790m13 1803r27
+1784i10 Storage{47|32I9} 1794m10 1796r13 1802r27
+1785r10 Merkle_Proof_Out{45|151R9} 1804m27 1816r22
+1786b10 Gen_Success{boolean} 1805m27 1808r16
+1789i14 I{integer} 1790r29 1790r73
+1812a19 Proof_View{38|14A9} 1813m23 1813r23 1817m22 1819m22
+1860a10 Root_View{7|98A9} 1861m14 1861r14 1880r19 1881r41
+1863r10 Key_FFI{7|109R9} 1864m14 1864r14 1876r58
+1866r10 Key_Slot{13|41R9} 1876m13 1901r24
+1867a10 MPT_Root{45|61A9} 1881m13 1900r24
+1868r10 Value_Result{13|41R9} 1903m24 1914r71
+1869b10 Is_Valid{boolean} 1904m24 1908r13 1919r44
+1872r10 Proof_In{45|151R9} 1885m10 1886m10 1894m16 1902r24
+1875i14 I{integer} 1876r29 1876r73
+1880i14 I{integer} 1881r23 1881r52
+1891a16 Proof_View{38|14A9} 1892m20 1892r20 1894r36
+1910r16 Value_View{7|109R9} 1911m20 1911r20 1914m19
+1913i20 I{integer} 1914r37 1914r91
+1948a10 Addr_View{13|70A9} 1949m14 1949r14 1954r50
+1951e10 Reg_Level{46|36E9} 1954m10 1957r15
+1982m7 Discount_Pct{42|70M9} 1990m51 1991m51 1992m51 1993m51 1994m51 1998r40
+2014A12 Byte_Array_Type(41|70M9)<integer> 2015r13
+2015a7 Arr{2014A12} 2016m11 2016r11 2017r24 2023r16 2024m10
+2023i11 I{integer} 2024r15
+2033A12 Byte_Array_Type(41|70M9)<integer> 2034r15 2036r15
+2034a7 Arr_A{2033A12} 2035m11 2035r11 2045r16 2046r27
+2036a7 Arr_B{2033A12} 2037m11 2037r11 2046r41
+2038m7 Diff{41|70M9} 2046m10 2046r18 2049r10
+2045i11 I{integer} 2046r34 2046r48
+2085a10 PT_View{38|14A9} 2086m14 2086r14 2104r28
+2088a10 KEM_PK_View{38|14A9} 2089m14 2089r14 2105r28
+2092a10 Rand_View{38|14A9} 2093m14 2093r14 2106r28
+2095r10 Priv_Entry{34|50R9} 2107m28 2117r24 2118r28 2120r53
+2096r10 Commitment{34|66R9} 2108m28
+2097b10 Success{boolean} 2109m28 2112r17
+2100a10 CT_View{38|14A9} 2101m14 2101r14 2118m13
+2117i14 I{integer} 2118r22 2118r51
+2154a10 KEM_SK_View{38|14A9} 2155m14 2155r14 2177r29
+2158r10 Priv_Entry{34|50R9} 2170m10 2172m13 2176r29
+2160a10 CT_View{38|14A9} 2161m14 2161r14 2171r19 2172r42
+2163a10 PT_Out{38|14A9} 2164m14 2164r14 2178m29
+2166i10 PT_Len{natural} 2179m29 2187r52
+2167b10 Success{boolean} 2180m29 2183r17
+2171i14 I{integer} 2172r36 2172r51
+2216a10 Data_View{38|14A9} 2217m14 2217r14 2228r27
+2219a10 Rand_View{38|14A9} 2220m14 2220r14 2229r27
+2222r10 Commit_Out{34|66R9} 2230m27 2234r25
+2224a10 Commit_View{34|48A12} 2225m14 2225r14 2234m10
+2263a10 Blinding_View{39|43A12} 2264m14 2264r14 2275r27
+2266a10 Commit_Out{39|40A12} 2276m27 2280r19 2281r30
+2269a10 Note_View{38|14A9} 2270m14 2270r14 2281m13
+2280i14 I{integer} 2281r24 2281r42
+2307a10 Commit_View{39|40A12} 2308m14 2308r14 2324r19 2325r31
+2310a10 SK_View{38|14A9} 2311m14 2311r14 2321r19 2322r26
+2313a10 Null_View{38|14A9} 2314m14 2314r14 2332m10
+2317a10 Input{38|14A9} 2322m13 2325m13 2329r32
+2318a10 Hash_Out{38|14A9} 2329m39 2332r23
+2321i14 I{integer} 2322r20 2322r35
+2324i14 I{integer} 2325r25 2325r44
+2359a10 Blinding_View{39|43A12} 2360m14 2360r14 2374r27
+2362a10 Commit_View{39|40A12} 2363m14 2363r14 2375r27
+2365a10 Proof_Out{39|46A12} 2376m27 2385r19 2386r31
+2366b10 Success{boolean} 2377m27 2380r17
+2368a10 Proof_View{38|14A9} 2369m14 2369r14 2386m13
+2385i14 I{integer} 2386r25 2386r42
+2418a10 Commit_View{39|40A12} 2419m14 2419r14 2427r27
+2421a10 Proof_View{39|46A12} 2422m14 2422r14 2428r27
+2424b10 Is_Valid{boolean} 2426m10 2432r61
+2465i10 In_Count{natural} 2469r61 2470r58 2479r58 2480r57 2492r24 2505r24
+2466i10 Out_Count{natural} 2474r62 2475r59 2483r59 2484r58 2498r24 2511r24
+2469a10 In_Commits{39|49A9} 2494m16 2519r32
+2470a10 In_Commits_View{38|14A9} 2471m14 2471r14 2494r38
+2474a10 Out_Commits{39|49A9} 2500m16 2520r32
+2475a10 Out_Commits_View{38|14A9} 2476m14 2476r14 2500r39
+2479a10 In_Blinds{39|51A9} 2507m16 2521r32
+2480a10 In_Blinds_View{38|14A9} 2481m14 2481r14 2507r37
+2483a10 Out_Blinds{39|51A9} 2513m16 2522r32
+2484a10 Out_Blinds_View{38|14A9} 2485m14 2485r14 2513r38
+2488a10 Proof_Out{38|14A9} 2524m32 2537r27
+2489b10 Success{boolean} 2525m32 2528r17
+2492i14 I{integer} 2494r28 2494r55
+2493i17 J{integer} 2494r32 2494r64
+2498i14 I{integer} 2500r29 2500r57
+2499i17 J{integer} 2500r33 2500r66
+2505i14 I{integer} 2507r27 2507r53
+2506i17 J{integer} 2507r31 2507r62
+2511i14 I{integer} 2513r28 2513r55
+2512i17 J{integer} 2513r32 2513r64
+2534a13 Proof_View{38|14A9} 2535m17 2535r17 2537m13
+2573i10 In_Count{natural} 2577r61 2578r58 2597r24
+2574i10 Out_Count{natural} 2582r62 2583r59 2603r24
+2577a10 In_Commits{39|49A9} 2599m16 2618r31
+2578a10 In_Commits_View{38|14A9} 2579m14 2579r14 2599r38
+2582a10 Out_Commits{39|49A9} 2605m16 2619r31
+2583a10 Out_Commits_View{38|14A9} 2584m14 2584r14 2605r39
+2587a10 Proof_View{38|14A9} 2588m14 2588r14 2621r31
+2591a10 Fee_Commit{39|40A12} 2613m27 2620r31
+2592a10 Fee_Blind{39|43A12} 2612r27
+2594b10 Result{boolean} 2617m10 2624r61
+2597i14 I{integer} 2599r28 2599r55
+2598i17 J{integer} 2599r32 2599r64
+2603i14 I{integer} 2605r29 2605r57
+2604i17 J{integer} 2605r33 2605r66
+2655a10 Master_View{38|14A9} 2656m14 2656r14 2664r28
+2658a10 VK_View{21|42A12} 2659m14 2659r14 2678m10
+2661r10 Bundle{21|47R9} 2665m28 2670m23 2671m23 2672m23 2673m23 2674m28 2678r21
+2706a10 VK_View{21|42A12} 2707m14 2707r14 2714r72
+2709i10 Count{natural} 2710r57 2720r29 2721r24
+2710a10 Attrs{21|59A9} 2728m16
+2713r10 Cred{21|64R9} 2720m10 2727m16 2734r30
+2714a10 Holder_Secret{38|14A9} 2735r30
+2715a10 Challenge{38|14A9} 2737r30
+2716r10 Proof_Out{21|73R9} 2738m30 2751r27
+2717b10 Success{boolean} 2739m30 2742r17
+2721i14 I{integer} 2725r70 2727r28 2728r23
+2724a16 Attr_Src{38|14A9} 2725m20 2725r20 2727r34 2728r29
+2748a13 Proof_View{38|14A9} 2749m17 2749r17 2751m13
+2784i10 Count{natural} 2791r57 2799r24
+2787a10 PK_View{38|14A9} 2788m14 2788r14 2826r31
+2791a10 Attrs{21|59A9} 2804m16 2825r31
+2794r10 Proof_In{21|73R9} 2814m13 2817m19 2824r31
+2795a10 Challenge{38|14A9} 2827r31
+2796b10 Result{boolean} 2823m10 2830r61
+2799i14 I{integer} 2802r70 2804r23
+2801a16 Attr_Src{38|14A9} 2802m20 2802r20 2804r29
+2810a13 Proof_View{38|14A9} 2811m17 2811r17 2817r46
+2816i20 I{integer} 2817r40 2817r58
+2865a10 Addr_View{38|14A9} 2866m14 2866r14 2885r31 2900r34
+2870a10 Init_PK_View{38|14A9} 2871m14 2871r14 2886r36 2896r43 2933r45
+2873a10 Contract_PK_View{38|14A9} 2874m14 2874r14 2902r34
+2877a10 Randomness{38|14A9} 2885m13 2886m13 2903r34
+2880r10 Priv_Session{23|89R9} 2904m34 2930r39 2931r39 2935r39 2936r39
+2881b10 Success{boolean} 2905m34 2909r17
+2884i14 I{integer} 2885r25 2885r42 2886r25 2886r50
+2892a13 User_SK_Placeholder{38|14A9} 2896m16 2901r34
+2895i17 I{integer} 2896r37 2896r57
+2915R18 C_Session 2924e23 2925r35 2927r24
+2916a16 Session_ID{38|14A9} 2930m22
+2917a16 Contract_Addr{38|14A9} 2931m22
+2918a16 Initiator_PK{38|14A9} 2933m25
+2919a16 Shared_Secret{38|14A9} 2935m22
+2920m16 Expires_At{41|84M9} 2936m22
+2921m16 Call_Count{41|84M9} 2937m22
+2922m16 Max_Calls{41|84M9} 2938m22
+2923i16 Exec_Mode{42|59I9} 2939m22
+2927r13 Sess_Out{2915R18} 2928m17 2928r17 2930m13 2931m13 2933m16 2935m13
+. 2936m13 2937m13 2938m13 2939m13
+2932i17 I{integer} 2933r39 2933r59
+2968R15 C_Session 2977e20 2978r32 2980r20
+2969a13 Session_ID{38|14A9} 2993r20
+2970a13 Contract_Addr{38|14A9}
+2971a13 Initiator_PK{38|14A9}
+2972a13 Shared_Secret{38|14A9} 3013r37
+2973m13 Expires_At{41|84M9}
+2974m13 Call_Count{41|84M9}
+2975m13 Max_Calls{41|84M9}
+2976i13 Exec_Mode{42|59I9}
+2980r10 Sess_In{2968R15} 2981m14 2981r14 2993r12 3013r29
+2984i10 Input_Len{natural} 2985r52 3006r32
+2985a10 Plaintext{38|14A9} 3000m10 3006m16 3012r29
+2988a10 Func_View{38|14A9} 2989m14 2989r14 3000r32
+2992a10 Nonce{38|14A9} 3014r29
+2996r10 Priv_State{23|43R9} 3015m29 3025r42 3030r31
+2997b10 Success{boolean} 3016m29 3019r17
+3003a16 Args_View{38|14A9} 3004m20 3004r20 3006r50
+3025i13 CT_Len{natural} 3026r53 3029r27 3032r55
+3026a13 CT_View{38|14A9} 3027m17 3027r17 3030m16
+3029i17 I{integer} 3030r25 3030r54
+3061R15 C_Session 3070e20 3071r32 3073r20
+3062a13 Session_ID{38|14A9}
+3063a13 Contract_Addr{38|14A9}
+3064a13 Initiator_PK{38|14A9}
+3065a13 Shared_Secret{38|14A9} 3095r37
+3066m13 Expires_At{41|84M9}
+3067m13 Call_Count{41|84M9}
+3068m13 Max_Calls{41|84M9}
+3069i13 Exec_Mode{42|59I9}
+3073r10 Sess_In{3061R15} 3074m14 3074r14 3095r29
+3077r10 Priv_State{23|43R9} 3087m10 3089m13 3094r29
+3078a10 CT_View{38|14A9} 3079m14 3079r14 3089r42
+3082a10 PT_Out{38|14A9} 3096m29 3111r31
+3083i10 PT_Len{natural} 3097m29 3107r53 3110r27 3113r55
+3084b10 Success{boolean} 3098m29 3101r17
+3088i14 I{integer} 3089r36 3089r51
+3107a13 PT_View{38|14A9} 3108m17 3108r17 3111m16
+3110i17 I{integer} 3111r25 3111r39
+3156a10 Code_View{36|40A12} 3157m14 3157r14 3181r31 3220r30
+3159a10 Old_Root_View{36|40A12} 3160m14 3160r14 3182r36
+3162a10 New_Root_View{36|40A12} 3163m14 3163r14 3183r36
+3167i10 Total_Len{natural} 3169r53
+3169a10 Transcript{38|14A9} 3181m13 3182m13 3183m13 3193m19 3205m19 3221r30
+3172a10 Proof_View{38|14A9} 3173m14 3173r14 3213r50
+3176r10 FRI_Proof_Data{36|84R9} 3213m16 3215m13 3219r30
+3177b10 Result{boolean} 3218m13 3225r61
+3180i14 I{integer} 3181r25 3181r42 3182r30 3182r51 3183r30 3183r51
+3189a16 Inputs_View{38|14A9} 3190m20 3190r20 3193r42
+3192i20 I{integer} 3193r36 3193r55
+3201a16 Outputs_View{38|14A9} 3202m20 3202r20 3205r65
+3204i20 I{integer} 3205r59 3205r79
+3212i17 I{integer} 3213r44 3213r62
+3258r10 Params{25|112R9} 3279m59 3282r46
+3261a10 Stmt_View{38|14A9} 3262m14 3262r14 3270r28 3275r28
+3265a10 Seed{38|14A9} 3270m16 3273m13 3275m16 3279r43
+3269i17 I{integer} 3270r22 3270r39
+3274i17 I{integer} 3275r22 3275r39
+3302V13 Aegis_Khnum_Aggregate_Signatures{7|46I9} 3302b13 3303>7 3304^7 3305>7
+. 3306>7 3307>7 3308>7 3408l8 3408t40
+3303m7 Proof{57|67M9} 3311r10 3389r39
+3304p7 Proof_Len(42|89M9) 3311r41 3400r13
+3305m7 Signatures{57|67M9} 3312r10 3339r40
+3306m7 Public_Keys{57|67M9} 3312r46 3343r39
+3307m7 Messages{57|67M9} 3313r10 3347r40
+3308m7 Count{42|89M9} 3313r44 3313r57 3335r33
+3320r10 Batch{51|69R9} 3329m29 3360m35 3360r35 3375m25 3375r25
+3321r10 Agg_Sig{51|78R9} 3376m25 3392r27
+3322b10 Success{boolean} 3377m25 3380r17
+3325a10 Domain_Sep{38|14A9} 3330r29
+3335i14 I{integer} 3339r69 3343r69 3347r67
+3338a16 Sig_Src{38|14A9} 3339m20 3339r20 3363r35
+3342a16 PK_Src{38|14A9} 3343m20 3343r20 3361r35
+3346a16 Msg_Src{38|14A9} 3347m20 3347r20 3355r35 3356r40
+3350a16 Full_Msg{38|14A9} 3355m19 3356m19 3362r35
+3351b16 Add_Success{boolean} 3364m35 3367r23
+3354i20 J{integer} 3355r29 3355r44 3356r29 3356r49
+3386a13 Output{38|14A9} 3393m27 3398r33
+3387i13 Output_Len{natural} 3394m27 3397r27 3400r51
+3388a13 Proof_Out{38|14A9} 3389m17 3389r17 3398m16
+3397i17 I{integer} 3398r27 3398r41
+3410V13 Aegis_Khnum_Verify_Aggregated{7|46I9} 3410b13 3411>7 3412>7 3413>7
+. 3414>7 3415>7 3416^7 3458l8 3458t37
+3411m7 Proof{57|67M9} 3419r10 3429r35
+3412m7 Proof_Len{42|89M9} 3428r60
+3413m7 Public_Keys{57|67M9}
+3414m7 Messages{57|67M9}
+3415m7 Count{42|89M9} 3419r57
+3416p7 Valid(42|93E9) 3419r41 3420r13 3421r13 3441r13 3447r13 3449r13 3456r10
+3428a10 Proof_In{38|14A9} 3429m14 3429r14 3435r24
+3431r10 Agg_Sig{51|78R9} 3436m24 3446r45
+3432b10 Success{boolean} 3437m24 3440r17
+3464V13 Aegis_Sebek_Sign_Partial{7|46I9} 3464b13 3465>7 3466^7 3467>7 3468>7
+. 3469>7 3575l8 3575t32
+3465m7 Partial_Sig{57|67M9} 3472r10 3562r41
+3466p7 Sig_Len(42|89M9) 3472r47 3567r13
+3467m7 Share{57|67M9} 3473r10 3483r37
+3468m7 Message{57|67M9} 3473r41 3492r33
+3469m7 Msg_Len{42|89M9} 3474r10 3491r58
+3482a10 Share_Data{38|14A9} 3483m14 3483r14 3509r29
+3485a10 Verification_Dummy{38|14A9} 3510r29
+3487r10 Key_Share{53|64R9} 3513m29 3549r24
+3488b10 Import_Success{boolean} 3514m29 3517r17
+3491a10 Msg_In{38|14A9} 3492m14 3492r14 3538r24
+3495a10 Msg_Hash{33|38A12}
+3498a10 Dummy_PK{38|14A9} 3526r28
+3499r10 Group_Config{53|141R9} 3527m28 3537r24
+3500r10 Session{53|109R9} 3539m24 3550r24
+3501r10 Partial{53|90R9} 3551m24 3565r35
+3502b10 Sign_Success{boolean} 3552m24 3555r17
+3503b10 Session_Success{boolean} 3540m24 3543r17
+3504b10 Group_Success{boolean} 3528m28 3531r17
+3505a10 Group_ID{38|14A9} 3523r28
+3561a13 Partial_Out{38|14A9} 3562m17 3562r17 3564r22 3565m16
+3564i17 I{integer} 3565r29 3565r52
+3577V13 Aegis_Sebek_Combine_Signatures{7|46I9} 3577b13 3578>7 3579^7 3580>7
+. 3581>7 3582>7 3612l8 3612t38
+3578m7 Combined_Sig{57|67M9} 3585r10 3597r34
+3579p7 Sig_Len(42|89M9) 3585r48 3605r10
+3580m7 Partials{57|67M9} 3586r10 3594r37
+3581m7 Indices{57|67M9} 3586r44
+3582m7 Count{42|89M9} 3586r77
+3593a10 Partial_In{38|14A9} 3594m14 3594r14 3600r28
+3596a10 Sig_Out{38|14A9} 3597m14 3597r14 3600m13 3603m13
+3599i14 I{integer} 3600r22 3600r40
+3602i14 I{integer} 3603r22
+3614V13 Aegis_Sebek_Verify{7|46I9} 3614b13 3615>7 3616>7 3617>7 3618>7 3619>7
+. 3620^7 3639l8 3639t26
+3615m7 Signature{57|67M9} 3623r10
+3616m7 Sig_Len{42|89M9}
+3617m7 Message{57|67M9} 3623r45
+3618m7 Msg_Len{42|89M9}
+3619m7 Combined_PK{57|67M9} 3624r10
+3620p7 Valid(42|93E9) 3624r47 3626r13 3627r13 3633r7 3637r10
+3645V13 Aegis_Maat_Generate_Block_Proof{7|46I9} 3645b13 3646>7 3647>7 3648>7
+. 3649>7 3650>7 3697l8 3697t39
+3646m7 Proof{57|67M9} 3653r10 3670r36
+3647m7 Signatures{57|67M9} 3653r41
+3648m7 Public_Keys{57|67M9} 3654r10
+3649m7 TX_Hashes{57|67M9} 3654r47 3676r41
+3650m7 Block_Height{41|84M9} 3690r40
+3661R15 C_Block_Proof 3666e20 3667r32 3669r22
+3662a13 Batch_Commits{38|14A9} 3679m29
+3663a13 Aggregated_Proof{38|14A9} 3686m23
+3664m13 Proof_Len{42|89M9} 3689m20
+3665m13 Block_Height_Out{41|84M9} 3690m20
+3669r10 Proof_Out{3661R15} 3670m14 3670r14 3679m19 3686m13 3689m10 3690m10
+3673i14 I{integer} 3676r69 3679r44
+3675a16 Hash_Src{38|14A9} 3676m20 3676r20 3679r59
+3678i20 J{integer} 3679r53 3679r69
+3685i14 I{integer} 3686r41
+3699V13 Aegis_Maat_Verify_Block_Proof{7|46I9} 3699b13 3700>7 3701>7 3702>7
+. 3703^7 3720l8 3720t37
+3700m7 Proof{57|67M9} 3706r10
+3701m7 Public_Keys{57|67M9}
+3702m7 TX_Hashes{57|67M9}
+3703p7 Valid(42|93E9) 3706r41 3707r13 3708r13 3714r7 3718r10
+3722V13 Aegis_Maat_Verify_Epoch_Proof{7|46I9} 3722b13 3723>7 3724>7 3725>7
+. 3726^7 3743l8 3743t37
+3723m7 Proof{57|67M9} 3729r10
+3724m7 Prev_State{57|67M9}
+3725m7 Expected_State{57|67M9}
+3726p7 Valid(42|93E9) 3729r41 3730r13 3731r13 3737r7 3741r10
+3749V13 Aegis_Tefnut_Generate_Proof{7|46I9} 3749b13 3750>7 3751^7 3752>7
+. 3753>7 3754>7 3755>7 3756>7 3807l8 3807t35
+3750m7 Proof{57|67M9} 3760r10 3787r36
+3751p7 Proof_Len(42|89M9) 3760r41 3800r10
+3752i7 Profile{42|59I9} 3758r28
+3753m7 Checkpoint{57|67M9} 3761r10 3779r32
+3754m7 Query_Key{57|67M9} 3761r46 3783r33
+3755m7 Query_Value{57|67M9}
+3756m7 Value_Len{42|89M9}
+3769R15 C_Checkpoint 3775e20 3776r32 3778r18
+3770m13 Block_Height{41|84M9}
+3771a13 State_Root{38|14A9} 3791r36 3792r41
+3772a13 Committee_Root{38|14A9}
+3773a13 Proof_Data{38|14A9}
+3774m13 Proof_Len_In{42|89M9}
+3778r10 CP_In{3769R15} 3779m14 3779r14 3791r30 3792r35
+3782a10 Key_In{38|14A9} 3783m14 3783r14 3791r55
+3786a10 Proof_Out{38|14A9} 3787m14 3787r14 3791m13 3792m13 3797m13
+3790i14 I{integer} 3791r24 3791r48 3791r63 3792r24 3792r53
+3796i14 I{integer} 3797r24 3797r49
+3809V13 Aegis_Tefnut_Verify_Proof{7|46I9} 3809b13 3810>7 3811>7 3812>7 3813>7
+. 3814>7 3815>7 3816^7 3833l8 3833t33
+3810m7 Checkpoint{57|67M9} 3819r10
+3811m7 Query_Key{57|67M9}
+3812m7 Query_Value{57|67M9}
+3813m7 Value_Len{42|89M9}
+3814m7 Proof{57|67M9}
+3815m7 Proof_Len{42|89M9}
+3816p7 Valid(42|93E9) 3819r46 3820r13 3821r13 3827r7 3831r10
+3839V13 Aegis_Sekhmet_Detect_Backend{42|59I9} 3839b13 3844l8 3844t36
+3846V13 Aegis_Sekhmet_NTT{7|46I9} 3846b13 3847>7 3848>7 3849>7 3863l8 3863t25
+3847m7 Data{57|67M9} 3853r10
+3848m7 Size{42|89M9} 3853r40
+3849b7 Inverse{42|93E9} 3851r28
+3865V13 Aegis_Sekhmet_Poly_Mul{7|46I9} 3865b13 3866>7 3867>7 3868>7 3869>7
+. 3901l8 3901t30
+3866m7 Result_Arr{57|67M9} 3872r10 3890r32
+3867m7 A{57|67M9} 3872r46 3884r31
+3868m7 B{57|67M9} 3873r10 3887r31
+3869m7 Size{42|89M9} 3873r37 3883r40 3886r40 3889r41 3892r33
+3880A15 U64_Arr(41|84M9)<integer> 3881r32 3883r17 3886r17 3889r18
+3883a10 A_In{3880A15} 3884m14 3884r14 3893r26
+3886a10 B_In{3880A15} 3887m14 3887r14 3893r37
+3889a10 R_Out{3880A15} 3890m14 3890r14 3893m13
+3892i14 I{integer} 3893r20 3893r32 3893r43
+3907V13 Aegis_Khepri_Deploy{7|46I9} 3907b13 3908>7 3909>7 3910>7 3911>7 3912>7
+. 3913>7 3914>7 3982l8 3982t27
+3908m7 Result_Ptr{57|67M9} 3918r10 3969r37
+3909m7 ELF_Binary{57|67M9} 3918r46 3928r33
+3910m7 ELF_Len{42|89M9} 3920r10 3927r58
+3911m7 Proof_Hash{57|67M9} 3919r10
+3912i7 Cert_Level{42|59I9} 3953r17 3954r20 3955r20 3973r35
+3913m7 Deployer{57|67M9} 3919r46 3932r38
+3914m7 Gas_Limit{41|84M9} 3916r28
+3927a10 ELF_In{38|14A9} 3928m14 3928r14 3941r24
+3931a10 Deployer_In{38|14A9} 3932m14 3932r14 3947r34
+3935a10 Contract_Addr{38|14A9} 3947m13 3971r38
+3936a10 Code_Hash{33|32A12} 3942m24 3947r54 3972r34
+3937m10 Gas_Used{41|84M9} 3952m10 3974r33
+3946i14 I{integer} 3947r28 3947r47 3947r65
+3960R18 C_Deploy_Result 3965e23 3966r35 3968r23
+3961a16 Contract_Addr{38|14A9} 3971m21
+3962a16 Code_Hash{38|14A9} 3972m21
+3963i16 Cert_Level{42|59I9} 3973m21
+3964m16 Gas_Used{41|84M9} 3974m21
+3968r13 Res_Out{3960R18} 3969m17 3969r17 3971m13 3972m13 3973m13 3974m13
+3984V13 Aegis_Khepri_Execute{7|46I9} 3984b13 3985>7 3986^7 3987^7 3988>7
+. 3989>7 3990>7 3991>7 3992>7 3993>7 4032l8 4032t28
+3985m7 Output{57|67M9} 3995r28
+3986p7 Output_Len(42|89M9) 4000r10 4025r10
+3987p7 Gas_Used(41|84M9) 4000r31 4024r10
+3988m7 Contract{57|67M9} 4001r10 4013r38
+3989m7 Function_Sel{57|67M9} 4001r44 4017r34
+3990m7 Func_Len{42|89M9} 4016r59
+3991m7 Args{57|67M9} 3996r28
+3992m7 Args_Len{42|89M9} 3997r28
+3993m7 Ctx{57|67M9} 3998r28
+4012a10 Contract_In{38|14A9} 4013m14 4013r14 4014r31
+4016a10 Func_In{38|14A9} 4017m14 4017r14 4018r31
+4021m10 Base_Gas{41|84M9} 4024r26
+4034V13 Aegis_Khepri_Verify_Certification{7|46I9} 4034b13 4035>7 4036>7 4037>7
+. 4038^7 4087l8 4087t41
+4035m7 Code_Hash{57|67M9} 4042r10 4055r34
+4036m7 Proof_Hash{57|67M9} 4042r45 4058r35
+4037i7 Claimed_Level{42|59I9} 4040r28
+4038p7 Verified(42|93E9) 4043r10 4045r13 4046r13 4076r10 4083r13 4084r13
+4054a10 Code_In{38|14A9} 4055m14 4055r14 4067r40
+4057a10 Proof_In{38|14A9} 4058m14 4058r14 4067r56 4068r16
+4062b10 Valid{boolean} 4069m16 4074m10 4074r19 4076r30
+4063m10 Xor_Check{38|13M12} 4067m13 4067r26 4074r30
+4066i14 I{integer} 4067r49 4067r66 4068r26
+X 13 aegis_vm_types.ads
+21K9*Aegis_VM_Types 8|22w6 22r26 978r17 980r19 983r27 1118r27 1565r21 1566r25
+. 1582r35 1643r21 1644r24 1660r35 1661r38 1782r21 1790r35 1866r21 1868r25
+. 1876r35 1948r22 13|279e19
+31M12*Byte{41|70M9} 8|983r42 1118r42
+35M12*Word64{41|84M9} 8|1582r50 1660r50 1661r53 1790r50 1876r50
+39A9*U256_Limbs(35M12)<integer>
+41R9*U256 8|1565r36 1566r40 1643r36 1644r39 1782r36 1866r36 1868r40 13|43e14
+42a7*Limbs{39A9} 8|1582m22 1604r84 1660m22 1661m25 1790m22 1876m22 1914r84
+46r4*U256_Zero{41R9} 8|1016r27 1017r27 1018r27 1019r27 1165r27 1166r27 1167r27
+. 1168r27
+70A9*Contract_Address(31M12)<integer> 8|978r32 980r34 1114r57 1115r19 1948r37
+84E9*Certification_Level 8|988r54 1123r54 13|84e64
+84n33*Bronze{84E9} 8|991r30 995r35 1126r30 1130r35
+84n41*Silver{84E9} 8|992r30 1127r30
+84n49*Gold{84E9} 8|993r30 1128r30
+84n55*Platinum{84E9} 8|994r30 1129r30
+101I9*Gas_Amount<long_integer> 8|1001r21 1015r27 1136r21 1164r27
+206R9*Execution_Result 8|1000r21 1135r21 13|210e14
+X 14 anubis_address.ads
+38K9*Anubis_Address 8|27w6 749r18 753r7 802r10 14|100e19
+44V13*Create_Address{16|89R9} 8|749s33
+55U14*Format_Address 8|753s22
+67U14*Parse_Address 8|802s25
+X 15 anubis_address_derive.ads
+30K9*Anubis_Address_Derive 8|29w6 746r20 15|68e26
+37A9*Public_Key_Bytes(41|70M9)<integer> 8|746r42
+X 16 anubis_address_types.ads
+28K9*Anubis_Address_Types 8|28w6 28r32 712r14 739r49 785r14 829r15 16|136e25
+37E9*Network_Type 8|706r13 16|43e5
+38n7*Main{37E9} 8|725r43 817r15
+39n7*Test{37E9} 8|726r43 818r15
+40n7*Dev{37E9} 8|727r43 819r15
+41n7*Lab{37E9} 8|728r43 820r15
+42n7*Staging{37E9} 8|729r43 821r15
+46E9*Entity_Type 8|709r16 16|51e5
+47n7*User{46E9} 8|736r49 826r15
+48n7*Contract{46E9} 8|737r49 827r15
+49n7*Validator{46E9} 8|738r49 828r15
+50n7*System{46E9} 8|739r70 829r36
+56I12*Account_ID_Index{natural} 8|811r16
+57A9*Account_ID(41|70M9)<integer>
+86A12*Address_String{string}<integer> 8|713r18
+89R9*Address 8|712r35 785r35 16|94e14
+90e7*Network{37E9} 8|816r17
+91e7*Entity{46E9} 8|825r17
+92a7*Account{57A9} 8|812r32
+93b7*Valid{boolean} 8|806r19
+X 21 anubis_eye.ads
+16K9*Anubis_Eye 8|40w6 2658r20 2661r19 2663r10 2670r42 2671r42 2672r42 2673r42
+. 2674r47 2706r20 2710r18 2713r17 2716r22 2733r10 2748r56 2752r51 2791r18
+. 2794r21 2815r29 2816r30 2823r20 21|218e15
+27N4*Disclosure_Proof_Size 8|2748r67 2752r62 2815r40 2816r41
+35n7*Full_View{34E9} 8|2670r53
+36n7*Balance_View{34E9} 8|2671r53
+37n7*Existence_View{34E9} 8|2672r53
+38n7*Audit_View{34E9} 8|2673r53
+39n7*Custom_View{34E9} 8|2674r58
+42A12*Viewing_Key{38|14A9}<integer> 8|2658r31 2706r31
+47R9*View_Key_Bundle 8|2661r30 21|52e14
+48a7*Full_Key{42A12} 8|2678r28
+51e7*Key_Type{34E9} 8|2670m30 2671m30 2672m30 2673m30 2674m35
+56A9*Attribute_Array(55A12)<integer>
+59A9*Attribute_Input_Array(55A12)<integer> 8|2710r29 2791r29
+64R9*Attribute_Credential 8|2713r28 21|70e14
+65a7*Attrs{56A9} 8|2727m21
+66i7*Attr_Count{natural} 8|2720m15
+73R9*Disclosure_Proof 8|2716r33 2794r32 21|77e14
+74a7*Proof_Data{38|14A9} 8|2751r37 2817m28
+75m7*Disclosed_Mask{41|81M9} 8|2814m22
+84U14*Derive_View_Keys 8|2663s21
+85a7 Master_Seed{38|14A9} 8|2664r13
+86r7 Bundle{47R9} 8|2665r13
+166U14*Create_Disclosure_Proof 8|2733s21
+167r7 Credential{64R9} 8|2734r13
+168a7 Holder_Secret{38|14A9} 8|2735r13
+169m7 Disclose_Mask{41|81M9} 8|2736r13
+170a7 Challenge{38|14A9} 8|2737r13
+171r7 Proof{73R9} 8|2738r13
+172b7 Success{boolean} 8|2739r13
+178V13*Verify_Disclosure{boolean} 8|2823s31
+179r7 Proof{73R9} 8|2824r13
+180a7 Disclosed_Attrs{59A9} 8|2825r13
+181a7 Issuer_PK{38|14A9} 8|2826r13
+182a7 Challenge{38|14A9} 8|2827r13
+X 23 anubis_gate.ads
+14K9*Anubis_Gate 8|41w6 2880r25 2899r13 2996r23 3011r10 3077r23 3082r49 3093r10
+. 23|296e16
+22N4*Max_Private_State 8|3082r61
+43R9*Private_State 8|2996r35 3077r35 23|48e14
+44a7*Ciphertext{38|14A9} 8|3030r42 3089m24
+45i7*CT_Length{natural} 8|3025r53 3087m21
+89R9*Private_Session 8|2880r37 23|96e14
+90a7*Session_ID{38|14A9} 8|2930r52
+91a7*Contract_Addr{38|14A9} 8|2931r52
+92a7*Shared_Secret{38|14A9} 8|2935r52
+95m7*Expires_At{41|84M9} 8|2936r52
+114U14*Encrypt_State 8|3011s22
+115a7 Plaintext{38|14A9} 8|3012r13
+116a7 Contract_Key{38|14A9} 8|3013r13
+117a7 Nonce{38|14A9} 8|3014r13
+118r7 State{43R9} 8|3015r13
+119b7 Success{boolean} 8|3016r13
+127U14*Decrypt_State 8|3093s22
+128r7 State{43R9} 8|3094r13
+129a7 Contract_Key{38|14A9} 8|3095r13
+130a7 Plaintext{38|14A9} 8|3096r13
+131i7 PT_Length{natural} 8|3097r13
+132b7 Success{boolean} 8|3098r13
+168U14*Create_Session 8|2899s25
+169a7 Contract_Addr{38|14A9} 8|2900r16
+170a7 User_KEM_SK{38|14A9} 8|2901r16
+171a7 Contract_KEM_PK{38|14A9} 8|2902r16
+172a7 Randomness{38|14A9} 8|2903r16
+173r7 Session{89R9} 8|2904r16
+174b7 Success{boolean} 8|2905r16
+X 25 anubis_lattice_zk.ads
+24K9*Anubis_Lattice_ZK 8|42w6 3258r19 3279r10 3282r13 25|435e22
+112R9*Public_Params 8|3258r37 25|115e14
+118U14*Setup 8|3279s28
+119a7 Seed{38|14A9} 8|3279r35
+120r7 Params{112R9} 8|3279r49
+126V13*Verify_Params{boolean} 8|3282s31
+X 26 anubis_mldsa.ads
+22K9*Anubis_MLDSA 8|18w6 144r13 147r10 182r41 197r10 242r41 258r22 26|76e17
+32U14*KeyGen 8|144s26 147s23
+41N4*Max_Msg_Length 8|182r54 242r54
+51U14*Sign 8|197s23
+68V13*Verify{boolean} 8|258s35
+X 29 anubis_mldsa_types.ads
+14K9*Anubis_MLDSA_Types 8|19w6 120r35 121r33 122r33 142r34 163r33 164r34
+. 192r33 219r33 220r34 29|64e23
+37A12*Seed{38|14A9}<integer> 8|120r54 142r53 192r52
+57A12*Public_Key{38|14A9}<integer> 8|121r52 219r52
+58A12*Secret_Key{38|14A9}<integer> 8|122r52 163r52
+59A12*Signature{38|14A9}<integer> 8|164r53 220r53
+X 30 anubis_mlkem.ads
+31K9*Anubis_MLKEM 8|20w6 301r13 308r13 350r13 356r13 391r7 30|133e17
+46U14*KeyGen 8|301s26 308s26
+67U14*Encaps 8|350s26 356s26
+87U14*Decaps 8|391s20
+X 31 anubis_mlkem_types.ads
+26K9*Anubis_MLKEM_Types 8|21w6 277r33 278r33 279r35 298r31 299r31 306r31
+. 324r33 325r33 326r33 327r35 348r31 371r33 372r33 373r33 31|94e23
+69A12*Seed{38|14A9}<integer> 8|279r54 298r50 299r50 306r50 327r54 348r50
+72A12*Shared_Secret{38|14A9}<integer> 8|325r52 372r52
+75A12*Encapsulation_Key{38|14A9}<integer> 8|277r52 324r52
+76A12*Decapsulation_Key{38|14A9}<integer> 8|278r52 371r52
+77A12*MLKEM_Ciphertext{38|14A9}<integer> 8|326r52 373r52
+X 33 anubis_sha3.ads
+27K9*Anubis_SHA3 8|17w6 413r21 422r10 431r13 456r21 464r10 473r13 499r21
+. 508r10 518r13 559r13 565r16 602r13 608r16 638r18 676r7 2329r10 3495r21
+. 3936r22 3940r10 33|158e16
+32A12*SHA3_256_Digest{38|14A9}<integer> 8|413r33 499r33 638r30 3936r34
+38A12*SHA3_512_Digest{38|14A9}<integer> 8|456r33 3495r33
+57U14*SHA3_256 8|422s22 431s25 676s19 2329s22 3940s22
+58a7 Message{38|14A9} 8|3941r13
+59a7 Digest{32A12} 8|3942r13
+76U14*SHA3_512 8|464s22 473s25
+87U14*Keccak_256 8|508s22 518s25
+97U14*SHAKE128 8|559s25 565s28
+109U14*SHAKE256 8|602s25 608s28
+X 34 anubis_shield.ads
+18K9*Anubis_Shield 8|38w6 2079r47 2095r23 2096r23 2100r50 2100r81 2103r10
+. 2148r48 2158r23 2163r49 2175r10 2210r42 2222r23 2224r24 2227r10 34|198e18
+26N4*Max_Entry_Size 8|2079r61 2100r64 2148r62 2163r63 2210r56
+31N4*AEAD_Overhead 8|2100r95
+48A12*Commitment_Value{38|14A9}<integer> 8|2224r38
+50R9*Private_Entry 8|2095r37 2158r37 34|63e14
+52a7*Ciphertext{44A12} 8|2118r39 2172m24
+53i7*CT_Length{natural} 8|2117r35 2120r64 2170m21
+66R9*Entry_Commitment 8|2096r37 2222r37 34|68e14
+67a7*Value{48A12} 8|2234r36
+93U14*Encrypt_State 8|2103s24
+94a7 Plaintext{38|14A9} 8|2104r13
+95a7 User_KEM_PK{38|14A9} 8|2105r13
+96a7 Randomness{38|14A9} 8|2106r13
+97r7 Priv_Entry{50R9} 8|2107r13
+98r7 Commitment{66R9} 8|2108r13
+99b7 Success{boolean} 8|2109r13
+111U14*Decrypt_State 8|2175s24
+112r7 Priv_Entry{50R9} 8|2176r13
+113a7 User_KEM_SK{38|14A9} 8|2177r13
+114a7 Plaintext{38|14A9} 8|2178r13
+115i7 PT_Length{natural} 8|2179r13
+116b7 Success{boolean} 8|2180r13
+178U14*Create_Commitment 8|2227s24
+179a7 Plaintext{38|14A9} 8|2228r13
+180a7 Randomness{38|14A9} 8|2229r13
+181r7 Commitment{66R9} 8|2230r13
+X 36 anubis_stark_fri.ads
+14K9*Anubis_STARK_FRI 8|43w6 3156r22 3159r26 3162r26 3176r27 3218r23 36|292e21
+40A12*Hash_Value{38|14A9}<integer> 8|3156r39 3159r43 3162r43
+43A9*Hash_Array(40A12)<integer>
+84R9*FRI_Proof 8|3176r44 36|97e14
+86a7*Commits{43A9} 8|3213m31
+87i7*Num_Rounds{natural} 8|3215m28
+207V13*FRI_Verify{boolean} 8|3218s40
+208r7 Proof{84R9} 8|3219r16
+209a7 Commitment{40A12} 8|3220r16
+210a7 Transcript{38|14A9} 8|3221r16
+X 38 anubis_types.ads
+5K9*Anubis_Types 8|16w6 188r22 189r37 249r22 250r37 409r47 414r30 428r27
+. 452r47 457r30 470r27 495r47 500r30 514r27 539r30 555r25 562r30 582r30 598r25
+. 605r30 628r45 637r18 661r30 663r42 667r20 780r45 1727r30 1812r32 1891r29
+. 2085r20 2088r24 2092r22 2100r20 2154r24 2160r20 2163r19 2216r22 2219r22
+. 2269r22 2310r20 2313r22 2317r18 2318r21 2368r23 2470r28 2475r29 2480r27
+. 2484r28 2488r22 2534r26 2578r28 2583r29 2587r23 2655r24 2714r35 2715r31
+. 2724r27 2748r26 2787r20 2795r31 2801r27 2810r26 2865r22 2870r25 2873r29
+. 2877r23 2892r35 2916r32 2917r32 2918r32 2919r32 2969r29 2970r29 2971r29
+. 2972r29 2985r22 2988r22 2992r27 3003r28 3026r23 3062r29 3063r29 3064r29
+. 3065r29 3078r20 3082r19 3107r23 3169r23 3172r23 3189r30 3201r31 3261r22
+. 3265r17 3325r23 3338r26 3342r25 3346r26 3350r27 3386r22 3388r25 3428r21
+. 3482r23 3485r31 3491r19 3498r21 3505r21 3561r27 3593r23 3596r20 3662r31
+. 3663r31 3675r27 3771r30 3772r30 3773r30 3782r19 3786r22 3797r30 3927r19
+. 3931r24 3935r26 3961r32 3962r32 4012r24 4016r20 4054r20 4057r21 4063r22
+. 38|40e17
+13M12*Byte{41|70M9} 8|409r60 452r60 495r60 628r58 661r43 663r55 780r58 1727r43
+. 3797r43 4063r35
+14A9*Byte_Array(13M12)<integer> 8|188r35 189r50 249r35 250r50 414r43 428r40
+. 457r43 470r40 500r43 514r40 539r43 555r38 562r43 582r43 598r38 605r43 637r31
+. 667r33 1812r45 1891r42 2085r33 2088r37 2092r35 2100r33 2154r37 2160r33
+. 2163r32 2216r35 2219r35 2269r35 2310r33 2313r35 2317r31 2318r34 2368r36
+. 2470r41 2475r42 2480r40 2484r41 2488r35 2534r39 2578r41 2583r42 2587r36
+. 2655r37 2714r48 2715r44 2724r40 2748r39 2787r33 2795r44 2801r40 2810r39
+. 2865r35 2870r38 2873r42 2877r36 2892r48 2916r45 2917r45 2918r45 2919r45
+. 2969r42 2970r42 2971r42 2972r42 2985r35 2988r35 2992r40 3003r41 3026r36
+. 3062r42 3063r42 3064r42 3065r42 3078r33 3082r32 3107r36 3169r36 3172r36
+. 3189r43 3201r44 3261r35 3265r30 3325r36 3338r39 3342r38 3346r39 3350r40
+. 3386r35 3388r38 3428r34 3482r36 3485r44 3491r32 3498r34 3505r34 3561r40
+. 3593r36 3596r33 3662r44 3663r44 3675r40 3771r43 3772r43 3773r43 3782r32
+. 3786r35 3927r32 3931r37 3935r39 3961r45 3962r45 4012r37 4016r33 4054r33
+. 4057r34
+X 39 anubis_whisper.ads
+16K9*Anubis_Whisper 8|39w6 2263r26 2266r23 2273r10 2307r24 2359r26 2362r24
+. 2365r22 2368r53 2371r10 2388r48 2411r44 2418r24 2421r23 2426r22 2469r23
+. 2474r24 2479r22 2483r23 2518r10 2577r23 2582r24 2591r23 2592r32 2610r10
+. 2617r20 39|236e19
+30N4*Range_Proof_Size 8|2368r68 2388r63 2411r59
+40A12*Amount_Commitment{38|14A9}<integer> 8|2266r38 2307r39 2362r39 2418r39
+. 2591r38
+43A12*Blinding_Factor{38|14A9}<integer> 8|2263r41 2359r41 2592r47
+46A12*Range_Proof{38|14A9}<integer> 8|2365r37 2421r38
+49A9*Commitment_Array(40A12)<integer> 8|2469r38 2474r39 2577r38 2582r39
+51A9*Blinding_Array(43A12)<integer> 8|2479r37 2483r38
+88U14*Create_Commitment 8|2273s25 2610s25
+89m7 Value{41|84M9} 8|2274r13 2611r13
+90a7 Blinding{43A12} 8|2275r13 2612r13
+91a7 Commitment{40A12} 8|2276r13 2613r13
+122U14*Create_Range_Proof 8|2371s25
+123m7 Value{41|84M9} 8|2372r13
+124i7 Bits{natural} 8|2373r13
+125a7 Blinding{43A12} 8|2374r13
+126a7 Commitment{40A12} 8|2375r13
+127a7 Proof{46A12} 8|2376r13
+128b7 Success{boolean} 8|2377r13
+134V13*Verify_Range_Proof{boolean} 8|2426s37
+135a7 Commitment{40A12} 8|2427r13
+136a7 Proof{46A12} 8|2428r13
+137i7 Bits{natural} 8|2429r13
+183U14*Create_Balance_Proof 8|2518s25
+184a7 Input_Commits{49A9} 8|2519r13
+185a7 Output_Commits{49A9} 8|2520r13
+186a7 Input_Blindings{51A9} 8|2521r13
+187a7 Output_Blindings{51A9} 8|2522r13
+188m7 Fee{41|84M9} 8|2523r13
+189a7 Proof{38|14A9} 8|2524r13
+190b7 Success{boolean} 8|2525r13
+197V13*Verify_Balance_Proof{boolean} 8|2617s35
+198a7 Input_Commits{49A9} 8|2618r13
+199a7 Output_Commits{49A9} 8|2619r13
+200a7 Fee_Commit{40A12} 8|2620r13
+201a7 Proof{38|14A9} 8|2621r13
+X 41 interfac.ads
+38K9*Interfaces 7|22r6 22r31 23r6 46r28 57r27 71r28 94r51 98r39 102r39 106r41
+. 123r22 124r22 125r22 126r22 127r22 129r22 143r34 159r27 161r20 168r20 170r20
+. 172r27 209r16 216r16 223r16 229r20 231r20 237r20 239r20 266r20 273r27 275r20
+. 276r20 283r20 285r27 286r27 303r19 314r22 315r22 316r22 324r18 332r20 334r20
+. 336r27 337r27 347r23 349r23 351r23 353r30 355r30 356r30 364r19 366r19 374r19
+. 376r26 386r23 396r18 403r18 405r18 407r18 408r25 447r26 457r19 458r26 474r18
+. 476r25 486r13 493r13 494r13 503r31 505r24 513r31 515r24 524r20 535r18 550r27
+. 552r20 560r20 561r27 567r35 569r28 571r28 572r28 582r28 584r28 585r28 587r28
+. 588r35 599r21 600r21 606r31 608r24 610r24 616r24 618r24 620r24 621r31 634r23
+. 635r23 636r23 642r30 646r23 652r30 655r23 668r24 670r24 672r24 673r31 679r19
+. 681r19 682r26 708r9 717r22 718r22 719r22 722r23 723r23 728r22 8|13w6 13r22
+. 105r34 107r14 158r27 160r20 182r20 201r25 213r20 215r20 217r27 236r21 237r23
+. 242r20 243r23 259r23 406r16 449r16 491r16 535r20 537r20 578r20 580r20 626r20
+. 695r27 697r20 698r20 760r21 774r20 776r27 777r27 817r41 818r41 819r41 820r41
+. 821r41 826r45 827r45 828r45 830r30 874r19 907r22 908r22 909r22 966r20 968r20
+. 970r27 971r27 1028r26 1043r23 1061r18 1072r21 1099r23 1101r23 1103r23 1105r30
+. 1107r30 1108r30 1177r26 1193r23 1194r26 1207r19 1209r19 1310r19 1312r26
+. 1358r36 1408r23 1482r18 1489r21 1506r18 1508r18 1510r18 1511r25 1529r32
+. 1604r43 1742r36 1759r26 1841r19 1842r26 1914r43 1919r23 1978r18 1980r25
+. 1982r22 2012r13 2014r61 2031r13 2032r13 2033r61 2038r14 2041r17 2050r17
+. 2052r17 2062r31 2064r24 2079r26 2120r32 2131r31 2133r24 2148r27 2187r31
+. 2198r20 2210r21 2249r18 2343r27 2345r20 2388r27 2400r20 2401r27 2411r23
+. 2412r23 2432r23 2442r35 2444r28 2446r28 2447r28 2523r32 2538r30 2550r28
+. 2552r28 2553r28 2555r28 2556r35 2566r26 2611r27 2624r23 2630r26 2642r21
+. 2643r21 2689r31 2691r24 2693r24 2736r30 2752r30 2764r24 2766r24 2768r24
+. 2769r31 2777r26 2814r40 2830r23 2836r26 2850r23 2851r23 2852r23 2920r32
+. 2921r32 2922r32 2923r32 2938r39 2951r30 2955r23 2973r29 2974r29 2975r29
+. 2976r29 3032r34 3044r30 3047r23 3066r29 3067r29 3068r29 3069r29 3113r34
+. 3132r24 3134r24 3136r24 3137r31 3148r26 3225r23 3231r26 3238r19 3240r19
+. 3241r26 3251r26 3283r26 3285r26 3293r26 3304r28 3308r21 3400r30 3412r21
+. 3415r21 3416r28 3421r26 3441r26 3447r26 3449r26 3456r23 3466r28 3469r21
+. 3567r28 3579r29 3582r22 3616r21 3618r21 3620r28 3627r26 3633r20 3637r23
+. 3650r22 3664r31 3665r31 3703r28 3708r26 3714r20 3718r23 3726r31 3731r26
+. 3737r20 3741r23 3751r29 3752r22 3756r22 3770r30 3774r30 3813r21 3815r21
+. 3816r28 3821r26 3827r20 3831r23 3839r49 3848r17 3849r17 3869r20 3880r54
+. 3910r20 3912r20 3914r20 3937r21 3952r30 3963r32 3964r32 3986r28 3987r28
+. 3990r21 3992r21 4021r30 4037r22 4038r29 4046r29 4076r41 4077r32 4084r29
+. 41|233e15
+70M9*Unsigned_8 8|1881r29 2014r72 2033r72 2038r25
+81M9*Unsigned_32 8|2736r41 2814r51
+84M9*Unsigned_64 8|2274r27 2372r27 2523r43 2611r38 2920r43 2921r43 2922r43
+. 2938r50 2973r40 2974r40 2975r40 3066r40 3067r40 3068r40 3650r33 3665r42
+. 3770r41 3880r65 3914r31 3937r32 3952r41 3964r43 3987r39 4021r41
+X 42 i-c.ads
+30K20*C 7|22w17 22r42 23r17 46r39 57r38 71r39 94r62 98r50 102r50 106r52 123r33
+. 124r33 125r33 126r33 127r33 129r33 143r45 159r38 161r31 168r31 170r31 172r38
+. 209r27 216r27 223r27 229r31 231r31 237r31 239r31 266r31 273r38 275r31 276r31
+. 283r31 285r38 286r38 303r30 314r33 315r33 316r33 324r29 332r31 334r31 336r38
+. 337r38 347r34 349r34 351r34 353r41 355r41 356r41 364r30 366r30 374r30 376r37
+. 386r34 396r29 403r29 405r29 407r29 408r36 447r37 457r30 458r37 474r29 476r36
+. 486r24 493r24 494r24 503r42 505r35 513r42 515r35 524r31 535r29 550r38 552r31
+. 560r31 561r38 567r46 569r39 571r39 572r39 582r39 584r39 585r39 587r39 588r46
+. 599r32 600r32 606r42 608r35 610r35 616r35 618r35 620r35 621r42 634r34 635r34
+. 636r34 642r41 646r34 652r41 655r34 668r35 670r35 672r35 673r42 679r30 681r30
+. 682r37 708r20 717r33 718r33 719r33 722r34 723r34 728r33 8|105r45 107r25
+. 158r38 160r31 182r31 201r36 213r31 215r31 217r38 236r32 237r34 242r31 243r34
+. 259r34 406r27 449r27 491r27 535r31 537r31 578r31 580r31 626r31 695r38 697r31
+. 698r31 760r32 774r31 776r38 777r38 817r52 818r52 819r52 820r52 821r52 826r56
+. 827r56 828r56 830r41 874r30 907r33 908r33 909r33 966r31 968r31 970r38 971r38
+. 1028r37 1043r34 1061r29 1072r32 1099r34 1101r34 1103r34 1105r41 1107r41
+. 1108r41 1177r37 1193r34 1194r37 1207r30 1209r30 1310r30 1312r37 1358r47
+. 1408r34 1482r29 1489r32 1506r29 1508r29 1510r29 1511r36 1529r43 1604r54
+. 1742r47 1759r37 1841r30 1842r37 1914r54 1919r34 1978r29 1980r36 1982r33
+. 2012r24 2031r24 2032r24 2041r28 2050r28 2052r28 2062r42 2064r35 2079r37
+. 2120r43 2131r42 2133r35 2148r38 2187r42 2198r31 2210r32 2249r29 2343r38
+. 2345r31 2388r38 2400r31 2401r38 2411r34 2412r34 2432r34 2442r46 2444r39
+. 2446r39 2447r39 2538r41 2550r39 2552r39 2553r39 2555r39 2556r46 2566r37
+. 2624r34 2630r37 2642r32 2643r32 2689r42 2691r35 2693r35 2752r41 2764r35
+. 2766r35 2768r35 2769r42 2777r37 2830r34 2836r37 2850r34 2851r34 2852r34
+. 2923r43 2951r41 2955r34 2976r40 3032r45 3044r41 3047r34 3069r40 3113r45
+. 3132r35 3134r35 3136r35 3137r42 3148r37 3225r34 3231r37 3238r30 3240r30
+. 3241r37 3251r37 3283r37 3285r37 3293r37 3304r39 3308r32 3400r41 3412r32
+. 3415r32 3416r39 3421r37 3441r37 3447r37 3449r37 3456r34 3466r39 3469r32
+. 3567r39 3579r40 3582r33 3616r32 3618r32 3620r39 3627r37 3633r31 3637r34
+. 3664r42 3703r39 3708r37 3714r31 3718r34 3726r42 3731r37 3737r31 3741r34
+. 3751r40 3752r33 3756r33 3774r41 3813r32 3815r32 3816r39 3821r37 3827r31
+. 3831r34 3839r60 3848r28 3849r28 3869r31 3910r31 3912r31 3963r43 3986r39
+. 3990r32 3992r32 4037r33 4038r40 4046r40 4076r52 4077r43 4084r40 42|598e17
+59I9*int<integer> 7|46r41 57r40 71r41 129r35 266r33 275r33 276r33 285r40
+. 286r40 494r26 599r34 634r36 8|626r33 697r33 698r33 776r40 777r40 817r54
+. 818r54 819r54 820r54 821r54 826r58 827r58 828r58 830r43 2032r26 2041r30
+. 2050r30 2052r30 2642r34 2850r36 2923r45 2976r42 3069r42 3752r35 3839r62
+. 3912r33 3963r45 4037r35
+61I9*long<long_integer> 7|126r35 127r35
+70M9*unsigned_long 7|106r54 123r35 124r35 125r35 303r32 314r35 315r35 316r35
+. 337r40 356r43 386r36 408r38 474r31 476r38 535r31 552r33 572r41 585r41 600r34
+. 608r37 616r37 635r36 636r36 717r35 718r35 719r35 722r36 723r36 8|874r32
+. 907r35 908r35 909r35 971r40 1028r39 1043r36 1108r43 1177r39 1193r36 1194r39
+. 1408r36 1511r38 1529r45 1604r56 1914r56 1978r31 1980r38 1982r35 2249r31
+. 2345r33 2447r41 2553r41 2643r34 2691r37 2764r37 2851r36 2852r36
+73M9*unsigned_char 7|94r64 98r52 102r52 708r22 8|1742r49
+89M9*size_t 7|159r40 161r33 168r33 170r33 209r29 216r29 223r29 229r33 231r33
+. 237r33 239r33 273r40 283r33 324r31 332r33 334r33 336r40 347r36 349r36 351r36
+. 353r43 355r43 364r32 366r32 374r32 376r39 396r31 403r31 405r31 407r31 447r39
+. 457r32 486r26 493r26 503r44 505r37 513r44 515r37 524r33 550r40 560r33 567r48
+. 569r41 571r41 582r41 584r41 587r41 606r44 610r37 618r37 620r37 642r43 646r36
+. 652r43 655r36 668r37 670r37 672r37 679r32 681r32 728r35 8|158r40 160r33
+. 182r33 201r38 213r33 215r33 236r34 242r33 406r29 449r29 491r29 535r33 537r33
+. 578r33 580r33 695r40 760r34 774r33 966r33 968r33 970r40 1061r31 1072r34
+. 1099r36 1101r36 1103r36 1105r43 1107r43 1207r32 1209r32 1310r32 1312r39
+. 1358r49 1482r31 1489r34 1506r31 1508r31 1510r31 1759r39 1841r32 2012r26
+. 2031r26 2062r44 2064r37 2079r39 2120r45 2131r44 2133r37 2148r40 2187r44
+. 2198r33 2210r34 2343r40 2388r40 2400r33 2411r36 2442r48 2444r41 2446r41
+. 2538r43 2550r41 2552r41 2555r41 2689r44 2693r37 2752r43 2766r37 2768r37
+. 2951r43 2955r36 3032r47 3044r43 3047r36 3113r47 3132r37 3134r37 3136r37
+. 3238r32 3240r32 3304r41 3308r34 3400r43 3412r34 3415r34 3466r41 3469r34
+. 3567r41 3579r42 3582r35 3616r34 3618r34 3664r44 3751r42 3756r35 3774r43
+. 3813r34 3815r34 3848r30 3869r33 3910r33 3986r41 3990r34 3992r34
+93B9*C_bool<boolean> 7|172r40 458r39 561r40 588r48 621r44 673r44 682r39 8|217r40
+. 237r36 243r36 259r36 1842r39 1919r36 2401r40 2412r36 2432r36 2556r48 2566r39
+. 2624r36 2630r39 2769r44 2777r39 2830r36 2836r39 3137r44 3148r39 3225r36
+. 3231r39 3241r39 3251r39 3283r39 3285r39 3293r39 3416r41 3421r39 3441r39
+. 3447r39 3449r39 3456r36 3620r41 3627r39 3633r33 3637r36 3703r41 3708r39
+. 3714r33 3718r36 3726r44 3731r39 3737r33 3741r36 3816r41 3821r39 3827r33
+. 3831r36 3849r30 4038r42 4046r42 4076r54 4077r45 4084r42
+X 43 i-cstrin.ads
+44K22*Strings 7|23w19 143r47 8|105r47 107r27 43|154e25
+60P9*chars_ptr 7|143r55 8|105r55
+78V13*New_String{60P9} 8|107s35
+X 45 khepri_mpt_types.ads
+13K9*Khepri_MPT_Types 8|32w6 32r28 1739r36 1867r21 45|211e21
+61A9*Hash_256(41|70M9)<integer> 8|1739r53 1867r38
+151R9*Merkle_Proof 8|1785r29 1872r21 45|157e14
+153i7*Depth{natural} 8|1885m19
+156b7*Exists{boolean} 8|1816r39 1886m19 1894m25
+X 46 khepri_registry.ads
+26K9*Khepri_Registry 8|35w6 1951r22 1954r23 1958r18 1960r18 1962r18 1964r18
+. 1966r18 46|352e20
+36E9*Certification_Level 8|1951r38 46|42e5
+37n7*Level_None{36E9} 8|1958r34
+38n7*Level_Bronze{36E9} 8|1960r34
+39n7*Level_Silver{36E9} 8|1962r34
+40n7*Level_Gold{36E9} 8|1964r34
+41n7*Level_Platinum{36E9} 8|1966r34
+196V13*Get_Level{36E9} 8|1954s39
+X 47 khepri_storage_trie.ads
+16K9*Khepri_Storage_Trie 8|33w6 33r31 1570r23 1648r24 47|210e24
+32I9*Storage_ID<integer> 8|1568r20 1646r20 1723r20 1784r20
+33i4*Null_Storage{32I9} 8|1588r23 1667r23 1733r23 1796r23
+39E9*Storage_Error 8|1570r43 1648r44 47|45e5
+52U14*Create_Storage 8|1669s13
+53a7 Contract{48|43A12} 8|1670r16
+54i7 Storage{32I9} 8|1671r16
+55b7 Success{boolean} 8|1672r16
+79U14*SLoad 8|1593s13
+80i7 Storage{32I9} 8|1594r16
+81r7 Slot{13|41R9} 8|1595r16
+82r7 Value{13|41R9} 8|1596r16
+83b7 Success{boolean} 8|1597r16
+84e7 Error{39E9} 8|1598r16
+89U14*SStore 8|1681s10
+90i7 Storage{32I9} 8|1682r13
+91r7 Slot{13|41R9} 8|1683r13
+92r7 Value{13|41R9} 8|1684r13
+93b7 Success{boolean} 8|1685r13
+94e7 Error{39E9} 8|1686r13
+122V13*Get_Root{45|61A9} 8|1739s65
+183U14*Generate_Storage_Proof 8|1801s13
+184i7 Storage{32I9} 8|1802r16
+185r7 Slot{13|41R9} 8|1803r16
+186r7 Proof{45|151R9} 8|1804r16
+187b7 Success{boolean} 8|1805r16
+192U14*Verify_Storage_Proof 8|1899s10
+193a7 Root{45|61A9} 8|1900r13
+194r7 Slot{13|41R9} 8|1901r13
+195r7 Proof{45|151R9} 8|1902r13
+196r7 Value{13|41R9} 8|1903r13
+197b7 Valid{boolean} 8|1904r13
+206V13*Find_Storage{32I9} 8|1586s21 1665s21 1731s21 1794s21
+X 48 khepri_types.ads
+25K9*Khepri_Types 8|34w6 1561r22 1639r22 1722r22 1775r22 48|345e17
+43A12*Address{13|70A9}<integer> 8|1561r35 1639r35 1722r35 1775r35
+X 49 scarab_aadkg.ads
+17K9*Scarab_AADKG 8|48w6 49|337e17
+X 50 scarab_horus.ads
+18K9*Scarab_Horus 8|49w6 50|362e17
+X 51 scarab_khnum.ads
+23K9*Scarab_Khnum 8|46w6 3320r18 3321r20 3328r10 3359r16 3374r10 3391r13
+. 3431r20 3434r10 3446r13 51|424e17
+69R9*Aggregation_Batch 8|3320r31 51|75e14
+78R9*Aggregated_Signature 8|3321r33 3431r33 51|97e14
+137U14*Init_Batch 8|3328s23
+138r7 Batch{69R9} 8|3329r13
+139a7 Domain_Sep{38|14A9} 8|3330r13
+140m7 Block_Height{41|84M9} 8|3331r13
+147U14*Add_Signature 8|3359s29
+148r7 Batch{69R9} 8|3360r19
+149a7 Signer_PK{38|14A9} 8|3361r19
+150a7 Message_Hash{38|14A9} 8|3362r19
+151a7 Signature{38|14A9} 8|3363r19
+152b7 Success{boolean} 8|3364r19
+214U14*Aggregate 8|3374s23
+215r7 Batch{69R9} 8|3375r13
+216r7 Agg_Sig{78R9} 8|3376r13
+217b7 Success{boolean} 8|3377r13
+251V13*Verify_Aggregated{boolean} 8|3446s26
+355U14*Serialize 8|3391s26
+356r7 Agg_Sig{78R9} 8|3392r16
+357a7 Output{38|14A9} 8|3393r16
+358i7 Length{natural} 8|3394r16
+364U14*Deserialize 8|3434s23
+365a7 Input{38|14A9} 8|3435r13
+366r7 Agg_Sig{78R9} 8|3436r13
+367b7 Success{boolean} 8|3437r13
+X 52 scarab_maat.ads
+21K9*Scarab_Maat 8|51w6 52|400e16
+X 53 scarab_sebek.ads
+26K9*Scarab_Sebek 8|47w6 3482r53 3485r61 3487r22 3498r51 3499r25 3500r20
+. 3501r20 3508r10 3522r10 3536r10 3548r10 3561r57 3567r49 53|558e17
+40N4*MLDSA_PK_Size 8|3498r64
+45N4*Partial_Sig_Size 8|3561r70 3567r62
+48N4*Share_Size 8|3482r66
+51N4*Commitment_Size 8|3485r74
+60I12*Signer_Index{natural}
+61I12*Threshold_Value{natural}
+64R9*Key_Share 8|3487r35 53|70e14
+90R9*Partial_Signature 8|3501r33 53|96e14
+92a7*Partial{38|14A9} 8|3565r43
+109R9*Signing_Session 8|3500r33 53|118e14
+141R9*Group_Config 8|3499r38 53|149e14
+188U14*Create_Group 8|3522s23
+189a7 Group_ID{38|14A9} 8|3523r13
+190i7 Threshold{61I12} 8|3524r13
+191i7 Num_Signers{natural} 8|3525r13
+192a7 Combined_PK{38|14A9} 8|3526r13
+193r7 Config{141R9} 8|3527r13
+194b7 Success{boolean} 8|3528r13
+248U14*Import_Share 8|3508s23
+249a7 Share_Data{38|14A9} 8|3509r13
+250a7 Verification{38|14A9} 8|3510r13
+251i7 Index{60I12} 8|3511r13
+252m7 Epoch{41|84M9} 8|3512r13
+253r7 Share{64R9} 8|3513r13
+254b7 Success{boolean} 8|3514r13
+283U14*Start_Session 8|3536s23
+284r7 Config{141R9} 8|3537r13
+285a7 Message{38|14A9} 8|3538r13
+286r7 Session{109R9} 8|3539r13
+287b7 Success{boolean} 8|3540r13
+295U14*Sign_Partial 8|3548s23
+296r7 Share{64R9} 8|3549r13
+297r7 Session{109R9} 8|3550r13
+298r7 Partial{90R9} 8|3551r13
+299b7 Success{boolean} 8|3552r13
+X 54 scarab_sekhmet.ads
+24K9*Scarab_Sekhmet 8|53w6 54|418e19
+X 55 scarab_tefnut.ads
+25K9*Scarab_Tefnut 8|50w6 55|516e18
+X 56 scarab_thoth.ads
+24K9*Scarab_Thoth 8|52w6 56|473e17
+X 57 system.ads
+37K9*System 7|24w6 151r20 152r20 153r20 158r20 160r20 162r20 167r20 169r20
+. 171r20 181r20 182r20 183r20 188r23 189r23 190r23 191r23 196r23 197r23 198r23
+. 207r16 208r16 214r16 215r16 221r16 222r16 228r20 230r20 236r20 238r20 264r20
+. 265r20 272r20 274r20 282r20 284r20 310r22 311r22 312r22 313r22 323r18 331r20
+. 333r20 335r20 346r23 348r23 350r23 352r23 354r23 363r19 365r19 373r19 375r19
+. 395r18 402r18 404r18 406r18 418r17 419r17 420r17 426r17 427r17 428r17 438r16
+. 444r19 445r19 446r19 452r19 453r19 454r19 455r19 456r19 468r17 485r13 491r13
+. 492r13 502r24 504r24 506r24 507r24 512r24 514r24 516r24 517r24 522r20 523r20
+. 525r20 534r18 536r18 537r18 542r19 543r19 544r19 549r20 551r20 553r20 558r20
+. 559r20 566r28 568r28 570r28 573r28 574r28 575r28 576r28 581r28 583r28 586r28
+. 597r21 598r21 605r24 607r24 609r24 615r24 617r24 619r24 630r23 631r23 632r23
+. 633r23 641r23 643r23 644r23 645r23 651r23 653r23 654r23 664r24 665r24 666r24
+. 667r24 669r24 671r24 678r19 680r19 8|11w6 11r18 12r6 12r35 115r20 116r20
+. 117r20 124r61 125r59 126r59 132r23 133r23 139r17 157r20 159r20 161r20 166r59
+. 167r60 173r22 175r23 176r37 190r63 212r20 214r20 216r20 222r59 223r60 228r22
+. 229r23 231r37 251r63 273r20 274r20 275r20 281r59 282r59 283r61 288r23 289r23
+. 295r17 319r23 320r23 321r23 322r23 329r59 330r59 331r59 332r61 338r23 339r26
+. 340r23 346r17 367r23 368r23 369r23 375r59 376r59 377r59 383r26 384r23 385r23
+. 404r16 405r16 416r19 424r21 447r16 448r16 459r19 466r21 489r16 490r16 502r19
+. 510r21 534r20 536r20 541r19 549r36 577r20 579r20 584r19 592r36 624r20 625r20
+. 640r20 641r23 694r20 696r20 716r19 718r23 773r20 775r20 787r18 788r23 903r22
+. 904r22 905r22 906r22 917r20 926r20 935r21 944r19 965r20 967r20 969r20 1060r18
+. 1068r17 1098r23 1100r23 1102r23 1104r23 1106r23 1206r19 1208r19 1216r16
+. 1243r33 1280r25 1309r19 1311r19 1319r16 1346r31 1481r18 1485r17 1505r18
+. 1507r18 1509r18 1515r17 1543r17 1544r17 1545r17 1552r20 1553r16 1554r18
+. 1621r17 1622r17 1623r17 1630r20 1631r16 1632r18 1706r16 1713r17 1756r19
+. 1757r19 1758r19 1766r20 1767r16 1808r41 1836r19 1837r19 1838r19 1839r19
+. 1840r19 1846r17 1847r16 1848r18 1854r36 1934r17 1942r20 2011r13 2019r16
+. 2029r13 2030r13 2040r14 2040r41 2061r24 2063r24 2065r24 2066r24 2069r23
+. 2071r22 2073r23 2074r27 2130r24 2132r24 2134r24 2135r24 2138r22 2140r23
+. 2142r27 2143r23 2196r20 2197r20 2199r20 2202r23 2203r17 2205r23 2248r18
+. 2250r18 2251r18 2254r17 2255r21 2256r21 2292r19 2293r19 2294r19 2297r22
+. 2298r17 2299r21 2342r20 2344r20 2346r20 2349r18 2351r23 2352r21 2398r20
+. 2399r20 2404r23 2405r18 2441r28 2443r28 2445r28 2448r28 2449r28 2450r28
+. 2451r28 2455r18 2456r30 2457r31 2549r28 2551r28 2554r28 2560r30 2561r31
+. 2562r18 2640r21 2641r21 2647r24 2648r22 2688r24 2690r24 2692r24 2697r18
+. 2698r24 2698r60 2763r24 2765r24 2767r24 2773r21 2773r57 2774r18 2846r23
+. 2847r23 2848r23 2849r23 2856r20 2856r59 2857r25 2857r62 2950r23 2952r23
+. 2953r23 2954r23 2959r22 2960r20 2960r50 3043r23 3045r23 3046r23 3051r22
+. 3052r20 3052r55 3128r24 3129r24 3130r24 3131r24 3133r24 3135r24 3141r22
+. 3142r27 3143r27 3144r18 3237r19 3239r19 3244r22 3245r18 3303r21 3305r21
+. 3306r21 3307r21 3311r18 3312r23 3312r60 3313r21 3411r21 3413r21 3414r21
+. 3419r18 3465r21 3467r21 3468r21 3472r24 3473r18 3473r51 3578r22 3580r22
+. 3581r22 3585r25 3586r21 3586r54 3615r21 3617r21 3619r21 3623r22 3623r55
+. 3624r24 3646r22 3647r22 3648r22 3649r22 3653r18 3653r54 3654r24 3654r59
+. 3700r21 3701r21 3702r21 3706r18 3723r24 3724r24 3725r24 3729r18 3750r22
+. 3753r22 3754r22 3755r22 3760r18 3761r23 3761r58 3810r21 3811r21 3812r21
+. 3814r21 3819r23 3847r17 3853r17 3866r20 3867r20 3868r20 3872r23 3872r50
+. 3873r14 3908r20 3909r20 3911r20 3913r20 3918r23 3918r59 3919r23 3919r57
+. 3985r21 3988r21 3989r21 3991r21 3993r21 4001r21 4001r59 4035r22 4036r22
+. 4042r22 4042r58 57|173e11
+67M9*Address 7|151r27 152r27 153r27 158r27 160r27 162r27 167r27 169r27 171r27
+. 181r27 182r27 183r27 188r30 189r30 190r30 191r30 196r30 197r30 198r30 207r23
+. 208r23 214r23 215r23 221r23 222r23 228r27 230r27 236r27 238r27 264r27 265r27
+. 272r27 274r27 282r27 284r27 310r29 311r29 312r29 313r29 323r25 331r27 333r27
+. 335r27 346r30 348r30 350r30 352r30 354r30 363r26 365r26 373r26 375r26 395r25
+. 402r25 404r25 406r25 418r24 419r24 420r24 426r24 427r24 428r24 438r23 444r26
+. 445r26 446r26 452r26 453r26 454r26 455r26 456r26 468r24 485r20 491r20 492r20
+. 502r31 504r31 506r31 507r31 512r31 514r31 516r31 517r31 522r27 523r27 525r27
+. 534r25 536r25 537r25 542r26 543r26 544r26 549r27 551r27 553r27 558r27 559r27
+. 566r35 568r35 570r35 573r35 574r35 575r35 576r35 581r35 583r35 586r35 597r28
+. 598r28 605r31 607r31 609r31 615r31 617r31 619r31 630r30 631r30 632r30 633r30
+. 641r30 643r30 644r30 645r30 651r30 653r30 654r30 664r31 665r31 666r31 667r31
+. 669r31 671r31 678r26 680r26 8|115r27 116r27 117r27 124r68 125r66 126r66
+. 157r27 159r27 161r27 166r66 167r67 190r70 212r27 214r27 216r27 222r66 223r67
+. 251r70 273r27 274r27 275r27 281r66 282r66 283r68 319r30 320r30 321r30 322r30
+. 329r66 330r66 331r66 332r68 367r30 368r30 369r30 375r66 376r66 377r66 404r23
+. 405r23 447r23 448r23 489r23 490r23 534r27 536r27 577r27 579r27 624r27 625r27
+. 694r27 696r27 773r27 775r27 903r29 904r29 905r29 906r29 965r27 967r27 969r27
+. 1060r25 1098r30 1100r30 1102r30 1104r30 1106r30 1206r26 1208r26 1309r26
+. 1311r26 1481r25 1505r25 1507r25 1509r25 1543r24 1544r24 1545r24 1621r24
+. 1622r24 1623r24 1706r23 1756r26 1757r26 1758r26 1836r26 1837r26 1838r26
+. 1839r26 1840r26 1934r24 2011r20 2029r20 2030r20 2061r31 2063r31 2065r31
+. 2066r31 2130r31 2132r31 2134r31 2135r31 2196r27 2197r27 2199r27 2248r25
+. 2250r25 2251r25 2292r26 2293r26 2294r26 2342r27 2344r27 2346r27 2398r27
+. 2399r27 2441r35 2443r35 2445r35 2448r35 2449r35 2450r35 2451r35 2549r35
+. 2551r35 2554r35 2640r28 2641r28 2688r31 2690r31 2692r31 2763r31 2765r31
+. 2767r31 2846r30 2847r30 2848r30 2849r30 2950r30 2952r30 2953r30 2954r30
+. 3043r30 3045r30 3046r30 3128r31 3129r31 3130r31 3131r31 3133r31 3135r31
+. 3237r26 3239r26 3303r28 3305r28 3306r28 3307r28 3411r28 3413r28 3414r28
+. 3465r28 3467r28 3468r28 3578r29 3580r29 3581r29 3615r28 3617r28 3619r28
+. 3646r29 3647r29 3648r29 3649r29 3700r28 3701r28 3702r28 3723r31 3724r31
+. 3725r31 3750r29 3753r29 3754r29 3755r29 3810r28 3811r28 3812r28 3814r28
+. 3847r24 3866r27 3867r27 3868r27 3908r27 3909r27 3911r27 3913r27 3985r28
+. 3988r28 3989r28 3991r28 3993r28 4035r29 4036r29
+69m4*Null_Address{67M9} 8|132r30 133r30 139r24 173r29 175r30 176r44 228r29
+. 229r30 231r44 288r30 289r30 295r24 338r30 339r33 340r30 346r24 383r33 384r30
+. 385r30 416r26 424r28 459r26 466r28 502r26 510r28 541r26 549r43 584r26 592r43
+. 640r27 641r30 716r26 718r30 787r25 788r30 917r27 926r27 935r28 944r26 1068r24
+. 1216r23 1243r40 1280r32 1319r23 1346r38 1485r24 1515r24 1552r27 1553r23
+. 1554r25 1630r27 1631r23 1632r25 1713r24 1766r27 1767r23 1808r48 1846r24
+. 1847r23 1848r25 1854r43 1942r27 2019r23 2040r21 2040r48 2069r30 2071r29
+. 2073r30 2074r34 2138r29 2140r30 2142r34 2143r30 2202r30 2203r24 2205r30
+. 2254r24 2255r28 2256r28 2297r29 2298r24 2299r28 2349r25 2351r30 2352r28
+. 2404r30 2405r25 2455r25 2456r37 2457r38 2560r37 2561r38 2562r25 2647r31
+. 2648r29 2697r25 2698r31 2698r67 2773r28 2773r64 2774r25 2856r27 2856r66
+. 2857r32 2857r69 2959r29 2960r27 2960r57 3051r29 3052r27 3052r62 3141r29
+. 3142r34 3143r34 3144r25 3244r29 3245r25 3311r25 3312r30 3312r67 3313r28
+. 3419r25 3472r31 3473r25 3473r58 3585r32 3586r28 3586r61 3623r29 3623r62
+. 3624r31 3653r25 3653r61 3654r31 3654r66 3706r25 3729r25 3760r25 3761r30
+. 3761r65 3819r30 3853r24 3872r30 3872r57 3873r21 3918r30 3918r66 3919r30
+. 3919r64 4001r28 4001r66 4042r29 4042r65
+81V14*"="{boolean} 8|132r21 133r21 139r15 173r20 175r21 176r35 228r20 229r21
+. 231r35 288r21 289r21 295r15 338r21 339r24 340r21 346r15 383r24 384r21 385r21
+. 416r17 424r19 459r17 466r19 502r17 510r19 541r17 549r34 584r17 592r34 640r18
+. 641r21 716r17 718r21 787r16 788r21 917r17 926r17 935r18 944r16 1068r15
+. 1216r14 1243r31 1280r22 1319r14 1346r28 1485r15 1515r15 1552r18 1553r14
+. 1554r16 1630r18 1631r14 1632r16 1713r15 1766r18 1767r14 1808r38 1846r15
+. 1847r14 1848r16 1854r34 1942r18 2019r14 2040r12 2040r39 2069r21 2071r20
+. 2073r21 2074r25 2138r20 2140r21 2142r25 2143r21 2202r21 2203r15 2205r21
+. 2254r15 2255r19 2256r19 2297r20 2298r15 2299r19 2349r16 2351r21 2352r19
+. 2404r21 2405r16 2455r16 2456r28 2457r29 2560r28 2561r29 2562r16 2647r22
+. 2648r20 2697r16 2698r22 2698r58 2773r19 2773r55 2774r16 2856r18 2856r57
+. 2857r23 2857r60 2959r20 2960r18 2960r48 3051r20 3052r18 3052r53 3141r20
+. 3142r25 3143r25 3144r16 3244r20 3245r16 3311r16 3312r21 3312r58 3313r19
+. 3419r16 3472r22 3473r16 3473r49 3585r23 3586r19 3586r52 3623r20 3623r53
+. 3624r22 3653r16 3653r52 3654r22 3654r57 3706r16 3729r16 3760r16 3761r21
+. 3761r56 3819r21 3853r15 3872r21 3872r48 3873r12 3918r21 3918r57 3919r21
+. 3919r55 4001r19 4001r57 4042r20 4042r56
+X 63 s-stoele.ads
+40K16*Storage_Elements 8|12w13 12r42 63|90e28
+51I9*Storage_Offset<long_integer> 8|2725r54 2802r54 3339r53 3343r53 3347r51
+. 3676r53
+67V14*"+"{57|67M9} 8|2725r52 2802r52 3339r51 3343r51 3347r49 3676r51
+

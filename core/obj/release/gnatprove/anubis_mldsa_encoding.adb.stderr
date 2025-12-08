@@ -1,0 +1,445 @@
+anubis_mldsa_encoding.adb:16:07: info: initialization of "T0" proved
+anubis_mldsa_encoding.adb:16:11: info: initialization of "T1_Val" proved
+anubis_mldsa_encoding.adb:16:19: info: initialization of "T2" proved
+anubis_mldsa_encoding.adb:16:23: info: initialization of "T3" proved
+anubis_mldsa_encoding.adb:18:07: info: initialization of "B0" proved
+anubis_mldsa_encoding.adb:18:11: info: initialization of "B1" proved
+anubis_mldsa_encoding.adb:18:15: info: initialization of "B2" proved
+anubis_mldsa_encoding.adb:18:19: info: initialization of "B3" proved
+anubis_mldsa_encoding.adb:18:23: info: initialization of "B4" proved
+anubis_mldsa_encoding.adb:20:14: info: length check proved
+anubis_mldsa_encoding.adb:23:33: info: loop invariant initialization proved
+anubis_mldsa_encoding.adb:23:33: info: loop invariant preservation proved
+anubis_mldsa_encoding.adb:39:25: info: assertion proved
+anubis_mldsa_encoding.adb:40:25: info: assertion proved
+anubis_mldsa_encoding.adb:41:20: info: index check proved
+anubis_mldsa_encoding.adb:41:34: info: range check proved
+anubis_mldsa_encoding.adb:42:24: info: index check proved
+anubis_mldsa_encoding.adb:42:38: info: range check proved
+anubis_mldsa_encoding.adb:43:24: info: index check proved
+anubis_mldsa_encoding.adb:43:38: info: range check proved
+anubis_mldsa_encoding.adb:44:24: info: index check proved
+anubis_mldsa_encoding.adb:44:38: info: range check proved
+anubis_mldsa_encoding.adb:45:24: info: index check proved
+anubis_mldsa_encoding.adb:45:38: info: range check proved
+anubis_mldsa_encoding.adb:54:07: info: initialization of "B0" proved
+anubis_mldsa_encoding.adb:54:11: info: initialization of "B1" proved
+anubis_mldsa_encoding.adb:54:15: info: initialization of "B2" proved
+anubis_mldsa_encoding.adb:54:19: info: initialization of "B3" proved
+anubis_mldsa_encoding.adb:54:23: info: initialization of "B4" proved
+anubis_mldsa_encoding.adb:58:33: info: loop invariant initialization proved
+anubis_mldsa_encoding.adb:58:33: info: loop invariant preservation proved
+anubis_mldsa_encoding.adb:61:25: info: assertion proved
+anubis_mldsa_encoding.adb:62:25: info: assertion proved
+anubis_mldsa_encoding.adb:64:38: info: index check proved
+anubis_mldsa_encoding.adb:65:42: info: index check proved
+anubis_mldsa_encoding.adb:66:42: info: index check proved
+anubis_mldsa_encoding.adb:67:42: info: index check proved
+anubis_mldsa_encoding.adb:68:42: info: index check proved
+anubis_mldsa_encoding.adb:82:07: info: initialization of "Coef" proved
+anubis_mldsa_encoding.adb:83:07: info: initialization of "Base" proved
+anubis_mldsa_encoding.adb:84:07: info: initialization of "A0" proved
+anubis_mldsa_encoding.adb:86:14: info: length check proved
+anubis_mldsa_encoding.adb:89:33: info: loop invariant preservation proved
+anubis_mldsa_encoding.adb:89:33: info: loop invariant initialization proved
+anubis_mldsa_encoding.adb:92:25: info: assertion proved
+anubis_mldsa_encoding.adb:93:25: info: assertion proved
+anubis_mldsa_encoding.adb:93:30: info: overflow check proved
+anubis_mldsa_encoding.adb:102:51: info: range check proved
+anubis_mldsa_encoding.adb:104:51: info: overflow check proved
+anubis_mldsa_encoding.adb:104:51: info: range check proved
+anubis_mldsa_encoding.adb:110:27: info: index check proved
+anubis_mldsa_encoding.adb:110:47: info: range check proved
+anubis_mldsa_encoding.adb:111:32: info: overflow check proved
+anubis_mldsa_encoding.adb:111:32: info: index check proved
+anubis_mldsa_encoding.adb:111:68: info: range check proved
+anubis_mldsa_encoding.adb:113:32: info: overflow check proved
+anubis_mldsa_encoding.adb:113:32: info: index check proved
+anubis_mldsa_encoding.adb:113:53: info: overflow check proved
+anubis_mldsa_encoding.adb:113:53: info: index check proved
+anubis_mldsa_encoding.adb:113:67: info: range check proved
+anubis_mldsa_encoding.adb:114:32: info: overflow check proved
+anubis_mldsa_encoding.adb:114:32: info: index check proved
+anubis_mldsa_encoding.adb:114:68: info: range check proved
+anubis_mldsa_encoding.adb:115:32: info: overflow check proved
+anubis_mldsa_encoding.adb:115:32: info: index check proved
+anubis_mldsa_encoding.adb:115:69: info: range check proved
+anubis_mldsa_encoding.adb:117:32: info: overflow check proved
+anubis_mldsa_encoding.adb:117:32: info: index check proved
+anubis_mldsa_encoding.adb:117:53: info: overflow check proved
+anubis_mldsa_encoding.adb:117:53: info: index check proved
+anubis_mldsa_encoding.adb:117:67: info: range check proved
+anubis_mldsa_encoding.adb:118:32: info: overflow check proved
+anubis_mldsa_encoding.adb:118:32: info: index check proved
+anubis_mldsa_encoding.adb:118:68: info: range check proved
+anubis_mldsa_encoding.adb:120:32: info: overflow check proved
+anubis_mldsa_encoding.adb:120:32: info: index check proved
+anubis_mldsa_encoding.adb:120:53: info: overflow check proved
+anubis_mldsa_encoding.adb:120:53: info: index check proved
+anubis_mldsa_encoding.adb:120:67: info: range check proved
+anubis_mldsa_encoding.adb:121:32: info: overflow check proved
+anubis_mldsa_encoding.adb:121:32: info: index check proved
+anubis_mldsa_encoding.adb:121:68: info: range check proved
+anubis_mldsa_encoding.adb:122:32: info: overflow check proved
+anubis_mldsa_encoding.adb:122:32: info: index check proved
+anubis_mldsa_encoding.adb:122:68: info: range check proved
+anubis_mldsa_encoding.adb:124:32: info: overflow check proved
+anubis_mldsa_encoding.adb:124:32: info: index check proved
+anubis_mldsa_encoding.adb:124:53: info: overflow check proved
+anubis_mldsa_encoding.adb:124:53: info: index check proved
+anubis_mldsa_encoding.adb:124:67: info: range check proved
+anubis_mldsa_encoding.adb:125:32: info: overflow check proved
+anubis_mldsa_encoding.adb:125:32: info: index check proved
+anubis_mldsa_encoding.adb:125:68: info: range check proved
+anubis_mldsa_encoding.adb:126:32: info: overflow check proved
+anubis_mldsa_encoding.adb:126:32: info: index check proved
+anubis_mldsa_encoding.adb:126:69: info: range check proved
+anubis_mldsa_encoding.adb:128:32: info: overflow check proved
+anubis_mldsa_encoding.adb:128:32: info: index check proved
+anubis_mldsa_encoding.adb:128:53: info: overflow check proved
+anubis_mldsa_encoding.adb:128:53: info: index check proved
+anubis_mldsa_encoding.adb:128:67: info: range check proved
+anubis_mldsa_encoding.adb:129:32: info: overflow check proved
+anubis_mldsa_encoding.adb:129:32: info: index check proved
+anubis_mldsa_encoding.adb:129:68: info: range check proved
+anubis_mldsa_encoding.adb:131:32: info: overflow check proved
+anubis_mldsa_encoding.adb:131:32: info: index check proved
+anubis_mldsa_encoding.adb:131:53: info: overflow check proved
+anubis_mldsa_encoding.adb:131:53: info: index check proved
+anubis_mldsa_encoding.adb:131:67: info: range check proved
+anubis_mldsa_encoding.adb:132:32: info: overflow check proved
+anubis_mldsa_encoding.adb:132:32: info: index check proved
+anubis_mldsa_encoding.adb:132:69: info: range check proved
+anubis_mldsa_encoding.adb:133:32: info: overflow check proved
+anubis_mldsa_encoding.adb:133:32: info: index check proved
+anubis_mldsa_encoding.adb:133:70: info: range check proved
+anubis_mldsa_encoding.adb:135:32: info: overflow check proved
+anubis_mldsa_encoding.adb:135:32: info: index check proved
+anubis_mldsa_encoding.adb:135:54: info: overflow check proved
+anubis_mldsa_encoding.adb:135:54: info: index check proved
+anubis_mldsa_encoding.adb:135:69: info: range check proved
+anubis_mldsa_encoding.adb:136:32: info: overflow check proved
+anubis_mldsa_encoding.adb:136:32: info: index check proved
+anubis_mldsa_encoding.adb:136:69: info: range check proved
+anubis_mldsa_encoding.adb:147:07: info: initialization of "Coef" proved
+anubis_mldsa_encoding.adb:148:07: info: initialization of "Val" proved
+anubis_mldsa_encoding.adb:149:07: info: initialization of "Base" proved
+anubis_mldsa_encoding.adb:154:33: info: loop invariant initialization proved
+anubis_mldsa_encoding.adb:154:33: info: loop invariant preservation proved
+anubis_mldsa_encoding.adb:157:25: info: assertion proved
+anubis_mldsa_encoding.adb:158:25: info: assertion proved
+anubis_mldsa_encoding.adb:158:30: info: overflow check proved
+anubis_mldsa_encoding.adb:164:47: info: index check proved
+anubis_mldsa_encoding.adb:165:64: info: overflow check proved
+anubis_mldsa_encoding.adb:165:64: info: index check proved
+anubis_mldsa_encoding.adb:167:65: info: overflow check proved
+anubis_mldsa_encoding.adb:167:65: info: index check proved
+anubis_mldsa_encoding.adb:168:64: info: overflow check proved
+anubis_mldsa_encoding.adb:168:64: info: index check proved
+anubis_mldsa_encoding.adb:169:64: info: overflow check proved
+anubis_mldsa_encoding.adb:169:64: info: index check proved
+anubis_mldsa_encoding.adb:171:65: info: overflow check proved
+anubis_mldsa_encoding.adb:171:65: info: index check proved
+anubis_mldsa_encoding.adb:172:64: info: overflow check proved
+anubis_mldsa_encoding.adb:172:64: info: index check proved
+anubis_mldsa_encoding.adb:174:65: info: overflow check proved
+anubis_mldsa_encoding.adb:174:65: info: index check proved
+anubis_mldsa_encoding.adb:175:64: info: overflow check proved
+anubis_mldsa_encoding.adb:175:64: info: index check proved
+anubis_mldsa_encoding.adb:176:64: info: overflow check proved
+anubis_mldsa_encoding.adb:176:64: info: index check proved
+anubis_mldsa_encoding.adb:178:65: info: overflow check proved
+anubis_mldsa_encoding.adb:178:65: info: index check proved
+anubis_mldsa_encoding.adb:179:64: info: overflow check proved
+anubis_mldsa_encoding.adb:179:64: info: index check proved
+anubis_mldsa_encoding.adb:180:64: info: overflow check proved
+anubis_mldsa_encoding.adb:180:64: info: index check proved
+anubis_mldsa_encoding.adb:182:65: info: overflow check proved
+anubis_mldsa_encoding.adb:182:65: info: index check proved
+anubis_mldsa_encoding.adb:183:64: info: overflow check proved
+anubis_mldsa_encoding.adb:183:64: info: index check proved
+anubis_mldsa_encoding.adb:185:65: info: overflow check proved
+anubis_mldsa_encoding.adb:185:65: info: index check proved
+anubis_mldsa_encoding.adb:186:64: info: overflow check proved
+anubis_mldsa_encoding.adb:186:64: info: index check proved
+anubis_mldsa_encoding.adb:187:64: info: overflow check proved
+anubis_mldsa_encoding.adb:187:64: info: index check proved
+anubis_mldsa_encoding.adb:189:65: info: overflow check proved
+anubis_mldsa_encoding.adb:189:65: info: index check proved
+anubis_mldsa_encoding.adb:190:64: info: overflow check proved
+anubis_mldsa_encoding.adb:190:64: info: index check proved
+anubis_mldsa_encoding.adb:194:57: info: range check proved
+anubis_mldsa_encoding.adb:196:51: info: range check proved
+anubis_mldsa_encoding.adb:198:63: info: overflow check proved
+anubis_mldsa_encoding.adb:198:63: info: range check proved
+anubis_mldsa_encoding.adb:210:07: info: initialization of "T" proved
+anubis_mldsa_encoding.adb:211:07: info: initialization of "C_Val" proved
+anubis_mldsa_encoding.adb:212:07: info: initialization of "Val" proved
+anubis_mldsa_encoding.adb:213:07: info: initialization of "Base" proved
+anubis_mldsa_encoding.adb:215:14: info: length check proved
+anubis_mldsa_encoding.adb:218:33: info: loop invariant preservation proved
+anubis_mldsa_encoding.adb:218:33: info: loop invariant initialization proved
+anubis_mldsa_encoding.adb:221:25: info: assertion proved
+anubis_mldsa_encoding.adb:222:25: info: assertion proved
+anubis_mldsa_encoding.adb:222:30: info: overflow check proved
+anubis_mldsa_encoding.adb:228:24: info: overflow check proved
+anubis_mldsa_encoding.adb:231:38: info: division check proved
+anubis_mldsa_encoding.adb:231:38: info: range check proved
+anubis_mldsa_encoding.adb:238:18: info: index check proved
+anubis_mldsa_encoding.adb:239:23: info: overflow check proved
+anubis_mldsa_encoding.adb:239:23: info: index check proved
+anubis_mldsa_encoding.adb:241:23: info: overflow check proved
+anubis_mldsa_encoding.adb:241:23: info: index check proved
+anubis_mldsa_encoding.adb:252:07: info: initialization of "B0" proved
+anubis_mldsa_encoding.adb:252:11: info: initialization of "B1" proved
+anubis_mldsa_encoding.adb:252:15: info: initialization of "B2" proved
+anubis_mldsa_encoding.adb:253:07: info: initialization of "T" proved
+anubis_mldsa_encoding.adb:254:07: info: initialization of "Base" proved
+anubis_mldsa_encoding.adb:258:33: info: loop invariant initialization proved
+anubis_mldsa_encoding.adb:258:33: info: loop invariant preservation proved
+anubis_mldsa_encoding.adb:261:25: info: assertion proved
+anubis_mldsa_encoding.adb:262:25: info: assertion proved
+anubis_mldsa_encoding.adb:262:30: info: overflow check proved
+anubis_mldsa_encoding.adb:264:35: info: index check proved
+anubis_mldsa_encoding.adb:265:40: info: overflow check proved
+anubis_mldsa_encoding.adb:265:40: info: index check proved
+anubis_mldsa_encoding.adb:266:40: info: overflow check proved
+anubis_mldsa_encoding.adb:266:40: info: index check proved
+anubis_mldsa_encoding.adb:271:57: info: range check proved
+anubis_mldsa_encoding.adb:272:58: info: overflow check proved
+anubis_mldsa_encoding.adb:272:58: info: range check proved
+anubis_mldsa_encoding.adb:276:61: info: range check proved
+anubis_mldsa_encoding.adb:277:62: info: overflow check proved
+anubis_mldsa_encoding.adb:277:62: info: range check proved
+anubis_mldsa_encoding.adb:281:61: info: range check proved
+anubis_mldsa_encoding.adb:282:62: info: overflow check proved
+anubis_mldsa_encoding.adb:282:62: info: range check proved
+anubis_mldsa_encoding.adb:286:61: info: range check proved
+anubis_mldsa_encoding.adb:287:62: info: overflow check proved
+anubis_mldsa_encoding.adb:287:62: info: range check proved
+anubis_mldsa_encoding.adb:291:61: info: range check proved
+anubis_mldsa_encoding.adb:292:62: info: overflow check proved
+anubis_mldsa_encoding.adb:292:62: info: range check proved
+anubis_mldsa_encoding.adb:296:61: info: range check proved
+anubis_mldsa_encoding.adb:297:62: info: overflow check proved
+anubis_mldsa_encoding.adb:297:62: info: range check proved
+anubis_mldsa_encoding.adb:301:61: info: range check proved
+anubis_mldsa_encoding.adb:302:62: info: overflow check proved
+anubis_mldsa_encoding.adb:302:62: info: range check proved
+anubis_mldsa_encoding.adb:306:61: info: range check proved
+anubis_mldsa_encoding.adb:307:62: info: overflow check proved
+anubis_mldsa_encoding.adb:307:62: info: range check proved
+anubis_mldsa_encoding.adb:316:07: info: initialization of "Coef" proved
+anubis_mldsa_encoding.adb:317:07: info: initialization of "Z0" proved
+anubis_mldsa_encoding.adb:317:11: info: initialization of "Z1" proved
+anubis_mldsa_encoding.adb:318:07: info: initialization of "Val0" proved
+anubis_mldsa_encoding.adb:318:13: info: initialization of "Val1" proved
+anubis_mldsa_encoding.adb:319:07: info: initialization of "Base" proved
+anubis_mldsa_encoding.adb:321:14: info: length check proved
+anubis_mldsa_encoding.adb:324:33: info: loop invariant initialization proved
+anubis_mldsa_encoding.adb:324:33: info: loop invariant preservation proved
+anubis_mldsa_encoding.adb:327:25: info: assertion proved
+anubis_mldsa_encoding.adb:328:25: info: assertion proved
+anubis_mldsa_encoding.adb:328:30: info: overflow check proved
+anubis_mldsa_encoding.adb:334:35: info: overflow check proved
+anubis_mldsa_encoding.adb:335:35: info: overflow check proved
+anubis_mldsa_encoding.adb:338:36: info: division check proved
+anubis_mldsa_encoding.adb:338:36: info: range check proved
+anubis_mldsa_encoding.adb:339:18: info: index check proved
+anubis_mldsa_encoding.adb:339:38: info: range check proved
+anubis_mldsa_encoding.adb:340:23: info: overflow check proved
+anubis_mldsa_encoding.adb:340:23: info: index check proved
+anubis_mldsa_encoding.adb:340:59: info: range check proved
+anubis_mldsa_encoding.adb:341:23: info: overflow check proved
+anubis_mldsa_encoding.adb:341:23: info: index check proved
+anubis_mldsa_encoding.adb:341:60: info: range check proved
+anubis_mldsa_encoding.adb:343:36: info: division check proved
+anubis_mldsa_encoding.adb:343:36: info: range check proved
+anubis_mldsa_encoding.adb:344:23: info: overflow check proved
+anubis_mldsa_encoding.adb:344:23: info: index check proved
+anubis_mldsa_encoding.adb:344:44: info: overflow check proved
+anubis_mldsa_encoding.adb:344:44: info: index check proved
+anubis_mldsa_encoding.adb:344:58: info: range check proved
+anubis_mldsa_encoding.adb:345:23: info: overflow check proved
+anubis_mldsa_encoding.adb:345:23: info: index check proved
+anubis_mldsa_encoding.adb:345:59: info: range check proved
+anubis_mldsa_encoding.adb:346:23: info: overflow check proved
+anubis_mldsa_encoding.adb:346:23: info: index check proved
+anubis_mldsa_encoding.adb:346:60: info: range check proved
+anubis_mldsa_encoding.adb:355:07: info: initialization of "Coef" proved
+anubis_mldsa_encoding.adb:356:07: info: initialization of "Val" proved
+anubis_mldsa_encoding.adb:357:07: info: initialization of "Base" proved
+anubis_mldsa_encoding.adb:361:33: info: loop invariant initialization proved
+anubis_mldsa_encoding.adb:361:33: info: loop invariant preservation proved
+anubis_mldsa_encoding.adb:364:25: info: assertion proved
+anubis_mldsa_encoding.adb:365:25: info: assertion proved
+anubis_mldsa_encoding.adb:365:30: info: overflow check proved
+anubis_mldsa_encoding.adb:367:38: info: index check proved
+anubis_mldsa_encoding.adb:368:55: info: overflow check proved
+anubis_mldsa_encoding.adb:368:55: info: index check proved
+anubis_mldsa_encoding.adb:369:55: info: overflow check proved
+anubis_mldsa_encoding.adb:369:55: info: index check proved
+anubis_mldsa_encoding.adb:370:45: info: range check proved
+anubis_mldsa_encoding.adb:372:44: info: range check proved
+anubis_mldsa_encoding.adb:374:56: info: overflow check proved
+anubis_mldsa_encoding.adb:374:56: info: range check proved
+anubis_mldsa_encoding.adb:377:56: info: overflow check proved
+anubis_mldsa_encoding.adb:377:56: info: index check proved
+anubis_mldsa_encoding.adb:378:55: info: overflow check proved
+anubis_mldsa_encoding.adb:378:55: info: index check proved
+anubis_mldsa_encoding.adb:379:55: info: overflow check proved
+anubis_mldsa_encoding.adb:379:55: info: index check proved
+anubis_mldsa_encoding.adb:381:45: info: range check proved
+anubis_mldsa_encoding.adb:383:48: info: range check proved
+anubis_mldsa_encoding.adb:385:60: info: overflow check proved
+anubis_mldsa_encoding.adb:385:60: info: range check proved
+anubis_mldsa_encoding.adb:396:07: info: initialization of "W0" proved
+anubis_mldsa_encoding.adb:396:11: info: initialization of "W1" proved
+anubis_mldsa_encoding.adb:398:14: info: length check proved
+anubis_mldsa_encoding.adb:400:33: info: loop invariant initialization proved
+anubis_mldsa_encoding.adb:400:33: info: loop invariant preservation proved
+anubis_mldsa_encoding.adb:401:33: info: loop invariant initialization proved
+anubis_mldsa_encoding.adb:401:33: info: loop invariant preservation proved
+anubis_mldsa_encoding.adb:406:18: info: index check proved
+anubis_mldsa_encoding.adb:406:35: info: range check proved
+anubis_mldsa_encoding.adb:407:21: info: overflow check proved
+anubis_mldsa_encoding.adb:418:07: info: initialization of "Temp" proved
+anubis_mldsa_encoding.adb:423:18: info: overflow check proved
+anubis_mldsa_encoding.adb:423:18: info: index check proved
+anubis_mldsa_encoding.adb:425:18: info: overflow check proved
+anubis_mldsa_encoding.adb:429:10: info: precondition proved
+anubis_mldsa_encoding.adb:431:21: info: overflow check proved
+anubis_mldsa_encoding.adb:431:21: info: index check proved
+anubis_mldsa_encoding.adb:433:21: info: overflow check proved
+anubis_mldsa_encoding.adb:445:07: info: initialization of "Temp" proved
+anubis_mldsa_encoding.adb:449:29: info: overflow check proved
+anubis_mldsa_encoding.adb:449:29: info: index check proved
+anubis_mldsa_encoding.adb:451:18: info: overflow check proved
+anubis_mldsa_encoding.adb:456:33: info: overflow check proved
+anubis_mldsa_encoding.adb:456:33: info: index check proved
+anubis_mldsa_encoding.adb:458:10: info: precondition proved
+anubis_mldsa_encoding.adb:459:21: info: overflow check proved
+anubis_mldsa_encoding.adb:474:07: info: initialization of "Temp_Eta" proved
+anubis_mldsa_encoding.adb:475:07: info: initialization of "Temp_T0" proved
+anubis_mldsa_encoding.adb:480:18: info: overflow check proved
+anubis_mldsa_encoding.adb:480:18: info: index check proved
+anubis_mldsa_encoding.adb:482:18: info: overflow check proved
+anubis_mldsa_encoding.adb:486:18: info: overflow check proved
+anubis_mldsa_encoding.adb:486:18: info: index check proved
+anubis_mldsa_encoding.adb:488:18: info: overflow check proved
+anubis_mldsa_encoding.adb:492:18: info: overflow check proved
+anubis_mldsa_encoding.adb:492:18: info: index check proved
+anubis_mldsa_encoding.adb:494:18: info: overflow check proved
+anubis_mldsa_encoding.adb:498:10: info: precondition proved
+anubis_mldsa_encoding.adb:500:21: info: overflow check proved
+anubis_mldsa_encoding.adb:500:21: info: index check proved
+anubis_mldsa_encoding.adb:502:21: info: overflow check proved
+anubis_mldsa_encoding.adb:507:10: info: precondition proved
+anubis_mldsa_encoding.adb:509:21: info: overflow check proved
+anubis_mldsa_encoding.adb:509:21: info: index check proved
+anubis_mldsa_encoding.adb:511:21: info: overflow check proved
+anubis_mldsa_encoding.adb:516:10: info: precondition proved
+anubis_mldsa_encoding.adb:518:21: info: overflow check proved
+anubis_mldsa_encoding.adb:518:21: info: index check proved
+anubis_mldsa_encoding.adb:520:21: info: overflow check proved
+anubis_mldsa_encoding.adb:536:07: info: initialization of "Temp_Eta" proved
+anubis_mldsa_encoding.adb:537:07: info: initialization of "Temp_T0" proved
+anubis_mldsa_encoding.adb:541:29: info: overflow check proved
+anubis_mldsa_encoding.adb:541:29: info: index check proved
+anubis_mldsa_encoding.adb:543:18: info: overflow check proved
+anubis_mldsa_encoding.adb:547:27: info: overflow check proved
+anubis_mldsa_encoding.adb:547:27: info: index check proved
+anubis_mldsa_encoding.adb:549:18: info: overflow check proved
+anubis_mldsa_encoding.adb:553:28: info: overflow check proved
+anubis_mldsa_encoding.adb:553:28: info: index check proved
+anubis_mldsa_encoding.adb:555:18: info: overflow check proved
+anubis_mldsa_encoding.adb:560:37: info: overflow check proved
+anubis_mldsa_encoding.adb:560:37: info: index check proved
+anubis_mldsa_encoding.adb:562:10: info: precondition proved
+anubis_mldsa_encoding.adb:563:21: info: overflow check proved
+anubis_mldsa_encoding.adb:569:37: info: overflow check proved
+anubis_mldsa_encoding.adb:569:37: info: index check proved
+anubis_mldsa_encoding.adb:571:10: info: precondition proved
+anubis_mldsa_encoding.adb:572:21: info: overflow check proved
+anubis_mldsa_encoding.adb:578:36: info: overflow check proved
+anubis_mldsa_encoding.adb:578:36: info: index check proved
+anubis_mldsa_encoding.adb:580:10: info: precondition proved
+anubis_mldsa_encoding.adb:581:21: info: overflow check proved
+anubis_mldsa_encoding.adb:593:07: info: initialization of "Temp_Z" proved
+anubis_mldsa_encoding.adb:599:19: info: overflow check proved
+anubis_mldsa_encoding.adb:599:19: info: index check proved
+anubis_mldsa_encoding.adb:601:18: info: overflow check proved
+anubis_mldsa_encoding.adb:605:10: info: precondition proved
+anubis_mldsa_encoding.adb:607:22: info: overflow check proved
+anubis_mldsa_encoding.adb:607:22: info: index check proved
+anubis_mldsa_encoding.adb:609:21: info: overflow check proved
+anubis_mldsa_encoding.adb:615:19: info: overflow check proved
+anubis_mldsa_encoding.adb:615:19: info: index check proved
+anubis_mldsa_encoding.adb:622:36: info: loop invariant preservation proved
+anubis_mldsa_encoding.adb:622:36: info: loop invariant initialization proved
+anubis_mldsa_encoding.adb:624:39: info: loop invariant initialization proved
+anubis_mldsa_encoding.adb:624:39: info: loop invariant preservation proved
+anubis_mldsa_encoding.adb:627:36: info: overflow check proved
+anubis_mldsa_encoding.adb:627:36: info: index check proved
+anubis_mldsa_encoding.adb:628:47: info: overflow check proved
+anubis_mldsa_encoding.adb:634:22: info: overflow check proved
+anubis_mldsa_encoding.adb:634:30: info: overflow check proved
+anubis_mldsa_encoding.adb:634:30: info: index check proved
+anubis_mldsa_encoding.adb:634:44: info: range check proved
+
+anubis_mldsa_encoding.adb:648:07: warning: initialization of "Hint_Count" has no effect
+  648 |      Hint_Count : Natural := 0;
+      |      ^~~~~~~~~~~~~~~~~~~~~~~~~
+anubis_mldsa_encoding.adb:651:07: info: initialization of "Temp_Z" proved
+anubis_mldsa_encoding.adb:657:34: info: overflow check proved
+anubis_mldsa_encoding.adb:657:34: info: index check proved
+anubis_mldsa_encoding.adb:659:18: info: overflow check proved
+anubis_mldsa_encoding.adb:664:36: info: overflow check proved
+anubis_mldsa_encoding.adb:664:36: info: index check proved
+anubis_mldsa_encoding.adb:666:10: info: precondition proved
+anubis_mldsa_encoding.adb:667:21: info: overflow check proved
+anubis_mldsa_encoding.adb:677:42: info: overflow check proved
+anubis_mldsa_encoding.adb:677:50: info: overflow check proved
+anubis_mldsa_encoding.adb:677:50: info: index check proved
+anubis_mldsa_encoding.adb:688:60: info: overflow check proved
+anubis_mldsa_encoding.adb:688:60: info: index check proved
+anubis_mldsa_encoding.adb:694:23: info: index check proved
+anubis_mldsa_encoding.ads:18:07: info: initialization of "Output" proved
+anubis_mldsa_encoding.ads:20:07: info: data dependencies proved
+anubis_mldsa_encoding.ads:26:07: info: initialization of "Poly" proved
+anubis_mldsa_encoding.ads:28:07: info: data dependencies proved
+anubis_mldsa_encoding.ads:34:07: info: initialization of "Output" proved
+anubis_mldsa_encoding.ads:36:07: info: data dependencies proved
+anubis_mldsa_encoding.ads:42:07: info: initialization of "Poly" proved
+anubis_mldsa_encoding.ads:44:07: info: data dependencies proved
+anubis_mldsa_encoding.ads:50:07: info: initialization of "Output" proved
+anubis_mldsa_encoding.ads:52:07: info: data dependencies proved
+anubis_mldsa_encoding.ads:58:07: info: initialization of "Poly" proved
+anubis_mldsa_encoding.ads:60:07: info: data dependencies proved
+anubis_mldsa_encoding.ads:66:07: info: initialization of "Output" proved
+anubis_mldsa_encoding.ads:68:07: info: data dependencies proved
+anubis_mldsa_encoding.ads:74:07: info: initialization of "Poly" proved
+anubis_mldsa_encoding.ads:76:07: info: data dependencies proved
+anubis_mldsa_encoding.ads:82:07: info: initialization of "Output" proved
+anubis_mldsa_encoding.ads:84:07: info: data dependencies proved
+anubis_mldsa_encoding.ads:91:07: info: initialization of "PK" proved
+anubis_mldsa_encoding.ads:93:07: info: data dependencies proved
+anubis_mldsa_encoding.ads:98:07: info: initialization of "Rho" proved
+anubis_mldsa_encoding.ads:99:07: info: initialization of "T1" proved
+anubis_mldsa_encoding.ads:101:07: info: data dependencies proved
+anubis_mldsa_encoding.ads:111:07: info: initialization of "SK" proved
+anubis_mldsa_encoding.ads:113:07: info: data dependencies proved
+anubis_mldsa_encoding.ads:118:07: info: initialization of "Rho" proved
+anubis_mldsa_encoding.ads:119:07: info: initialization of "K" proved
+anubis_mldsa_encoding.ads:120:07: info: initialization of "Tr" proved
+anubis_mldsa_encoding.ads:121:07: info: initialization of "S1" proved
+anubis_mldsa_encoding.ads:122:07: info: initialization of "S2" proved
+anubis_mldsa_encoding.ads:123:07: info: initialization of "T0" proved
+anubis_mldsa_encoding.ads:125:07: info: data dependencies proved
+anubis_mldsa_encoding.ads:132:07: info: initialization of "Sig" proved
+anubis_mldsa_encoding.ads:134:07: info: data dependencies proved
+anubis_mldsa_encoding.ads:139:07: info: initialization of "C_Tilde" proved
+anubis_mldsa_encoding.ads:140:07: info: initialization of "Z" proved
+anubis_mldsa_encoding.ads:141:07: info: initialization of "H" proved
+anubis_mldsa_encoding.ads:142:07: info: initialization of "Valid" proved
+anubis_mldsa_encoding.ads:144:07: info: data dependencies proved

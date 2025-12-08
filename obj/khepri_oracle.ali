@@ -1,0 +1,326 @@
+V "GNAT Lib v14"
+A -O0
+A -gnatA
+A -gnatwa
+A -gnatQ
+A -gnata
+A -gnatf
+A -gnatyM120
+A -gnatyO
+A -gnat2012
+A -g
+A -gnateE
+A -fstack-check=specific
+A -mmacosx-version-min=16.0.0
+A -mcpu=apple-m1
+A -mlittle-endian
+A -mabi=lp64
+A -fPIC
+P ZX
+
+RN
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+RV NO_ELABORATION_CODE
+
+U khepri_oracle%b	khepri_oracle.adb	f1c7e8c4 OO PK
+W interfaces%s		interfac.ads		interfac.ali
+Z system.assertions%s	s-assert.adb		s-assert.ali
+
+U khepri_oracle%s	khepri_oracle.ads	d8540cd7 EE NE OO PK
+W aegis_u256%s		aegis_u256.adb		aegis_u256.ali
+W aegis_vm_types%s	aegis_vm_types.ads	aegis_vm_types.ali
+W khepri_types%s	khepri_types.adb	khepri_types.ali
+
+D ada.ads		20240808082856 76789da1 ada%s
+D a-assert.ads		20240808082856 ba465f5c ada.assertions%s
+D a-unccon.ads		20240808082856 0e9b276f ada.unchecked_conversion%s
+D aegis_u256.ads	20251207191105 ff2dfe4b aegis_u256%s
+D aegis_vm_types.ads	20251207191105 dcd101d9 aegis_vm_types%s
+D interfac.ads		20240808082856 9111f9c1 interfaces%s
+D khepri_oracle.ads	20251206202917 fd5b7168 khepri_oracle%s
+D khepri_oracle.adb	20251206024833 9d8d606d khepri_oracle%b
+D khepri_types.ads	20251207191106 06f3822d khepri_types%s
+D system.ads		20240808082856 70765b54 system%s
+D s-assert.ads		20240808082856 9c4520c7 system.assertions%s
+D s-exctab.ads		20240808082856 91bef6ef system.exception_table%s
+D s-stalib.ads		20240808082856 1c9580f6 system.standard_library%s
+G a e
+G c Z s s [price_dataIP khepri_oracle 57 9 none]
+G c Z s s [feed_nameIP khepri_oracle 48 9 none]
+G c Z s s [feed_configIP khepri_oracle 77 9 none]
+G c Z s b [initialize khepri_oracle 136 14 none]
+G c Z s b [create_feed khepri_oracle 147 14 none]
+G c Z s b [update_feed_config khepri_oracle 156 14 none]
+G c Z s b [disable_feed khepri_oracle 165 14 none]
+G c Z s b [add_reporter khepri_oracle 177 14 none]
+G c Z s b [remove_reporter khepri_oracle 186 14 none]
+G c Z s b [suspend_reporter khepri_oracle 194 14 none]
+G c Z s b [reinstate_reporter khepri_oracle 202 14 none]
+G c Z s b [submit_price khepri_oracle 214 14 none]
+G c Z s b [latest_round_data khepri_oracle 227 13 none]
+G c Z s b [get_round_data khepri_oracle 231 13 none]
+G c Z s b [latest_answer khepri_oracle 238 13 none]
+G c Z s b [latest_timestamp khepri_oracle 242 13 none]
+G c Z s b [latest_round khepri_oracle 246 13 none]
+G c Z s b [get_answer khepri_oracle 250 13 none]
+G c Z s b [get_timestamp khepri_oracle 257 13 none]
+G c Z s b [get_feed_config khepri_oracle 268 13 none]
+G c Z s b [feed_decimals khepri_oracle 272 13 none]
+G c Z s b [feed_description khepri_oracle 276 13 none]
+G c Z s b [feed_count khepri_oracle 280 13 none]
+G c Z s b [is_feed_active khepri_oracle 284 13 none]
+G c Z s b [is_price_stale khepri_oracle 288 13 none]
+G c Z s b [get_reporter_info khepri_oracle 296 13 none]
+G c Z s b [is_reporter khepri_oracle 300 13 none]
+G c Z s b [reporter_count khepri_oracle 304 13 none]
+G c Z s b [contract_admin khepri_oracle 312 13 none]
+G c Z s b [transfer_admin khepri_oracle 316 14 none]
+G c Z s s [reporter_infoIP khepri_oracle 107 9 none]
+G c Z b b [feed_entryIP khepri_oracle 16 9 none]
+G c Z b b [Tfeed_arrayBIP khepri_oracle 23 4 none]
+G c Z b b [Treporter_arrayBIP khepri_oracle 25 4 none]
+G c Z b b [price_entryIP khepri_oracle 27 9 none]
+G c Z b b [Tprice_arrayBIP khepri_oracle 33 4 none]
+G c Z b b [find_feed khepri_oracle 67 13 none]
+G c Z b b [find_empty_feed khepri_oracle 75 13 none]
+G c Z b b [find_reporter khepri_oracle 85 13 none]
+G c Z b b [find_empty_reporter khepri_oracle 97 13 none]
+G c Z b b [find_price khepri_oracle 107 13 none]
+G c Z b b [find_latest_price khepri_oracle 120 13 none]
+G c Z b b [find_empty_price khepri_oracle 136 13 none]
+G r c none [submit_price khepri_oracle 214 14 none] [equal aegis_u256 31 13 none]
+X 4 aegis_u256.ads
+21K9*Aegis_U256 276e15 7|11w6 11r27
+31V13*Equal{boolean} 8|415s10
+X 5 aegis_vm_types.ads
+21K9*Aegis_VM_Types 279e19 7|10w6 10r27
+31M12*Byte{6|70M9}
+35M12*Word64{6|84M9} 7|38r24 41r25
+41R9*U256 43e14 7|35r27
+46r4*U256_Zero{41R9} 7|67r22 8|415r24
+70A9*Contract_Address(31M12)<integer>
+X 6 interfac.ads
+38K9*Interfaces 233e15 8|4w6 4r22
+70M9*Unsigned_8
+84M9*Unsigned_64
+X 7 khepri_oracle.ads
+14K9*Khepri_Oracle 325l5 325e18 8|6b14 641l5 641t18
+16@23*Oracle_State 17r19 140r28 154r28 163r28 171r28 183r28 192r28 200r28
+. 208r28 221r28 228r17 235r17 239r17 243r17 247r17 254r17 261r17 269r17 273r17
+. 277r17 281r17 285r17 289r17 297r17 301r17 305r17 313r17 322r28 8|8r22
+24a4*Zero_Address{9|43A12} 89r24 90r24 141r26 184r29 323r30 8|39r30 50r24
+. 156r24 589r30
+26N4*Max_Feeds 8|23r35 69r20 219r21 243r21 402r21 488r20 517r20 526r20 535r20
+. 555r24 564r21
+27N4*Max_Reporters 8|25r39
+28N4*Max_Rounds 8|33r36
+35R12*Price_Value{5|41R9} 59r22 217r24 238r54 253r13 8|380r24 476r54 498r13
+38M12*Round_ID{5|35M12} 58r22 62r22 233r19 246r53 252r19 259r19 8|19r18 107r56
+. 386r23 465r19 486r53 497r19 505r19
+41M12*Timestamp{5|35M12} 60r22 61r22 82r24 110r23 242r57 260r13 8|40r19 122r21
+. 481r57 506r13 562r19
+47I12*Feed_Name_Length{natural} 50r16
+48R9*Feed_Name 51e14 78r24 276r57 8|533r57
+49a7*Data{string} 88m25 8|538m18
+50i7*Length{47I12} 88m50 8|538m43
+57R9*Price_Data 63e14 65r31 227r58 234r13 8|29r17 453r58 466r13 561r16
+58m7*Round_Num{38M12} 66m7 8|112r38 431m13
+59r7*Answer{35R12} 67m7 8|432m13 478r42 500r50
+60m7*Started_At{41M12} 68m7 8|433m13
+61m7*Updated_At{41M12} 69m7 8|127r38 130r44 434m13 483r42 508r50 571r17 575r36
+62m7*Answered_In{38M12} 70m7 8|435m13
+65r4*Null_Price_Data{57R9} 8|59r18 459r17 472r17
+77R9*Feed_Config 85e14 87r35 149r24 159r24 268r56 8|17r18 171r24 208r24 515r56
+78r7*Name{48R9} 88m7 8|536r40
+79a7*Base_Token{9|43A12} 89m7
+80a7*Quote_Token{9|43A12} 90m7
+81i7*Decimals{natural} 91m7 8|527r40
+82m7*Heartbeat{41M12} 92m7 8|569r43
+83i7*Deviation_BPS{natural} 93m7
+84i7*Min_Reporters{natural} 94m7
+87r4*Default_Feed_Config{77R9} 8|43r17 520r17
+101E9*Reporter_Status 105e5 109r23
+102n7*Status_Inactive{101E9} 8|51r24 590r30
+103n7*Status_Active{101E9} 8|288r27 368r34 395r46
+104n7*Status_Suspended{101E9} 8|343r34
+107R9*Reporter_Info 113e14 296r59 8|25r61 582r59
+108a7*Reporter_Addr{9|43A12} 8|50m7 89r36 287m10 589m13
+109e7*Status{101E9} 8|51m7 288m10 343m24 368m24 395r36 590m13
+110m7*Last_Report{41M12} 8|52m7 289m10 441m33 591m13
+111i7*Report_Count{natural} 8|53m7 290m10 442m33 443r36 592m13
+112b7*Used{boolean} 8|54m7 88r27 100r31 291m10 318m24 593m13 607r27
+119E9*Oracle_Error 130e5 152r24 161r24 169r24 181r25 190r25 198r25 206r25
+. 219r24 320r26 8|174r24 210r24 234r24 262r25 302r25 327r25 352r25 382r24
+. 627r26
+120n7*Error_None{119E9} 8|202r16 227r16 251r16 295r16 320r16 345r16 370r16
+. 446r16 638r16
+121n7*Error_Not_Authorized{119E9} 8|181r19 215r19 239r19 268r19 308r19 333r19
+. 358r19 632r19
+122n7*Error_Feed_Not_Found{119E9} 8|221r19 245r19 404r19 410r19
+123n7*Error_Feed_Exists{119E9}
+124n7*Error_Reporter_Not_Found{119E9} 8|314r19 339r19 364r19 391r19
+125n7*Error_Reporter_Suspended{119E9} 8|397r19
+126n7*Error_Stale_Price{119E9}
+127n7*Error_Invalid_Price{119E9} 8|417r19
+128n7*Error_Insufficient_Reporters{119E9}
+129n7*Error_Overflow{119E9} 8|189r19 275r19 282r19
+136U14*Initialize 137>7 138<7 8|151b14 163l8 163t18
+137a7 Admin{9|43A12} 141r17 8|152b7 161r21
+138b7 Success{boolean} 8|153b7 157m10 162m7
+147U14*Create_Feed 148>7 149>7 150<7 151<7 152<7 8|169b14 203l8 203t19
+148a7 Caller{9|43A12} 8|170b7 178r10
+149r7 Config{77R9} 8|171b7 194r20
+150i7 Feed_Id{natural} 8|172b7 179m10 187m10 200m7
+151b7 Success{boolean} 8|173b7 180m10 188m10 201m7
+152e7 Error{119E9} 8|174b7 181m10 189m10 202m7
+156U14*Update_Feed_Config 157>7 158>7 159>7 160<7 161<7 8|205b14 228l8 228t26
+157a7 Caller{9|43A12} 8|206b7 213r10
+158i7 Feed_Id{natural} 8|207b7 219r10 219r50 225r14
+159r7 Config{77R9} 8|208b7 225r33
+160b7 Success{boolean} 8|209b7 214m10 220m10 226m7
+161e7 Error{119E9} 8|210b7 215m10 221m10 227m7
+165U14*Disable_Feed 166>7 167>7 168<7 169<7 8|230b14 252l8 252t20
+166a7 Caller{9|43A12} 8|231b7 237r10
+167i7 Feed_Id{natural} 8|232b7 243r10 243r50 249r14
+168b7 Success{boolean} 8|233b7 238m10 244m10 250m7
+169e7 Error{119E9} 8|234b7 239m10 245m10 251m7
+177U14*Add_Reporter 178>7 179>7 180<7 181<7 8|258b14 296l8 296t20
+178a7 Caller{9|43A12} 8|259b7 266r10
+179a7 Reporter{9|43A12} 184r17 8|260b7 273r25 287r27
+180b7 Success{boolean} 8|261b7 267m10 274m10 281m10 294m7
+181e7 Error{119E9} 8|262b7 268m10 275m10 282m10 295m7
+186U14*Remove_Reporter 187>7 188>7 189<7 190<7 8|298b14 321l8 321t23
+187a7 Caller{9|43A12} 8|299b7 306r10
+188a7 Reporter{9|43A12} 8|300b7 304r49
+189b7 Success{boolean} 8|301b7 307m10 313m10 319m7
+190e7 Error{119E9} 8|302b7 308m10 314m10 320m7
+194U14*Suspend_Reporter 195>7 196>7 197<7 198<7 8|323b14 346l8 346t24
+195a7 Caller{9|43A12} 8|324b7 331r10
+196a7 Reporter{9|43A12} 8|325b7 329r49
+197b7 Success{boolean} 8|326b7 332m10 338m10 344m7
+198e7 Error{119E9} 8|327b7 333m10 339m10 345m7
+202U14*Reinstate_Reporter 203>7 204>7 205<7 206<7 8|348b14 371l8 371t26
+203a7 Caller{9|43A12} 8|349b7 356r10
+204a7 Reporter{9|43A12} 8|350b7 354r49
+205b7 Success{boolean} 8|351b7 357m10 363m10 369m7
+206e7 Error{119E9} 8|352b7 358m10 364m10 370m7
+214U14*Submit_Price 215>7 216>7 217>7 218<7 219<7 8|377b14 447l8 447t20
+215a7 Caller{9|43A12} 8|378b7 384r58
+216i7 Feed_Id{natural} 8|379b7 402r10 402r50 408r21 422r27 423r14 429r21
+217r7 Price{35R12} 8|380b7 415r17 432r28
+218b7 Success{boolean} 8|381b7 390m10 396m10 403m10 409m10 416m10 445m7
+219e7 Error{119E9} 8|382b7 391m10 397m10 404m10 410m10 417m10 446m7
+227V13*Latest_Round_Data{57R9} 227>32 8|453b13 461l8 461t25 478s14 483s14
+. 568s17
+227i32 Feed_Id{natural} 8|453b32 454r53
+231V13*Get_Round_Data{57R9} 232>7 233>7 8|463b13 474l8 474t22 500s14 508s14
+232i7 Feed_Id{natural} 8|464b7 467r46
+233m7 Round_Num{38M12} 8|465b7 467r55
+238V13*Latest_Answer{35R12} 238>28 8|476b13 479l8 479t21
+238i28 Feed_Id{natural} 8|476b28 478r33
+242V13*Latest_Timestamp{41M12} 242>31 8|481b13 484l8 484t24
+242i31 Feed_Id{natural} 8|481b31 483r33
+246V13*Latest_Round{38M12} 246>27 8|486b13 493l8 493t20
+246i27 Feed_Id{natural} 8|486b27 488r10 488r46 489r24
+250V13*Get_Answer{35R12} 251>7 252>7 8|495b13 501l8 501t18
+251i7 Feed_Id{natural} 8|496b7 500r30
+252m7 Round_Num{38M12} 8|497b7 500r39
+257V13*Get_Timestamp{41M12} 258>7 259>7 8|503b13 509l8 509t21
+258i7 Feed_Id{natural} 8|504b7 508r30
+259m7 Round_Num{38M12} 8|505b7 508r39
+268V13*Get_Feed_Config{77R9} 268>30 8|515b13 522l8 522t23
+268i30 Feed_Id{natural} 8|515b30 517r10 517r46 518r24
+272V13*Feed_Decimals{natural} 272>28 8|524b13 531l8 531t21
+272i28 Feed_Id{natural} 8|524b28 526r10 526r46 527r24
+276V13*Feed_Description{48R9} 276>31 8|533b13 540l8 540t24
+276i31 Feed_Id{natural} 8|533b31 535r10 535r46 536r24
+280V13*Feed_Count{natural} 8|542b13 551l8 551t18
+284V13*Is_Feed_Active{boolean} 284>29 8|553b13 558l8 558t22
+284i29 Feed_Id{natural} 8|553b29 555r14 556r26 557r26
+288V13*Is_Price_Stale{boolean} 288>29 8|560b13 576l8 576t22
+288i29 Feed_Id{natural} 8|560b29 564r10 564r50 568r36 569r27
+296V13*Get_Reporter_Info{107R9} 296>32 8|582b13 596l8 596t25
+296a32 Reporter{9|43A12} 8|582b32 583r49
+300V13*Is_Reporter{boolean} 300>26 8|598b13 601l8 601t19
+300a26 Reporter{9|43A12} 8|598b26 600r29
+304V13*Reporter_Count{natural} 8|603b13 612l8 612t22
+312V13*Contract_Admin{9|43A12} 8|618b13 621l8 621t22
+316U14*Transfer_Admin 317>7 318>7 319<7 320<7 8|623b14 639l8 639t22
+317a7 Caller{9|43A12} 8|624b7 630r10
+318a7 New_Admin{9|43A12} 323r17 8|625b7 636r21
+319b7 Success{boolean} 8|626b7 631m10 637m7
+320e7 Error{119E9} 8|627b7 632m10 638m7
+X 8 khepri_oracle.adb
+16R9 Feed_Entry 21e14 23r53
+17r7*Config{7|77R9} 43m7 194m10 225m23 518r33 527r33 536r33 569r36
+18b7*Active{boolean} 44m7 195m10 249m23 408r30 557r35
+19m7*Round{7|38M12} 45m7 196m10 422r36 423m23 489r33
+20b7*Used{boolean} 46m7 69r55 78r27 197m10 219r59 243r59 402r59 488r55 517r55
+. 526r55 535r55 546r23 556r35 564r59
+23A9 Feed_Array(16R9)<integer> 42r12
+25A9 Reporter_Array(7|107R9)<integer> 49r16
+27R9 Price_Entry 31e14 33r55
+28i7*Feed_Id{natural} 58m7 111r33 126r33 429m10
+29r7*Data{7|57R9} 59m7 112r33 127r33 130r39 430m10 457r31 470r31
+30b7*Used{boolean} 60m7 110r24 125r24 139r28 437m10
+33A9 Price_Array(27R9)<integer> 57r13
+39a4 Admin_Addr{9|43A12} 9r8 156r10 161m7 178r20 213r20 237r20 266r20 306r20
+. 331r20 356r20 620r14 630r20 636m7
+40m4 Current_Time{7|41M12} 9r46 433r28 434r28 441r48 575r14
+42a4 Feeds{23A9} 9r20 69r39 77r16 78r17 193m7 219r43 225m7 243r43 249m7 402r43
+. 408r14 422r20 423m7 488r39 489r17 517r39 518r17 526r39 527r17 535r39 536r17
+. 545r16 546r13 556r19 557r19 564r43 569r20
+49a4 Reporters{25A9} 9r27 87r16 88r13 89r22 99r16 100r17 286m7 318m7 343m7
+. 368m7 395r10 441m7 442m7 443r10 586r17 606r16 607r13
+57a4 Prices{33A9} 9r38 109r16 110r13 111r22 112r22 124r16 125r13 126r22 127r22
+. 130r28 138r16 139r17 428m7 457r17 470r17
+67V13 Find_Feed{natural} 67b13 67>24 73l8 73t17
+67i24 Feed_Id{natural} 69r10 69r46 70r17
+75V13 Find_Empty_Feed{natural} 75b13 83l8 83t23 185s15
+77i11 I{integer} 78r24 79r20
+85V13 Find_Reporter{natural} 85b13 85>28 95l8 95t21 273s10 304s34 329s34
+. 354s34 384s43 583s34 600s14
+85a28 Reporter{9|43A12} 89r52
+87i11 I{integer} 88r24 89r33 91r20
+97V13 Find_Empty_Reporter{natural} 97b13 105l8 105t27 279s15
+99i11 I{integer} 100r28 101r20
+107V13 Find_Price{natural} 107b13 107>25 107>44 118l8 118t18 467s34
+107i25 Feed_Id{natural} 111r43
+107m44 Round_Num{7|38M12} 112r50
+109i11 I{integer} 110r21 111r30 112r30 114r20
+120V13 Find_Latest_Price{natural} 120b13 120>32 134l8 134t25 454s34
+120i32 Feed_Id{natural} 126r43
+121i7 Latest_Slot{natural} 129m13 133r14
+122m7 Latest_Time{7|41M12} 127r51 130m13
+124i11 I{integer} 125r21 126r30 127r30 129r28 130r36
+136V13 Find_Empty_Price{natural} 136b13 145l8 145t24 426s21
+138i11 I{integer} 139r25 140r20
+176i7 Slot{natural} 185m7 186r10 193r14 200r18
+264i7 Slot{natural} 279m7 280r10 286r18
+304i7 Slot{natural} 312r10 318r18
+329i7 Slot{natural} 337r10 343r18
+354i7 Slot{natural} 362r10 368r18
+384i7 Reporter_Slot{natural} 389r10 395r21 441r18 442r18 443r21
+385i7 Price_Slot{natural} 426m7 428r15
+386m7 New_Round{7|38M12} 422m7 423r32 431r28 435r28
+454i7 Slot{natural} 456r10 457r25
+467i7 Slot{natural} 469r10 470r25
+543i7 Count{natural} 547m13 547r22 550r14
+545i11 I{integer} 546r20
+561r7 Latest{7|57R9} 568m7 571r10 575r29
+562m7 Heartbeat{7|41M12} 569m7 575r49
+583i7 Slot{natural} 585r10 586r28
+604i7 Count{natural} 608m13 608r22 611r14
+606i11 I{integer} 607r24
+X 9 khepri_types.ads
+25K9*Khepri_Types 7|12w6 12r27 9|345e17
+43A12*Address{5|70A9}<integer> 7|24r28 79r24 80r24 108r23 137r20 148r24 157r24
+. 166r24 178r25 179r25 187r25 188r25 195r25 196r25 203r25 204r25 215r24 296r43
+. 300r37 312r35 317r26 318r26 8|39r19 85r39 152r20 170r24 206r24 231r24 259r25
+. 260r25 299r25 300r25 324r25 325r25 349r25 350r25 378r24 582r43 598r37 618r35
+. 624r26 625r26
+46a4*Null_Address{43A12} 7|24r39
+

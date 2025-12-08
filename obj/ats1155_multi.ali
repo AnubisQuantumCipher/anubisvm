@@ -1,0 +1,435 @@
+V "GNAT Lib v14"
+A -O0
+A -gnatA
+A -gnatwa
+A -gnatQ
+A -gnata
+A -gnatf
+A -gnatyM120
+A -gnatyO
+A -gnat2012
+A -g
+A -gnateE
+A -fstack-check=specific
+A -mmacosx-version-min=16.0.0
+A -mcpu=apple-m1
+A -mlittle-endian
+A -mabi=lp64
+A -fPIC
+P ZX
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+RV NO_ELABORATION_CODE
+
+U ats1155_multi%b	ats1155_multi.adb	098e6a13 OO PK
+Z system.assertions%s	s-assert.adb		s-assert.ali
+
+U ats1155_multi%s	ats1155_multi.ads	0fbe9e01 EE NE OO PK
+W aegis_u256%s		aegis_u256.adb		aegis_u256.ali
+W aegis_vm_types%s	aegis_vm_types.ads	aegis_vm_types.ali
+W khepri_types%s	khepri_types.adb	khepri_types.ali
+
+D ada.ads		20240808082856 76789da1 ada%s
+D a-assert.ads		20240808082856 ba465f5c ada.assertions%s
+D a-unccon.ads		20240808082856 0e9b276f ada.unchecked_conversion%s
+D aegis_u256.ads	20251207191105 ff2dfe4b aegis_u256%s
+D aegis_vm_types.ads	20251207191105 dcd101d9 aegis_vm_types%s
+D ats1155_multi.ads	20251206202917 2ab1e3be ats1155_multi%s
+D ats1155_multi.adb	20251206023522 233f89ad ats1155_multi%b
+D interfac.ads		20240808082856 9111f9c1 interfaces%s
+D khepri_types.ads	20251207191106 06f3822d khepri_types%s
+D system.ads		20240808082856 70765b54 system%s
+D s-assert.ads		20240808082856 9c4520c7 system.assertions%s
+D s-exctab.ads		20240808082856 91bef6ef system.exception_table%s
+D s-stalib.ads		20240808082856 1c9580f6 system.standard_library%s
+G a e
+G c Z s s [token_uriIP ats1155_multi 44 9 none]
+G c Z s s [multi_configIP ats1155_multi 118 9 none]
+G c Z s b [initialize ats1155_multi 134 14 none]
+G c Z s b [balance_of ats1155_multi 145 13 none]
+G c Z s b [balance_of_batch ats1155_multi 153 14 none]
+G c Z s b [is_approved_for_all ats1155_multi 163 13 none]
+G c Z s b [uri ats1155_multi 170 13 none]
+G c Z s b [contract_owner ats1155_multi 174 13 none]
+G c Z s b [total_supply ats1155_multi 178 13 none]
+G c Z s b [exists ats1155_multi 182 13 none]
+G c Z s b [safe_transfer_from ats1155_multi 190 14 none]
+G c Z s b [safe_batch_transfer_from ats1155_multi 203 14 none]
+G c Z s b [set_approval_for_all ats1155_multi 221 14 none]
+G c Z s b [mint ats1155_multi 235 14 none]
+G c Z s b [mint_batch ats1155_multi 247 14 none]
+G c Z s b [burn ats1155_multi 260 14 none]
+G c Z s b [burn_batch ats1155_multi 270 14 none]
+G c Z s b [set_uri ats1155_multi 286 14 none]
+G c Z s b [set_base_uri ats1155_multi 295 14 none]
+G c Z s b [transfer_ownership ats1155_multi 307 14 none]
+G c Z s b [supports_interface ats1155_multi 320 13 none]
+G c Z s s [Ttoken_id_arrayBIP ats1155_multi 55 4 none]
+G c Z s s [Tamount_arrayBIP ats1155_multi 56 4 none]
+G c Z s s [Taddress_arrayBIP ats1155_multi 57 4 none]
+G c Z s s [batch_transferIP ats1155_multi 59 9 none]
+G c Z s s [transfer_single_eventIP ats1155_multi 86 9 none]
+G c Z s s [transfer_batch_eventIP ats1155_multi 94 9 none]
+G c Z s s [approval_for_all_eventIP ats1155_multi 103 9 none]
+G c Z s s [uri_eventIP ats1155_multi 109 9 none]
+G c Z b b [config_storageIP ats1155_multi 13 9 none]
+G c Z b b [balance_entryIP ats1155_multi 21 9 none]
+G c Z b b [Tbalance_arrayBIP ats1155_multi 28 4 none]
+G c Z b b [operator_entryIP ats1155_multi 31 9 none]
+G c Z b b [Toperator_arrayBIP ats1155_multi 38 4 none]
+G c Z b b [uri_entryIP ats1155_multi 41 9 none]
+G c Z b b [Turi_arrayBIP ats1155_multi 47 4 none]
+G c Z b b [supply_entryIP ats1155_multi 50 9 none]
+G c Z b b [Tsupply_arrayBIP ats1155_multi 56 4 none]
+G c Z b b [find_balance ats1155_multi 99 13 none]
+G c Z b b [find_or_create_balance ats1155_multi 112 13 none]
+G c Z b b [find_operator ats1155_multi 129 13 none]
+G c Z b b [find_or_create_operator ats1155_multi 142 13 none]
+G c Z b b [find_supply ats1155_multi 159 13 none]
+G c Z b b [find_or_create_supply ats1155_multi 169 13 none]
+G c Z b b [find_uri ats1155_multi 184 13 none]
+G r c none [balance_of ats1155_multi 145 13 none] [equal aegis_u256 31 13 none]
+G r c none [balance_of_batch ats1155_multi 153 14 none] [equal aegis_u256 31 13 none]
+G r c none [uri ats1155_multi 170 13 none] [equal aegis_u256 31 13 none]
+G r c none [total_supply ats1155_multi 178 13 none] [equal aegis_u256 31 13 none]
+G r c none [exists ats1155_multi 182 13 none] [equal aegis_u256 31 13 none]
+G r c none [safe_transfer_from ats1155_multi 190 14 none] [equal aegis_u256 31 13 none]
+G r c none [safe_transfer_from ats1155_multi 190 14 none] [less_than aegis_u256 36 13 none]
+G r c none [safe_transfer_from ats1155_multi 190 14 none] [add aegis_u256 64 14 none]
+G r c none [safe_transfer_from ats1155_multi 190 14 none] [sub_mod aegis_u256 84 13 none]
+G r c none [safe_batch_transfer_from ats1155_multi 203 14 none] [equal aegis_u256 31 13 none]
+G r c none [safe_batch_transfer_from ats1155_multi 203 14 none] [less_than aegis_u256 36 13 none]
+G r c none [safe_batch_transfer_from ats1155_multi 203 14 none] [add aegis_u256 64 14 none]
+G r c none [safe_batch_transfer_from ats1155_multi 203 14 none] [sub_mod aegis_u256 84 13 none]
+G r c none [mint ats1155_multi 235 14 none] [equal aegis_u256 31 13 none]
+G r c none [mint ats1155_multi 235 14 none] [add aegis_u256 64 14 none]
+G r c none [mint_batch ats1155_multi 247 14 none] [equal aegis_u256 31 13 none]
+G r c none [mint_batch ats1155_multi 247 14 none] [add aegis_u256 64 14 none]
+G r c none [burn ats1155_multi 260 14 none] [equal aegis_u256 31 13 none]
+G r c none [burn ats1155_multi 260 14 none] [less_than aegis_u256 36 13 none]
+G r c none [burn ats1155_multi 260 14 none] [sub_mod aegis_u256 84 13 none]
+G r c none [burn_batch ats1155_multi 270 14 none] [equal aegis_u256 31 13 none]
+G r c none [burn_batch ats1155_multi 270 14 none] [less_than aegis_u256 36 13 none]
+G r c none [burn_batch ats1155_multi 270 14 none] [sub_mod aegis_u256 84 13 none]
+G r c none [set_uri ats1155_multi 286 14 none] [equal aegis_u256 31 13 none]
+G r c none [find_balance ats1155_multi 99 13 none] [equal aegis_u256 31 13 none]
+G r c none [find_or_create_balance ats1155_multi 112 13 none] [equal aegis_u256 31 13 none]
+G r c none [find_supply ats1155_multi 159 13 none] [equal aegis_u256 31 13 none]
+G r c none [find_or_create_supply ats1155_multi 169 13 none] [equal aegis_u256 31 13 none]
+G r c none [find_uri ats1155_multi 184 13 none] [equal aegis_u256 31 13 none]
+X 4 aegis_u256.ads
+21K9*Aegis_U256 276e15 6|12w6 12r27
+31V13*Equal{boolean} 7|104s22 118s25 162s40 174s16 187s42 298s50
+36V13*Less_Than{boolean} 7|331s10 557s10
+64U14*Add 7|338s7 463s7 472s7
+84V13*Sub_Mod{5|41R9} 7|350s41 569s40 573s40
+X 5 aegis_vm_types.ads
+21K9*Aegis_VM_Types 279e19 6|11w6 11r27
+31M12*Byte{8|70M9}
+32A9*Byte_Array(31M12)<integer> 6|196r24 210r24 240r24 253r24 7|311r24 373r24
+. 441r24 509r24
+41R9*U256 43e14 6|37r24 40r28 7|318r20 447r20 449r20
+46r4*U256_Zero{41R9} 7|71r18 72r18 84r15 90r17 91r17 231r17 243r30 291r17
+. 298r81
+70A9*Contract_Address(31M12)<integer>
+X 6 ats1155_multi.ads
+15K9*ATS1155_Multi 326E4 330l5 330e18 7|4b14 701l5 701t18
+17@23*Multi_State 18r19 138r28 149r17 160r17 167r17 171r17 175r17 179r17
+. 183r17 200r28 214r28 228r28 244r28 257r28 268r28 279r28 293r28 301r28 313r28
+. 7|6r22
+25a4*Zero_Address{9|43A12} 127r23 139r33 151r28 201r23 215r23 229r29 245r23
+. 258r23 314r30 7|65r23 70r18 77r19 78r19 246r28
+27N4*Max_Token_Types 7|47r34 56r37 272r17 288r17 298r21 491r21 572r21 636r17
+28N4*Max_Accounts 7|28r38 228r17 349r22 353r20 482r21 568r21
+29N4*Max_Operators 7|38r39 262r17 415r41
+30N4*Max_Batch_Size 53r46 161r26 215r49 258r49 280r26
+37R12*Token_ID{5|41R9} 55r50 90r18 111r15 147r17 170r23 178r32 182r26 194r24
+. 238r24 263r24 288r24 7|23r17 42r14 51r16 99r51 112r61 159r31 169r41 184r28
+. 224r17 269r23 285r32 295r26 309r24 439r24 539r24 611r24
+40R12*Token_Amount{5|41R9} 56r48 91r18 148r13 178r49 195r24 239r24 264r24
+. 7|24r17 52r16 225r13 285r49 310r24 316r20 317r20 440r24 446r20 448r20 540r24
+. 544r18 545r18
+43I12*URI_Length{natural} 46r16
+44R9*Token_URI 47e14 110r15 119r22 120r22 170r40 289r24 297r24 7|14r22 15r22
+. 43r14 269r40 612r24 652r24
+45a7*Data{string} 125m24 126m24 7|63m24 64m24 85m16
+46i7*Length{43I12} 125m49 126m49 7|63m49 64m49 85m41
+53I12*Batch_Index{natural} 55r34 56r32 57r33
+55A9*Token_ID_Array(37R12)<integer> 60r17 98r18 155r25 207r24 250r24 273r24
+. 7|237r25 370r24 506r24 583r24
+56A9*Amount_Array(40R12)<integer> 61r17 99r18 157r25 208r24 251r24 274r24
+. 7|239r25 371r24 507r24 584r24
+57A9*Address_Array(9|43A12)<integer> 154r25 7|236r25
+59R9*Batch_Transfer 63e14
+60a7*IDs{55A9}
+61a7*Amounts{56A9}
+62i7*Count{natural}
+69E9*Multi_Error 80e5 198r24 212r24 226r25 242r24 255r24 266r24 277r24 291r24
+. 299r24 311r26 7|313r24 375r24 378r24 411r25 443r24 511r24 514r24 542r24
+. 587r24 590r24 614r24 654r24 676r26
+70n7*Error_None{69E9} 7|363r16 399r16 429r16 500r16 533r16 577r16 602r16
+. 643r19 665r16 687r16
+71n7*Error_Insufficient_Balance{69E9} 7|333r19 559r19
+72n7*Error_Not_Approved{69E9} 7|326r19 383r19 552r19
+73n7*Error_Zero_Address{69E9}
+74n7*Error_Self_Approval{69E9}
+75n7*Error_Length_Mismatch{69E9}
+76n7*Error_Overflow{69E9} 7|341r19 417r19 466r19 475r19 646r19
+77n7*Error_Not_Owner{69E9} 7|457r19 519r19 620r19 659r19 681r19
+78n7*Error_Token_Not_Exists{69E9}
+79n7*Error_Batch_Too_Large{69E9}
+86R9*Transfer_Single_Event 92e14
+87a7*Operator{9|43A12}
+88a7*From{9|43A12}
+89a7*To{9|43A12}
+90r7*ID{37R12}
+91r7*Value{40R12}
+94R9*Transfer_Batch_Event 101e14
+95a7*Operator{9|43A12}
+96a7*From{9|43A12}
+97a7*To{9|43A12}
+98a7*IDs{55A9}
+99a7*Values{56A9}
+100i7*Count{natural}
+103R9*Approval_For_All_Event 107e14
+104a7*Account{9|43A12}
+105a7*Operator{9|43A12}
+106b7*Approved{boolean}
+109R9*URI_Event 112e14
+110r7*Value{44R9}
+111r7*ID{37R12}
+118R9*Multi_Config 122e14 124r30 135r20 7|199r20
+119r7*URI_Base{44R9} 125m7 7|209r33
+120r7*Contract_URI{44R9} 126m7 7|210r33
+121a7*Owner{9|43A12} 127m7 139r24 7|211r33
+124r4*Default_Config{118R9}
+134U14*Initialize 135>7 136<7 7|198b14 216l8 216t18
+135r7 Config{118R9} 139r17 7|199b7 209r26 210r26 211r26
+136b7 Success{boolean} 7|200b7 204m10 215m7
+145V13*Balance_Of{40R12} 146>7 147>7 7|222b13 233l8 233t18 250s26 330s19
+. 337s17 462s17 556s19
+146a7 Account{9|43A12} 151r17 7|223b7 226r48
+147r7 ID{37R12} 7|224b7 226r57
+153U14*Balance_Of_Batch 154>7 155>7 156>7 157<7 158<7 7|235b14 254l8 254t24
+154a7 Accounts{57A9} 7|236b7 246r13 250r38
+155a7 IDs{55A9} 7|237b7 250r52
+156i7 Count{natural} 161r17 7|238b7 245r21
+157a7 Balances{56A9} 7|239b7 243m7 250m10
+158b7 Success{boolean} 7|240b7 247m13 253m7
+163V13*Is_Approved_For_All{boolean} 164>7 165>7 7|256b13 267l8 267t27 324s38
+. 381s38 550s38
+164a7 Account{9|43A12} 7|257b7 260r49
+165a7 Operator{9|43A12} 7|258b7 260r58
+170V13*URI{44R9} 170>18 7|269b13 278l8 278t11
+170r18 ID{37R12} 7|269b18 270r44
+174V13*Contract_Owner{9|43A12} 7|280b13 283l8 283t22
+178V13*Total_Supply{40R12} 178>27 7|285b13 293l8 293t20 471s17 563s17
+178r27 ID{37R12} 7|285b27 286r47
+182V13*Exists{boolean} 182>21 7|295b13 299l8 299t14
+182r21 ID{37R12} 7|295b21 296r47
+190U14*Safe_Transfer_From 191>7 192>7 193>7 194>7 195>7 196>7 197<7 198<7
+. 7|305b14 364l8 364t26 389s10
+191a7 Caller{9|43A12} 7|306b7 324r10 324r65
+192a7 From{9|43A12} 7|307b7 324r20 324r59 330r31 346r44
+193a7 To{9|43A12} 201r17 7|308b7 337r29 347r42 355r24
+194r7 ID{37R12} 7|309b7 330r37 337r33 346r50 347r46 356r24
+195r7 Amount{40R12} 7|310b7 331r31 338r20 350r60
+196a7 Data{5|32A9} 7|311b7 315r28
+197b7 Success{boolean} 7|312b7 325m10 332m10 340m10 362m7
+198e7 Error{69E9} 7|313b7 326m10 333m10 341m10 363m7
+203U14*Safe_Batch_Transfer_From 204>7 205>7 206>7 207>7 208>7 209>7 210>7
+. 211<7 212<7 7|366b14 400l8 400t32
+204a7 Caller{9|43A12} 7|367b7 381r10 381r65 389r30
+205a7 From{9|43A12} 7|368b7 381r20 381r59 389r38
+206a7 To{9|43A12} 215r17 7|369b7 389r44
+207a7 IDs{55A9} 7|370b7 389r48
+208a7 Amounts{56A9} 7|371b7 389r57
+209i7 Count{natural} 215r40 7|372b7 388r21
+210a7 Data{5|32A9} 7|373b7 389r70
+211b7 Success{boolean} 7|374b7 382m10 392m13 398m7
+212e7 Error{69E9} 7|375b7 383m10 393m13 399m7
+221U14*Set_Approval_For_All 222>7 223>7 224>7 225<7 226<7 7|406b14 430l8
+. 430t28
+222a7 Caller{9|43A12} 229r58 7|407b7 413r59 422r22
+223a7 Operator{9|43A12} 229r17 229r46 7|408b7 413r67 423r22
+224b7 Approved{boolean} 7|409b7 424r22
+225b7 Success{boolean} 7|410b7 416m10 428m7
+226e7 Error{69E9} 7|411b7 417m10 429m7
+235U14*Mint 236>7 237>7 238>7 239>7 240>7 241<7 242<7 7|436b14 501l8 501t12
+. 524s10
+236a7 Caller{9|43A12} 7|437b7 455r10
+237a7 To{9|43A12} 245r17 7|438b7 462r29 479r43 484r24
+238r7 ID{37R12} 7|439b7 462r33 471r31 479r47 480r42 485r24 493r23
+239r7 Amount{40R12} 7|440b7 463r20 472r20
+240a7 Data{5|32A9} 7|441b7 445r28
+241b7 Success{boolean} 7|442b7 456m10 465m10 474m10 499m7
+242e7 Error{69E9} 7|443b7 457m10 466m10 475m10 500m7
+247U14*Mint_Batch 248>7 249>7 250>7 251>7 252>7 253>7 254<7 255<7 7|503b14
+. 534l8 534t18
+248a7 Caller{9|43A12} 7|504b7 517r10 524r16
+249a7 To{9|43A12} 258r17 7|505b7 524r24
+250a7 IDs{55A9} 7|506b7 524r28
+251a7 Amounts{56A9} 7|507b7 524r37
+252i7 Count{natural} 258r40 7|508b7 523r21
+253a7 Data{5|32A9} 7|509b7 524r50
+254b7 Success{boolean} 7|510b7 518m10 526m13 532m7
+255e7 Error{69E9} 7|511b7 519m10 527m13 533m7
+260U14*Burn 261>7 262>7 263>7 264>7 265<7 266<7 7|536b14 578l8 578t12 593s10
+261a7 Caller{9|43A12} 7|537b7 550r10 550r65
+262a7 From{9|43A12} 7|538b7 550r20 550r59 556r31 565r33
+263r7 ID{37R12} 7|539b7 556r37 563r31 565r39 566r32
+264r7 Amount{40R12} 7|540b7 557r31 569r59 573r57
+265b7 Success{boolean} 7|541b7 551m10 558m10 576m7
+266e7 Error{69E9} 7|542b7 552m10 559m10 577m7
+270U14*Burn_Batch 271>7 272>7 273>7 274>7 275>7 276<7 277<7 7|580b14 603l8
+. 603t18
+271a7 Caller{9|43A12} 7|581b7 593r16
+272a7 From{9|43A12} 7|582b7 593r24
+273a7 IDs{55A9} 7|583b7 593r30
+274a7 Amounts{56A9} 7|584b7 593r39
+275i7 Count{natural} 280r17 7|585b7 592r21
+276b7 Success{boolean} 7|586b7 595m13 601m7
+277e7 Error{69E9} 7|587b7 596m13 602m7
+286U14*Set_URI 287>7 288>7 289>7 290<7 291<7 7|609b14 648l8 648t15
+287a7 Caller{9|43A12} 7|610b7 618r10
+288r7 ID{37R12} 7|611b7 625r25 638r21
+289r7 New_URI{44R9} 7|612b7 639r21
+290b7 Success{boolean} 7|613b7 619m10 642m10 645m10
+291e7 Error{69E9} 7|614b7 620m10 643m10 646m10
+295U14*Set_Base_URI 296>7 297>7 298<7 299<7 7|650b14 666l8 666t20
+296a7 Caller{9|43A12} 7|651b7 657r10
+297r7 New_URI{44R9} 7|652b7 663r27
+298b7 Success{boolean} 7|653b7 658m10 664m7
+299e7 Error{69E9} 7|654b7 659m10 665m7
+307U14*Transfer_Ownership 308>7 309>7 310<7 311<7 7|672b14 688l8 688t26
+308a7 Caller{9|43A12} 7|673b7 679r10
+309a7 New_Owner{9|43A12} 314r17 7|674b7 685r24
+310b7 Success{boolean} 7|675b7 680m10 686m7
+311e7 Error{69E9} 7|676b7 681m10 687m7
+320V13*Supports_Interface{boolean} 320>33 7|694b13 699l8 699t26
+320a33 Interface_ID{9|317A9} 7|694b33 696r14 697r18 698r18
+326a4 ERC1155_Interface_ID{9|317A9} 7|696r29
+327a4 ERC1155_Metadata_ID{9|317A9} 7|697r33
+328a4 ERC1155_TokenReceiver_ID{9|317A9} 7|698r33
+X 7 ats1155_multi.adb
+13R9 Config_Storage 18e14 62r14
+14r7*URI_Base{6|44R9} 63m7 209m10 276r25 663m15
+15r7*Contract_URI{6|44R9} 64m7 210m10
+16a7*Owner{9|43A12} 65m7 211m10 282r22 455r28 517r28 618r28 657r28 679r28
+. 685m15
+17b7*Initialized{boolean} 66m7 203r18 212m10
+21R9 Balance_Entry 26e14 28r59
+22a7*Account{9|43A12} 70m7 103r35 117r29 355m13 484m13
+23r7*ID{6|37R12} 71m7 104r42 118r45 356m13 485m13
+24r7*Amount{6|40R12} 72m7 229r33 350m31 357m13 486m13 569m30
+25b7*Used{boolean} 73m7 102r26 116r26 358m13 487m13
+28A9 Balance_Array(21R9)<integer> 69r15
+31R9 Operator_Entry 36e14 38r61
+32a7*Account{9|43A12} 77m7 133r36 147r30 422m10
+33a7*Operator{9|43A12} 78m7 134r36 148r39 423m10
+34b7*Approved{boolean} 79m7 263r34 424m10
+35b7*Used{boolean} 80m7 132r27 146r27 425m10
+38A9 Operator_Array(31R9)<integer> 76r16
+41R9 URI_Entry 45e14 47r58
+42r7*ID{6|37R12} 84m7 187r64 638m13
+43r7*URI{6|44R9} 85m7 273r35 639m13
+44b7*Used{boolean} 86m7 187r28 629r35 640m13
+47A9 URI_Array(41R9)<integer> 83r17
+50R9 Supply_Entry 54e14 56r61
+51r7*ID{6|37R12} 90m7 162r60 174r36 493m13
+52r7*Supply{6|40R12} 91m7 289r33 298r73 494m13 573m30
+53b7*Used{boolean} 92m7 162r26 173r26 495m13
+56A9 Supply_Array(50R9)<integer> 89r15
+62r4 Storage{13R9} 6r38 203r10 208m7 276r17 282r14 455r20 517r20 618r20 657r20
+. 663m7 679r20 685m7
+69a4 Balances{28A9} 6r47 101r16 102r13 103r22 104r29 115r16 116r13 117r16
+. 118r32 229r17 350m10 354m10 483m10 569m10
+76a4 Operators{38A9} 6r57 131r16 132r13 133r22 134r22 145r16 146r13 147r16
+. 148r25 263r17 421m7
+83a4 Token_URIs{47A9} 6r68 186r16 187r13 187r49 273r17 628r19 629r20 637m10
+89a4 Supplies{56A9} 6r80 161r16 162r13 162r47 172r16 173r13 174r23 289r17
+. 298r57 492m10 573m10
+99V13 Find_Balance{natural} 99b13 99>27 99>46 110l8 110t20 226s34 565s19
+99a27 Account{9|43A12} 103r45
+99r46 ID{6|37R12} 104r46
+101i11 I{integer} 102r23 103r32 104r39 106r20
+112V13 Find_Or_Create_Balance{natural} 112b13 112>37 112>56 127l8 127t30
+. 346s20 347s18 479s19
+112a37 Account{9|43A12} 117r39
+112r56 ID{6|37R12} 118r49
+113i7 Empty{natural} 122r16 123m13 126r14
+115i11 I{integer} 116r23 117r26 118r42 120r23 123r22
+129V13 Find_Operator{natural} 129b13 129>28 129>37 140l8 140t21 260s34
+129a28 Account{9|43A12} 133r46
+129a37 Operator{9|43A12} 134r47
+131i11 I{integer} 132r24 133r33 134r33 136r20
+142V13 Find_Or_Create_Operator{natural} 142b13 142>38 142>47 157l8 157t31
+. 413s34
+142a38 Account{9|43A12} 147r40
+142a47 Operator{9|43A12} 148r50
+143i7 Empty{natural} 152r16 153m13 156r14
+145i11 I{integer} 146r24 147r27 148r36 150r23 153r22
+159V13 Find_Supply{natural} 159b13 159>26 167l8 167t19 286s34 296s34 566s19
+159r26 ID{6|37R12} 162r64
+161i11 I{integer} 162r23 162r57 163r20
+169V13 Find_Or_Create_Supply{natural} 169b13 169>36 182l8 182t29 480s19
+169r36 ID{6|37R12} 174r40
+170i7 Empty{natural} 177r16 178m13 181r14
+172i11 I{integer} 173r23 174r33 175r23 178r22
+184V13 Find_URI{natural} 184b13 184>23 192l8 192t16 270s34 625s15
+184r23 ID{6|37R12} 187r68
+186i11 I{integer} 187r25 187r61 188r20
+226i7 Slot{natural} 228r10 229r27
+245i11 I{integer} 246r23 250r20 250r48 250r57
+260i7 Slot{natural} 262r10 263r28
+270i7 Slot{natural} 272r10 273r29
+286i7 Slot{natural} 288r10 289r27
+296i7 Slot{natural} 298r14 298r67
+316r7 From_Bal{6|40R12} 330m7 331r21 350r50
+317r7 To_Bal{6|40R12} 337m7 338r12
+318r7 New_To_Bal{5|41R9} 338m28 357r24
+319b7 Overflow{boolean} 338m40 339r10
+320i7 From_Slot{natural} 346m7 349r10 350r20
+321i7 To_Slot{natural} 347m7 353r10 354r20
+377b7 Single_Success{boolean} 390m29 391r17
+378e7 Single_Error{6|69E9} 390m45 393r22
+388i11 I{integer} 389r53 389r66
+413i7 Slot{natural} 415r10 415r33 421r18
+446r7 To_Bal{6|40R12} 462m7 463r12
+447r7 New_Bal{5|41R9} 463m28 486r24
+448r7 Supply{6|40R12} 471m7 472r12
+449r7 New_Supply{5|41R9} 472m28 494r23
+450b7 Overflow{boolean} 463m37 464r10 472m40 473r10
+451i7 Bal_Slot{natural} 479m7 482r10 483r20
+452i7 Sup_Slot{natural} 480m7 491r10 492r20
+513b7 Single_Success{boolean} 524m56 525r17
+514e7 Single_Error{6|69E9} 524m72 527r22
+523i11 I{integer} 524r33 524r46
+544r7 From_Bal{6|40R12} 556m7 557r21 569r49
+545r7 Supply{6|40R12} 563m7 573r49
+546i7 Bal_Slot{natural} 565m7 568r10 569r20
+547i7 Sup_Slot{natural} 566m7 572r10 573r20
+589b7 Single_Success{boolean} 593m52 594r17
+590e7 Single_Error{6|69E9} 593m68 596r22
+592i11 I{integer} 593r35 593r48
+616i7 Slot{natural} 625m7 626r10 630m16 636r10 637r22
+628i14 I{integer} 629r32 630r24
+X 8 interfac.ads
+70M9*Unsigned_8
+X 9 khepri_types.ads
+25K9*Khepri_Types 6|13w6 13r27 9|345e17
+43A12*Address{5|70A9}<integer> 6|25r28 57r49 87r18 88r18 89r18 95r18 96r18
+. 97r18 104r18 105r18 121r22 146r17 164r18 165r18 174r35 191r24 192r24 193r24
+. 204r24 205r24 206r24 222r25 223r25 236r24 237r24 248r24 249r24 261r24 262r24
+. 271r24 272r24 287r24 296r24 308r26 309r26 7|16r22 22r17 32r18 33r18 99r37
+. 112r47 129r48 142r58 223r17 257r18 258r18 280r35 306r24 307r24 308r24 367r24
+. 368r24 369r24 407r25 408r25 437r24 438r24 504r24 505r24 537r24 538r24 581r24
+. 582r24 610r24 651r24 673r26 674r26
+46a4*Null_Address{43A12} 6|25r39
+317A9*Bytes4(5|31M12)<integer> 6|320r48 326r42 327r42 328r42 7|694r48
+

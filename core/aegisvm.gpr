@@ -1,0 +1,151 @@
+-- AegisVM GPR Project File
+--
+-- Builds the SPARK/Ada core library with formal verification support.
+-- Produces a shared library for CGO integration.
+
+library project Aegisvm is
+
+   -- Build mode: release (default), debug, test, development
+   type Build_Mode_Type is ("release", "debug", "test", "development");
+   Build_Mode : Build_Mode_Type := external ("BUILD_MODE", "release");
+
+   -- Library type: relocatable (shared), static
+   type Library_Type_Type is ("relocatable", "static");
+   Library_Type : Library_Type_Type := external ("LIBRARY_TYPE", "relocatable");
+
+   -- Source directories
+   for Source_Dirs use ("src/**", "src/ffi");
+
+   -- Object directory
+   for Object_Dir use "obj/" & Build_Mode;
+
+   -- Library configuration
+   for Library_Name use "aegisvm";
+   for Library_Dir use "lib";
+   for Library_Kind use Library_Type;
+   for Library_Interface use
+     ("Aegis_FFI",
+      "Aegis_Crypto_API",
+      "Aegis_VM_Types",
+      "Aegis_Execution",
+      "Aegis_Syscall",
+      "Aegis_Sandbox",
+      "Aegis_Contract",
+      "Aegis_Storage",
+      "Aegis_Gas",
+      "Aegis_U256",
+      "Anubis_Types",
+      "Anubis_SHA3",
+      "Anubis_Keccak",
+      "Anubis_Address",
+      "Anubis_Address_Types",
+      "Anubis_Address_Derive",
+      --  Tokenomics modules
+      "Anubis_Token",
+      "Anubis_Vesting",
+      "Anubis_Dead_Man_Switch",
+      "Anubis_Treasury",
+      "Anubis_Genesis_Validators",
+      "Anubis_Genesis_Provers",
+      "Anubis_Developer_Rewards",
+      "Anubis_Quantum_Insurance",
+      "Anubis_Bug_Bounty",
+      "Anubis_Governance",
+      "Anubis_Certification",
+      "Anubis_Proof_Of_Build");
+
+   -- Common compiler switches
+   Common_Switches := ("-gnat2022",     -- Ada 2022
+                       "-gnatwa",       -- All warnings
+                       "-gnatyO",       -- Style checks
+                       "-gnatVa");      -- Validity checks
+
+   -- SPARK mode
+   Spark_Switches := ("-gnatw.F",       -- Turn off warning for unreferenced formal
+                      "-gnata");        -- Enable assertions
+
+   package Compiler is
+      case Build_Mode is
+         when "release" =>
+            for Default_Switches ("Ada") use
+              Common_Switches &
+              Spark_Switches &
+              ("-O2",             -- Optimization
+               "-gnatn",          -- Enable inlining
+               "-ffunction-sections",
+               "-fdata-sections");
+
+         when "debug" =>
+            for Default_Switches ("Ada") use
+              Common_Switches &
+              Spark_Switches &
+              ("-g",              -- Debug info
+               "-O0",             -- No optimization
+               "-gnateE",         -- Generate extra exception information
+               "-gnatVa");        -- All validity checks
+
+         when "test" =>
+            for Default_Switches ("Ada") use
+              Common_Switches &
+              Spark_Switches &
+              ("-g",
+               "-O1",
+               "-gnata",          -- Enable assertions
+               "-fprofile-arcs",  -- Coverage
+               "-ftest-coverage");
+
+         when "development" =>
+            for Default_Switches ("Ada") use
+              Common_Switches &
+              Spark_Switches &
+              ("-g",              -- Debug info
+               "-O0",             -- No optimization
+               "-gnateE",         -- Generate extra exception information
+               "-gnatVa");        -- All validity checks
+      end case;
+   end Compiler;
+
+   package Binder is
+      for Default_Switches ("Ada") use ("-Es");  -- Symbolic traceback
+   end Binder;
+
+   package Linker is
+      case Build_Mode is
+         when "release" =>
+            for Default_Switches ("Ada") use
+              ("-Wl,--gc-sections");  -- Remove unused sections
+
+         when "debug" =>
+            for Default_Switches ("Ada") use ();
+
+         when "test" =>
+            for Default_Switches ("Ada") use
+              ("-fprofile-arcs",
+               "-ftest-coverage");
+
+         when "development" =>
+            for Default_Switches ("Ada") use ();
+      end case;
+   end Linker;
+
+   package Prove is
+      for Proof_Switches ("Ada") use
+        ("--level=2",
+         "--proof=per_path",
+         "--warnings=continue",
+         "--timeout=60",
+         "-j0");
+   end Prove;
+
+   package Pretty_Printer is
+      for Default_Switches ("Ada") use
+        ("--max-line-length=100",
+         "--no-separate-is",
+         "--no-separate-loop-then");
+   end Pretty_Printer;
+
+   package Documentation is
+      for Documentation_Dir use "doc";
+   end Documentation;
+
+end Aegisvm;

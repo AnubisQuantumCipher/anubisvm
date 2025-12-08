@@ -1,0 +1,209 @@
+V "GNAT Lib v14"
+A -O2
+A -gnatA
+A -gnat2022
+A -gnatwa
+A -gnatyO
+A -gnatVa
+A -gnatw.F
+A -gnata
+A -gnatn
+A -ffunction-sections
+A -fdata-sections
+A -gnatR2js
+A -gnatws
+A -mmacosx-version-min=16.0.0
+A -mcpu=apple-m1
+A -mlittle-endian
+A -mabi=lp64
+A -fPIC
+P ZX
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U anubis_sha3%b		anubis_sha3.adb		b73b8681 NE OO PK
+W interfaces%s		interfac.ads		interfac.ali
+Z system.assertions%s	s-assert.adb		s-assert.ali
+
+U anubis_sha3%s		anubis_sha3.ads		3f741cab EE NE OO PK IU
+W anubis_keccak%s	anubis_keccak.adb	anubis_keccak.ali
+W anubis_types%s	anubis_types.ads	anubis_types.ali
+
+D ada.ads		20240601155135 76789da1 ada%s
+D a-assert.ads		20240601155135 ba465f5c ada.assertions%s
+D a-unccon.ads		20240601155135 0e9b276f ada.unchecked_conversion%s
+D anubis_keccak.ads	20251203171810 19b431a9 anubis_keccak%s
+D anubis_sha3.ads	20251206155030 69737d95 anubis_sha3%s
+D anubis_sha3.adb	20251206154348 4f5902d5 anubis_sha3%b
+D anubis_types.ads	20251203093723 4fb35097 anubis_types%s
+D interfac.ads		20240601155135 9111f9c1 interfaces%s
+D system.ads		20240601155135 70765b54 system%s
+D s-assert.ads		20240601155135 9c4520c7 system.assertions%s
+D s-exctab.ads		20240601155135 91bef6ef system.exception_table%s
+D s-stalib.ads		20240601155135 1c9580f6 system.standard_library%s
+G a e
+G c Z s b [sha3_256 anubis_sha3 57 14 none]
+G c Z s b [sha3_384 anubis_sha3 67 14 none]
+G c Z s b [sha3_512 anubis_sha3 76 14 none]
+G c Z s b [keccak_256 anubis_sha3 87 14 none]
+G c Z s b [shake128 anubis_sha3 97 14 none]
+G c Z s b [shake256 anubis_sha3 109 14 none]
+G c Z s b [absorb_block anubis_sha3 122 14 none]
+G c Z s b [squeeze_block anubis_sha3 134 14 none]
+G c Z s b [bytes_to_lane anubis_sha3 148 13 none]
+G c Z s b [lane_to_bytes anubis_sha3 153 14 none]
+G c Z b b [sha3_sponge anubis_sha3 107 14 none]
+G c Z b b [shake_sponge anubis_sha3 238 14 none]
+G r c none [absorb_block anubis_sha3 122 14 none] [keccak_f anubis_keccak 102 14 none]
+G r c none [sha3_sponge anubis_sha3 107 14 none] [keccak_f anubis_keccak 102 14 none]
+G r c none [shake_sponge anubis_sha3 238 14 none] [keccak_f anubis_keccak 102 14 none]
+X 4 anubis_keccak.ads
+16K9*Anubis_Keccak 107e18 5|4w6 4r25
+22M9*Lane 5|148r51 153r33 6|10r51 22r14 26r33 61r35 91r35
+23I9*Lane_Index<short_short_integer> 6|58r26 58r40 59r26 59r40 89r26 89r40
+. 90r26 90r40
+24A9*State_Array(22M9)<23I9><23I9> 5|123r22 135r16 6|48r22 73r16 120r15 252r15
+102U14*Keccak_F 6|68s7 192s22 326s16
+X 5 anubis_sha3.ads
+27K9*Anubis_SHA3 148E13 158l5 158e16 6|5b14 352l5 352t16
+32A12*SHA3_256_Digest{7|14A9}<integer> 59r21 89r21 6|203r21 231r21
+35A12*SHA3_384_Digest{7|14A9}<integer> 69r21 6|212r21
+38A12*SHA3_512_Digest{7|14A9}<integer> 78r21 6|221r21
+41N4*Rate_256 6|206r37 234r37
+42N4*Rate_384 6|215r37
+43N4*Rate_512 6|224r37
+44N4*Rate_SHAKE128 6|339r38
+45N4*Rate_SHAKE256 6|349r38
+48m4*SHA3_Suffix{7|13M12} 6|206r47 215r47 224r47
+49m4*SHAKE_Suffix{7|13M12} 6|339r53 349r53
+50m4*Keccak_Suffix{7|13M12} 6|234r47
+54N4*Max_Message_Length
+57U14*SHA3_256 58>7 59<7 6|201b14
+58a7 Message{7|14A9} 63r14 6|202b7 206r20
+59a7 Digest{32A12} 64r15 64r36 6|203b7 206m29
+67U14*SHA3_384 68>7 69<7 6|210b14
+68a7 Message{7|14A9} 72r14 6|211b7 215r20
+69a7 Digest{35A12} 73r15 73r36 6|212b7 215m29
+76U14*SHA3_512 77>7 78<7 6|219b14
+77a7 Message{7|14A9} 81r14 6|220b7 224r20
+78a7 Digest{38A12} 82r15 82r36 6|221b7 224m29
+87U14*Keccak_256 88>7 89<7 6|229b14
+88a7 Message{7|14A9} 92r14 6|230b7 234r20
+89a7 Digest{32A12} 93r15 93r36 6|231b7 234m29
+97U14*SHAKE128 98>7 99<7 100>7 6|333b14
+98a7 Message{7|14A9} 103r50 6|334b7 339r21
+99a7 Output{7|14A9} 103r14 104r14 105r15 105r30 105r51 105r65 6|335b7 339m30
+100i7 Output_Length{positive} 104r30 104r53 6|336b7 339r67
+109U14*SHAKE256 110>7 111<7 112>7 6|343b14
+110a7 Message{7|14A9} 116r50 6|344b7 349r21
+111a7 Output{7|14A9} 116r14 117r14 118r15 118r30 118r51 118r65 6|345b7 349m30
+112i7 Output_Length{positive} 117r30 117r53 6|346b7 349r67
+122U14*Absorb_Block 123=7 124>7 125>7 6|47b14 69l8 69t20 137s13 160s10 274s13
+. 296s10
+123a7 State{4|24A9} 6|48b7 63m13 63r29 68m17
+124a7 Block{7|14A9} 129r23 129r50 130r23 6|49b7 60r49 60r56 60r79
+125i7 Rate{positive} 128r14 128r33 128r54 130r38 6|50b7 52r40
+134U14*Squeeze_Block 135>7 136<7 137>7 6|72b14 169s13 185s19 312s13
+135a7 State{4|24A9} 6|73b7 91r43
+136a7 Output{7|14A9} 140r14 140r42 142r23 143r15 143r30 143r51 143r65 6|74b7
+. 78r47 79r46 82m7 86r33 87r33 98r39 99r39 100m16 100r24
+137i7 Rate{positive} 141r23 141r42 141r63 142r39 6|75b7 77r40
+148V13 Bytes_To_Lane{4|22M9} 148>28 6|10b13 23l8 23t21 61s43
+148a28 B{7|14A9} 150r14 6|10b28 17r64 17r67
+153U14 Lane_To_Bytes 153>29 153<39 6|26b14 94s13
+153m29 L{4|22M9} 6|26b29 27r52
+153a39 B{7|14A9} 155r14 156r15 156r25 156r41 156r50 6|26b39 28r42 29r41 32m7
+. 35r33 36r33 41m13 41r16
+X 6 anubis_sha3.adb
+11m7 Result_U64{8|84M9} 19m13 19r27 22r20
+13i11 I{integer} 14r33 16r48 17r77
+16i13 Shift_Amount{natural} 19r66
+17m13 Byte_As_U64{8|84M9} 19r53
+27m7 L_U64{8|84M9} 39r60
+28i7 B_First_Copy{natural} 35r43
+29i7 B_Last_Copy{natural} 36r42
+33i11 I{integer} 34r33 38r48 41r26
+38i13 Shift_Amount{natural} 39r67
+39m13 Shifted{8|84M9} 41r38
+52i7 Num_Lanes{positive} 55r21 56r48
+55i11 I{integer} 56r33 56r44 58r52 59r52 60r70 60r93
+58i13 X{4|23I9} 63r20 63r36
+59i13 Y{4|23I9} 63r23 63r39
+60a13 Lane_Bytes{7|14A9} 61r58
+61m13 Block_Lane{4|22M9} 63r46
+77i7 Num_Lanes{positive} 84r21 85r48
+78i7 Output_First_Copy{natural} 86r48 98r54
+79i7 Output_Last_Copy{natural} 87r47 99r53
+84i11 I{integer} 85r33 85r44 89r52 90r52 100r39
+89i13 X{4|23I9} 91r50
+90i13 Y{4|23I9} 91r53
+91m13 State_Lane{4|22M9} 94r28
+92a13 Out_Slice{7|14A9} 94m40 100r53
+96i17 J{integer} 97r39 100r47 100r64
+107U14 SHA3_Sponge 107b14 108>7 109<7 110>7 111>7 198l8 198t19 206s7 215s7
+. 224s7 234s7
+108a7 Message{7|14A9} 116r14 128r13 128r52 129r40 130r33 131r44 133r47 135r44
+. 144r42 150r32 150r41
+109a7 Digest{7|14A9} 115r14 117r14 117r30 118r14 118r28 124m7 164r10 170m13
+. 170r38 177r32 179r53 180r50 183r69 188m22 188r30 191r35
+110i7 Rate{positive} 114r14 114r35 118r43 128r31 128r69 130r51 134r61 137r41
+. 138r26 145r41 158r23 158r49 160r44 164r27 167r41 169r45 182r47 183r63 185r51
+111m7 Suffix{7|13M12} 155r37
+120a7 State{4|24A9} 137m27 137r27 160m24 160r24 169r28 185r34 192m32 192r32
+121i7 Pos{natural} 128r45 129r33 131r61 133r63 138m13 138r20 144r59 150r57
+133i13 Block_First{natural} 134r47 135r53
+134i13 Block_Last{natural} 135r68
+135a13 Block{7|14A9} 137r34
+144i10 Remaining{natural} 148r24 149r51 155r23
+145a10 Final_Block{7|14A9} 150m13 155m10 158m10 158r36 160r31
+148i14 I{integer} 149r36 149r47 150r26 150r63
+167a13 Squeezed{7|14A9} 169m35 170r23
+175i13 Output_Pos{natural} 177r19 178r39 179r39 180r66 183r85 188r45 190m19
+. 190r33 191r22
+182a19 Squeezed{7|14A9} 185m41 188r64
+183i19 Copy_Len{natural} 186r33 187r60 190r46
+186i23 I{integer} 187r45 187r56 188r58 188r74
+238U14 SHAKE_Sponge 238b14 239>7 240<7 241>7 242>7 243>7 330l8 330t20 339s7
+. 349s7
+239a7 Message{7|14A9} 248r14 263r13 263r52 264r40 265r33 268r44 270r47 272r44
+. 281r42 287r32 287r41
+240a7 Output{7|14A9} 247r14 249r14 249r30 250r14 250r28 255r47 256r46 259m7
+. 266r33 267r33 303r33 304r33 317r39 318r39 319m16 319r24
+241i7 Rate{positive} 246r14 246r35 263r31 263r69 265r51 271r61 274r41 275r26
+. 282r41 294r23 294r49 296r44 308r41 310r29 312r45
+242m7 Suffix{7|13M12} 291r37
+243i7 Output_Length{positive} 250r47 300r26 302r47 305r44 310r35 325r29
+252a7 State{4|24A9} 274m27 274r27 296m24 296r24 312r28 326m26 326r26
+253i7 Pos{natural} 263r45 264r33 268r61 270r63 275m13 275r20 281r59 287r57
+254i7 Output_Pos{natural} 300r13 301r33 302r33 305r60 310r51 319r39 322m13
+. 322r27 325r16
+255i7 Output_First_Copy{natural} 266r48 303r48 317r54
+256i7 Output_Last_Copy{natural} 267r47 304r47 318r53
+270i13 Block_First{natural} 271r47 272r53
+271i13 Block_Last{natural} 272r68
+272a13 Block{7|14A9} 274r34
+281i10 Remaining{natural} 285r24 286r51 291r23
+282a10 Final_Block{7|14A9} 287m13 291m10 294m10 294r36 296r31
+285i14 I{integer} 286r36 286r47 287r26 287r63
+308a13 Squeezed{7|14A9} 312m35 319r58
+309i13 Copy_Len{natural} 315r27 316r54 322r40
+315i17 I{integer} 316r39 316r50 319r52 319r68
+X 7 anubis_types.ads
+5K9*Anubis_Types 5|3w6 3r24 7|40e17
+13M12*Byte{8|70M9} 5|48r29 49r29 50r29 6|41r32 111r20 242r23
+14A9*Byte_Array(13M12)<integer> 5|32r31 35r31 38r31 58r17 68r17 77r17 88r17
+. 98r23 99r27 110r23 111r27 124r15 136r20 148r32 153r47 6|10r32 26r47 49r15
+. 60r35 74r20 92r25 108r20 109r24 135r30 145r24 167r24 182r30 202r17 211r17
+. 220r17 230r17 239r23 240r27 272r30 282r24 308r24 334r23 335r27 344r23 345r27
+X 8 interfac.ads
+38K9*Interfaces 6|3w6 3r22 8|233e15
+70M9*Unsigned_8
+84M9*Unsigned_64 6|11r20 17r36 17r51 27r24 27r39 39r32
+166V13*Shift_Left{84M9} 6|19s41
+171V13*Shift_Right{84M9} 6|39s47
+

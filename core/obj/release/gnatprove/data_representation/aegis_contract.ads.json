@@ -1,0 +1,463 @@
+[
+{
+  "name": "Aegis_Contract.Function_Selector",
+  "location": "aegis_contract.ads:37:9",
+  "Size": 32,
+  "Alignment": 1,
+  "Component_Size": 8
+}
+,
+{
+  "name": "Aegis_Contract.Null_Selector",
+  "location": "aegis_contract.ads:40:4",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Aegis_Contract.Parameter_Slot",
+  "location": "aegis_contract.ads:46:9",
+  "Size": 256,
+  "Alignment": 1,
+  "Component_Size": 8
+}
+,
+{
+  "name": "Aegis_Contract.Parameter_Index",
+  "location": "aegis_contract.ads:49:9",
+  "Object_Size": 8,
+  "Value_Size": 4,
+  "Alignment": 1
+}
+,
+{
+  "name": "Aegis_Contract.Parameters_Array",
+  "location": "aegis_contract.ads:50:9",
+  "Size": 4096,
+  "Alignment": 1,
+  "Component_Size": 256
+}
+,
+{
+  "name": "Aegis_Contract.Call_Data",
+  "location": "aegis_contract.ads:53:9",
+  "Size": 4160,
+  "Alignment": 4,
+  "record": [
+    {
+      "name": "Selector",
+      "Position":   0,
+      "First_Bit": 0,
+      "Size": 32
+    },
+    {
+      "name": "Parameters",
+      "Position":   4,
+      "First_Bit": 0,
+      "Size": 4096
+    },
+    {
+      "name": "Param_Count",
+      "Position": 516,
+      "First_Bit": 0,
+      "Size": 32
+    }
+  ]
+}
+,
+{
+  "name": "Aegis_Contract.Return_Index",
+  "location": "aegis_contract.ads:66:9",
+  "Object_Size": 8,
+  "Value_Size": 4,
+  "Alignment": 1
+}
+,
+{
+  "name": "Aegis_Contract.Return_Array",
+  "location": "aegis_contract.ads:67:9",
+  "Size": 4096,
+  "Alignment": 1,
+  "Component_Size": 256
+}
+,
+{
+  "name": "Aegis_Contract.Return_Data",
+  "location": "aegis_contract.ads:70:9",
+  "Object_Size": 4416,
+  "Value_Size": 4392,
+  "Alignment": 4,
+  "record": [
+    {
+      "name": "Values",
+      "Position":   0,
+      "First_Bit": 0,
+      "Size": 4096
+    },
+    {
+      "name": "Value_Count",
+      "Position": 512,
+      "First_Bit": 0,
+      "Size": 32
+    },
+    {
+      "name": "Success",
+      "Position": 516,
+      "First_Bit": 0,
+      "Size": 8
+    },
+    {
+      "name": "Revert_Reason",
+      "Position": 517,
+      "First_Bit": 0,
+      "Size": 256
+    }
+  ]
+}
+,
+{
+  "name": "Aegis_Contract.Empty_Return",
+  "location": "aegis_contract.ads:78:4",
+  "Size": 4416,
+  "Alignment": 4
+}
+,
+{
+  "name": "Aegis_Contract.Function_Mutability",
+  "location": "aegis_contract.ads:90:9",
+  "Object_Size": 8,
+  "Value_Size": 2,
+  "Alignment": 1
+}
+,
+{
+  "name": "Aegis_Contract.Function_Visibility",
+  "location": "aegis_contract.ads:98:9",
+  "Object_Size": 8,
+  "Value_Size": 2,
+  "Alignment": 1
+}
+,
+{
+  "name": "Aegis_Contract.Function_Entry",
+  "location": "aegis_contract.ads:106:9",
+  "Size": 448,
+  "Alignment": 8,
+  "record": [
+    {
+      "name": "Selector",
+      "Position":  0,
+      "First_Bit": 0,
+      "Size": 32
+    },
+    {
+      "name": "Name_Hash",
+      "Position":  4,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Param_Count",
+      "Position": 36,
+      "First_Bit": 0,
+      "Size": 32
+    },
+    {
+      "name": "Return_Count",
+      "Position": 40,
+      "First_Bit": 0,
+      "Size": 32
+    },
+    {
+      "name": "Mutability",
+      "Position": 44,
+      "First_Bit": 0,
+      "Size": 8
+    },
+    {
+      "name": "Visibility",
+      "Position": 45,
+      "First_Bit": 0,
+      "Size": 8
+    },
+    {
+      "name": "Gas_Bound",
+      "Position": 48,
+      "First_Bit": 0,
+      "Size": 64
+    }
+  ]
+}
+,
+{
+  "name": "Aegis_Contract.Function_Index",
+  "location": "aegis_contract.ads:119:9",
+  "Object_Size": 16,
+  "Value_Size": 8,
+  "Alignment": 2
+}
+,
+{
+  "name": "Aegis_Contract.Function_Table",
+  "location": "aegis_contract.ads:120:9",
+  "Size": 114688,
+  "Alignment": 8,
+  "Component_Size": 448
+}
+,
+{
+  "name": "Aegis_Contract.Event_Topic",
+  "location": "aegis_contract.ads:127:9",
+  "Size": 256,
+  "Alignment": 1,
+  "Component_Size": 8
+}
+,
+{
+  "name": "Aegis_Contract.Topic_Index",
+  "location": "aegis_contract.ads:132:9",
+  "Object_Size": 8,
+  "Value_Size": 2,
+  "Alignment": 1
+}
+,
+{
+  "name": "Aegis_Contract.Topic_Array",
+  "location": "aegis_contract.ads:133:9",
+  "Size": 1024,
+  "Alignment": 1,
+  "Component_Size": 256
+}
+,
+{
+  "name": "Aegis_Contract.Indexed_Flags",
+  "location": "aegis_contract.ads:136:9",
+  "Size": 32,
+  "Alignment": 1,
+  "Component_Size": 8
+}
+,
+{
+  "name": "Aegis_Contract.Event_Entry",
+  "location": "aegis_contract.ads:139:9",
+  "Size": 320,
+  "Alignment": 4,
+  "record": [
+    {
+      "name": "Signature",
+      "Position":  0,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Topic_Count",
+      "Position": 32,
+      "First_Bit": 0,
+      "Size": 32
+    },
+    {
+      "name": "Indexed",
+      "Position": 36,
+      "First_Bit": 0,
+      "Size": 32
+    }
+  ]
+}
+,
+{
+  "name": "Aegis_Contract.Event_Index",
+  "location": "aegis_contract.ads:148:9",
+  "Object_Size": 8,
+  "Value_Size": 6,
+  "Alignment": 1
+}
+,
+{
+  "name": "Aegis_Contract.Event_Table",
+  "location": "aegis_contract.ads:149:9",
+  "Size": 20480,
+  "Alignment": 4,
+  "Component_Size": 320
+}
+,
+{
+  "name": "Aegis_Contract.Contract_Name",
+  "location": "aegis_contract.ads:157:12",
+  "Size": 512,
+  "Alignment": 1,
+  "Component_Size": 8
+}
+,
+{
+  "name": "Aegis_Contract.Contract_Manifest",
+  "location": "aegis_contract.ads:160:9",
+  "Size": 137536,
+  "Alignment": 8,
+  "record": [
+    {
+      "name": "Address",
+      "Position":     0,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Code_Hash",
+      "Position":    32,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Name",
+      "Position":    64,
+      "First_Bit": 0,
+      "Size": 512
+    },
+    {
+      "name": "Name_Length",
+      "Position":   128,
+      "First_Bit": 0,
+      "Size": 32
+    },
+    {
+      "name": "Proof_Hash",
+      "Position":   132,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Certification",
+      "Position":   164,
+      "First_Bit": 0,
+      "Size": 8
+    },
+    {
+      "name": "Wcet_Bound",
+      "Position":   168,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Major_Version",
+      "Position":   176,
+      "First_Bit": 0,
+      "Size": 32
+    },
+    {
+      "name": "Minor_Version",
+      "Position":   180,
+      "First_Bit": 0,
+      "Size": 32
+    },
+    {
+      "name": "Patch_Version",
+      "Position":   184,
+      "First_Bit": 0,
+      "Size": 32
+    },
+    {
+      "name": "Functions",
+      "Position":   192,
+      "First_Bit": 0,
+      "Size": 114688
+    },
+    {
+      "name": "Function_Count",
+      "Position": 14528,
+      "First_Bit": 0,
+      "Size": 32
+    },
+    {
+      "name": "Events",
+      "Position": 14532,
+      "First_Bit": 0,
+      "Size": 20480
+    },
+    {
+      "name": "Event_Count",
+      "Position": 17092,
+      "First_Bit": 0,
+      "Size": 32
+    },
+    {
+      "name": "Deployer",
+      "Position": 17096,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Deploy_Block",
+      "Position": 17128,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Deploy_Time",
+      "Position": 17160,
+      "First_Bit": 0,
+      "Size": 256
+    }
+  ]
+}
+,
+{
+  "name": "Aegis_Contract.Contract_State",
+  "location": "aegis_contract.ads:194:9",
+  "Object_Size": 139008,
+  "Value_Size": 138896,
+  "Alignment": 16,
+  "record": [
+    {
+      "name": "Manifest",
+      "Position":     0,
+      "First_Bit": 0,
+      "Size": 137536
+    },
+    {
+      "name": "Account",
+      "Position": 17200,
+      "First_Bit": 0,
+      "Size": 1280
+    },
+    {
+      "name": "Is_Deployed",
+      "Position": 17360,
+      "First_Bit": 0,
+      "Size": 8
+    },
+    {
+      "name": "Is_Destroyed",
+      "Position": 17361,
+      "First_Bit": 0,
+      "Size": 8
+    }
+  ]
+}
+,
+{
+  "name": "Aegis_Contract.Entry_Point_Result",
+  "location": "aegis_contract.ads:270:9",
+  "Object_Size": 4544,
+  "Value_Size": 4520,
+  "Alignment": 8,
+  "record": [
+    {
+      "name": "Success",
+      "Position":  0,
+      "First_Bit": 0,
+      "Size": 8
+    },
+    {
+      "name": "Gas_Used",
+      "Position":  8,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Return_Data",
+      "Position": 16,
+      "First_Bit": 0,
+      "Size": 4416
+    }
+  ]
+}
+]

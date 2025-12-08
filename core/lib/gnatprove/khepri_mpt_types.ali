@@ -1,0 +1,208 @@
+V "GNAT Lib v14"
+A -x
+A ada
+A -gnatA
+A -gnat2022
+A -gnatwa
+A -gnatyO
+A -gnatVa
+A -gnatw.F
+A -gnata
+A -O2
+A -gnatn
+A -ffunction-sections
+A -fdata-sections
+A -gnatc
+A -fPIC
+P GP
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_ELABORATION_CODE
+
+U khepri_mpt_types%b	khepri_mpt_types.adb	2d8e4b36 OO PK
+
+U khepri_mpt_types%s	khepri_mpt_types.ads	b8015c59 OO PK
+W aegis_vm_types%s	aegis_vm_types.ads	aegis_vm_types.ali
+W interfaces%s		interfac.ads		interfac.ali
+
+D aegis_vm_types.ads	20251205185836 dcd101d9 aegis_vm_types%s
+D interfac.ads		20240601155135 9111f9c1 interfaces%s
+D khepri_mpt_types.ads	20251206223843 f5c1a441 khepri_mpt_types%s
+D khepri_mpt_types.adb	20251206204930 d84fef77 khepri_mpt_types%b
+D system.ads		20240601155135 70765b54 system%s
+G a Z
+X 1 aegis_vm_types.ads
+21K9*Aegis_VM_Types 279e19 3|11w6 11r27
+32A9*Byte_Array(31M12)<integer> 3|180r16 4|13r16
+X 2 interfac.ads
+38K9*Interfaces 233e15 3|10w6 10r27
+70M9*Unsigned_8 3|38r22 61r43 90r46 140r56
+96V13*Shift_Right{70M9} 4|31s39
+X 3 khepri_mpt_types.ads
+13K9*Khepri_MPT_Types 211l5 211e21 4|4b14 164l5 164t21
+22N4*Nibbles_Per_Byte 24r51
+23N4*Max_Key_Bytes 24r35 183r24
+24N4*Max_Key_Nibbles 41r47 190r26 190r58 194r26 194r58 198r31 198r65 206r32
+. 4|26r40 58r38 82r38 84r42 112r38 140r38 142r47
+27N4*Max_Children 107r46
+28N4*Max_Value_Size 89r46
+31N4*Max_Trie_Depth 148r46
+38M12*Nibble{2|70M9} 42r48 4|31r31 34r31
+41I12*Nibble_Index{natural} 42r31
+42A9*Nibble_Path(38M12)<integer> 46r16
+45R9*Nibble_Key 48e14 50r32 119r18 154r16 182r13 189r32 193r42 197r38 202r16
+. 204r13 4|15r13 17r16 45r32 72r42 99r38 127r16 129r13 131r16
+46a7*Data{42A9} 51m7 4|31m17 34m17 60r15 60r29 86r15 86r28 114r20 114r36
+. 144m17 144r33
+47i7*Length{natural} 52m7 190r16 190r48 194r16 194r48 198r21 198r55 205r28
+. 206r22 4|37m14 47r12 47r24 51r12 55r23 56r39 57r39 73r52 73r62 101r17 101r30
+. 105r17 109r28 110r44 111r41 132r41 141r50 146m14
+50r4*Empty_Nibble_Key{45R9} 127r19 4|17r30 131r30
+60I12*Hash_Index{natural} 61r28 4|156r16
+61A9*Hash_256(2|70M9)<integer> 63r26 67r15 209r32 4|154r32
+63a4*Empty_Hash{61A9} 72r16
+66R9*Node_Hash 69e14 71r30 108r47 122r18
+67a7*Data{61A9} 72m7
+68b7*Valid{boolean} 73m7
+71r4*Null_Node_Hash{66R9} 110r56 130r19
+81E9*Node_Kind 86e5 118r18
+82n7*Node_Empty{81E9} 126r19
+83n7*Node_Leaf{81E9}
+84n7*Node_Extension{81E9}
+85n7*Node_Branch{81E9}
+89I12*Value_Index{natural} 90r30
+90A9*Node_Value(2|70M9)<integer> 93r16
+92R9*Value_Data 95e14 97r27 120r18 155r16
+93a7*Bytes{90A9} 98m7
+94i7*Length{natural} 99m7
+97r4*Empty_Value{92R9} 128r19
+107I12*Child_Index{natural} 108r31
+108A9*Child_Array(66R9)<integer> 110r30 121r18
+110a4*Empty_Children{108A9} 129r19
+117R9*MPT_Node 123e14 125r26
+118e7*Kind{81E9} 126m7
+119r7*Key{45R9} 127m7
+120r7*Value{92R9} 128m7
+121a7*Children{108A9} 129m7
+122r7*Hash{66R9} 130m7
+125r4*Empty_Node{117R9}
+138N4*Max_Proof_Node_Size 139r51
+139I12*Proof_Node_Index{natural} 140r35
+140A9*Proof_Node_Data(2|70M9)<integer> 143r16
+142R9*Proof_Node 145e14 149r46
+143a7*Data{140A9}
+144i7*Length{natural}
+148I12*Proof_Depth{natural} 149r30
+149A9*Proof_Path(142R9)<integer> 152r16
+151R9*Merkle_Proof 157e14
+152a7*Nodes{149A9}
+153i7*Depth{natural}
+154r7*Key{45R9}
+155r7*Value{92R9}
+156b7*Exists{boolean}
+163E9*MPT_Error 172e5
+164n7*Error_None{163E9}
+165n7*Error_Key_Not_Found{163E9}
+166n7*Error_Invalid_Node{163E9}
+167n7*Error_Invalid_Proof{163E9}
+168n7*Error_Hash_Mismatch{163E9}
+169n7*Error_Trie_Full{163E9}
+170n7*Error_Invalid_RLP{163E9}
+171n7*Error_Overflow{163E9}
+179V13*Bytes_To_Nibbles{45R9} 180>7 181>7 4|12b13 39l8 39t24
+180a7 Data{1|32A9} 184r23 185r23 186r23 4|13b7 28r33 28r51 31r52 31r58 34r39
+. 34r45
+181i7 Length{natural} 183r14 186r38 4|14b7 20r10 24r21 27r37 37r24
+189V13*Keys_Equal{boolean} 189>25 189>28 4|45b13 66l8 66t18
+189r25 A{45R9} 190r14 4|45b25 47r10 51r10 55r21 56r37 60r13
+189r28 B{45R9} 190r46 4|45b28 47r22 57r37 60r27
+193V13*Common_Prefix_Length{natural} 193>35 193>38 4|72b13 93l8 93t28
+193r35 A{45R9} 194r14 4|72b35 73r50 86r13
+193r38 B{45R9} 194r46 4|72b38 73r60 86r26
+197V13*Is_Prefix{boolean} 197>24 197>32 4|99b13 120l8 120t17
+197r24 Prefix{45R9} 198r14 4|99b24 101r10 105r10 109r21 110r37 114r13
+197r32 Key{45R9} 198r51 4|99b32 101r26 111r37 114r32
+201V13*Remove_Prefix{45R9} 202>7 203>7 4|126b13 148l8 148t21
+202r7 Key{45R9} 205r24 206r18 4|127b7 132r37 141r46 144r29
+203i7 Length{natural} 205r14 4|128b7 132r50 141r33 142r33 144r39
+209V13*Hash_Equal{boolean} 209>25 209>28 4|154b13 162l8 162t18
+209a25 A{61A9} 4|154b25 157r13
+209a28 B{61A9} 4|154b28 157r22
+X 4 khepri_mpt_types.adb
+17r7 Result{3|45R9} 21r17 31m10 34m10 37m7 38r14
+18i7 Idx{natural} 25r33 26r33 31r23 32m10 32r17 34r23 35m10 35r17
+24i11 I{integer} 25r39 27r33 28r46 31r71 34r58
+55i11 I{integer} 56r33 57r33 58r33 60r21 60r35
+73i7 Min_Len{natural} 76r10 80r21 81r37
+74i7 Prefix{natural} 83r33 84r33 87m13 87r23 92r14
+80i11 I{integer} 81r33 82r33 83r42 86r21 86r34
+109i11 I{integer} 110r33 111r33 112r33 114r26 114r42
+131r7 Result{3|45R9} 135r17 144m10 146m7 147r14
+132i7 New_Len{natural} 134r10 138r21 139r37 146r24
+138i11 I{integer} 139r33 140r33 141r42 142r42 144r23 144r48
+156i11 I{3|60I12} 157r16 157r25
+
+QQ SPARKVERSION 0.0w
+GG EK_DIRECT_CALLS khepri_mpt_types__bytes_to_nibbles 1 interfaces__shift_right
+GG EK_PROOF_DEPENDENCIES khepri_mpt_types__bytes_to_nibbles 0
+GG EK_GLOBALS khepri_mpt_types__bytes_to_nibbles local FALSE E_FUNCTION FALSE ORIGIN_FLOW 1 khepri_mpt_types proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS khepri_mpt_types__keys_equal 0
+GG EK_PROOF_DEPENDENCIES khepri_mpt_types__keys_equal 0
+GG EK_GLOBALS khepri_mpt_types__keys_equal local FALSE E_FUNCTION FALSE ORIGIN_FLOW 1 khepri_mpt_types proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS khepri_mpt_types__common_prefix_length 0
+GG EK_PROOF_DEPENDENCIES khepri_mpt_types__common_prefix_length 0
+GG EK_GLOBALS khepri_mpt_types__common_prefix_length local FALSE E_FUNCTION FALSE ORIGIN_FLOW 1 khepri_mpt_types proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS khepri_mpt_types__is_prefix 0
+GG EK_PROOF_DEPENDENCIES khepri_mpt_types__is_prefix 0
+GG EK_GLOBALS khepri_mpt_types__is_prefix local FALSE E_FUNCTION FALSE ORIGIN_FLOW 1 khepri_mpt_types proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS khepri_mpt_types__remove_prefix 0
+GG EK_PROOF_DEPENDENCIES khepri_mpt_types__remove_prefix 0
+GG EK_GLOBALS khepri_mpt_types__remove_prefix local FALSE E_FUNCTION FALSE ORIGIN_FLOW 1 khepri_mpt_types proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS khepri_mpt_types__hash_equal 0
+GG EK_PROOF_DEPENDENCIES khepri_mpt_types__hash_equal 0
+GG EK_GLOBALS khepri_mpt_types__hash_equal local FALSE E_FUNCTION FALSE ORIGIN_FLOW 1 khepri_mpt_types proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS khepri_mpt_types 0
+GG EK_PROOF_DEPENDENCIES khepri_mpt_types 0
+GG EK_GLOBALS khepri_mpt_types local FALSE E_PACKAGE TRUE ORIGIN_FLOW 0 proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 initializes 0 refined_initializes 0 calls_proof 0 calls 0 calls_conditional 0 local_packages 0 local_var 0 TRUE FALSE FALSE FALSE FALSE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_FLOW_SCOPE aegis_vm_types__failure_result FALSE FALSE FALSE FALSE TRUE aegis_vm_types VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE khepri_mpt_types__hash_equal FALSE FALSE FALSE FALSE TRUE khepri_mpt_types VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE khepri_mpt_types__is_prefix FALSE FALSE FALSE FALSE TRUE khepri_mpt_types VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE khepri_mpt_types__keys_equal FALSE FALSE FALSE FALSE TRUE khepri_mpt_types VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE interfaces__rotate_right__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE khepri_mpt_types TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE khepri_mpt_types__bytes_to_nibbles FALSE FALSE FALSE FALSE TRUE khepri_mpt_types VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE khepri_mpt_types__remove_prefix FALSE FALSE FALSE FALSE TRUE khepri_mpt_types VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_vm_types__get_discount FALSE FALSE FALSE FALSE TRUE aegis_vm_types VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_vm_types__success_result FALSE FALSE FALSE FALSE TRUE aegis_vm_types VISIBLE_PART
+GG EK_FLOW_SCOPE khepri_mpt_types__common_prefix_length FALSE FALSE FALSE FALSE TRUE khepri_mpt_types VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_vm_types__initial_gas_context FALSE FALSE FALSE FALSE TRUE aegis_vm_types VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_vm_types TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE interfaces__shift_left__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_END_MARKER

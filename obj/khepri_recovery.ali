@@ -1,0 +1,484 @@
+V "GNAT Lib v14"
+A -O0
+A -gnatA
+A -gnatwa
+A -gnatQ
+A -gnata
+A -gnatf
+A -gnatyM120
+A -gnatyO
+A -gnat2012
+A -g
+A -gnateE
+A -fstack-check=specific
+A -mmacosx-version-min=16.0.0
+A -mcpu=apple-m1
+A -mlittle-endian
+A -mabi=lp64
+A -fPIC
+P ZX
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+
+U khepri_recovery%b	khepri_recovery.adb	0508643e NE OO PK
+W anubis_sha3%s		anubis_sha3.adb		anubis_sha3.ali
+Z system.assertions%s	s-assert.adb		s-assert.ali
+
+U khepri_recovery%s	khepri_recovery.ads	ab1f8ecb EE NE OO PK
+W anubis_bytes%s	anubis_bytes.adb	anubis_bytes.ali
+W anubis_types%s	anubis_types.ads	anubis_types.ali
+W interfaces%s		interfac.ads		interfac.ali
+
+D ada.ads		20240808082856 76789da1 ada%s
+D a-assert.ads		20240808082856 ba465f5c ada.assertions%s
+D a-unccon.ads		20240808082856 0e9b276f ada.unchecked_conversion%s
+D anubis_bytes.ads	20251207191105 9e5d5cad anubis_bytes%s
+D anubis_keccak.ads	20251207191105 19b431a9 anubis_keccak%s
+D anubis_sha3.ads	20251207191105 69737d95 anubis_sha3%s
+D anubis_types.ads	20251207191105 4fb35097 anubis_types%s
+D anubis_word.ads	20251207191105 ec44f66b anubis_word%s
+D interfac.ads		20240808082856 9111f9c1 interfaces%s
+D khepri_recovery.ads	20251207191107 ebe07b30 khepri_recovery%s
+D khepri_recovery.adb	20251207191107 879b629b khepri_recovery%b
+D system.ads		20240808082856 70765b54 system%s
+D s-assert.ads		20240808082856 9c4520c7 system.assertions%s
+D s-exctab.ads		20240808082856 91bef6ef system.exception_table%s
+D s-stalib.ads		20240808082856 1c9580f6 system.standard_library%s
+G a e
+G c Z s b [create_config khepri_recovery 166 14 none]
+G c Z s b [add_guardian khepri_recovery 183 14 none]
+G c Z s b [remove_guardian khepri_recovery 198 14 none]
+G c Z s b [update_guardian_status khepri_recovery 207 14 none]
+G c Z s b [can_recover khepri_recovery 216 13 none]
+G c Z s b [generate_shares khepri_recovery 224 14 none]
+G c Z s b [generate_single_share khepri_recovery 240 14 none]
+G c Z s b [verify_share khepri_recovery 252 13 none]
+G c Z s b [encrypt_share_for_guardian khepri_recovery 259 14 none]
+G c Z s b [start_recovery khepri_recovery 274 14 none]
+G c Z s b [submit_share khepri_recovery 287 14 none]
+G c Z s b [cancel_recovery khepri_recovery 300 14 none]
+G c Z s b [timelock_expired khepri_recovery 311 13 none]
+G c Z s b [recovery_progress khepri_recovery 319 13 none]
+G c Z s b [reconstruct_seed khepri_recovery 331 14 none]
+G c Z s b [verify_reconstruction khepri_recovery 344 13 none]
+G c Z s b [generate_lwe_secret khepri_recovery 356 14 none]
+G c Z s b [lwe_encrypt_bit khepri_recovery 364 14 none]
+G c Z s b [lwe_decrypt_bit khepri_recovery 373 13 none]
+G c Z s b [encode_to_lwe khepri_recovery 380 14 none]
+G c Z s b [decode_from_lwe khepri_recovery 389 14 none]
+G c Z s b [combine_shares khepri_recovery 402 14 none]
+G c Z s b [generate_reconstruction_coeffs khepri_recovery 414 14 none]
+G c Z s b [generate_share_proof khepri_recovery 426 14 none]
+G c Z s b [verify_share_proof khepri_recovery 436 13 none]
+G c Z s b [compute_config_hash khepri_recovery 450 14 none]
+G c Z s b [serialize_session khepri_recovery 458 14 none]
+G c Z s b [deserialize_session khepri_recovery 467 14 none]
+G c Z s b [create_recovery_tx khepri_recovery 475 14 none]
+G c Z s b [check_coercion_risk khepri_recovery 488 13 none]
+G c Z s b [extend_timelock khepri_recovery 495 14 none]
+G c Z s b [generate_decoy_shares khepri_recovery 505 14 none]
+G c Z s b [zeroize_share khepri_recovery 518 14 none]
+G c Z s b [zeroize_session khepri_recovery 522 14 none]
+G c Z s b [zeroize_config khepri_recovery 525 14 none]
+G c Z s b [zeroize_lwe_vector khepri_recovery 529 14 none]
+G c Z s s [recovery_shareIP khepri_recovery 67 9 none]
+G c Z s s [share_arrayIP khepri_recovery 77 9 none]
+G c Z s s [guardian_infoIP khepri_recovery 87 9 none]
+G c Z s s [guardian_arrayIP khepri_recovery 96 9 none]
+G c Z s s [recovery_configIP khepri_recovery 99 9 none]
+G c Z s s [recovery_sessionIP khepri_recovery 111 9 none]
+G c Z s s [Tlwe_vectorBIP khepri_recovery 151 4 none]
+G c Z s s [lwe_sampleIP khepri_recovery 154 9 none]
+G c Z s s [lwe_sample_arrayIP khepri_recovery 159 9 none]
+G c Z b b [get_timestamp khepri_recovery 16 13 none]
+G r c none [generate_single_share khepri_recovery 240 14 none] [sha3_256 anubis_sha3 57 14 none]
+G r c none [generate_single_share khepri_recovery 240 14 none] [sha3_512 anubis_sha3 76 14 none]
+G r c none [verify_share khepri_recovery 252 13 none] [sha3_512 anubis_sha3 76 14 none]
+G r c none [generate_lwe_secret khepri_recovery 356 14 none] [sha3_256 anubis_sha3 57 14 none]
+G r c none [generate_share_proof khepri_recovery 426 14 none] [sha3_512 anubis_sha3 76 14 none]
+G r c none [compute_config_hash khepri_recovery 450 14 none] [sha3_256 anubis_sha3 57 14 none]
+X 4 anubis_bytes.ads
+7K9*Anubis_Bytes 52e17 10|25w6 25r24
+X 6 anubis_sha3.ads
+27K9*Anubis_SHA3 158e16 11|7w6 64r19 72r7 147r20 148r21 167r7 179r7 202r21
+. 212r7 250r17 266r7 276r28 286r10 441r14 443r7 603r20 613r7 639r18 654r7
+32A12*SHA3_256_Digest{7|14A9}<integer> 11|64r31 147r32 250r29 276r40 441r26
+. 639r30
+38A12*SHA3_512_Digest{7|14A9}<integer> 11|148r33 202r33 603r32
+57U14*SHA3_256 11|72s19 167s19 266s19 286s22 443s19 654s19
+76U14*SHA3_512 11|179s19 212s19 613s19
+X 7 anubis_types.ads
+5K9*Anubis_Types 40e17 10|24w6 24r24
+13M12*Byte{9|70M9} 11|159r34 259r31 540r29 583r39 646r28 647r28 744r42
+14A9*Byte_Array(13M12)<integer> 10|69r24 70r24 71r24 72r24 89r24 90r24 100r24
+. 112r24 113r24 114r24 167r24 185r24 186r24 225r24 241r24 261r24 262r28 276r24
+. 290r24 302r24 335r28 345r24 357r24 381r24 392r28 406r28 417r28 428r24 429r28
+. 438r24 439r24 452r28 460r28 468r24 477r28 11|26r24 59r24 60r24 123r24 140r24
+. 146r21 225r24 226r28 245r24 249r18 275r25 310r24 341r24 381r28 418r24 438r24
+. 496r24 524r28 552r28 579r28 599r24 600r28 602r21 622r24 623r24 636r28 638r15
+. 663r28 675r24 698r28
+X 9 interfac.ads
+38K9*Interfaces 233e15 10|23w6 23r22
+70M9*Unsigned_8
+84M9*Unsigned_64 10|73r24 92r24 93r24 105r24 117r24 118r24 313r24 334r24
+. 11|16r34 295r52 352r24 380r24 729r10
+X 10 khepri_recovery.ads
+27K9*Khepri_Recovery 532l5 532e20 11|9b14 846l5 846t20
+35N4*Max_Guardians 63r49 64r50 103r45 115r42 193r43 511r28
+38N4*Default_Threshold
+39N4*Default_Total
+42N4*Share_Size 69r41 267r38 11|174r22 231r21 236r21 602r38 605r21 610r23
+43N4*Commitment_Size 70r41
+44N4*Proof_Size 71r41 433r34 443r34 11|615r21 627r46
+47N4*Master_Seed_Size 231r35 248r35 339r38 349r38 411r34 11|567r24
+50N4*Min_Timelock_Hours 175r36
+51N4*Default_Timelock_Hours
+52N4*Max_Timelock_Hours 176r36
+55N4*LWE_N 151r35 11|460r21 480r21
+56N4*LWE_Q 150r44 11|446r54 461r55 464r22 467r24 467r39 481r55 484r22 489r18
+. 492r21 492r46 505r47
+57N4*LWE_Eta
+63I12*Guardian_Index{natural} 68r24 77r31 88r24 96r34 187r28 200r24 209r24
+. 237r27 243r24 11|61r28 88r24 98r24 142r24
+64I12*Threshold_Value{natural} 101r24 168r24 321r24 405r24 11|27r24 360r24
+. 551r24
+67R9*Recovery_Share 75e14 77r59 244r28 253r24 260r24 289r24 427r24 437r24
+. 518r44 11|143r28 199r24 224r24 309r24 598r24 621r24 767r44
+68i7*Index{63I12} 11|150m13 208r16 327r35 327r49 583r57 740m21 769m13
+69a7*Share_Data{7|14A9} 11|170m16 175m16 179r35 212r35 233r19 569r27 606r35
+. 743r30 744m24 773r22 774m16
+70a7*Commitment{7|14A9} 11|180r22 181m16 214r22 215r19 747r30 748m24 777r22
+. 778m16
+71a7*Proof{7|14A9} 11|185r22 186m16 751r30 752m24 781r22 782m16
+72a7*Guardian_PK{7|14A9} 11|190r22 191m16 755r30 756m24 785r22 786m16
+73m7*Created_At{9|84M9} 11|151m13 759m21 770m13
+74b7*Valid{boolean} 237r47 520r25 11|194m13 204r20 301m32 320r20 627r20 741m21
+. 771m13
+77A9*Share_Array(67R9)<integer> 115r24 227r28 403r24 415r24 508r28 11|125r28
+. 549r24 577r24 736r28
+80E9*Guardian_Status 85e5 91r24 210r24 11|99r24
+81n7*Active{80E9} 11|78r42 110r43
+82n7*Pending{80E9} 11|45r41
+83n7*Revoked{80E9} 11|92r42 829r41
+84n7*Unresponsive{80E9}
+87R9*Guardian_Info 94e14 96r62
+88i7*Index{63I12} 11|77m32
+89a7*PK_Hash{7|14A9} 11|46r40 47m34 69m35 191r67 830r40 831m34
+90a7*Name_Hash{7|14A9} 11|49r40 50m34 74m35 833r40 834m34
+91e7*Status{80E9} 11|45m31 78m32 92m32 102m32 110r34 829m31
+92m7*Added_At{9|84M9} 11|79m32
+93m7*Last_Confirmed{9|84M9} 11|80m32 103m32
+96A9*Guardian_Array(87R9)<integer> 103r24
+99R9*Recovery_Config 108e14 170r28 184r31 199r31 208r31 216r35 226r24 242r24
+. 254r24 275r24 333r24 346r24 451r24 490r24 506r24 525r46 11|29r28 58r31
+. 87r31 97r31 106r35 124r24 141r24 200r24 244r24 379r24 419r24 635r24 715r24
+. 734r24 815r46
+100a7*Owner_PK_Hash{7|14A9} 11|34m17 254r33 279r40 642r30 817r23 818m17
+101i7*Threshold{64I12} 179r27 233r60 341r57 11|37m14 115r46 396r50 405r17
+. 646r42 821m14
+102i7*Total_Guardians{natural} 180r27 193r25 195r23 195r48 204r29 213r29
+. 233r25 234r42 236r42 249r40 11|38m14 66r23 82m14 82r40 109r28 129r28 208r32
+. 647r42 822m14
+103a7*Guardians{96A9} 11|44r23 45m17 46r26 47m20 49r26 50m20 69m17 74m17
+. 77m14 78m14 79m14 80m14 92m14 102m14 103m14 110r20 191r42 828r23 829m17
+. 830r26 831m20 833r26 834m20
+104i7*Timelock_Hours{natural} 11|39m14 295r72 823m14
+105m7*Created_At{9|84M9} 11|40m14 824m14
+106i7*Version{natural} 11|41m14 825m14
+107b7*Active{boolean} 178r23 232r25 281r50 527r26 11|42m14 826m14
+111R9*Recovery_Session 121e14 277r28 288r31 301r31 312r24 320r24 332r24 459r24
+. 469r28 476r24 489r24 496r31 522r48 11|246r28 308r31 340r31 351r24 359r24
+. 378r24 662r24 676r28 697r24 714r24 723r31 790r48
+112a7*Session_ID{7|14A9} 11|269m18 668r47 686m18 703r49 792r24 793m18
+113a7*Config_Hash{7|14A9} 11|289m21 796r24 797m18
+114a7*Initiator{7|14A9} 11|270m18 800r24 801m18
+115a7*Submitted{77A9} 11|300r24 301m18 327r21 333m15 403r18 804r24 805m33
+116i7*Num_Submitted{natural} 284r28 297r24 297r48 341r24 11|293m15 326r29
+. 333r34 334m15 334r40 364r18 367r31 396r18 404r18 689m15 719r22 808m15
+117m7*Started_At{9|84M9} 11|294m15 295r39 809m15
+118m7*Timelock_End{9|84M9} 316r66 11|295m15 355r38 728m15 728r39 810m15
+119b7*Cancelled{boolean} 308r40 11|296m15 315r39 346m15 386r18 690m15 719r56
+. 811m15
+120b7*Completed{boolean} 283r28 295r30 307r30 502r30 11|297m15 315r18 691m15
+. 812m15
+124E9*Recovery_Result 133e5 336r28 11|382r28
+125n7*Success{124E9} 340r28 11|411r20
+126n7*Insufficient_Shares{124E9} 11|397r20
+127n7*Invalid_Share{124E9}
+128n7*Timelock_Active{124E9} 11|392r20
+129n7*Session_Cancelled{124E9} 11|387r20
+130n7*Session_Expired{124E9}
+131n7*Verification_Failed{124E9} 11|413r20
+132n7*Already_Recovered{124E9}
+136E9*Submit_Result 143e5 291r28 11|311r28
+137n7*Accepted{136E9} 296r28 11|336r17
+138n7*Duplicate_Guardian{136E9} 11|328r23
+139n7*Invalid_Proof{136E9}
+140n7*Session_Closed{136E9} 11|316r20
+141n7*Not_A_Guardian{136E9}
+142n7*Share_Corrupted{136E9} 11|321r20
+150I12*LWE_Coeff{natural} 151r49 156r11
+151A9*LWE_Vector(150I12)<integer> 155r11 358r28 365r24 366r24 374r24 382r24
+. 391r24 529r45 11|439r28 451r24 452r24 474r24 497r24 500r18 523r24 839r45
+154R9*LWE_Sample 157e14 159r57 368r28 375r24 11|454r28 475r24
+155a7*A{151A9} 11|458m14 481r31
+156i7*B{150I12} 11|470m14 486r17 487r25 489r39
+159A9*LWE_Sample_Array(154R9)<integer> 383r28 390r24 11|498r28 522r24
+166U14*Create_Config 167>7 168>7 169>7 170<7 171<7 11|25b14
+167a7 Owner_PK_Hash{7|14A9} 174r14 11|26b7 34r38 34r53
+168i7 Threshold{64I12} 179r39 11|27b7 37r27
+169i7 Timelock_Hours{natural} 175r18 176r18 11|28b7 39r32
+170r7 Config{99R9} 178r16 179r20 180r20 11|29b7 34m10 37m7 38m7 39m7 40m7
+. 41m7 42m7 44r16 45m10 46r19 47m13 49r19 50m13
+171b7 Success{boolean} 177r19 11|30b7 54m7
+183U14*Add_Guardian 184=7 185>7 186>7 187<7 188<7 11|57b14
+184r7 Config{99R9} 193r18 195r16 195r41 11|58b7 66r16 69m10 74m10 77m7 78m7
+. 79m7 80m7 82m7 82r33
+185a7 Guardian_PK{7|14A9} 191r14 11|59b7 69r50 69r63
+186a7 Guardian_Name{7|14A9} 192r18 11|60b7 72r29
+187i7 Index{63I12} 11|61b7 66m7 69r28 74r28 77r25 77r41 78r25 79r25 80r25
+188b7 Success{boolean} 194r19 11|62b7 83m7
+198U14*Remove_Guardian 199=7 200>7 201<7 11|86b14 94l8 94t23
+199r7 Config{99R9} 204r22 11|87b7 92m7
+200i7 Index{63I12} 204r14 11|88b7 92r25
+201b7 Success{boolean} 11|89b7 93m7
+207U14*Update_Guardian_Status 208=7 209>7 210>7 11|96b14 104l8 104t30
+208r7 Config{99R9} 213r22 11|97b7 102m7 103m7
+209i7 Index{63I12} 213r14 11|98b7 102r25 103r25
+210e7 New_Status{80E9} 11|99b7 102r42
+216V13*Can_Recover{boolean} 216>26 11|106b13 116l8 116t19
+216r26 Config{99R9} 11|106b26 109r21 110r13 115r39
+224U14*Generate_Shares 225>7 226>7 227<7 228<7 11|122b14
+225a7 Master_Seed{7|14A9} 231r14 11|123b7 130r33
+226r7 Config{99R9} 232r18 233r18 233r53 234r35 236r35 11|124b7 129r21 130r46
+227a7 Shares{77A9} 234r18 237r19 11|125b7 130m57 130r57
+228b7 Success{boolean} 235r19 11|126b7 130m69 131r17 136m7
+236i25 I{integer} 237r43
+240U14*Generate_Single_Share 241>7 242>7 243>7 244<7 245<7 11|130s10 139b14
+. 196l8 196t29
+241a7 Master_Seed{7|14A9} 248r14 11|140b7 155r29 155r42
+242r7 Config{99R9} 249r33 11|141b7 191r35
+243i7 Guardian_Idx{63I12} 249r18 11|142b7 150r22 159r41 191r53
+244r7 Share{67R9} 11|143b7 150m7 151m7 170m10 175m10 179r29 180r16 181m10
+. 185r16 186m10 190r16 191m10 194m7
+245b7 Success{boolean} 11|144b7 195m7
+252V13*Verify_Share{boolean} 253>7 254>7 11|198b13 221l8 221t20
+253r7 Share{67R9} 11|199b7 204r14 208r10 212r29 214r16 215r13
+254r7 Config{99R9} 11|200b7 208r25
+259U14*Encrypt_Share_For_Guardian 260>7 261>7 262<7 263<7 11|223b14 237l8
+. 237t34
+260r7 Share{67R9} 11|224b7 233r13
+261a7 Guardian_PK{7|14A9} 266r14 11|225b7 233r38 233r51
+262a7 Encrypted{7|14A9} 267r18 11|226b7 232m10 232r21
+263i7 Enc_Length{natural} 11|227b7 236m7
+274U14*Start_Recovery 275>7 276>7 277<7 278<7 11|243b14
+275r7 Config{99R9} 281r43 11|244b7 254r26 279r33 295r65
+276a7 Initiator_PK{7|14A9} 281r14 11|245b7 255r31 255r45 270r35 270r49
+277r7 Session{111R9} 283r20 284r20 11|246b7 269m10 270m10 289m13 293m7 294m7
+. 295m7 295r31 296m7 297m7 300r16 301m10
+278b7 Success{boolean} 282r19 11|247b7 304m7
+287U14*Submit_Share 288=7 289>7 290>7 291<7 11|307b14
+288r7 Session{111R9} 295r22 297r16 297r40 11|308b7 315r10 315r31 326r21 327r13
+. 333m7 333r26 334m7 334r32
+289r7 Share{67R9} 11|309b7 320r14 327r43 333r52
+290a7 Guardian_Sig{7|14A9} 294r14 11|310b7 313r28
+291e7 Result{136E9} 296r19 11|311b7 316m10 321m10 328m13 336m7
+300U14*Cancel_Recovery 301=7 302>7 303<7 11|339b14
+301r7 Session{111R9} 307r22 308r32 11|340b7 346m7
+302a7 Owner_Sig{7|14A9} 306r14 11|341b7 344r28
+303b7 Success{boolean} 308r19 11|342b7 347m7
+311V13*Timelock_Expired{boolean} 312>7 313>7 316r15 11|350b13 391s14
+312r7 Session{111R9} 316r58 11|351b7 355r30
+313m7 Current_Time{9|84M9} 316r42 11|352b7 355r14
+319V13*Recovery_Progress{natural} 320>7 321>7 324r15 11|358b13
+320r7 Session{111R9} 11|359b7 364r10 367r23
+321i7 Threshold{64I12} 11|360b7 364r44 367r63
+331U14*Reconstruct_Seed 332>7 333>7 334>7 335<7 336<7 11|377b14
+332r7 Session{111R9} 341r16 11|378b7 386r10 391r32 396r10 403r10 404r10
+333r7 Config{99R9} 341r50 11|379b7 396r43 405r10
+334m7 Current_Time{9|84M9} 11|380b7 391r41
+335a7 Recovered_Seed{7|14A9} 339r14 11|381b7 406m10
+336e7 Result{124E9} 340r19 11|382b7 387m10 392m10 397m10 411m10 413m10
+344V13*Verify_Reconstruction{boolean} 345>7 346>7 11|417b13 431l8 431t29
+345a7 Recovered_Seed{7|14A9} 349r14 11|418b7 424r16 425r13
+346r7 Config{99R9} 11|419b7 421r28
+356U14*Generate_LWE_Secret 357>7 358<7 11|437b14 448l8 448t27
+357a7 Seed{7|14A9} 361r14 11|438b7 443r29
+358a7 Secret{151A9} 11|439b7 445r16 446m10
+364U14*LWE_Encrypt_Bit 365>7 366>7 367>7 368<7 11|450b14 471l8 471t23 511s13
+365a7 Public_A{151A9} 11|451b7 458r19 461r24
+366a7 Secret{151A9} 11|452b7 461r39
+367b7 Bit{boolean} 11|453b7 466r10
+368r7 Sample{154R9} 11|454b7 458m7 470m7
+373V13*LWE_Decrypt_Bit{boolean} 374>7 375>7 11|473b13 493l8 493t23 532s20
+374a7 Secret{151A9} 11|474b7 481r39
+375r7 Sample{154R9} 11|475b7 481r24 486r10 487r18 489r32
+380U14*Encode_To_LWE 381>7 382>7 383<7 11|495b14 519l8 519t21
+381a7 Data{7|14A9} 386r32 11|496b7 508r23 510r30 515r53
+382a7 Secret{151A9} 11|497b7 505r27 513r16
+383a7 Samples{159A9} 386r14 11|498b7 515m16 515r16 515r25
+389U14*Decode_From_LWE 390>7 391>7 392<7 11|521b14 542l8 542t23
+390a7 Samples{159A9} 395r33 11|522b7 534r16 534r25
+391a7 Secret{151A9} 11|523b7 533r16
+392a7 Data{7|14A9} 395r14 11|524b7 529r23 534r53 540m10
+402U14*Combine_Shares 403>7 404>7 405>7 406<7 407<7 11|402s7 548b14 574l8
+. 574t22
+403a7 Shares{77A9} 11|549b7 569r16
+404i7 Num_Shares{natural} 410r14 11|550b7 556r10 566r21
+405i7 Threshold{64I12} 410r37 11|551b7 556r32
+406a7 Result{7|14A9} 411r18 11|552b7 562r16 563m10 568m13 568r21 568r42 568r50
+407b7 Success{boolean} 11|553b7 557m10 573m7
+414U14*Generate_Reconstruction_Coeffs 415>7 416>7 417<7 11|576b14 591l8 591t38
+415a7 Indices{77A9} 11|577b7 583r45
+416i7 Num_Shares{natural} 11|578b7 582r21 586r16
+417a7 Coeffs{7|14A9} 11|579b7 583m10 583r18 586r30 587r13 587r33 588m13 588r21
+426U14*Generate_Share_Proof 427>7 428>7 429<7 11|597b14 618l8 618t28
+427r7 Share{67R9} 11|598b7 606r29
+428a7 Guardian_SK{7|14A9} 432r14 11|599b7 610r42 610r55
+429a7 Proof{7|14A9} 433r18 11|600b7 616m10 616r17
+436V13*Verify_Share_Proof{boolean} 437>7 438>7 439>7 11|620b13 628l8 628t26
+437r7 Share{67R9} 11|621b7 627r14
+438a7 Guardian_PK{7|14A9} 442r14 11|622b7 625r28
+439a7 Proof{7|14A9} 443r18 11|623b7 627r30
+450U14*Compute_Config_Hash 451>7 452<7 11|634b14 659l8 659t27
+451r7 Config{99R9} 11|635b7 642r23 646r35 647r35
+452a7 Hash{7|14A9} 455r14 11|636b7 657m10 657r16
+458U14*Serialize_Session 459>7 460<7 461<7 11|661b14 672l8 672t25
+459r7 Session{111R9} 11|662b7 668r39
+460a7 Output{7|14A9} 464r14 11|663b7 668m10 668r18
+461i7 Length{natural} 11|664b7 671m7
+467U14*Deserialize_Session 468>7 469<7 470<7 11|674b14 694l8 694t27
+468a7 Input{7|14A9} 11|675b7 680r10 686r36 686r43
+469r7 Session{111R9} 11|676b7 686m10 689m7 690m7 691m7
+470b7 Success{boolean} 11|677b7 681m10 693m7
+475U14*Create_Recovery_TX 476>7 477<7 478<7 11|696b14 707l8 707t26
+476r7 Session{111R9} 11|697b7 703r41
+477a7 TX_Data{7|14A9} 481r14 11|698b7 703m10 703r19
+478i7 TX_Length{natural} 11|699b7 706m7
+488V13*Check_Coercion_Risk{boolean} 489>7 490>7 11|713b13 720l8 720t27
+489r7 Session{111R9} 11|714b7 719r14 719r48
+490r7 Config{99R9} 11|715b7 717r28
+495U14*Extend_Timelock 496=7 497>7 498<7 11|722b14 731l8 731t23
+496r7 Session{111R9} 502r22 11|723b7 728m7 728r31
+497i7 Additional_Hours{natural} 501r14 11|724b7 729r23
+498b7 Success{boolean} 11|725b7 730m7
+505U14*Generate_Decoy_Shares 506>7 507>7 508<7 11|733b14 761l8 761t29
+506r7 Config{99R9} 11|734b7
+507i7 Num_Decoys{natural} 511r14 512r35 11|735b7 739r21
+508a7 Decoys{77A9} 512r18 11|736b7 740m10 741m10 743r19 744m13 747r19 748m13
+. 751r19 752m13 755r19 756m13 759m10
+518U14*Zeroize_Share 518=29 11|767b14 805s10
+518r29 Share{67R9} 520r19 11|767b29 769m7 770m7 771m7 773r16 774m10 777r16
+. 778m10 781r16 782m10 785r16 786m10
+522U14*Zeroize_Session 522=31 11|790b14 813l8 813t23
+522r31 Session{111R9} 11|790b31 792r16 793m10 796r16 797m10 800r16 801m10
+. 804r16 805m25 805r25 808m7 809m7 810m7 811m7 812m7
+525U14*Zeroize_Config 525=30 11|815b14
+525r30 Config{99R9} 527r19 11|815b30 817r16 818m10 821m7 822m7 823m7 824m7
+. 825m7 826m7 828r16 829m10 830r19 831m13 833r19 834m13
+529U14*Zeroize_LWE_Vector 529=34 11|839b14 844l8 844t26
+529a34 V{151A9} 11|839b34 841r16 842m10
+X 11 khepri_recovery.adb
+16V13 Get_Timestamp{9|84M9} 16b13 19l8 19t21 40s28 79s44 103s50 151s27 259s38
+. 294s29 759s35
+33i11 I{integer} 34r32 34r75
+44i11 I{integer} 45r28 46r37 47r31 49r37 50r31
+46i14 J{integer} 47r43
+49i14 J{integer} 50r45
+64a7 Name_Hash{6|32A12} 72m44 74r52
+68i11 I{integer} 69r44 69r83
+73i11 I{integer} 74r46 74r63
+107i7 Active_Count{natural} 111m13 111r29 115r14
+109i11 I{integer} 110r31
+129i11 I{integer} 130r54 130r65
+146a7 Share_Input{7|14A9} 155m10 159m10 163m10 167r29
+147a7 Share_Hash{6|32A12} 167m42 170r34 175r34
+148a7 Commit_Hash{6|38A12} 179m47 181r34 186r29
+154i11 I{integer} 155r23 155r62
+158i11 I{integer} 159r28 159r63
+162i11 I{integer} 163r23
+169i11 I{integer} 170r28 170r46
+174i11 I{integer} 175r28 175r46
+180i11 I{integer} 181r28 181r47
+185i11 I{integer} 186r23 186r42
+190i11 I{integer} 191r29 191r76
+202a7 Commit_Hash{6|38A12} 212m47 215r37
+214i11 I{integer} 215r31 215r50
+231i11 I{integer} 232r39 233r31 233r72
+249a7 ID_Input{7|14A9} 254m10 255m10 259m10 263m10 266r29
+250a7 ID_Hash{6|32A12} 266m39 269r36
+253i11 I{integer} 254r20 254r48 255r20 255r66
+258i11 I{integer} 259r25 259r61
+262i11 I{integer} 263r20
+268i11 I{integer} 269r30 269r45 270r29 270r70
+275a10 Config_Input{7|14A9} 279m13 283m13 286r32
+276a10 Config_Hash_Out{6|32A12} 286m46 289r40
+278i14 I{integer} 279r27 279r55
+282i14 I{integer} 283r27
+288i14 I{integer} 289r34 289r57
+300i11 I{integer} 301r29
+326i11 I{integer} 327r32
+362i7 Progress{natural} 365m10 367m10 370r14
+384b7 Combine_Success{boolean} 407m10 410r10
+424i11 I{integer} 425r29
+441a7 Hash{6|32A12} 443m35 446r33
+445i11 I{integer} 446r18 446r39
+456i7 Sum{natural} 461m10 461r17 464m7 464r14 467m10 467r18 470r19
+460i11 I{integer} 461r34 461r47
+477i7 Sum{natural} 481m10 481r17 484m7 484r14 486r22 487r29 489r26
+478i7 Diff{natural} 487m10 489m10 492r14 492r35
+480i11 I{integer} 481r34 481r47
+500a7 Public_A{10|151A9} 504r16 505m10 512r16
+501b7 Bit{boolean} 510m13 514r16
+504i11 I{integer} 505r20 505r35 505r40
+508i11 Byte_Idx{integer} 510r36 515r42
+509i14 Bit_Idx{integer} 510r55 515r71
+526i7 Byte_Val{natural} 530m10 537m16 537r28 540r35
+527b7 Bit{boolean} 532m13 536r16
+529i11 Byte_Idx{integer} 534r42 540r16
+531i14 Bit_Idx{integer} 534r71 537r45
+562i11 I{integer} 563r18
+566i11 S{integer} 569r24
+567i14 I{integer} 568r36 568r65 569r39
+582i11 I{integer} 583r33 583r54
+586i11 I{integer} 587r28 588r36
+602a7 Proof_Input{7|14A9} 606m10 610m10 613r29
+603a7 Proof_Hash{6|38A12} 613m42 616r37
+605i11 I{integer} 606r23 606r47
+609i11 I{integer} 610r36 610r75
+615i11 I{integer} 616r31 616r49
+638a7 Input{7|14A9} 642m10 646m10 647m10 651m10 654r29
+639a7 Hash_Out{6|32A12} 654m36 657r35
+641i11 I{integer} 642r17 642r45
+645i11 I{integer} 646r22 646r61 647r22 647r67
+650i11 I{integer} 651r17
+656i11 I{integer} 657r29 657r45
+667i11 I{integer} 668r33 668r59
+685i11 I{integer} 686r30 686r57
+702i11 I{integer} 703r35 703r61
+739i11 I{integer} 740r18 740r30 741r18 743r27 744r21 744r49 747r27 748r21
+. 751r27 752r21 755r27 756r21 759r18
+743i14 J{integer} 744r36 744r53
+747i14 J{integer} 748r36
+751i14 J{integer} 752r31
+755i14 J{integer} 756r37
+773i11 I{integer} 774r28
+777i11 I{integer} 778r28
+781i11 I{integer} 782r23
+785i11 I{integer} 786r29
+792i11 I{integer} 793r30
+796i11 I{integer} 797r31
+800i11 I{integer} 801r29
+804i11 I{integer} 805r44
+817i11 I{integer} 818r32
+828i11 I{integer} 829r28 830r37 831r31 833r37 834r31
+830i14 J{integer} 831r43
+833i14 J{integer} 834r45
+841i11 I{integer} 842r13
+

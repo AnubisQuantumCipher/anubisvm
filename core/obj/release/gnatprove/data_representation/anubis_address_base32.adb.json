@@ -1,0 +1,57 @@
+[
+{
+  "name": "Anubis_Address_Base32.Decode_Account_Id.In_Idx",
+  "location": "anubis_address_base32.adb:130:7",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Anubis_Address_Base32.Decode_Account_Id.Out_Idx",
+  "location": "anubis_address_base32.adb:131:7",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Anubis_Address_Base32.Decode_Account_Id.Buffer",
+  "location": "anubis_address_base32.adb:132:7",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Anubis_Address_Base32.Decode_Account_Id.Val",
+  "location": "anubis_address_base32.adb:133:7",
+  "Size": 8,
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Address_Base32.Decode_Checksum.Buffer",
+  "location": "anubis_address_base32.adb:204:7",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Anubis_Address_Base32.Decode_Checksum.Val",
+  "location": "anubis_address_base32.adb:205:7",
+  "Size": 8,
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Address_Base32.Unchunk_Payload.In_Pos",
+  "location": "anubis_address_base32.adb:277:7",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Anubis_Address_Base32.Unchunk_Payload.Out_Pos",
+  "location": "anubis_address_base32.adb:278:7",
+  "Size": 32,
+  "Alignment": 4
+}
+]

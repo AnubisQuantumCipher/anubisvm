@@ -1,0 +1,436 @@
+V "GNAT Lib v14"
+A -O0
+A -gnatA
+A -gnatwa
+A -gnatQ
+A -gnata
+A -gnatf
+A -gnatyM120
+A -gnatyO
+A -gnat2012
+A -g
+A -gnateE
+A -fstack-check=specific
+A -mmacosx-version-min=16.0.0
+A -mcpu=apple-m1
+A -mlittle-endian
+A -mabi=lp64
+A -fPIC
+P ZX
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+RV NO_ELABORATION_CODE
+
+U ats4626_vault%b	ats4626_vault.adb	3e606bcd OO PK
+Z system.assertions%s	s-assert.adb		s-assert.ali
+
+U ats4626_vault%s	ats4626_vault.ads	aee0582d EE NE OO PK
+W aegis_u256%s		aegis_u256.adb		aegis_u256.ali
+W aegis_vm_types%s	aegis_vm_types.ads	aegis_vm_types.ali
+W khepri_types%s	khepri_types.adb	khepri_types.ali
+
+D ada.ads		20240808082856 76789da1 ada%s
+D a-assert.ads		20240808082856 ba465f5c ada.assertions%s
+D a-unccon.ads		20240808082856 0e9b276f ada.unchecked_conversion%s
+D aegis_u256.ads	20251207191105 ff2dfe4b aegis_u256%s
+D aegis_vm_types.ads	20251207191105 dcd101d9 aegis_vm_types%s
+D ats4626_vault.ads	20251206202917 8bef2592 ats4626_vault%s
+D ats4626_vault.adb	20251206024546 b58f4e5f ats4626_vault%b
+D interfac.ads		20240808082856 9111f9c1 interfaces%s
+D khepri_types.ads	20251207191106 06f3822d khepri_types%s
+D system.ads		20240808082856 70765b54 system%s
+D s-assert.ads		20240808082856 9c4520c7 system.assertions%s
+D s-exctab.ads		20240808082856 91bef6ef system.exception_table%s
+D s-stalib.ads		20240808082856 1c9580f6 system.standard_library%s
+G a e
+G c Z s s [vault_nameIP ats4626_vault 44 9 none]
+G c Z s s [vault_symbolIP ats4626_vault 50 9 none]
+G c Z s s [vault_configIP ats4626_vault 55 9 none]
+G c Z s b [initialize ats4626_vault 90 14 none]
+G c Z s b [name ats4626_vault 103 13 none]
+G c Z s b [symbol ats4626_vault 107 13 none]
+G c Z s b [decimals ats4626_vault 111 13 none]
+G c Z s b [total_supply ats4626_vault 115 13 none]
+G c Z s b [balance_of ats4626_vault 119 13 none]
+G c Z s b [allowance ats4626_vault 123 13 none]
+G c Z s b [transfer ats4626_vault 127 14 none]
+G c Z s b [approve ats4626_vault 137 14 none]
+G c Z s b [transfer_from ats4626_vault 147 14 none]
+G c Z s b [asset ats4626_vault 162 13 none]
+G c Z s b [total_assets ats4626_vault 166 13 none]
+G c Z s b [convert_to_shares ats4626_vault 174 13 none]
+G c Z s b [convert_to_assets ats4626_vault 178 13 none]
+G c Z s b [max_deposit ats4626_vault 186 13 none]
+G c Z s b [preview_deposit ats4626_vault 190 13 none]
+G c Z s b [deposit ats4626_vault 194 14 none]
+G c Z s b [max_mint ats4626_vault 205 13 none]
+G c Z s b [preview_mint ats4626_vault 209 13 none]
+G c Z s b [mint ats4626_vault 213 14 none]
+G c Z s b [max_withdraw ats4626_vault 228 13 none]
+G c Z s b [preview_withdraw ats4626_vault 232 13 none]
+G c Z s b [withdraw ats4626_vault 236 14 none]
+G c Z s b [max_redeem ats4626_vault 248 13 none]
+G c Z s b [preview_redeem ats4626_vault 252 13 none]
+G c Z s b [redeem ats4626_vault 256 14 none]
+G c Z s b [contract_owner ats4626_vault 272 13 none]
+G c Z s b [transfer_ownership ats4626_vault 276 14 none]
+G c Z s b [supports_interface ats4626_vault 289 13 none]
+G c Z b b [balance_entryIP ats4626_vault 17 9 none]
+G c Z b b [Tbalance_arrayBIP ats4626_vault 23 4 none]
+G c Z b b [allowance_entryIP ats4626_vault 25 9 none]
+G c Z b b [Tallowance_arrayBIP ats4626_vault 32 4 none]
+G c Z b b [find_balance ats4626_vault 60 13 none]
+G c Z b b [find_or_create_balance ats4626_vault 72 13 none]
+G c Z b b [find_allowance ats4626_vault 87 13 none]
+G c Z b b [find_or_create_allowance ats4626_vault 100 13 none]
+G c Z b b [assets_to_shares ats4626_vault 120 13 none]
+G c Z b b [shares_to_assets ats4626_vault 138 13 none]
+G r c none [transfer ats4626_vault 127 14 none] [less_than aegis_u256 36 13 none]
+G r c none [transfer ats4626_vault 127 14 none] [add aegis_u256 64 14 none]
+G r c none [transfer ats4626_vault 127 14 none] [sub_mod aegis_u256 84 13 none]
+G r c none [transfer_from ats4626_vault 147 14 none] [less_than aegis_u256 36 13 none]
+G r c none [transfer_from ats4626_vault 147 14 none] [add aegis_u256 64 14 none]
+G r c none [transfer_from ats4626_vault 147 14 none] [sub_mod aegis_u256 84 13 none]
+G r c none [convert_to_shares ats4626_vault 174 13 none] [equal aegis_u256 31 13 none]
+G r c none [convert_to_shares ats4626_vault 174 13 none] [mul_mod aegis_u256 97 13 none]
+G r c none [convert_to_shares ats4626_vault 174 13 none] [div_mod aegis_u256 102 14 none]
+G r c none [convert_to_assets ats4626_vault 178 13 none] [equal aegis_u256 31 13 none]
+G r c none [convert_to_assets ats4626_vault 178 13 none] [mul_mod aegis_u256 97 13 none]
+G r c none [convert_to_assets ats4626_vault 178 13 none] [div_mod aegis_u256 102 14 none]
+G r c none [preview_deposit ats4626_vault 190 13 none] [equal aegis_u256 31 13 none]
+G r c none [preview_deposit ats4626_vault 190 13 none] [mul_mod aegis_u256 97 13 none]
+G r c none [preview_deposit ats4626_vault 190 13 none] [div_mod aegis_u256 102 14 none]
+G r c none [deposit ats4626_vault 194 14 none] [equal aegis_u256 31 13 none]
+G r c none [deposit ats4626_vault 194 14 none] [mul_mod aegis_u256 97 13 none]
+G r c none [deposit ats4626_vault 194 14 none] [div_mod aegis_u256 102 14 none]
+G r c none [deposit ats4626_vault 194 14 none] [add aegis_u256 64 14 none]
+G r c none [preview_mint ats4626_vault 209 13 none] [equal aegis_u256 31 13 none]
+G r c none [preview_mint ats4626_vault 209 13 none] [mul_mod aegis_u256 97 13 none]
+G r c none [preview_mint ats4626_vault 209 13 none] [add aegis_u256 64 14 none]
+G r c none [preview_mint ats4626_vault 209 13 none] [from_word64 aegis_u256 155 13 none]
+G r c none [preview_mint ats4626_vault 209 13 none] [sub_mod aegis_u256 84 13 none]
+G r c none [preview_mint ats4626_vault 209 13 none] [div_mod aegis_u256 102 14 none]
+G r c none [mint ats4626_vault 213 14 none] [equal aegis_u256 31 13 none]
+G r c none [mint ats4626_vault 213 14 none] [mul_mod aegis_u256 97 13 none]
+G r c none [mint ats4626_vault 213 14 none] [add aegis_u256 64 14 none]
+G r c none [mint ats4626_vault 213 14 none] [from_word64 aegis_u256 155 13 none]
+G r c none [mint ats4626_vault 213 14 none] [sub_mod aegis_u256 84 13 none]
+G r c none [mint ats4626_vault 213 14 none] [div_mod aegis_u256 102 14 none]
+G r c none [max_withdraw ats4626_vault 228 13 none] [equal aegis_u256 31 13 none]
+G r c none [max_withdraw ats4626_vault 228 13 none] [mul_mod aegis_u256 97 13 none]
+G r c none [max_withdraw ats4626_vault 228 13 none] [div_mod aegis_u256 102 14 none]
+G r c none [preview_withdraw ats4626_vault 232 13 none] [equal aegis_u256 31 13 none]
+G r c none [preview_withdraw ats4626_vault 232 13 none] [mul_mod aegis_u256 97 13 none]
+G r c none [preview_withdraw ats4626_vault 232 13 none] [add aegis_u256 64 14 none]
+G r c none [preview_withdraw ats4626_vault 232 13 none] [from_word64 aegis_u256 155 13 none]
+G r c none [preview_withdraw ats4626_vault 232 13 none] [sub_mod aegis_u256 84 13 none]
+G r c none [preview_withdraw ats4626_vault 232 13 none] [div_mod aegis_u256 102 14 none]
+G r c none [withdraw ats4626_vault 236 14 none] [equal aegis_u256 31 13 none]
+G r c none [withdraw ats4626_vault 236 14 none] [mul_mod aegis_u256 97 13 none]
+G r c none [withdraw ats4626_vault 236 14 none] [add aegis_u256 64 14 none]
+G r c none [withdraw ats4626_vault 236 14 none] [from_word64 aegis_u256 155 13 none]
+G r c none [withdraw ats4626_vault 236 14 none] [sub_mod aegis_u256 84 13 none]
+G r c none [withdraw ats4626_vault 236 14 none] [div_mod aegis_u256 102 14 none]
+G r c none [withdraw ats4626_vault 236 14 none] [less_than aegis_u256 36 13 none]
+G r c none [preview_redeem ats4626_vault 252 13 none] [equal aegis_u256 31 13 none]
+G r c none [preview_redeem ats4626_vault 252 13 none] [mul_mod aegis_u256 97 13 none]
+G r c none [preview_redeem ats4626_vault 252 13 none] [div_mod aegis_u256 102 14 none]
+G r c none [redeem ats4626_vault 256 14 none] [equal aegis_u256 31 13 none]
+G r c none [redeem ats4626_vault 256 14 none] [less_than aegis_u256 36 13 none]
+G r c none [redeem ats4626_vault 256 14 none] [mul_mod aegis_u256 97 13 none]
+G r c none [redeem ats4626_vault 256 14 none] [div_mod aegis_u256 102 14 none]
+G r c none [redeem ats4626_vault 256 14 none] [sub_mod aegis_u256 84 13 none]
+G r c none [assets_to_shares ats4626_vault 120 13 none] [equal aegis_u256 31 13 none]
+G r c none [assets_to_shares ats4626_vault 120 13 none] [mul_mod aegis_u256 97 13 none]
+G r c none [assets_to_shares ats4626_vault 120 13 none] [div_mod aegis_u256 102 14 none]
+G r c none [shares_to_assets ats4626_vault 138 13 none] [equal aegis_u256 31 13 none]
+G r c none [shares_to_assets ats4626_vault 138 13 none] [mul_mod aegis_u256 97 13 none]
+G r c none [shares_to_assets ats4626_vault 138 13 none] [div_mod aegis_u256 102 14 none]
+X 4 aegis_u256.ads
+21K9*Aegis_U256 276e15 6|12w6 12r27
+31V13*Equal{boolean} 7|123s10 123s45 141s10 414s10 423s10 483s10 519s10 584s10
+. 620s10 690s10
+36V13*Less_Than{boolean} 7|236s10 311s10 318s10 630s10 640s13 698s10 710s13
+64U14*Add 7|243s7 325s7 438s7 446s7 454s7 494s10 536s7 544s7 552s7 595s10
+84V13*Sub_Mod{5|41R9} 7|254s49 337s47 349s50 498s23 599s23 649s53 655s48
+. 658s23 659s30 719s53 725s48 728s23 729s30
+97V13*Mul_Mod{5|41R9} 7|131s21 149s21 493s21 594s21
+102U14*Div_Mod 7|132s10 150s10 499s10 600s10
+155V13*From_Word64{5|41R9} 7|498s43 599s43
+X 5 aegis_vm_types.ads
+21K9*Aegis_VM_Types 279e19 6|11w6 11r27
+31M12*Byte{8|70M9}
+41R9*U256 43e14 6|34r28 37r28 7|121r29 129r20 139r29 147r20 230r21 304r21
+. 408r22 409r22 410r22 481r29 489r22 490r22 513r22 514r22 515r22 582r29 590r22
+. 591r22
+46r4*U256_Zero{41R9} 7|40r41 41r41 45r18 52r21 123r31 123r73 141r31 142r17
+. 172r23 173r30 207r17 217r17 414r25 415r20 423r25 432r20 440r20 448r20 456r20
+. 483r31 519r25 520r20 530r20 538r20 546r20 554r20 584r38 585r17 620r25 621r20
+. 631r20 641r23 690r25 691r20 699r20 711r23
+48r4*U256_Max{41R9} 7|391r14 477r14 496r20 597r20
+70A9*Contract_Address(31M12)<integer>
+X 6 ats4626_vault.ads
+15K9*ATS4626_Vault 294E4 296l5 296e18 7|4b14 771l5 771t18
+17@23*Vault_State 18r19 95r28 104r17 108r17 112r17 116r17 120r17 124r17 134r28
+. 144r28 155r28 163r17 167r17 175r17 179r17 187r17 191r17 202r28 206r17 210r17
+. 221r28 229r17 233r17 245r28 249r17 253r17 265r28 273r17 282r28 7|6r22
+25a4*Zero_Address{9|43A12} 65r22 96r26 97r43 135r30 145r28 156r28 203r29
+. 222r29 246r29 266r29 283r30 7|39r36 44r18 50r21 51r21 165r24
+27N4*Max_Depositors 7|23r38 204r17 253r24 257r22 336r22 340r20 654r23 724r23
+34R12*Asset_Amount{5|41R9} 166r33 174r41 178r62 186r53 190r39 196r25 209r57
+. 217r25 228r56 232r40 238r25 252r59 261r27 7|41r25 120r40 138r61 365r33
+. 374r41 379r62 388r53 394r39 401r25 480r57 508r25 576r56 581r40 607r27 670r59
+. 680r27
+37R12*Share_Amount{5|41R9} 115r33 119r51 123r62 130r26 140r24 151r26 174r62
+. 178r41 190r60 198r25 205r50 209r36 215r25 232r61 241r25 248r54 252r38 258r27
+. 7|19r17 28r20 40r25 120r61 138r40 196r33 201r51 211r62 224r26 228r21 229r21
+. 272r24 297r26 301r21 302r21 303r21 374r62 379r41 394r60 403r25 474r50 480r36
+. 506r25 581r61 610r27 615r22 616r22 665r54 670r38 677r27 685r22 686r22
+43I12*Name_Length{natural} 46r16
+44R9*Vault_Name 47e14 56r22 103r25 7|181r25
+45a7*Data{string} 63m23
+46i7*Length{43I12} 63m48
+49I12*Symbol_Length{natural} 52r16
+50R9*Vault_Symbol 53e14 57r22 107r27 7|186r27
+51a7*Data{string} 64m23
+52i7*Length{49I12} 64m48
+55R9*Vault_Config 60e14 62r30 91r20 7|38r25 160r20
+56r7*Name{44R9} 63m7 7|183r27
+57r7*Symbol{50R9} 64m7 7|188r27
+58a7*Asset_Token{9|43A12} 65m7 97r28 7|362r27
+59i7*Decimals{natural} 66m7 7|193r27
+62r4*Default_Config{55R9} 7|38r41
+73E9*Vault_Error 84e5 132r26 142r24 153r26 200r25 219r25 243r25 263r27 280r26
+. 7|226r26 274r24 299r26 405r25 510r25 612r27 682r27 748r26
+74n7*Error_None{73E9} 7|266r16 286r19 353r16 471r16 569r16 662r16 732r16
+. 759r16
+75n7*Error_Zero_Shares{73E9} 7|425r19 522r19 693r19
+76n7*Error_Zero_Assets{73E9} 7|417r19 623r19
+77n7*Error_Insufficient_Balance{73E9} 7|238r19 313r19 633r19 701r19
+78n7*Error_Insufficient_Allowance{73E9} 7|320r19 643r22 713r22
+79n7*Error_Deposit_Limit_Exceeded{73E9}
+80n7*Error_Withdraw_Limit_Exceeded{73E9}
+81n7*Error_Not_Owner{73E9} 7|753r19
+82n7*Error_Zero_Address{73E9}
+83n7*Error_Overflow{73E9} 7|246r19 289r19 328r19 434r19 442r19 450r19 458r19
+. 532r19 540r19 548r19 556r19
+90U14*Initialize 91>7 92>7 93<7 7|159b14 175l8 175t18
+91r7 Config{55R9} 97r21 7|160b7 170r23
+92a7 Owner{9|43A12} 96r17 7|161b7 171r21
+93b7 Success{boolean} 7|162b7 166m10 174m7
+103V13*Name{44R9} 7|181b13 184l8 184t12
+107V13*Symbol{50R9} 7|186b13 189l8 189t14
+111V13*Decimals{natural} 7|191b13 194l8 194t16
+115V13*Total_Supply{37R12} 7|196b13 199l8 199t20
+119V13*Balance_Of{37R12} 119>25 7|201b13 209l8 209t18 235s21 242s19 310s19
+. 324s17 578s32 629s20 667s14 697s20
+119a25 Account{9|43A12} 7|201b25 202r48
+123V13*Allowance{37R12} 123>24 123>36 7|211b13 219l8 219t17 317s16 639s19
+. 709s19
+123a24 Owner_Addr{9|43A12} 7|211b24 212r50
+123a36 Spender{9|43A12} 7|211b36 212r62
+127U14*Transfer 128>7 129>7 130>7 131<7 132<7 7|221b14 267l8 267t16
+128a7 Caller{9|43A12} 7|222b7 235r33 250r46
+129a7 Recipient{9|43A12} 135r17 7|223b7 242r31 251r44 259r24
+130r7 Amount{37R12} 7|224b7 236r33 243r22 254r70
+131b7 Success{boolean} 7|225b7 237m10 245m10 265m7
+132e7 Error{73E9} 7|226b7 238m10 246m10 266m7
+137U14*Approve 138>7 139>7 140>7 141<7 142<7 7|269b14 291l8 291t15
+138a7 Caller{9|43A12} 7|270b7 276r60 280r27
+139a7 Spender{9|43A12} 145r17 7|271b7 276r68 281r27
+140r7 Amount{37R12} 7|272b7 282r27
+141b7 Success{boolean} 7|273b7 285m10 288m10
+142e7 Error{73E9} 7|274b7 286m10 289m10
+147U14*Transfer_From 148>7 149>7 150>7 151>7 152<7 153<7 7|293b14 354l8 354t21
+148a7 Caller{9|43A12} 7|294b7 317r38 334r48
+149a7 From_Addr{9|43A12} 7|295b7 310r31 317r27 332r44 334r37
+150a7 To_Addr{9|43A12} 156r17 7|296b7 324r29 333r42 342r24
+151r7 Amount{37R12} 7|297b7 311r31 318r28 325r20 337r66 349r66
+152b7 Success{boolean} 7|298b7 312m10 319m10 327m10 352m7
+153e7 Error{73E9} 7|299b7 313m10 320m10 328m10 353m7
+162V13*Asset{9|43A12} 7|360b13 363l8 363t13
+166V13*Total_Assets{34R12} 7|365b13 368l8 368t20
+174V13*Convert_To_Shares{37R12} 174>32 7|374b13 377l8 377t25
+174r32 Assets{34R12} 7|374b32 376r32
+178V13*Convert_To_Assets{34R12} 178>32 7|379b13 382l8 382t25
+178r32 Shares{37R12} 7|379b32 381r32
+186V13*Max_Deposit{34R12} 186>26 7|388b13 392l8 392t19
+186a26 Receiver{9|43A12} 7|388b26 389r28
+190V13*Preview_Deposit{37R12} 190>30 7|394b13 397l8 397t23
+190r30 Assets{34R12} 7|394b30 396r32
+194U14*Deposit 195>7 196>7 197>7 198<7 199<7 200<7 7|399b14 472l8 472t15
+195a7 Caller{9|43A12} 7|400b7 407r28
+196r7 Assets{34R12} 7|401b7 414r17 421r35 454r33
+197a7 Receiver{9|43A12} 203r17 7|402b7 430r44 463r21
+198r7 Shares{37R12} 7|403b7 415m10 421m7 423r17 432m10 438r47 440m10 446r26
+. 448m10 456m10
+199b7 Success{boolean} 7|404b7 416m10 424m10 433m10 441m10 449m10 457m10
+. 470m7
+200e7 Error{73E9} 7|405b7 417m10 425m10 434m10 442m10 450m10 458m10 471m7
+205V13*Max_Mint{37R12} 205>23 7|474b13 478l8 478t16
+205a23 Receiver{9|43A12} 7|474b23 475r28
+209V13*Preview_Mint{34R12} 209>27 7|480b13 502l8 502t20 526s17
+209r27 Shares{37R12} 7|480b27 484r17 493r30
+213U14*Mint 214>7 215>7 216>7 217<7 218<7 219<7 7|504b14 570l8 570t12
+214a7 Caller{9|43A12} 7|505b7 512r28
+215r7 Shares{37R12} 7|506b7 519r17 526r31 536r47 544r26
+216a7 Receiver{9|43A12} 222r17 7|507b7 528r44 561r21
+217r7 Assets{34R12} 7|508b7 520m10 526m7 530m10 538m10 546m10 552r33 554m10
+218b7 Success{boolean} 7|509b7 521m10 531m10 539m10 547m10 555m10 568m7
+219e7 Error{73E9} 7|510b7 522m10 532m10 540m10 548m10 556m10 569m7
+228V13*Max_Withdraw{34R12} 228>27 7|576b13 579l8 579t20
+228a27 Owner_Addr{9|43A12} 7|576b27 578r44
+232V13*Preview_Withdraw{37R12} 232>31 7|581b13 603l8 603t24 627s17
+232r31 Assets{34R12} 7|581b31 594r30
+236U14*Withdraw 237>7 238>7 239>7 240>7 241<7 242<7 243<7 7|605b14 663l8
+. 663t16
+237a7 Caller{9|43A12} 7|606b7 638r10 639r42 647r52
+238r7 Assets{34R12} 7|607b7 620r17 627r35 659r60
+239a7 Receiver{9|43A12} 246r17 7|608b7 614r28
+240a7 Owner_Addr{9|43A12} 7|609b7 629r32 638r20 639r30 647r40 653r35
+241r7 Shares{37R12} 7|610b7 621m10 627m7 630r32 631m10 640r31 641m13 649r69
+. 655r68 658r46
+242b7 Success{boolean} 7|611b7 622m10 632m10 642m13 661m7
+243e7 Error{73E9} 7|612b7 623m10 633m10 643m13 662m7
+248V13*Max_Redeem{37R12} 248>25 7|665b13 668l8 668t18
+248a25 Owner_Addr{9|43A12} 7|665b25 667r26
+252V13*Preview_Redeem{34R12} 252>29 7|670b13 673l8 673t22
+252r29 Shares{37R12} 7|670b29 672r32
+256U14*Redeem 257>7 258>7 259>7 260>7 261<7 262<7 263<7 7|675b14 733l8 733t14
+257a7 Caller{9|43A12} 7|676b7 708r10 709r42 717r52
+258r7 Shares{37R12} 7|677b7 690r17 698r32 705r35 710r31 719r69 725r68 728r46
+259a7 Receiver{9|43A12} 266r17 7|678b7 684r28
+260a7 Owner_Addr{9|43A12} 7|679b7 697r32 708r20 709r30 717r40 723r35
+261r7 Assets{34R12} 7|680b7 691m10 699m10 705m7 711m13 729r60
+262b7 Success{boolean} 7|681b7 692m10 700m10 712m13 731m7
+263e7 Error{73E9} 7|682b7 693m10 701m10 713m13 732m7
+272V13*Contract_Owner{9|43A12} 7|739b13 742l8 742t22
+276U14*Transfer_Ownership 277>7 278>7 279<7 280<7 7|744b14 760l8 760t26
+277a7 Caller{9|43A12} 7|745b7 751r10
+278a7 New_Owner{9|43A12} 283r17 7|746b7 757r21
+279b7 Success{boolean} 7|747b7 752m10 758m7
+280e7 Error{73E9} 7|748b7 753m10 759m7
+289V13*Supports_Interface{boolean} 289>33 7|766b13 769l8 769t26
+289a33 Interface_ID{9|317A9} 7|766b33 768r14
+294a4 ERC4626_Interface_ID{9|317A9} 7|768r29
+X 7 ats4626_vault.adb
+15N4 Max_Allowances 32r40 214r17 278r17 348r23 648r26 718r26
+17R9 Balance_Entry 21e14 23r61
+18a7*Account{9|43A12} 44m7 64r41 77r35 259m13 342m13 463m10 561m10
+19r7*Amount{6|37R12} 45m7 205r39 254m39 260m13 337m37 343m13 438r39 464m10
+. 536r39 562m10 655m38 725m38
+20b7*Used{boolean} 46m7 63r32 76r32 261m13 344m13 465m10 563m10
+23A9 Balance_Array(17R9)<integer> 43r21
+25R9 Allowance_Entry 30e14 32r63
+26a7*Owner_Acct{9|43A12} 50m7 91r43 107r37 280m13
+27a7*Spender{9|43A12} 51m7 92r43 108r46 281m13
+28r7*Amount{6|37R12} 52m7 215r41 282m13 349m40 649m43 719m43
+29b7*Used{boolean} 53m7 90r34 106r34 283m13
+32A9 Allowance_Array(25R9)<integer> 49r23
+38r4 Config_Store{6|55R9} 7r8 170m7 183r14 188r14 193r14 362r14
+39a4 Owner_Addr{9|43A12} 7r22 165r10 171m7 741r14 751r20 757m7
+40r4 Total_Shares{6|37R12} 7r34 123r17 131r38 141r17 150r28 172m7 198r14
+. 446r12 467m7 483r17 494r24 499r30 544r12 565m7 594r38 658m7 658r32 728m7
+. 728r32
+41r4 Total_Asset_Balance{6|34R12} 7r48 123r52 132r28 149r38 173m7 367r14
+. 454r12 468m7 493r38 552r12 566m7 584r17 595r24 600r30 659m7 659r39 729m7
+. 729r39
+43a4 Share_Balances{23A9} 8r8 62r16 63r13 64r22 75r16 76r13 77r16 205r17
+. 254m10 258m10 337m10 341m10 438r12 462m7 536r12 560m7 655m10 725m10
+49a4 Share_Allowances{32A9} 8r24 89r16 90r13 91r22 92r22 105r16 106r13 107r16
+. 108r25 215r17 279m10 349m10 649m13 719m13
+60V13 Find_Balance{natural} 60b13 60>27 70l8 70t20 202s34 653s21 723s21
+60a27 Account{9|43A12} 64r51
+62i11 I{integer} 63r29 64r38 66r20
+72V13 Find_Or_Create_Balance{natural} 72b13 72>37 85l8 85t30 250s22 251s20
+. 332s20 333s18 430s20 528s20
+72a37 Account{9|43A12} 77r45
+73i7 Empty{natural} 80r16 81m13 84r14
+75i11 I{integer} 76r29 77r32 78r23 81r22
+87V13 Find_Allowance{natural} 87b13 87>29 87>41 98l8 98t22 212s34 334s21
+. 647s24 717s24
+87a29 Owner_Acct{9|43A12} 91r56
+87a41 Spender{9|43A12} 92r53
+89i11 I{integer} 90r31 91r40 92r40 94r20
+100V13 Find_Or_Create_Allowance{natural} 100b13 101>7 101>19 117l8 117t32
+. 276s34
+101a7 Owner_Acct{9|43A12} 107r50
+101a19 Spender{9|43A12} 108r56
+103i7 Empty{natural} 112r16 113m13 116r14
+105i11 I{integer} 106r31 107r34 108r43 110r23 113r22
+120V13 Assets_To_Shares{6|37R12} 120b13 120>31 135l8 135t24 376s14 396s14
+. 421s17
+120r31 Assets{6|34R12} 124r17 131r30
+121r7 Quotient{5|41R9} 132m49 133r17
+121r17 Remainder{5|41R9} 132m59
+129r10 Product{5|41R9} 131m10 132r19
+138V13 Shares_To_Assets{6|34R12} 138b13 138>31 153l8 153t24 381s14 578s14
+. 672s14 705s17
+138r31 Shares{6|37R12} 149r30
+139r7 Quotient{5|41R9} 150m42 151r17
+139r17 Remainder{5|41R9} 150m52
+147r10 Product{5|41R9} 149m10 150r19
+202i7 Slot{natural} 204r10 205r33
+212i7 Slot{natural} 214r10 215r35
+228r7 Sender_Bal{6|37R12} 235m7 236r21 254r58
+229r7 Recv_Bal{6|37R12} 242m7 243r12
+230r7 New_Recv{5|41R9} 243m30 260r24
+231b7 Overflow{boolean} 243m40 244r10
+232i7 Sender_Slot{natural} 250m7 253r10 254r26
+233i7 Recv_Slot{natural} 251m7 257r10 258r26
+276i7 Slot{natural} 278r10 279r28
+301r7 From_Bal{6|37R12} 310m7 311r21 337r56
+302r7 Allow{6|37R12} 317m7 318r21 349r59
+303r7 To_Bal{6|37R12} 324m7 325r12
+304r7 New_To{5|41R9} 325m28 343r24
+305b7 Overflow{boolean} 325m36 326r10
+306i7 From_Slot{natural} 332m7 336r10 337r26
+307i7 To_Slot{natural} 333m7 340r10 341r26
+308i7 Allow_Slot{natural} 334m7 348r10 349r28
+408r7 New_Bal{5|41R9} 438m55 464r21
+409r7 New_Total{5|41R9} 446m34 467r23
+410r7 New_Assets{5|41R9} 454m41 468r30
+411b7 Overflow{boolean} 438m64 439r10 446m45 447r10 454m53 455r10
+412i7 Recv_Slot{natural} 430m7 431r10 438r28 462r23
+481r7 Quotient{5|41R9} 499m44 500r17
+481r17 Remainder{5|41R9} 499m54
+489r10 Product{5|41R9} 493m10 494r15
+490r10 Numerator{5|41R9} 494m38 498m10 498r32 499r19
+491b10 Overflow{boolean} 494m49 495r13
+513r7 New_Bal{5|41R9} 536m55 562r21
+514r7 New_Total{5|41R9} 544m34 565r23
+515r7 New_Assets{5|41R9} 552m41 566r30
+516b7 Overflow{boolean} 536m64 537r10 544m45 545r10 552m53 553r10
+517i7 Recv_Slot{natural} 528m7 529r10 536r28 560r23
+582r7 Quotient{5|41R9} 600m51 601r17
+582r17 Remainder{5|41R9} 600m61
+590r10 Product{5|41R9} 594m10 595r15
+591r10 Numerator{5|41R9} 595m45 599m10 599r32 600r19
+592b10 Overflow{boolean} 595m56 596r13
+615r7 Owner_Bal{6|37R12} 629m7 630r21 655r57
+616r7 Allow{6|37R12} 639m10 640r24 649r62
+617i7 Owner_Slot{natural} 653m7 654r10 655r26
+618i7 Allow_Slot{natural} 647m10 648r13 649r31
+685r7 Owner_Bal{6|37R12} 697m7 698r21 725r57
+686r7 Allow{6|37R12} 709m10 710r24 719r62
+687i7 Owner_Slot{natural} 723m7 724r10 725r26
+688i7 Allow_Slot{natural} 717m10 718r13 719r31
+X 8 interfac.ads
+70M9*Unsigned_8
+X 9 khepri_types.ads
+25K9*Khepri_Types 6|13w6 13r27 9|345e17
+43A12*Address{5|70A9}<integer> 6|25r28 58r22 92r20 119r35 123r46 128r26 129r26
+. 138r24 139r24 148r26 149r26 150r26 162r26 186r37 195r25 197r25 205r34 214r25
+. 216r25 228r40 237r25 239r25 240r25 248r38 257r27 259r27 260r27 272r35 277r26
+. 278r26 7|18r17 26r20 27r20 39r25 60r37 72r47 87r51 101r29 161r20 201r35
+. 211r46 222r26 223r26 270r24 271r24 294r26 295r26 296r26 360r26 388r37 400r25
+. 402r25 474r34 505r25 507r25 576r40 606r27 608r27 609r27 665r38 676r27 678r27
+. 679r27 739r35 745r26 746r26
+46a4*Null_Address{43A12} 6|25r39
+317A9*Bytes4(5|31M12)<integer> 6|289r48 294r36 7|766r48
+

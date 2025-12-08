@@ -1,0 +1,50 @@
+[
+{
+  "name": "Anubis_Mldsa_Field.Highbits.A1",
+  "location": "anubis_mldsa_field.adb:188:7",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Anubis_Mldsa_Field.Highbits.A0",
+  "location": "anubis_mldsa_field.adb:189:7",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Anubis_Mldsa_Field.Makehint.R_High",
+  "location": "anubis_mldsa_field.adb:207:7",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Anubis_Mldsa_Field.Makehint.Rz_Sum",
+  "location": "anubis_mldsa_field.adb:208:7",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Anubis_Mldsa_Field.Makehint.Rz_High",
+  "location": "anubis_mldsa_field.adb:209:7",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Anubis_Mldsa_Field.Usehint.R1",
+  "location": "anubis_mldsa_field.adb:225:7",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Anubis_Mldsa_Field.Usehint.R0",
+  "location": "anubis_mldsa_field.adb:226:7",
+  "Size": 32,
+  "Alignment": 4
+}
+]

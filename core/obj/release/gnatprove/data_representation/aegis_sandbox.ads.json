@@ -1,0 +1,535 @@
+[
+{
+  "name": "Aegis_Sandbox.Syscall_Number",
+  "location": "aegis_sandbox.ads:36:9",
+  "Object_Size": 8,
+  "Value_Size": 5,
+  "Alignment": 1
+}
+,
+{
+  "name": "Aegis_Sandbox.Syscall_Result",
+  "location": "aegis_sandbox.ads:84:9",
+  "Object_Size": 8,
+  "Value_Size": 3,
+  "Alignment": 1
+}
+,
+{
+  "name": "Aegis_Sandbox.Sandbox_Status",
+  "location": "aegis_sandbox.ads:97:9",
+  "Object_Size": 8,
+  "Value_Size": 3,
+  "Alignment": 1
+}
+,
+{
+  "name": "Aegis_Sandbox.Call_Frame",
+  "location": "aegis_sandbox.ads:106:9",
+  "Object_Size": 1536,
+  "Value_Size": 1512,
+  "Alignment": 8,
+  "record": [
+    {
+      "name": "Caller",
+      "Position":   0,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Callee",
+      "Position":  32,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Value",
+      "Position":  64,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Gas_Limit",
+      "Position":  96,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Gas_Used",
+      "Position": 104,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Call_Data",
+      "Position": 112,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Return_Data",
+      "Position": 144,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Depth",
+      "Position": 176,
+      "First_Bit": 0,
+      "Size": 16
+    },
+    {
+      "name": "Call_Kind",
+      "Position": 178,
+      "First_Bit": 0,
+      "Size": 8
+    },
+    {
+      "name": "Capabilities",
+      "Position": 179,
+      "First_Bit": 0,
+      "Size": 72
+    },
+    {
+      "name": "Is_Static",
+      "Position": 188,
+      "First_Bit": 0,
+      "Size": 8
+    }
+  ]
+}
+,
+{
+  "name": "Aegis_Sandbox.Call_Frame_Index",
+  "location": "aegis_sandbox.ads:121:12",
+  "Object_Size": 16,
+  "Value_Size": 10,
+  "Alignment": 2
+}
+,
+{
+  "name": "Aegis_Sandbox.Call_Stack",
+  "location": "aegis_sandbox.ads:124:9",
+  "Size": 1572864,
+  "Alignment": 8,
+  "Component_Size": 1536
+}
+,
+{
+  "name": "Aegis_Sandbox.Sandbox_Context",
+  "location": "aegis_sandbox.ads:127:9",
+  "Object_Size": 6375808,
+  "Value_Size": 6375752,
+  "Alignment": 8,
+  "record": [
+    {
+      "name": "Status",
+      "Position":      0,
+      "First_Bit": 0,
+      "Size": 8
+    },
+    {
+      "name": "Current_Frame",
+      "Position":      8,
+      "First_Bit": 0,
+      "Size": 1536
+    },
+    {
+      "name": "Frames",
+      "Position":    200,
+      "First_Bit": 0,
+      "Size": 1572864
+    },
+    {
+      "name": "Depth",
+      "Position": 196808,
+      "First_Bit": 0,
+      "Size": 16
+    },
+    {
+      "name": "Memory_Size",
+      "Position": 196812,
+      "First_Bit": 0,
+      "Size": 32
+    },
+    {
+      "name": "Gas",
+      "Position": 196816,
+      "First_Bit": 0,
+      "Size": 448
+    },
+    {
+      "name": "Access_Set",
+      "Position": 196872,
+      "First_Bit": 0,
+      "Size": 147520
+    },
+    {
+      "name": "Snapshots",
+      "Position": 215312,
+      "First_Bit": 0,
+      "Size": 196608
+    },
+    {
+      "name": "Snapshot_Count",
+      "Position": 239888,
+      "First_Bit": 0,
+      "Size": 32
+    },
+    {
+      "name": "Effects",
+      "Position": 239896,
+      "First_Bit": 0,
+      "Size": 4456640
+    }
+  ]
+}
+,
+{
+  "name": "Aegis_Sandbox.Block_Info",
+  "location": "aegis_sandbox.ads:158:9",
+  "Size": 1600,
+  "Alignment": 8,
+  "record": [
+    {
+      "name": "Number",
+      "Position":   0,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Timestamp",
+      "Position":  32,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Gas_Limit",
+      "Position":  64,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Coinbase",
+      "Position":  72,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Difficulty",
+      "Position": 104,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Base_Fee",
+      "Position": 136,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Chain_Id",
+      "Position": 168,
+      "First_Bit": 0,
+      "Size": 256
+    }
+  ]
+}
+,
+{
+  "name": "Aegis_Sandbox.Transaction_Info",
+  "location": "aegis_sandbox.ads:169:9",
+  "Object_Size": 1088,
+  "Value_Size": 1056,
+  "Alignment": 8,
+  "record": [
+    {
+      "name": "Origin",
+      "Position":   0,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Gas_Price",
+      "Position":  32,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Value",
+      "Position":  64,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Data_Hash",
+      "Position":  96,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Data_Size",
+      "Position": 128,
+      "First_Bit": 0,
+      "Size": 32
+    }
+  ]
+}
+,
+{
+  "name": "Aegis_Sandbox.Execution_Environment",
+  "location": "aegis_sandbox.ads:178:9",
+  "Object_Size": 2752,
+  "Value_Size": 2696,
+  "Alignment": 8,
+  "record": [
+    {
+      "name": "Block",
+      "Position":   0,
+      "First_Bit": 0,
+      "Size": 1600
+    },
+    {
+      "name": "Transaction",
+      "Position": 200,
+      "First_Bit": 0,
+      "Size": 1088
+    },
+    {
+      "name": "Certification",
+      "Position": 336,
+      "First_Bit": 0,
+      "Size": 8
+    }
+  ]
+}
+,
+{
+  "name": "Aegis_Sandbox.Memory_Op",
+  "location": "aegis_sandbox.ads:189:9",
+  "Object_Size": 8,
+  "Value_Size": 2,
+  "Alignment": 1
+}
+,
+{
+  "name": "Aegis_Sandbox.Memory_Access_Record",
+  "location": "aegis_sandbox.ads:192:9",
+  "Object_Size": 128,
+  "Value_Size": 104,
+  "Alignment": 4,
+  "record": [
+    {
+      "name": "Operation",
+      "Position":  0,
+      "First_Bit": 0,
+      "Size": 8
+    },
+    {
+      "name": "Offset",
+      "Position":  4,
+      "First_Bit": 0,
+      "Size": 32
+    },
+    {
+      "name": "Size",
+      "Position":  8,
+      "First_Bit": 0,
+      "Size": 32
+    },
+    {
+      "name": "Success",
+      "Position": 12,
+      "First_Bit": 0,
+      "Size": 8
+    }
+  ]
+}
+,
+{
+  "name": "Aegis_Sandbox.Memory_Expansion_Result",
+  "location": "aegis_sandbox.ads:200:9",
+  "Object_Size": 192,
+  "Value_Size": 136,
+  "Alignment": 8,
+  "record": [
+    {
+      "name": "New_Size",
+      "Position":  0,
+      "First_Bit": 0,
+      "Size": 32
+    },
+    {
+      "name": "Gas_Cost",
+      "Position":  8,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Success",
+      "Position": 16,
+      "First_Bit": 0,
+      "Size": 8
+    }
+  ]
+}
+,
+{
+  "name": "Aegis_Sandbox.Return_Data_Index",
+  "location": "aegis_sandbox.ads:213:9",
+  "Object_Size": 16,
+  "Value_Size": 15,
+  "Alignment": 2
+}
+,
+{
+  "name": "Aegis_Sandbox.Return_Data_Buffer",
+  "location": "aegis_sandbox.ads:214:9",
+  "Size": 196608,
+  "Alignment": 1,
+  "Component_Size": 8
+}
+,
+{
+  "name": "Aegis_Sandbox.Return_Data",
+  "location": "aegis_sandbox.ads:217:9",
+  "Object_Size": 196672,
+  "Value_Size": 196648,
+  "Alignment": 4,
+  "record": [
+    {
+      "name": "Buffer",
+      "Position":     0,
+      "First_Bit": 0,
+      "Size": 196608
+    },
+    {
+      "name": "Size",
+      "Position": 24576,
+      "First_Bit": 0,
+      "Size": 32
+    },
+    {
+      "name": "Valid",
+      "Position": 24580,
+      "First_Bit": 0,
+      "Size": 8
+    }
+  ]
+}
+,
+{
+  "name": "Aegis_Sandbox.Empty_Return_Data",
+  "location": "aegis_sandbox.ads:223:4",
+  "Size": 196672,
+  "Alignment": 4
+}
+,
+{
+  "name": "Aegis_Sandbox.Log_Data_Index",
+  "location": "aegis_sandbox.ads:236:9",
+  "Object_Size": 16,
+  "Value_Size": 12,
+  "Alignment": 2
+}
+,
+{
+  "name": "Aegis_Sandbox.Log_Data_Buffer",
+  "location": "aegis_sandbox.ads:237:9",
+  "Size": 32768,
+  "Alignment": 1,
+  "Component_Size": 8
+}
+,
+{
+  "name": "Aegis_Sandbox.Topic_Index",
+  "location": "aegis_sandbox.ads:240:9",
+  "Object_Size": 8,
+  "Value_Size": 2,
+  "Alignment": 1
+}
+,
+{
+  "name": "Aegis_Sandbox.Log_Topics",
+  "location": "aegis_sandbox.ads:241:9",
+  "Size": 1024,
+  "Alignment": 1,
+  "Component_Size": 256
+}
+,
+{
+  "name": "Aegis_Sandbox.Log_Entry",
+  "location": "aegis_sandbox.ads:244:9",
+  "Size": 34112,
+  "Alignment": 4,
+  "record": [
+    {
+      "name": "Address",
+      "Position":    0,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Topics",
+      "Position":   32,
+      "First_Bit": 0,
+      "Size": 1024
+    },
+    {
+      "name": "Topic_Count",
+      "Position":  160,
+      "First_Bit": 0,
+      "Size": 32
+    },
+    {
+      "name": "Data",
+      "Position":  164,
+      "First_Bit": 0,
+      "Size": 32768
+    },
+    {
+      "name": "Data_Size",
+      "Position": 4260,
+      "First_Bit": 0,
+      "Size": 32
+    }
+  ]
+}
+,
+{
+  "name": "Aegis_Sandbox.Log_Index",
+  "location": "aegis_sandbox.ads:255:9",
+  "Object_Size": 16,
+  "Value_Size": 8,
+  "Alignment": 2
+}
+,
+{
+  "name": "Aegis_Sandbox.Log_List",
+  "location": "aegis_sandbox.ads:256:9",
+  "Size": 8732672,
+  "Alignment": 4,
+  "Component_Size": 34112
+}
+,
+{
+  "name": "Aegis_Sandbox.Transaction_Logs",
+  "location": "aegis_sandbox.ads:259:9",
+  "Size": 8732704,
+  "Alignment": 4,
+  "record": [
+    {
+      "name": "Logs",
+      "Position":       0,
+      "First_Bit": 0,
+      "Size": 8732672
+    },
+    {
+      "name": "Log_Count",
+      "Position": 1091584,
+      "First_Bit": 0,
+      "Size": 32
+    }
+  ]
+}
+]

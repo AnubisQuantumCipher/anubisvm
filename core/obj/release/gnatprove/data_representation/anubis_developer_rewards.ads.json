@@ -1,0 +1,251 @@
+[
+{
+  "name": "Anubis_Developer_Rewards.Contribution_Type",
+  "location": "anubis_developer_rewards.ads:35:9",
+  "Object_Size": 8,
+  "Value_Size": 3,
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Developer_Rewards.Reward_Range",
+  "location": "anubis_developer_rewards.ads:46:9",
+  "Size": 128,
+  "Alignment": 8,
+  "record": [
+    {
+      "name": "Min_Reward",
+      "Position": 0,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Max_Reward",
+      "Position": 8,
+      "First_Bit": 0,
+      "Size": 64
+    }
+  ]
+}
+,
+{
+  "name": "Anubis_Developer_Rewards.Contribution_Rewards",
+  "location": "anubis_developer_rewards.ads:51:4",
+  "Size": 896,
+  "Alignment": 8
+}
+,
+{
+  "name": "Anubis_Developer_Rewards.Verification_Type",
+  "location": "anubis_developer_rewards.ads:62:9",
+  "Object_Size": 8,
+  "Value_Size": 3,
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Developer_Rewards.Required_Verification",
+  "location": "anubis_developer_rewards.ads:70:4",
+  "Size": 56,
+  "Alignment": 8
+}
+,
+{
+  "name": "Anubis_Developer_Rewards.Contribution_Status",
+  "location": "anubis_developer_rewards.ads:84:9",
+  "Object_Size": 8,
+  "Value_Size": 3,
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Developer_Rewards.Contribution_Record",
+  "location": "anubis_developer_rewards.ads:93:9",
+  "Size": 1984,
+  "Alignment": 8,
+  "record": [
+    {
+      "name": "Id",
+      "Position":   0,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Contributor",
+      "Position":   8,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Cont_Type",
+      "Position":  40,
+      "First_Bit": 0,
+      "Size": 8
+    },
+    {
+      "name": "Status",
+      "Position":  41,
+      "First_Bit": 0,
+      "Size": 8
+    },
+    {
+      "name": "Commit_Hash",
+      "Position":  42,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Proof_Hash",
+      "Position":  74,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Pr_Link_Hash",
+      "Position": 106,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Ipfs_Link",
+      "Position": 138,
+      "First_Bit": 0,
+      "Size": 368
+    },
+    {
+      "name": "Lines_Added",
+      "Position": 184,
+      "First_Bit": 0,
+      "Size": 32
+    },
+    {
+      "name": "Lines_Removed",
+      "Position": 188,
+      "First_Bit": 0,
+      "Size": 32
+    },
+    {
+      "name": "Vcs_Proven",
+      "Position": 192,
+      "First_Bit": 0,
+      "Size": 32
+    },
+    {
+      "name": "Test_Coverage_Pct",
+      "Position": 196,
+      "First_Bit": 0,
+      "Size": 32
+    },
+    {
+      "name": "Proposed_Reward",
+      "Position": 200,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Final_Reward",
+      "Position": 208,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Votes_For",
+      "Position": 216,
+      "First_Bit": 0,
+      "Size": 32
+    },
+    {
+      "name": "Votes_Against",
+      "Position": 220,
+      "First_Bit": 0,
+      "Size": 32
+    },
+    {
+      "name": "Submitted_At",
+      "Position": 224,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Reviewed_At",
+      "Position": 232,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Paid_At",
+      "Position": 240,
+      "First_Bit": 0,
+      "Size": 64
+    }
+  ]
+}
+,
+{
+  "name": "Anubis_Developer_Rewards.Contribution_Array",
+  "location": "anubis_developer_rewards.ads:123:9",
+  "Alignment": 8,
+  "Component_Size": 1984
+}
+,
+{
+  "name": "Anubis_Developer_Rewards.Developer_Ecosystem_State",
+  "location": "anubis_developer_rewards.ads:125:9",
+  "Size": 384,
+  "Alignment": 8,
+  "record": [
+    {
+      "name": "Total_Distributed",
+      "Position":  0,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Remaining_Pool",
+      "Position":  8,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Total_Contributions",
+      "Position": 16,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Active_Contributors",
+      "Position": 24,
+      "First_Bit": 0,
+      "Size": 32
+    },
+    {
+      "name": "Genesis_Block",
+      "Position": 32,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Current_Block",
+      "Position": 40,
+      "First_Bit": 0,
+      "Size": 64
+    }
+  ]
+}
+,
+{
+  "name": "Anubis_Developer_Rewards.Submit_Result",
+  "location": "anubis_developer_rewards.ads:138:9",
+  "Object_Size": 8,
+  "Value_Size": 3,
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Developer_Rewards.Review_Result",
+  "location": "anubis_developer_rewards.ads:146:9",
+  "Object_Size": 8,
+  "Value_Size": 2,
+  "Alignment": 1
+}
+]

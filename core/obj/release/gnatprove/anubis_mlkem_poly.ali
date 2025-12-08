@@ -1,0 +1,302 @@
+V "GNAT Lib v14"
+A -x
+A ada
+A -gnatA
+A -gnat2022
+A -gnatwa
+A -gnatyO
+A -gnatVa
+A -gnatw.F
+A -gnata
+A -O2
+A -gnatn
+A -ffunction-sections
+A -fdata-sections
+A -gnatc
+A -fPIC
+P GP
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_ELABORATION_CODE
+
+U anubis_mlkem_poly%b	anubis_mlkem_poly.adb	06718b21 OO PK
+W anubis_field%s	anubis_field.adb	anubis_field.ali
+W anubis_mlkem_encoding%s  anubis_mlkem_encoding.adb  anubis_mlkem_encoding.ali
+W anubis_ntt%s		anubis_ntt.adb		anubis_ntt.ali
+W interfaces%s		interfac.ads		interfac.ali
+
+U anubis_mlkem_poly%s	anubis_mlkem_poly.ads	1754d7ec OO PK
+W anubis_config%s	anubis_config.ads	anubis_config.ali
+W anubis_field%s	anubis_field.adb	anubis_field.ali
+W anubis_mlkem_types%s	anubis_mlkem_types.ads	anubis_mlkem_types.ali
+
+D anubis_config.ads	20251203093747 19c7b4b2 anubis_config%s
+D anubis_field.ads	20251204123812 ccc1c329 anubis_field%s
+D anubis_mlkem_encoding.ads  20251205151356 d2e8a44a anubis_mlkem_encoding%s
+D anubis_mlkem_poly.ads	20251206115508 8e95bd90 anubis_mlkem_poly%s
+D anubis_mlkem_poly.adb	20251206115516 01973e3f anubis_mlkem_poly%b
+D anubis_mlkem_types.ads  20251204152002 4cc71de7 anubis_mlkem_types%s
+D anubis_ntt.ads	20251204145755 064b962c anubis_ntt%s
+D anubis_types.ads	20251203093723 4fb35097 anubis_types%s
+D interfac.ads		20240601155135 9111f9c1 interfaces%s
+D system.ads		20240601155135 70765b54 system%s
+G a Z
+X 1 anubis_config.ads
+3K9*Anubis_Config 112e18 4|4w6 4r25
+35N4*Q 4|32r56 40r56 47r50 54r51 63r54 63r72 70r51 101r58 5|13r26 23r52 23r79
+. 35r52 35r79 48r75 52r64 180r76
+X 2 anubis_field.ads
+6K9*Anubis_Field 102e17 4|5w6 5r24 5|4w6 4r24
+21M9*Field_Element 5|135r13 141r20
+24M12*Valid_Field{21M9} 5|23r29 23r56 35r29 35r56
+59V13*Add{24M12} 5|23s24
+64V13*Sub{24M12} 5|35s24
+X 3 anubis_mlkem_encoding.ads
+26K9*Anubis_MLKEM_Encoding 122e26 5|6w6 6r33
+X 4 anubis_mlkem_poly.ads
+22K9*Anubis_MLKEM_Poly 135l5 135e22 5|8b14 262l5 262t22
+27U14*Poly_Add 28>7 28>10 29<7 5|16b14 25l8 25t16 155s10 211s10 233s13 256s13
+28a7 A{6|40A9} 5|17b7 23r42
+28a10 B{6|40A9} 5|17b10 23r69
+29a7 Result{6|40A9} 32r43 5|18b7 23m10
+32i24 I{6|39I12} 32r51
+35U14*Poly_Sub 36>7 36>10 37<7 5|28b14 37l8 37t16 167s10
+36a7 A{6|40A9} 5|29b7 35r42
+36a10 B{6|40A9} 5|29b10 35r69
+37a7 Result{6|40A9} 40r43 5|30b7 35m10
+40i24 I{6|39I12} 40r51
+43U14*Poly_NTT 44=7 5|40b14 62l8 62t16 181s10
+44a7 F{6|40A9} 47r42 5|41b7 49r26 60m10
+47i23 I{6|39I12} 47r45
+50U14*Poly_INTT 51=7 5|65b14 84l8 84t17 192s10
+51a7 F{6|40A9} 54r43 5|66b7 73r26 82m10
+54i24 I{6|39I12} 54r46
+58U14*Poly_Mul_NTT 59>7 59>10 60<7 5|87b14 108l8 108t20 210s10 232s13 255s13
+59a7 A{6|40A9} 63r42 5|88b7 96r23
+59a10 B{6|40A9} 63r60 5|88b10 97r23
+60a7 Result{6|40A9} 5|89b7 106m10
+63i23 I{6|39I12} 63r45 63r63
+66U14*Poly_Reduce 67=7 5|111b14 127l8 127t19
+67a7 F{6|40A9} 70r43 5|112b7 118r26 125m10
+70i24 I{6|39I12} 70r46
+74U14*Msg_To_Poly 75>7 76<7 5|131b14 145l8 145t19
+75a7 Msg{6|80A12} 5|132b7 141r60
+76a7 Result{6|40A9} 5|133b7 142m13
+81U14*Vec_Add 82>7 82>10 83<7 5|148b14 157l8 157t15
+82a7 A{6|47A9} 5|149b7 155r20
+82a10 B{6|47A9} 5|149b10 155r27
+83a7 Result{6|47A9} 5|150b7 155m34 155r34
+88U14*Vec_Sub 89>7 89>10 90<7 5|160b14 169l8 169t15
+89a7 A{6|47A9} 5|161b7 167r20
+89a10 B{6|47A9} 5|161b10 167r27
+90a7 Result{6|47A9} 5|162b7 167m34 167r34
+96U14*Vec_NTT 97=7 5|172b14 183l8 183t15
+97a7 V{6|47A9} 101r46 5|173b7 180r64 181m20 181r20
+100i23 J{6|46I12} 101r49
+101i27 I{6|39I12} 101r53
+104U14*Vec_INTT 105=7 5|186b14 194l8 194t16
+105a7 V{6|47A9} 5|187b7 192m21 192r21
+111U14*Vec_Dot_Product_NTT 112>7 112>10 113<7 5|197b14 214l8 214t27
+112a7 A{6|47A9} 5|198b7 210r24
+112a10 B{6|47A9} 5|198b10 210r31
+113a7 Result{6|40A9} 5|199b7 205m7 211r20 212m10
+119U14*Matrix_Vec_Mul_NTT 120>7 121>7 122<7 5|217b14 237l8 237t26
+120a7 M{6|50A9} 5|218b7 232r27
+121a7 V{6|47A9} 5|219b7 232r37
+122a7 Result{6|47A9} 5|220b7 229m10 233r23 234m13
+128U14*Matrix_T_Vec_Mul_NTT 129>7 130>7 131<7 5|240b14 260l8 260t28
+129a7 M{6|50A9} 5|241b7 255r27
+130a7 V{6|47A9} 5|242b7 255r37
+131a7 Result{6|47A9} 5|243b7 252m10 256r23 257m13
+X 5 anubis_mlkem_poly.adb
+13N4 Q_Half 142r41
+21i11 I{6|39I12} 22r33 23r18 23r45 23r72
+33i11 I{6|39I12} 34r33 35r18 35r45 35r72
+43a7 NTT_Poly{7|33A9} 48r60 49m10 52r49 55m23 55r23 60r19
+46i11 I{6|39I12} 47r33 48r51 49r20 49r29
+48i41 J{integer} 48r70
+52i30 I{6|39I12} 52r59
+58i11 I{6|39I12} 59r33 60r13 60r29
+68a7 NTT_Poly{7|33A9} 73m10 77m24 77r24 82r19
+71i11 I{6|39I12} 72r33 73r20 73r29
+80i11 I{6|39I12} 81r33 82r13 82r29
+91a7 NTT_A{7|33A9} 96m10 101r27
+91a14 NTT_B{7|33A9} 97m10 101r34
+91a21 NTT_R{7|33A9} 101m41 106r24
+94i11 I{6|39I12} 95r33 96r17 96r26 97r17 97r26
+104i11 I{6|39I12} 105r33 106r18 106r31
+114a7 NTT_Poly{7|33A9} 118m10 121m29 121r29 125r19
+116i11 I{6|39I12} 117r33 118r20 118r29
+123i11 I{6|39I12} 124r33 125r13 125r29
+135m7 Bit{2|21M9} 141m13 142r35
+137i11 I{integer} 138r33 141r65 142r25
+139i14 J{integer} 140r36 141r70 142r29
+153i11 I{6|46I12} 154r33 155r23 155r30 155r42
+165i11 I{6|46I12} 166r33 167r23 167r30 167r42
+176i11 I{6|46I12} 177r33 179r46 181r23
+179i41 K{integer} 180r67
+180i45 J{6|39I12} 180r71
+190i11 I{6|46I12} 191r33 192r24
+201a7 Temp{6|40A9} 210m38 211r28
+202a7 Accum{6|40A9} 211m34 212r20
+208i11 I{6|46I12} 209r33 210r27 210r34
+222a7 Temp{6|40A9} 232m44 233r35
+223a7 Row_Accum{6|40A9} 233m41 234r27
+225i11 I{6|46I12} 226r33 229r18 232r30 233r31 234r21
+230i14 J{6|46I12} 231r36 232r33 232r40
+245a7 Temp{6|40A9} 255m44 256r35
+246a7 Row_Accum{6|40A9} 256m41 257r27
+248i11 I{6|46I12} 249r33 252r18 255r33 256r31 257r21
+253i14 J{6|46I12} 254r36 255r30 255r40
+X 6 anubis_mlkem_types.ads
+26K9*Anubis_MLKEM_Types 4|3w6 3r30 6|94e23
+39I12*Poly_Index{natural} 4|32r29 40r29 47r28 54r29 63r28 70r29 101r32 5|21r16
+. 22r38 33r16 34r38 46r16 47r38 52r35 58r16 59r38 71r16 72r38 80r16 81r38
+. 94r16 95r38 104r16 105r38 116r16 117r38 123r16 124r38 180r50
+40A9*Polynomial(2|21M9)<integer> 4|28r20 29r20 36r20 37r20 44r18 51r18 59r20
+. 60r20 67r18 76r20 113r20 5|17r20 18r20 29r20 30r20 41r18 66r18 88r20 89r20
+. 112r18 133r20 199r20 201r15 202r15 222r19 223r19 245r19 246r19
+46I12*Vec_Index{natural} 4|100r28 5|153r16 154r38 165r16 166r38 176r16 177r38
+. 179r51 190r16 191r38 208r16 209r38 225r16 226r38 230r19 231r41 248r16 249r38
+. 253r19 254r41
+47A9*Poly_Vector(40A9)<integer> 4|82r20 83r20 89r20 90r20 97r18 105r18 112r20
+. 121r20 122r20 130r20 131r20 5|149r20 150r20 161r20 162r20 173r18 187r18
+. 198r20 219r20 220r20 242r20 243r20
+50A9*Poly_Matrix(40A9)<integer><integer> 4|120r20 129r20 5|218r20 241r20
+80A12*Message{8|14A9}<integer> 4|75r20 5|132r20
+X 7 anubis_ntt.ads
+25K9*Anubis_NTT 5|5w6 43r18 55r7 68r18 77r7 91r29 101r7 114r18 121r7 7|160e15
+33A9*Polynomial(2|21M9)<integer> 5|43r29 68r29 91r40 114r29
+55U14*NTT 5|55s18
+63U14*INTT 5|77s18
+69U14*NTT_Mul 5|101s18
+79U14*Normalize 5|121s18
+X 8 anubis_types.ads
+14A9*Byte_Array(13M12)<integer>
+X 9 interfac.ads
+38K9*Interfaces 5|3w6 3r22 9|233e15
+70M9*Unsigned_8 5|141r48
+96V13*Shift_Right{70M9} 5|141s35
+
+QQ SPARKVERSION 0.0w
+GG EK_DIRECT_CALLS anubis_mlkem_poly__poly_add 1 anubis_field__add
+GG EK_PROOF_DEPENDENCIES anubis_mlkem_poly__poly_add 0
+GG EK_GLOBALS anubis_mlkem_poly__poly_add local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 anubis_mlkem_poly proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_mlkem_poly__poly_sub 1 anubis_field__sub
+GG EK_PROOF_DEPENDENCIES anubis_mlkem_poly__poly_sub 0
+GG EK_GLOBALS anubis_mlkem_poly__poly_sub local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 anubis_mlkem_poly proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_mlkem_poly__poly_ntt 1 anubis_ntt__ntt
+GG EK_PROOF_DEPENDENCIES anubis_mlkem_poly__poly_ntt 0
+GG EK_GLOBALS anubis_mlkem_poly__poly_ntt local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 anubis_mlkem_poly proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_mlkem_poly__poly_intt 1 anubis_ntt__intt
+GG EK_PROOF_DEPENDENCIES anubis_mlkem_poly__poly_intt 0
+GG EK_GLOBALS anubis_mlkem_poly__poly_intt local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 anubis_mlkem_poly proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_mlkem_poly__poly_mul_ntt 1 anubis_ntt__ntt_mul
+GG EK_PROOF_DEPENDENCIES anubis_mlkem_poly__poly_mul_ntt 0
+GG EK_GLOBALS anubis_mlkem_poly__poly_mul_ntt local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 anubis_mlkem_poly proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_mlkem_poly__poly_reduce 1 anubis_ntt__normalize
+GG EK_PROOF_DEPENDENCIES anubis_mlkem_poly__poly_reduce 0
+GG EK_GLOBALS anubis_mlkem_poly__poly_reduce local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 anubis_mlkem_poly proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_mlkem_poly__msg_to_poly 1 interfaces__shift_right
+GG EK_PROOF_DEPENDENCIES anubis_mlkem_poly__msg_to_poly 0
+GG EK_GLOBALS anubis_mlkem_poly__msg_to_poly local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 anubis_mlkem_poly proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_mlkem_poly__vec_add 1 anubis_mlkem_poly__poly_add
+GG EK_PROOF_DEPENDENCIES anubis_mlkem_poly__vec_add 0
+GG EK_GLOBALS anubis_mlkem_poly__vec_add local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 anubis_mlkem_poly proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_mlkem_poly__vec_sub 1 anubis_mlkem_poly__poly_sub
+GG EK_PROOF_DEPENDENCIES anubis_mlkem_poly__vec_sub 0
+GG EK_GLOBALS anubis_mlkem_poly__vec_sub local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 anubis_mlkem_poly proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_mlkem_poly__vec_ntt 1 anubis_mlkem_poly__poly_ntt
+GG EK_PROOF_DEPENDENCIES anubis_mlkem_poly__vec_ntt 0
+GG EK_GLOBALS anubis_mlkem_poly__vec_ntt local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 anubis_mlkem_poly proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_mlkem_poly__vec_intt 1 anubis_mlkem_poly__poly_intt
+GG EK_PROOF_DEPENDENCIES anubis_mlkem_poly__vec_intt 0
+GG EK_GLOBALS anubis_mlkem_poly__vec_intt local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 anubis_mlkem_poly proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_mlkem_poly__vec_dot_product_ntt 2 anubis_mlkem_poly__poly_add anubis_mlkem_poly__poly_mul_ntt
+GG EK_PROOF_DEPENDENCIES anubis_mlkem_poly__vec_dot_product_ntt 0
+GG EK_GLOBALS anubis_mlkem_poly__vec_dot_product_ntt local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 anubis_mlkem_poly proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_mlkem_poly__matrix_vec_mul_ntt 2 anubis_mlkem_poly__poly_add anubis_mlkem_poly__poly_mul_ntt
+GG EK_PROOF_DEPENDENCIES anubis_mlkem_poly__matrix_vec_mul_ntt 0
+GG EK_GLOBALS anubis_mlkem_poly__matrix_vec_mul_ntt local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 anubis_mlkem_poly proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_mlkem_poly__matrix_t_vec_mul_ntt 2 anubis_mlkem_poly__poly_add anubis_mlkem_poly__poly_mul_ntt
+GG EK_PROOF_DEPENDENCIES anubis_mlkem_poly__matrix_t_vec_mul_ntt 0
+GG EK_GLOBALS anubis_mlkem_poly__matrix_t_vec_mul_ntt local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 anubis_mlkem_poly proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_mlkem_poly 0
+GG EK_PROOF_DEPENDENCIES anubis_mlkem_poly 0
+GG EK_GLOBALS anubis_mlkem_poly local FALSE E_PACKAGE TRUE ORIGIN_FLOW 0 proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 initializes 0 refined_initializes 0 calls_proof 0 calls 0 calls_conditional 0 local_packages 0 local_var 0 TRUE FALSE FALSE FALSE FALSE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_FLOW_SCOPE anubis_mlkem_poly__vec_dot_product_ntt FALSE FALSE FALSE FALSE TRUE anubis_mlkem_poly VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_mlkem_encoding__bytedecode_5 FALSE FALSE FALSE FALSE TRUE anubis_mlkem_encoding VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_mlkem_poly__poly_ntt FALSE FALSE FALSE FALSE TRUE anubis_mlkem_poly VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_field TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE interfaces__shift_right FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_field__add FALSE FALSE FALSE FALSE TRUE anubis_field VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_mlkem_poly__msg_to_poly FALSE FALSE FALSE FALSE TRUE anubis_mlkem_poly VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_field__mont_reduce FALSE FALSE FALSE FALSE TRUE anubis_field VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_mlkem_encoding__decode_vector_12 FALSE FALSE FALSE FALSE TRUE anubis_mlkem_encoding VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_config TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE anubis_mlkem_poly__matrix_vec_mul_ntt FALSE FALSE FALSE FALSE TRUE anubis_mlkem_poly VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_mlkem_encoding__byteencode_11 FALSE FALSE FALSE FALSE TRUE anubis_mlkem_encoding VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_field__ct_select FALSE FALSE FALSE FALSE TRUE anubis_field VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_mlkem_poly__vec_add FALSE FALSE FALSE FALSE TRUE anubis_mlkem_poly VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_mlkem_poly__poly_intt FALSE FALSE FALSE FALSE TRUE anubis_mlkem_poly VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_ntt__ntt FALSE FALSE FALSE FALSE TRUE anubis_ntt VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_field__sub FALSE FALSE FALSE FALSE TRUE anubis_field VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE anubis_mlkem_poly__matrix_t_vec_mul_ntt FALSE FALSE FALSE FALSE TRUE anubis_mlkem_poly VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_ntt__normalize FALSE FALSE FALSE FALSE TRUE anubis_ntt VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_mlkem_poly TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE interfaces__rotate_left__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_mlkem_encoding__byteencode_1 FALSE FALSE FALSE FALSE TRUE anubis_mlkem_encoding VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_mlkem_poly__vec_sub FALSE FALSE FALSE FALSE TRUE anubis_mlkem_poly VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_mlkem_encoding__bytedecode_11 FALSE FALSE FALSE FALSE TRUE anubis_mlkem_encoding VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_mlkem_poly__poly_add FALSE FALSE FALSE FALSE TRUE anubis_mlkem_poly VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_mlkem_encoding TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE anubis_mlkem_poly__poly_mul_ntt FALSE FALSE FALSE FALSE TRUE anubis_mlkem_poly VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_field__mul FALSE FALSE FALSE FALSE TRUE anubis_field VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_mlkem_encoding__bytedecode_1 FALSE FALSE FALSE FALSE TRUE anubis_mlkem_encoding VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_mlkem_encoding__byteencode_12 FALSE FALSE FALSE FALSE TRUE anubis_mlkem_encoding VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_field__reduce FALSE FALSE FALSE FALSE TRUE anubis_field VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_mlkem_poly__vec_ntt FALSE FALSE FALSE FALSE TRUE anubis_mlkem_poly VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_ntt__bit_reverse FALSE FALSE FALSE FALSE TRUE anubis_ntt PRIVATE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_ntt__intt FALSE FALSE FALSE FALSE TRUE anubis_ntt VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_types TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE anubis_field__to_mont FALSE FALSE FALSE FALSE TRUE anubis_field VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_mlkem_poly__poly_sub FALSE FALSE FALSE FALSE TRUE anubis_mlkem_poly VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_mlkem_encoding__byteencode_5 FALSE FALSE FALSE FALSE TRUE anubis_mlkem_encoding VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_field__from_mont FALSE FALSE FALSE FALSE TRUE anubis_field VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_field__barrett_reduce FALSE FALSE FALSE FALSE TRUE anubis_field VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_mlkem_types TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE interfaces__shift_left__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_mlkem_encoding__bytedecode_12 FALSE FALSE FALSE FALSE TRUE anubis_mlkem_encoding VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_ntt__ntt_mul FALSE FALSE FALSE FALSE TRUE anubis_ntt VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_ntt TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE interfaces__shift_left FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_mlkem_poly__poly_reduce FALSE FALSE FALSE FALSE TRUE anubis_mlkem_poly VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_mlkem_poly__vec_intt FALSE FALSE FALSE FALSE TRUE anubis_mlkem_poly VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_mlkem_encoding__encode_vector_12 FALSE FALSE FALSE FALSE TRUE anubis_mlkem_encoding VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_field__mont_mul FALSE FALSE FALSE FALSE TRUE anubis_field VISIBLE_PART
+GG EK_END_MARKER

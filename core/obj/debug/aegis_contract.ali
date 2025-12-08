@@ -1,0 +1,223 @@
+V "GNAT Lib v14"
+A -O0
+A -gnatA
+A -gnat2022
+A -gnatwa
+A -gnatyO
+A -gnatVa
+A -gnatw.F
+A -gnata
+A -g
+A -gnateE
+A -gnatVa
+A -mmacosx-version-min=16.0.0
+A -mcpu=apple-m1
+A -mlittle-endian
+A -mabi=lp64
+A -fPIC
+P ZX
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+
+U aegis_contract%b	aegis_contract.adb	1e96d54b NE OO PK
+W aegis_u256%s		aegis_u256.adb		aegis_u256.ali
+W interfaces%s		interfac.ads		interfac.ali
+Z system.assertions%s	s-assert.adb		s-assert.ali
+
+U aegis_contract%s	aegis_contract.ads	5fafd5de EE NE OO PK
+W aegis_storage%s	aegis_storage.adb	aegis_storage.ali
+W aegis_vm_types%s	aegis_vm_types.ads	aegis_vm_types.ali
+
+D ada.ads		20240808082856 76789da1 ada%s
+D a-assert.ads		20240808082856 ba465f5c ada.assertions%s
+D a-unccon.ads		20240808082856 0e9b276f ada.unchecked_conversion%s
+D aegis_contract.ads	20251206064439 f406fabe aegis_contract%s
+D aegis_contract.adb	20251206064513 84ac287f aegis_contract%b
+D aegis_storage.ads	20251205184403 77782eb9 aegis_storage%s
+D aegis_u256.ads	20251205185917 ff2dfe4b aegis_u256%s
+D aegis_vm_types.ads	20251205185836 dcd101d9 aegis_vm_types%s
+D interfac.ads		20240808082856 9111f9c1 interfaces%s
+D system.ads		20240808082856 70765b54 system%s
+D s-assert.ads		20240808082856 9c4520c7 system.assertions%s
+D s-exctab.ads		20240808082856 91bef6ef system.exception_table%s
+D s-stalib.ads		20240808082856 1c9580f6 system.standard_library%s
+G a e
+G c Z s s [Tfunction_selectorBIP aegis_contract 37 4 none]
+G c Z s s [Tparameter_slotBIP aegis_contract 46 4 none]
+G c Z s s [Treturn_arrayBIP aegis_contract 67 4 none]
+G c Z s s [return_dataIP aegis_contract 70 9 none]
+G c Z s b [encode_u256 aegis_contract 206 13 none]
+G c Z s b [decode_u256 aegis_contract 210 13 none]
+G c Z s b [encode_address aegis_contract 214 13 none]
+G c Z s b [decode_address aegis_contract 218 13 none]
+G c Z s b [encode_bool aegis_contract 222 13 none]
+G c Z s b [decode_bool aegis_contract 226 13 none]
+G c Z s b [compute_selector aegis_contract 235 13 none]
+G c Z s b [find_function aegis_contract 239 13 none]
+G c Z s b [validate_manifest aegis_contract 253 13 none]
+G c Z s b [can_call_function aegis_contract 257 13 none]
+G c Z s s [Tparameters_arrayBIP aegis_contract 50 4 none]
+G c Z s s [call_dataIP aegis_contract 53 9 none]
+G c Z s s [function_entryIP aegis_contract 106 9 none]
+G c Z s s [Tfunction_tableBIP aegis_contract 120 4 none]
+G c Z s s [Ttopic_arrayBIP aegis_contract 133 4 none]
+G c Z s s [Tindexed_flagsBIP aegis_contract 136 4 none]
+G c Z s s [event_entryIP aegis_contract 139 9 none]
+G c Z s s [Tevent_tableBIP aegis_contract 149 4 none]
+G c Z s s [contract_manifestIP aegis_contract 160 9 none]
+G c Z s s [contract_stateIP aegis_contract 194 9 none]
+G c Z s s [entry_point_resultIP aegis_contract 270 9 none]
+G r c none [encode_u256 aegis_contract 206 13 none] [to_bytes_be aegis_u256 172 13 none]
+G r c none [decode_u256 aegis_contract 210 13 none] [from_bytes_be aegis_u256 168 13 none]
+X 4 aegis_contract.ads
+28K9*Aegis_Contract 273r21 276l5 276e19 5|6b14 158l5 158t19
+37A9*Function_Selector(8|31M12)<integer> 40r29 54r21 107r21 235r64 242r18
+. 5|77r64 78r16 89r18
+40a4*Null_Selector{37A9}
+43N4*Max_Parameters 49r39
+46A9*Parameter_Slot(8|31M12)<integer> 50r56 67r49 206r47 210r33 214r61 218r36
+. 222r50 226r33 5|14r47 15r16 24r33 33r61 37r23 44r36 53r50 54r16 62r33
+49I9*Parameter_Index<short_short_integer> 50r36
+50A9*Parameters_Array(46A9)<49I9> 55r21
+53R9*Call_Data 57e14
+54a7*Selector{37A9}
+55a7*Parameters{50A9}
+56i7*Param_Count{natural}
+64N4*Max_Return_Slots 66r36
+66I9*Return_Index<short_short_integer> 67r32
+67A9*Return_Array(46A9)<66I9> 71r22
+70R9*Return_Data 75e14 78r28 273r36
+71a7*Values{67A9} 79m7
+72i7*Value_Count{natural} 80m7
+73b7*Success{boolean} 81m7
+74a7*Revert_Reason{8|56A9} 82m7
+78r4*Empty_Return{70R9}
+90E9*Function_Mutability 95e5 111r21
+91n7*Mut_Pure{90E9} 5|143r18
+92n7*Mut_View{90E9} 5|143r29
+93n7*Mut_Nonpayable{90E9} 5|145r18
+94n7*Mut_Payable{90E9} 5|145r35 151r43
+98E9*Function_Visibility 103e5 112r21
+99n7*Vis_Public{98E9}
+100n7*Vis_External{98E9}
+101n7*Vis_Internal{98E9} 5|136r61
+102n7*Vis_Private{98E9} 5|136r28
+106R9*Function_Entry 114e14 120r53 258r19 5|130r19
+107a7*Selector{37A9} 5|93r40
+108a7*Name_Hash{8|56A9}
+109i7*Param_Count{natural}
+110i7*Return_Count{natural}
+111e7*Mutability{90E9} 5|142r20 151r29
+112e7*Visibility{98E9} 5|136r15 136r48
+113i7*Gas_Bound{8|101I9}
+117N4*Max_Functions 119r38 245r26 5|107r29
+119I9*Function_Index<short_integer> 120r34 5|93r20
+120A9*Function_Table(106R9)<119I9> 178r23 240r18 5|87r18
+127A9*Event_Topic<8|56A9>(8|31M12)<integer> 133r47
+130N4*Max_Topics 132r35
+132I9*Topic_Index<short_short_integer> 133r31 136r33
+133A9*Topic_Array(127A9)<132I9>
+136A9*Indexed_Flags(boolean)<132I9> 142r21
+139R9*Event_Entry 143e14 149r47
+140a7*Signature{8|56A9}
+141i7*Topic_Count{natural}
+142a7*Indexed{136A9}
+146N4*Max_Events 148r35 5|111r26
+148I9*Event_Index<short_short_integer> 149r31
+149A9*Event_Table(139R9)<148I9> 180r23
+156N4*Max_Name_Length 157r42 5|115r26
+157A12*Contract_Name{string}<integer> 164r23
+160R9*Contract_Manifest 187e14 195r23 253r36 5|104r36
+162a7*Address{8|70A9}
+163a7*Code_Hash{8|56A9} 5|121r15
+164a7*Name{157A12}
+165i7*Name_Length{natural} 5|115r12
+168a7*Proof_Hash{8|56A9}
+169e7*Certification{8|84E9}
+170i7*WCET_Bound{8|101I9}
+173i7*Major_Version{natural}
+174i7*Minor_Version{natural}
+175i7*Patch_Version{natural}
+178a7*Functions{120A9}
+179i7*Function_Count{natural} 5|107r12
+180a7*Events{149A9}
+181i7*Event_Count{natural} 5|111r12
+184a7*Deployer{8|70A9}
+185r7*Deploy_Block{8|41R9}
+186r7*Deploy_Time{8|41R9}
+194R9*Contract_State 199e14
+195r7*Manifest{160R9}
+196r7*Account{6|68R9}
+197b7*Is_Deployed{boolean}
+198b7*Is_Destroyed{boolean}
+206V13*Encode_U256{46A9} 206>26 5|14b13 22l8 22t19
+206r26 Value{8|41R9} 5|14b26 16r48
+210V13*Decode_U256{8|41R9} 210>26 5|24b13 31l8 31t19
+210a26 Slot{46A9} 5|24b26 28r23
+214V13*Encode_Address{46A9} 214>29 5|33b13 42l8 42t22
+214a29 Addr{8|70A9} 5|33b29 39r27
+218V13*Decode_Address{8|70A9} 218>29 5|44b13 51l8 51t22
+218a29 Slot{46A9} 5|44b29 48r24
+222V13*Encode_Bool{46A9} 222>26 5|53b13 60l8 60t19
+222b26 Value{boolean} 5|53b26 56r10
+226V13*Decode_Bool{boolean} 226>26 5|62b13 71l8 71t19
+226a26 Slot{46A9} 5|62b26 66r13
+235V13*Compute_Selector{37A9} 235>31 5|77b13 84l8 84t24
+235a31 Signature_Hash{8|56A9} 5|77b31 81r24
+239V13*Find_Function{natural} 240>7 241>7 242>7 246r17 5|86b13
+240a7 Table{120A9} 5|87b7 93r13
+241i7 Count{natural} 245r17 246r41 5|88b7 92r21 97r14
+242a7 Selector{37A9} 5|89b7 93r51
+253V13*Validate_Manifest{boolean} 253>32 5|104b13 127l8 127t25
+253r32 M{160R9} 5|104b32 107r10 111r10 115r10 121r13
+257V13*Can_Call_Function{boolean} 258>7 259>7 260>7 5|129b13 156l8 156t25
+258r7 Func{106R9} 5|130b7 136r10 136r43 142r15 151r24
+259b7 Is_Static{boolean} 5|131b7 141r10
+260b7 Has_Value{boolean} 5|132b7 151r10
+270R9*Entry_Point_Result 274e14
+271b7*Success{boolean}
+272i7*Gas_Used{8|101I9}
+273r7*Return_Data{70R9}
+X 5 aegis_contract.adb
+15a7 Result{4|46A9} 19m10 21r14
+16a7 Bytes{8|56A9} 19r24
+18i11 I{integer} 19r18 19r31
+25a7 Bytes{8|56A9} 28m10 30r29
+27i11 I{integer} 28r17 28r29
+37a14 Result{4|46A9} 39m13
+38i14 I{integer} 39r21 39r33
+45a7 Result{8|70A9} 48m10 50r14
+47i11 I{integer} 48r18 48r30
+54a7 Result{4|46A9} 57m10 59r14
+65i11 I{integer} 66r19
+78a7 Result{4|37A9} 81m10 83r14
+80i11 I{integer} 81r18 81r40
+92i11 I{integer} 93r36 94r20
+120i11 I{integer} 121r26
+X 6 aegis_storage.ads
+27K9*Aegis_Storage 4|4w6 4r25 6|258e18
+68R9*Account_State 4|196r23 6|76e14
+X 7 aegis_u256.ads
+21K9*Aegis_U256 5|4w6 4r22 7|276e15
+168V13*From_Bytes_BE{8|41R9} 5|30s14
+172V13*To_Bytes_BE{8|56A9} 5|16s35
+X 8 aegis_vm_types.ads
+21K9*Aegis_VM_Types 4|3w6 3r26 8|279e19
+31M12*Byte{9|70M9} 4|37r48 46r46
+41R9*U256 4|185r23 186r23 206r34 210r56 5|14r34 24r56 8|43e14
+56A9*Hash256(31M12)<integer> 4|74r23 108r21 127r28 140r21 163r23 168r23 235r48
+. 5|16r24 25r15 77r48
+62a4*Hash256_Zero{56A9} 4|82r24
+70A9*Contract_Address(31M12)<integer> 4|162r23 184r23 214r36 218r59 5|33r36
+. 44r59 45r16
+84E9*Certification_Level 4|169r23 8|84e64
+101I9*Gas_Amount<long_integer> 4|113r21 170r23 272r21
+X 9 interfac.ads
+38K9*Interfaces 5|3w6 3r22 9|233e15
+70M9*Unsigned_8
+

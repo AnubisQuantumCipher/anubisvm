@@ -1,0 +1,194 @@
+V "GNAT Lib v14"
+A -gnatc
+A -gnatwa
+A -mmacosx-version-min=16.0.0
+A -mcpu=apple-m1
+A -mlittle-endian
+A -mabi=lp64
+A -fPIC
+P NO
+
+RN
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_ELABORATION_CODE
+
+U sphinx_lite_checkpoint%b  sphinx_lite_checkpoint.adb  a130b4e9 OO PK
+
+U sphinx_lite_checkpoint%s  sphinx_lite_checkpoint.ads  1048cb1c EE OO PK
+W aegis_vm_types%s	aegis_vm_types.ads	aegis_vm_types.ali
+W interfaces%s		interfac.ads		interfac.ali
+W sphinx_lite_types%s	sphinx_lite_types.adb	sphinx_lite_types.ali
+
+D aegis_u256.ads	20251205185917 ff2dfe4b aegis_u256%s
+D aegis_vm_types.ads	20251205185836 dcd101d9 aegis_vm_types%s
+D interfac.ads		20240808082856 9111f9c1 interfaces%s
+D sphinx_lite_checkpoint.ads  20251207113851 5ce43d2a sphinx_lite_checkpoint%s
+D sphinx_lite_checkpoint.adb  20251207115055 fdd489c3 sphinx_lite_checkpoint%b
+D sphinx_lite_types.ads	20251207114458 016c0e2e sphinx_lite_types%s
+D system.ads		20240808082856 70765b54 system%s
+G a e
+G c Z s b [initialize sphinx_lite_checkpoint 33 14 none]
+G c Z s b [is_initialized sphinx_lite_checkpoint 42 13 none]
+G c Z s b [get_latest_checkpoint sphinx_lite_checkpoint 47 13 none]
+G c Z s b [get_checkpoint_count sphinx_lite_checkpoint 52 13 none]
+G c Z s b [create_checkpoint sphinx_lite_checkpoint 61 14 none]
+G c Z s b [add_signature sphinx_lite_checkpoint 74 14 none]
+G c Z s b [is_finalized sphinx_lite_checkpoint 86 13 none]
+G c Z s b [verify_checkpoint sphinx_lite_checkpoint 95 14 none]
+G c Z s b [verify_chain sphinx_lite_checkpoint 103 14 none]
+G c Z s b [apply_checkpoint sphinx_lite_checkpoint 111 14 none]
+G c Z s b [get_checkpoint_at sphinx_lite_checkpoint 124 14 none]
+G c Z s b [is_checkpointed sphinx_lite_checkpoint 132 13 none]
+G c Z s b [blocks_since_checkpoint sphinx_lite_checkpoint 137 13 none]
+G c Z s b [serialize_checkpoint sphinx_lite_checkpoint 156 14 none]
+G c Z s b [deserialize_checkpoint sphinx_lite_checkpoint 163 14 none]
+G c Z s b [total_checkpoints sphinx_lite_checkpoint 175 13 none]
+G c Z s b [average_signatures sphinx_lite_checkpoint 180 13 none]
+G r c none [add_signature sphinx_lite_checkpoint 74 14 none] [has_signed sphinx_lite_types 255 13 none]
+G r c none [add_signature sphinx_lite_checkpoint 74 14 none] [set_signature sphinx_lite_types 262 13 none]
+G r c none [verify_checkpoint sphinx_lite_checkpoint 95 14 none] [count_signatures sphinx_lite_types 250 13 none]
+G r c none [verify_chain sphinx_lite_checkpoint 103 14 none] [count_signatures sphinx_lite_types 250 13 none]
+G r c none [apply_checkpoint sphinx_lite_checkpoint 111 14 none] [count_signatures sphinx_lite_types 250 13 none]
+X 2 aegis_vm_types.ads
+21K9*Aegis_VM_Types 279e19 4|19w6 19r26
+56A9*Hash256(31M12)<integer> 4|35r31 63r26 64r26 5|18r21 27r31 70r26 71r26
+59A9*Hash512(31M12)<integer> 4|77r29 5|109r29
+X 3 interfac.ads
+38K9*Interfaces 233e15 4|18w6 18r22
+70M9*Unsigned_8 4|153r65 5|304r25 324r28 333r28 341r25
+81M9*Unsigned_32 5|363r19 402r28
+84M9*Unsigned_64 4|62r26 65r26 125r26 132r45 138r22 139r13 5|69r26 72r26
+. 251r26 270r45 280r22 281r13 361r19 362r19 371r25 392r28
+141V13*Shift_Left{81M9} 5|402s16
+146V13*Shift_Right{81M9} 5|334s16
+166V13*Shift_Left{84M9} 5|371s13 392s16
+171V13*Shift_Right{84M9} 5|305s13 325s16
+X 4 sphinx_lite_checkpoint.ads
+22K9*Sphinx_Lite_Checkpoint 185l5 185e27 5|5b14 444l5 444t27
+24@23*Checkpoint_State 25r19 37r28 43r17 48r17 53r17 70r17 99r17 107r17 116r28
+. 129r17 133r17 140r17 176r17 181r17 5|7r22
+33U14*Initialize 34>7 35>7 5|25b14 35l8 35t18
+34r7 Genesis_Checkpoint{6|75R9} 38r17 5|26b7 30r20 32r30
+35a7 Committee_Root{2|56A9} 5|27b7 33r25
+42V13*Is_Initialized{boolean} 39s17 71s17 100s17 108s17 117s17 5|41b13 44l8
+. 44t22
+47V13*Get_Latest_Checkpoint{6|75R9} 5|50b13 53l8 53t29
+52V13*Get_Checkpoint_Count{natural} 5|59b13 62l8 62t28
+61U14*Create_Checkpoint 62>7 63>7 64>7 65>7 66<7 67<7 68<7 5|68b14 100l8
+. 100t25
+62m7 Block_Number{3|84M9} 5|69b7 82r10 90r26
+63a7 Block_Hash{2|56A9} 5|70b7 91r26
+64a7 State_Root{2|56A9} 5|71b7 92r26
+65m7 Timestamp{3|84M9} 5|72b7 93r26
+66r7 Checkpoint{6|75R9} 5|73b7 84m10 89m7
+67b7 Success{boolean} 5|74b7 78m7 99m7
+68e7 Error{6|217E9} 5|75b7 79m7 83m10
+74U14*Add_Signature 75=7 76>7 77>7 78<7 79<7 5|106b14 133l8 133t21
+75r7 Checkpoint{6|75R9} 83r46 5|107b7 119r22 125m7 125r47 128r10 129m10 129r34
+76i7 Member_Index{6|46I12} 82r17 83r69 5|108b7 119r45 125r70
+77a7 Signature{2|59A9} 5|109b7 113r28
+78b7 Success{boolean} 83r21 5|110b7 115m7 132m7
+79e7 Error{6|217E9} 5|111b7 116m7 120m10
+86V13*Is_Finalized{boolean} 86>27 88r17 117s41 5|139b13 142l8 142t20
+86r27 CP{6|75R9} 88r40 88r75 5|139b27 141r14 141r49
+95U14*Verify_Checkpoint 96>7 97<7 5|148b14 174l8 174t25 188s7
+96r7 CP{6|75R9} 5|149b7 156r14 162r10 168r28 168r46
+97r7 Result{6|235R9} 5|150b7 153m7 157m10 163m10 169m10 173m7
+103U14*Verify_Chain 104>7 105<7 5|180b14 208l8 208t20 225s7
+104r7 New_Checkpoint{6|75R9} 5|181b7 188r26 194r10 201r10
+105r7 Result{6|235R9} 5|182b7 185m7 188m42 189r14 195m10 196m10 202m10 203m10
+. 207m7
+111U14*Apply_Checkpoint 112>7 113<7 114<7 5|214b14 244l8 244t24
+112r7 CP{6|75R9} 117r55 5|215b7 225r21 232r20 239r48 240r46
+113b7 Success{boolean} 5|216b7 221m7 243m7
+114e7 Error{6|217E9} 5|217b7 222m7 227m10
+124U14*Get_Checkpoint_At 125>7 126<7 127<7 5|250b14 264l8 264t25
+125m7 Block_Number{3|84M9} 5|251b7 257r35
+126r7 CP{6|75R9} 5|252b7 258m10 261m10
+127b7 Found{boolean} 5|253b7 259m10 262m10
+132V13*Is_Checkpointed{boolean} 132>30 5|270b13 273l8 273t23
+132m30 Block_Number{3|84M9} 5|270b30 272r14
+137V13*Blocks_Since_Checkpoint{3|84M9} 138>7 5|279b13 288l8 288t31
+138m7 Block_Number{3|84M9} 5|280b7 283r10 284r17
+148N4*Checkpoint_Size 153r41 5|323r19 332r19 340r16 346r16 390r19 400r19
+. 409r16 415r16
+151N4*Max_Proof_Size
+153A9*Checkpoint_Bytes(3|70M9)<integer> 158r19 164r21 5|296r19 356r21
+156U14*Serialize_Checkpoint 157>7 158<7 5|294b14 349l8 349t28
+157r7 CP{6|75R9} 5|295b7 305r26 310r16 311r25 316r16 317r25 325r29 334r29
+. 341r37 347r29
+158a7 Bytes{153A9} 5|296b7 300m7 304m10 311m10 317m10 324m13 333m13 341m10
+. 347m10
+163U14*Deserialize_Checkpoint 164>7 165<7 166<7 5|355b14 420l8 420t30
+164a7 Bytes{153A9} 5|356b7 371r38 378r31 384r31 392r41 402r41 410r35 416r22
+165r7 CP{6|75R9} 5|357b7 365m7 374m7 377r16 378m10 383r16 384m10 396m7 406m7
+. 410m10 416m10
+166b7 Success{boolean} 5|358b7 366m7 419m7
+175V13*Total_Checkpoints{natural} 5|426b13 429l8 429t25
+180V13*Average_Signatures{natural} 183r17 5|435b13 442l8 442t26
+X 5 sphinx_lite_checkpoint.adb
+15r4 Latest_CP{6|75R9} 8r7 30m7 52r14 82r26 194r41 201r40 232m7 257r10 258r16
+. 272r30 283r26 284r32
+16i4 CP_Count{natural} 8r18 31m7 61r14 235r10 236m10 236r22 428r14 437r10
+. 441r27
+17i4 Total_Sigs{natural} 8r28 32m7 239r10 240m10 240r24 441r14
+18a4 Committee_Hash{2|56A9} 8r40 33m7
+19b4 Init_Flag{boolean} 8r56 34m7 43r14
+219r7 Verify_Result{6|235R9} 225m25 226r14 227r19
+298i7 Idx{natural} 304r17 306m10 306r17 311r17 312m10 312r17 317r17 318m10
+. 318r17 323r13 324r20 326m13 326r20 332r13 333r20 335m13 335r20 340r10 341r17
+. 342m10 342r17 346r10 347r17
+303i11 I{integer} 305r43
+310i11 I{integer} 311r40
+316i11 I{integer} 317r40
+322i11 I{integer} 325r43
+331i11 I{integer} 334r44
+360i7 Idx{natural} 371r45 372m10 372r17 378r38 379m10 379r17 384r38 385m10
+. 385r17 390r13 392r48 393m13 393r20 400r13 402r48 403m13 403r20 409r10 410r42
+. 411m10 411r17 415r10 416r29
+361m7 Block_Num{3|84M9} 370m10 370r23 374r26
+362m7 Timestamp{3|84M9} 391m13 391r26 396r23
+363m7 Bitmap{3|81M9} 401m13 401r23 406r24
+369i11 I{integer} 371r52
+377i11 I{integer} 378r25
+383i11 I{integer} 384r25
+389i11 I{integer} 392r55
+399i11 I{integer} 402r55
+X 6 sphinx_lite_types.ads
+22K9*Sphinx_Lite_Types 4|20w6 20r29 66r26 75r29 5|73r26 107r29 173r17 207r17
+. 6|274e22
+31N4*Committee_Size 4|82r32 183r46 5|128r33
+34N4*Threshold 4|88r56 5|141r30 162r25
+40N4*Max_Checkpoint_Age 5|201r65
+46I12*Committee_Index{natural} 4|76r29 5|108r29
+48I12*Signature_Count{natural}
+75R9*Checkpoint 4|34r31 47r42 66r44 75r47 86r32 96r20 104r28 112r21 126r26
+. 157r19 165r21 5|15r21 26r31 50r42 73r44 107r47 139r32 149r20 181r28 215r21
+. 252r26 295r19 357r21 6|90e14
+77m7*Block_Number{3|84M9} 5|82r36 90m10 194r25 194r51 201r25 201r50 257r20
+. 272r40 283r36 284r42 305r29 374m10
+78a7*Block_Hash{2|56A9} 5|91m10 310r19 311r28 377r19 378m13
+79a7*State_Root{2|56A9} 5|92m10 316r19 317r28 383r19 384m13
+82m7*Timestamp{3|84M9} 5|93m10 325r32 396m10
+85m7*Sig_Bitmap{3|81M9} 4|83r57 5|94m10 119r33 125m18 125r58 168r31 334r32
+. 406m10
+86i7*Sig_Count{48I12} 4|88r43 5|32r49 95m10 128r21 129m21 129r45 141r17 162r13
+. 168r49 239r51 240r49 341r40 410m13
+89b7*Valid{boolean} 4|38r36 88r78 5|96m10 141r52 156r17 347r32 416m13
+92r4*Null_Checkpoint{75R9} 5|15r35 84r24 261r16 365r13
+217E9*Sphinx_Lite_Error 4|68r26 79r29 114r21 5|75r26 111r29 217r21 6|229e5
+218n7*Error_None{217E9} 5|79r16 116r16 153r45 185r45 222r16
+220n7*Error_Invalid_Checkpoint{217E9} 5|157r26 169r26
+221n7*Error_Insufficient_Signatures{217E9} 5|163r26
+223n7*Error_Stale_Checkpoint{217E9} 5|202r26
+226n7*Error_Duplicate_Signature{217E9} 5|120r19
+227n7*Error_Invalid_Block_Number{217E9} 5|83r19 195r26
+235R9*Verification_Result 4|97r20 105r28 5|150r20 182r28 219r23 6|238e14
+236b7*Success{boolean} 5|153m18 185m18 189r21 196m17 203m17 226r28
+237e7*Error{217E9} 5|153m36 157m17 163m17 169m17 185m36 195m17 202m17 227r33
+240r4*Success_Result{235R9} 5|173r35 207r35
+250V13*Count_Signatures{natural} 5|168s10
+255V13*Has_Signed{boolean} 4|83s34 5|119s10
+262V13*Set_Signature{3|81M9} 5|125s32
+

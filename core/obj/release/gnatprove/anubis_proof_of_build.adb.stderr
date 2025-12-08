@@ -1,0 +1,559 @@
+anubis_proof_of_build.adb:38:15: info: overflow check proved
+anubis_proof_of_build.adb:39:38: info: overflow check proved
+anubis_proof_of_build.adb:39:38: info: index check proved
+
+anubis_proof_of_build.adb:114:22: high: "NFT_Counter" must be listed in the Global aspect of "Mint_Build_NFT" (SPARK RM 6.1.4(15))
+  114 |      NFT_Counter := NFT_Counter + 1;
+      |                     ^~~~~~~~~~~
+anubis_proof_of_build.adb:124:15: info: overflow check proved
+anubis_proof_of_build.adb:125:32: info: overflow check proved
+anubis_proof_of_build.adb:125:32: info: index check proved
+anubis_proof_of_build.adb:132:15: info: overflow check proved
+anubis_proof_of_build.adb:133:35: info: overflow check proved
+anubis_proof_of_build.adb:133:35: info: index check proved
+anubis_proof_of_build.adb:145:15: info: overflow check proved
+anubis_proof_of_build.adb:146:32: info: overflow check proved
+anubis_proof_of_build.adb:146:32: info: index check proved
+
+anubis_proof_of_build.adb:180:29: high: "Weekly_NFT_Counter" must be listed in the Global aspect of "Mint_Weekly_Update" (SPARK RM 6.1.4(15))
+  180 |      Weekly_NFT_Counter := Weekly_NFT_Counter + 1;
+      |                            ^~~~~~~~~~~~~~~~~~
+anubis_proof_of_build.adb:193:15: info: overflow check proved
+anubis_proof_of_build.adb:194:33: info: overflow check proved
+anubis_proof_of_build.adb:194:33: info: index check proved
+anubis_proof_of_build.adb:201:15: info: overflow check proved
+anubis_proof_of_build.adb:202:30: info: overflow check proved
+anubis_proof_of_build.adb:202:30: info: index check proved
+
+anubis_proof_of_build.adb:232:22: high: "NFT_Counter" must be listed in the Global aspect of "Mint_Milestone_NFT" (SPARK RM 6.1.4(15))
+  232 |      NFT_Counter := NFT_Counter + 1;
+      |                     ^~~~~~~~~~~
+anubis_proof_of_build.adb:242:15: info: overflow check proved
+anubis_proof_of_build.adb:243:32: info: overflow check proved
+anubis_proof_of_build.adb:243:32: info: index check proved
+anubis_proof_of_build.adb:250:15: info: overflow check proved
+anubis_proof_of_build.adb:251:35: info: overflow check proved
+anubis_proof_of_build.adb:251:35: info: index check proved
+anubis_proof_of_build.adb:263:15: info: overflow check proved
+anubis_proof_of_build.adb:264:32: info: overflow check proved
+anubis_proof_of_build.adb:264:32: info: index check proved
+anubis_proof_of_build.adb:301:15: info: overflow check proved
+anubis_proof_of_build.adb:302:32: info: overflow check proved
+anubis_proof_of_build.adb:302:32: info: index check proved
+anubis_proof_of_build.adb:308:15: info: overflow check proved
+anubis_proof_of_build.adb:309:37: info: overflow check proved
+anubis_proof_of_build.adb:309:37: info: index check proved
+anubis_proof_of_build.adb:324:15: info: overflow check proved
+anubis_proof_of_build.adb:325:54: info: overflow check proved
+anubis_proof_of_build.adb:325:54: info: index check proved
+anubis_proof_of_build.adb:340:15: info: overflow check proved
+anubis_proof_of_build.adb:341:56: info: overflow check proved
+anubis_proof_of_build.adb:341:56: info: index check proved
+anubis_proof_of_build.adb:423:27: info: range check proved
+anubis_proof_of_build.adb:426:11: info: length check proved
+anubis_proof_of_build.adb:431:18: info: index check proved
+anubis_proof_of_build.adb:432:24: info: overflow check proved
+
+anubis_proof_of_build.adb:439:18: medium: array index check might fail
+  439 |            URI (Idx) := NFT.IPFS_Report (I);
+      |                 ^~~
+  reason for check: value must be a valid index into the array
+  possible fix: loop at line 437 should mention Idx in a loop invariant
+  437 |      for I in NFT.IPFS_Report'Range loop
+      |                                     ^ here
+
+anubis_proof_of_build.adb:440:24: medium: overflow check might fail
+  440 |            Idx := Idx + 1;
+      |                   ~~~~^~~
+  reason for check: result of addition must fit in a 32-bits machine integer
+  possible fix: loop at line 437 should mention Idx in a loop invariant
+  437 |      for I in NFT.IPFS_Report'Range loop
+      |                                     ^ here
+anubis_proof_of_build.adb:444:21: info: overflow check proved
+
+anubis_proof_of_build.adb:444:21: medium: range check might fail
+  444 |      Length := Idx - URI'First;
+      |                ~~~~^~~~~~~~~~~
+  reason for check: result of subtraction must fit in the target type of the assignment
+  possible fix: loop at line 437 should mention Idx in a loop invariant
+  437 |      for I in NFT.IPFS_Report'Range loop
+      |                                     ^ here
+anubis_proof_of_build.adb:452:32: info: range check proved
+anubis_proof_of_build.adb:459:26: info: index check proved, in call inlined at anubis_proof_of_build.adb:469
+anubis_proof_of_build.adb:459:26: info: index check proved, in call inlined at anubis_proof_of_build.adb:470
+anubis_proof_of_build.adb:459:26: info: index check proved, in call inlined at anubis_proof_of_build.adb:471
+anubis_proof_of_build.adb:459:26: info: index check proved, in call inlined at anubis_proof_of_build.adb:481
+anubis_proof_of_build.adb:459:48: info: division check proved, in call inlined at anubis_proof_of_build.adb:469
+anubis_proof_of_build.adb:459:48: info: range check proved, in call inlined at anubis_proof_of_build.adb:469
+anubis_proof_of_build.adb:459:48: info: division check proved, in call inlined at anubis_proof_of_build.adb:470
+anubis_proof_of_build.adb:459:48: info: range check proved, in call inlined at anubis_proof_of_build.adb:470
+anubis_proof_of_build.adb:459:48: info: division check proved, in call inlined at anubis_proof_of_build.adb:471
+anubis_proof_of_build.adb:459:48: info: range check proved, in call inlined at anubis_proof_of_build.adb:471
+anubis_proof_of_build.adb:459:48: info: division check proved, in call inlined at anubis_proof_of_build.adb:481
+anubis_proof_of_build.adb:459:48: info: range check proved, in call inlined at anubis_proof_of_build.adb:481
+anubis_proof_of_build.adb:460:23: info: division check proved, in call inlined at anubis_proof_of_build.adb:469
+anubis_proof_of_build.adb:460:23: info: division check proved, in call inlined at anubis_proof_of_build.adb:470
+anubis_proof_of_build.adb:460:23: info: division check proved, in call inlined at anubis_proof_of_build.adb:471
+anubis_proof_of_build.adb:460:23: info: division check proved, in call inlined at anubis_proof_of_build.adb:481
+anubis_proof_of_build.adb:461:27: info: overflow check proved, in call inlined at anubis_proof_of_build.adb:469
+anubis_proof_of_build.adb:461:27: info: overflow check proved, in call inlined at anubis_proof_of_build.adb:470
+anubis_proof_of_build.adb:461:27: info: overflow check proved, in call inlined at anubis_proof_of_build.adb:471
+
+anubis_proof_of_build.adb:461:27: medium: overflow check might fail, in call inlined at anubis_proof_of_build.adb:481
+  461 |               Idx := Idx + 1;
+      |                      ~~~~^~~
+  reason for check: result of addition must fit in a 32-bits machine integer
+  possible fix: loop at line 474 should mention Idx in a loop invariant
+  474 |      for I in State.Builder_Address'Range loop
+      |                                           ^ here
+anubis_proof_of_build.adb:467:16: info: length check proved
+
+anubis_proof_of_build.adb:476:23: medium: array index check might fail
+  476 |            Metadata (Idx) := State.Builder_Address (I);
+      |                      ^~~
+  reason for check: value must be a valid index into the array
+  possible fix: loop at line 474 should mention Idx in a loop invariant
+  474 |      for I in State.Builder_Address'Range loop
+      |                                           ^ here
+
+anubis_proof_of_build.adb:477:24: medium: overflow check might fail
+  477 |            Idx := Idx + 1;
+      |                   ~~~~^~~
+  reason for check: result of addition must fit in a 32-bits machine integer
+  possible fix: loop at line 474 should mention Idx in a loop invariant
+  474 |      for I in State.Builder_Address'Range loop
+      |                                           ^ here
+anubis_proof_of_build.adb:483:21: info: overflow check proved
+anubis_proof_of_build.adb:483:21: info: range check proved
+anubis_proof_of_build.adb:504:44: info: division check proved
+
+anubis_proof_of_build.adb:504:44: high: range check might fail
+  504 |            Unsigned_32 (State.Total_Lines / State.Total_Minted);
+      |                         ~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~
+  e.g. when State.Total_Minted = 6
+        and State.Total_Lines = 25769803776
+        and State.Total_VCs = Unsigned_64'Last
+        and State.Category_Counts = (others => 0)
+        and State.Builder_Address = (others => 0)
+  reason for check: result of division must be convertible to the target type of the conversion
+  possible fix: add precondition (State.Total_Lines / State.Total_Minted in Unsigned_32) to subprogram at anubis_proof_of_build.ads:319
+  319 |   procedure Calculate_Statistics (
+      |             ^ here
+anubis_proof_of_build.adb:506:42: info: division check proved
+
+anubis_proof_of_build.adb:506:42: medium: range check might fail
+  506 |            Unsigned_32 (State.Total_VCs / State.Total_Minted);
+      |                         ~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~
+  reason for check: result of division must be convertible to the target type of the conversion
+  possible fix: add precondition (State.Total_VCs / State.Total_Minted in Unsigned_32) to subprogram at anubis_proof_of_build.ads:319
+  319 |   procedure Calculate_Statistics (
+      |             ^ here
+
+anubis_proof_of_build.adb:513:45: high: range check might fail
+  513 |      Stats.Milestones_Hit := Natural (State.Category_Counts (Milestone));
+      |                                       ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~
+  e.g. when State.Total_Minted = 0
+        and State.Total_Lines = Unsigned_64'Last
+        and State.Total_VCs = Unsigned_64'Last
+        and State.Category_Counts(Milestone) = 2147483648
+        and State.Builder_Address(0) = 0
+  reason for check: value must be convertible to the target type of the conversion
+  possible fix: add precondition (State.Category_Counts (Milestone) in Natural) to subprogram at anubis_proof_of_build.ads:319
+  319 |   procedure Calculate_Statistics (
+      |             ^ here
+anubis_proof_of_build.adb:527:30: info: range check proved
+anubis_proof_of_build.adb:534:24: info: index check proved, in call inlined at anubis_proof_of_build.adb:556
+anubis_proof_of_build.adb:534:24: info: index check proved, in call inlined at anubis_proof_of_build.adb:592
+anubis_proof_of_build.adb:534:46: info: division check proved, in call inlined at anubis_proof_of_build.adb:556
+anubis_proof_of_build.adb:534:46: info: range check proved, in call inlined at anubis_proof_of_build.adb:556
+anubis_proof_of_build.adb:534:46: info: division check proved, in call inlined at anubis_proof_of_build.adb:592
+anubis_proof_of_build.adb:534:46: info: range check proved, in call inlined at anubis_proof_of_build.adb:592
+anubis_proof_of_build.adb:535:23: info: division check proved, in call inlined at anubis_proof_of_build.adb:556
+anubis_proof_of_build.adb:535:23: info: division check proved, in call inlined at anubis_proof_of_build.adb:592
+anubis_proof_of_build.adb:536:27: info: overflow check proved, in call inlined at anubis_proof_of_build.adb:556
+
+anubis_proof_of_build.adb:536:27: medium: overflow check might fail, in call inlined at anubis_proof_of_build.adb:592
+  536 |               Idx := Idx + 1;
+      |                      ~~~~^~~
+  reason for check: result of addition must fit in a 32-bits machine integer
+  possible fix: loop at line 581 should mention Idx in a loop invariant
+  581 |      for I in NFT.GNATprove_Hash'Range loop
+      |                                        ^ here
+anubis_proof_of_build.adb:546:24: info: index check proved, in call inlined at anubis_proof_of_build.adb:588
+anubis_proof_of_build.adb:546:24: info: index check proved, in call inlined at anubis_proof_of_build.adb:589
+anubis_proof_of_build.adb:546:24: info: index check proved, in call inlined at anubis_proof_of_build.adb:590
+anubis_proof_of_build.adb:546:46: info: division check proved, in call inlined at anubis_proof_of_build.adb:588
+anubis_proof_of_build.adb:546:46: info: range check proved, in call inlined at anubis_proof_of_build.adb:588
+anubis_proof_of_build.adb:546:46: info: division check proved, in call inlined at anubis_proof_of_build.adb:589
+anubis_proof_of_build.adb:546:46: info: range check proved, in call inlined at anubis_proof_of_build.adb:589
+anubis_proof_of_build.adb:546:46: info: division check proved, in call inlined at anubis_proof_of_build.adb:590
+anubis_proof_of_build.adb:546:46: info: range check proved, in call inlined at anubis_proof_of_build.adb:590
+anubis_proof_of_build.adb:547:23: info: division check proved, in call inlined at anubis_proof_of_build.adb:588
+anubis_proof_of_build.adb:547:23: info: division check proved, in call inlined at anubis_proof_of_build.adb:589
+anubis_proof_of_build.adb:547:23: info: division check proved, in call inlined at anubis_proof_of_build.adb:590
+
+anubis_proof_of_build.adb:548:27: medium: overflow check might fail, in call inlined at anubis_proof_of_build.adb:588
+  548 |               Idx := Idx + 1;
+      |                      ~~~~^~~
+  reason for check: result of addition must fit in a 32-bits machine integer
+  possible fix: loop at line 581 should mention Idx in a loop invariant
+  581 |      for I in NFT.GNATprove_Hash'Range loop
+      |                                        ^ here
+
+anubis_proof_of_build.adb:548:27: medium: overflow check might fail, in call inlined at anubis_proof_of_build.adb:589
+  548 |               Idx := Idx + 1;
+      |                      ~~~~^~~
+  reason for check: result of addition must fit in a 32-bits machine integer
+  possible fix: loop at line 581 should mention Idx in a loop invariant
+  581 |      for I in NFT.GNATprove_Hash'Range loop
+      |                                        ^ here
+
+anubis_proof_of_build.adb:548:27: medium: overflow check might fail, in call inlined at anubis_proof_of_build.adb:590
+  548 |               Idx := Idx + 1;
+      |                      ~~~~^~~
+  reason for check: result of addition must fit in a 32-bits machine integer
+  possible fix: loop at line 581 should mention Idx in a loop invariant
+  581 |      for I in NFT.GNATprove_Hash'Range loop
+      |                                        ^ here
+anubis_proof_of_build.adb:554:14: info: length check proved
+
+anubis_proof_of_build.adb:561:21: medium: array index check might fail
+  561 |            Output (Idx) := NFT.Minter (I);
+      |                    ^~~
+  reason for check: value must be a valid index into the array
+  possible fix: loop at line 559 should mention Idx in a loop invariant
+  559 |      for I in NFT.Minter'Range loop
+      |                                ^ here
+
+anubis_proof_of_build.adb:562:24: medium: overflow check might fail
+  562 |            Idx := Idx + 1;
+      |                   ~~~~^~~
+  reason for check: result of addition must fit in a 32-bits machine integer
+  possible fix: loop at line 559 should mention Idx in a loop invariant
+  559 |      for I in NFT.Minter'Range loop
+      |                                ^ here
+anubis_proof_of_build.adb:568:18: info: index check proved
+
+anubis_proof_of_build.adb:569:21: medium: overflow check might fail
+  569 |         Idx := Idx + 1;
+      |                ~~~~^~~
+  reason for check: result of addition must fit in a 32-bits machine integer
+  possible fix: loop at line 559 should mention Idx in a loop invariant
+  559 |      for I in NFT.Minter'Range loop
+      |                                ^ here
+
+anubis_proof_of_build.adb:575:21: medium: array index check might fail
+  575 |            Output (Idx) := NFT.Commit_Hash (I);
+      |                    ^~~
+  reason for check: value must be a valid index into the array
+  possible fix: loop at line 573 should mention Idx in a loop invariant
+  573 |      for I in NFT.Commit_Hash'Range loop
+      |                                     ^ here
+
+anubis_proof_of_build.adb:576:24: medium: overflow check might fail
+  576 |            Idx := Idx + 1;
+      |                   ~~~~^~~
+  reason for check: result of addition must fit in a 32-bits machine integer
+  possible fix: loop at line 573 should mention Idx in a loop invariant
+  573 |      for I in NFT.Commit_Hash'Range loop
+      |                                     ^ here
+
+anubis_proof_of_build.adb:583:21: medium: array index check might fail
+  583 |            Output (Idx) := NFT.GNATprove_Hash (I);
+      |                    ^~~
+  reason for check: value must be a valid index into the array
+  possible fix: loop at line 581 should mention Idx in a loop invariant
+  581 |      for I in NFT.GNATprove_Hash'Range loop
+      |                                        ^ here
+
+anubis_proof_of_build.adb:584:24: medium: overflow check might fail
+  584 |            Idx := Idx + 1;
+      |                   ~~~~^~~
+  reason for check: result of addition must fit in a 32-bits machine integer
+  possible fix: loop at line 581 should mention Idx in a loop invariant
+  581 |      for I in NFT.GNATprove_Hash'Range loop
+      |                                        ^ here
+anubis_proof_of_build.adb:596:18: info: index check proved
+
+anubis_proof_of_build.adb:597:21: medium: overflow check might fail
+  597 |         Idx := Idx + 1;
+      |                ~~~~^~~
+  reason for check: result of addition must fit in a 32-bits machine integer
+  possible fix: loop at line 581 should mention Idx in a loop invariant
+  581 |      for I in NFT.GNATprove_Hash'Range loop
+      |                                        ^ here
+anubis_proof_of_build.adb:600:21: info: overflow check proved
+anubis_proof_of_build.adb:600:21: info: range check proved
+
+anubis_proof_of_build.adb:608:29: medium: range check might fail
+  608 |      Idx : Natural := Input'First;
+      |                       ~~~~~^~~~~~
+  e.g. when Input'Last = -2
+  reason for check: default component value must fit in the type
+  possible fix: add or complete related loop invariants or postconditions
+anubis_proof_of_build.adb:610:27: info: initialization of "Val" proved
+anubis_proof_of_build.adb:615:49: info: index check proved, in call inlined at anubis_proof_of_build.adb:659
+anubis_proof_of_build.adb:615:49: info: index check proved, in call inlined at anubis_proof_of_build.adb:698
+anubis_proof_of_build.adb:616:27: info: overflow check proved, in call inlined at anubis_proof_of_build.adb:659
+
+anubis_proof_of_build.adb:616:27: medium: overflow check might fail, in call inlined at anubis_proof_of_build.adb:698
+  616 |               Idx := Idx + 1;
+      |                      ~~~~^~~
+  reason for check: result of addition must fit in a 32-bits machine integer
+  possible fix: loop at line 687 should mention Idx in a loop invariant
+  687 |      for I in NFT.GNATprove_Hash'Range loop
+      |                                        ^ here
+anubis_proof_of_build.adb:621:27: info: initialization of "Val" proved
+anubis_proof_of_build.adb:626:49: info: index check proved, in call inlined at anubis_proof_of_build.adb:694
+anubis_proof_of_build.adb:626:49: info: index check proved, in call inlined at anubis_proof_of_build.adb:695
+anubis_proof_of_build.adb:626:49: info: index check proved, in call inlined at anubis_proof_of_build.adb:696
+
+anubis_proof_of_build.adb:627:27: medium: overflow check might fail, in call inlined at anubis_proof_of_build.adb:694
+  627 |               Idx := Idx + 1;
+      |                      ~~~~^~~
+  reason for check: result of addition must fit in a 32-bits machine integer
+  possible fix: loop at line 687 should mention Idx in a loop invariant
+  687 |      for I in NFT.GNATprove_Hash'Range loop
+      |                                        ^ here
+
+anubis_proof_of_build.adb:627:27: medium: overflow check might fail, in call inlined at anubis_proof_of_build.adb:695
+  627 |               Idx := Idx + 1;
+      |                      ~~~~^~~
+  reason for check: result of addition must fit in a 32-bits machine integer
+  possible fix: loop at line 687 should mention Idx in a loop invariant
+  687 |      for I in NFT.GNATprove_Hash'Range loop
+      |                                        ^ here
+
+anubis_proof_of_build.adb:627:27: medium: overflow check might fail, in call inlined at anubis_proof_of_build.adb:696
+  627 |               Idx := Idx + 1;
+      |                      ~~~~^~~
+  reason for check: result of addition must fit in a 32-bits machine integer
+  possible fix: loop at line 687 should mention Idx in a loop invariant
+  687 |      for I in NFT.GNATprove_Hash'Range loop
+      |                                        ^ here
+
+anubis_proof_of_build.adb:664:38: medium: array index check might fail
+  664 |            NFT.Minter (I) := Input (Idx);
+      |                                     ^~~
+  reason for check: value must be a valid index into the array
+  possible fix: loop at line 662 should mention Idx in a loop invariant
+  662 |      for I in NFT.Minter'Range loop
+      |                                ^ here
+
+anubis_proof_of_build.adb:665:24: medium: overflow check might fail
+  665 |            Idx := Idx + 1;
+      |                   ~~~~^~~
+  reason for check: result of addition must fit in a 32-bits machine integer
+  possible fix: loop at line 662 should mention Idx in a loop invariant
+  662 |      for I in NFT.Minter'Range loop
+      |                                ^ here
+anubis_proof_of_build.adb:671:29: info: index check proved
+anubis_proof_of_build.adb:673:49: info: range check proved
+anubis_proof_of_build.adb:673:65: info: index check proved
+
+anubis_proof_of_build.adb:675:21: medium: overflow check might fail
+  675 |         Idx := Idx + 1;
+      |                ~~~~^~~
+  reason for check: result of addition must fit in a 32-bits machine integer
+  possible fix: loop at line 662 should mention Idx in a loop invariant
+  662 |      for I in NFT.Minter'Range loop
+      |                                ^ here
+
+anubis_proof_of_build.adb:681:43: medium: array index check might fail
+  681 |            NFT.Commit_Hash (I) := Input (Idx);
+      |                                          ^~~
+  reason for check: value must be a valid index into the array
+  possible fix: loop at line 679 should mention Idx in a loop invariant
+  679 |      for I in NFT.Commit_Hash'Range loop
+      |                                     ^ here
+
+anubis_proof_of_build.adb:682:24: medium: overflow check might fail
+  682 |            Idx := Idx + 1;
+      |                   ~~~~^~~
+  reason for check: result of addition must fit in a 32-bits machine integer
+  possible fix: loop at line 679 should mention Idx in a loop invariant
+  679 |      for I in NFT.Commit_Hash'Range loop
+      |                                     ^ here
+
+anubis_proof_of_build.adb:689:46: medium: array index check might fail
+  689 |            NFT.GNATprove_Hash (I) := Input (Idx);
+      |                                             ^~~
+  reason for check: value must be a valid index into the array
+  possible fix: loop at line 687 should mention Idx in a loop invariant
+  687 |      for I in NFT.GNATprove_Hash'Range loop
+      |                                        ^ here
+
+anubis_proof_of_build.adb:690:24: medium: overflow check might fail
+  690 |            Idx := Idx + 1;
+      |                   ~~~~^~~
+  reason for check: result of addition must fit in a 32-bits machine integer
+  possible fix: loop at line 687 should mention Idx in a loop invariant
+  687 |      for I in NFT.GNATprove_Hash'Range loop
+      |                                        ^ here
+anubis_proof_of_build.adb:702:33: info: index check proved
+
+anubis_proof_of_build.adb:703:14: warning: unused assignment
+  703 |         Idx := Idx + 1;
+      |         ~~~~^~~~~~~~~~
+
+anubis_proof_of_build.adb:703:21: medium: overflow check might fail
+  703 |         Idx := Idx + 1;
+      |                ~~~~^~~
+  reason for check: result of addition must fit in a 32-bits machine integer
+  possible fix: loop at line 687 should mention Idx in a loop invariant
+  687 |      for I in NFT.GNATprove_Hash'Range loop
+      |                                        ^ here
+anubis_proof_of_build.adb:714:30: info: range check proved
+anubis_proof_of_build.adb:721:24: info: index check proved, in call inlined at anubis_proof_of_build.adb:731
+anubis_proof_of_build.adb:721:24: info: index check proved, in call inlined at anubis_proof_of_build.adb:732
+anubis_proof_of_build.adb:721:24: info: index check proved, in call inlined at anubis_proof_of_build.adb:733
+anubis_proof_of_build.adb:721:24: info: index check proved, in call inlined at anubis_proof_of_build.adb:743
+anubis_proof_of_build.adb:721:24: info: index check proved, in call inlined at anubis_proof_of_build.adb:744
+anubis_proof_of_build.adb:721:46: info: division check proved, in call inlined at anubis_proof_of_build.adb:731
+anubis_proof_of_build.adb:721:46: info: range check proved, in call inlined at anubis_proof_of_build.adb:731
+anubis_proof_of_build.adb:721:46: info: division check proved, in call inlined at anubis_proof_of_build.adb:732
+anubis_proof_of_build.adb:721:46: info: range check proved, in call inlined at anubis_proof_of_build.adb:732
+anubis_proof_of_build.adb:721:46: info: division check proved, in call inlined at anubis_proof_of_build.adb:733
+anubis_proof_of_build.adb:721:46: info: range check proved, in call inlined at anubis_proof_of_build.adb:733
+anubis_proof_of_build.adb:721:46: info: division check proved, in call inlined at anubis_proof_of_build.adb:743
+anubis_proof_of_build.adb:721:46: info: range check proved, in call inlined at anubis_proof_of_build.adb:743
+anubis_proof_of_build.adb:721:46: info: division check proved, in call inlined at anubis_proof_of_build.adb:744
+anubis_proof_of_build.adb:721:46: info: range check proved, in call inlined at anubis_proof_of_build.adb:744
+anubis_proof_of_build.adb:722:23: info: division check proved, in call inlined at anubis_proof_of_build.adb:731
+anubis_proof_of_build.adb:722:23: info: division check proved, in call inlined at anubis_proof_of_build.adb:732
+anubis_proof_of_build.adb:722:23: info: division check proved, in call inlined at anubis_proof_of_build.adb:733
+anubis_proof_of_build.adb:722:23: info: division check proved, in call inlined at anubis_proof_of_build.adb:743
+anubis_proof_of_build.adb:722:23: info: division check proved, in call inlined at anubis_proof_of_build.adb:744
+anubis_proof_of_build.adb:723:27: info: overflow check proved, in call inlined at anubis_proof_of_build.adb:731
+anubis_proof_of_build.adb:723:27: info: overflow check proved, in call inlined at anubis_proof_of_build.adb:732
+anubis_proof_of_build.adb:723:27: info: overflow check proved, in call inlined at anubis_proof_of_build.adb:733
+
+anubis_proof_of_build.adb:723:27: medium: overflow check might fail, in call inlined at anubis_proof_of_build.adb:743
+  723 |               Idx := Idx + 1;
+      |                      ~~~~^~~
+  reason for check: result of addition must fit in a 32-bits machine integer
+  possible fix: loop at line 736 should mention Idx in a loop invariant
+  736 |      for I in State.Builder_Address'Range loop
+      |                                           ^ here
+
+anubis_proof_of_build.adb:723:27: medium: overflow check might fail, in call inlined at anubis_proof_of_build.adb:744
+  723 |               Idx := Idx + 1;
+      |                      ~~~~^~~
+  reason for check: result of addition must fit in a 32-bits machine integer
+  possible fix: loop at line 736 should mention Idx in a loop invariant
+  736 |      for I in State.Builder_Address'Range loop
+      |                                           ^ here
+anubis_proof_of_build.adb:729:14: info: length check proved
+
+anubis_proof_of_build.adb:738:21: medium: array index check might fail
+  738 |            Output (Idx) := State.Builder_Address (I);
+      |                    ^~~
+  reason for check: value must be a valid index into the array
+  possible fix: loop at line 736 should mention Idx in a loop invariant
+  736 |      for I in State.Builder_Address'Range loop
+      |                                           ^ here
+
+anubis_proof_of_build.adb:739:24: medium: overflow check might fail
+  739 |            Idx := Idx + 1;
+      |                   ~~~~^~~
+  reason for check: result of addition must fit in a 32-bits machine integer
+  possible fix: loop at line 736 should mention Idx in a loop invariant
+  736 |      for I in State.Builder_Address'Range loop
+      |                                           ^ here
+anubis_proof_of_build.adb:746:21: info: overflow check proved
+anubis_proof_of_build.adb:746:21: info: range check proved
+
+anubis_proof_of_build.adb:754:29: medium: range check might fail
+  754 |      Idx : Natural := Input'First;
+      |                       ~~~~~^~~~~~
+  e.g. when Input'Last = -2
+  reason for check: default component value must fit in the type
+  possible fix: add or complete related loop invariants or postconditions
+anubis_proof_of_build.adb:756:27: info: initialization of "Val" proved
+anubis_proof_of_build.adb:761:49: info: index check proved, in call inlined at anubis_proof_of_build.adb:775
+anubis_proof_of_build.adb:761:49: info: index check proved, in call inlined at anubis_proof_of_build.adb:776
+anubis_proof_of_build.adb:761:49: info: index check proved, in call inlined at anubis_proof_of_build.adb:777
+anubis_proof_of_build.adb:761:49: info: index check proved, in call inlined at anubis_proof_of_build.adb:787
+anubis_proof_of_build.adb:761:49: info: index check proved, in call inlined at anubis_proof_of_build.adb:788
+anubis_proof_of_build.adb:762:27: info: overflow check proved, in call inlined at anubis_proof_of_build.adb:775
+anubis_proof_of_build.adb:762:27: info: overflow check proved, in call inlined at anubis_proof_of_build.adb:776
+anubis_proof_of_build.adb:762:27: info: overflow check proved, in call inlined at anubis_proof_of_build.adb:777
+
+anubis_proof_of_build.adb:762:27: medium: overflow check might fail, in call inlined at anubis_proof_of_build.adb:787
+  762 |               Idx := Idx + 1;
+      |                      ~~~~^~~
+  reason for check: result of addition must fit in a 32-bits machine integer
+  possible fix: loop at line 780 should mention Idx in a loop invariant
+  780 |      for I in State.Builder_Address'Range loop
+      |                                           ^ here
+
+anubis_proof_of_build.adb:762:27: medium: overflow check might fail, in call inlined at anubis_proof_of_build.adb:788
+  762 |               Idx := Idx + 1;
+      |                      ~~~~^~~
+  reason for check: result of addition must fit in a 32-bits machine integer
+  possible fix: loop at line 780 should mention Idx in a loop invariant
+  780 |      for I in State.Builder_Address'Range loop
+      |                                           ^ here
+anubis_proof_of_build.adb:768:07: info: precondition proved
+
+anubis_proof_of_build.adb:782:49: medium: array index check might fail
+  782 |            State.Builder_Address (I) := Input (Idx);
+      |                                                ^~~
+  reason for check: value must be a valid index into the array
+  possible fix: loop at line 780 should mention Idx in a loop invariant
+  780 |      for I in State.Builder_Address'Range loop
+      |                                           ^ here
+
+anubis_proof_of_build.adb:783:24: medium: overflow check might fail
+  783 |            Idx := Idx + 1;
+      |                   ~~~~^~~
+  reason for check: result of addition must fit in a 32-bits machine integer
+  possible fix: loop at line 780 should mention Idx in a loop invariant
+  780 |      for I in State.Builder_Address'Range loop
+      |                                           ^ here
+anubis_proof_of_build.ads:152:07: info: initialization of "State" proved
+anubis_proof_of_build.ads:156:07: info: data dependencies proved
+anubis_proof_of_build.ads:158:15: info: postcondition proved
+anubis_proof_of_build.ads:227:07: info: initialization of "Result" proved
+anubis_proof_of_build.ads:229:07: info: data dependencies proved
+anubis_proof_of_build.ads:234:13: info: implicit aspect Always_Terminates on "Verify_Commit" has been proved, subprogram will terminate
+anubis_proof_of_build.ads:238:07: info: data dependencies proved
+anubis_proof_of_build.ads:242:13: info: implicit aspect Always_Terminates on "Verify_Proof" has been proved, subprogram will terminate
+anubis_proof_of_build.ads:246:07: info: data dependencies proved
+anubis_proof_of_build.ads:257:07: info: initialization of "NFT" proved
+anubis_proof_of_build.ads:258:07: info: initialization of "Found" proved
+anubis_proof_of_build.ads:260:07: info: data dependencies proved
+anubis_proof_of_build.ads:263:13: info: implicit aspect Always_Terminates on "Get_Total_Minted" has been proved, subprogram will terminate
+anubis_proof_of_build.ads:264:07: info: data dependencies proved
+anubis_proof_of_build.ads:267:13: info: implicit aspect Always_Terminates on "Get_Total_Lines" has been proved, subprogram will terminate
+anubis_proof_of_build.ads:268:07: info: data dependencies proved
+anubis_proof_of_build.ads:271:13: info: implicit aspect Always_Terminates on "Get_Total_VCs" has been proved, subprogram will terminate
+anubis_proof_of_build.ads:272:07: info: data dependencies proved
+anubis_proof_of_build.ads:275:13: info: implicit aspect Always_Terminates on "Get_Category_Count" has been proved, subprogram will terminate
+anubis_proof_of_build.ads:279:07: info: data dependencies proved
+anubis_proof_of_build.ads:288:07: info: initialization of "URI" proved
+anubis_proof_of_build.ads:289:07: info: initialization of "Length" proved
+anubis_proof_of_build.ads:291:07: info: data dependencies proved
+anubis_proof_of_build.ads:297:07: info: initialization of "Metadata" proved
+anubis_proof_of_build.ads:298:07: info: initialization of "Length" proved
+anubis_proof_of_build.ads:300:07: info: data dependencies proved
+anubis_proof_of_build.ads:322:07: info: initialization of "Stats" proved
+anubis_proof_of_build.ads:324:07: info: data dependencies proved
+anubis_proof_of_build.ads:332:07: info: initialization of "Output" proved
+anubis_proof_of_build.ads:333:07: info: initialization of "Length" proved
+anubis_proof_of_build.ads:335:07: info: data dependencies proved
+anubis_proof_of_build.ads:340:07: info: initialization of "NFT" proved
+anubis_proof_of_build.ads:341:07: info: initialization of "Success" proved
+anubis_proof_of_build.ads:343:07: info: data dependencies proved
+anubis_proof_of_build.ads:347:07: info: initialization of "Output" proved
+anubis_proof_of_build.ads:348:07: info: initialization of "Length" proved
+anubis_proof_of_build.ads:350:07: info: data dependencies proved
+anubis_proof_of_build.ads:355:07: info: initialization of "State" proved
+anubis_proof_of_build.ads:356:07: info: initialization of "Success" proved
+anubis_proof_of_build.ads:358:07: info: data dependencies proved
+anubis_proof_of_build.ads:364:40: info: initialization of "State" proved
+anubis_proof_of_build.ads:365:07: info: data dependencies proved
+anubis_proof_of_build.ads:367:27: info: initialization of "NFT" proved
+anubis_proof_of_build.ads:368:07: info: data dependencies proved
+anubis_proof_of_build.ads:370:37: info: initialization of "NFT" proved
+anubis_proof_of_build.ads:371:07: info: data dependencies proved

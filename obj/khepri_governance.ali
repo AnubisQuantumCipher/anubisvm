@@ -1,0 +1,357 @@
+V "GNAT Lib v14"
+A -O0
+A -gnatA
+A -gnatwa
+A -gnatQ
+A -gnata
+A -gnatf
+A -gnatyM120
+A -gnatyO
+A -gnat2012
+A -g
+A -gnateE
+A -fstack-check=specific
+A -mmacosx-version-min=16.0.0
+A -mcpu=apple-m1
+A -mlittle-endian
+A -mabi=lp64
+A -fPIC
+P ZX
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+RV NO_ELABORATION_CODE
+
+U khepri_governance%b	khepri_governance.adb	10a22522 OO PK
+W interfaces%s		interfac.ads		interfac.ali
+Z system.assertions%s	s-assert.adb		s-assert.ali
+
+U khepri_governance%s	khepri_governance.ads	aa20de5d EE NE OO PK
+W aegis_u256%s		aegis_u256.adb		aegis_u256.ali
+W aegis_vm_types%s	aegis_vm_types.ads	aegis_vm_types.ali
+W khepri_types%s	khepri_types.adb	khepri_types.ali
+
+D ada.ads		20240808082856 76789da1 ada%s
+D a-assert.ads		20240808082856 ba465f5c ada.assertions%s
+D a-unccon.ads		20240808082856 0e9b276f ada.unchecked_conversion%s
+D aegis_u256.ads	20251207191105 ff2dfe4b aegis_u256%s
+D aegis_vm_types.ads	20251207191105 dcd101d9 aegis_vm_types%s
+D interfac.ads		20240808082856 9111f9c1 interfaces%s
+D khepri_governance.ads	20251206202917 8f2fa3e2 khepri_governance%s
+D khepri_governance.adb	20251206023851 0e9c7f01 khepri_governance%b
+D khepri_types.ads	20251207191106 06f3822d khepri_types%s
+D system.ads		20240808082856 70765b54 system%s
+D s-assert.ads		20240808082856 9c4520c7 system.assertions%s
+D s-exctab.ads		20240808082856 91bef6ef system.exception_table%s
+D s-stalib.ads		20240808082856 1c9580f6 system.standard_library%s
+G a e
+G c Z s s [gov_configIP khepri_governance 125 9 none]
+G c Z s b [initialize khepri_governance 172 14 none]
+G c Z s b [get_config khepri_governance 184 13 none]
+G c Z s b [get_proposal_state khepri_governance 188 13 none]
+G c Z s b [get_proposal khepri_governance 192 13 none]
+G c Z s b [has_voted khepri_governance 196 13 none]
+G c Z s b [get_vote_receipt khepri_governance 200 13 none]
+G c Z s b [get_votes khepri_governance 207 13 none]
+G c Z s b [proposal_count khepri_governance 214 13 none]
+G c Z s b [current_block khepri_governance 218 13 none]
+G c Z s b [quorum khepri_governance 222 13 none]
+G c Z s b [propose khepri_governance 230 14 none]
+G c Z s b [cancel khepri_governance 242 14 none]
+G c Z s b [cast_vote khepri_governance 254 14 none]
+G c Z s b [cast_vote_with_reason khepri_governance 263 14 none]
+G c Z s b [queue khepri_governance 277 14 none]
+G c Z s b [execute khepri_governance 285 14 none]
+G c Z s b [set_voting_delay khepri_governance 297 14 none]
+G c Z s b [set_voting_period khepri_governance 305 14 none]
+G c Z s b [set_proposal_threshold khepri_governance 313 14 none]
+G c Z s b [hash_proposal khepri_governance 325 13 none]
+G c Z s s [descriptionIP khepri_governance 71 9 none]
+G c Z s s [target_entryIP khepri_governance 82 9 none]
+G c Z s s [Ttarget_arrayBIP khepri_governance 90 4 none]
+G c Z s s [vote_receiptIP khepri_governance 96 9 none]
+G c Z s s [proposal_coreIP khepri_governance 106 9 none]
+G c Z b b [proposal_entryIP khepri_governance 15 9 none]
+G c Z b b [Tproposal_arrayBIP khepri_governance 21 4 none]
+G c Z b b [vote_entryIP khepri_governance 23 9 none]
+G c Z b b [Tvote_arrayBIP khepri_governance 30 4 none]
+G c Z b b [find_proposal khepri_governance 76 13 none]
+G c Z b b [find_empty_proposal khepri_governance 86 13 none]
+G c Z b b [find_vote khepri_governance 96 13 none]
+G c Z b b [find_empty_vote khepri_governance 109 13 none]
+G c Z b b [compute_state khepri_governance 119 13 none]
+G r c none [get_proposal_state khepri_governance 188 13 none] [equal aegis_u256 31 13 none]
+G r c none [get_proposal_state khepri_governance 188 13 none] [less_than aegis_u256 36 13 none]
+G r c none [get_proposal khepri_governance 192 13 none] [equal aegis_u256 31 13 none]
+G r c none [has_voted khepri_governance 196 13 none] [equal aegis_u256 31 13 none]
+G r c none [get_vote_receipt khepri_governance 200 13 none] [equal aegis_u256 31 13 none]
+G r c none [get_votes khepri_governance 207 13 none] [from_word64 aegis_u256 155 13 none]
+G r c none [quorum khepri_governance 222 13 none] [from_word64 aegis_u256 155 13 none]
+G r c none [propose khepri_governance 230 14 none] [from_word64 aegis_u256 155 13 none]
+G r c none [propose khepri_governance 230 14 none] [less_than aegis_u256 36 13 none]
+G r c none [cancel khepri_governance 242 14 none] [equal aegis_u256 31 13 none]
+G r c none [cast_vote khepri_governance 254 14 none] [equal aegis_u256 31 13 none]
+G r c none [cast_vote khepri_governance 254 14 none] [less_than aegis_u256 36 13 none]
+G r c none [cast_vote khepri_governance 254 14 none] [from_word64 aegis_u256 155 13 none]
+G r c none [cast_vote khepri_governance 254 14 none] [add aegis_u256 64 14 none]
+G r c none [cast_vote_with_reason khepri_governance 263 14 none] [equal aegis_u256 31 13 none]
+G r c none [cast_vote_with_reason khepri_governance 263 14 none] [less_than aegis_u256 36 13 none]
+G r c none [cast_vote_with_reason khepri_governance 263 14 none] [from_word64 aegis_u256 155 13 none]
+G r c none [cast_vote_with_reason khepri_governance 263 14 none] [add aegis_u256 64 14 none]
+G r c none [queue khepri_governance 277 14 none] [equal aegis_u256 31 13 none]
+G r c none [queue khepri_governance 277 14 none] [less_than aegis_u256 36 13 none]
+G r c none [execute khepri_governance 285 14 none] [equal aegis_u256 31 13 none]
+G r c none [execute khepri_governance 285 14 none] [less_than aegis_u256 36 13 none]
+G r c none [hash_proposal khepri_governance 325 13 none] [from_word64 aegis_u256 155 13 none]
+G r c none [find_proposal khepri_governance 76 13 none] [equal aegis_u256 31 13 none]
+G r c none [find_vote khepri_governance 96 13 none] [equal aegis_u256 31 13 none]
+G r c none [compute_state khepri_governance 119 13 none] [less_than aegis_u256 36 13 none]
+X 4 aegis_u256.ads
+21K9*Aegis_U256 276e15 7|11w6 11r27
+31V13*Equal{boolean} 8|79s41 100s22
+36V13*Less_Than{boolean} 8|145s10 301s10
+64U14*Add 8|430s13 435s13 440s13
+155V13*From_Word64{5|41R9} 8|257s14 280s14 605s14
+X 5 aegis_vm_types.ads
+21K9*Aegis_VM_Types 279e19 7|10w6 10r27
+31M12*Byte{6|70M9}
+32A9*Byte_Array(31M12)<integer> 7|85r21
+35M12*Word64{6|84M9} 7|67r28 8|605r27
+41R9*U256 43e14 7|61r27 64r28 84r21 8|386r19
+46r4*U256_Zero{41R9} 7|144r29 8|42r27 46r28 56r27 57r27 58r27 66r18 68r74
+. 203r27 207r28 217r27 218r27 219r27 245r73 302r23 311r23 331r30 332r30 333r30
+70A9*Contract_Address(31M12)<integer>
+X 6 interfac.ads
+38K9*Interfaces 233e15 8|4w6 4r22
+70M9*Unsigned_8
+84M9*Unsigned_64
+X 7 khepri_governance.ads
+14K9*Khepri_Governance 332l5 332e22 8|6b14 608l5 608t22
+16@23*Gov_State 17r19 177r28 185r17 189r17 193r17 197r17 204r17 211r17 215r17
+. 219r17 223r17 239r28 248r28 261r28 271r28 283r28 291r28 303r28 311r28 319r28
+. 8|8r22
+24a4*Zero_Address{9|43A12} 141r29 178r26 8|37r31 43r27 45r28 67r18 171r24
+. 204r27 206r28
+26N4*Max_Proposals 8|21r39 122r18 223r42
+27N4*Max_Voters 8|30r35 242r42
+28N4*Max_Targets 80r47 240r33
+29N4*Max_Description 70r46 72r29
+35E9*Proposal_State 44e5 188r58 8|119r51 191r58
+36n7*State_Pending{35E9} 8|123r17 137r17 195r17
+37n7*State_Active{35E9} 8|141r17 396r39
+38n7*State_Canceled{35E9} 8|129r17
+39n7*State_Defeated{35E9} 8|146r17
+40n7*State_Succeeded{35E9} 8|158r14 483r34
+41n7*State_Queued{35E9} 8|152r20 154r20 515r34
+42n7*State_Expired{35E9}
+43n7*State_Executed{35E9} 8|133r17
+50E9*Vote_Type 54e5 98r19 257r24 266r24 8|379r24 453r24
+51n7*Vote_Against{50E9} 8|68r50 245r49 434r15
+52n7*Vote_For{50E9} 8|429r15
+53n7*Vote_Abstain{50E9} 8|439r15
+61R12*Proposal_ID{5|41R9} 107r24 188r38 192r32 196r29 201r15 235r29 244r24
+. 256r24 265r24 279r24 287r24 329r13 8|24r17 76r33 96r29 191r38 200r32 230r29
+. 237r15 292r29 346r24 378r24 452r24 470r24 496r24 600r13
+64R12*Voting_Power{5|41R9} 99r19 115r24 116r24 117r24 133r27 210r13 222r54
+. 315r30 8|252r13 276r54 297r21 385r19 576r30
+67M12*Block_Number{5|35M12} 111r24 112r24 129r27 131r27 137r27 209r22 218r34
+. 222r33 299r26 307r27 8|17r20 38r20 251r22 271r34 276r33 540r26 558r27
+70I12*Desc_Length{natural} 73r16
+71R9*Description 74e14 118r24 234r29 267r24 328r22 8|291r29 454r24 599r22
+72a7*Data{string} 8|59m28 220m28
+73i7*Length{70I12} 8|59m53 220m53
+80I12*Target_Index{natural} 90r32
+82R9*Target_Entry 88e14 90r49
+83a7*Target_Addr{9|43A12} 8|45m13 206m13
+84r7*Value{5|41R9} 8|46m13 207m13
+85a7*Calldata{5|32A9} 8|47m13 208m13
+86i7*Data_Length{natural} 8|48m13 209m13
+87b7*Used{boolean} 8|49m13 210m13
+90A9*Target_Array(82R9)<integer> 109r24 232r29 326r22 8|289r29 597r22
+96R9*Vote_Receipt 100e14 203r13 8|26r17 239r13
+97b7*Has_Voted{boolean} 8|68m19 233r65 245m18 423m22
+98e7*Support{50E9} 8|68m39 245m38 423m41
+99r7*Weight{64R12} 8|68m64 245m63 423m61
+106R9*Proposal_Core 119e14 192r52 8|16r14 120r11 200r52 202r24
+107r7*ID{61R12} 8|42m10 79r67 203m10 323m13
+108a7*Proposer{9|43A12} 8|43m10 204m10 324m13 359r42
+109a7*Targets{90A9} 8|44m10 205m10 325m13
+110i7*Target_Count{natural} 8|51m10 212m10 326m13
+111m7*Vote_Start{67M12} 8|52m10 136r28 213m10 327m13 410r63
+112m7*Vote_End{67M12} 8|53m10 140r29 214m10 328m13
+113b7*Executed{boolean} 8|54m10 132r12 215m10 329m13 509r32 529m29
+114b7*Canceled{boolean} 8|55m10 128r12 216m10 330m13 367m29
+115r7*For_Votes{64R12} 8|56m10 145r23 217m10 331m13 430r45 432m43
+116r7*Against_Votes{64R12} 8|57m10 145r36 218m10 332m13 435r45 437m43
+117r7*Abstain_Votes{64R12} 8|58m10 219m10 333m13 440r45 442m43
+118r7*Desc{71R9} 8|59m10 220m10 334m13
+125R9*Gov_Config 138e14 140r30 173r20 184r31 8|36r20 166r20 186r31
+127a7*Token_Addr{9|43A12} 141m7
+129m7*Voting_Delay{67M12} 142m7 8|327r59 328r59 551m20
+131m7*Voting_Period{67M12} 143m7 8|328r87 569m20
+133r7*Proposal_Threshold{64R12} 144m7 8|301r47 587m20
+135i7*Quorum_Numerator{natural} 145m7
+137m7*Timelock_Delay{67M12} 146m7 8|151r73 522r69
+140r4*Default_Config{125R9} 8|36r34
+153E9*Gov_Error 166e5 237r29 246r24 259r24 269r24 281r24 289r24 301r26 309r27
+. 317r30 8|294r29 348r24 381r24 456r24 472r24 498r24 542r26 560r27 578r30
+154n7*Error_None{153E9} 8|341r16 369r16 447r16 491r16 531r16 553r16 571r16
+. 589r16
+155n7*Error_Not_Authorized{153E9} 8|363r19 547r19 565r19 583r19
+156n7*Error_Invalid_State{153E9} 8|416r19
+157n7*Error_Already_Voted{153E9} 8|405r19
+158n7*Error_Proposal_Not_Found{153E9} 8|354r19 391r19 479r19 505r19
+159n7*Error_Below_Threshold{153E9} 8|304r19
+160n7*Error_Voting_Closed{153E9} 8|398r19
+161n7*Error_Not_Succeeded{153E9} 8|485r19
+162n7*Error_Already_Executed{153E9} 8|511r19
+163n7*Error_Timelock_Not_Ready{153E9} 8|517r19 524r19
+164n7*Error_Invalid_Proposal{153E9} 8|313r19
+165n7*Error_Quorum_Not_Reached{153E9}
+172U14*Initialize 173>7 174>7 175<7 8|165b14 180l8 180t18
+173r7 Config{125R9} 8|166b7 176r23
+174a7 Admin{9|43A12} 178r17 8|167b7 177r21
+175b7 Success{boolean} 8|168b7 172m10 179m7
+184V13*Get_Config{125R9} 8|186b13 189l8 189t18
+188V13*Get_Proposal_State{35E9} 188>33 8|191b13 198l8 198t26
+188r33 ID{61R12} 8|191b33 192r49
+192V13*Get_Proposal{106R9} 192>27 8|200b13 228l8 228t20
+192r27 ID{61R12} 8|200b27 201r49
+196V13*Has_Voted{boolean} 196>24 196>42 8|230b13 234l8 234t17 403s10
+196r24 ID{61R12} 8|230b24 231r45
+196a42 Voter{9|43A12} 8|230b42 231r49
+200V13*Get_Vote_Receipt{96R9} 201>7 202>7 8|236b13 247l8 247t24
+201r7 ID{61R12} 8|237b7 240r45
+202a7 Voter{9|43A12} 8|238b7 240r49
+207V13*Get_Votes{64R12} 208>7 209>7 8|249b13 258l8 258t17 300s22 410s17
+208a7 Account{9|43A12} 8|250b7 253r28
+209m7 Block_Num{67M12} 8|251b7 253r37
+214V13*Proposal_Count{natural} 8|260b13 269l8 269t22 605s35
+218V13*Current_Block{67M12} 8|271b13 274l8 274t21
+222V13*Quorum{64R12} 222>21 8|276b13 281l8 281t14
+222m21 Block_Num{67M12} 8|276b21 277r28
+230U14*Propose 231>7 232>7 233>7 234>7 235<7 236<7 237<7 8|287b14 342l8 342t15
+231a7 Caller{9|43A12} 8|288b7 300r33 324r30
+232a7 Targets{90A9} 8|289b7 318r35 325r30
+233i7 Target_Count{natural} 240r17 8|290b7 318r44 326r30
+234r7 Desc{71R9} 8|291b7 318r58 334r30
+235r7 Result_ID{61R12} 8|292b7 302m10 311m10 318m7 323r30
+236b7 Success{boolean} 8|293b7 303m10 312m10 340m7
+237e7 Error{153E9} 8|294b7 304m10 313m10 341m7
+242U14*Cancel 243>7 244>7 245<7 246<7 8|344b14 370l8 370t14
+243a7 Caller{9|43A12} 8|345b7 359r10 360r19
+244r7 ID{61R12} 8|346b7 350r49
+245b7 Success{boolean} 8|347b7 353m10 362m10 368m7
+246e7 Error{153E9} 8|348b7 354m10 363m10 369m7
+254U14*Cast_Vote 255>7 256>7 257>7 258<7 259<7 8|376b14 448l8 448t17 461s7
+255a7 Caller{9|43A12} 8|377b7 403r25 410r28 422r21
+256r7 ID{61R12} 8|378b7 383r54 403r21 421r21
+257e7 Support{50E9} 8|379b7 423r52 428r12
+258b7 Success{boolean} 8|380b7 390m10 397m10 404m10 415m10 446m7
+259e7 Error{153E9} 8|381b7 391m10 398m10 405m10 416m10 447m7
+263U14*Cast_Vote_With_Reason 264>7 265>7 266>7 267>7 268<7 269<7 8|450b14
+. 462l8 462t29
+264a7 Caller{9|43A12} 8|451b7 461r18
+265r7 ID{61R12} 8|452b7 461r26
+266e7 Support{50E9} 8|453b7 461r30
+267r7 Reason{71R9} 8|454b7 458r28
+268b7 Success{boolean} 8|455b7 461m39
+269e7 Error{153E9} 8|456b7 461m48
+277U14*Queue 278>7 279>7 280<7 281<7 8|468b14 492l8 492t13
+278a7 Caller{9|43A12} 8|469b7 474r28
+279r7 ID{61R12} 8|470b7 475r49
+280b7 Success{boolean} 8|471b7 478m10 484m10 490m7
+281e7 Error{153E9} 8|472b7 479m10 485m10 491m7
+285U14*Execute 286>7 287>7 288<7 289<7 8|494b14 532l8 532t15
+286a7 Caller{9|43A12} 8|495b7 500r28
+287r7 ID{61R12} 8|496b7 501r49
+288b7 Success{boolean} 8|497b7 504m10 510m10 516m10 523m10 530m7
+289e7 Error{153E9} 8|498b7 505m10 511m10 517m10 524m10 531m7
+297U14*Set_Voting_Delay 298>7 299>7 300<7 301<7 8|538b14 554l8 554t24
+298a7 Caller{9|43A12} 8|539b7 545r10
+299m7 New_Delay{67M12} 8|540b7 551r36
+300b7 Success{boolean} 8|541b7 546m10 552m7
+301e7 Error{153E9} 8|542b7 547m10 553m7
+305U14*Set_Voting_Period 306>7 307>7 308<7 309<7 8|556b14 572l8 572t25
+306a7 Caller{9|43A12} 8|557b7 563r10
+307m7 New_Period{67M12} 8|558b7 569r37
+308b7 Success{boolean} 8|559b7 564m10 570m7
+309e7 Error{153E9} 8|560b7 565m10 571m7
+313U14*Set_Proposal_Threshold 314>7 315>7 316<7 317<7 8|574b14 590l8 590t30
+314a7 Caller{9|43A12} 8|575b7 581r10
+315r7 New_Threshold{64R12} 8|576b7 587r42
+316b7 Success{boolean} 8|577b7 582m10 588m7
+317e7 Error{153E9} 8|578b7 583m10 589m7
+325V13*Hash_Proposal{61R12} 326>7 327>7 328>7 8|318s20 596b13 606l8 606t21
+326a7 Targets{90A9} 8|597b7 601r28
+327i7 Target_Count{natural} 8|598b7 601r37
+328r7 Desc{71R9} 8|599b7 601r51
+X 8 khepri_governance.adb
+15R9 Proposal_Entry 19e14 21r61
+16r7*Core{7|106R9} 41m7 79r62 126r29 224r34 322m10 359r37 367m24 410r58 430r40
+. 432m38 435r40 437m38 440r40 442m38 509r27 529m24
+17m7*Queue_Time{7|67M12} 61m7 150r27 151r47 336m10 489m24 522r43
+18b7*Used{boolean} 62m7 79r27 89r31 122r61 264r27 337m10
+21A9 Proposal_Array(15R9)<integer> 40r16
+23R9 Vote_Entry 28e14 30r54
+24r7*Prop_ID{7|61R12} 66m7 100r39 421m10
+25a7*Voter{9|43A12} 67m7 101r32 422m10
+26r7*Receipt{7|96R9} 68m7 233r57 243r30 423m10
+27b7*Used{boolean} 69m7 99r23 112r27 424m10
+30A9 Vote_Array(23R9)<integer> 65r12
+36r4 Config_Store{7|125R9} 8r36 151r60 176m7 188r14 301r34 327r46 328r46
+. 328r74 522r56 551m7 569m7 587m7
+37a4 Admin_Addr{9|43A12} 8r83 171r10 177m7 360r29 545r20 563r20 581r20
+38m4 Block_Counter{7|67M12} 8r68 136r10 140r10 151r13 178m7 273r14 300r41
+. 327r30 328r30 489r38 522r10
+40a4 Proposals{21A9} 8r50 78r16 79r13 79r48 88r16 89r17 122r44 126r12 150r10
+. 151r30 224r17 263r16 264r13 321m7 359r20 367m7 410r36 430r18 432m16 435r18
+. 437m16 440r18 442m16 489m7 509r10 522r26 529m7
+65a4 Votes{30A9} 8r61 98r16 99r13 100r29 101r22 111r16 112r17 233r44 243r17
+. 420m7
+76V13 Find_Proposal{natural} 76b13 76>28 84l8 84t21 192s34 201s34 350s34
+. 383s39 475s34 501s34
+76r28 ID{7|61R12} 79r71
+78i11 I{integer} 79r24 79r59 80r20
+86V13 Find_Empty_Proposal{natural} 86b13 94l8 94t27 309s15
+88i11 I{integer} 89r28 90r20
+96V13 Find_Vote{natural} 96b13 96>24 96>42 107l8 107t17 231s34 240s34
+96r24 ID{7|61R12} 100r48
+96a42 Voter{9|43A12} 101r40
+98i11 I{integer} 99r20 100r36 101r29 103r20
+109V13 Find_Empty_Vote{natural} 109b13 117l8 117t23 413s20
+111i11 I{integer} 112r24 113r20
+119V13 Compute_State{7|35E9} 119b13 119>28 159l8 159t21 197s14 396s10 483s10
+. 515s10
+119i28 Slot{natural} 122r10 122r55 126r23 150r21 151r41
+120r7 P{7|106R9} 126m7 128r10 132r10 136r26 140r27 145r21 145r34
+192i7 Slot{natural} 194r10 197r29
+201i7 Slot{natural} 223r10 223r35 224r28
+202r7 Empty{7|106R9} 226r17
+231i7 Slot{natural} 233r14 233r51
+240i7 Slot{natural} 242r10 242r35 243r24
+261i7 Count{natural} 265m13 265r22 268r14
+263i11 I{integer} 264r24
+296i7 Slot{natural} 309m7 310r10 321r18
+297r7 Voter_Power{7|64R12} 300m7 301r21
+350i7 Slot{natural} 352r10 359r31 367r18
+383i7 Prop_Slot{natural} 389r10 396r25 410r47 430r29 432r27 435r29 437r27
+. 440r29 442r27
+384i7 Vote_Slot{natural} 413m7 414r10 420r14
+385r7 Weight{7|64R12} 410m7 423r71 430r56 435r60 440r60
+386r7 New_Total{5|41R9} 430m64 432r56 435m68 437r60 440m68 442r60
+387b7 Overflow{boolean} 430m75 431r20 435m79 436r20 440m79 441r20
+475i7 Slot{natural} 477r10 483r25 489r18
+501i7 Slot{natural} 503r10 509r21 515r25 522r37 529r18
+X 9 khepri_types.ads
+25K9*Khepri_Types 7|12w6 12r27 9|345e17
+43A12*Address{5|70A9}<integer> 7|24r28 83r21 108r24 127r27 174r20 196r50
+. 202r15 208r22 231r29 243r24 255r24 264r24 278r24 286r24 298r26 306r27 314r30
+. 8|25r17 37r20 96r50 167r20 230r50 238r15 250r22 288r29 345r24 377r24 451r24
+. 469r24 495r24 539r26 557r27 575r30
+46a4*Null_Address{43A12} 7|24r39
+

@@ -1,0 +1,6 @@
+khepri_fuzzer.adb:4:06: warning: no entities of "Aegis_U256" are referenced [-gnatwu]
+khepri_fuzzer.adb:4:18: warning: use clause for package "Aegis_U256" has no effect [-gnatwu]
+khepri_fuzzer.adb:334:36: warning: writable actual for "Session" overlaps with actual for "State" [-gnatw.i]
+khepri_fuzzer.adb:440:07: warning: formal parameter "Session" is not referenced [-gnatwf]
+khepri_fuzzer.adb:461:07: warning: formal parameter "Session" is not referenced [-gnatwf]
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]

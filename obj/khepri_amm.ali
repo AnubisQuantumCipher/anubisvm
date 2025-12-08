@@ -1,0 +1,530 @@
+V "GNAT Lib v14"
+A -O0
+A -gnatA
+A -gnatwa
+A -gnatQ
+A -gnata
+A -gnatf
+A -gnatyM120
+A -gnatyO
+A -gnat2012
+A -g
+A -gnateE
+A -fstack-check=specific
+A -mmacosx-version-min=16.0.0
+A -mcpu=apple-m1
+A -mlittle-endian
+A -mabi=lp64
+A -fPIC
+P ZX
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+RV NO_ELABORATION_CODE
+
+U khepri_amm%b		khepri_amm.adb		f848a437 OO PK
+W interfaces%s		interfac.ads		interfac.ali
+Z system.assertions%s	s-assert.adb		s-assert.ali
+
+U khepri_amm%s		khepri_amm.ads		fcf09b82 EE NE OO PK
+W aegis_u256%s		aegis_u256.adb		aegis_u256.ali
+W aegis_vm_types%s	aegis_vm_types.ads	aegis_vm_types.ali
+W khepri_types%s	khepri_types.adb	khepri_types.ali
+
+D ada.ads		20240808082856 76789da1 ada%s
+D a-assert.ads		20240808082856 ba465f5c ada.assertions%s
+D a-unccon.ads		20240808082856 0e9b276f ada.unchecked_conversion%s
+D aegis_u256.ads	20251207191105 ff2dfe4b aegis_u256%s
+D aegis_vm_types.ads	20251207191105 dcd101d9 aegis_vm_types%s
+D interfac.ads		20240808082856 9111f9c1 interfaces%s
+D khepri_amm.ads	20251206202917 d9ffe63d khepri_amm%s
+D khepri_amm.adb	20251206032322 b0a6bbcb khepri_amm%b
+D khepri_types.ads	20251207191106 06f3822d khepri_types%s
+D system.ads		20240808082856 70765b54 system%s
+D s-assert.ads		20240808082856 9c4520c7 system.assertions%s
+D s-exctab.ads		20240808082856 91bef6ef system.exception_table%s
+D s-stalib.ads		20240808082856 1c9580f6 system.standard_library%s
+G a e
+G c Z s b [create_pool khepri_amm 91 14 none]
+G c Z s b [get_pool khepri_amm 103 13 none]
+G c Z s b [get_reserves khepri_amm 111 14 none]
+G c Z s b [get_config khepri_amm 120 14 none]
+G c Z s b [add_liquidity khepri_amm 133 14 none]
+G c Z s b [remove_liquidity khepri_amm 152 14 none]
+G c Z s b [swap_exact_input khepri_amm 171 14 none]
+G c Z s b [swap_exact_output khepri_amm 185 14 none]
+G c Z s b [flash_swap khepri_amm 203 14 none]
+G c Z s b [get_amount_out khepri_amm 220 13 none]
+G c Z s b [get_amount_in khepri_amm 232 13 none]
+G c Z s b [get_spot_price khepri_amm 245 13 none]
+G c Z s b [get_twap khepri_amm 253 14 none]
+G c Z s b [get_lp_supply khepri_amm 267 13 none]
+G c Z s b [get_lp_balance khepri_amm 272 13 none]
+G c Z s b [quote_liquidity khepri_amm 280 13 none]
+G c Z s b [get_tvl khepri_amm 293 14 none]
+G c Z s b [get_volume_24h khepri_amm 302 14 none]
+G c Z s b [get_fees khepri_amm 311 14 none]
+G c Z s b [set_fee khepri_amm 324 14 none]
+G c Z s b [transfer_ownership khepri_amm 335 14 none]
+G c Z s s [pool_reservesIP khepri_amm 51 9 none]
+G c Z s s [pool_configIP khepri_amm 59 9 none]
+G c Z s s [swap_eventIP khepri_amm 347 9 none]
+G c Z s s [mint_eventIP khepri_amm 357 9 none]
+G c Z s s [burn_eventIP khepri_amm 364 9 none]
+G c Z s s [sync_eventIP khepri_amm 372 9 none]
+G c Z b b [pool_entryIP khepri_amm 15 9 none]
+G c Z b b [Tpool_arrayBIP khepri_amm 20 4 none]
+G c Z b b [Tconfig_arrayBIP khepri_amm 21 4 none]
+G c Z b b [lp_entryIP khepri_amm 25 9 none]
+G c Z b b [Tlp_arrayBIP khepri_amm 32 4 none]
+G c Z b b [find_lp_entry khepri_amm 69 13 none]
+G c Z b b [find_empty_lp_entry khepri_amm 85 13 none]
+G c Z b b [order_tokens khepri_amm 96 14 none]
+G c Z b b [sqrt khepri_amm 121 13 none]
+G r c none [add_liquidity khepri_amm 133 14 none] [equal aegis_u256 31 13 none]
+G r c none [add_liquidity khepri_amm 133 14 none] [add aegis_u256 64 14 none]
+G r c none [add_liquidity khepri_amm 133 14 none] [mul aegis_u256 89 14 none]
+G r c none [add_liquidity khepri_amm 133 14 none] [from_word64 aegis_u256 155 13 none]
+G r c none [add_liquidity khepri_amm 133 14 none] [div aegis_u256 111 13 none]
+G r c none [add_liquidity khepri_amm 133 14 none] [shift_right aegis_u256 146 13 none]
+G r c none [add_liquidity khepri_amm 133 14 none] [less_than_or_equal aegis_u256 40 13 none]
+G r c none [add_liquidity khepri_amm 133 14 none] [sub aegis_u256 76 14 none]
+G r c none [add_liquidity khepri_amm 133 14 none] [less_than aegis_u256 36 13 none]
+G r c none [remove_liquidity khepri_amm 152 14 none] [equal aegis_u256 31 13 none]
+G r c none [remove_liquidity khepri_amm 152 14 none] [add aegis_u256 64 14 none]
+G r c none [remove_liquidity khepri_amm 152 14 none] [mul aegis_u256 89 14 none]
+G r c none [remove_liquidity khepri_amm 152 14 none] [div aegis_u256 111 13 none]
+G r c none [remove_liquidity khepri_amm 152 14 none] [less_than aegis_u256 36 13 none]
+G r c none [remove_liquidity khepri_amm 152 14 none] [sub aegis_u256 76 14 none]
+G r c none [swap_exact_input khepri_amm 171 14 none] [equal aegis_u256 31 13 none]
+G r c none [swap_exact_input khepri_amm 171 14 none] [from_word64 aegis_u256 155 13 none]
+G r c none [swap_exact_input khepri_amm 171 14 none] [mul aegis_u256 89 14 none]
+G r c none [swap_exact_input khepri_amm 171 14 none] [add aegis_u256 64 14 none]
+G r c none [swap_exact_input khepri_amm 171 14 none] [div aegis_u256 111 13 none]
+G r c none [swap_exact_input khepri_amm 171 14 none] [less_than aegis_u256 36 13 none]
+G r c none [swap_exact_input khepri_amm 171 14 none] [sub aegis_u256 76 14 none]
+G r c none [swap_exact_output khepri_amm 185 14 none] [equal aegis_u256 31 13 none]
+G r c none [swap_exact_output khepri_amm 185 14 none] [greater_than_or_equal aegis_u256 50 13 none]
+G r c none [swap_exact_output khepri_amm 185 14 none] [less_than aegis_u256 36 13 none]
+G r c none [swap_exact_output khepri_amm 185 14 none] [mul aegis_u256 89 14 none]
+G r c none [swap_exact_output khepri_amm 185 14 none] [from_word64 aegis_u256 155 13 none]
+G r c none [swap_exact_output khepri_amm 185 14 none] [sub aegis_u256 76 14 none]
+G r c none [swap_exact_output khepri_amm 185 14 none] [div aegis_u256 111 13 none]
+G r c none [swap_exact_output khepri_amm 185 14 none] [add aegis_u256 64 14 none]
+G r c none [swap_exact_output khepri_amm 185 14 none] [greater_than aegis_u256 45 13 none]
+G r c none [get_amount_out khepri_amm 220 13 none] [equal aegis_u256 31 13 none]
+G r c none [get_amount_out khepri_amm 220 13 none] [from_word64 aegis_u256 155 13 none]
+G r c none [get_amount_out khepri_amm 220 13 none] [mul aegis_u256 89 14 none]
+G r c none [get_amount_out khepri_amm 220 13 none] [add aegis_u256 64 14 none]
+G r c none [get_amount_out khepri_amm 220 13 none] [div aegis_u256 111 13 none]
+G r c none [get_amount_in khepri_amm 232 13 none] [equal aegis_u256 31 13 none]
+G r c none [get_amount_in khepri_amm 232 13 none] [less_than aegis_u256 36 13 none]
+G r c none [get_amount_in khepri_amm 232 13 none] [mul aegis_u256 89 14 none]
+G r c none [get_amount_in khepri_amm 232 13 none] [from_word64 aegis_u256 155 13 none]
+G r c none [get_amount_in khepri_amm 232 13 none] [sub aegis_u256 76 14 none]
+G r c none [get_amount_in khepri_amm 232 13 none] [div aegis_u256 111 13 none]
+G r c none [get_amount_in khepri_amm 232 13 none] [add aegis_u256 64 14 none]
+G r c none [get_spot_price khepri_amm 245 13 none] [equal aegis_u256 31 13 none]
+G r c none [get_spot_price khepri_amm 245 13 none] [from_word64 aegis_u256 155 13 none]
+G r c none [get_spot_price khepri_amm 245 13 none] [mul aegis_u256 89 14 none]
+G r c none [get_spot_price khepri_amm 245 13 none] [div aegis_u256 111 13 none]
+G r c none [get_twap khepri_amm 253 14 none] [equal aegis_u256 31 13 none]
+G r c none [get_twap khepri_amm 253 14 none] [from_word64 aegis_u256 155 13 none]
+G r c none [get_twap khepri_amm 253 14 none] [mul aegis_u256 89 14 none]
+G r c none [get_twap khepri_amm 253 14 none] [div aegis_u256 111 13 none]
+G r c none [get_lp_supply khepri_amm 267 13 none] [add aegis_u256 64 14 none]
+G r c none [quote_liquidity khepri_amm 280 13 none] [equal aegis_u256 31 13 none]
+G r c none [quote_liquidity khepri_amm 280 13 none] [mul aegis_u256 89 14 none]
+G r c none [quote_liquidity khepri_amm 280 13 none] [from_word64 aegis_u256 155 13 none]
+G r c none [quote_liquidity khepri_amm 280 13 none] [div aegis_u256 111 13 none]
+G r c none [quote_liquidity khepri_amm 280 13 none] [add aegis_u256 64 14 none]
+G r c none [quote_liquidity khepri_amm 280 13 none] [shift_right aegis_u256 146 13 none]
+G r c none [quote_liquidity khepri_amm 280 13 none] [less_than_or_equal aegis_u256 40 13 none]
+G r c none [sqrt khepri_amm 121 13 none] [equal aegis_u256 31 13 none]
+G r c none [sqrt khepri_amm 121 13 none] [from_word64 aegis_u256 155 13 none]
+G r c none [sqrt khepri_amm 121 13 none] [div aegis_u256 111 13 none]
+G r c none [sqrt khepri_amm 121 13 none] [add aegis_u256 64 14 none]
+G r c none [sqrt khepri_amm 121 13 none] [shift_right aegis_u256 146 13 none]
+G r c none [sqrt khepri_amm 121 13 none] [less_than_or_equal aegis_u256 40 13 none]
+X 4 aegis_u256.ads
+21K9*Aegis_U256 276e15 7|18w6 18r30
+31V13*Equal{boolean} 7|147s21 148s21 164s21 182s21 196s21 227s21 228s21 239s21
+. 240s21 250s21 8|127s10 135s17 141s20 316s10 316s47 373s10 452s10 720s24
+. 754s10 854s10
+36V13*Less_Than{boolean} 7|242s17 8|338s16 349s16 365s16 465s10 466s10 483s10
+. 551s10
+40V13*Less_Than_Or_Equal{boolean} 8|140s16 337s13
+45V13*Greater_Than{boolean} 8|632s10
+50V13*Greater_Than_Or_Equal{boolean} 8|625s10
+64U14*Add 8|137s13 379s7 386s7 408s10 558s7 639s7 718s7 760s7 823s13
+76U14*Sub 8|322s10 490s7 494s7 497s7 565s7 646s7 748s7
+89U14*Mul 8|318s10 334s10 346s13 358s10 363s13 458s7 461s7 710s7 714s7 717s7
+. 744s7 745s7 752s7 776s7 856s10 859s10
+111V13*Div{5|41R9} 8|136s21 335s22 347s25 360s36 364s20 459s18 462s18 724s14
+. 759s15 777s14 860s17
+146V13*Shift_Right{5|41R9} 8|138s18
+155V13*From_Word64{5|41R9} 8|132s12 322s26 710s23 717s24 745s18 752s18 776s22
+X 5 aegis_vm_types.ads
+21K9*Aegis_VM_Types 279e19 7|17w6 17r30
+31M12*Byte{6|70M9}
+35M12*Word64{6|84M9} 7|55r20 8|322r39 710r36 717r37 745r31 752r31
+41R9*U256 43e14 7|52r20 53r20 54r20 113r25 114r25 135r30 136r30 137r30 138r30
+. 140r30 141r30 142r30 154r28 155r28 156r28 158r28 159r28 173r30 174r30 177r30
+. 187r30 188r30 191r30 205r27 206r27 221r21 222r21 223r21 225r13 233r21 234r21
+. 235r21 237r13 246r18 247r18 248r13 256r24 257r24 267r51 275r13 281r20 282r20
+. 283r20 284r20 285r13 295r24 296r24 304r24 305r24 313r24 314r24 350r20 351r20
+. 352r21 353r21 360r17 361r17 367r17 368r17 374r18 375r18 8|28r17 121r27
+. 121r40 122r16 123r16 124r16 235r25 236r25 280r30 281r30 282r30 283r30 285r30
+. 286r30 287r30 291r21 292r21 293r21 294r21 295r21 296r21 297r21 360r28 361r19
+. 421r28 422r28 423r28 425r28 426r28 430r19 431r19 432r19 433r19 434r19 509r31
+. 510r31 513r31 517r20 518r20 519r20 520r21 522r20 523r21 524r20 586r30 587r30
+. 590r30 594r21 595r21 596r21 597r21 599r21 600r21 666r27 667r27 694r21 695r21
+. 696r21 698r13 699r28 700r28 701r28 702r28 703r28 728r21 729r21 730r21 732r13
+. 733r21 734r21 735r21 736r21 769r18 770r18 771r13 772r14 773r14 783r24 784r24
+. 812r51 813r15 814r15 836r13 846r19 847r19 848r19 849r19 850r13 851r14 852r14
+. 870r24 871r24 889r24 890r24 902r24 903r24
+46r4*U256_Zero{41R9} 7|147r37 148r37 164r39 182r39 196r40 227r40 228r41 239r40
+. 240r41 250r38 8|40r24 41r24 42r24 59r18 127r24 128r17 135r27 148r20 187r33
+. 188r33 189r33 241r22 242r22 301r20 302r18 303r18 316r27 316r64 373r28 438r18
+. 439r18 452r28 469r21 470r21 478r21 479r21 485r21 486r21 527r21 553r24 561r24
+. 568r24 603r20 634r23 642r23 720r44 721r17 754r30 790r17 791r17 813r23 818r17
+. 840r17 854r28 876r18 877r18 895r18 896r18 908r16 909r16
+47r4*U256_One{41R9} 8|760r18
+48r4*U256_Max{41R9} 8|750r17 755r17 762r17
+56A9*Hash256(31M12)<integer> 7|209r27 8|670r27
+70A9*Contract_Address(31M12)<integer>
+X 6 interfac.ads
+38K9*Interfaces 233e15 8|4w6 4r22
+70M9*Unsigned_8
+84M9*Unsigned_64
+X 7 khepri_amm.ads
+21K9*Khepri_AMM 378l5 378e15 8|6b14 963l5 963t15
+23@23*Pool_State 24r19 99r28 107r17 117r17 125r17 146r28 163r28 181r28 195r28
+. 213r28 260r17 268r17 276r17 299r17 308r17 317r17 331r28 341r28 8|8r22
+32N4*Fee_Denominator 100r23 229r23 241r23 332r27 8|710r44 717r45 745r39 752r39
+35N4*Default_Swap_Fee 8|52r19
+38N4*Minimum_Liquidity 8|322r47
+41N4*Max_Pools 47r43
+47I9*Pool_ID<integer> 48r25 95r24 106r13 112r25 121r24 134r30 153r28 172r30
+. 186r30 204r27 254r24 267r35 273r17 294r24 303r24 312r24 325r24 336r26 348r20
+. 358r17 365r17 373r18 8|20r30 21r32 26r17 70r17 162r24 182r16 182r35 216r13
+. 221r16 221r35 234r25 253r24 279r30 420r28 508r31 585r30 665r27 781r24 812r35
+. 834r17 869r24 888r24 901r24 918r24 943r26
+48i4*Null_Pool{47I9} 8|57r18 168r15 176r43 230r14 240r17 258r17 307r17 443r17
+. 531r17 607r17 678r17 794r18 817r17 875r17 928r17 951r17
+51R9*Pool_Reserves 56e14 8|16r18
+52r7*Reserve0{5|41R9} 8|40m10 187m19 247r41 312r41 384m29 448r41 495m29 536r41
+. 574m35 578m35 612r41 650m35 654m35 797r35 802r35 882r37
+53r7*Reserve1{5|41R9} 8|41m10 188m19 248r41 313r41 391m29 449r41 498m29 537r41
+. 575m35 577m35 613r41 651m35 653m35 798r35 801r35 883r37
+54r7*K_Last{5|41R9} 8|42m10 189m19
+55m7*Block_Last{5|35M12} 8|43m10 190m19
+59R9*Pool_Config 65e14 122r24 8|21r44 254r24
+60a7*Token0{9|43A12} 8|49m7 196m16 223r30 260m13
+61a7*Token1{9|43A12} 8|50m7 197m16 224r30 261m13
+62a7*LP_Token{9|43A12} 8|51m7 198m16 262m13
+63i7*Fee{natural} 8|52m7 199m16 263m13 538r34 614r34 938m27
+64a7*Owner{9|43A12} 8|53m7 200m16 264m13 933r30 955r30 959m27
+68E9*Swap_Direction 68e63 175r30 189r30 8|511r31 588r30
+68n28*Token0_To_Token1{68E9} 8|541r15 573r15 617r15 649r15
+68n46*Token1_To_Token0{68E9} 8|544r15 576r15 620r15 652r15
+71E9*AMM_Error 84e5 97r24 144r30 161r28 179r30 193r30 211r27 329r24 8|164r24
+. 289r30 428r28 515r31 592r30 672r27 922r24
+72n7*Error_None{71E9} 8|170r16 305r16 441r16 529r16 605r16 676r16 926r16
+73n7*Error_Pool_Not_Found{71E9} 8|210r16 308r19 444r19 532r19 608r19 679r19
+. 929r19
+74n7*Error_Pool_Already_Exists{71E9} 8|177r19
+75n7*Error_Insufficient_Liquidity{71E9} 8|324r22 374r19 453r19 477r19 484r19
+. 567r19 626r19
+76n7*Error_Insufficient_Input{71E9}
+77n7*Error_Insufficient_Output{71E9}
+78n7*Error_Slippage_Exceeded{71E9} 8|339r25 350r25 468r19 552r19 633r19
+79n7*Error_Zero_Amount{71E9}
+80n7*Error_Invalid_Token{71E9} 8|934r19
+81n7*Error_Overflow{71E9} 8|381r19 388r19 398r22 410r22 560r19 641r19
+82n7*Error_K_Invariant_Violated{71E9}
+83n7*Error_Flash_Callback_Failed{71E9} 8|686r16
+91U14*Create_Pool 92>7 93>7 94>7 95<7 96<7 97<7 8|158b14 211l8 211t19
+92a7 Token0{9|43A12} 8|159b7 173r21
+93a7 Token1{9|43A12} 8|160b7 173r29
+94i7 Fee{natural} 100r17 8|161b7 199r28
+95i7 Pool{47I9} 8|162b7 168m7 203m13
+96b7 Success{boolean} 8|163b7 169m7 205m13
+97e7 Error{71E9} 8|164b7 170m7 177m10 210m7
+103V13*Get_Pool{47I9} 104>7 105>7 8|176s10 213b13 231l8 231t16
+104a7 Token0{9|43A12} 8|214b7 219r21
+105a7 Token1{9|43A12} 8|215b7 219r29
+111U14*Get_Reserves 112>7 113<7 114<7 115<7 8|233b14 250l8 250t20
+112i7 Pool{47I9} 8|234b7 240r10 240r46 247r26 248r26
+113r7 Reserve0{5|41R9} 8|235b7 241m10 247m7
+114r7 Reserve1{5|41R9} 8|236b7 242m10 248m7
+115b7 Success{boolean} 8|237b7 243m10 249m7
+120U14*Get_Config 121>7 122<7 123<7 8|252b14 272l8 272t18
+121i7 Pool{47I9} 8|253b7 258r10 258r46 270r31
+122r7 Config{59R9} 8|254b7 259m10 270m7
+123b7 Success{boolean} 8|255b7 266m10 271m7
+133U14*Add_Liquidity 134>7 135>7 136>7 137>7 138>7 139>7 140<7 141<7 142<7
+. 143<7 144<7 8|278b14 417l8 417t21
+134i7 Pool{47I9} 8|279b7 307r10 307r46 312r26 313r26 314r35 384r14 391r14
+. 394r32 402r24
+135r7 Amount0{5|41R9} 147r28 8|280b7 318r15 329r21 334r15 342r24
+136r7 Amount1{5|41R9} 148r28 8|281b7 318r24 330r21 337r43 346r18 354r24
+137r7 Amount0_Min{5|41R9} 8|282b7 349r37
+138r7 Amount1_Min{5|41R9} 8|283b7 338r37
+139a7 To{9|43A12} 8|284b7 394r38 403r24
+140r7 LP_Minted{5|41R9} 8|285b7 301m7 319m10 322r15 327m10 366m16 368m16
+. 373r17 404r24 408r45
+141r7 Actual0{5|41R9} 8|286b7 302m7 329m10 342m13 353m13 358r15 379r22
+142r7 Actual1{5|41R9} 8|287b7 303m7 330m10 343m13 354m13 363r18 386r22
+143b7 Success{boolean} 8|288b7 304m7 416m7
+144e7 Error{71E9} 8|289b7 305m7 308m10 324m13 339m16 350m16 374m10 381m10
+. 388m10 398m13 410m13
+152U14*Remove_Liquidity 153>7 154>7 155>7 156>7 157>7 158<7 159<7 160<7 161<7
+. 8|419b14 501l8 501t24
+153i7 Pool{47I9} 8|420b7 443r10 443r46 448r26 449r26 450r35 475r32 495r14
+. 498r14
+154r7 LP_Amount{5|41R9} 164r28 8|421b7 458r12 461r12 483r51 490r42
+155r7 Amount0_Min{5|41R9} 8|422b7 465r30
+156r7 Amount1_Min{5|41R9} 8|423b7 466r30
+157a7 To{9|43A12} 8|424b7 475r38
+158r7 Amount0{5|41R9} 8|425b7 438m7 459m7 465r21 469m10 478m10 485m10 494r22
+159r7 Amount1{5|41R9} 8|426b7 439m7 462m7 466r21 470m10 479m10 486m10 497r22
+160b7 Success{boolean} 8|427b7 440m7 500m7
+161e7 Error{71E9} 8|428b7 441m7 444m10 453m10 468m10 477m10 484m10
+171U14*Swap_Exact_Input 172>7 173>7 174>7 175>7 176>7 177<7 178<7 179<7 8|507b14
+. 582l8 582t24
+172i7 Pool{47I9} 8|508b7 531r10 531r46 536r26 537r26 538r28 574r20 575r20
+. 577r20 578r20
+173r7 Amount_In{5|41R9} 182r28 8|509b7 549r37 558r24
+174r7 Amount_Out_Min{5|41R9} 8|510b7 551r33
+175e7 Direction{68E9} 8|511b7 540r12 572r12
+176a7 To{9|43A12} 8|512b7
+177r7 Amount_Out{5|41R9} 8|513b7 527m7 549m7 551r21 553m10 561m10 565r25
+. 568m10
+178b7 Success{boolean} 8|514b7 528m7 581m7
+179e7 Error{71E9} 8|515b7 529m7 532m10 552m10 560m10 567m10
+185U14*Swap_Exact_Output 186>7 187>7 188>7 189>7 190>7 191<7 192<7 193<7
+. 8|584b14 658l8 658t25
+186i7 Pool{47I9} 8|585b7 607r10 607r46 612r26 613r26 614r28 650r20 651r20
+. 653r20 654r20
+187r7 Amount_Out{5|41R9} 196r28 8|586b7 625r33 630r35 646r25
+188r7 Amount_In_Max{5|41R9} 8|587b7 632r35
+189e7 Direction{68E9} 8|588b7 616r12 648r12
+190a7 To{9|43A12} 8|589b7
+191r7 Amount_In{5|41R9} 8|590b7 603m7 630m7 632r24 634m10 639r24 642m10
+192b7 Success{boolean} 8|591b7 604m7 657m7
+193e7 Error{71E9} 8|592b7 605m7 608m10 626m10 633m10 641m10
+203U14*Flash_Swap 204>7 205>7 206>7 207>7 208>7 209>7 210<7 211<7 8|664b14
+. 687l8 687t18
+204i7 Pool{47I9} 8|665b7 678r10 678r46
+205r7 Amount0{5|41R9} 8|666b7
+206r7 Amount1{5|41R9} 8|667b7
+207a7 Recipient{9|43A12} 8|668b7
+208a7 Callback{9|43A12} 8|669b7
+209a7 Data{5|56A9} 8|670b7
+210b7 Success{boolean} 8|671b7 675m7
+211e7 Error{71E9} 8|672b7 676m7 679m10 686m7
+220V13*Get_Amount_Out{5|41R9} 221>7 222>7 223>7 224>7 8|549s21 693b13 725l8
+. 725t22
+221r7 Amount_In{5|41R9} 8|694b7 710r12
+222r7 Reserve_In{5|41R9} 227r28 8|695b7 717r12
+223r7 Reserve_Out{5|41R9} 228r28 8|696b7 714r32
+224i7 Fee{natural} 229r17 8|697b7 710r62
+232V13*Get_Amount_In{5|41R9} 233>7 234>7 235>7 236>7 8|630s20 727b13 766l8
+. 766t21
+233r7 Amount_Out{5|41R9} 242r28 8|728b7 744r24 748r25
+234r7 Reserve_In{5|41R9} 239r28 8|729b7 744r12
+235r7 Reserve_Out{5|41R9} 240r28 242r40 8|730b7 748r12
+236i7 Fee{natural} 241r17 8|731b7 752r57
+245V13*Get_Spot_Price{5|41R9} 246>7 247>7 8|768b13 778l8 778t22 796s20 800s20
+246r7 Reserve0{5|41R9} 250r28 8|769b7 777r25
+247r7 Reserve1{5|41R9} 8|770b7 776r12
+253U14*Get_TWAP 254>7 255>7 256<7 257<7 258<7 8|780b14 806l8 806t16
+254i7 Pool{47I9} 8|781b7 794r10 794r44 797r20 798r20 801r20 802r20
+255i7 Window{natural} 8|782b7
+256r7 Price0{5|41R9} 8|783b7 790m7 796m10
+257r7 Price1{5|41R9} 8|784b7 791m7 800m10
+258b7 Success{boolean} 8|785b7 792m7 804m10
+267V13*Get_LP_Supply{5|41R9} 267>28 8|314s20 450s20 812b13 831l8 831t21
+267i28 Pool{47I9} 8|812b28 817r10 817r46 822r66
+272V13*Get_LP_Balance{5|41R9} 273>7 274>7 8|833b13 843l8 843t22
+273i7 Pool{47I9} 8|834b7 837r48
+274a7 Account{9|43A12} 8|835b7 837r54
+280V13*Quote_Liquidity{5|41R9} 281>7 282>7 283>7 284>7 8|845b13 862l8 862t23
+281r7 Amount0{5|41R9} 8|846b7 856r15 859r15
+282r7 Reserve0{5|41R9} 8|847b7 860r28
+283r7 Reserve1{5|41R9} 8|848b7 856r24
+284r7 LP_Supply{5|41R9} 8|849b7 854r17 859r24
+293U14*Get_TVL 294>7 295<7 296<7 297<7 8|868b14 885l8 885t15
+294i7 Pool{47I9} 8|869b7 875r10 875r46 882r22 883r22
+295r7 TVL0{5|41R9} 8|870b7 876m10 882m7
+296r7 TVL1{5|41R9} 8|871b7 877m10 883m7
+297b7 Success{boolean} 8|872b7 878m10 884m7
+302U14*Get_Volume_24h 303>7 304<7 305<7 306<7 8|887b14 898l8 898t22
+303i7 Pool{47I9} 8|888b7
+304r7 Volume0{5|41R9} 8|889b7 895m7
+305r7 Volume1{5|41R9} 8|890b7 896m7
+306b7 Success{boolean} 8|891b7 897m7
+311U14*Get_Fees 312>7 313<7 314<7 315<7 8|900b14 911l8 911t16
+312i7 Pool{47I9} 8|901b7
+313r7 Fees0{5|41R9} 8|902b7 908m7
+314r7 Fees1{5|41R9} 8|903b7 909m7
+315b7 Success{boolean} 8|904b7 910m7
+324U14*Set_Fee 325>7 326>7 327>7 328<7 329<7 8|917b14 940l8 940t15
+325i7 Pool{47I9} 8|918b7 928r10 928r46 933r24 938r21
+326i7 New_Fee{natural} 332r17 8|919b7 938r34
+327a7 Caller{9|43A12} 8|920b7 933r39
+328b7 Success{boolean} 8|921b7 925m7 939m7
+329e7 Error{71E9} 8|922b7 926m7 929m10 934m10
+335U14*Transfer_Ownership 336>7 337>7 338>7 339<7 8|942b14 961l8 961t26
+336i7 Pool{47I9} 8|943b7 951r10 951r46 955r24 959r21
+337a7 New_Owner{9|43A12} 8|944b7 959r36
+338a7 Caller{9|43A12} 8|945b7 955r39
+339b7 Success{boolean} 8|946b7 949m7 960m7
+347R9*Swap_Event 355e14
+348i7*Pool{47I9}
+349a7*Sender{9|43A12}
+350r7*Amount0_In{5|41R9}
+351r7*Amount1_In{5|41R9}
+352r7*Amount0_Out{5|41R9}
+353r7*Amount1_Out{5|41R9}
+354a7*To{9|43A12}
+357R9*Mint_Event 362e14
+358i7*Pool{47I9}
+359a7*Sender{9|43A12}
+360r7*Amount0{5|41R9}
+361r7*Amount1{5|41R9}
+364R9*Burn_Event 370e14
+365i7*Pool{47I9}
+366a7*Sender{9|43A12}
+367r7*Amount0{5|41R9}
+368r7*Amount1{5|41R9}
+369a7*To{9|43A12}
+372R9*Sync_Event 376e14
+373i7*Pool{47I9}
+374r7*Reserve0{5|41R9}
+375r7*Reserve1{5|41R9}
+X 8 khepri_amm.adb
+15R9 Pool_Entry 18e14 20r42
+16r7*Reserves{7|51R9} 39m7 186m16 247r32 248r32 312r32 313r32 384m20 391m20
+. 448r32 449r32 495m20 498m20 536r32 537r32 574m26 575m26 577m26 578m26 612r32
+. 613r32 650m26 651m26 653m26 654m26 797r26 798r26 801r26 802r26 882r28 883r28
+17b7*Used{boolean} 45m7 183r27 192m16 222r23 240r52 258r52 307r52 443r52
+. 531r52 607r52 678r52 794r50 817r52 875r52 928r52 951r52
+20A9 Pool_Array(15R9)<7|47I9> 38r18
+21A9 Config_Array(7|59R9)<7|47I9> 48r19
+24N4 Max_LP_Holders 32r33
+25R9 LP_Entry 30e14 32r56
+26i7*Pool{7|47I9} 57m7 76r29 402m13 822r59
+27a7*Account{9|43A12} 58m7 77r29 403m13
+28r7*Balance{5|41R9} 59m7 404m13 408r36 413m31 483r42 490r33 491m28 823r41
+. 842r32
+29b7*Used{boolean} 60m7 75r29 88r33 405m13 822r29
+32A9 LP_Array(25R9)<integer> 56r18
+38a4 Pools{20A9} 8r37 183r17 185m13 222r13 240r39 247r19 248r19 258r39 307r39
+. 312r19 313r19 384m7 391m7 443r39 448r19 449r19 495m7 498m7 531r39 536r19
+. 537r19 574m13 575m13 577m13 578m13 607r39 612r19 613r19 650m13 651m13 653m13
+. 654m13 678r39 794r37 797r13 798r13 801r13 802r13 817r39 875r39 882r15 883r15
+. 928r39 951r39
+48a4 Pool_Configs{21A9} 8r44 195m13 223r13 224r13 270r17 538r14 614r14 933r10
+. 938m7 955r10 959m7
+56a4 LP_Balances{32A9} 8r58 74r16 75r13 76r13 77r13 87r16 88r17 401m10 408r15
+. 413m10 483r21 490r12 491m7 821r16 822r13 822r43 823r25 842r14
+63i4 Pool_Count{natural} 8r71 204m13 204r27
+69V13 Find_LP_Entry{natural} 69b13 70>7 71>7 83l8 83t21 394s17 475s17 837s33
+70i7 Pool{7|47I9} 76r36
+71a7 Account{9|43A12} 77r39
+74i11 I{integer} 75r26 76r26 77r26 79r20
+85V13 Find_Empty_LP_Entry{natural} 85b13 93l8 93t27 396s20
+87i11 I{integer} 88r30 89r20
+96U14 Order_Tokens 96b14 97>7 98>7 99<7 100<7 118l8 118t20 173s7 219s7
+97a7 TokenA{9|43A12} 105r13 106r23 109r16 111r23 116r17
+98a7 TokenB{9|43A12} 105r26 107r23 109r29 110r23 117r17
+99a7 Token0{9|43A12} 106m13 110m13 116m7
+100a7 Token1{9|43A12} 107m13 111m13 117m7
+104i11 I{integer} 105r21 105r34 109r24 109r37
+121V13 Sqrt{5|41R9} 121b13 121>19 152l8 152t12 319s23 857s17
+121r19 Value{5|41R9} 122r24 127r17 136r26
+122r7 X{5|41R9} 135r24 136r33 137r18 140r39 141r30 143m16 145r23 151r14
+123r7 Y{5|41R9} 132m7 137m27 138m13 138r31 140r36 141r27 143r21
+124r7 Temp{5|41R9} 136m13 137r21
+125b7 Oflow{boolean} 137m30
+133i11 I{integer}
+166a7 Ordered0{9|43A12} 173m37 176r20 196r28
+166a17 Ordered1{9|43A12} 173m47 176r30 197r28
+182i11 I<integer> 183r24 185r20 195r27 203r21
+217a7 Ordered0{9|43A12} 219m37 223r39
+217a17 Ordered1{9|43A12} 219m47 224r39
+221i11 I<integer> 222r20 223r27 224r27 226r20
+291r7 Reserve0{5|41R9} 312m7 316r17 335r33 346r27 360r47 379r12
+292r7 Reserve1{5|41R9} 313m7 316r54 334r24 347r36 364r31 386r12
+293r7 LP_Supply{5|41R9} 314m7 358r24 363r27
+294r7 Optimal1{5|41R9} 335m10 337r33 338r27 343r24
+295r7 Optimal0{5|41R9} 347m13 349r27 353r24
+296r7 Temp{5|41R9} 318m39 319r29 322m68 327r23 334m40 335r27 346m43 347r30
+. 358m41 360r41 363m44 364r25 379m31 384r41 386m31 391r41 408m56 413r42
+297r7 High{5|41R9} 318m33 334m34 346m37 358m35 363m38
+298b7 Oflow{boolean} 322m74 323r13 379m37 380r10 386m37 387r10 408m62 409r13
+299i7 LP_Idx{natural} 394m7 395r10 396m10 397r13 401r23 408r28 413r23
+360r13 LP0{5|41R9} 365r27 366r29
+361r13 LP1{5|41R9} 364m13 365r32 368r29
+430r7 Reserve0{5|41R9} 448m7 458r23 494r12
+431r7 Reserve1{5|41R9} 449m7 461r23 497r12
+432r7 LP_Supply{5|41R9} 450m7 452r17 459r29 462r29
+433r7 Temp{5|41R9} 458m39 459r23 461m39 462r23 490m53 491r39 494m31 495r41
+. 497m31 498r41
+434r7 High{5|41R9} 458m33 461m33
+435b7 Uflow{boolean} 490m59 494m37 497m37
+436i7 LP_Idx{natural} 475m7 476r10 483r34 490r25 491r20
+517r7 Reserve0{5|41R9} 536m7 542r27 546r28
+518r7 Reserve1{5|41R9} 537m7 543r28 545r27
+519r7 Reserve_In{5|41R9} 542m13 545m13 549r48 558r12
+520r7 Reserve_Out{5|41R9} 543m13 546m13 549r60 565r12
+521i7 Fee{natural} 538m7 549r73
+522r7 New_Res_In{5|41R9} 558m35 574r47 577r47
+523r7 New_Res_Out{5|41R9} 565m37 575r47 578r47
+524r7 Temp{5|41R9}
+525b7 Oflow{boolean} 558m47 559r10 565m50 566r10
+594r7 Reserve0{5|41R9} 612m7 618r27 622r28
+595r7 Reserve1{5|41R9} 613m7 619r28 621r27
+596r7 Reserve_In{5|41R9} 618m13 621m13 630r47 639r12
+597r7 Reserve_Out{5|41R9} 619m13 622m13 625r45 630r59 646r12
+598i7 Fee{natural} 614m7 630r72
+599r7 New_Res_In{5|41R9} 639m35 650r47 653r47
+600r7 New_Res_Out{5|41R9} 646m37 651r47 654r47
+601b7 Oflow{boolean} 639m47 640r10 646m50
+699r7 Amount_In_With_Fee{5|41R9} 711m7 714r12 718r18
+700r7 Numerator{5|41R9} 714m51 724r19
+701r7 Denominator{5|41R9} 718m38 720r31 724r30
+702r7 Temp{5|41R9} 710m75 711r29 717m70 718r12
+703r7 High{5|41R9} 710m69 714m45 717m64
+704b7 Oflow{boolean} 718m51 720r10
+733r7 Numerator{5|41R9} 745m64 759r20 760m28 765r14
+734r7 Denominator{5|41R9} 752m70 754r17 759r31
+735r7 Temp{5|41R9} 744m42 745r12 748m37 752r12 759m7 760r12
+736r7 High{5|41R9} 744m36 745m58 752m64
+737b7 Oflow{boolean} 760m39 761r10
+738b7 Uflow{boolean} 748m43 749r10
+772r7 High{5|41R9} 776m44
+773r7 Temp{5|41R9} 776m50 777r19
+813r7 Total{5|41R9} 823r18 825m16 830r14
+814r7 Temp{5|41R9} 823m50 825r25
+815b7 Oflow{boolean} 823m56 824r20
+821i11 I{integer} 822r26 822r56 823r38
+837i7 Idx{natural} 839r10 842r27
+851r7 High{5|41R9} 856m34 859m35
+852r7 Temp{5|41R9} 856m40 857r23 859m41 860r22
+X 9 khepri_types.ads
+25K9*Khepri_Types 7|19w6 19r30 9|345e17
+43A12*Address{5|70A9}<integer> 7|60r20 61r20 62r20 64r20 92r24 93r24 104r16
+. 105r16 139r30 157r28 176r30 190r30 207r27 208r27 274r17 327r24 337r26 338r26
+. 349r20 354r20 359r17 366r17 369r17 8|27r17 71r17 97r23 98r23 99r23 100r23
+. 104r16 159r24 160r24 166r28 214r16 215r16 217r28 284r30 424r28 512r31 589r30
+. 668r27 669r27 835r17 920r24 944r26 945r26
+46a4*Null_Address{43A12} 8|49r19 50r19 51r19 53r19 58r18 198r28 200r28 260r25
+. 261r25 262r25 264r25
+

@@ -1,0 +1,580 @@
+V "GNAT Lib v14"
+A -x
+A ada
+A -gnatA
+A -gnat2022
+A -gnatwa
+A -gnatyO
+A -gnatVa
+A -gnatw.F
+A -gnata
+A -O2
+A -gnatn
+A -ffunction-sections
+A -fdata-sections
+A -gnatc
+A -fPIC
+P GP
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_ELABORATION_CODE
+
+U anubis_dead_man_switch%b  anubis_dead_man_switch.adb  cf686aaa OO PK
+
+U anubis_dead_man_switch%s  anubis_dead_man_switch.ads  45de4070 OO PK
+W anubis_types%s	anubis_types.ads	anubis_types.ali
+W interfaces%s		interfac.ads		interfac.ali
+
+D anubis_dead_man_switch.ads  20251207133358 9b7ce926 anubis_dead_man_switch%s
+D anubis_dead_man_switch.adb  20251207133358 5414838c anubis_dead_man_switch%b
+D anubis_types.ads	20251203093723 4fb35097 anubis_types%s
+D interfac.ads		20240601155135 9111f9c1 interfaces%s
+D system.ads		20240601155135 70765b54 system%s
+G a Z
+X 1 anubis_dead_man_switch.ads
+32K9*Anubis_Dead_Man_Switch 594l5 594e27 2|10b14 293r35 294r37 304r35 319r37
+. 321r35 322r37 947l5 947t27
+40N4*Heartbeat_Period_Blocks 2|130r24 147r17 150r24 154r14
+41N4*Grace_Period_Blocks 313r64 2|189r58
+42N4*Total_Absence_Blocks
+45N4*Max_Emergency_Pause_Blocks 413r30 427r30 2|417r21 462r21
+48N4*Max_Parameter_Change_BP 2|546r38
+52N4*Phase1_End_Block 2|337r26 386r20
+53N4*Phase2_End_Block 2|339r29 382r20
+54N4*Phase3_End_Block 2|341r29 384r20
+57N4*Council_Size 112r48 492r41
+58N4*Council_Threshold 509r60 2|450r33 632r25
+61N4*Recovery_Vote_Threshold_BP 2|299r41
+62N4*Recovery_Quorum_BP
+69E9*Privilege_Type 76e5 187r25 194r35 389r24 395r24 518r24 525r24 2|198r16
+. 309r19 357r24 377r24 641r24 649r24 684r16
+70n7*Protocol_Upgrade{69E9} 2|365r32 381r15
+71n7*Emergency_Pause{69E9} 2|366r32 369r32 383r15
+72n7*Parameter_Tuning{69E9} 2|385r15
+73n7*Bug_Bounty_Approval{69E9} 2|385r34
+74n7*Validator_Removal{69E9} 2|385r56
+75n7*Treasury_Access{69E9} 2|362r33 387r15
+79E9*Governance_Phase 84e5 134r29 382r13 2|350r13 756r26 845r38 845r60 846r36
+80n7*Phase1_Builder_Control{79E9} 239r41 2|32r30 338r33 361r15 524r33 904r30
+81n7*Phase2_Shared_Control{79E9} 2|340r33 364r15
+82n7*Phase3_DAO_Control{79E9} 2|342r33 368r15
+83n7*Phase4_Full_Autonomy{79E9} 2|344r33 371r15 405r32
+87E9*Switch_State 92e5 133r29 2|751r26 838r38 838r56 839r28
+88n7*Active{87E9} 238r29 267r37 2|31r22 101r25 129r24 903r22
+89n7*Warning{87E9} 301r28 312r30 2|100r24 132r25 188r28
+90n7*Triggered{87E9} 302r29 2|89r24 117r24 176r22 227r25
+91n7*Recovered{87E9} 2|117r56 303r25
+95E9*Pause_State 100e5 144r29 2|768r26 859r38 859r55 860r36
+96n7*Not_Paused{95E9} 443r58 2|40r30 411r33 456r33 491r32 496r30 506r37 910r30
+97n7*Paused_By_Builder{95E9} 2|423r30
+98n7*Paused_By_Council{95E9} 2|468r30
+99n7*Paused_By_DAO{95E9}
+103E9*Recovery_State 110e5 150r29 2|777r26 870r38 870r58 871r38
+104n7*None{103E9} 2|45r32 914r32
+105n7*Proposed{103E9}
+106n7*Voting{103E9} 340r44 354r43 366r43 2|232r32 251r36 285r36
+107n7*Approved{103E9} 2|304r58
+108n7*Rejected{103E9} 2|293r58 321r58
+109n7*Executed{103E9}
+112I12*Council_Index{natural} 173r33 497r24 2|60r16 571r16 604r24 925r16
+118R9*Heartbeat_Record 124e14 591r49 2|938r49
+119a7*Builder_Address{3|14A9} 2|940m17
+120m7*Last_Heartbeat{4|84M9} 2|941m17
+121m7*Heartbeat_Count{4|84M9} 2|942m17
+122a7*Signature{3|14A9} 2|943m17
+123a7*Message_Hash{3|14A9} 2|944m17
+130R9*Dead_Man_State 159e14 232r28 256r31 271r31 278r24 285r24 296r31 307r24
+. 330r31 344r31 358r31 374r31 381r24 388r24 405r31 417r31 431r31 441r32 460r24
+. 550r31 567r24 576r28 585r48 2|18r28 80r31 109r31 139r24 158r24 170r31 184r24
+. 217r31 241r31 275r31 331r31 349r24 356r24 397r31 439r31 484r31 504r32 514r24
+. 673r31 720r24 803r28 900r48
+132a7*Builder_PK_Hash{3|14A9} 2|24m13 26r43 27m19 742r22 744r35 829r22 831m19
+. 902m13
+133e7*State{87E9} 238r21 267r29 301r20 302r21 312r22 2|31m13 89r16 100r16
+. 101m16 117r16 117r48 129r16 132m16 176m13 188r20 227r16 303m16 751r50 839m19
+. 903m13
+134e7*Current_Phase{79E9} 239r25 384r40 2|32m13 338m16 340m16 342m16 344m16
+. 352r20 360r18 405r16 524r16 756r54 846m19 904m13
+135m7*Current_Block{4|84M9} 2|33m13 96m13 114m13 335m13 678m13 760r24 851m23
+. 905m13
+136m7*Genesis_Block{4|84M9} 2|34m13 761r24 852m23 906m13
+139m7*Last_Heartbeat{4|84M9} 240r25 266r25 2|36m13 95m13 122r32 123r46 144r32
+. 145r46 306m16 762r24 853m23 907m13
+140m7*Grace_Period_Start{4|84M9} 313r43 2|37m13 102m16 133m16 189r37 763r24
+. 854m23 908m13
+141m7*Trigger_Block{4|84M9} 303r25 2|38m13 177m13 764r24 855m23 909m13
+144e7*Current_Pause{95E9} 443r41 2|40m13 411r16 423m13 456r16 468m13 491r16
+. 496m13 506r20 768r49 860m19 910m13
+145m7*Pause_Start{4|84M9} 2|41m13 424m13 469m13 497m13 772r24 865m23 911m13
+146m7*Pause_End{4|84M9} 2|42m13 425m13 470m13 498m13 773r24 866m23 912m13
+147a7*Pause_Reason{3|14A9} 2|43m13 428m13 430r39 431m19 473m13 475r39 476m19
+. 499m13 913m13
+150e7*Current_Recovery{103E9} 340r25 354r24 366r24 2|45m13 232m13 251r16
+. 285r16 293m16 304m16 321m16 777r52 871m19 914m13
+151m7*Recovery_Votes_For{4|84M9} 2|46m13 233m13 264m16 265r19 290r28 301r16
+. 781r24 876m23 915m13
+152m7*Recovery_Votes_Against{4|84M9} 2|47m13 234m13 267m16 268r19 290r55
+. 782r24 877m23 916m13
+153m7*Recovery_Deadline{4|84M9} 2|48m13 235m13 257r32 783r24 878m23 917m13
+156m7*Total_Heartbeats{4|84M9} 2|50m13 97m13 97r39 786r24 881m23 918m13
+157m7*Warnings_Issued{4|81M9} 2|51m13 134m16 134r41 789r44 884m16 919m13
+158m7*Times_Recovered{4|81M9} 2|52m13 305m16 305r41 794r44 889m16 920m13
+165R9*Council_Member 171e14 173r51
+166a7*Address{3|14A9} 2|62m13 575r67 576m39 613m31 926m30
+167a7*PK_Hash{3|14A9} 2|63m13 583r62 584m39 614m31 927m30
+168m7*Elected_At{4|84M9} 2|64m13 589m33 615m31 928m30
+169b7*Active{boolean} 501r38 2|65m13 572r37 590m33 608r38 616m31 929m30
+170m7*Votes_Cast{4|81M9} 2|66m13 591m33 617m31 930m30
+173A9*Council_Array(165R9)<integer> 176r25
+175R9*Council_State 180e14 244r28 418r24 483r31 496r31 505r24 588r51 2|56r28
+. 440r24 563r31 603r31 627r24 923r51
+176a7*Members{173A9} 501r22 2|61m18 572r25 575r55 576m27 583r50 584m27 589m21
+. 590m21 591m21 608r22 613m15 614m15 615m15 616m15 617m15 926m18 927m18 928m18
+. 929m18 930m18
+177i7*Active_Count{natural} 248r23 492r26 2|70m15 450r18 593m21 593r45 619r18
+. 620m18 620r42 933m15
+178m7*Formation_Block{4|84M9} 2|71m15 934m15
+179m7*Last_Election{4|84M9} 2|72m15 935m15
+186R9*Privilege_Record 192e14 194r54
+187e7*Privilege{69E9}
+188a7*Holder{3|14A9} 2|201r56 202m31 311r63 312m34 644r37 655r57 657r39
+189m7*Expires_At{4|84M9} 2|686m28
+190b7*Transferred{boolean} 2|207m25 316m28 665r56
+191m7*Transfer_Block{4|84M9} 2|208m25
+194A9*Privilege_Array(186R9)<69E9> 297r31 317r31 359r31 517r24 524r24 551r31
+. 2|171r31 193r31 276r31 640r24 648r24 674r31
+200E9*Heartbeat_Result 205e5 260r28 2|84r28
+201n7*Recorded{200E9} 265r28 2|105r17
+202n7*Invalid_Signature{200E9}
+203n7*Not_Builder{200E9}
+204n7*Switch_Already_Triggered{200E9} 2|90r20
+207E9*Pause_Result 213e5 409r28 423r28 434r28 2|401r28 445r28 487r28
+208n7*Paused{207E9} 2|435r17 480r17 501r17
+209n7*Already_Paused{207E9} 2|412r20 457r20 492r20
+210n7*Unauthorized{207E9} 2|451r20
+211n7*Duration_Exceeded{207E9} 2|418r20 463r20
+212n7*Phase_Not_Allowed{207E9} 2|406r20
+215E9*Recovery_Result 224e5 334r28 349r28 362r28 2|221r28 246r28 279r28 294r20
+. 319r20 322r20
+216n7*Recovery_Initiated{215E9} 339r28 2|237r17
+217n7*Identity_Verified{215E9}
+218n7*Vote_Recorded{215E9} 2|271r17
+219n7*Approved{215E9} 2|319r60
+220n7*Rejected{215E9} 2|294r60 322r60
+221n7*Invalid_Proof{215E9}
+222n7*Already_Active{215E9} 2|228r20
+223n7*Vote_Ended{215E9} 2|252r20 258r20 286r20
+231U14*Init_Switch 232<7 233>7 234>7 2|17b14 53l8 53t19 821s7
+232r7 State{130R9} 238r15 239r19 240r19 2|18b7 24m7 26r37 27m13 31m7 32m7
+. 33m7 34m7 36m7 37m7 38m7 40m7 41m7 42m7 43m7 45m7 46m7 47m7 48m7 50m7 51m7
+. 52m7
+233a7 Builder_PK{3|14A9} 237r14 2|19b7 25r16 26r17 27r40 27r61
+234m7 Genesis_Block{4|84M9} 240r42 2|20b7 33r30 34r30 36r31
+243U14*Init_Council 244<7 245>7 2|55b14 73l8 73t20
+244r7 Council{175R9} 248r15 2|56b7 61m10 70m7 71m7 72m7
+245m7 Formation_Block{4|84M9} 2|57b7 71r34 72r32
+255U14*Record_Heartbeat 256=7 257>7 258>7 259>7 260<7 2|79b14 106l8 106t24
+256r7 State{130R9} 266r19 267r23 2|80b7 89r10 95m7 96m7 97m7 97r33 100r10
+. 101m10 102m10
+257a7 Signature{3|14A9} 263r14 2|81b7 86r28
+258a7 Message{3|14A9} 264r18 2|82b7 86r39
+259m7 Current_Block{4|84M9} 266r42 2|83b7 95r31 96r30
+260e7 Result{200E9} 265r19 2|84b7 90m10 105m7
+270U14*Check_Heartbeat_Status 271=7 272>7 2|108b14 136l8 136t30
+271r7 State{130R9} 2|109b7 114m7 117r10 117r42 122r26 123r40 129r10 132m10
+. 133m10 134m10 134r35
+272m7 Current_Block{4|84M9} 2|110b7 114r30 122r10 123r24 133r38
+277V13*Blocks_Until_Heartbeat{4|84M9} 278>7 279>7 2|138b13 155l8 155t30 162s14
+278r7 State{130R9} 2|139b7 144r26 145r40
+279m7 Current_Block{4|84M9} 2|140b7 144r10 145r24
+284V13*Is_Heartbeat_Overdue{boolean} 285>7 286>7 2|157b13 163l8 163t28
+285r7 State{130R9} 2|158b7 162r38
+286m7 Current_Block{4|84M9} 2|159b7 162r45
+295U14*Trigger_Switch 296=7 297=7 298>7 2|169b14 181l8 181t22 692s10
+296r7 State{130R9} 301r14 302r15 303r19 2|170b7 176m7 177m7
+297a7 Privileges{194A9} 2|171b7 180m32
+298m7 Current_Block{4|84M9} 303r41 2|172b7 177r30 180r57
+306V13*Should_Trigger{boolean} 307>7 308>7 311r15 2|183b13 190l8 190t22 691s10
+307r7 State{130R9} 312r16 313r37 2|184b7 188r14 189r31
+308m7 Current_Block{4|84M9} 313r20 2|185b7 189r14
+316U14*Transfer_All_Privileges 317=7 318>7 319>7 2|180s7 192b14 210l8 210t31
+317a7 Privileges{194A9} 2|193b7 201r41 202m16 207m10 208m10
+318a7 DAO_Address{3|14A9} 322r14 2|194b7 200r19 201r20 202r43 203r19
+319m7 Current_Block{4|84M9} 2|195b7 208r43
+329U14*Initiate_Recovery 330=7 331>7 332>7 333>7 334<7 2|216b14 238l8 238t25
+330r7 State{130R9} 340r19 2|217b7 227r10 232m7 233m7 234m7 235m7
+331a7 Identity_Proof{3|14A9} 337r14 2|218b7 223r28
+332a7 Builder_Sig{3|14A9} 338r18 2|219b7 223r44
+333m7 Current_Block{4|84M9} 2|220b7 235r34
+334e7 Result{215E9} 339r19 2|221b7 228m10 237m7
+343U14*Vote_Recovery 344=7 345>7 346>7 347>7 348>7 349<7 2|240b14 272l8 272t21
+344r7 State{130R9} 354r18 2|241b7 251r10 257r26 264m10 265r13 267m10 268r13
+345a7 Voter{3|14A9} 352r14 2|242b7 248r28
+346m7 Vote_Amount{4|84M9} 353r18 2|243b7 265r40 268r44
+347b7 In_Favor{boolean} 2|244b7 263r10
+348m7 Current_Block{4|84M9} 2|245b7 257r10
+349e7 Result{215E9} 2|246b7 252m10 258m10 271m7
+357U14*Finalize_Recovery 358=7 359=7 360>7 361>7 362<7 2|274b14 324l8 324t25
+358r7 State{130R9} 366r18 2|275b7 285r10 290r22 290r49 293m10 301r10 303m10
+. 304m10 305m10 305r35 306m10 321m10
+359a7 Privileges{194A9} 2|276b7 311r48 312m19 316m13
+360a7 Builder_Address{3|14A9} 365r14 2|277b7 310r22 311r23 312r46 313r22
+361m7 Current_Block{4|84M9} 2|278b7 306r34
+362e7 Result{215E9} 2|279b7 286m10 294m10 319m10 322m10
+373U14*Update_Phase 374=7 375>7 2|330b14 346l8 346t20 681s7
+374r7 State{130R9} 2|331b7 335m7 338m10 340m10 342m10 344m10
+375m7 Current_Block{4|84M9} 2|332b7 335r30 337r10 339r13 341r13
+380V13*Get_Phase{79E9} 381>7 384r15 2|348b13 353l8 353t17
+381r7 State{130R9} 384r34 2|349b7 352r14
+387V13*Privilege_Available{boolean} 388>7 389>7 2|355b13 374l8 374t27
+388r7 State{130R9} 2|356b7 360r12
+389e7 Privilege{69E9} 2|357b7 362r20 365r20 366r20 369r20
+394V13*Privilege_Expires_At{4|84M9} 395>7 2|376b13 390l8 390t28 685s30 686s42
+395e7 Privilege{69E9} 2|377b7 380r12
+404U14*Builder_Emergency_Pause 405=7 406>7 407>7 408>7 409<7 2|396b14 436l8
+. 436t31
+405r7 State{130R9} 2|397b7 405r10 411r10 423m7 424m7 425m7 428m7 430r33 431m13
+406a7 Reason{3|14A9} 412r14 2|398b7 429r16 430r17 431r37 431r54
+407m7 Duration{4|84M9} 413r18 2|399b7 417r10 425r42
+408m7 Current_Block{4|84M9} 2|400b7 424r28 425r26
+409e7 Result{207E9} 2|401b7 406m10 412m10 418m10 435m7
+416U14*Council_Emergency_Pause 417=7 418>7 419>7 420>7 421>7 422>7 423<7
+. 2|438b14 481l8 481t31
+417r7 State{130R9} 2|439b7 456r10 468m7 469m7 470m7 473m7 475r33 476m13
+418r7 Council{175R9} 2|440b7 450r10
+419a7 Signatures{3|14A9} 2|441b7 447r28
+420a7 Reason{3|14A9} 426r14 2|442b7 474r16 475r17 476r37 476r54
+421m7 Duration{4|84M9} 427r18 2|443b7 462r10 470r42
+422m7 Current_Block{4|84M9} 2|444b7 469r28 470r26
+423e7 Result{207E9} 2|445b7 451m10 457m10 463m10 480m7
+430U14*Unpause 431=7 432>7 433>7 434<7 2|483b14 502l8 502t15
+431r7 State{130R9} 2|484b7 491r10 496m7 497m7 498m7 499m7
+432a7 Authorizer{3|14A9} 437r14 2|485b7 489r28
+433a7 Signature{3|14A9} 438r18 2|486b7 489r40
+434e7 Result{207E9} 2|487b7 492m10 501m7
+441V13*Is_Paused{boolean} 441>24 443r15 2|504b13 507l8 507t17
+441r24 State{130R9} 443r35 2|504b24 506r14
+449E9*Parameter_ID 456e5 461r24 2|515r24
+450n7*Block_Gas_Limit{449E9}
+451n7*Min_Stake{449E9}
+452n7*Slash_Rate{449E9}
+453n7*Unbonding_Period{449E9}
+454n7*Proof_Timeout{449E9}
+455n7*Privacy_Fee{449E9}
+459U14*Tune_Parameter 460>7 461>7 462>7 463>7 464>7 465<7 2|513b14 536l8
+. 536t22
+460r7 State{130R9} 2|514b7 524r10
+461e7 Parameter{449E9} 2|515b7 521r28
+462m7 Current_Value{4|84M9} 2|516b7 530r31
+463m7 New_Value{4|84M9} 2|517b7 530r46
+464a7 Builder_Sig{3|14A9} 468r14 2|518b7 521r39
+465b7 Success{boolean} 2|519b7 525m10 531m10 535m7
+471V13*Is_Valid_Change{boolean} 472>7 473>7 2|530s14 538b13 556l8 556t23
+472m7 Current_Value{4|84M9} 2|539b7 546r22 549r22 550r36 552r24
+473m7 New_Value{4|84M9} 2|540b7 549r10 550r24 552r40
+482U14*Add_Council_Member 483=7 484>7 485>7 486>7 487<7 2|562b14 600l8 600t26
+483r7 Council{175R9} 492r18 2|563b7 572r17 575r47 576m19 583r42 584m19 589m13
+. 590m13 591m13 593m13 593r37
+484a7 Member_Address{3|14A9} 490r14 2|564b7 574r22 575r23 576r52 577r22
+485a7 Member_PK{3|14A9} 491r18 2|565b7 582r22 583r23 584r52 585r22
+486m7 Current_Block{4|84M9} 2|566b7 589r47
+487b7 Success{boolean} 2|567b7 594m13 599m7
+495U14*Remove_Council_Member 496=7 497>7 498<7 2|602b14 624l8 624t29
+496r7 Council{175R9} 501r14 2|603b7 608r14 613m7 614m7 615m7 616m7 617m7
+. 619r10 620m10 620r34
+497i7 Index{112I12} 501r31 2|604b7 608r31 613r24 614r24 615r24 616r24 617r24
+498b7 Success{boolean} 2|605b7 609m10 623m7
+504V13*Check_Council_Threshold{boolean} 505>7 506>7 509r15 2|626b13 633l8
+. 633t31
+505r7 Council{175R9} 2|627b7 630r28
+506i7 Signers{natural} 509r49 2|628b7 632r14
+516V13*Get_Privilege_Holder{3|14A9} 517>7 518>7 2|639b13 645l8 645t28
+517a7 Privileges{194A9} 2|640b7 644r14
+518e7 Privilege{69E9} 2|641b7 644r26
+523V13*Has_Privilege{boolean} 524>7 525>7 526>7 2|647b13 666l8 666t21
+524a7 Privileges{194A9} 2|648b7 655r34 657r16 665r33
+525e7 Privilege{69E9} 2|649b7 655r46 657r28 665r45
+526a7 Address{3|14A9} 529r14 2|650b7 654r16 655r17 656r16 657r51
+542N4*Handoff_Parameter_Control 2|700r26 701r17
+543N4*Handoff_Upgrade_Control 2|702r29 703r17
+544N4*Handoff_Emergency_Control 2|704r29 705r17
+545N4*Handoff_All_Privileges 2|706r29 707r17
+546N4*Handoff_Full_Autonomy 2|708r29 709r17
+549U14*Check_Handoff 550=7 551=7 552>7 2|672b14 694l8 694t21
+550r7 State{130R9} 2|673b7 678m7 681m21 691r26 692m26
+551a7 Privileges{194A9} 2|674b7 686m13 692m33
+552m7 Current_Block{4|84M9} 2|675b7 678r30 681r28 685r13 691r33 692r45
+557V13*Next_Handoff_Block{4|84M9} 558>7 2|696b13 713l8 713t26
+558m7 Current_Block{4|84M9} 2|697b7 700r10 702r13 704r13 706r13 708r13
+566U14*Serialize_Switch_State 567>7 568<7 569<7 2|719b14 799l8 799t30
+567r7 State{130R9} 2|720b7 742r16 744r29 751r44 756r48 760r18 761r18 762r18
+. 763r18 764r18 768r43 772r18 773r18 777r46 781r18 782r18 783r18 786r18 789r38
+. 794r38
+568a7 Output{3|14A9} 572r14 2|721b7 724r24 730r23 731m16 739m7 743r20 744m13
+. 750r17 751m10 755r17 756m10 767r17 768m10 776r17 777m10 788r17 789m10 793r17
+. 794m10 798r23 731m16 731m16 731m16 731m16 731m16 731m16 731m16 731m16 731m16
+. 731m16 731m16
+569i7 Length{natural} 2|722b7 798m7
+574U14*Deserialize_Switch_State 575>7 576<7 577<7 2|801b14 894l8 894t32
+575a7 Input{3|14A9} 2|802b7 806r24 812r23 813r42 824r10 830r20 831r42 837r17
+. 838r22 839r55 844r17 845r22 846r67 858r17 859r22 860r62 869r17 870r22 871r67
+. 883r17 884r48 888r17 889r48
+576r7 State{130R9} 2|803b7 821m20 829r16 831m13 839m13 846m13 851m17 851r17
+. 852m17 852r17 853m17 853r17 854m17 854r17 855m17 855r17 860m13 865m17 865r17
+. 866m17 866r17 871m13 876m17 876r17 877m17 877r17 878m17 878r17 881m17 881r17
+. 884m10 889m10
+577b7 Success{boolean} 2|804b7 822m7 893m7
+585U14*Zeroize_Switch_State 585<36 2|900b14 921l8 921t28
+585r36 State{130R9} 2|900b36 902m7 903m7 904m7 905m7 906m7 907m7 908m7 909m7
+. 910m7 911m7 912m7 913m7 914m7 915m7 916m7 917m7 918m7 919m7 920m7
+588U14*Zeroize_Council_State 588<37 2|923b14 936l8 936t29
+588r37 Council{175R9} 2|923b37 926m10 927m10 928m10 929m10 930m10 933m7 934m7
+. 935m7
+591U14*Zeroize_Heartbeat 591<33 2|938b14 945l8 945t25
+591r33 Heartbeat{118R9} 2|938b33 940m7 941m7 942m7 943m7 944m7
+X 2 anubis_dead_man_switch.adb
+25i11 I{integer} 26r13 27r36 27r73
+60i11 I{1|112I12} 61r27
+112m7 Time_Since{4|84M9} 123m10 125m10 130r10
+142m7 Time_Since{4|84M9} 145m10 150r10 154r40
+174a7 DAO_Address{3|14A9} 180r44
+198e11 P{1|69E9} 201r53 202r28 207r22 208r22
+200i14 I{integer} 201r16 202r39 203r32
+224N7 Voting_Period 235r50
+281m7 Total_Votes{4|84M9} 290m7 292r10 299r27
+282m7 Threshold_Votes{4|84M9} 299m7 301r38
+309e14 P{1|69E9} 311r60 312r31 316r25
+310i17 I{integer} 311r19 312r42 313r39
+429i11 I{integer} 430r13 431r33 431r62
+474i11 I{integer} 475r13 476r33 476r62
+542m7 Max_Change{4|84M9} 546m7 555r28
+543m7 Difference{4|84M9} 550m10 552m10 555r14
+571i11 I{1|112I12} 572r34 575r64 576r36 583r59 584r36 589r30 590r30 591r30
+574i17 J{integer} 575r19 576r48 577r38
+582i17 J{integer} 583r19 584r48 585r33
+652b7 Match{boolean} 659m16 665r14
+654i11 I{integer} 655r13 656r25 657r47
+684e11 P{1|69E9} 685r52 686r25 686r64
+724i7 Idx{natural} 730r16 731r24 733m16 733r23 743r13 744r21 745m13 745r20
+. 750r10 751r18 752m10 752r17 755r10 756r18 757m10 757r17 767r10 768r18 769m10
+. 769r17 776r10 777r18 778m10 778r17 788r10 789r18 790m10 790r17 793r10 794r18
+. 795m10 795r17 798r17 733m16 733m16 733m16 733m16 733m16 733m16 733m16 733m16
+. 733m16 733m16 733m16
+726U17 Write_U64 736l11 736t20 760s7 761s7 762s7 763s7 764s7 772s7 773s7
+. 781s7 782s7 783s7 786s7
+726m28 Val{4|84M9} 727r29
+727m10 V{4|84M9} 731r44 732m16 732r21
+729i14 J{integer}
+742i11 I{integer} 744r52
+806i7 Idx{natural} 812r16 813r49 814m16 814r23 830r13 831r49 832m13 832r20
+. 837r10 838r29 839r62 841m10 841r17 844r10 845r29 846r74 848m10 848r17 858r10
+. 859r29 860r69 862m10 862r17 869r10 870r29 871r74 873m10 873r17 883r10 884r55
+. 885m10 885r17 888r10 889r55 890m10 890r17 814m16 814m16 814m16 814m16 814m16
+. 814m16 814m16 814m16 814m16 814m16 814m16
+808U17 Read_U64 817l11 817t19 851s7 852s7 853s7 854s7 855s7 865s7 866s7 876s7
+. 877s7 878s7 881s7
+808m27 Val{4|84M9} 810m10 813m16 813r23
+811i14 J{integer} 813r65
+829i11 I{integer} 831r36
+925i11 I{1|112I12} 926r27 927r27 928r27 929r27 930r27
+X 3 anubis_types.ads
+5K9*Anubis_Types 1|30w6 30r24 3|40e17
+14A9*Byte_Array(13M12)<integer> 1|119r26 122r26 123r26 132r29 147r29 166r25
+. 167r25 188r25 233r24 257r24 258r24 318r24 331r24 332r24 345r24 360r24 406r24
+. 419r24 420r24 432r24 433r24 464r24 484r24 485r24 519r13 526r24 568r28 575r24
+. 2|19r24 81r24 82r24 174r30 194r24 218r24 219r24 242r24 277r24 398r24 441r24
+. 442r24 485r24 486r24 518r24 564r24 565r24 642r13 650r24 721r28 802r24
+X 4 interfac.ads
+38K9*Interfaces 1|29w6 29r22 4|233e15
+70M9*Unsigned_8 2|731r32 789r26 794r26
+81M9*Unsigned_32 1|157r29 158r29 170r25 2|884r35 889r35
+84M9*Unsigned_64 1|120r26 121r26 135r29 136r29 139r29 140r29 141r29 145r29
+. 146r29 151r29 152r32 153r29 156r29 168r25 178r25 179r25 189r25 191r25 234r24
+. 245r24 259r24 272r24 279r24 280r13 286r24 298r24 308r24 319r24 333r24 346r24
+. 348r24 361r24 375r24 396r13 407r24 408r24 421r24 422r24 462r24 463r24 472r24
+. 473r24 486r24 552r24 558r24 559r13 2|20r24 57r24 83r24 110r24 112r20 140r24
+. 141r13 142r20 159r24 172r24 185r24 195r24 220r24 243r24 245r24 278r24 281r21
+. 282r25 332r24 378r13 399r24 400r24 443r24 444r24 516r24 517r24 539r24 540r24
+. 542r20 543r20 566r24 675r24 697r24 698r13 726r34 727r14 808r37 813r29
+
+QQ SPARKVERSION 0.0w
+GG EK_DIRECT_CALLS anubis_dead_man_switch__init_switch 0
+GG EK_PROOF_DEPENDENCIES anubis_dead_man_switch__init_switch 0
+GG EK_GLOBALS anubis_dead_man_switch__init_switch local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 anubis_dead_man_switch proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_dead_man_switch__init_council 0
+GG EK_PROOF_DEPENDENCIES anubis_dead_man_switch__init_council 0
+GG EK_GLOBALS anubis_dead_man_switch__init_council local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 anubis_dead_man_switch proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_dead_man_switch__record_heartbeat 0
+GG EK_PROOF_DEPENDENCIES anubis_dead_man_switch__record_heartbeat 0
+GG EK_GLOBALS anubis_dead_man_switch__record_heartbeat local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 anubis_dead_man_switch proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_dead_man_switch__check_heartbeat_status 0
+GG EK_PROOF_DEPENDENCIES anubis_dead_man_switch__check_heartbeat_status 0
+GG EK_GLOBALS anubis_dead_man_switch__check_heartbeat_status local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 anubis_dead_man_switch proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_dead_man_switch__blocks_until_heartbeat 0
+GG EK_PROOF_DEPENDENCIES anubis_dead_man_switch__blocks_until_heartbeat 0
+GG EK_GLOBALS anubis_dead_man_switch__blocks_until_heartbeat local FALSE E_FUNCTION FALSE ORIGIN_FLOW 1 anubis_dead_man_switch proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_dead_man_switch__is_heartbeat_overdue 1 anubis_dead_man_switch__blocks_until_heartbeat
+GG EK_PROOF_DEPENDENCIES anubis_dead_man_switch__is_heartbeat_overdue 0
+GG EK_GLOBALS anubis_dead_man_switch__is_heartbeat_overdue local FALSE E_FUNCTION FALSE ORIGIN_FLOW 1 anubis_dead_man_switch proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_dead_man_switch__trigger_switch 1 anubis_dead_man_switch__transfer_all_privileges
+GG EK_PROOF_DEPENDENCIES anubis_dead_man_switch__trigger_switch 0
+GG EK_GLOBALS anubis_dead_man_switch__trigger_switch local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 anubis_dead_man_switch proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_dead_man_switch__should_trigger 0
+GG EK_PROOF_DEPENDENCIES anubis_dead_man_switch__should_trigger 0
+GG EK_GLOBALS anubis_dead_man_switch__should_trigger local FALSE E_FUNCTION FALSE ORIGIN_FLOW 1 anubis_dead_man_switch proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_dead_man_switch__transfer_all_privileges 0
+GG EK_PROOF_DEPENDENCIES anubis_dead_man_switch__transfer_all_privileges 0
+GG EK_GLOBALS anubis_dead_man_switch__transfer_all_privileges local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 anubis_dead_man_switch proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_dead_man_switch__initiate_recovery 0
+GG EK_PROOF_DEPENDENCIES anubis_dead_man_switch__initiate_recovery 0
+GG EK_GLOBALS anubis_dead_man_switch__initiate_recovery local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 anubis_dead_man_switch proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_dead_man_switch__vote_recovery 0
+GG EK_PROOF_DEPENDENCIES anubis_dead_man_switch__vote_recovery 0
+GG EK_GLOBALS anubis_dead_man_switch__vote_recovery local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 anubis_dead_man_switch proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_dead_man_switch__finalize_recovery 0
+GG EK_PROOF_DEPENDENCIES anubis_dead_man_switch__finalize_recovery 0
+GG EK_GLOBALS anubis_dead_man_switch__finalize_recovery local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 anubis_dead_man_switch proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_dead_man_switch__update_phase 0
+GG EK_PROOF_DEPENDENCIES anubis_dead_man_switch__update_phase 0
+GG EK_GLOBALS anubis_dead_man_switch__update_phase local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 anubis_dead_man_switch proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_dead_man_switch__get_phase 0
+GG EK_PROOF_DEPENDENCIES anubis_dead_man_switch__get_phase 0
+GG EK_GLOBALS anubis_dead_man_switch__get_phase local FALSE E_FUNCTION FALSE ORIGIN_FLOW 1 anubis_dead_man_switch proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_dead_man_switch__privilege_available 0
+GG EK_PROOF_DEPENDENCIES anubis_dead_man_switch__privilege_available 0
+GG EK_GLOBALS anubis_dead_man_switch__privilege_available local FALSE E_FUNCTION FALSE ORIGIN_FLOW 1 anubis_dead_man_switch proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_dead_man_switch__privilege_expires_at 0
+GG EK_PROOF_DEPENDENCIES anubis_dead_man_switch__privilege_expires_at 0
+GG EK_GLOBALS anubis_dead_man_switch__privilege_expires_at local FALSE E_FUNCTION FALSE ORIGIN_FLOW 1 anubis_dead_man_switch proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_dead_man_switch__builder_emergency_pause 0
+GG EK_PROOF_DEPENDENCIES anubis_dead_man_switch__builder_emergency_pause 0
+GG EK_GLOBALS anubis_dead_man_switch__builder_emergency_pause local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 anubis_dead_man_switch proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_dead_man_switch__council_emergency_pause 0
+GG EK_PROOF_DEPENDENCIES anubis_dead_man_switch__council_emergency_pause 0
+GG EK_GLOBALS anubis_dead_man_switch__council_emergency_pause local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 anubis_dead_man_switch proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_dead_man_switch__unpause 0
+GG EK_PROOF_DEPENDENCIES anubis_dead_man_switch__unpause 0
+GG EK_GLOBALS anubis_dead_man_switch__unpause local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 anubis_dead_man_switch proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_dead_man_switch__is_paused 0
+GG EK_PROOF_DEPENDENCIES anubis_dead_man_switch__is_paused 0
+GG EK_GLOBALS anubis_dead_man_switch__is_paused local FALSE E_FUNCTION FALSE ORIGIN_FLOW 1 anubis_dead_man_switch proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_dead_man_switch__tune_parameter 1 anubis_dead_man_switch__is_valid_change
+GG EK_PROOF_DEPENDENCIES anubis_dead_man_switch__tune_parameter 0
+GG EK_GLOBALS anubis_dead_man_switch__tune_parameter local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 anubis_dead_man_switch proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_dead_man_switch__is_valid_change 0
+GG EK_PROOF_DEPENDENCIES anubis_dead_man_switch__is_valid_change 0
+GG EK_GLOBALS anubis_dead_man_switch__is_valid_change local FALSE E_FUNCTION FALSE ORIGIN_FLOW 1 anubis_dead_man_switch proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_dead_man_switch__add_council_member 0
+GG EK_PROOF_DEPENDENCIES anubis_dead_man_switch__add_council_member 0
+GG EK_GLOBALS anubis_dead_man_switch__add_council_member local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 anubis_dead_man_switch proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_dead_man_switch__remove_council_member 0
+GG EK_PROOF_DEPENDENCIES anubis_dead_man_switch__remove_council_member 0
+GG EK_GLOBALS anubis_dead_man_switch__remove_council_member local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 anubis_dead_man_switch proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_dead_man_switch__check_council_threshold 0
+GG EK_PROOF_DEPENDENCIES anubis_dead_man_switch__check_council_threshold 0
+GG EK_GLOBALS anubis_dead_man_switch__check_council_threshold local FALSE E_FUNCTION FALSE ORIGIN_FLOW 1 anubis_dead_man_switch proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_dead_man_switch__get_privilege_holder 0
+GG EK_PROOF_DEPENDENCIES anubis_dead_man_switch__get_privilege_holder 0
+GG EK_GLOBALS anubis_dead_man_switch__get_privilege_holder local FALSE E_FUNCTION FALSE ORIGIN_FLOW 1 anubis_dead_man_switch proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_dead_man_switch__has_privilege 0
+GG EK_PROOF_DEPENDENCIES anubis_dead_man_switch__has_privilege 0
+GG EK_GLOBALS anubis_dead_man_switch__has_privilege local FALSE E_FUNCTION FALSE ORIGIN_FLOW 1 anubis_dead_man_switch proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_dead_man_switch__check_handoff 4 anubis_dead_man_switch__trigger_switch anubis_dead_man_switch__should_trigger anubis_dead_man_switch__update_phase anubis_dead_man_switch__privilege_expires_at
+GG EK_PROOF_DEPENDENCIES anubis_dead_man_switch__check_handoff 0
+GG EK_GLOBALS anubis_dead_man_switch__check_handoff local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 anubis_dead_man_switch proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_dead_man_switch__next_handoff_block 0
+GG EK_PROOF_DEPENDENCIES anubis_dead_man_switch__next_handoff_block 0
+GG EK_GLOBALS anubis_dead_man_switch__next_handoff_block local FALSE E_FUNCTION FALSE ORIGIN_FLOW 1 anubis_dead_man_switch proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_dead_man_switch__serialize_switch_state__write_u64 0
+GG EK_PROOF_DEPENDENCIES anubis_dead_man_switch__serialize_switch_state__write_u64 0
+GG EK_GLOBALS anubis_dead_man_switch__serialize_switch_state__write_u64 local TRUE E_PROCEDURE FALSE ORIGIN_FLOW 2 anubis_dead_man_switch__serialize_switch_state anubis_dead_man_switch proper_proof_in 0 proper_input 2 anubis_dead_man_switch__serialize_switch_state__idx anubis_dead_man_switch__serialize_switch_state__output proper_output 2 anubis_dead_man_switch__serialize_switch_state__idx anubis_dead_man_switch__serialize_switch_state__output refined_proof_in 0 refined_input 2 anubis_dead_man_switch__serialize_switch_state__idx anubis_dead_man_switch__serialize_switch_state__output refined_output 2 anubis_dead_man_switch__serialize_switch_state__idx anubis_dead_man_switch__serialize_switch_state__output calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_dead_man_switch__serialize_switch_state 0
+GG EK_PROOF_DEPENDENCIES anubis_dead_man_switch__serialize_switch_state 0
+GG EK_GLOBALS anubis_dead_man_switch__serialize_switch_state local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 anubis_dead_man_switch proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_dead_man_switch__deserialize_switch_state__read_u64 0
+GG EK_PROOF_DEPENDENCIES anubis_dead_man_switch__deserialize_switch_state__read_u64 0
+GG EK_GLOBALS anubis_dead_man_switch__deserialize_switch_state__read_u64 local TRUE E_PROCEDURE FALSE ORIGIN_FLOW 2 anubis_dead_man_switch__deserialize_switch_state anubis_dead_man_switch proper_proof_in 0 proper_input 2 anubis_dead_man_switch__deserialize_switch_state__idx anubis_dead_man_switch__deserialize_switch_state__input proper_output 1 anubis_dead_man_switch__deserialize_switch_state__idx refined_proof_in 0 refined_input 2 anubis_dead_man_switch__deserialize_switch_state__idx anubis_dead_man_switch__deserialize_switch_state__input refined_output 1 anubis_dead_man_switch__deserialize_switch_state__idx calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_dead_man_switch__deserialize_switch_state 1 anubis_dead_man_switch__init_switch
+GG EK_PROOF_DEPENDENCIES anubis_dead_man_switch__deserialize_switch_state 0
+GG EK_GLOBALS anubis_dead_man_switch__deserialize_switch_state local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 anubis_dead_man_switch proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_dead_man_switch__zeroize_switch_state 0
+GG EK_PROOF_DEPENDENCIES anubis_dead_man_switch__zeroize_switch_state 0
+GG EK_GLOBALS anubis_dead_man_switch__zeroize_switch_state local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 anubis_dead_man_switch proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_dead_man_switch__zeroize_council_state 0
+GG EK_PROOF_DEPENDENCIES anubis_dead_man_switch__zeroize_council_state 0
+GG EK_GLOBALS anubis_dead_man_switch__zeroize_council_state local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 anubis_dead_man_switch proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_dead_man_switch__zeroize_heartbeat 0
+GG EK_PROOF_DEPENDENCIES anubis_dead_man_switch__zeroize_heartbeat 0
+GG EK_GLOBALS anubis_dead_man_switch__zeroize_heartbeat local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 anubis_dead_man_switch proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_dead_man_switch 0
+GG EK_PROOF_DEPENDENCIES anubis_dead_man_switch 0
+GG EK_GLOBALS anubis_dead_man_switch local FALSE E_PACKAGE TRUE ORIGIN_FLOW 0 proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 initializes 0 refined_initializes 0 calls_proof 0 calls 0 calls_conditional 0 local_packages 0 local_var 0 TRUE FALSE FALSE FALSE FALSE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_FLOW_SCOPE anubis_dead_man_switch__check_heartbeat_status FALSE FALSE FALSE FALSE TRUE anubis_dead_man_switch VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_dead_man_switch__check_council_threshold FALSE FALSE FALSE FALSE TRUE anubis_dead_man_switch VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_dead_man_switch__next_handoff_block FALSE FALSE FALSE FALSE TRUE anubis_dead_man_switch VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_dead_man_switch__privilege_available FALSE FALSE FALSE FALSE TRUE anubis_dead_man_switch VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_dead_man_switch TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE anubis_dead_man_switch__blocks_until_heartbeat FALSE FALSE FALSE FALSE TRUE anubis_dead_man_switch VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_dead_man_switch__serialize_switch_state FALSE FALSE FALSE FALSE TRUE anubis_dead_man_switch VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_dead_man_switch__unpause FALSE FALSE FALSE FALSE TRUE anubis_dead_man_switch VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_dead_man_switch__is_valid_change FALSE FALSE FALSE FALSE TRUE anubis_dead_man_switch VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_dead_man_switch__transfer_all_privileges FALSE FALSE FALSE FALSE TRUE anubis_dead_man_switch VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_dead_man_switch__init_council FALSE FALSE FALSE FALSE TRUE anubis_dead_man_switch VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_dead_man_switch__privilege_expires_at FALSE FALSE FALSE FALSE TRUE anubis_dead_man_switch VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_dead_man_switch__get_privilege_holder FALSE FALSE FALSE FALSE TRUE anubis_dead_man_switch VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_dead_man_switch__is_heartbeat_overdue FALSE FALSE FALSE FALSE TRUE anubis_dead_man_switch VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_dead_man_switch__add_council_member FALSE FALSE FALSE FALSE TRUE anubis_dead_man_switch VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_dead_man_switch__finalize_recovery FALSE FALSE FALSE FALSE TRUE anubis_dead_man_switch VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_dead_man_switch__builder_emergency_pause FALSE FALSE FALSE FALSE TRUE anubis_dead_man_switch VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_dead_man_switch__deserialize_switch_state FALSE FALSE FALSE FALSE TRUE anubis_dead_man_switch VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_dead_man_switch__has_privilege FALSE FALSE FALSE FALSE TRUE anubis_dead_man_switch VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_dead_man_switch__initiate_recovery FALSE FALSE FALSE FALSE TRUE anubis_dead_man_switch VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_dead_man_switch__record_heartbeat FALSE FALSE FALSE FALSE TRUE anubis_dead_man_switch VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_dead_man_switch__trigger_switch FALSE FALSE FALSE FALSE TRUE anubis_dead_man_switch VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_dead_man_switch__is_paused FALSE FALSE FALSE FALSE TRUE anubis_dead_man_switch VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_dead_man_switch__zeroize_switch_state FALSE FALSE FALSE FALSE TRUE anubis_dead_man_switch VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_dead_man_switch__zeroize_council_state FALSE FALSE FALSE FALSE TRUE anubis_dead_man_switch VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_dead_man_switch__council_emergency_pause FALSE FALSE FALSE FALSE TRUE anubis_dead_man_switch VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_dead_man_switch__update_phase FALSE FALSE FALSE FALSE TRUE anubis_dead_man_switch VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_dead_man_switch__remove_council_member FALSE FALSE FALSE FALSE TRUE anubis_dead_man_switch VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_dead_man_switch__deserialize_switch_state__read_u64 FALSE FALSE FALSE FALSE TRUE anubis_dead_man_switch__deserialize_switch_state BODY_PART
+GG EK_FLOW_SCOPE anubis_dead_man_switch__init_switch FALSE FALSE FALSE FALSE TRUE anubis_dead_man_switch VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_dead_man_switch__serialize_switch_state__write_u64 FALSE FALSE FALSE FALSE TRUE anubis_dead_man_switch__serialize_switch_state BODY_PART
+GG EK_FLOW_SCOPE anubis_dead_man_switch__zeroize_heartbeat FALSE FALSE FALSE FALSE TRUE anubis_dead_man_switch VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_dead_man_switch__tune_parameter FALSE FALSE FALSE FALSE TRUE anubis_dead_man_switch VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_dead_man_switch__should_trigger FALSE FALSE FALSE FALSE TRUE anubis_dead_man_switch VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_dead_man_switch__check_handoff FALSE FALSE FALSE FALSE TRUE anubis_dead_man_switch VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_types TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_dead_man_switch__get_phase FALSE FALSE FALSE FALSE TRUE anubis_dead_man_switch VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_dead_man_switch__vote_recovery FALSE FALSE FALSE FALSE TRUE anubis_dead_man_switch VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_END_MARKER

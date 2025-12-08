@@ -1,0 +1,46 @@
+[
+{
+  "name": "ANUBIS_SHA3.SHA3_256_DIGEST",
+  "location": "anubis_sha3.ads:32:12",
+  "Size": 256,
+  "Alignment": 1,
+  "Component_Size": 8
+}
+,
+{
+  "name": "ANUBIS_SHA3.SHA3_384_DIGEST",
+  "location": "anubis_sha3.ads:35:12",
+  "Size": 384,
+  "Alignment": 1,
+  "Component_Size": 8
+}
+,
+{
+  "name": "ANUBIS_SHA3.SHA3_512_DIGEST",
+  "location": "anubis_sha3.ads:38:12",
+  "Size": 512,
+  "Alignment": 1,
+  "Component_Size": 8
+}
+,
+{
+  "name": "ANUBIS_SHA3.SHA3_SUFFIX",
+  "location": "anubis_sha3.ads:48:4",
+  "Size": 8,
+  "Alignment": 1
+}
+,
+{
+  "name": "ANUBIS_SHA3.SHAKE_SUFFIX",
+  "location": "anubis_sha3.ads:49:4",
+  "Size": 8,
+  "Alignment": 1
+}
+,
+{
+  "name": "ANUBIS_SHA3.KECCAK_SUFFIX",
+  "location": "anubis_sha3.ads:50:4",
+  "Size": 8,
+  "Alignment": 1
+}
+]

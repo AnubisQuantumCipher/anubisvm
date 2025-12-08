@@ -1,0 +1,256 @@
+V "GNAT Lib v14"
+A -O2
+A -gnatA
+A -gnat2022
+A -gnatwa
+A -gnatyO
+A -gnatVa
+A -gnatw.F
+A -gnata
+A -gnatn
+A -ffunction-sections
+A -fdata-sections
+A -mmacosx-version-min=16.0.0
+A -mcpu=apple-m1
+A -mlittle-endian
+A -mabi=lp64
+A -fPIC
+P ZX
+
+RN
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+RV NO_ELABORATION_CODE
+
+U aegis_sandbox%b	aegis_sandbox.adb	834a6076 NE OO PK
+Z system.assertions%s	s-assert.adb		s-assert.ali
+
+U aegis_sandbox%s	aegis_sandbox.ads	0061d1d9 EE OO PK
+W aegis_storage%s	aegis_storage.adb	aegis_storage.ali
+W aegis_vm_types%s	aegis_vm_types.ads	aegis_vm_types.ali
+
+D ada.ads		20240808082856 76789da1 ada%s
+D a-assert.ads		20240808082856 ba465f5c ada.assertions%s
+D a-unccon.ads		20240808082856 0e9b276f ada.unchecked_conversion%s
+D aegis_sandbox.ads	20251207191106 0a9a14d0 aegis_sandbox%s
+D aegis_sandbox.adb	20251207191105 89d074a6 aegis_sandbox%b
+D aegis_storage.ads	20251207191106 d62ac4d0 aegis_storage%s
+D aegis_vm_types.ads	20251207191105 dcd101d9 aegis_vm_types%s
+D interfac.ads		20240808082856 9111f9c1 interfaces%s
+D system.ads		20240808082856 70765b54 system%s
+D s-assert.ads		20240808082856 9c4520c7 system.assertions%s
+D s-exctab.ads		20240808082856 91bef6ef system.exception_table%s
+D s-stalib.ads		20240808082856 1c9580f6 system.standard_library%s
+G a e
+G c Z s s [Treturn_data_bufferBIP aegis_sandbox 214 4 none]
+G c Z s s [return_dataIP aegis_sandbox 217 9 none]
+G c Z s b [has_capability aegis_sandbox 269 13 none]
+G c Z s b [is_static_safe aegis_sandbox 277 13 none]
+G c Z s b [required_capabilities aegis_sandbox 281 13 none]
+G c Z s b [validate_syscall aegis_sandbox 291 13 none]
+G c Z s b [validate_memory_access aegis_sandbox 298 13 none]
+G c Z s s [call_frameIP aegis_sandbox 106 9 none]
+G c Z s s [Tcall_stackBIP aegis_sandbox 124 4 none]
+G c Z s s [sandbox_contextIP aegis_sandbox 127 9 none]
+G c Z s s [block_infoIP aegis_sandbox 158 9 none]
+G c Z s s [transaction_infoIP aegis_sandbox 169 9 none]
+G c Z s s [execution_environmentIP aegis_sandbox 178 9 none]
+G c Z s s [memory_access_recordIP aegis_sandbox 192 9 none]
+G c Z s s [memory_expansion_resultIP aegis_sandbox 200 9 none]
+G c Z s s [Tlog_data_bufferBIP aegis_sandbox 237 4 none]
+G c Z s s [Tlog_topicsBIP aegis_sandbox 241 4 none]
+G c Z s s [log_entryIP aegis_sandbox 244 9 none]
+G c Z s s [Tlog_listBIP aegis_sandbox 256 4 none]
+G c Z s s [transaction_logsIP aegis_sandbox 259 9 none]
+G r s access_set [sandbox_contextIP aegis_sandbox 127 9 none] [access_setIP aegis_storage 232 9 none]
+G r s Tsnapshot_stackB [sandbox_contextIP aegis_sandbox 127 9 none] [Tsnapshot_stackBIP aegis_storage 212 4 none]
+G r s transaction_effects [sandbox_contextIP aegis_sandbox 127 9 none] [transaction_effectsIP aegis_storage 119 9 none]
+X 4 aegis_sandbox.ads
+27K9*Aegis_Sandbox 307l5 307e18 5|3b14 114l5 114t18
+36E9*Syscall_Number 81e5 277r39 282r17 293r17 5|19r39 36r17 65r17
+38n7*Sys_SLoad{36E9} 5|23r15 41r15
+39n7*Sys_SStore{36E9} 5|43r15
+42n7*Sys_SHA3{36E9} 5|23r27
+43n7*Sys_Keccak256{36E9} 5|23r38
+44n7*Sys_MLDSA_Verify{36E9} 5|23r54
+45n7*Sys_MLKEM_Decaps{36E9} 5|24r15
+48n7*Sys_Caller{36E9} 5|24r34
+49n7*Sys_Address{36E9} 5|24r47
+50n7*Sys_CallValue{36E9} 5|24r61
+51n7*Sys_CallData{36E9} 5|25r15
+52n7*Sys_CallDataSize{36E9} 5|25r30
+53n7*Sys_BlockNumber{36E9} 5|25r49
+54n7*Sys_Timestamp{36E9} 5|26r15
+55n7*Sys_GasPrice{36E9} 5|26r31
+56n7*Sys_GasRemaining{36E9} 5|26r46
+59n7*Sys_Balance{36E9} 5|27r15
+60n7*Sys_SelfBalance{36E9} 5|27r29
+63n7*Sys_Call{36E9} 5|45r15
+64n7*Sys_StaticCall{36E9} 5|27r47 45r26
+65n7*Sys_DelegateCall{36E9} 5|45r43
+66n7*Sys_Create{36E9} 5|47r15
+67n7*Sys_Create2{36E9} 5|47r28
+70n7*Sys_Return{36E9} 5|28r15
+71n7*Sys_Revert{36E9} 5|28r28
+72n7*Sys_Stop{36E9} 5|28r41
+73n7*Sys_SelfDestruct{36E9} 5|49r15
+76n7*Sys_Log0{36E9} 5|51r15
+77n7*Sys_Log1{36E9} 5|51r26
+78n7*Sys_Log2{36E9} 5|51r37
+79n7*Sys_Log3{36E9} 5|51r48
+80n7*Sys_Log4{36E9} 5|51r59
+84E9*Syscall_Result 90e5 294r13 5|66r13
+85n7*Syscall_OK{84E9} 5|88r14
+86n7*Syscall_Denied{84E9} 5|72r17 79r20
+87n7*Syscall_Out_Of_Gas{84E9} 5|85r17
+88n7*Syscall_Error{84E9}
+89n7*Syscall_Invalid{84E9}
+97E9*Sandbox_Status 103e5 129r22
+98n7*Sandbox_Running{97E9}
+99n7*Sandbox_Stopped{97E9}
+100n7*Sandbox_Returned{97E9}
+101n7*Sandbox_Reverted{97E9}
+102n7*Sandbox_Error{97E9}
+106R9*Call_Frame 118e14 124r51 130r23
+107a7*Caller{7|70A9}
+108a7*Callee{7|70A9}
+109r7*Value{7|41R9}
+110i7*Gas_Limit{7|101I9}
+111i7*Gas_Used{7|101I9}
+112a7*Call_Data{7|56A9}
+113a7*Return_Data{7|56A9}
+114i7*Depth{7|188I9}
+115e7*Call_Kind{7|178E9}
+116a7*Capabilities{7|263A9} 5|78r39
+117b7*Is_Static{boolean} 5|70r32
+121I12*Call_Frame_Index{7|188I9} 124r30
+124A9*Call_Stack(106R9)<7|188I9> 133r22
+127R9*Sandbox_Context 151e14 292r17 299r17 5|64r17 92r17
+129e7*Status{97E9}
+130r7*Current_Frame{106R9} 5|70r18 78r25
+133a7*Frames{124A9}
+134i7*Depth{7|188I9}
+137i7*Memory_Size{natural} 5|99r34
+140r7*Gas{7|113R9} 5|84r18 84r42
+143r7*Access_Set{6|232R9}
+146a7*Snapshots{6|212A9}
+147i7*Snapshot_Count{natural}
+150r7*Effects{6|119R9}
+158R9*Block_Info 166e14 179r22
+159r7*Number{7|41R9}
+160r7*Timestamp{7|41R9}
+161i7*Gas_Limit{7|101I9}
+162a7*Coinbase{7|70A9}
+163r7*Difficulty{7|41R9}
+164r7*Base_Fee{7|41R9}
+165r7*Chain_ID{7|41R9}
+169R9*Transaction_Info 175e14 180r22
+170a7*Origin{7|70A9}
+171r7*Gas_Price{7|41R9}
+172r7*Value{7|41R9}
+173a7*Data_Hash{7|56A9}
+174i7*Data_Size{natural}
+178R9*Execution_Environment 182e14
+179r7*Block{158R9}
+180r7*Transaction{169R9}
+181e7*Certification{7|84E9}
+189E9*Memory_Op 189e53 193r21
+189n23*Mem_Read{189E9}
+189n33*Mem_Write{189E9}
+189n44*Mem_Copy{189E9}
+192R9*Memory_Access_Record 197e14
+193e7*Operation{189E9}
+194i7*Offset{natural}
+195i7*Size{natural}
+196b7*Success{boolean}
+200R9*Memory_Expansion_Result 204e14
+201i7*New_Size{natural}
+202i7*Gas_Cost{7|101I9}
+203b7*Success{boolean}
+211N4*Max_Return_Data_Size 213r41
+213I9*Return_Data_Index<short_integer> 214r38
+214A9*Return_Data_Buffer(7|31M12)<213I9> 218r16
+217R9*Return_Data 221e14 223r33
+218a7*Buffer{214A9} 224m7
+219i7*Size{natural} 225m7
+220b7*Valid{boolean} 226m7
+223r4*Empty_Return_Data{217R9}
+234N4*Max_Log_Data_Size 236r38
+236I9*Log_Data_Index<short_integer> 237r35
+237A9*Log_Data_Buffer(7|31M12)<236I9> 248r21
+240I9*Topic_Index<short_short_integer> 241r30
+241A9*Log_Topics(7|56A9)<240I9> 246r21
+244R9*Log_Entry 250e14 256r42
+245a7*Address{7|70A9}
+246a7*Topics{241A9}
+247i7*Topic_Count{natural}
+248a7*Data{237A9}
+249i7*Data_Size{natural}
+253N4*Max_Logs_Per_Tx 255r33
+255I9*Log_Index<short_integer> 256r28
+256A9*Log_List(244R9)<255I9> 260r19
+259R9*Transaction_Logs 262e14
+260a7*Logs{256A9}
+261i7*Log_Count{natural}
+269V13*Has_Capability{boolean} 270>7 271>7 274r17 5|11b13
+270a7 Mask{7|263A9} 274r41 5|12b7 16r14
+271e7 Cap{7|250E9} 274r47 5|13b7 16r20
+277V13*Is_Static_Safe{boolean} 277>29 5|19b13 33l8 33t22 71s14
+277e29 Syscall{36E9} 5|19b29 22r12
+281V13*Required_Capabilities{7|263A9} 282>7 5|35b13 57l8 57t29 67s46
+282e7 Syscall{36E9} 5|36b7 40r12
+291V13*Validate_Syscall{84E9} 292>7 293>7 5|63b13 89l8 89t24
+292r7 Context{127R9} 5|64b7 70r10 78r17 84r10 84r34
+293e7 Syscall{36E9} 5|65b7 67r69 71r30
+298V13*Validate_Memory_Access{boolean} 299>7 300>7 301>7 302>7 5|91b13 112l8
+. 112t30
+299r7 Context{127R9} 5|92b7 99r26
+300i7 Offset{natural} 305r17 5|93b7 99r10
+301i7 Size{natural} 305r42 5|94b7 99r19
+302e7 Mode{7|136E9} 5|95b7 104r12
+X 5 aegis_sandbox.adb
+38a7 Result{7|263A9} 42m13 44m13 46m13 48m13 50m13 52m13 56r14
+67a7 Required{7|263A9} 77r13
+76e11 Cap{7|250E9} 77r23 78r53
+X 6 aegis_storage.ads
+27K9*Aegis_Storage 4|4w6 4r25 143r22 6|259e18
+119R9*Transaction_Effects 4|150r22 6|124e14
+212A9*Snapshot_Stack(204R9)<integer> 4|146r22
+232R9*Access_Set 4|143r36 6|235e14
+X 7 aegis_vm_types.ads
+21K9*Aegis_VM_Types 4|3w6 3r26 7|279e19
+31M12*Byte{8|70M9} 4|214r60 237r54
+41R9*U256 4|109r22 159r22 160r22 163r22 164r22 165r22 171r22 172r22 7|43e14
+46r4*U256_Zero{41R9} 4|109r42
+56A9*Hash256(31M12)<integer> 4|112r22 113r22 173r22 241r46
+62a4*Hash256_Zero{56A9} 4|112r42 113r42
+70A9*Contract_Address(31M12)<integer> 4|107r22 108r22 162r22 170r22 245r21
+72a4*Address_Zero{70A9} 4|107r42 108r42
+84E9*Certification_Level 4|181r23 7|84e64
+101I9*Gas_Amount<long_integer> 4|110r22 111r22 161r22 202r21
+113R9*Gas_Context 4|140r22 7|118e14
+114i7*Gas_Limit{101I9} 5|84r46
+115i7*Gas_Used{101I9} 5|84r22
+136E9*Memory_Access 4|302r17 5|95r17 7|136e58
+136n27*Read_Only{136E9} 5|105r15
+136n38*Read_Write{136E9} 5|107r15
+136n50*Execute{136E9} 5|109r15
+178E9*Call_Type 4|115r22 7|184e5
+179n7*Call{178E9} 4|115r42
+187N4*Max_Call_Depth 4|121r54
+188I9*Call_Depth<short_integer> 4|114r22 121r32 134r22
+250E9*Capability_Type 4|271r14 5|13r14 76r18 7|260e5
+252n7*Cap_Read_Storage{250E9} 5|42r21
+253n7*Cap_Write_Storage{250E9} 5|44r21 52r21
+254n7*Cap_Call{250E9} 5|46r21
+256n7*Cap_Create{250E9} 5|48r21
+257n7*Cap_Self_Destruct{250E9} 5|50r21
+263A9*Capability_Mask(boolean)<250E9> 4|116r22 270r14 283r13 5|12r14 37r13
+. 38r16 67r27
+266a4*No_Capabilities{263A9} 5|38r35
+268a4*Full_Capabilities{263A9} 4|116r42
+X 8 interfac.ads
+70M9*Unsigned_8
+

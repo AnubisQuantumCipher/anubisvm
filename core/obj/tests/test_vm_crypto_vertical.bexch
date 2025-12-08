@@ -1,0 +1,23 @@
+[GENERATED OBJECT FILE]
+b__test_vm_crypto_vertical.o
+[PROJECT FILES]
+/Users/sicarii/anubisvm/core/tests/test_vm_crypto.gpr
+20251206060054 5a3a934eb1a727cb9406b40fc2a1a385
+/Users/sicarii/anubisvm/core/aegisvm.gpr
+20251207111344 f0e988be02be010224b05fcbd90356dc
+[BOUND OBJECT FILES]
+/Users/sicarii/anubisvm/core/obj/tests/test_vm_crypto_vertical.o
+[GENERATED SOURCE FILES]
+b__test_vm_crypto_vertical.ads
+b__test_vm_crypto_vertical.adb
+b__test_vm_crypto_vertical.ali
+[RESULTING OPTIONS]
+-L/Users/sicarii/anubisvm/core/obj/tests/
+-L/Users/sicarii/anubisvm/core/obj/tests/
+-L/Users/sicarii/anubisvm/core/lib/
+-L/Users/sicarii/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/adalib/
+-shared
+-lgnat-14
+[RUN PATH OPTION]
+/Users/sicarii/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/adalib/
+/Users/sicarii/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib

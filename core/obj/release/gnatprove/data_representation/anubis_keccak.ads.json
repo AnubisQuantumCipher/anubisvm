@@ -1,0 +1,62 @@
+[
+{
+  "name": "Anubis_Keccak.Lane",
+  "location": "anubis_keccak.ads:22:9",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Anubis_Keccak.Lane_Index",
+  "location": "anubis_keccak.ads:23:9",
+  "Object_Size": 8,
+  "Value_Size": 3,
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Keccak.State_Array",
+  "location": "anubis_keccak.ads:24:9",
+  "Size": 1600,
+  "Alignment": 8,
+  "Component_Size": 64
+}
+,
+{
+  "name": "Anubis_Keccak.Round_Index",
+  "location": "anubis_keccak.ads:28:9",
+  "Object_Size": 8,
+  "Value_Size": 5,
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Keccak.Round_Constants_Array",
+  "location": "anubis_keccak.ads:29:9",
+  "Size": 1536,
+  "Alignment": 8,
+  "Component_Size": 64
+}
+,
+{
+  "name": "Anubis_Keccak.Round_Constants",
+  "location": "anubis_keccak.ads:31:4",
+  "Size": 1536,
+  "Alignment": 8
+}
+,
+{
+  "name": "Anubis_Keccak.Rho_Offsets_Array",
+  "location": "anubis_keccak.ads:42:9",
+  "Size": 800,
+  "Alignment": 4,
+  "Component_Size": 32
+}
+,
+{
+  "name": "Anubis_Keccak.Rho_Offsets",
+  "location": "anubis_keccak.ads:44:4",
+  "Size": 800,
+  "Alignment": 4
+}
+]

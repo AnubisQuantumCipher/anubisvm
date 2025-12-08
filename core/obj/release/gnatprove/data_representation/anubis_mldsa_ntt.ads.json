@@ -1,0 +1,16 @@
+[
+{
+  "name": "ANUBIS_MLDSA_NTT.TWIDDLE_ARRAY",
+  "location": "anubis_mldsa_ntt.ads:24:9",
+  "Size": 8192,
+  "Alignment": 4,
+  "Component_Size": 32
+}
+,
+{
+  "name": "ANUBIS_MLDSA_NTT.ZETAS",
+  "location": "anubis_mldsa_ntt.ads:88:4",
+  "Size": 8192,
+  "Alignment": 4
+}
+]

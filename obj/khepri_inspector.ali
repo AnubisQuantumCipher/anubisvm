@@ -1,0 +1,368 @@
+V "GNAT Lib v14"
+A -O0
+A -gnatA
+A -gnatwa
+A -gnatQ
+A -gnata
+A -gnatf
+A -gnatyM120
+A -gnatyO
+A -gnat2012
+A -g
+A -gnateE
+A -fstack-check=specific
+A -mmacosx-version-min=16.0.0
+A -mcpu=apple-m1
+A -mlittle-endian
+A -mabi=lp64
+A -fPIC
+P SS ZX
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_SECONDARY_STACK
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+RV NO_OBSOLESCENT_FEATURES
+
+U khepri_inspector%b	khepri_inspector.adb	8ba8fe15 NE OO PK
+W aegis_u256%s		aegis_u256.adb		aegis_u256.ali
+Z system.assertions%s	s-assert.adb		s-assert.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+
+U khepri_inspector%s	khepri_inspector.ads	53ab0f4e EE NE OO PK
+W aegis_vm_types%s	aegis_vm_types.ads	aegis_vm_types.ali
+W interfaces%s		interfac.ads		interfac.ali
+W khepri_certification%s  khepri_certification.adb  khepri_certification.ali
+W khepri_types%s	khepri_types.adb	khepri_types.ali
+
+D ada.ads		20240808082856 76789da1 ada%s
+D a-assert.ads		20240808082856 ba465f5c ada.assertions%s
+D a-unccon.ads		20240808082856 0e9b276f ada.unchecked_conversion%s
+D aegis_u256.ads	20251207191105 ff2dfe4b aegis_u256%s
+D aegis_vm_types.ads	20251207191105 dcd101d9 aegis_vm_types%s
+D interfac.ads		20240808082856 9111f9c1 interfaces%s
+D khepri_certification.ads  20251207191107 853714ad khepri_certification%s
+D khepri_inspector.ads	20251207191107 9daf61d6 khepri_inspector%s
+D khepri_inspector.adb	20251207191107 e92a6188 khepri_inspector%b
+D khepri_types.ads	20251207191106 06f3822d khepri_types%s
+D system.ads		20240808082856 70765b54 system%s
+D s-assert.ads		20240808082856 9c4520c7 system.assertions%s
+D s-exctab.ads		20240808082856 91bef6ef system.exception_table%s
+D s-parame.ads		20240808082856 3597fc11 system.parameters%s
+D s-secsta.ads		20240808082856 578279f5 system.secondary_stack%s
+D s-stalib.ads		20240808082856 1c9580f6 system.standard_library%s
+D s-stoele.ads		20240808082856 ccded4e8 system.storage_elements%s
+G a e
+G c Z s s [inspector_configIP khepri_inspector 179 9 none]
+G c Z s b [create_session khepri_inspector 205 13 none]
+G c Z s b [inspect_contract khepri_inspector 211 14 none]
+G c Z s b [inspect_bytecode khepri_inspector 219 14 none]
+G c Z s b [get_contract_info khepri_inspector 231 13 none]
+G c Z s b [get_version_info khepri_inspector 237 13 none]
+G c Z s b [get_cert_level khepri_inspector 243 13 none]
+G c Z s b [get_abi khepri_inspector 253 14 none]
+G c Z s b [get_function khepri_inspector 263 13 none]
+G c Z s b [get_event khepri_inspector 270 13 none]
+G c Z s b [encode_call khepri_inspector 277 14 none]
+G c Z s b [decode_result khepri_inspector 288 14 none]
+G c Z s b [disassemble_bytecode khepri_inspector 303 14 none]
+G c Z s b [get_instruction khepri_inspector 311 13 none]
+G c Z s b [format_disassembly khepri_inspector 318 14 none]
+G c Z s b [get_storage_layout khepri_inspector 332 14 none]
+G c Z s b [read_slot khepri_inspector 340 13 none]
+G c Z s b [get_mapping_slot khepri_inspector 347 13 none]
+G c Z s b [parse_events khepri_inspector 372 14 none]
+G c Z s b [trace_call khepri_inspector 402 14 none]
+G c Z s b [generate_report khepri_inspector 424 14 none]
+G c Z s b [summary_line khepri_inspector 435 13 none]
+G c Z s s [contract_infoIP khepri_inspector 38 9 none]
+G c Z s s [version_infoIP khepri_inspector 52 9 none]
+G c Z s s [abi_paramIP khepri_inspector 79 9 none]
+G c Z s s [Tparam_arrayBIP khepri_inspector 87 4 none]
+G c Z s s [abi_functionIP khepri_inspector 90 9 none]
+G c Z s s [abi_eventIP khepri_inspector 102 9 none]
+G c Z s s [Tfunction_arrayBIP khepri_inspector 112 4 none]
+G c Z s s [Tevent_arrayBIP khepri_inspector 116 4 none]
+G c Z s s [opcode_infoIP khepri_inspector 123 9 none]
+G c Z s s [Tinstruction_arrayBIP khepri_inspector 136 4 none]
+G c Z s s [disassemblyIP khepri_inspector 139 9 none]
+G c Z s s [storage_slotIP khepri_inspector 152 9 none]
+G c Z s s [Tslot_arrayBIP khepri_inspector 163 4 none]
+G c Z s s [storage_layoutIP khepri_inspector 166 9 none]
+G c Z s s [inspection_sessionIP khepri_inspector 442 9 none]
+G c Z s s [decoded_eventIP khepri_inspector 358 9 none]
+G c Z s s [Tdecoded_event_arrayBIP khepri_inspector 369 4 none]
+G c Z s s [call_traceIP khepri_inspector 387 9 none]
+G c Z s s [Ttrace_arrayBIP khepri_inspector 399 4 none]
+X 4 aegis_u256.ads
+21K9*Aegis_U256 276e15 9|3w6 3r22
+X 5 aegis_vm_types.ads
+21K9*Aegis_VM_Types 279e19 8|4w6 4r26
+31M12*Byte{6|70M9} 8|125r20 9|334r16 480r16
+32A9*Byte_Array(31M12)<integer> 8|127r20 221r25 279r24 280r24 290r24 291r24
+. 320r24 349r19 363r23 427r24 450r24 9|89r25 209r24 210r24 233r24 234r24
+. 321r24 380r19 461r24
+35M12*Word64{6|84M9} 8|43r27 45r27 143r27 182r27 360r23 374r28 375r28 393r22
+. 9|285r27 398r28 399r28
+46r4*U256_Zero{41R9} 9|21r34 360r28 375r14
+56A9*Hash256(31M12)<integer> 8|40r27 104r23 153r21 272r19 342r17 348r19 350r13
+. 361r23 404r28 9|185r19 370r17 379r19 381r13 382r16 434r28
+70A9*Contract_Address(31M12)<integer>
+X 6 interfac.ads
+38K9*Interfaces 233e15 8|3w6 3r22
+70M9*Unsigned_8
+84M9*Unsigned_64
+X 7 khepri_certification.ads
+28K9*Khepri_Certification 325e25 8|6w6 6r32 46r27 245r13 9|129r13
+36E9*Certification_Level 42e5 8|46r48 245r34 9|129r34
+37n7*Level_None{36E9} 9|25r34
+39n7*Level_Silver{36E9} 9|82r38
+X 8 khepri_inspector.ads
+29K9*Khepri_Inspector 442E9 455l5 455e21 9|5b14 499l5 499t21
+38R9*Contract_Info 49e14 233r13 444r24 9|115r13
+39a7*Address{10|43A12} 9|18m13 80m24
+40a7*Bytecode_Hash{5|56A9} 9|19m13
+41i7*Bytecode_Size{natural} 9|20m13 81m24 104m24
+42r7*Balance{10|34R12} 9|21m13
+43m7*Nonce{5|35M12} 9|22m13
+44a7*Creator{10|43A12} 9|23m13
+45m7*Creation_Block{5|35M12} 9|24m13
+46e7*Cert_Level{7|36E9} 9|25m13 82m24 131r31
+47b7*Is_Proxy{boolean} 9|26m13
+48a7*Implementation{10|43A12} 9|27m13
+52R9*Version_Info 58e14 239r13 445r24 9|122r13
+53r7*Name{10|335R9} 9|30m13
+54r7*Version{10|335R9} 9|31m13
+55r7*Compiler_Version{10|335R9} 9|32m13
+56b7*SPARK_Mode{boolean} 9|33m13
+57i7*Optimization{natural} 9|34m13
+65E9*Param_Type 76e5 81r20
+66n7*Type_Uint256{65E9}
+67n7*Type_Int256{65E9}
+68n7*Type_Address{65E9}
+69n7*Type_Bool{65E9}
+70n7*Type_Bytes{65E9}
+71n7*Type_String{65E9}
+72n7*Type_Bytes32{65E9}
+73n7*Type_Array{65E9}
+74n7*Type_Tuple{65E9}
+75n7*Type_Unknown{65E9} 9|41r26 47r26 60r26 168r23 174r23 199r23 412r26
+79R9*ABI_Param 83e14 87r47
+80r7*Name{10|335R9} 9|40m16 46m16 59m16 167m13 173m13 198m13 411m16
+81e7*P_Type{65E9} 9|41m16 47m16 60m16 168m13 174m13 199m13 412m16
+82b7*Indexed{boolean} 9|42m16 48m16 61m16 169m13 175m13 200m13 413m16
+85N4*Max_Params 86r35
+86I9*Param_Index<short_short_integer> 87r31
+87A9*Param_Array(79R9)<86I9> 93r22 95r22 105r23
+90R9*ABI_Function 99e14 112r53 266r13 278r24 289r24 9|155r13 208r24 232r24
+91r7*Name{10|335R9} 9|37m13 164m10
+92a7*Selector{10|317A9} 9|38m13 158r52 165m10 218r21 219r44
+93a7*Inputs{87A9} 9|39m13 166m10
+94i7*Input_Count{natural} 9|44m13 171m10
+95a7*Outputs{87A9} 9|45m13 172m10
+96i7*Output_Count{natural} 9|50m13 177m10
+97i7*Mutability{natural} 9|51m13 178m10
+98b7*Is_External{boolean} 9|52m13 179m10
+102R9*ABI_Event 108e14 116r47 273r13 359r23 9|186r13
+103r7*Name{10|335R9} 9|56m13 195m10 408m13
+104a7*Signature{5|56A9} 9|57m13 189r46 196m10 409m13
+105a7*Params{87A9} 9|58m13 197m10 410m13
+106i7*Param_Count{natural} 9|63m13 202m10 415m13
+107b7*Is_Anonymous{boolean} 9|64m13 203m10 416m13
+110N4*Max_Functions 111r38
+111I9*Function_Index<short_short_integer> 112r34 9|158r32 159r39
+112A9*Function_Array(90R9)<111I9> 255r28 446r24 9|140r28
+114N4*Max_Events 115r35
+115I9*Event_Index<short_short_integer> 116r31 9|189r29 190r36
+116A9*Event_Array(102R9)<115I9> 257r28 448r24 9|142r28
+123R9*Opcode_Info 132e14 136r59 314r13 9|292r13
+124i7*Offset{natural} 9|263m13 296m13 308m10
+125m7*Opcode{5|31M12} 9|264m13 297m13 309m10
+126r7*Mnemonic{10|335R9} 9|265m13 298m13 310m10
+127a7*Operand{5|32A9} 9|266m13 299m13 311m10
+128i7*Op_Size{natural} 9|267m13 300m13 312m10
+129i7*Gas_Cost{natural} 9|268m13 301m13 313m10
+130i7*Stack_In{natural} 9|269m13 302m13 314m10
+131i7*Stack_Out{natural} 9|270m13 303m13 315m10
+134N4*Max_Instructions 135r41
+135I9*Instruction_Index<integer> 136r37
+136A9*Instruction_Array(123R9)<135I9> 140r27
+139R9*Disassembly 145e14 305r24 319r24 9|257r24 320r24
+140a7*Instructions{136A9} 9|262m10
+141i7*Instruction_Count{natural} 9|272m10 284m14
+142i7*Jump_Targets{natural} 9|273m10
+143m7*Total_Gas{5|35M12} 9|274m10 285m14
+144b7*Has_Errors{boolean} 9|275m10
+152R9*Storage_Slot 159e14 163r45
+153a7*Slot{5|56A9} 9|355m13
+154i7*Offset{natural} 9|356m13
+155i7*Size{natural} 9|357m13
+156r7*Name{10|335R9} 9|358m13
+157r7*Type_Name{10|335R9} 9|359m13
+158r7*Value{10|34R12} 9|360m13
+161N4*Max_Slots 162r34
+162I9*Slot_Index<short_integer> 163r30
+163A9*Slot_Array(152R9)<162I9> 167r20
+166R9*Storage_Layout 170e14 334r24 9|348r24
+167a7*Slots{163A9} 9|354m10
+168i7*Slot_Count{natural} 9|362m10
+169i7*Total_Size{natural} 9|363m10
+176R9*Inspection_Session 207r13 212r25 220r25 232r17 238r17 244r17 254r28
+. 264r18 271r19 304r24 312r17 333r24 341r17 373r28 403r28 425r24 436r17 442c9
+. 453e14 9|13r13 74r25 88r25 114r17 121r17 128r17 139r28 153r18 184r19 256r24
+. 290r17 347r24 369r17 397r28 433r28 459r24 489r17
+179R9*Inspector_Config 192e14 194r40 206r16 443r24 9|12r16
+181r7*RPC_Endpoint{10|335R9} 195m7
+182m7*Chain_ID{5|35M12} 196m7
+185b7*Fetch_Storage{boolean} 197m7
+186b7*Disassemble{boolean} 198m7
+187b7*Extract_ABI{boolean} 199m7
+188b7*Parse_Events{boolean} 200m7
+191i7*Output_Format{natural} 201m7
+194r4*Default_Inspector_Config{179R9}
+205V13*Create_Session{176R9} 206>7 9|11b13 71l8 71t22
+206r7 Config{179R9} 9|12b7 16r28
+211U14*Inspect_Contract 212=7 213>7 214<7 9|73b14 85l8 85t24
+212r7 Session{176R9} 9|74b7 80m7 81m7 82m7 83m7
+213a7 Address{10|43A12} 9|75b7 80r35
+214b7 Success{boolean} 9|76b7 84m7
+219U14*Inspect_Bytecode 220=7 221>7 222<7 9|87b14 107l8 107t24
+220r7 Session{176R9} 9|88b7 93r28 99m10 99r28 103m7 104m7 105m7
+221a7 Bytecode{5|32A9} 9|89b7 93r10 98r16 99r57 100r13 103r32 104r41
+222b7 Success{boolean} 9|90b7 94m10 106m7
+231V13*Get_Contract_Info{38R9} 232>7 9|113b13 118l8 118t25
+232r7 Session{176R9} 9|114b7 117r14
+237V13*Get_Version_Info{52R9} 238>7 9|120b13 125l8 125t24
+238r7 Session{176R9} 9|121b7 124r14
+243V13*Get_Cert_Level{7|36E9} 244>7 9|127b13 132l8 132t22
+244r7 Session{176R9} 9|128b7 131r14
+253U14*Get_ABI 254>7 255<7 256<7 257<7 258<7 9|138b14 150l8 150t15
+254r7 Session{176R9} 9|139b7 146r20 147r25 148r17 149r22
+255a7 Functions{112A9} 9|140b7 146m7
+256i7 Function_Count{natural} 9|141b7 147m7
+257a7 Events{116A9} 9|142b7 148m7
+258i7 Event_Count{natural} 9|143b7 149m7
+263V13*Get_Function{90R9} 264>7 265>7 9|152b13 181l8 181t20
+264r7 Session{176R9} 9|153b7 157r21 158r13 159r20
+265a7 Selector{10|317A9} 9|154b7 158r63
+270V13*Get_Event{102R9} 271>7 272>7 9|183b13 205l8 205t17
+271r7 Session{176R9} 9|184b7 188r21 189r13 190r20
+272a7 Signature{5|56A9} 9|185b7 189r58
+277U14*Encode_Call 278>7 279>7 280<7 281<7 282<7 9|207b14 229l8 229t19
+278r7 Func{90R9} 9|208b7 218r16 219r39
+279a7 Args{5|32A9} 9|209b7 223r16 224r41 224r56 227r19
+280a7 Output{5|32A9} 285r17 9|210b7 215m7 219m10 219r18 224m10 224r18
+281i7 Size{natural} 9|211b7 227m7
+282b7 Success{boolean} 9|212b7 228m7
+288U14*Decode_Result 289>7 290>7 291<7 292<7 293<7 9|231b14 249l8 249t21
+289r7 Func{90R9} 9|232b7 238r28
+290a7 Data{5|32A9} 9|233b7 243r16 244r37 244r52 247r15
+291a7 Output{5|32A9} 296r17 9|234b7 240m7 244m10 244r18
+292i7 Size{natural} 9|235b7 247m7
+293b7 Success{boolean} 9|236b7 248m7
+303U14*Disassemble_Bytecode 304>7 305<7 306<7 9|255b14 287l8 287t28
+304r7 Session{176R9} 9|256b7 278r14 278r38 284r35 285r35
+305r7 Result{139R9} 9|257b7 261m7 284m7 285m7
+306b7 Success{boolean} 9|258b7 279m10 286m7
+311V13*Get_Instruction{123R9} 312>7 313>7 9|289b13 317l8 317t23
+312r7 Session{176R9} 9|290b7 294r20 309r24
+313i7 Offset{natural} 9|291b7 294r10 308r24 309r42
+318U14*Format_Disassembly 319>7 320<7 321<7 322<7 9|319b14 340l8 340t26
+319r7 Disasm{139R9} 9|320b7 325r28
+320a7 Output{5|32A9} 325r17 9|321b7 327m7 333m13 333r21
+321i7 Size{natural} 9|322b7 336m10
+322b7 Success{boolean} 9|323b7 339m7
+332U14*Get_Storage_Layout 333>7 334<7 335<7 9|346b14 366l8 366t26
+333r7 Session{176R9} 9|347b7 351r28
+334r7 Layout{166R9} 9|348b7 353m7
+335b7 Success{boolean} 9|349b7 365m7
+340V13*Read_Slot{10|34R12} 341>7 342>7 9|368b13 376l8 376t17
+341r7 Session{176R9} 9|369b7 372r28
+342a7 Slot{5|56A9} 9|370b7 372r37
+347V13*Get_Mapping_Slot{5|56A9} 348>7 349>7 9|378b13 390l8 390t24
+348a7 Base_Slot{5|56A9} 9|379b7 385r21
+349a7 Key{5|32A9} 9|380b7 386r10 387r24 387r29
+358R9*Decoded_Event 365e14 369r63
+359r7*Event_Type{102R9} 9|407m10
+360m7*Block_Number{5|35M12} 9|418m10
+361a7*Tx_Hash{5|56A9} 9|419m10
+362i7*Log_Index{natural} 9|420m10
+363a7*Data{5|32A9} 9|421m10
+364i7*Data_Size{natural} 9|422m10
+367N4*Max_Decoded_Events 368r43
+368I9*Decoded_Event_Index<short_integer> 369r39
+369A9*Decoded_Event_Array(358R9)<368I9> 376r28 9|400r28
+372U14*Parse_Events 373>7 374>7 375>7 376<7 377<7 378<7 9|396b14 426l8 426t20
+373r7 Session{176R9} 9|397b7 404r28
+374m7 From_Block{5|35M12} 9|398b7 404r37
+375m7 To_Block{5|35M12} 9|399b7 404r49
+376a7 Events{369A9} 9|400b7 406m7
+377i7 Event_Count{natural} 9|401b7 424m7
+378b7 Success{boolean} 9|402b7 425m7
+387R9*Call_Trace 395e14 399r47
+388i7*Depth{natural} 9|442m10
+389i7*Call_Type{natural} 9|443m10
+390a7*From_Addr{10|43A12} 9|444m10
+391a7*To_Addr{10|43A12} 9|445m10
+392a7*Selector{10|317A9} 9|446m10
+393m7*Gas_Used{5|35M12} 9|447m10
+394b7*Success_Flag{boolean} 9|448m10
+397N4*Max_Traces 398r35
+398I9*Trace_Index<short_integer> 399r31
+399A9*Trace_Array(387R9)<398I9> 405r28 9|435r28
+402U14*Trace_Call 403>7 404>7 405<7 406<7 407<7 9|432b14 452l8 452t18
+403r7 Session{176R9} 9|433b7 439r28
+404a7 Tx_Hash{5|56A9} 9|434b7 439r37
+405a7 Traces{399A9} 9|435b7 441m7
+406i7 Trace_Count{natural} 9|436b7 450m7
+407b7 Success{boolean} 9|437b7 451m7
+416E9*Report_Format 421e5 426r24 9|460r24
+417n7*Format_Text{416E9}
+418n7*Format_JSON{416E9}
+419n7*Format_HTML{416E9}
+420n7*Format_Markdown{416E9}
+424U14*Generate_Report 425>7 426>7 427<7 428<7 429<7 9|458b14 486l8 486t23
+425r7 Session{176R9} 9|459b7 469r14
+426e7 Format{416E9} 9|460b7 465r28
+427a7 Output{5|32A9} 432r17 9|461b7 467m7 479m13 479r21
+428i7 Size{natural} 9|462b7 470m10 482m10
+429b7 Success{boolean} 9|463b7 471m10 485m7
+435V13*Summary_Line{string} 436>7 9|488b13 497l8 497t20
+436r7 Session{176R9} 9|489b7 492r10
+443r7*Config{179R9} 9|16m10
+444r7*Contract{38R9} 9|17m10 80m15 81m15 82m15 104m15 117r22 131r22
+445r7*Version{52R9} 9|29m10 124r22
+446a7*Functions{112A9} 9|36m10 146r28 158r21 159r28
+447i7*Function_Count{natural} 9|54m10 147r33 157r29
+448a7*Events{116A9} 9|55m10 148r25 189r21 190r28
+449i7*Event_Count{natural} 9|66m10 149r30 188r29
+450a7*Bytecode{5|32A9} 9|67m10 93r36 99m18 99r36 309r32
+451i7*Bytecode_Size{natural} 9|68m10 103m15 278r46 284r43 285r43 294r28
+452b7*Is_Inspected{boolean} 9|69m10 83m15 105m15 278r22 469r22 492r18
+X 9 khepri_inspector.adb
+98i11 I{integer} 99r53 100r23
+157i11 I{integer} 158r48 159r55
+188i11 I{integer} 189r42 190r49
+218i11 I{integer} 219r33 219r54
+223i11 I{integer} 224r37 224r62
+243i11 I{integer} 244r33 244r58
+330a10 Header{string} 332r19 333r40 334r37 336r18
+332i14 I{integer} 333r36 334r45
+382a7 Result{5|56A9} 385m7 387m10 389r14
+476a10 Header{string} 478r19 479r40 480r37 482r18
+478i14 I{integer} 479r36 480r45
+X 10 khepri_types.ads
+25K9*Khepri_Types 8|5w6 5r24 39r27 44r27 48r27 213r25 390r22 391r22 9|75r25
+. 10|345e17
+34R12*Uint256{5|41R9} 8|42r27 158r21 343r13 9|371r13
+43A12*Address{5|70A9}<integer> 8|39r40 44r40 48r40 213r38 390r35 391r35 9|75r38
+317A9*Bytes4(5|31M12)<integer> 8|92r22 265r18 392r22 9|154r18
+335R9*Bounded_String 8|53r27 54r27 55r27 80r20 91r22 103r23 126r20 156r21
+. 157r21 181r27 10|338e14
+340r4*Empty_String{335R9} 8|195r28 9|30r34 31r34 32r34 37r29 40r30 46r30
+. 56r30 59r30 164r26 167r27 173r27 195r27 198r27 265r27 298r27 310r24 358r28
+. 359r28 408r30 411r30
+

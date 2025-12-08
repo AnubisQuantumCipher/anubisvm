@@ -1,0 +1,8 @@
+scarab_tefnut.adb:17:13: warning: function "Get_Timestamp" is not referenced [-gnatwu]
+scarab_tefnut.adb:83:07: warning: "Zero_Root" is not modified, could be declared constant [-gnatwk]
+scarab_tefnut.adb:83:43: warning: array aggregate using () is an obsolescent syntax, use [] instead [-gnatwj]
+scarab_tefnut.adb:1008:30: warning: condition is always True [-gnatwc]
+scarab_tefnut.adb:1012:07: warning: unreachable code [enabled by default]
+scarab_tefnut.ads:23:06: warning: no entities of "Anubis_Bytes" are referenced [-gnatwu]
+scarab_tefnut.ads:23:20: warning: use clause for package "Anubis_Bytes" has no effect [-gnatwu]
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]

@@ -1,0 +1,123 @@
+anubis_mldsa.adb:26:07: info: initialization of "Expanded" proved
+anubis_mldsa.adb:28:07: info: initialization of "Rho" proved
+anubis_mldsa.adb:29:07: info: initialization of "Rho_P" proved
+anubis_mldsa.adb:30:07: info: initialization of "K_Seed" proved
+anubis_mldsa.adb:32:07: info: initialization of "A_Hat" proved
+anubis_mldsa.adb:33:07: info: initialization of "S1" proved
+anubis_mldsa.adb:34:07: info: initialization of "S2_K" proved
+anubis_mldsa.adb:35:07: info: initialization of "S1_Hat" proved
+anubis_mldsa.adb:36:07: info: initialization of "T" proved
+anubis_mldsa.adb:36:10: info: initialization of "T_Sum" proved
+anubis_mldsa.adb:37:07: info: initialization of "T1" proved
+anubis_mldsa.adb:37:11: info: initialization of "T0" proved
+anubis_mldsa.adb:39:07: info: initialization of "Tr" proved
+anubis_mldsa.adb:42:07: info: precondition proved
+anubis_mldsa.adb:83:07: info: precondition proved
+anubis_mldsa.adb:98:07: info: initialization of "Rho" proved
+anubis_mldsa.adb:99:07: info: initialization of "K_Seed" proved
+anubis_mldsa.adb:100:07: info: initialization of "Tr" proved
+anubis_mldsa.adb:101:07: info: initialization of "S1" proved
+anubis_mldsa.adb:102:07: info: initialization of "S2" proved
+anubis_mldsa.adb:103:07: info: initialization of "T0" proved
+anubis_mldsa.adb:106:07: info: initialization of "A_Hat" proved
+anubis_mldsa.adb:107:07: info: initialization of "S1_Hat" proved
+anubis_mldsa.adb:108:07: info: initialization of "S2_Hat" proved
+anubis_mldsa.adb:109:07: info: initialization of "T0_Hat" proved
+
+anubis_mldsa.adb:112:07: warning: initialization of "Mu" has no effect
+  112 |      Mu      : Byte_Array (0 .. 63) := (others => 0);
+      |      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+anubis_mldsa.adb:113:07: info: range check proved
+anubis_mldsa.adb:113:44: info: overflow check proved
+anubis_mldsa.adb:113:49: info: range check proved
+anubis_mldsa.adb:113:65: info: length check proved
+anubis_mldsa.adb:116:07: info: initialization of "Rho_PP" proved
+anubis_mldsa.adb:119:07: info: initialization of "Y" proved
+anubis_mldsa.adb:120:07: info: initialization of "Y_Hat" proved
+anubis_mldsa.adb:121:07: info: initialization of "W" proved
+anubis_mldsa.adb:122:07: info: initialization of "W1" proved
+anubis_mldsa.adb:123:07: info: initialization of "W0" proved
+anubis_mldsa.adb:125:07: info: initialization of "C_Tilde" proved
+anubis_mldsa.adb:126:07: info: initialization of "C" proved
+anubis_mldsa.adb:127:07: info: initialization of "C_Hat" proved
+anubis_mldsa.adb:129:07: info: initialization of "Z" proved
+anubis_mldsa.adb:130:07: info: initialization of "R" proved
+anubis_mldsa.adb:131:07: info: initialization of "H" proved
+anubis_mldsa.adb:132:07: info: initialization of "Hint_Count" proved
+anubis_mldsa.adb:158:20: info: index check proved
+anubis_mldsa.adb:161:29: info: overflow check proved
+anubis_mldsa.adb:161:33: info: overflow check proved
+anubis_mldsa.adb:161:33: info: index check proved
+anubis_mldsa.adb:163:07: info: precondition proved
+anubis_mldsa.adb:176:10: info: precondition proved
+anubis_mldsa.adb:183:33: info: loop invariant preservation proved
+anubis_mldsa.adb:183:33: info: loop invariant initialization proved
+anubis_mldsa.adb:184:33: info: loop invariant preservation proved
+anubis_mldsa.adb:184:33: info: loop invariant initialization proved
+anubis_mldsa.adb:184:50: info: overflow check proved
+anubis_mldsa.adb:185:33: info: loop invariant initialization proved
+anubis_mldsa.adb:185:33: info: loop invariant preservation proved
+anubis_mldsa.adb:187:29: info: overflow check proved
+anubis_mldsa.adb:190:10: info: precondition proved
+anubis_mldsa.adb:191:25: info: overflow check proved
+anubis_mldsa.adb:210:13: info: initialization of "Temp_W1" proved
+anubis_mldsa.adb:215:16: info: precondition proved
+anubis_mldsa.adb:217:34: info: overflow check proved
+anubis_mldsa.adb:217:34: info: index check proved
+anubis_mldsa.adb:219:27: info: overflow check proved
+anubis_mldsa.adb:231:13: info: precondition proved
+anubis_mldsa.adb:235:10: info: precondition proved
+anubis_mldsa.adb:244:16: info: initialization of "Cs1" proved
+anubis_mldsa.adb:262:16: info: initialization of "Cs2" proved
+anubis_mldsa.adb:282:13: info: initialization of "Ct0" proved
+anubis_mldsa.adb:286:19: info: initialization of "Ct0_I" proved
+anubis_mldsa.adb:304:16: info: initialization of "R_Plus_Ct0" proved
+anubis_mldsa.adb:347:07: info: initialization of "Rho" proved
+anubis_mldsa.adb:348:07: info: initialization of "T1" proved
+anubis_mldsa.adb:351:07: info: initialization of "C_Tilde" proved
+anubis_mldsa.adb:352:07: info: initialization of "Z" proved
+anubis_mldsa.adb:353:07: info: initialization of "H" proved
+anubis_mldsa.adb:354:07: info: initialization of "Sig_Valid" proved
+anubis_mldsa.adb:357:07: info: initialization of "A_Hat" proved
+anubis_mldsa.adb:358:07: info: initialization of "Z_Hat" proved
+anubis_mldsa.adb:359:07: info: initialization of "T1_Scaled" proved
+anubis_mldsa.adb:360:07: info: initialization of "T1_Hat" proved
+anubis_mldsa.adb:363:07: info: initialization of "Tr" proved
+
+anubis_mldsa.adb:364:07: warning: initialization of "Mu" has no effect
+  364 |      Mu      : Byte_Array (0 .. 63) := (others => 0);
+      |      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+anubis_mldsa.adb:365:07: info: range check proved
+anubis_mldsa.adb:365:44: info: overflow check proved
+anubis_mldsa.adb:365:49: info: range check proved
+anubis_mldsa.adb:365:65: info: length check proved
+anubis_mldsa.adb:367:07: info: initialization of "C" proved
+anubis_mldsa.adb:368:07: info: initialization of "C_Hat" proved
+anubis_mldsa.adb:370:07: info: initialization of "W_Prime" proved
+anubis_mldsa.adb:371:07: info: initialization of "W1_Prime" proved
+anubis_mldsa.adb:373:07: info: initialization of "C_Tilde_Check" proved
+anubis_mldsa.adb:393:07: info: precondition proved
+anubis_mldsa.adb:397:20: info: index check proved
+anubis_mldsa.adb:400:29: info: overflow check proved
+anubis_mldsa.adb:400:33: info: overflow check proved
+anubis_mldsa.adb:400:33: info: index check proved
+anubis_mldsa.adb:402:07: info: precondition proved
+anubis_mldsa.adb:405:07: info: precondition proved
+anubis_mldsa.adb:417:10: info: precondition proved
+anubis_mldsa.adb:428:13: info: initialization of "Ct1" proved
+anubis_mldsa.adb:435:43: info: division check proved
+anubis_mldsa.adb:435:43: info: range check proved
+anubis_mldsa.adb:453:10: info: initialization of "Temp_W1" proved
+anubis_mldsa.adb:458:13: info: precondition proved
+anubis_mldsa.adb:460:31: info: overflow check proved
+anubis_mldsa.adb:460:31: info: index check proved
+anubis_mldsa.adb:462:24: info: overflow check proved
+anubis_mldsa.adb:474:10: info: precondition proved
+anubis_mldsa.ads:34:07: info: initialization of "PK" proved
+anubis_mldsa.ads:35:07: info: initialization of "SK" proved
+anubis_mldsa.ads:37:07: info: data dependencies proved
+anubis_mldsa.ads:55:07: info: initialization of "Sig" proved
+anubis_mldsa.ads:56:07: info: initialization of "Success" proved
+anubis_mldsa.ads:58:07: info: data dependencies proved
+anubis_mldsa.ads:68:13: info: implicit aspect Always_Terminates on "Verify" has been proved, subprogram will terminate
+anubis_mldsa.ads:73:07: info: data dependencies proved

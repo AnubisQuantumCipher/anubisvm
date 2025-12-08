@@ -1,0 +1,248 @@
+V "GNAT Lib v14"
+A -x
+A ada
+A -gnatA
+A -gnat2022
+A -gnatwa
+A -gnatyO
+A -gnatVa
+A -gnatw.F
+A -gnata
+A -O2
+A -gnatn
+A -ffunction-sections
+A -fdata-sections
+A -gnatc
+A -fPIC
+P GP
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_ELABORATION_CODE
+
+U anubis_address%b	anubis_address.adb	09f5e292 OO PK
+W anubis_address_base32%s  anubis_address_base32.adb  anubis_address_base32.ali
+W anubis_address_checksum%s  anubis_address_checksum.adb  anubis_address_checksum.ali
+
+U anubis_address%s	anubis_address.ads	4c246da6 OO PK
+W anubis_address_derive%s  anubis_address_derive.adb  anubis_address_derive.ali
+W anubis_address_types%s  anubis_address_types.ads  anubis_address_types.ali
+
+D anubis_address.ads	20251206181322 be68d99a anubis_address%s
+D anubis_address.adb	20251207054819 e52258e4 anubis_address%b
+D anubis_address_base32.ads  20251206114025 32d1de4f anubis_address_base32%s
+D anubis_address_checksum.ads  20251205182436 606ebda3 anubis_address_checksum%s
+D anubis_address_derive.ads  20251205182351 10a2d609 anubis_address_derive%s
+D anubis_address_types.ads  20251205182900 e2ee6235 anubis_address_types%s
+D interfac.ads		20240601155135 9111f9c1 interfaces%s
+D system.ads		20240601155135 70765b54 system%s
+G a Z
+X 1 anubis_address.ads
+38K9*Anubis_Address 100l5 100e19 2|6b14 375l5 375t19
+44V13*Create_Address{6|89R9} 45>7 46>7 47>7 50r17 2|11b13 27l8 27t22
+45e7 Network{6|37E9} 2|12b7 22r25
+46e7 Entity{6|46E9} 2|13b7 19r26 23r24
+47a7 Public_Key{5|37A9} 2|14b7 19r34
+55U14*Format_Address 56>7 57<7 58<7 2|32b14 122l8 122t22
+56r7 Addr{6|89R9} 61r17 2|33b7 40r55 41r55 54r26 57r25 57r39
+57a7 Output{6|86A12} 2|34b7 51m7 71m10 75m7 82m10 86m7 90m7 93m7 101m10 108m7
+. 117m10
+58i7 Length{natural} 62r17 2|35b7 121m7
+67U14*Parse_Address 68>7 69<7 2|127b14 305l8 305t21
+68a7 Input{string} 72r17 72r38 2|128b7 136r24 162r10 168r20 168r40 169r40
+. 169r63 174r16 183r40 192r20 192r40 193r40 193r63 198r16 207r20 207r39 215r45
+. 220r33 226r16 226r35 234r20 240r36 254r39 272r12
+69r7 Addr{6|89R9} 2|129b7 156m7 157m7 158m7 159m7 257m13 259m13 261m13 263m13
+. 265m13 273m22 274m22 275m22 276m22 286m39 286r39 298r31 298r45 304m7
+76V13*Validate_Address{boolean} 76>31 2|310b13 325l8 325t24
+76r31 Addr{6|89R9} 2|310b31 316r14 321r26 322r25 322r39 324r31 324r45
+81U14*Get_Chunked_Payload 82>7 83<7 84<7 2|328b14 348l8 348t27
+82r7 Addr{6|89R9} 87r17 2|329b7 340r26
+83a7 Payload{string} 87r32 2|330b7 337m7 344m10 344r19
+84i7 Length{natural} 88r17 2|331b7 338m7 347m7
+91U14*Get_Checksum_String 92>7 93<7 94<7 2|351b14 373l8 373t27
+92r7 Addr{6|89R9} 97r17 2|352b7 364r26 365r25 365r39
+93a7 Checksum{string} 97r32 2|353b7 361m7 369m10 369r20
+94i7 Length{natural} 98r17 2|354b7 362m7 372m7
+X 2 anubis_address.adb
+16r7 Result{6|89R9} 19m46 19r46 22m7 23m7 24m7 26r14
+39a7 Algo_Tag{string} 68r16 71r26
+40a7 Net_Str{string} 79r16 82r26
+41e7 Ent_Char{character} 90r23
+43a7 Payload_B32{6|71A9} 54m40 57r52 63r22
+44a7 Chunked{6|76A9} 63m35 101r26
+45a7 Checksum_Val{6|61A9} 57m65 60r24
+46a7 Checksum_B32{6|80A9} 60m38 117r26
+48i7 Pos{natural} 69r33 70r33 70r46 71r18 72m10 72r17 75r15 76m7 76r14 80r33
+. 81r33 81r46 82r18 83m10 83r17 86r15 87m7 87r14 90r15 91m7 91r14 93r15 94m7
+. 94r14 100r33 100r47 101r18 102m10 102r17 106r22 106r36 108r15 109m7 109r14
+. 112r22 112r36 116r33 116r47 117r18 118m10 118r17 121r17
+68i11 I{integer} 69r39 71r36
+79i11 I{integer} 80r43 82r35
+99i11 I{6|75I12} 101r35
+115i11 I{6|79I12} 117r40
+133b7 Success{boolean} 281m54 282r14 286m53 287r14 292m56 293r14
+136i7 Pos{natural} 167r21 168r13 168r47 169r33 169r56 170r33 171m10 171r17
+. 174r10 178r19 179m7 179r14 191r20 192r13 192r47 193r33 193r56 194r33 195m10
+. 195r17 198r10 202r18 203m7 203r14 206r19 207r10 207r46 211m7 211r14 214r24
+. 215r10 223m7 223r14 226r10 226r42 230m7 230r14 233r25 234r10
+139i7 Algo_Start{natural} 167m7 183r47
+139i19 Algo_End{natural} 178m7 183r61
+140i7 Net_Start{natural} 191m7 254r46
+140i18 Net_End{natural} 202m7 254r59
+141i7 Type_Pos{natural} 206m7 272r19
+142i7 Payload_Start{natural} 214m7 220r40
+143i7 Checksum_Start{natural} 233m7 240r43
+146a7 Payload_Chunked{6|76A9} 220m10 281r24
+147a7 Payload_B32{6|71A9} 281m41 286r26 299r31
+148a7 Checksum_B32{6|80A9} 246m13 292r24
+149a7 Checksum_Decoded{6|61A9} 292m38 299r44
+152a7 Checksum_Chars{string} 240m10 245r13 246r33
+183a10 Algo_Str{string} 185r13
+219i11 I{6|75I12} 220r27 220r56
+239i11 I{integer} 240r26 240r60
+244i11 I{6|79I12} 245r29 246r27 246r49
+254a10 Net_Str{string} 256r13 258r16 260r16 262r16 264r16
+313a7 Payload_B32{6|71A9} 321m40 322r52 324r58
+314a7 Checksum_Val{6|61A9} 322m65 324r71
+333a7 Payload_B32{6|71A9} 340m40 341r22
+334a7 Chunked{6|76A9} 341m35 344r41
+343i11 I{6|75I12} 344r35 344r50
+356a7 Payload_B32{6|71A9} 364m40 365r52
+357a7 Checksum_Val{6|61A9} 365m65 366r24
+358a7 Checksum_B32{6|80A9} 366m38 369r43
+368i11 I{6|79I12} 369r37 369r57
+X 3 anubis_address_base32.ads
+24K9*Anubis_Address_Base32 2|3w6 3r33 3|102e26
+30U14*Encode_Account_ID 2|54s7 321s7 340s7 364s7
+39U14*Encode_Checksum 2|60s7 366s7
+48U14*Decode_Account_ID 2|286s7
+57U14*Decode_Checksum 2|292s7
+67U14*Chunk_Payload 2|63s7 341s7
+78U14*Unchunk_Payload 2|281s7
+X 4 anubis_address_checksum.ads
+24K9*Anubis_Address_Checksum 2|4w6 4r35 4|67e28
+31U14*Compute_Checksum 2|57s7 322s7 365s7
+41V13*Verify_Checksum{boolean} 2|298s14 324s14
+X 5 anubis_address_derive.ads
+30K9*Anubis_Address_Derive 1|4w6 4r33 5|68e26
+37A9*Public_Key_Bytes(7|70M9)<integer> 1|47r20 2|14r20
+41U14*Derive_Account_ID 2|19s7
+X 6 anubis_address_types.ads
+28K9*Anubis_Address_Types 1|3w6 3r32 6|136e25
+34a4*Algorithm_Tag{string} 2|39r39 185r25
+37E9*Network_Type 1|45r20 2|12r20 6|43e5
+38n7*Main{37E9} 2|156r23 257r29
+39n7*Test{37E9} 2|259r29
+40n7*Dev{37E9} 2|261r29
+41n7*Lab{37E9} 2|263r29
+42n7*Staging{37E9} 2|265r29
+46E9*Entity_Type 1|46r20 2|13r20 6|51e5
+47n7*User{46E9} 2|157r22 273r37
+48n7*Contract{46E9} 2|274r37
+49n7*Validator{46E9} 2|275r37
+50n7*System{46E9} 2|276r37
+57A9*Account_ID(7|70M9)<integer>
+61A9*Checksum_Bytes(7|70M9)<integer> 2|45r22 149r26 314r22 357r22
+65E12*Base32_Char{character} 2|245r39
+71A9*Payload_Base32(65E12)<integer> 2|43r22 147r26 313r22 333r21 356r22
+74N4*Chunked_Payload_Length 1|87r50 88r26 2|215r16 223r20 347r17
+75I12*Chunked_Payload_Index{natural} 2|99r16 219r16 343r16
+76A9*Chunked_Payload(character)<integer> 2|44r22 146r26 334r21
+79I12*Checksum_B32_Index{natural} 2|115r16 244r16 368r16
+80A9*Checksum_Base32(65E12)<integer> 2|46r22 148r26 358r22
+85N4*Max_Address_Length 1|62r27
+86A12*Address_String{string}<integer> 1|57r20 2|34r20
+89R9*Address 1|48r13 56r20 69r20 76r38 82r21 92r22 2|15r13 16r16 33r20 129r20
+. 310r38 329r21 352r22 6|94e14
+90e7*Network{37E9} 2|22m14 40r60 57r30 156m12 257m18 259m18 261m18 263m18
+. 265m18 298r36 322r30 324r36 365r30
+91e7*Entity{46E9} 2|23m14 41r60 57r44 157m12 273m27 274m27 275m27 276m27
+. 298r50 322r44 324r50 365r44
+92a7*Account{57A9} 2|19m53 54r31 158m12 286m44 321r31 340r31 364r31
+93b7*Valid{boolean} 1|50r39 61r22 87r22 97r22 2|24m14 159m12 304m12 316r19
+97V13*Network_String{string} 2|40s39
+108V13*Entity_Char{character} 2|41s42
+X 7 interfac.ads
+70M9*Unsigned_8
+
+QQ SPARKVERSION 0.0w
+GG EK_DIRECT_CALLS anubis_address__create_address 1 anubis_address_derive__derive_account_id
+GG EK_PROOF_DEPENDENCIES anubis_address__create_address 0
+GG EK_GLOBALS anubis_address__create_address local FALSE E_FUNCTION FALSE ORIGIN_FLOW 1 anubis_address proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_address__format_address 0
+GG EK_PROOF_DEPENDENCIES anubis_address__format_address 0
+GG EK_GLOBALS anubis_address__format_address local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 anubis_address proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE TRUE FALSE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_address__parse_address 0
+GG EK_PROOF_DEPENDENCIES anubis_address__parse_address 0
+GG EK_GLOBALS anubis_address__parse_address local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 anubis_address proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE TRUE FALSE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_address__validate_address 0
+GG EK_PROOF_DEPENDENCIES anubis_address__validate_address 0
+GG EK_GLOBALS anubis_address__validate_address local FALSE E_FUNCTION FALSE ORIGIN_FLOW 1 anubis_address proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE TRUE FALSE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_address__get_chunked_payload 2 anubis_address_base32__encode_account_id anubis_address_base32__chunk_payload
+GG EK_PROOF_DEPENDENCIES anubis_address__get_chunked_payload 0
+GG EK_GLOBALS anubis_address__get_chunked_payload local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 anubis_address proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_address__get_checksum_string 3 anubis_address_base32__encode_account_id anubis_address_base32__encode_checksum anubis_address_checksum__compute_checksum
+GG EK_PROOF_DEPENDENCIES anubis_address__get_checksum_string 0
+GG EK_GLOBALS anubis_address__get_checksum_string local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 anubis_address proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_address 0
+GG EK_PROOF_DEPENDENCIES anubis_address 0
+GG EK_GLOBALS anubis_address local FALSE E_PACKAGE TRUE ORIGIN_FLOW 0 proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 initializes 0 refined_initializes 0 calls_proof 0 calls 0 calls_conditional 0 local_packages 0 local_var 0 TRUE FALSE FALSE FALSE FALSE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_FLOW_SCOPE interfaces__shift_right__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_address_base32__decode_checksum FALSE FALSE FALSE FALSE TRUE anubis_address_base32 VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_address_checksum__build_preimage FALSE FALSE FALSE FALSE TRUE anubis_address_checksum PRIVATE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_address_base32__decode_char FALSE FALSE FALSE FALSE TRUE anubis_address_base32 PRIVATE_PART
+GG EK_FLOW_SCOPE anubis_address_derive TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_address_base32__chunk_payload FALSE FALSE FALSE FALSE TRUE anubis_address_base32 VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_address__validate_address FALSE FALSE FALSE FALSE TRUE anubis_address VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_address_types TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE anubis_address_base32 TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE interfaces TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE anubis_address_types__entity_char FALSE FALSE FALSE FALSE TRUE anubis_address_types VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_address TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE interfaces__rotate_left__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_address_base32__encode_account_id FALSE FALSE FALSE FALSE TRUE anubis_address_base32 VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_address__create_address FALSE FALSE FALSE FALSE TRUE anubis_address VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_address__get_chunked_payload FALSE FALSE FALSE FALSE TRUE anubis_address VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_address_derive__derive_account_id FALSE FALSE FALSE FALSE TRUE anubis_address_derive VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_address_base32__encode_checksum FALSE FALSE FALSE FALSE TRUE anubis_address_base32 VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_address_types__entity_string FALSE FALSE FALSE FALSE TRUE anubis_address_types VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_address__format_address FALSE FALSE FALSE FALSE TRUE anubis_address VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_address_checksum TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE anubis_address_types__base32_charPredicate FALSE FALSE FALSE FALSE TRUE anubis_address_types VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_address__get_checksum_string FALSE FALSE FALSE FALSE TRUE anubis_address VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_address_checksum__compute_checksum FALSE FALSE FALSE FALSE TRUE anubis_address_checksum VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_address_base32__unchunk_payload FALSE FALSE FALSE FALSE TRUE anubis_address_base32 VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_address_derive__build_domain_separator FALSE FALSE FALSE FALSE TRUE anubis_address_derive VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_address_base32__decode_account_id FALSE FALSE FALSE FALSE TRUE anubis_address_base32 VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_address_types__network_string FALSE FALSE FALSE FALSE TRUE anubis_address_types VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_address_checksum__verify_checksum FALSE FALSE FALSE FALSE TRUE anubis_address_checksum VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_address__parse_address FALSE FALSE FALSE FALSE TRUE anubis_address VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_address_base32__encode_5bits FALSE FALSE FALSE FALSE TRUE anubis_address_base32 PRIVATE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_END_MARKER

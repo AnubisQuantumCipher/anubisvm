@@ -1,0 +1,147 @@
+V "GNAT Lib v14"
+M P W=b
+A -O2
+A -gnatA
+A -g
+A -gnatn
+A -mmacosx-version-min=16.0.0
+A -mcpu=apple-m1
+A -mlittle-endian
+A -mabi=lp64
+A -fPIC
+P SS ZX
+
+RN
+RV NO_IO
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_LOCAL_ALLOCATORS
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U test_mldsa%b		test_mldsa.adb		eb359e17 NE OO SU
+W ada%s			ada.ads			ada.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+W anubis_mldsa%s	anubis_mldsa.adb	anubis_mldsa.ali
+W anubis_mldsa_types%s	anubis_mldsa_types.ads	anubis_mldsa_types.ali
+W anubis_types%s	anubis_types.ads	anubis_types.ali
+W interfaces%s		interfac.ads		interfac.ali
+Z system.img_int%s	s-imgint.ads		s-imgint.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+
+D ada.ads		20240808082856 76789da1 ada%s
+D a-except.ads		20240808082856 e7970cd9 ada.exceptions%s
+D a-ioexce.ads		20240808082856 40018c65 ada.io_exceptions%s
+D a-stream.ads		20240808082856 119b8fb3 ada.streams%s
+D a-string.ads		20240808082856 90ac6797 ada.strings%s
+D a-sttebu.ads		20240808082856 f1ad67a2 ada.strings.text_buffers%s
+D a-stuten.ads		20240808082856 c6ced0ae ada.strings.utf_encoding%s
+D a-tags.ads		20240808082856 9eaa38c6 ada.tags%s
+D a-textio.ads		20240808082856 34ef47de ada.text_io%s
+D a-unccon.ads		20240808082856 0e9b276f ada.unchecked_conversion%s
+D anubis_mldsa.ads	20251205161546 df788a13 anubis_mldsa%s
+D anubis_mldsa_config.ads  20251205141650 21404e58 anubis_mldsa_config%s
+D anubis_mldsa_field.ads  20251205160739 b52aaacb anubis_mldsa_field%s
+D anubis_mldsa_types.ads  20251204160229 b08dfc72 anubis_mldsa_types%s
+D anubis_types.ads	20251203093723 4fb35097 anubis_types%s
+D interfac.ads		20240808082856 9111f9c1 interfaces%s
+D i-cstrea.ads		20240808082856 ffd01b9d interfaces.c_streams%s
+D system.ads		20240808082856 70765b54 system%s
+D s-crtl.ads		20240808082856 beb39b9e system.crtl%s
+D s-exctab.ads		20240808082856 91bef6ef system.exception_table%s
+D s-ficobl.ads		20240808082856 dc5161d4 system.file_control_block%s
+D s-imagei.ads		20240808082856 5e131ce0 system.image_i%s
+D s-imgint.ads		20240808082856 67e4edfb system.img_int%s
+D s-parame.ads		20240808082856 3597fc11 system.parameters%s
+D s-putima.ads		20240808082856 17291fe4 system.put_images%s
+D s-secsta.ads		20240808082856 578279f5 system.secondary_stack%s
+D s-soflin.ads		20240808082856 df77073e system.soft_links%s
+D s-stache.ads		20240808082856 0b81c1fe system.stack_checking%s
+D s-stalib.ads		20240808082856 1c9580f6 system.standard_library%s
+D s-stoele.ads		20240808082856 ccded4e8 system.storage_elements%s
+D s-traent.ads		20240808082856 c81cbf8c system.traceback_entries%s
+D s-unstyp.ads		20240808082856 fa2a7f59 system.unsigned_types%s
+D s-valspe.ads		20240808082856 b0fcd073 system.val_spec%s
+D s-vaispe.ads		20240808082856 8280550e system.value_i_spec%s
+D s-vauspe.ads		20240808082856 89269ba5 system.value_u_spec%s
+D s-vs_int.ads		20240808082856 06b6b724 system.vs_int%s
+D s-vs_uns.ads		20240808082856 e7f47a27 system.vs_uns%s
+D s-wchcon.ads		20240808082856 d9032363 system.wch_con%s
+D test_mldsa.adb	20251204161005 6e8d06fe test_mldsa%b
+G a e
+G c Z b b [test_mldsa standard 9 11 none]
+G r c none [test_mldsa standard 9 11 none] [keygen anubis_mldsa 32 14 none]
+G r c none [test_mldsa standard 9 11 none] [sign anubis_mldsa 51 14 none]
+G r c none [test_mldsa standard 9 11 none] [verify anubis_mldsa 68 13 none]
+X 1 ada.ads
+16K9*Ada 20e8 39|3r6 3r23
+X 9 a-textio.ads
+58K13*Text_IO 785e16 39|3w10 3r27
+284U14*New_Line 39|148s4 151s4 154s4 157s4 162s4
+515U14*Put 39|51s7 58s7 68s7
+565U14*Put_Line 39|43s7 53s7 55s7 56s7 61s10 62s10 64s10 70s10 73s10 88s7
+. 99s10 105s10 107s10 120s7 138s10 140s10 146s4 147s4 159s4 160s4 161s4 165s7
+. 167s7
+X 11 anubis_mldsa.ads
+22K9*Anubis_MLDSA 76e17 39|7w6 7r24
+32U14*KeyGen 39|52s7 95s7 126s7 127s7
+51U14*Sign 39|59s7 96s7
+68V13*Verify{boolean} 39|69s10 104s10
+X 14 anubis_mldsa_types.ads
+14K9*Anubis_MLDSA_Types 64e23 39|6w6 6r30
+37A12*Seed{15|14A9}<integer> 39|35r17 36r21 79r17 80r21 114r22 115r21
+57A12*Public_Key{15|14A9}<integer> 39|37r12 81r12 116r18
+58A12*Secret_Key{15|14A9}<integer> 39|38r12 82r12 117r18
+59A12*Signature{15|14A9}<integer> 39|39r13 83r13
+X 15 anubis_types.ads
+5K9*Anubis_Types 40e17 39|5w6 5r24
+13M12*Byte{16|70M9} 39|48r25 92r25
+14A9*Byte_Array(13M12)<integer> 39|11r35 41r22 55r49 56r49 62r53 85r23 86r23
+X 16 interfac.ads
+38K9*Interfaces 233e15 39|4w6 4r22
+70M9*Unsigned_8
+X 39 test_mldsa.adb
+9U11*Test_MLDSA 9b11 169l5 169t15
+11V13 Bytes_To_Hex{string} 11b13 11>27 11>47 28l8 28t20 55s35 56s35 62s39
+11a27 Bytes{15|14A9} 13r53 18r46 18r53 19r50 19r57 22r10
+11i47 Max_Len{natural} 13r67 22r25
+12a7 Hex_Chars{string} 18r26 19r30
+13i7 Actual_Len{natural} 14r29 17r21
+14a7 Result{string} 18m10 19m10 23m10 25m10 27r14
+15i7 Pos{natural} 18r18 19r18 20m10 20r17 23r18 23r25 25r18 25r25
+17i11 I{integer} 18r67 19r71
+30i4 Tests_Run{natural} 44m7 44r20 89m7 89r20 121m7 121r20 160r47 164r22
+31i4 Tests_Passed{natural} 71m10 71r26 108m10 108r26 141m10 141r26 161r47
+. 164r7
+34U14 Test_Basic_Sign_Verify 34b14 75l8 75t30 150s4
+35a7 Seed_KG{14|37A12} 48m10 52r15
+36a7 Random_Sign{14|37A12} 59r22
+37a7 PK{14|57A12} 52m24 55r61 69r18
+38a7 SK{14|58A12} 52m28 56r61 59r13
+39a7 Sig{14|59A12} 59m35 62r65 69r27
+40b7 Success{boolean} 59m40 60r10
+41a7 Msg{15|14A9} 59r17 69r22
+47i11 I{integer} 48r19 48r31
+78U14 Test_Wrong_Message 78b14 110l8 110t26 153s4
+79a7 Seed_KG{14|37A12} 92m10 95r15
+80a7 Random_Sign{14|37A12} 96r23
+81a7 PK{14|57A12} 95m24 104r18
+82a7 SK{14|58A12} 95m28 96r13
+83a7 Sig{14|59A12} 96m36 104r28
+84b7 Success{boolean} 96m41 98r14
+85a7 Msg1{15|14A9} 96r17
+86a7 Msg2{15|14A9} 104r22
+91i11 I{integer} 92r19 92r31
+113U14 Test_Different_Seeds 113b14 143l8 143t28 156s4
+114a7 Seed1{14|37A12} 123m7 126r15
+114a14 Seed2{14|37A12} 124m7 127r15
+115a7 Random_Sign{14|37A12}
+116a7 PK1{14|57A12} 126m22 130r16 131r13
+116a12 PK2{14|57A12} 127m22 131r24
+117a7 SK1{14|58A12} 126m27
+117a12 SK2{14|58A12} 127m27
+118b7 Same{boolean} 132m13 137r10
+130i11 I{integer} 131r18 131r29
+

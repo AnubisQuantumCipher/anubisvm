@@ -1,0 +1,6 @@
+anubis_chacha20.adb:152:17: warning: array aggregate using () is an obsolescent syntax, use [] instead [-gnatwj]
+anubis_chacha20.adb:179:17: warning: array aggregate using () is an obsolescent syntax, use [] instead [-gnatwj]
+anubis_chacha20.adb:231:17: warning: array aggregate using () is an obsolescent syntax, use [] instead [-gnatwj]
+anubis_chacha20.adb:273:14: warning: array aggregate using () is an obsolescent syntax, use [] instead [-gnatwj]
+anubis_chacha20.adb:278:16: warning: array aggregate using () is an obsolescent syntax, use [] instead [-gnatwj]
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]

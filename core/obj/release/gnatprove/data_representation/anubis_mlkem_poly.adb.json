@@ -1,0 +1,78 @@
+[
+{
+  "name": "Anubis_Mlkem_Poly.Poly_Ntt.Ntt_Poly",
+  "location": "anubis_mlkem_poly.adb:43:7",
+  "Size": 4096,
+  "Alignment": 2
+}
+,
+{
+  "name": "Anubis_Mlkem_Poly.Poly_Mul_Ntt.Ntt_A",
+  "location": "anubis_mlkem_poly.adb:91:7",
+  "Size": 4096,
+  "Alignment": 2
+}
+,
+{
+  "name": "Anubis_Mlkem_Poly.Poly_Mul_Ntt.Ntt_B",
+  "location": "anubis_mlkem_poly.adb:91:14",
+  "Size": 4096,
+  "Alignment": 2
+}
+,
+{
+  "name": "Anubis_Mlkem_Poly.Poly_Mul_Ntt.Ntt_R",
+  "location": "anubis_mlkem_poly.adb:91:21",
+  "Size": 4096,
+  "Alignment": 2
+}
+,
+{
+  "name": "Anubis_Mlkem_Poly.Msg_To_Poly.Bit",
+  "location": "anubis_mlkem_poly.adb:135:7",
+  "Size": 16,
+  "Alignment": 2
+}
+,
+{
+  "name": "Anubis_Mlkem_Poly.Vec_Dot_Product_Ntt.Temp",
+  "location": "anubis_mlkem_poly.adb:201:7",
+  "Size": 4096,
+  "Alignment": 2
+}
+,
+{
+  "name": "Anubis_Mlkem_Poly.Vec_Dot_Product_Ntt.Accum",
+  "location": "anubis_mlkem_poly.adb:202:7",
+  "Size": 4096,
+  "Alignment": 2
+}
+,
+{
+  "name": "Anubis_Mlkem_Poly.Matrix_Vec_Mul_Ntt.Temp",
+  "location": "anubis_mlkem_poly.adb:222:7",
+  "Size": 4096,
+  "Alignment": 2
+}
+,
+{
+  "name": "Anubis_Mlkem_Poly.Matrix_Vec_Mul_Ntt.Row_Accum",
+  "location": "anubis_mlkem_poly.adb:223:7",
+  "Size": 4096,
+  "Alignment": 2
+}
+,
+{
+  "name": "Anubis_Mlkem_Poly.Matrix_T_Vec_Mul_Ntt.Temp",
+  "location": "anubis_mlkem_poly.adb:245:7",
+  "Size": 4096,
+  "Alignment": 2
+}
+,
+{
+  "name": "Anubis_Mlkem_Poly.Matrix_T_Vec_Mul_Ntt.Row_Accum",
+  "location": "anubis_mlkem_poly.adb:246:7",
+  "Size": 4096,
+  "Alignment": 2
+}
+]

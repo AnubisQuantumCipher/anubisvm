@@ -1,0 +1,453 @@
+[
+{
+  "name": "Aegis_Vm_Types.Byte",
+  "location": "aegis_vm_types.ads:31:12",
+  "Size": 8,
+  "Alignment": 1
+}
+,
+{
+  "name": "Aegis_Vm_Types.Byte_Array",
+  "location": "aegis_vm_types.ads:32:9",
+  "Alignment": 1,
+  "Component_Size": 8
+}
+,
+{
+  "name": "Aegis_Vm_Types.Word32",
+  "location": "aegis_vm_types.ads:34:12",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Aegis_Vm_Types.Word64",
+  "location": "aegis_vm_types.ads:35:12",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Vm_Types.U256_Limbs",
+  "location": "aegis_vm_types.ads:39:9",
+  "Size": 256,
+  "Alignment": 8,
+  "Component_Size": 64
+}
+,
+{
+  "name": "Aegis_Vm_Types.U256",
+  "location": "aegis_vm_types.ads:41:9",
+  "Size": 256,
+  "Alignment": 8,
+  "record": [
+    {
+      "name": "Limbs",
+      "Position": 0,
+      "First_Bit": 0,
+      "Size": 256
+    }
+  ]
+}
+,
+{
+  "name": "Aegis_Vm_Types.U256_Zero",
+  "location": "aegis_vm_types.ads:46:4",
+  "Size": 256,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Vm_Types.U256_One",
+  "location": "aegis_vm_types.ads:47:4",
+  "Size": 256,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Vm_Types.U256_Max",
+  "location": "aegis_vm_types.ads:48:4",
+  "Size": 256,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Vm_Types.Hash256",
+  "location": "aegis_vm_types.ads:56:9",
+  "Size": 256,
+  "Alignment": 1,
+  "Component_Size": 8
+}
+,
+{
+  "name": "Aegis_Vm_Types.Hash512",
+  "location": "aegis_vm_types.ads:59:9",
+  "Size": 512,
+  "Alignment": 1,
+  "Component_Size": 8
+}
+,
+{
+  "name": "Aegis_Vm_Types.Hash256_Zero",
+  "location": "aegis_vm_types.ads:62:4",
+  "Size": 256,
+  "Alignment": 1
+}
+,
+{
+  "name": "Aegis_Vm_Types.Hash512_Zero",
+  "location": "aegis_vm_types.ads:63:4",
+  "Size": 512,
+  "Alignment": 1
+}
+,
+{
+  "name": "Aegis_Vm_Types.Contract_Address",
+  "location": "aegis_vm_types.ads:70:9",
+  "Size": 256,
+  "Alignment": 1,
+  "Component_Size": 8
+}
+,
+{
+  "name": "Aegis_Vm_Types.Address_Zero",
+  "location": "aegis_vm_types.ads:72:4",
+  "Size": 256,
+  "Alignment": 1
+}
+,
+{
+  "name": "Aegis_Vm_Types.Certification_Level",
+  "location": "aegis_vm_types.ads:84:9",
+  "Object_Size": 8,
+  "Value_Size": 2,
+  "Alignment": 1
+}
+,
+{
+  "name": "Aegis_Vm_Types.Discount_Factor",
+  "location": "aegis_vm_types.ads:87:9",
+  "Object_Size": 16,
+  "Value_Size": 14,
+  "Alignment": 2
+}
+,
+{
+  "name": "Aegis_Vm_Types.Gas_Amount",
+  "location": "aegis_vm_types.ads:101:9",
+  "Object_Size": 64,
+  "Value_Size": 63,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Vm_Types.Max_Gas_Per_Tx",
+  "location": "aegis_vm_types.ads:107:4",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Vm_Types.Max_Gas_Per_Block",
+  "location": "aegis_vm_types.ads:110:4",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Vm_Types.Gas_Context",
+  "location": "aegis_vm_types.ads:113:9",
+  "Object_Size": 448,
+  "Value_Size": 400,
+  "Alignment": 8,
+  "record": [
+    {
+      "name": "Gas_Limit",
+      "Position":  0,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Gas_Used",
+      "Position":  8,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Gas_Price",
+      "Position": 16,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Discount",
+      "Position": 48,
+      "First_Bit": 0,
+      "Size": 16
+    }
+  ]
+}
+,
+{
+  "name": "Aegis_Vm_Types.Memory_Access",
+  "location": "aegis_vm_types.ads:136:9",
+  "Object_Size": 8,
+  "Value_Size": 2,
+  "Alignment": 1
+}
+,
+{
+  "name": "Aegis_Vm_Types.Memory_Region",
+  "location": "aegis_vm_types.ads:139:9",
+  "Object_Size": 192,
+  "Value_Size": 136,
+  "Alignment": 8,
+  "record": [
+    {
+      "name": "Base_Address",
+      "Position":  0,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Size",
+      "Position":  8,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Access_Mode",
+      "Position": 16,
+      "First_Bit": 0,
+      "Size": 8
+    }
+  ]
+}
+,
+{
+  "name": "Aegis_Vm_Types.Memory_Region_Index",
+  "location": "aegis_vm_types.ads:148:9",
+  "Object_Size": 8,
+  "Value_Size": 4,
+  "Alignment": 1
+}
+,
+{
+  "name": "Aegis_Vm_Types.Memory_Regions",
+  "location": "aegis_vm_types.ads:149:9",
+  "Size": 3072,
+  "Alignment": 8,
+  "Component_Size": 192
+}
+,
+{
+  "name": "Aegis_Vm_Types.Storage_Key",
+  "location": "aegis_vm_types.ads:161:9",
+  "Size": 256,
+  "Alignment": 8,
+  "record": [
+    {
+      "name": "Limbs",
+      "Position": 0,
+      "First_Bit": 0,
+      "Size": 256
+    }
+  ]
+}
+,
+{
+  "name": "Aegis_Vm_Types.Storage_Value",
+  "location": "aegis_vm_types.ads:162:9",
+  "Size": 256,
+  "Alignment": 8,
+  "record": [
+    {
+      "name": "Limbs",
+      "Position": 0,
+      "First_Bit": 0,
+      "Size": 256
+    }
+  ]
+}
+,
+{
+  "name": "Aegis_Vm_Types.Storage_Slot",
+  "location": "aegis_vm_types.ads:165:9",
+  "Size": 512,
+  "Alignment": 8,
+  "record": [
+    {
+      "name": "Key",
+      "Position":  0,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Value",
+      "Position": 32,
+      "First_Bit": 0,
+      "Size": 256
+    }
+  ]
+}
+,
+{
+  "name": "Aegis_Vm_Types.Call_Type",
+  "location": "aegis_vm_types.ads:178:9",
+  "Object_Size": 8,
+  "Value_Size": 3,
+  "Alignment": 1
+}
+,
+{
+  "name": "Aegis_Vm_Types.Call_Depth",
+  "location": "aegis_vm_types.ads:188:9",
+  "Object_Size": 16,
+  "Value_Size": 11,
+  "Alignment": 2
+}
+,
+{
+  "name": "Aegis_Vm_Types.Execution_Status",
+  "location": "aegis_vm_types.ads:195:9",
+  "Object_Size": 8,
+  "Value_Size": 3,
+  "Alignment": 1
+}
+,
+{
+  "name": "Aegis_Vm_Types.Execution_Result",
+  "location": "aegis_vm_types.ads:206:9",
+  "Size": 384,
+  "Alignment": 8,
+  "record": [
+    {
+      "name": "Status",
+      "Position":  0,
+      "First_Bit": 0,
+      "Size": 8
+    },
+    {
+      "name": "Gas_Used",
+      "Position":  8,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Return_Data",
+      "Position": 16,
+      "First_Bit": 0,
+      "Size": 256
+    }
+  ]
+}
+,
+{
+  "name": "Aegis_Vm_Types.Version",
+  "location": "aegis_vm_types.ads:229:9",
+  "Size": 96,
+  "Alignment": 4,
+  "record": [
+    {
+      "name": "Major",
+      "Position": 0,
+      "First_Bit": 0,
+      "Size": 32
+    },
+    {
+      "name": "Minor",
+      "Position": 4,
+      "First_Bit": 0,
+      "Size": 32
+    },
+    {
+      "name": "Patch",
+      "Position": 8,
+      "First_Bit": 0,
+      "Size": 32
+    }
+  ]
+}
+,
+{
+  "name": "Aegis_Vm_Types.Contract_Manifest",
+  "location": "aegis_vm_types.ads:236:9",
+  "Size": 960,
+  "Alignment": 8,
+  "record": [
+    {
+      "name": "Address",
+      "Position":   0,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Code_Hash",
+      "Position":  32,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Proof_Hash",
+      "Position":  64,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Version",
+      "Position":  96,
+      "First_Bit": 0,
+      "Size": 96
+    },
+    {
+      "name": "Certification",
+      "Position": 108,
+      "First_Bit": 0,
+      "Size": 8
+    },
+    {
+      "name": "Wcet_Bound",
+      "Position": 112,
+      "First_Bit": 0,
+      "Size": 64
+    }
+  ]
+}
+,
+{
+  "name": "Aegis_Vm_Types.Capability_Type",
+  "location": "aegis_vm_types.ads:250:9",
+  "Object_Size": 8,
+  "Value_Size": 4,
+  "Alignment": 1
+}
+,
+{
+  "name": "Aegis_Vm_Types.Capability_Mask",
+  "location": "aegis_vm_types.ads:263:9",
+  "Size": 72,
+  "Alignment": 1,
+  "Component_Size": 8
+}
+,
+{
+  "name": "Aegis_Vm_Types.No_Capabilities",
+  "location": "aegis_vm_types.ads:266:4",
+  "Size": 72,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Vm_Types.Full_Capabilities",
+  "location": "aegis_vm_types.ads:268:4",
+  "Size": 72,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Vm_Types.Read_Only_Capabilities",
+  "location": "aegis_vm_types.ads:273:4",
+  "Size": 72,
+  "Alignment": 8
+}
+]

@@ -1,0 +1,214 @@
+V "GNAT Lib v14"
+A -O0
+A -gnatA
+A -gnatwa
+A -gnatQ
+A -gnata
+A -gnatf
+A -gnatyM120
+A -gnatyO
+A -gnat2012
+A -g
+A -gnateE
+A -fstack-check=specific
+A -mmacosx-version-min=16.0.0
+A -mcpu=apple-m1
+A -mlittle-endian
+A -mabi=lp64
+A -fPIC
+P ZX
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+
+U anubis_mlkem_encoding%b  anubis_mlkem_encoding.adb  e2f39be5 NE OO PK
+W anubis_config%s	anubis_config.ads	anubis_config.ali
+W anubis_field%s	anubis_field.adb	anubis_field.ali
+W interfaces%s		interfac.ads		interfac.ali
+Z system.assertions%s	s-assert.adb		s-assert.ali
+
+U anubis_mlkem_encoding%s  anubis_mlkem_encoding.ads  049a9ea1 EE NE OO PK
+W anubis_config%s	anubis_config.ads	anubis_config.ali
+W anubis_field%s	anubis_field.adb	anubis_field.ali
+W anubis_mlkem_types%s	anubis_mlkem_types.ads	anubis_mlkem_types.ali
+W anubis_types%s	anubis_types.ads	anubis_types.ali
+
+D ada.ads		20240808082856 76789da1 ada%s
+D a-assert.ads		20240808082856 ba465f5c ada.assertions%s
+D a-unccon.ads		20240808082856 0e9b276f ada.unchecked_conversion%s
+D anubis_config.ads	20251207191107 19c7b4b2 anubis_config%s
+D anubis_field.ads	20251207191105 ccc1c329 anubis_field%s
+D anubis_mlkem_encoding.ads  20251207191106 d2e8a44a anubis_mlkem_encoding%s
+D anubis_mlkem_encoding.adb  20251207191106 740cb1f5 anubis_mlkem_encoding%b
+D anubis_mlkem_types.ads  20251207191106 4cc71de7 anubis_mlkem_types%s
+D anubis_types.ads	20251207191105 4fb35097 anubis_types%s
+D interfac.ads		20240808082856 9111f9c1 interfaces%s
+D system.ads		20240808082856 70765b54 system%s
+D s-assert.ads		20240808082856 9c4520c7 system.assertions%s
+D s-exctab.ads		20240808082856 91bef6ef system.exception_table%s
+D s-stalib.ads		20240808082856 1c9580f6 system.standard_library%s
+G a e
+G c Z s b [byteencode_12 anubis_mlkem_encoding 32 14 none]
+G c Z s b [bytedecode_12 anubis_mlkem_encoding 42 14 none]
+G c Z s b [byteencode_11 anubis_mlkem_encoding 52 14 none]
+G c Z s b [bytedecode_11 anubis_mlkem_encoding 62 14 none]
+G c Z s b [byteencode_5 anubis_mlkem_encoding 72 14 none]
+G c Z s b [bytedecode_5 anubis_mlkem_encoding 82 14 none]
+G c Z s b [byteencode_1 anubis_mlkem_encoding 92 14 none]
+G c Z s b [bytedecode_1 anubis_mlkem_encoding 99 14 none]
+G c Z s b [encode_vector_12 anubis_mlkem_encoding 108 14 none]
+G c Z s b [decode_vector_12 anubis_mlkem_encoding 116 14 none]
+X 4 anubis_config.ads
+3K9*Anubis_Config 112e18 6|5w6 5r25 7|4w6 4r25
+35N4*Q 6|48r73 7|60r43 68r46 71r50
+X 5 anubis_field.ads
+6K9*Anubis_Field 102e17 6|6w6 6r24 7|5w6 5r24
+21M9*Field_Element 7|68r23 71r27 135r27 136r27 137r27 138r27 139r27 140r27
+. 141r27 142r27 200r27 201r27 202r27 203r27 204r27 205r27 206r27 208r27 251r30
+X 6 anubis_mlkem_encoding.ads
+26K9*Anubis_MLKEM_Encoding 122l5 122e26 7|7b14 300l5 300t26
+32U14*ByteEncode_12 33>7 34<7 7|13b14 269s10
+33a7 F{8|40A9} 7|14b7 30r29 31r29
+34a7 Output{8|86A12} 37r33 38r51 7|15b7 27r43 38m10 39m10 40m10
+38i24 I{integer} 38r59
+42U14*ByteDecode_12 43>7 44<7 7|47b14 296s10
+43a7 Input{8|86A12} 7|48b7 62r29 63r29 64r29
+44a7 F{8|40A9} 47r33 48r43 48r65 7|49b7 60r13 60r35 68m10 71m10
+48i24 I{8|39I12} 48r46 48r68
+52U14*ByteEncode_11 53>7 54<7 7|79b14
+53a7 F{8|40A9} 7|80b7 94r35
+54a7 Output{8|90A12} 57r33 58r15 7|81b7 90r62 98m10 99m10 100m10 101m10 102m10
+. 103m10 104m10 105m10 106m10 107m10 108m10
+62U14*ByteDecode_11 63>7 64<7 7|115b14
+63a7 Input{8|90A12} 7|116b7 131r35
+64a7 F{8|40A9} 67r33 68r43 68r65 7|117b7 127r13 127r35 135m10 136m10 137m10
+. 138m10 139m10 140m10 141m10 142m10
+68i24 I{8|39I12} 68r46 68r68
+72U14*ByteEncode_5 73>7 74<7 7|150b14
+73a7 F{8|40A9} 7|151b7 165r34
+74a7 Output{8|91A12} 77r33 78r15 7|152b7 161r62 169m10 170m10 171m10 172m10
+. 173m10
+82U14*ByteDecode_5 83>7 84<7 7|180b14
+83a7 Input{8|91A12} 7|181b7 196r34
+84a7 F{8|40A9} 87r33 88r43 88r65 7|182b7 192r13 192r35 200m10 201m10 202m10
+. 203m10 204m10 205m10 206m10 208m10
+88i24 I{8|39I12} 88r46 88r68
+92U14*ByteEncode_1 93>7 94<7 7|215b14 233l8 233t20
+93a7 F{8|40A9} 7|216b7 223r29 224r48 225r48 226r48 227r48 228r48 229r48 230r48
+94a7 Output{8|80A12} 7|217b7 231m10
+99U14*ByteDecode_1 100>7 101<7 7|236b14
+100a7 Input{8|80A12} 7|237b7 246r27
+101a7 F{8|40A9} 104r33 105r43 105r65 7|238b7 245r13 245r35 250r16 250r38
+. 251m13
+105i24 I{8|39I12} 105r46 105r68
+108U14*Encode_Vector_12 109>7 110<7 7|257b14
+109a7 V{8|47A9} 7|258b7 269r25
+110a7 Output{8|87A12} 113r33 114r15 7|259b7 267r13 273r16 275r16 276m13
+116U14*Decode_Vector_12 117>7 118<7 7|282b14 298l8 298t24
+117a7 Input{8|87A12} 7|283b7 294r24
+118a7 V{8|47A9} 7|284b7 296m30 296r30
+X 7 anubis_mlkem_encoding.adb
+17i7 Idx{natural} 24r33 25r33 26r36 27r32 35r25 38r18 39r18 40r18 42m10 42r17
+18m7 C0{10|73M9} 30m10 36r25 38r36 39r49
+18m11 C1{10|73M9} 31m10 36r40 37r38 39r71 40r49
+22i11 I{integer} 23r33 24r39 30r36 31r36
+27i22 K{integer} 27r51
+51i7 Idx{natural} 58r33 62r36 63r36 64r36 73m10 73r17
+52m7 B0{10|73M9} 62m10 67r17
+52m11 B1{10|73M9} 63m10 67r35 70r30
+52m15 B2{10|73M9} 64m10 70r52
+53m7 Val{10|73M9} 67m10 68r38 70m10 71r42
+56i11 I{integer} 57r33 58r39 59r55 68r17 71r17
+59i41 K{integer} 60r16 60r38
+83i7 Idx{natural} 89r33 90r51 98r18 99r18 100r18 101r18 102r18 103r18 104r18
+. 105r18 106r18 107r18 108r18 110m10 110r17
+84a7 C(10|73M9) 94m13 98r37 99r51 99r76 100r51 100r76 101r50 102r51 102r77
+. 103r51 103r76 104r51 104r76 105r50 106r51 106r76 107r51 107r76 108r50
+87i11 I{integer} 88r33 89r39 94r42
+90i41 K{integer} 90r70
+92i14 J{integer} 93r36 94r16 94r46
+119i7 Idx{natural} 125r33 131r42 144m10 144r17
+120a7 B(10|73M9) 131m13 135r43 135r64 136r56 136r81 137r56 137r81 137r106
+. 138r56 138r81 139r56 139r81 140r56 140r81 140r106 141r56 141r81 142r56
+. 142r81
+123i11 I{integer} 124r33 125r39 126r55 135r17 136r17 137r17 138r17 139r17
+. 140r17 141r17 142r17
+126i41 K{integer} 127r16 127r38
+129i14 J{integer} 130r36 131r16 131r48
+154i7 Idx{natural} 160r33 161r51 169r18 170r18 171r18 172r18 173r18 175m10
+. 175r17
+155a7 C(10|70M9) 165m13 169r36 169r57 170r49 170r74 170r99 171r49 171r74
+. 172r49 172r74 172r99 173r49 173r74
+158i11 I{integer} 159r33 160r39 165r41
+161i41 K{integer} 161r70
+163i14 J{integer} 164r36 165r16 165r45
+184i7 Idx{natural} 190r33 196r41 210m10 210r17
+185a7 B(10|70M9) 196m13 200r42 201r56 201r81 202r56 203r56 203r81 204r56
+. 204r81 205r56 206r56 206r81 208r55
+188i11 I{integer} 189r33 190r39 191r55 200r17 201r17 202r17 203r17 204r17
+. 205r17 206r17 208r17
+191i41 K{integer} 192r16 192r38
+194i14 J{integer} 195r36 196r16 196r47
+219m7 Acc{10|70M9} 223m10 224m10 224r17 225m10 225r17 226m10 226r17 227m10
+. 227r17 228m10 228r17 229m10 229r17 230m10 230r17 231r30
+221i11 I{integer} 222r33 223r36 224r55 225r55 226r55 227r55 228r55 229r55
+. 230r55 231r18
+240m7 B{10|70M9} 246m10 251r58
+242i11 I{integer} 243r33 244r55 246r34 249r58 251r20
+244i41 K{integer} 245r16 245r38
+247i14 J{integer} 248r36 249r62 251r24 251r61
+249i44 K{integer} 250r19 250r41
+261i7 Offset{natural} 268m10 272r54 274r49 274r59 276r21
+262a7 Buf{8|86A12} 269m32 276r36
+264i11 I{8|46I12} 265r33 266r51 268r20 269r28
+266i41 K{integer} 267r21
+270i14 J{integer} 271r36 274r68 276r30 276r41
+272i44 K{integer} 273r24
+274i44 K{integer} 275r24
+286i7 Offset{natural} 291m10 294r31
+287a7 Buf{8|86A12} 294m13 296r25
+289i11 I{8|46I12} 290r33 291r20 296r33
+292i14 J{integer} 293r36 294r18 294r40
+X 8 anubis_mlkem_types.ads
+26K9*Anubis_MLKEM_Types 6|3w6 3r30 8|94e23
+35N4*Du 6|68r76 7|127r46
+36N4*Dv 6|88r76 7|192r46
+39I12*Poly_Index{natural} 6|48r29 68r29 88r29 105r29
+40A9*Polynomial(5|21M9)<integer> 6|33r20 44r19 53r20 64r19 73r20 84r19 93r20
+. 101r19 7|14r20 49r19 80r20 117r19 151r20 182r19 216r20 238r19
+46I12*Vec_Index{natural} 7|264r16 265r38 289r16 290r38
+47A9*Poly_Vector(40A9)<integer> 6|109r20 118r19 7|258r20 284r19
+59N4*Encoded_Poly_Bytes 7|266r55 268r24 291r24
+80A12*Message{9|14A9}<integer> 6|94r20 100r19 7|217r20 237r19
+86A12*Encoded_Poly{9|14A9}<integer> 6|34r20 38r29 43r19 7|15r20 48r19 262r13
+. 270r19 271r41 287r13 292r19 293r41
+87A12*Encoded_Vector{9|14A9}<integer> 6|110r20 117r19 7|259r20 283r19
+90A12*Compressed_Poly_Du{9|14A9}<integer> 6|54r20 63r19 7|81r20 116r19
+91A12*Compressed_Poly_Dv{9|14A9}<integer> 6|74r20 83r19 7|152r20 181r19
+X 9 anubis_types.ads
+5K9*Anubis_Types 6|4w6 4r24 9|40e17
+13M12*Byte{10|70M9} 7|38r30 39r30 40r30 98r31 99r31 100r31 101r31 102r31
+. 103r31 104r31 105r31 106r31 107r31 108r31 169r30 170r30 171r30 172r30 173r30
+. 231r24
+14A9*Byte_Array(13M12)<integer>
+X 10 interfac.ads
+38K9*Interfaces 7|3w6 3r22 10|233e15
+70M9*Unsigned_8 7|155r29 165r22 185r29 196r22 219r13 223r17 224r36 225r36
+. 226r36 227r36 228r36 229r36 230r36 240r11 246r15
+73M9*Unsigned_16 7|18r16 30r16 31r16 52r20 53r13 62r16 63r16 64r16 84r29
+. 94r22 120r30 131r22
+91V13*Shift_Left{70M9} 7|169s45 170s62 170s87 171s62 172s62 172s87 173s62
+. 201s69 203s69 204s69 206s69 224s24 225s24 226s24 227s24 228s24 229s24 230s24
+96V13*Shift_Right{70M9} 7|170s36 171s36 172s36 173s36 201s43 202s43 203s43
+. 204s43 205s43 206s43 208s42 251s45
+116V13*Shift_Left{73M9} 7|39s59 67s23 70s40 99s64 100s64 102s65 103s64 104s64
+. 106s64 107s64 135s52 136s69 137s69 137s94 138s69 139s69 140s69 140s94 141s69
+. 142s69
+121V13*Shift_Right{73M9} 7|37s25 39s36 40s36 70s17 99s38 100s38 101s37 102s38
+. 103s38 104s38 105s37 106s38 107s38 108s37 136s43 137s43 138s43 139s43 140s43
+. 141s43 142s43
+

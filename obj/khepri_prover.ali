@@ -1,0 +1,269 @@
+V "GNAT Lib v14"
+A -O0
+A -gnatA
+A -gnatwa
+A -gnatQ
+A -gnata
+A -gnatf
+A -gnatyM120
+A -gnatyO
+A -gnat2012
+A -g
+A -gnateE
+A -fstack-check=specific
+A -mmacosx-version-min=16.0.0
+A -mcpu=apple-m1
+A -mlittle-endian
+A -mabi=lp64
+A -fPIC
+P SS ZX
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_SECONDARY_STACK
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+RV NO_ELABORATION_CODE
+RV NO_OBSOLESCENT_FEATURES
+
+U khepri_prover%b	khepri_prover.adb	1c9b861f OO PK
+Z system.assertions%s	s-assert.adb		s-assert.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+
+U khepri_prover%s	khepri_prover.ads	6c0b1414 EE NE OO PK
+W aegis_vm_types%s	aegis_vm_types.ads	aegis_vm_types.ali
+W interfaces%s		interfac.ads		interfac.ali
+W khepri_certification%s  khepri_certification.adb  khepri_certification.ali
+W khepri_types%s	khepri_types.adb	khepri_types.ali
+
+D ada.ads		20240808082856 76789da1 ada%s
+D a-assert.ads		20240808082856 ba465f5c ada.assertions%s
+D a-unccon.ads		20240808082856 0e9b276f ada.unchecked_conversion%s
+D aegis_u256.ads	20251207191105 ff2dfe4b aegis_u256%s
+D aegis_vm_types.ads	20251207191105 dcd101d9 aegis_vm_types%s
+D interfac.ads		20240808082856 9111f9c1 interfaces%s
+D khepri_certification.ads  20251207191107 853714ad khepri_certification%s
+D khepri_prover.ads	20251207191107 a20f7a8c khepri_prover%s
+D khepri_prover.adb	20251207191107 be94fc93 khepri_prover%b
+D khepri_types.ads	20251207191106 06f3822d khepri_types%s
+D system.ads		20240808082856 70765b54 system%s
+D s-assert.ads		20240808082856 9c4520c7 system.assertions%s
+D s-exctab.ads		20240808082856 91bef6ef system.exception_table%s
+D s-parame.ads		20240808082856 3597fc11 system.parameters%s
+D s-secsta.ads		20240808082856 578279f5 system.secondary_stack%s
+D s-stalib.ads		20240808082856 1c9580f6 system.standard_library%s
+D s-stoele.ads		20240808082856 ccded4e8 system.storage_elements%s
+G a e
+G c Z s b [get_timeout khepri_prover 46 13 none]
+G c Z s s [prover_configIP khepri_prover 50 9 none]
+G c Z s b [create_session khepri_prover 159 13 none]
+G c Z s b [run_proofs khepri_prover 165 14 none]
+G c Z s b [get_stats khepri_prover 174 13 none]
+G c Z s b [get_vcs khepri_prover 180 14 none]
+G c Z s b [all_proved khepri_prover 188 13 none]
+G c Z s b [has_cached_result khepri_prover 205 13 none]
+G c Z s b [get_cached_result khepri_prover 212 13 none]
+G c Z s b [cache_result khepri_prover 219 14 none]
+G c Z s b [invalidate_cache khepri_prover 227 14 none]
+G c Z s b [generate_report khepri_prover 245 14 none]
+G c Z s b [summary_line khepri_prover 256 13 none]
+G c Z s b [meets_bronze_proofs khepri_prover 264 13 none]
+G c Z s b [meets_silver_proofs khepri_prover 270 13 none]
+G c Z s b [generate_proof_hash khepri_prover 276 13 none]
+G c Z s b [verify_proof_artifact khepri_prover 282 13 none]
+G c Z s b [analyze_wcet khepri_prover 308 14 none]
+G c Z s b [all_wcet_bounded khepri_prover 319 13 none]
+G c Z s s [vc_resultIP khepri_prover 124 9 none]
+G c Z s s [Tvc_arrayBIP khepri_prover 137 4 none]
+G c Z s s [session_statsIP khepri_prover 147 9 none]
+G c Z s s [proof_sessionIP khepri_prover 328 9 none]
+G c Z s s [cache_entryIP khepri_prover 196 9 none]
+G c Z s s [wcet_analysisIP khepri_prover 293 9 none]
+G c Z s s [Twcet_arrayBIP khepri_prover 305 4 none]
+G c Z b b [Tcache_storageBIP khepri_prover 113 4 none]
+X 5 aegis_vm_types.ads
+21K9*Aegis_VM_Types 279e19 8|4w6 4r26
+31M12*Byte{6|70M9} 9|218r16 263r21 264r21
+32A9*Byte_Array(31M12)<integer> 8|248r24 9|204r24
+35M12*Word64{6|84M9} 8|200r23
+56A9*Hash256(31M12)<integer> 8|197r23 198r23 206r23 213r23 220r26 228r26
+. 278r13 283r23 284r23 9|123r23 139r23 155r26 185r26 259r13 260r16 269r23
+. 270r23
+101I9*Gas_Amount<long_integer> 8|297r24
+X 6 interfac.ads
+38K9*Interfaces 233e15 8|3w6 3r22
+70M9*Unsigned_8
+84M9*Unsigned_64
+X 7 khepri_certification.ads
+28K9*Khepri_Certification 325e25 8|6w6 6r32
+X 8 khepri_prover.ads
+28K9*Khepri_Prover 328E9 337l5 337e18 9|3b14 319l5 319t18
+37E9*Proof_Level 43e5 46r34 51r25 9|9r34
+38n7*Level_0{37E9} 9|12r15
+39n7*Level_1{37E9} 9|13r15
+40n7*Level_2{37E9} 62r26 9|14r15
+41n7*Level_3{37E9} 9|15r15
+42n7*Level_4{37E9} 73r26 9|16r15
+46V13*Get_Timeout{natural} 46>26 9|9b13 18l8 18t19
+46e26 Level{37E9} 9|9b26 11r12
+50R9*Prover_Config 59e14 61r30 72r29 160r16 207r23 214r23 221r26 329r21 9|25r16
+. 124r23 140r23 156r26
+51e7*Level{37E9} 62m7 73m7
+52i7*Parallel_Jobs{natural} 63m7 74m7
+53i7*Memlimit{natural} 64m7 75m7
+54i7*Steps{natural} 65m7 76m7
+55i7*Timeout{natural} 66m7 77m7
+56b7*Warnings_As_Errors{boolean} 67m7 78m7
+57b7*Report_All{boolean} 68m7 79m7
+58b7*Cache_Enabled{boolean} 69m7 80m7
+61r4*Default_Config{50R9}
+72r4*Silver_Config{50R9}
+88E9*VC_Category 112e5 125r21
+90n7*VC_Division_Check{88E9}
+91n7*VC_Index_Check{88E9}
+92n7*VC_Overflow_Check{88E9}
+93n7*VC_Range_Check{88E9}
+94n7*VC_Length_Check{88E9}
+95n7*VC_Discriminant_Check{88E9}
+96n7*VC_Tag_Check{88E9}
+99n7*VC_Precondition{88E9}
+100n7*VC_Postcondition{88E9}
+101n7*VC_Contract_Case{88E9}
+102n7*VC_Loop_Invariant{88E9}
+103n7*VC_Loop_Variant{88E9}
+104n7*VC_Assert{88E9}
+107n7*VC_Initialization{88E9}
+108n7*VC_Aliasing{88E9}
+111n7*VC_Unknown{88E9} 9|41r28
+115E9*VC_Status 121e5 126r21
+116n7*VC_Proved{115E9}
+117n7*VC_Not_Proved{115E9}
+118n7*VC_Timeout{115E9}
+119n7*VC_Error{115E9}
+120n7*VC_Skipped{115E9} 9|42r28
+124R9*VC_Result 132e14 137r41
+125e7*Category{88E9} 9|41m13
+126e7*Status{115E9} 9|42m13
+127r7*File{10|335R9} 9|43m13
+128i7*Line{natural} 9|44m13
+129i7*Column{natural} 9|45m13
+130r7*Message{10|335R9} 9|46m13
+131i7*Prover_Time{natural} 9|47m13
+135N4*Max_VCs 136r32
+136I9*VC_Index<short_integer> 137r28
+137A9*VC_Array(124R9)<136I9> 182r22 331r21 9|93r22
+144R9*Proof_Session 161r13 166r29 175r17 181r22 188r35 246r24 256r37 265r17
+. 271r17 277r17 309r29 328c9 335e14 9|26r13 56r29 85r17 92r22 101r35 202r24
+. 228r37 242r17 250r17 258r17 283r29
+147R9*Session_Stats 156e14 176r13 199r23 215r13 222r26 330r21 9|86r13 141r13
+. 157r26
+148i7*Total_VCs{natural} 9|31m13 70m10 264r41
+149i7*Proved_VCs{natural} 9|32m13 71m10 263r41
+150i7*Unproved_VCs{natural} 9|33m13 72m10 103r28
+151i7*Timeout_VCs{natural} 9|34m13 73m10 104r28
+152i7*Error_VCs{natural} 9|35m13 74m10 105r28 246r52
+153i7*Skipped_VCs{natural} 9|36m13 75m10
+154i7*Total_Time{natural} 9|37m13 76m10
+155i7*Max_Time{natural} 9|38m13 77m10
+159V13*Create_Session{144R9} 160>7 9|24b13 53l8 53t22
+160r7 Config{50R9} 9|25b7 29r25
+165U14*Run_Proofs 166=7 167>7 168<7 9|55b14 82l8 82t18
+166r7 Session{144R9} 9|56b7 69m7 80m7
+167a7 Contract_Path{string} 171r17 9|57b7 60r28
+168b7 Success{boolean} 9|58b7 81m7
+174V13*Get_Stats{147R9} 175>7 9|84b13 89l8 89t17
+175r7 Session{144R9} 9|85b7 88r14
+180U14*Get_VCs 181>7 182<7 183<7 9|91b14 99l8 99t15
+181r7 Session{144R9} 9|92b7 97r14 98r19
+182a7 VCs{137A9} 9|93b7 97m7
+183i7 VC_Count{natural} 9|94b7 98m7
+188V13*All_Proved{boolean} 188>25 9|101b13 106l8 106t18 230s10 254s14
+188r25 Session{144R9} 9|101b25 103r14 104r14 105r14
+196R9*Cache_Entry 202e14 9|113r46
+197a7*Contract_Hash{5|56A9} 9|115m7 130r23 146r23 165m16 176m10 190r23
+198a7*Config_Hash{5|56A9} 9|116m7 166m16 177m10
+199r7*Stats{147R9} 9|117m7 148r30 167m16 178m10
+200m7*Timestamp{5|35M12} 9|118m7 168m16 179m10
+201b7*Is_Valid{boolean} 9|119m7 129r23 145r23 163r27 169m16 180m10 189r23
+. 192m23
+205V13*Has_Cached_Result{boolean} 206>7 207>7 9|122b13 136l8 136t25
+206a7 Contract_Hash{5|56A9} 9|123b7 130r39
+207r7 Config{50R9} 9|124b7 126r28
+212V13*Get_Cached_Result{147R9} 213>7 214>7 9|138b13 152l8 152t25
+213a7 Contract_Hash{5|56A9} 9|139b7 146r39
+214r7 Config{50R9} 9|140b7 142r28
+219U14*Cache_Result 220>7 221>7 222>7 9|154b14 182l8 182t20
+220a7 Contract_Hash{5|56A9} 9|155b7 165r33 176r27
+221r7 Config{50R9} 9|156b7 159r28
+222r7 Stats{147R9} 9|157b7 167r33 178r27
+227U14*Invalidate_Cache 228>7 9|184b14 195l8 195t24
+228a7 Contract_Hash{5|56A9} 9|185b7 190r39
+237E9*Report_Format 242e5 247r24 9|203r24
+238n7*Format_Text{237E9}
+239n7*Format_JSON{237E9}
+240n7*Format_HTML{237E9}
+241n7*Format_SARIF{237E9}
+245U14*Generate_Report 246>7 247>7 248<7 249<7 250<7 9|201b14 226l8 226t23
+246r7 Session{144R9} 9|202b7 225r18
+247e7 Format{237E9} 9|203b7 208r28
+248a7 Output{5|32A9} 253r17 9|204b7 210m7 217m13 217r21
+249i7 Size{natural} 9|205b7 220m10 224m7 224r15
+250b7 Success{boolean} 9|206b7 225m7
+256V13*Summary_Line{string} 256>27 9|228b13 235l8 235t20
+256r27 Session{144R9} 9|228b27 230r22
+264V13*Meets_Bronze_Proofs{boolean} 265>7 9|241b13 247l8 247t27
+265r7 Session{144R9} 9|242b7 246r14 246r38
+270V13*Meets_Silver_Proofs{boolean} 271>7 9|249b13 255l8 255t27
+271r7 Session{144R9} 9|250b7 254r26
+276V13*Generate_Proof_Hash{5|56A9} 277>7 9|257b13 266l8 266t27
+277r7 Session{144R9} 9|258b7 263r27 264r27
+282V13*Verify_Proof_Artifact{boolean} 283>7 284>7 9|268b13 276l8 276t29
+283a7 Contract_Hash{5|56A9} 9|269b7 272r28
+284a7 Proof_Hash{5|56A9} 9|270b7 272r43
+293R9*WCET_Analysis 301e14 305r45
+294r7*Function_Name{10|335R9} 9|292m10
+295a7*Selector{10|317A9} 9|293m10
+296i7*Cycles{natural} 9|294m10
+297i7*Gas_Bound{5|101I9} 9|295m10
+298b7*Proven{boolean} 9|296m10 312r42
+299i7*Path_Count{natural} 9|297m10
+300i7*Max_Loop_Bound{natural} 9|298m10
+303N4*Max_WCET_Entries 304r34 324r33
+304I9*WCET_Index<short_short_integer> 305r30 9|312r26
+305A9*WCET_Array(293R9)<304I9> 311r29 320r22 9|285r29 307r22
+308U14*Analyze_WCET 309=7 310>7 311<7 312<7 313<7 9|282b14 304l8 304t20
+309r7 Session{144R9} 9|283b7 303r18
+310a7 Contract_Path{string} 316r17 9|284b7 289r28
+311a7 Results{305A9} 9|285b7 291m7
+312i7 Result_Count{natural} 9|286b7 302m7
+313b7 Success{boolean} 9|287b7 303m7
+319V13*All_WCET_Bounded{boolean} 320>7 321>7 9|306b13 317l8 317t24
+320a7 Results{305A9} 9|307b7 312r17
+321i7 Result_Count{natural} 324r17 9|308b7 311r21
+329r7*Config{50R9} 9|29m10
+330r7*Stats{147R9} 9|30m10 69m15 88r22 103r22 104r22 105r22 246r46 263r35
+. 264r35
+331a7*VCs{137A9} 9|40m10 97r22
+332i7*VC_Count{natural} 9|49m10 98r27
+333b7*Is_Complete{boolean} 9|50m10 80m15 225r26 246r22 303r26
+334r7*Error_Msg{10|335R9} 9|51m10
+X 9 khepri_prover.adb
+113A9 Cache_Storage(8|196R9)<integer> 114r12
+114a4 Cache{113A9} 128r16 129r13 130r13 144r16 145r13 146r13 148r20 162r16
+. 163r17 164m13 175m7 188r16 189r13 190r13 192m13
+128i11 I{integer} 129r20 130r20
+144i11 I{integer} 145r20 146r20 148r27
+162i11 I{integer} 163r24 164r20
+188i11 I{integer} 189r20 190r20 192r20
+214a10 Header{string} 216r19 217r40 218r37 220r18
+216i14 I{integer} 217r36 218r45
+260a7 Result{5|56A9} 263m7 264m7 265r14
+311i11 I{integer} 312r38
+X 10 khepri_types.ads
+25K9*Khepri_Types 8|5w6 5r24 10|345e17
+317A9*Bytes4(5|31M12)<integer> 8|295r24
+335R9*Bounded_String 8|127r21 130r21 294r24 334r21 10|338e14
+340r4*Empty_String{335R9} 9|43r28 46r28 51r25 292r28
+

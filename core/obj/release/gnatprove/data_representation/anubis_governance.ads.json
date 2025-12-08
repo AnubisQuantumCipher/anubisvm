@@ -1,0 +1,207 @@
+[
+{
+  "name": "Anubis_Governance.Governance_Phase",
+  "location": "anubis_governance.ads:45:9",
+  "Object_Size": 8,
+  "Value_Size": 2,
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Governance.Privilege_Type",
+  "location": "anubis_governance.ads:53:9",
+  "Object_Size": 8,
+  "Value_Size": 3,
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Governance.Privilege_Holder",
+  "location": "anubis_governance.ads:63:9",
+  "Object_Size": 8,
+  "Value_Size": 2,
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Governance.Privilege_Record",
+  "location": "anubis_governance.ads:79:9",
+  "Object_Size": 256,
+  "Value_Size": 200,
+  "Alignment": 8,
+  "record": [
+    {
+      "name": "Privilege",
+      "Position":  0,
+      "First_Bit": 0,
+      "Size": 8
+    },
+    {
+      "name": "Current_Holder",
+      "Position":  1,
+      "First_Bit": 0,
+      "Size": 8
+    },
+    {
+      "name": "Expires_At",
+      "Position":  8,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Transferred_At",
+      "Position": 16,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Transfer_To",
+      "Position": 24,
+      "First_Bit": 0,
+      "Size": 8
+    }
+  ]
+}
+,
+{
+  "name": "Anubis_Governance.Privilege_Array",
+  "location": "anubis_governance.ads:87:9",
+  "Size": 1536,
+  "Alignment": 8,
+  "Component_Size": 256
+}
+,
+{
+  "name": "Anubis_Governance.Council_Member",
+  "location": "anubis_governance.ads:94:9",
+  "Object_Size": 704,
+  "Value_Size": 648,
+  "Alignment": 8,
+  "record": [
+    {
+      "name": "Address",
+      "Position":  0,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Pk_Hash",
+      "Position": 32,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Elected_At",
+      "Position": 64,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Term_Ends",
+      "Position": 72,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Active",
+      "Position": 80,
+      "First_Bit": 0,
+      "Size": 8
+    }
+  ]
+}
+,
+{
+  "name": "Anubis_Governance.Council_Index",
+  "location": "anubis_governance.ads:102:12",
+  "Object_Size": 32,
+  "Value_Size": 4,
+  "Alignment": 4
+}
+,
+{
+  "name": "Anubis_Governance.Council_Array",
+  "location": "anubis_governance.ads:103:9",
+  "Size": 6336,
+  "Alignment": 8,
+  "Component_Size": 704
+}
+,
+{
+  "name": "Anubis_Governance.Governance_State",
+  "location": "anubis_governance.ads:106:9",
+  "Object_Size": 8320,
+  "Value_Size": 8288,
+  "Alignment": 8,
+  "record": [
+    {
+      "name": "Current_Phase",
+      "Position":    0,
+      "First_Bit": 0,
+      "Size": 8
+    },
+    {
+      "name": "Current_Block",
+      "Position":    8,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Genesis_Block",
+      "Position":   16,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Privileges",
+      "Position":   24,
+      "First_Bit": 0,
+      "Size": 1536
+    },
+    {
+      "name": "Council",
+      "Position":  216,
+      "First_Bit": 0,
+      "Size": 6336
+    },
+    {
+      "name": "Council_Active",
+      "Position": 1008,
+      "First_Bit": 0,
+      "Size": 32
+    },
+    {
+      "name": "Council_Formed",
+      "Position": 1012,
+      "First_Bit": 0,
+      "Size": 8
+    },
+    {
+      "name": "Upgrades_Proposed",
+      "Position": 1016,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Upgrades_Approved",
+      "Position": 1024,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Pauses_Invoked",
+      "Position": 1032,
+      "First_Bit": 0,
+      "Size": 32
+    }
+  ]
+}
+,
+{
+  "name": "Anubis_Governance.Action_Result",
+  "location": "anubis_governance.ads:129:9",
+  "Object_Size": 8,
+  "Value_Size": 3,
+  "Alignment": 1
+}
+]

@@ -1,0 +1,526 @@
+[
+{
+  "name": "Aegis_Gas.Gas_Base",
+  "location": "aegis_gas.ads:40:4",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Gas_Add",
+  "location": "aegis_gas.ads:43:4",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Gas_Sub",
+  "location": "aegis_gas.ads:44:4",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Gas_Mul",
+  "location": "aegis_gas.ads:45:4",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Gas_Div",
+  "location": "aegis_gas.ads:46:4",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Gas_Mod",
+  "location": "aegis_gas.ads:47:4",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Gas_Exp_Base",
+  "location": "aegis_gas.ads:48:4",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Gas_Exp_Per_Byte",
+  "location": "aegis_gas.ads:49:4",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Gas_Lt",
+  "location": "aegis_gas.ads:52:4",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Gas_Gt",
+  "location": "aegis_gas.ads:53:4",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Gas_Eq",
+  "location": "aegis_gas.ads:54:4",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Gas_And",
+  "location": "aegis_gas.ads:57:4",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Gas_Or",
+  "location": "aegis_gas.ads:58:4",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Gas_Xor",
+  "location": "aegis_gas.ads:59:4",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Gas_Not",
+  "location": "aegis_gas.ads:60:4",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Gas_Shl",
+  "location": "aegis_gas.ads:61:4",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Gas_Shr",
+  "location": "aegis_gas.ads:62:4",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Gas_Sha3_Base",
+  "location": "aegis_gas.ads:65:4",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Gas_Sha3_Per_Word",
+  "location": "aegis_gas.ads:66:4",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Gas_Keccak256_Base",
+  "location": "aegis_gas.ads:67:4",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Gas_Keccak256_Per_Word",
+  "location": "aegis_gas.ads:68:4",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Gas_Mldsa_Keygen",
+  "location": "aegis_gas.ads:71:4",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Gas_Mldsa_Sign",
+  "location": "aegis_gas.ads:72:4",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Gas_Mldsa_Verify",
+  "location": "aegis_gas.ads:73:4",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Gas_Mlkem_Keygen",
+  "location": "aegis_gas.ads:76:4",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Gas_Mlkem_Encaps",
+  "location": "aegis_gas.ads:77:4",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Gas_Mlkem_Decaps",
+  "location": "aegis_gas.ads:78:4",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Gas_Private_Load",
+  "location": "aegis_gas.ads:81:4",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Gas_Private_Store",
+  "location": "aegis_gas.ads:82:4",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Gas_Shield",
+  "location": "aegis_gas.ads:83:4",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Gas_Unshield",
+  "location": "aegis_gas.ads:84:4",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Gas_Commit",
+  "location": "aegis_gas.ads:85:4",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Gas_Prove_Range",
+  "location": "aegis_gas.ads:86:4",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Gas_Prove_Linear",
+  "location": "aegis_gas.ads:87:4",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Gas_Verify_Proof",
+  "location": "aegis_gas.ads:88:4",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Gas_Nullify",
+  "location": "aegis_gas.ads:89:4",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Gas_Encrypt",
+  "location": "aegis_gas.ads:90:4",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Gas_Decrypt",
+  "location": "aegis_gas.ads:91:4",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Gas_Stark_Verify_Base",
+  "location": "aegis_gas.ads:94:4",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Gas_Stark_Verify_Per_Sig",
+  "location": "aegis_gas.ads:95:4",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Gas_Stark_Generate_Base",
+  "location": "aegis_gas.ads:96:4",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Gas_Fri_Verify",
+  "location": "aegis_gas.ads:97:4",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Gas_Ring_Sign",
+  "location": "aegis_gas.ads:100:4",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Gas_Ring_Verify",
+  "location": "aegis_gas.ads:101:4",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Gas_Mload",
+  "location": "aegis_gas.ads:104:4",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Gas_Mstore",
+  "location": "aegis_gas.ads:105:4",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Gas_Mstore8",
+  "location": "aegis_gas.ads:106:4",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Gas_Mcopy_Base",
+  "location": "aegis_gas.ads:107:4",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Gas_Mcopy_Per_Word",
+  "location": "aegis_gas.ads:108:4",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Gas_Sload",
+  "location": "aegis_gas.ads:111:4",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Gas_Sstore_Set",
+  "location": "aegis_gas.ads:112:4",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Gas_Sstore_Reset",
+  "location": "aegis_gas.ads:113:4",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Gas_Sstore_Clear",
+  "location": "aegis_gas.ads:114:4",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Gas_Sstore_Refund",
+  "location": "aegis_gas.ads:115:4",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Gas_Call_Base",
+  "location": "aegis_gas.ads:118:4",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Gas_Call_Value",
+  "location": "aegis_gas.ads:119:4",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Gas_Call_New_Account",
+  "location": "aegis_gas.ads:120:4",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Gas_Staticcall",
+  "location": "aegis_gas.ads:121:4",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Gas_Delegatecall",
+  "location": "aegis_gas.ads:122:4",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Gas_Create",
+  "location": "aegis_gas.ads:125:4",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Gas_Create2",
+  "location": "aegis_gas.ads:126:4",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Gas_Create_Per_Byte",
+  "location": "aegis_gas.ads:127:4",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Gas_Log_Base",
+  "location": "aegis_gas.ads:130:4",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Gas_Log_Topic",
+  "location": "aegis_gas.ads:131:4",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Gas_Log_Per_Byte",
+  "location": "aegis_gas.ads:132:4",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Gas_Balance",
+  "location": "aegis_gas.ads:135:4",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Gas_Selfbalance",
+  "location": "aegis_gas.ads:136:4",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Gas_Call",
+  "location": "aegis_gas.ads:137:4",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Gas_Extcodesize",
+  "location": "aegis_gas.ads:138:4",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Gas_Extcodecopy_Base",
+  "location": "aegis_gas.ads:139:4",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Gas_Extcodecopy_Per_Word",
+  "location": "aegis_gas.ads:140:4",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Gas_Selfdestruct",
+  "location": "aegis_gas.ads:141:4",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Max_Safe_Base_Gas",
+  "location": "aegis_gas.ads:149:4",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_Gas.Max_Hash_Byte_Length",
+  "location": "aegis_gas.ads:213:4",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Aegis_Gas.Max_Log_Data_Length",
+  "location": "aegis_gas.ads:243:4",
+  "Size": 32,
+  "Alignment": 4
+}
+]

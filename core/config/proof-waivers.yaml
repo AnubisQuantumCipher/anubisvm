@@ -1,0 +1,255 @@
+# ============================================================================
+# AegisVM/AnubisVM Proof Waiver System
+# ============================================================================
+#
+# This file defines the schema and records for SPARK proof waivers.
+# Waivers allow controlled exceptions to formal verification requirements
+# when certain conditions are met and proper justification is provided.
+#
+# IMPORTANT: All waivers must be:
+# 1. Reviewed and approved by the security team
+# 2. Recorded on-chain for auditability
+# 3. Time-limited (max 1 year, renewable with re-review)
+# 4. Associated with a mitigation strategy
+#
+# Schema Version: 1.0.0
+# ============================================================================
+
+schema:
+  version: "1.0.0"
+  last_updated: "2025-12-07"
+
+  # Waiver categories
+  categories:
+    - name: "timing_sensitive"
+      description: "Operations where constant-time is critical but unproven"
+      severity: high
+      max_duration_days: 180
+      requires_mitigation: true
+
+    - name: "external_ffi"
+      description: "Foreign function interface calls to unverified code"
+      severity: high
+      max_duration_days: 365
+      requires_mitigation: true
+
+    - name: "platform_dependent"
+      description: "Platform-specific code paths"
+      severity: medium
+      max_duration_days: 365
+      requires_mitigation: true
+
+    - name: "performance_critical"
+      description: "Performance optimizations with unproven bounds"
+      severity: medium
+      max_duration_days: 180
+      requires_mitigation: true
+
+    - name: "legacy_interface"
+      description: "Interface to legacy systems"
+      severity: low
+      max_duration_days: 365
+      requires_mitigation: false
+
+  # Required fields for each waiver
+  waiver_fields:
+    - name: "id"
+      type: "string"
+      format: "WAIVER-YYYYMMDD-NNNN"
+      required: true
+
+    - name: "category"
+      type: "enum"
+      values: ["timing_sensitive", "external_ffi", "platform_dependent", "performance_critical", "legacy_interface"]
+      required: true
+
+    - name: "unit"
+      type: "string"
+      description: "SPARK unit name (package.subprogram)"
+      required: true
+
+    - name: "vc_id"
+      type: "string"
+      description: "Verification condition identifier from gnatprove"
+      required: false
+
+    - name: "justification"
+      type: "string"
+      min_length: 100
+      required: true
+
+    - name: "mitigation"
+      type: "string"
+      description: "How the risk is mitigated"
+      required: conditional  # Required if category.requires_mitigation
+
+    - name: "reviewer"
+      type: "string"
+      description: "Security reviewer who approved"
+      required: true
+
+    - name: "approved_date"
+      type: "date"
+      format: "YYYY-MM-DD"
+      required: true
+
+    - name: "expires_date"
+      type: "date"
+      format: "YYYY-MM-DD"
+      required: true
+
+    - name: "on_chain_hash"
+      type: "string"
+      format: "hex64"
+      description: "SHA3-256 hash recorded on-chain"
+      required: true
+
+    - name: "status"
+      type: "enum"
+      values: ["active", "expired", "revoked", "superseded"]
+      required: true
+
+# ============================================================================
+# Active Waivers
+# ============================================================================
+
+waivers:
+  # Example waiver for FFI to libsodium
+  - id: "WAIVER-20251207-0001"
+    category: "external_ffi"
+    unit: "Anubis_Crypto_FFI.Sodium_Random"
+    vc_id: null
+    justification: |
+      The libsodium library provides CSPRNG functionality that cannot be
+      implemented in pure SPARK while maintaining required entropy sources.
+      libsodium is a widely audited, mature cryptographic library with
+      constant-time guarantees verified through extensive analysis.
+      The FFI boundary is minimal and isolated to a single package.
+    mitigation: |
+      - Input validation performed before FFI call
+      - Output sanitization after FFI return
+      - Runtime tests verify expected behavior
+      - Regular updates to track libsodium security advisories
+      - Fallback to SPARK implementation if FFI fails
+    reviewer: "security-team"
+    approved_date: "2025-12-07"
+    expires_date: "2026-12-07"
+    on_chain_hash: "0000000000000000000000000000000000000000000000000000000000000000"
+    status: "active"
+
+  # Example waiver for timing-sensitive comparison
+  - id: "WAIVER-20251207-0002"
+    category: "timing_sensitive"
+    unit: "Anubis_Crypto.Constant_Time_Compare"
+    vc_id: "anubis_crypto.adb:142:15"
+    justification: |
+      The constant-time comparison uses a loop that XORs bytes and ORs
+      the result. While SPARK proves absence of runtime errors, the
+      constant-time property depends on compiler optimizations not
+      introducing early exits. This is verified through timing tests
+      but cannot be formally proven at the SPARK level.
+    mitigation: |
+      - Assembly verification of generated code
+      - Statistical timing tests in CI (100,000 iterations)
+      - Compilation with -O0 and -fno-tree-dse flags
+      - Manual review of disassembly for each release
+    reviewer: "security-team"
+    approved_date: "2025-12-07"
+    expires_date: "2026-06-07"
+    on_chain_hash: "0000000000000000000000000000000000000000000000000000000000000001"
+    status: "active"
+
+  # Waiver for platform-dependent endianness
+  - id: "WAIVER-20251207-0003"
+    category: "platform_dependent"
+    unit: "Anubis_Bytes.Endianness"
+    vc_id: null
+    justification: |
+      Endianness detection and conversion uses platform-specific code
+      that depends on System.Bit_Order which is not available in SPARK.
+      The implementation provides both big-endian and little-endian
+      paths with compile-time selection based on target architecture.
+    mitigation: |
+      - Explicit byte-by-byte serialization for all external data
+      - Test vectors verified on both BE and LE platforms
+      - CI runs on ARM64 (LE) and hypothetical BE test target
+    reviewer: "security-team"
+    approved_date: "2025-12-07"
+    expires_date: "2026-12-07"
+    on_chain_hash: "0000000000000000000000000000000000000000000000000000000000000002"
+    status: "active"
+
+# ============================================================================
+# Waiver Verification Requirements
+# ============================================================================
+
+verification:
+  # On-chain recording requirements
+  on_chain:
+    network: "anubis_mainnet"
+    contract: "waiver_registry"
+    required_confirmations: 6
+
+  # Hash computation
+  hash_algorithm: "SHA3-256"
+  hash_fields:
+    - "id"
+    - "category"
+    - "unit"
+    - "justification"
+    - "mitigation"
+    - "approved_date"
+    - "expires_date"
+
+  # Audit requirements
+  audit:
+    retention_years: 7
+    quarterly_review: true
+    annual_re_approval: true
+
+# ============================================================================
+# CI/CD Integration
+# ============================================================================
+
+ci_integration:
+  # gnatprove configuration for waivers
+  gnatprove_flags:
+    - "--warnings=continue"
+    - "--report=all"
+
+  # Files to exclude from proof (must match waiver)
+  exclusions:
+    - pattern: "anubis_crypto_ffi.adb"
+      waiver_ref: "WAIVER-20251207-0001"
+
+  # Required checks before allowing exclusion
+  pre_exclusion_checks:
+    - "waiver_exists"
+    - "waiver_not_expired"
+    - "waiver_on_chain"
+    - "mitigation_tests_pass"
+
+# ============================================================================
+# Metrics and Reporting
+# ============================================================================
+
+metrics:
+  # Target metrics
+  targets:
+    max_active_waivers: 10
+    max_high_severity: 3
+    min_coverage_percent: 95
+
+  # Alerts
+  alerts:
+    - condition: "active_waivers > 10"
+      severity: "warning"
+      message: "Excessive active waivers - review and reduce"
+
+    - condition: "high_severity_waivers > 3"
+      severity: "critical"
+      message: "Too many high-severity waivers - immediate review required"
+
+    - condition: "waiver_expires_in_days < 30"
+      severity: "warning"
+      message: "Waiver expiring soon - prepare renewal or fix"

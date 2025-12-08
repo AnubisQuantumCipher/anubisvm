@@ -1,0 +1,194 @@
+V "GNAT Lib v14"
+M P W=b
+A -O2
+A -gnatA
+A -g
+A -gnatn
+A -mmacosx-version-min=16.0.0
+A -mcpu=apple-m1
+A -mlittle-endian
+A -mabi=lp64
+A -fPIC
+P SS ZX
+
+RN
+RV NO_EXCEPTIONS
+RV NO_IO
+RV NO_LOCAL_ALLOCATORS
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U test_mlkem_kat%b	test_mlkem_kat.adb	0e47f028 NE OO SU
+W ada%s			ada.ads			ada.ali
+W ada.command_line%s	a-comlin.adb		a-comlin.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+W anubis_mlkem%s	anubis_mlkem.adb	anubis_mlkem.ali
+W anubis_mlkem_types%s	anubis_mlkem_types.ads	anubis_mlkem_types.ali
+W anubis_types%s	anubis_types.ads	anubis_types.ali
+W interfaces%s		interfac.ads		interfac.ali
+Z system.img_int%s	s-imgint.ads		s-imgint.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+
+D ada.ads		20240808082856 76789da1 ada%s
+D a-comlin.ads		20240808082856 4aa66568 ada.command_line%s
+D a-except.ads		20240808082856 e7970cd9 ada.exceptions%s
+D a-ioexce.ads		20240808082856 40018c65 ada.io_exceptions%s
+D a-stream.ads		20240808082856 119b8fb3 ada.streams%s
+D a-string.ads		20240808082856 90ac6797 ada.strings%s
+D a-sttebu.ads		20240808082856 f1ad67a2 ada.strings.text_buffers%s
+D a-stuten.ads		20240808082856 c6ced0ae ada.strings.utf_encoding%s
+D a-tags.ads		20240808082856 9eaa38c6 ada.tags%s
+D a-textio.ads		20240808082856 34ef47de ada.text_io%s
+D a-unccon.ads		20240808082856 0e9b276f ada.unchecked_conversion%s
+D anubis_config.ads	20251203093747 19c7b4b2 anubis_config%s
+D anubis_field.ads	20251204123812 ccc1c329 anubis_field%s
+D anubis_mlkem.ads	20251205150927 0c9c1cc9 anubis_mlkem%s
+D anubis_mlkem_types.ads  20251204152002 4cc71de7 anubis_mlkem_types%s
+D anubis_types.ads	20251203093723 4fb35097 anubis_types%s
+D interfac.ads		20240808082856 9111f9c1 interfaces%s
+D i-cstrea.ads		20240808082856 ffd01b9d interfaces.c_streams%s
+D system.ads		20240808082856 70765b54 system%s
+D s-crtl.ads		20240808082856 beb39b9e system.crtl%s
+D s-exctab.ads		20240808082856 91bef6ef system.exception_table%s
+D s-ficobl.ads		20240808082856 dc5161d4 system.file_control_block%s
+D s-imagei.ads		20240808082856 5e131ce0 system.image_i%s
+D s-imgint.ads		20240808082856 67e4edfb system.img_int%s
+D s-parame.ads		20240808082856 3597fc11 system.parameters%s
+D s-putima.ads		20240808082856 17291fe4 system.put_images%s
+D s-secsta.ads		20240808082856 578279f5 system.secondary_stack%s
+D s-soflin.ads		20240808082856 df77073e system.soft_links%s
+D s-stache.ads		20240808082856 0b81c1fe system.stack_checking%s
+D s-stalib.ads		20240808082856 1c9580f6 system.standard_library%s
+D s-stoele.ads		20240808082856 ccded4e8 system.storage_elements%s
+D s-traent.ads		20240808082856 c81cbf8c system.traceback_entries%s
+D s-unstyp.ads		20240808082856 fa2a7f59 system.unsigned_types%s
+D s-valspe.ads		20240808082856 b0fcd073 system.val_spec%s
+D s-vaispe.ads		20240808082856 8280550e system.value_i_spec%s
+D s-vauspe.ads		20240808082856 89269ba5 system.value_u_spec%s
+D s-vs_int.ads		20240808082856 06b6b724 system.vs_int%s
+D s-vs_uns.ads		20240808082856 e7f47a27 system.vs_uns%s
+D s-wchcon.ads		20240808082856 d9032363 system.wch_con%s
+D test_mlkem_kat.adb	20251204152937 eef77ae6 test_mlkem_kat%b
+G a e
+G c Z b b [test_mlkem_kat standard 18 11 none]
+G r c none [test_mlkem_kat standard 18 11 none] [keygen anubis_mlkem 46 14 none]
+G r c none [test_mlkem_kat standard 18 11 none] [encaps anubis_mlkem 67 14 none]
+G r c none [test_mlkem_kat standard 18 11 none] [decaps anubis_mlkem 87 14 none]
+X 1 ada.ads
+16K9*Ada 20e8 40|11r6 11r23 12r6 293r7 293r41 297r7 297r41
+X 2 a-comlin.ads
+36K13*Command_Line 144e21 40|12w10 293r11 293r45 297r11 297r45
+70I9*Exit_Status<integer>
+72i4*Success{70I9} 40|297r58
+73i4*Failure{70I9} 40|293r58
+75U14*Set_Exit_Status 40|293s24 297s24
+X 10 a-textio.ads
+58K13*Text_IO 785e16 40|11w10 11r27
+284U14*New_Line 40|235s4 272s4 284s4
+565U14*Put_Line 40|100s7 111s7 115s7 119s7 123s10 126s10 127s10 128s10 149s7
+. 169s13 172s13 173s13 174s13 200s7 224s10 227s10 233s4 234s4 237s4 238s4
+. 273s4 274s4 285s4 286s4 287s4 288s4 291s7 292s7 295s7 296s7
+X 14 anubis_mlkem.ads
+31K9*Anubis_MLKEM 133e17 40|16w6 16r24
+46U14*KeyGen 40|110s7 158s7 210s7
+67U14*Encaps 40|114s7 213s7
+87U14*Decaps 40|118s7 219s7
+X 15 anubis_mlkem_types.ads
+26K9*Anubis_MLKEM_Types 94e23 40|15w6 15r30
+69A12*Seed{16|14A9}<integer> 40|87r18 88r18 89r18 140r18 141r18 187r18 188r18
+. 189r18
+72A12*Shared_Secret{16|14A9}<integer> 40|93r19 94r19 193r19 194r19
+75A12*Encapsulation_Key{16|14A9}<integer> 40|90r12 142r12 190r12
+76A12*Decapsulation_Key{16|14A9}<integer> 40|91r12 143r12 191r12
+77A12*MLKEM_Ciphertext{16|14A9}<integer> 40|92r12 192r12
+X 16 anubis_types.ads
+5K9*Anubis_Types 40e17 40|14w6 14r24
+13M12*Byte{17|70M9} 40|25r53 26r49
+14A9*Byte_Array(13M12)<integer> 40|40r48 41r16 53r35 67r34 95r26 96r26 97r26
+. 127r54 128r54 144r26 145r26 146r27 162r21 195r26 196r26 197r26
+X 17 interfac.ads
+38K9*Interfaces 233e15 40|13w6 13r22
+70M9*Unsigned_8
+91V13*Shift_Left{70M9} 40|36s14
+96V13*Shift_Right{70M9} 40|59s46
+X 40 test_mlkem_kat.adb
+18U11*Test_MLKEM_KAT 18b11 300l5 300t19
+20b4 Test_Failed{boolean} 129m10 175m13 228m10 290r7
+21i4 Test_Count{natural} 99m7 99r21 100r44 148m7 148r21 149r44 199m7 199r21
+. 200r44 287r48
+22i4 Pass_Count{natural} 124m10 124r24 170m13 170r27 225m10 225r24 288r48
+25V13 Hex_To_Byte{16|13M12} 25b13 25>26 25>30 37l8 37t19 44s24
+25e26 C1{character} 36r37
+25e30 C2{character} 36r59
+26V16 Hex_Digit{16|13M12} 26b16 26>27 34l11 34t20 36s26 36s48
+26e27 C{character} 28r15 29r54 30r54 31r54
+40V13 Hex_To_Bytes{16|14A9} 40b13 40>27 50l8 50t20 95s40 96s40 97s40 144s40
+. 145s40 146s41 195s40 196s40 197s40
+40a27 Hex{string} 41r33 45r13 45r18 46r13 46r18
+41a7 Result{16|14A9} 43r16 44m10 49r14
+43i11 I{integer} 44r18 45r30 46r30
+53V13 Bytes_To_Hex{string} 53b13 53>27 64l8 64t20 127s40 128s40 174s42
+53a27 Bytes{16|14A9} 55r29 58r16
+54a7 Hex_Chars{string} 59r26 60r30
+55a7 Result{string} 59m10 60m10 63r14
+56i7 Pos{natural} 59r18 60r18 61m10 61r17
+58m11 B=58:16{16|13M12} 59r59 60r50
+67V13 Arrays_Equal{boolean} 67b13 67>27 67>30 78l8 78t20 168s13
+67a27 A{16|14A9} 69r10 72r16 73r13 73r25 73r40
+67a30 B{16|14A9} 69r22 73r22
+72i11 I{integer} 73r16 73r36
+81U14 Test_Round_Trip 81b14 82>7 83>7 84>7 85>7 131l8 131t23 241s4 249s4
+. 257s4 265s4
+82a7 D_Seed{string} 95r54 242r7 250r7 258r7 266r7
+83a7 Z_Seed{string} 96r54 243r7 251r7 259r7 267r7
+84a7 M_Seed{string} 97r54 244r7 252r7 260r7 268r7
+85a7 Label{string} 100r65 245r7 253r7 261r7 269r7
+87a7 Random_D{15|69A12} 104m10 110r15
+88a7 Random_Z{15|69A12} 105m10 110r25
+89a7 Random_M{15|69A12} 106m10 114r19
+90a7 EK{15|75A12} 110m35 114r15
+91a7 DK{15|76A12} 110m39 118r15
+92a7 CT{15|77A12} 114m40 118r19
+93a7 SS_Encaps{15|72A12} 114m29 122r10 127r66
+94a7 SS_Decaps{15|72A12} 118m23 122r22 128r66
+95a7 D_Bytes{16|14A9} 104r26
+96a7 Z_Bytes{16|14A9} 105r26
+97a7 M_Bytes{16|14A9} 106r26
+103i11 I{integer} 104r20 104r35 105r20 105r35 106r20 106r35
+134U14 Test_KeyGen_Vector 134b14 135>7 136>7 137>7 138>7 178l8 178t26
+135a7 D_Seed{string} 144r54
+136a7 Z_Seed{string} 145r54
+137a7 EK_First{string} 146r55 173r42
+138a7 Label{string} 149r65
+140a7 Random_D{15|69A12} 153m10 158r15
+141a7 Random_Z{15|69A12} 154m10 158r25
+142a7 EK{15|75A12} 158m35 165r29
+143a7 DK{15|76A12} 158m39
+144a7 D_Bytes{16|14A9} 153r26
+145a7 Z_Bytes{16|14A9} 154r26
+146a7 Expected{16|14A9} 168r37
+152i11 I{integer} 153r20 153r35 154r20 154r35
+162a10 EK_Start{16|14A9} 165m13 168r27 174r56
+164i14 I{integer} 165r23 165r33
+181U14 Test_Implicit_Rejection 181b14 182>7 183>7 184>7 185>7 230l8 230t31
+. 277s4
+182a7 D_Seed{string} 195r54 278r7
+183a7 Z_Seed{string} 196r54 279r7
+184a7 M_Seed{string} 197r54 280r7
+185a7 Label{string} 200r65 281r7
+187a7 Random_D{15|69A12} 204m10 210r15
+188a7 Random_Z{15|69A12} 205m10 210r25
+189a7 Random_M{15|69A12} 206m10 213r19
+190a7 EK{15|75A12} 210m35 213r15
+191a7 DK{15|76A12} 210m39 219r15
+192a7 CT{15|77A12} 213m40 216m7 216r19 219r19
+193a7 SS_Encaps{15|72A12} 213m29 223r10
+194a7 SS_Decaps{15|72A12} 219m23 223r23
+195a7 D_Bytes{16|14A9} 204r26
+196a7 Z_Bytes{16|14A9} 205r26
+197a7 M_Bytes{16|14A9} 206r26
+203i11 I{integer} 204r20 204r35 205r20 205r35 206r20 206r35
+

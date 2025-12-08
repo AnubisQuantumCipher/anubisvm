@@ -1,0 +1,174 @@
+V "GNAT Lib v14"
+A -O0
+A -gnatA
+A -gnatwa
+A -gnatQ
+A -gnata
+A -gnatf
+A -gnatyM120
+A -gnatyO
+A -gnat2012
+A -g
+A -gnateE
+A -fstack-check=specific
+A -mmacosx-version-min=16.0.0
+A -mcpu=apple-m1
+A -mlittle-endian
+A -mabi=lp64
+A -fPIC
+P ZX
+
+RN
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+
+U aegis_vm_types%s	aegis_vm_types.ads	4dc0f818 NE OO PU PK
+W interfaces%s		interfac.ads		interfac.ali
+Z system.assertions%s	s-assert.adb		s-assert.ali
+
+D ada.ads		20240808082856 76789da1 ada%s
+D a-assert.ads		20240808082856 ba465f5c ada.assertions%s
+D a-unccon.ads		20240808082856 0e9b276f ada.unchecked_conversion%s
+D aegis_vm_types.ads	20251207191105 dcd101d9 aegis_vm_types%s
+D interfac.ads		20240808082856 9111f9c1 interfaces%s
+D system.ads		20240808082856 70765b54 system%s
+D s-assert.ads		20240808082856 9c4520c7 system.assertions%s
+D s-exctab.ads		20240808082856 91bef6ef system.exception_table%s
+D s-stalib.ads		20240808082856 1c9580f6 system.standard_library%s
+G a e
+G c Z s s [Tu256_limbsBIP aegis_vm_types 39 4 none]
+G c Z s s [u256IP aegis_vm_types 41 9 none]
+G c Z s s [Thash256BIP aegis_vm_types 56 4 none]
+G c Z s s [Thash512BIP aegis_vm_types 59 4 none]
+G c Z s s [Tcontract_addressBIP aegis_vm_types 70 4 none]
+G c Z s s [get_discount aegis_vm_types 89 13 none]
+G c Z s s [initial_gas_context aegis_vm_types 121 13 none]
+G c Z s s [success_result aegis_vm_types 213 13 none]
+G c Z s s [failure_result aegis_vm_types 217 13 none]
+G c Z s s [Tcapability_maskBIP aegis_vm_types 263 4 none]
+G c Z s s [byte_arrayIP aegis_vm_types 32 9 none]
+G c Z s s [gas_contextIP aegis_vm_types 113 9 none]
+G c Z s s [memory_regionIP aegis_vm_types 139 9 none]
+G c Z s s [Tmemory_regionsBIP aegis_vm_types 149 4 none]
+G c Z s s [storage_slotIP aegis_vm_types 165 9 none]
+G c Z s s [execution_resultIP aegis_vm_types 206 9 none]
+G c Z s s [versionIP aegis_vm_types 229 9 none]
+G c Z s s [contract_manifestIP aegis_vm_types 236 9 none]
+X 4 aegis_vm_types.ads
+21K9*Aegis_VM_Types 240r23 279l5 279e19
+31M12*Byte{5|70M9} 32r51 56r39 59r39 70r48
+32A9*Byte_Array(31M12)<integer>
+34M12*Word32{5|81M9}
+35M12*Word64{5|84M9} 39r41 48r44 48r57 49r45 49r58 140r22 141r22
+39A9*U256_Limbs(35M12)<integer> 42r15
+41R9*U256 43e14 46r25 47r25 48r25 116r23 123r15 161r28 162r30
+42a7*Limbs{39A9} 46m34 47m34 48m34
+46r4*U256_Zero{41R9}
+47r4*U256_One{41R9}
+48r4*U256_Max{41R9}
+56A9*Hash256(31M12)<integer> 62r28 209r21 213r54 238r23 239r23
+59A9*Hash512(31M12)<integer> 63r28
+62a4*Hash256_Zero{56A9} 221r59
+63a4*Hash512_Zero{59A9}
+70A9*Contract_Address(31M12)<integer> 72r28 237r23
+72a4*Address_Zero{70A9}
+84E9*Certification_Level 84e64 89r35 124r15 241r23
+84n33*Bronze{84E9} 91r15
+84n41*Silver{84E9} 92r15
+84n49*Gold{84E9} 93r15
+84n55*Platinum{84E9} 94r15
+87I9*Discount_Factor<short_integer> 89r63 117r23
+89V13*Get_Discount{87I9} 89>27 129s22
+89e27 Level{84E9} 90r13
+101I9*Gas_Amount<long_integer> 107r30 110r33 114r23 115r23 122r15 208r19
+. 213r35 219r16 242r23
+104N4*Cycles_Per_Gas
+107i4*Max_Gas_Per_Tx{101I9}
+110i4*Max_Gas_Per_Block{101I9}
+113R9*Gas_Context 118e14 125r13
+114i7*Gas_Limit{101I9} 126m9
+115i7*Gas_Used{101I9} 127m9
+116r7*Gas_Price{41R9} 128m9
+117i7*Discount{87I9} 129m9
+121V13*Initial_Gas_Context{113R9} 122>7 123>7 124>7
+122i7 Limit{101I9} 126r22
+123r7 Price{41R9} 128r22
+124e7 Level{84E9} 129r36
+136E9*Memory_Access 136e58 142r22
+136n27*Read_Only{136E9}
+136n38*Read_Write{136E9}
+136n50*Execute{136E9}
+139R9*Memory_Region 143e14 149r58
+140m7*Base_Address{35M12}
+141m7*Size{35M12}
+142e7*Access_Mode{136E9}
+146N4*Max_Memory_Regions 148r43
+148I9*Memory_Region_Index<short_short_integer> 149r34
+149A9*Memory_Regions(139R9)<148I9>
+152N4*Max_Stack_Size
+153N4*Max_Heap_Size
+154N4*Max_Code_Size
+161R9*Storage_Key<41R9> 166r15
+162R9*Storage_Value<41R9> 167r15
+165R9*Storage_Slot 168e14
+166r7*Key{161R9}
+167r7*Value{162R9}
+171N4*Max_Storage_Accesses
+178E9*Call_Type 184e5
+179n7*Call{178E9}
+180n7*Static_Call{178E9}
+181n7*Delegate_Call{178E9}
+182n7*Create{178E9}
+183n7*Create2{178E9}
+187N4*Max_Call_Depth 188r34
+188I9*Call_Depth<short_integer>
+195E9*Execution_Status 203e5 207r19 218r16
+196n7*Success{195E9} 214r19 222r26
+197n7*Revert{195E9}
+198n7*Out_Of_Gas{195E9}
+199n7*Stack_Overflow{195E9}
+200n7*Invalid_Opcode{195E9}
+201n7*Access_Violation{195E9}
+202n7*Contract_Error{195E9}
+206R9*Execution_Result 210e14 213r70 220r13
+207e7*Status{195E9} 214m9 221m9
+208i7*Gas_Used{101I9} 214m28 221m27
+209a7*Return_Data{56A9} 214m45 221m44
+213V13*Success_Result{206R9} 213>29 213>47
+213i29 Gas{101I9} 214r40
+213a47 Data{56A9} 214r60
+217V13*Failure_Result{206R9} 218>7 219>7
+218e7 Status{195E9} 221r19 222r16
+219i7 Gas{101I9} 221r39
+229R9*Version 233e14 240r38
+230i7*Major{natural}
+231i7*Minor{natural}
+232i7*Patch{natural}
+236R9*Contract_Manifest 243e14
+237a7*Address{70A9}
+238a7*Code_Hash{56A9}
+239a7*Proof_Hash{56A9}
+240r7*Version{229R9}
+241e7*Certification{84E9}
+242i7*WCET_Bound{101I9}
+250E9*Capability_Type 260e5 263r35
+251n7*Cap_None{250E9} 269r7
+252n7*Cap_Read_Storage{250E9} 274r7
+253n7*Cap_Write_Storage{250E9}
+254n7*Cap_Call{250E9} 275r7
+255n7*Cap_Transfer{250E9}
+256n7*Cap_Create{250E9}
+257n7*Cap_Self_Destruct{250E9}
+258n7*Cap_Crypto{250E9}
+259n7*Cap_Event{250E9}
+263A9*Capability_Mask(boolean)<250E9> 266r31 268r33 273r38
+266a4*No_Capabilities{263A9}
+268a4*Full_Capabilities{263A9}
+273a4*Read_Only_Capabilities{263A9}
+X 5 interfac.ads
+38K9*Interfaces 4|3w6 3r22 5|233e15
+70M9*Unsigned_8 4|31r20
+81M9*Unsigned_32 4|34r22
+84M9*Unsigned_64 4|35r22
+

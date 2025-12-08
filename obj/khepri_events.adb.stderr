@@ -1,0 +1,5 @@
+khepri_events.adb:31:14: warning: procedure "Clear_Events" is not referenced [-gnatwu]
+khepri_events.adb:43:13: warning: function "Get_Event_Count" is not referenced [-gnatwu]
+khepri_events.adb:86:07: warning: "Topics" is not modified, could be declared constant [-gnatwk]
+khepri_events.ads:3:06: warning: no entities of "Interfaces" are referenced [-gnatwu]
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]

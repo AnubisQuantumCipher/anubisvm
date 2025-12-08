@@ -1,0 +1,345 @@
+V "GNAT Lib v14"
+A -O2
+A -gnatA
+A -gnat2022
+A -gnatwa
+A -gnatyO
+A -gnatVa
+A -gnatw.F
+A -gnata
+A -gnatn
+A -ffunction-sections
+A -fdata-sections
+A -gnatR2js
+A -gnatws
+A -mmacosx-version-min=16.0.0
+A -mcpu=apple-m1
+A -mlittle-endian
+A -mabi=lp64
+A -fPIC
+P ZX
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+
+U anubis_mlkem%b	anubis_mlkem.adb	da94e8b8 NE OO PK
+W anubis_config%s	anubis_config.ads	anubis_config.ali
+W anubis_field%s	anubis_field.adb	anubis_field.ali
+W anubis_mlkem_compress%s  anubis_mlkem_compress.adb  anubis_mlkem_compress.ali
+W anubis_mlkem_encoding%s  anubis_mlkem_encoding.adb  anubis_mlkem_encoding.ali
+W anubis_mlkem_poly%s	anubis_mlkem_poly.adb	anubis_mlkem_poly.ali
+W anubis_mlkem_sample%s	anubis_mlkem_sample.adb	anubis_mlkem_sample.ali
+W anubis_sha3%s		anubis_sha3.adb		anubis_sha3.ali
+W interfaces%s		interfac.ads		interfac.ali
+Z system.assertions%s	s-assert.adb		s-assert.ali
+
+U anubis_mlkem%s	anubis_mlkem.ads	0fe851b9 EE NE OO PK
+W anubis_mlkem_types%s	anubis_mlkem_types.ads	anubis_mlkem_types.ali
+W anubis_types%s	anubis_types.ads	anubis_types.ali
+
+D ada.ads		20240601155135 76789da1 ada%s
+D a-assert.ads		20240601155135 ba465f5c ada.assertions%s
+D a-unccon.ads		20240601155135 0e9b276f ada.unchecked_conversion%s
+D anubis_config.ads	20251203093747 19c7b4b2 anubis_config%s
+D anubis_field.ads	20251204123812 ccc1c329 anubis_field%s
+D anubis_keccak.ads	20251203171810 19b431a9 anubis_keccak%s
+D anubis_mlkem.ads	20251205150927 0c9c1cc9 anubis_mlkem%s
+D anubis_mlkem.adb	20251206165031 fb6656aa anubis_mlkem%b
+D anubis_mlkem_compress.ads  20251206164700 2a6b1c21 anubis_mlkem_compress%s
+D anubis_mlkem_encoding.ads  20251205151356 d2e8a44a anubis_mlkem_encoding%s
+D anubis_mlkem_poly.ads	20251206115508 8e95bd90 anubis_mlkem_poly%s
+D anubis_mlkem_sample.ads  20251206161621 761c54ef anubis_mlkem_sample%s
+D anubis_mlkem_types.ads  20251204152002 4cc71de7 anubis_mlkem_types%s
+D anubis_sha3.ads	20251206155030 69737d95 anubis_sha3%s
+D anubis_types.ads	20251203093723 4fb35097 anubis_types%s
+D interfac.ads		20240601155135 9111f9c1 interfaces%s
+D system.ads		20240601155135 70765b54 system%s
+D s-assert.ads		20240601155135 9c4520c7 system.assertions%s
+D s-exctab.ads		20240601155135 91bef6ef system.exception_table%s
+D s-stalib.ads		20240601155135 1c9580f6 system.standard_library%s
+G a e
+G c Z s b [keygen anubis_mlkem 46 14 none]
+G c Z s b [encaps anubis_mlkem 67 14 none]
+G c Z s b [decaps anubis_mlkem 87 14 none]
+G c Z s b [k_pke_encrypt anubis_mlkem 105 14 none]
+G c Z s b [k_pke_decrypt anubis_mlkem 125 14 none]
+G c Z b b [h_hash anubis_mlkem 17 14 none]
+G c Z b b [g_hash anubis_mlkem 31 14 none]
+G c Z b b [j_hash anubis_mlkem 47 14 none]
+G r c none [encaps anubis_mlkem 67 14 none] [sha3_256 anubis_sha3 57 14 none]
+G r c none [encaps anubis_mlkem 67 14 none] [sha3_512 anubis_sha3 76 14 none]
+G r c none [encaps anubis_mlkem 67 14 none] [shake256 anubis_sha3 109 14 none]
+G r c none [decaps anubis_mlkem 87 14 none] [decode_vector_12 anubis_mlkem_encoding 116 14 none]
+G r c none [decaps anubis_mlkem 87 14 none] [bytedecode_11 anubis_mlkem_encoding 62 14 none]
+G r c none [decaps anubis_mlkem 87 14 none] [bytedecode_5 anubis_mlkem_encoding 82 14 none]
+G r c none [decaps anubis_mlkem 87 14 none] [decompress_vector_du anubis_mlkem_compress 73 14 none]
+G r c none [decaps anubis_mlkem 87 14 none] [decompress_dv anubis_mlkem_compress 56 14 none]
+G r c none [decaps anubis_mlkem 87 14 none] [vec_ntt anubis_mlkem_poly 96 14 none]
+G r c none [decaps anubis_mlkem 87 14 none] [vec_dot_product_ntt anubis_mlkem_poly 111 14 none]
+G r c none [decaps anubis_mlkem 87 14 none] [poly_intt anubis_mlkem_poly 50 14 none]
+G r c none [decaps anubis_mlkem 87 14 none] [poly_sub anubis_mlkem_poly 35 14 none]
+G r c none [decaps anubis_mlkem 87 14 none] [sha3_512 anubis_sha3 76 14 none]
+G r c none [decaps anubis_mlkem 87 14 none] [sha3_256 anubis_sha3 57 14 none]
+G r c none [decaps anubis_mlkem 87 14 none] [shake256 anubis_sha3 109 14 none]
+G r c none [k_pke_decrypt anubis_mlkem 125 14 none] [decode_vector_12 anubis_mlkem_encoding 116 14 none]
+G r c none [k_pke_decrypt anubis_mlkem 125 14 none] [bytedecode_11 anubis_mlkem_encoding 62 14 none]
+G r c none [k_pke_decrypt anubis_mlkem 125 14 none] [bytedecode_5 anubis_mlkem_encoding 82 14 none]
+G r c none [k_pke_decrypt anubis_mlkem 125 14 none] [decompress_vector_du anubis_mlkem_compress 73 14 none]
+G r c none [k_pke_decrypt anubis_mlkem 125 14 none] [decompress_dv anubis_mlkem_compress 56 14 none]
+G r c none [k_pke_decrypt anubis_mlkem 125 14 none] [vec_ntt anubis_mlkem_poly 96 14 none]
+G r c none [k_pke_decrypt anubis_mlkem 125 14 none] [vec_dot_product_ntt anubis_mlkem_poly 111 14 none]
+G r c none [k_pke_decrypt anubis_mlkem 125 14 none] [poly_intt anubis_mlkem_poly 50 14 none]
+G r c none [k_pke_decrypt anubis_mlkem 125 14 none] [poly_sub anubis_mlkem_poly 35 14 none]
+G r c none [h_hash anubis_mlkem 17 14 none] [sha3_256 anubis_sha3 57 14 none]
+G r c none [g_hash anubis_mlkem 31 14 none] [sha3_512 anubis_sha3 76 14 none]
+G r c none [j_hash anubis_mlkem 47 14 none] [shake256 anubis_sha3 109 14 none]
+X 4 anubis_config.ads
+3K9*Anubis_Config 112e18 8|4w6 4r25
+35N4*Q 8|347r47 347r56
+X 5 anubis_field.ads
+6K9*Anubis_Field 102e17 8|5w6 5r24
+21M9*Field_Element
+X 7 anubis_mlkem.ads
+31K9*Anubis_MLKEM 133l5 133e17 8|12b14 495l5 495t17
+46U14*KeyGen 47>7 48>7 49<7 50<7 8|56b14
+47a7 Random_D{13|69A12} 8|57b7 78r15
+48a7 Random_Z{13|69A12} 8|58b7 151r67
+49a7 EK{13|75A12} 53r34 54r15 8|59b7 108r60 109m10 114r79 115r102 116m10
+. 134r43 138r15
+50a7 DK{13|76A12} 53r38 54r34 8|60b7 125r60 126m10 132r79 133r102 134m10
+. 141r98 142r140 143m10 149r103 150r150 151m10
+67U14*Encaps 68>7 69>7 70<7 71<7 8|358b14 402l8 402t14
+68a7 EK{13|75A12} 8|359b7 377r15 388r22
+69a7 Random_M{13|69A12} 8|360b7 374r15
+70a7 SS{13|72A12} 8|361b7 400m29
+71a7 CT{13|77A12} 8|362b7 388m46 394r18
+87U14*Decaps 88>7 89>7 90<7 8|405b14 493l8 493t14
+88a7 DK{13|76A12} 8|406b7 440r24 445r20 450r22 451r19
+89a7 CT{13|77A12} 8|407b7 455r30 472r13 478r15
+90a7 SS{13|72A12} 8|408b7 492m26
+105U14*K_PKE_Encrypt 106>7 107>7 108>7 109<7 8|156b14 388s7 466s7
+106a7 EK{13|75A12} 8|157b7 185r27 191r21
+107a7 Msg{13|80A12} 8|158b7 217r20
+108a7 Coins{13|69A12} 8|159b7 198r26 199r26 200r24
+109a7 CT{13|77A12} 112r33 113r15 8|160b7 251r60 252m10 257r77 258r98 259m10
+125U14*K_PKE_Decrypt 126>7 127>7 128<7 8|264b14 355l8 355t21 455s7
+126a7 DK_PKE{15|14A9} 131r14 8|265b7 284r33 284r53 285r27 285r35
+127a7 CT{13|77A12} 8|266b7 305r27 317r30
+128a7 Msg{13|80A12} 8|267b7 352m13
+X 8 anubis_mlkem.adb
+17U14 H_Hash 17b14 18>7 19<7 28l8 28t14 138s7 374s7 377s7 394s10 478s7
+18a7 Input{15|14A9} 23r17
+19a7 Output{13|69A12} 26m10
+21a7 Digest{14|32A12} 23m24 26r24
+24i11 I{integer} 25r33 26r18 26r32
+31U14 G_Hash 31b14 32>7 33<7 34<7 44l8 44t14 78s7 385s7 463s7
+32a7 Input{15|14A9} 38r17
+33a7 Out1{13|69A12} 41m10
+34a7 Out2{13|69A12} 42m10
+36a7 Digest{14|38A12} 38m24 41r22 42r22
+39i11 I{integer} 40r33 41r16 41r30 42r16 42r35
+47U14 J_Hash 47b14 48>7 49<7 53l8 53t14 400s10 492s7
+48a7 Input{15|14A9} 52r17
+49a7 Output{13|69A12} 52m24
+63a7 Rho{13|69A12} 78m25 81r24 116r43
+63a12 Sigma{13|69A12} 78m30 84r26 85r26
+66a7 A_Hat{13|50A9} 81m29 94r27
+67a7 S{13|47A9} 84m36 88r16
+67a10 E{13|47A9} 85m36 90r16
+68a7 S_Hat{13|47A9} 88m7 89m16 89r16 94r34 120r25
+68a14 E_Hat{13|47A9} 90m7 91m16 91r16 95r28
+68a21 T_Hat{13|47A9} 95m35 100m23 100r23 104r25
+68a28 T_Hat_Temp{13|47A9} 94m41 95r16
+71a7 T_Encoded{13|87A12} 104m32 109r20
+72a7 S_Encoded{13|87A12} 120m32 126r20
+75a7 H_EK{13|69A12} 138m19 143r62
+98i11 I{13|46I12} 99r33 100r30
+106i11 I{integer} 107r33 108r51 109r14 109r31
+108i41 J{integer} 108r64
+112i11 I{integer} 113r33 115r93 116r37 116r48
+114i41 J{integer} 114r83
+115i41 J{integer} 115r106
+123i11 I{integer} 124r33 125r51 126r14 126r31
+125i41 J{integer} 125r64
+130i11 I{integer} 131r33 133r93 134r37 134r47
+132i41 J{integer} 132r83
+133i41 J{integer} 133r106
+139i11 I{integer} 140r33 142r131 143r56 143r68
+141i41 J{integer} 141r102
+142i41 J{integer} 142r144
+147i11 I{integer} 148r33 150r141 151r61 151r77
+149i41 J{integer} 149r107
+150i41 J{integer} 150r154
+163a7 T_Hat{13|47A9} 187m36 212r28
+164a7 Rho{13|69A12} 191m10 195r34
+165a7 T_Encoded{13|87A12} 185m10 187r25
+168a7 A_Hat_T{13|50A9} 195m39 207r27
+169a7 R{13|47A9} 198m36 203r16
+169a10 E1{13|47A9} 199m36 209r24
+170a7 E2{13|40A9} 200m45 214r25
+171a7 R_Hat{13|47A9} 203m7 204m16 204r16 207r36 212r35
+174a7 U{13|47A9} 209m28 222r27
+174a10 U_Temp{13|47A9} 207m43 208m17 208r17 209r16
+174a18 U_Compressed{13|47A9} 222m30 234r28
+175a7 V{13|40A9} 214m29 218r17 219m7 223r20
+175a10 V_Temp{13|40A9} 212m42 213m18 213r18 214r17 218m28 219r12
+175a18 V_Compressed{13|40A9} 223m23 246r21
+176a7 M_Poly{13|40A9} 217m25 218r20
+179a7 U_Encoded{13|92A12} 229r13 238r19 240r19 241m16 252r20
+180a7 V_Encoded{13|91A12} 246m35 259r41
+183i11 I{integer} 184r33 185r21 185r31
+189i11 I{integer} 190r33 191r15 191r48
+226i11 I{13|46I12} 227r33 228r51 232r42 234r42
+228i41 K{integer} 229r24
+231a13 Buf{13|90A12} 234m46 241r42
+232i13 Offset{natural} 237r57 239r52 239r62 241r27
+235i17 J{integer} 236r39 239r71 241r36 241r47
+237i47 K{integer} 238r30
+239i47 K{integer} 240r30
+249i11 I{integer} 250r33 251r51 252r14 252r31
+251i41 J{integer} 251r64
+255i11 I{integer} 256r33 258r89 259r35 259r52
+257i41 J{integer} 257r81
+258i41 J{integer} 258r102
+270a7 S_Hat{13|47A9} 287m36 330r28
+271a7 S_Encoded{13|87A12} 285m10 287r25
+274a7 U{13|47A9} 290m7 298r44 307m33 307r33 323r29
+274a10 U_Decompressed{13|47A9} 323m32 327m16 327r16 330r35
+275a7 V{13|40A9} 319m35 324r22
+275a10 V_Decompressed{13|40A9} 324m25 332r17
+278a7 W{13|40A9} 332m41 344r63
+278a10 W_Temp{13|40A9} 330m51 331m18 331r18 332r33
+282i11 I{integer} 283r33 284r48 285r21 285r50
+294i11 I{13|46I12} 295r33 297r46 301r42 307r36
+297i22 J{integer} 298r47
+298i25 K{13|39I12} 298r51
+300a13 Buf{13|90A12} 305m16 307r28
+301i13 Offset{natural} 305r31
+303i17 J{integer} 304r39 305r21 305r40
+313a10 V_Encoded{13|91A12} 317m13 319r24
+315i14 I{integer} 316r36 317r24 317r55
+336i11 I{integer} 337r33 344r70 352r18
+339m13 Acc{15|13M12} 349m19 349r26 352r24
+341i17 J{integer} 342r39 344r74 349r50
+344m19 Coef{16|81M9} 347r36
+346m19 Bit{16|70M9} 349r45
+365a7 M_Hat{13|69A12} 374m25 382r25 388r35
+366a7 H_EK{13|69A12} 377m19 383r30
+367a7 G_Input{15|14A9} 382m10 383m10 385r15
+368a7 K_Bar{13|69A12} 385m24 397r30
+368a14 R{13|69A12} 385m31 388r43
+371a7 KDF_Input{15|14A9} 397m13 398m13 400r18
+380i11 I{integer} 381r33 382r19 382r32 383r24 383r36
+392a10 H_CT{13|69A12} 394m22 398r35
+395i14 I{integer} 396r36 397r24 397r37 398r29 398r41
+411N7 S_Offset 440r28
+412N7 EK_Offset 413r30 445r24
+413N7 H_Offset 414r30 450r26
+414N7 Z_Offset 451r23
+417a7 DK_PKE{15|14A9} 440m10 455r22
+418a7 EK{13|75A12} 445m10 466r22
+419a7 H_EK{13|69A12} 450m10 461r30
+420a7 Z{13|69A12} 451m10 487r30
+423a7 M_Prime{13|80A12} 455m34 460r25 466r26
+426a7 G_Input{15|14A9} 460m10 461m10 463r15
+427a7 K_Bar{13|69A12} 463m24 485r30
+427a14 R{13|69A12} 463m31 466r35
+428a7 CT_Prime{13|77A12} 466m38 472r23
+431b7 CT_Match{boolean} 469m7 473m13 484r13
+434a7 KDF_Input{15|14A9} 485m13 487m13 489m10 492r15
+435a7 H_CT{13|69A12} 478m19 489r32
+438i11 I{integer} 439r33 440r18 440r39
+443i11 I{integer} 444r33 445r14 445r36
+448i11 I{integer} 449r33 450r16 450r37 451r13 451r34
+458i11 I{integer} 459r33 460r19 460r34 461r24 461r36
+470i11 I{integer} 471r33 472r17 472r33
+482i11 I{integer} 483r33 485r24 485r37 487r24 487r33 489r26 489r38
+X 9 anubis_mlkem_compress.ads
+22K9*Anubis_MLKEM_Compress 8|8w6 8r33 9|83e26
+36U14*Compress_Dv 8|223s7
+56U14*Decompress_Dv 8|324s7
+65U14*Compress_Vector_Du 8|222s7
+73U14*Decompress_Vector_Du 8|323s7
+X 10 anubis_mlkem_encoding.ads
+26K9*Anubis_MLKEM_Encoding 8|7w6 7r33 10|122e26
+52U14*ByteEncode_11 8|234s13
+62U14*ByteDecode_11 8|307s13
+72U14*ByteEncode_5 8|246s7
+82U14*ByteDecode_5 8|319s10
+108U14*Encode_Vector_12 8|104s7 120s7
+116U14*Decode_Vector_12 8|187s7 287s7
+X 11 anubis_mlkem_poly.ads
+22K9*Anubis_MLKEM_Poly 8|10w6 10r29 11|135e22
+27U14*Poly_Add 8|214s7 218s7
+35U14*Poly_Sub 8|332s7
+50U14*Poly_INTT 8|213s7 331s7
+66U14*Poly_Reduce 8|100s10
+74U14*Msg_To_Poly 8|217s7
+81U14*Vec_Add 8|95s7 209s7
+96U14*Vec_NTT 8|89s7 91s7 204s7 327s7
+104U14*Vec_INTT 8|208s7
+111U14*Vec_Dot_Product_NTT 8|212s7 330s7
+119U14*Matrix_Vec_Mul_NTT 8|94s7 207s7
+X 12 anubis_mlkem_sample.ads
+23K9*Anubis_MLKEM_Sample 8|9w6 9r31 12|74e24
+39U14*Generate_Matrix 8|81s7
+47U14*Generate_Matrix_Transpose 8|195s7
+55U14*Sample_Poly_CBD 8|200s7
+64U14*Sample_Vector_CBD 8|84s7 85s7 198s7 199s7
+X 13 anubis_mlkem_types.ads
+26K9*Anubis_MLKEM_Types 7|3w6 3r30 13|94e23
+32N4*K 7|131r30 8|85r33 199r33 200r41
+35N4*Du 8|298r59
+39I12*Poly_Index{natural} 8|298r30
+40A9*Polynomial(5|21M9)<integer> 8|170r17 175r33 176r16 275r27 278r19
+46I12*Vec_Index{natural} 8|98r16 99r38 226r16 227r38 294r16 295r38 297r27
+47A9*Poly_Vector(40A9)<integer> 8|67r15 68r41 163r15 169r17 171r17 174r33
+. 270r15 274r27
+50A9*Poly_Matrix(40A9)<integer><integer> 8|66r15 168r17
+53N4*Encaps_Key_Bytes 8|130r21 131r43 141r74 142r69 142r112 143r37 149r74
+. 150r69 150r117 151r37 413r42 443r21 444r43
+55N4*Ciphertext_Bytes 8|470r21 471r43
+59N4*Encoded_Poly_Bytes 7|131r34
+60N4*Encoded_Vector_Bytes 8|106r21 107r43 114r51 115r46 115r70 116r14 123r21
+. 124r43 132r51 133r46 133r70 134r14 141r51 142r46 142r89 143r14 149r51 150r46
+. 150r94 151r14 183r21 184r43 191r25 282r21 283r43 412r31 417r33 438r21 439r43
+63N4*Compressed_Du_Bytes 8|228r55 232r46 235r27 236r49 301r46 303r27 304r49
+64N4*Compressed_Dv_Bytes 8|255r21 256r43 315r24 316r46
+65N4*Compressed_U_Bytes 8|249r21 250r43 257r51 258r46 258r68 259r14 317r34
+69A12*Seed{15|14A9}<integer> 7|47r22 48r22 69r22 108r19 8|19r20 33r20 34r20
+. 49r20 57r22 58r22 63r20 75r14 159r19 164r15 360r22 365r15 366r15 368r18
+. 392r17 419r16 420r16 427r18 435r14
+72A12*Shared_Secret{15|14A9}<integer> 7|70r22 90r16 8|361r22 408r16
+75A12*Encapsulation_Key{15|14A9}<integer> 7|49r22 68r22 106r19 8|59r22 157r19
+. 359r22 418r16
+76A12*Decapsulation_Key{15|14A9}<integer> 7|50r22 88r16 8|60r22 406r16
+77A12*MLKEM_Ciphertext{15|14A9}<integer> 7|71r22 89r16 109r19 127r20 8|160r19
+. 266r20 362r22 407r16 428r18
+80A12*Message{15|14A9}<integer> 7|107r19 128r20 8|158r19 267r20 388r26 423r17
+87A12*Encoded_Vector{15|14A9}<integer> 8|71r19 72r19 165r19 271r19
+90A12*Compressed_Poly_Du{15|14A9}<integer> 8|231r19 300r19
+91A12*Compressed_Poly_Dv{15|14A9}<integer> 8|180r19 313r22
+92A12*Compressed_U{15|14A9}<integer> 8|179r19
+X 14 anubis_sha3.ads
+27K9*Anubis_SHA3 8|6w6 6r23 14|158e16
+32A12*SHA3_256_Digest{15|14A9}<integer> 8|21r16
+38A12*SHA3_512_Digest{15|14A9}<integer> 8|36r16
+57U14*SHA3_256 8|23s7
+76U14*SHA3_512 8|38s7
+109U14*SHAKE256 8|52s7
+X 15 anubis_types.ads
+5K9*Anubis_Types 7|4w6 4r24 15|40e17
+13M12*Byte{16|70M9} 8|200r31 339r19
+14A9*Byte_Array(13M12)<integer> 7|126r20 8|18r20 32r20 48r20 265r20 367r17
+. 371r19 417r16 426r17 434r19
+X 16 interfac.ads
+38K9*Interfaces 8|3w6 3r22 16|233e15
+70M9*Unsigned_8 8|346r34 347r22
+81M9*Unsigned_32 8|344r35 344r50
+91V13*Shift_Left{70M9} 8|349s33
+

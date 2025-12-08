@@ -1,0 +1,2 @@
+anubis_word.adb:57:14: warning: actuals for this call may be in wrong order [-gnatw.p]
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]

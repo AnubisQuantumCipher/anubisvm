@@ -1,0 +1,2 @@
+sphinx_lite_committee.adb:36:04: warning: variable "Chain" is assigned but never read [-gnatwm]
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]

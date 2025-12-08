@@ -1,0 +1,285 @@
+V "GNAT Lib v14"
+A -O0
+A -gnatA
+A -gnatwa
+A -gnatQ
+A -gnata
+A -gnatf
+A -gnatyM120
+A -gnatyO
+A -gnat2012
+A -g
+A -gnateE
+A -fstack-check=specific
+A -mmacosx-version-min=16.0.0
+A -mcpu=apple-m1
+A -mlittle-endian
+A -mabi=lp64
+A -fPIC
+P ZX
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+
+U khepri_deployer%b	khepri_deployer.adb	2411d1ae NE OO PK
+W aegis_u256%s		aegis_u256.adb		aegis_u256.ali
+Z system.assertions%s	s-assert.adb		s-assert.ali
+
+U khepri_deployer%s	khepri_deployer.ads	bc088ca0 EE NE OO PK
+W aegis_vm_types%s	aegis_vm_types.ads	aegis_vm_types.ali
+W interfaces%s		interfac.ads		interfac.ali
+W khepri_certification%s  khepri_certification.adb  khepri_certification.ali
+W khepri_crypto%s	khepri_crypto.adb	khepri_crypto.ali
+W khepri_types%s	khepri_types.adb	khepri_types.ali
+
+D ada.ads		20240808082856 76789da1 ada%s
+D a-assert.ads		20240808082856 ba465f5c ada.assertions%s
+D a-unccon.ads		20240808082856 0e9b276f ada.unchecked_conversion%s
+D aegis_u256.ads	20251207191105 ff2dfe4b aegis_u256%s
+D aegis_vm_types.ads	20251207191105 dcd101d9 aegis_vm_types%s
+D interfac.ads		20240808082856 9111f9c1 interfaces%s
+D khepri_certification.ads  20251207191107 853714ad khepri_certification%s
+D khepri_crypto.ads	20251207191106 c09bc661 khepri_crypto%s
+D khepri_deployer.ads	20251207191107 b2972459 khepri_deployer%s
+D khepri_deployer.adb	20251207191107 69ab0bbc khepri_deployer%b
+D khepri_types.ads	20251207191106 06f3822d khepri_types%s
+D system.ads		20240808082856 70765b54 system%s
+D s-assert.ads		20240808082856 9c4520c7 system.assertions%s
+D s-exctab.ads		20240808082856 91bef6ef system.exception_table%s
+D s-stalib.ads		20240808082856 1c9580f6 system.standard_library%s
+G a e
+G c Z s s [network_configIP khepri_deployer 48 9 none]
+G c Z s s [deployer_configIP khepri_deployer 81 9 none]
+G c Z s b [create_session khepri_deployer 150 13 none]
+G c Z s b [load_contract khepri_deployer 156 14 none]
+G c Z s b [set_constructor_args khepri_deployer 166 14 none]
+G c Z s b [compute_address khepri_deployer 174 13 none]
+G c Z s b [estimate_gas khepri_deployer 180 13 none]
+G c Z s b [deploy khepri_deployer 186 14 none]
+G c Z s b [get_receipt khepri_deployer 194 13 none]
+G c Z s b [compute_create_address khepri_deployer 204 13 none]
+G c Z s b [compute_create2_address khepri_deployer 211 13 none]
+G c Z s b [build_transaction khepri_deployer 237 14 none]
+G c Z s b [sign_transaction khepri_deployer 245 14 none]
+G c Z s b [serialize_transaction khepri_deployer 253 14 none]
+G c Z s b [submit_transaction khepri_deployer 267 14 none]
+G c Z s b [wait_confirmation khepri_deployer 276 14 none]
+G c Z s b [get_tx_status khepri_deployer 286 13 none]
+G c Z s b [deploy_upgradeable khepri_deployer 305 14 none]
+G c Z s b [upgrade_proxy khepri_deployer 316 14 none]
+G c Z s b [verify_deployment khepri_deployer 330 14 none]
+G c Z s b [get_deployed_code khepri_deployer 339 14 none]
+G c Z s s [deployment_receiptIP khepri_deployer 138 9 none]
+G c Z s s [deployment_sessionIP khepri_deployer 351 9 none]
+G c Z s s [deploy_transactionIP khepri_deployer 223 9 none]
+X 4 aegis_u256.ads
+21K9*Aegis_U256 276e15 10|3w6 3r22
+X 5 aegis_vm_types.ads
+21K9*Aegis_VM_Types 279e19 9|4w6 4r26
+31M12*Byte{6|70M9} 10|161r21
+32A9*Byte_Array(31M12)<integer> 9|168r24 229r24 255r28 319r28 342r30 353r26
+. 355r26 10|52r24 238r28 353r28 394r30
+35M12*Word64{6|84M9} 9|50r26 54r26 92r28 94r28 95r28 141r28 142r28 143r28
+. 146r28 182r13 206r18 224r24 225r24 226r24 231r24 10|94r13 101r23 102r14
+. 132r33 155r18 192r28 340r33 365r33
+46r4*U256_Zero{41R9} 10|196r28
+56A9*Hash256(31M12)<integer> 9|87r28 140r28 213r23 214r23 270r30 278r30 288r17
+. 333r31 357r26 10|167r23 168r23 263r30 281r30 295r17 382r31
+70A9*Contract_Address(31M12)<integer>
+X 6 interfac.ads
+38K9*Interfaces 233e15 9|3w6 3r22
+70M9*Unsigned_8
+84M9*Unsigned_64
+X 7 khepri_certification.ads
+28K9*Khepri_Certification 325e25 9|6w6 6r32
+X 8 khepri_crypto.ads
+30K9*Khepri_Crypto 245e18 9|7w6 7r25
+55A9*MLDSA_Secret_Key(5|31M12)<integer> 9|188r24 247r28 308r27 320r28 10|107r24
+. 225r28 309r27 354r28
+56A9*MLDSA_Signature(5|31M12)<integer> 9|233r24
+X 9 khepri_deployer.ads
+31K9*Khepri_Deployer 351E9 362l5 362e20 10|5b14 405l5 405t20
+40E9*Network_Type 45e5 49r26
+41n7*Network_Local{40E9} 59r27
+42n7*Network_Testnet{40E9}
+43n7*Network_Mainnet{40E9}
+44n7*Network_Custom{40E9}
+48R9*Network_Config 56e14 58r29 83r28
+49e7*Network{40E9} 59m7
+50m7*Chain_ID{5|35M12} 60m7 10|199r55
+51r7*RPC_Endpoint{11|335R9} 61m7
+52r7*Block_Explorer{11|335R9} 62m7
+53i7*Gas_Price_Gwei{natural} 63m7
+54m7*Max_Gas_Limit{5|35M12} 64m7
+55i7*Confirmation_Blocks{natural} 65m7
+58r4*Local_Network{48R9} 107r29
+73E9*Deploy_Mode 78e5 86r28
+74n7*Mode_Create{73E9} 108r29 10|79r15
+75n7*Mode_Create2{73E9} 10|82r15
+76n7*Mode_Upgrade{73E9}
+77n7*Mode_Clone{73E9}
+81R9*Deployer_Config 104e14 106r37 151r16 352r26 10|12r16
+83r7*Network_Cfg{48R9} 107m7 10|199r43
+86e7*Deployment_Mode{73E9} 108m7 10|78r27
+87a7*Salt{5|56A9} 109m7
+88b7*Verify_Deployment{boolean} 110m7
+89b7*Wait_Confirmations{boolean} 111m7
+92m7*Gas_Limit{5|35M12} 112m7 10|194r43
+93i7*Gas_Price_Gwei{natural} 113m7 10|132r56 192r51 340r56 365r56
+94m7*Max_Fee_Per_Gas{5|35M12} 114m7
+95m7*Max_Priority_Fee{5|35M12} 115m7
+98b7*Use_Hardware_Wallet{boolean} 116m7
+99r7*Keystore_Path{11|335R9} 117m7
+102b7*Save_Receipt{boolean} 118m7
+103r7*Receipt_Path{11|335R9} 119m7
+106r4*Default_Deploy_Config{81R9}
+126R9*Deployment_Session 152r13 157r30 167r24 175r17 181r17 187r24 195r17
+. 238r28 268r30 277r30 287r17 306r27 317r28 331r31 340r30 351c9 360e14 10|13r13
+. 37r30 51r24 70r17 93r17 106r24 143r17 185r28 261r30 280r30 294r17 307r27
+. 351r28 380r31 392r30
+129E9*Deployment_Result 135e5 144r28 289r13 10|296r13
+130n7*Deploy_Success{129E9} 10|134r33 342r33 367r33
+131n7*Deploy_Pending{129E9} 10|29r36
+132n7*Deploy_Failed{129E9}
+133n7*Deploy_Verification_Failed{129E9}
+134n7*Deploy_Error{129E9} 10|119r36 325r36
+138R9*Deployment_Receipt 147e14 189r24 196r13 280r30 311r27 321r28 359r26
+. 10|108r24 144r13 283r30 312r27 355r28
+139a7*Contract_Address{11|43A12} 10|24m13 114m13 128m10 320m13 336m10 361m10
+140a7*Transaction_Hash{5|56A9} 10|25m13 115m13 129m10 321m13 337m10 362m10
+141m7*Block_Number{5|35M12} 10|26m13 116m13 130m10 322m13 338m10 363m10
+142m7*Gas_Used{5|35M12} 10|27m13 117m13 131m10 323m13 339m10 364m10
+143m7*Effective_Gas_Price{5|35M12} 10|28m13 118m13 132m10 324m13 340m10 365m10
+144e7*Status{129E9} 10|29m13 119m13 134m10 299r30 325m13 342m10 367m10
+145r7*Error_Message{11|335R9} 10|30m13 120m13 135m10 326m13 343m10 368m10
+146m7*Timestamp{5|35M12} 10|31m13 121m13 136m10 327m13 344m10 369m10
+150V13*Create_Session{126R9} 151>7 10|11b13 34l8 34t22
+151r7 Config{81R9} 10|12b7 16r30
+156U14*Load_Contract 157=7 158>7 159>7 160<7 10|36b14 48l8 48t21
+157r7 Session{126R9} 10|37b7 45m7 46m7
+158a7 Manifest_Path{string} 163r17 10|38b7 42r28
+159a7 Bytecode_Path{string} 163r49 10|39b7 42r43
+160b7 Success{boolean} 10|40b7 47m7
+166U14*Set_Constructor_Args 167=7 168>7 169<7 10|50b14 67l8 67t28
+167r7 Session{126R9} 10|51b7 56r24 62m10 62r36 65m7
+168a7 Args{5|32A9} 10|52b7 56r10 61r16 63r17 63r32 65r28
+169b7 Success{boolean} 10|53b7 57m10 66m7
+174V13*Compute_Address{11|43A12} 175>7 10|69b13 90l8 90t23 128s33
+175r7 Session{126R9} 10|70b7 74r14 78r12
+180V13*Estimate_Gas{5|35M12} 181>7 10|92b13 103l8 103t20 131s33 339s33
+181r7 Session{126R9} 10|93b7 96r14 101r31 102r22
+186U14*Deploy 187=7 188>7 189<7 10|105b14 140l8 140t14
+187r7 Session{126R9} 10|106b7 112r14 128r50 131r47 132r41 139m7
+188a7 Signer{8|55A9} 10|107b7 110r28
+189r7 Receipt{138R9} 10|108b7 113m10 127m7 139r26
+194V13*Get_Receipt{138R9} 195>7 10|142b13 147l8 147t19
+195r7 Session{126R9} 10|143b7 146r14
+204V13*Compute_Create_Address{11|43A12} 205>7 206>7 10|153b13 163l8 163t30
+205a7 Deployer{11|43A12} 10|154b7 160r21
+206m7 Nonce{5|35M12} 10|155b7 161r27
+211V13*Compute_Create2_Address{11|43A12} 212>7 213>7 214>7 10|165b13 178l8
+. 178t31
+212a7 Deployer{11|43A12} 10|166b7 174r21
+213a7 Salt{5|56A9} 10|167b7 175r21
+214a7 Init_Code_Hash{5|56A9} 10|168b7 176r21
+223R9*Deploy_Transaction 234e14 239r28 246r28 254r28 269r30 10|186r28 224r28
+. 237r28 262r30
+224m7*Nonce{5|35M12} 10|191m10
+225m7*Gas_Price{5|35M12} 10|192m10
+226m7*Gas_Limit{5|35M12} 10|194m10
+227a7*To_Address{11|43A12} 10|195m10
+228r7*Value{11|34R12} 10|196m10
+229a7*Data{5|32A9} 10|197m10 211m22 215m22
+230i7*Data_Size{natural} 10|198m10 219m19 252r32
+231m7*Chain_ID{5|35M12} 10|199m10
+232b7*Is_Signed{boolean} 10|200m10 231m19 245r26 268r26
+233a7*Signature{8|56A9} 10|201m10 232m19
+237U14*Build_Transaction 238>7 239<7 240<7 10|184b14 221l8 221t25
+238r7 Session{126R9} 10|185b7 192r36 194r28 199r28 204r14 210r21 211r34 214r21
+. 215r28 216r13 219r32 219r56
+239r7 Transaction{223R9} 10|186b7 190m7 211m10 215m10 219m7
+240b7 Success{boolean} 10|187b7 205m10 220m7
+245U14*Sign_Transaction 246=7 247>7 248<7 10|223b14 234l8 234t24
+246r7 Transaction{223R9} 10|224b7 231m7 232m7
+247a7 Signer{8|55A9} 10|225b7 228r28
+248b7 Success{boolean} 10|226b7 233m7
+253U14*Serialize_Transaction 254>7 255<7 256<7 257<7 10|236b14 254l8 254t29
+254r7 Transaction{223R9} 10|237b7 245r14 252r20
+255a7 Output{5|32A9} 260r17 10|238b7 243m7
+256i7 Size{natural} 10|239b7 246m10 252m7
+257b7 Success{boolean} 10|240b7 247m10 253m7
+267U14*Submit_Transaction 268>7 269>7 270<7 271<7 10|260b14 277l8 277t26
+268r7 Session{126R9} 10|261b7 266r28
+269r7 Transaction{223R9} 10|262b7 268r14
+270a7 Tx_Hash{5|56A9} 10|263b7 269m10 275m7
+271b7 Success{boolean} 10|264b7 270m10 276m7
+276U14*Wait_Confirmation 277>7 278>7 279>7 280<7 281<7 10|279b14 291l8 291t25
+277r7 Session{126R9} 10|280b7 289r18
+278a7 Tx_Hash{5|56A9} 10|281b7 286r28
+279i7 Confirmations{natural} 10|282b7 286r37
+280r7 Receipt{138R9} 10|283b7 289m7
+281b7 Success{boolean} 10|284b7 290m7
+286V13*Get_Tx_Status{129E9} 287>7 288>7 10|293b13 300l8 300t21
+287r7 Session{126R9} 10|294b7 299r14
+288a7 Tx_Hash{5|56A9} 10|295b7 297r28
+297E9*Proxy_Type 302e5 307r27 10|308r27
+298n7*Proxy_UUPS{297E9}
+299n7*Proxy_Transparent{297E9}
+300n7*Proxy_Beacon{297E9}
+301n7*Proxy_Minimal{297E9}
+305U14*Deploy_Upgradeable 306=7 307>7 308>7 309<7 310<7 311<7 10|306b14 348l8
+. 348t26
+306r7 Session{126R9} 10|307b7 316r14 339r47 340r41 347m7
+307e7 P_Type{297E9} 10|308b7 314r28
+308a7 Signer{8|55A9} 10|309b7 314r36
+309a7 Impl_Addr{11|43A12} 10|310b7 317m10 333m7
+310a7 Proxy_Addr{11|43A12} 10|311b7 318m10 334m7 336r33
+311r7 Receipt{138R9} 10|312b7 319m10 335m7 347r26
+316U14*Upgrade_Proxy 317=7 318>7 319>7 320>7 321<7 10|350b14 373l8 373t21
+317r7 Session{126R9} 10|351b7 365r41 372m7
+318a7 Proxy_Addr{11|43A12} 10|352b7 361r33
+319a7 New_Impl{5|32A9} 10|353b7 357r28
+320a7 Signer{8|55A9} 10|354b7 357r38
+321r7 Receipt{138R9} 10|355b7 360m7 372r26
+330U14*Verify_Deployment 331>7 332>7 333>7 334<7 10|379b14 389l8 389t25
+331r7 Session{126R9} 10|380b7 385r28
+332a7 Contract_Addr{11|43A12} 10|381b7 385r37
+333a7 Expected_Hash{5|56A9} 10|382b7 385r52
+334b7 Is_Verified{boolean} 10|383b7 388m7
+339U14*Get_Deployed_Code 340>7 341>7 342<7 343<7 344<7 10|391b14 403l8 403t25
+340r7 Session{126R9} 10|392b7 398r28
+341a7 Contract_Addr{11|43A12} 10|393b7 398r37
+342a7 Code{5|32A9} 347r17 10|394b7 400m7
+343i7 Code_Size{natural} 10|395b7 401m7
+344b7 Success{boolean} 10|396b7 402m7
+352r7*Config{81R9} 10|16m10 78r20 132r49 192r44 194r36 199r36 340r49 365r49
+353a7*Bytecode{5|32A9} 10|17m10 211r42
+354i7*Bytecode_Size{natural} 10|18m10 45m15 101r39 210r29 215r36 219r40
+355a7*Constructor_Args{5|32A9} 10|19m10 56r32 62m18 62r44 216r21
+356i7*Args_Size{natural} 10|20m10 65m15 102r30 214r29 219r64
+357a7*Manifest_Hash{5|56A9} 10|21m10
+358b7*Is_Loaded{boolean} 10|22m10 46m15 74r22 96r22 112r22 204r22 316r22
+359r7*Receipt{138R9} 10|23m10 139m15 146r22 289r26 299r22 347m15 372m15
+X 10 khepri_deployer.adb
+61i11 I{integer} 63r13 63r38
+72a7 Result{11|43A12} 75r17 81m13 84m13 86m13 89r14
+157a7 Result{11|43A12} 160m7 161m7 162r14
+170a7 Result{11|43A12} 173m7 174m7 175m7 176m7 177r14
+210i11 I{integer} 211r28 211r52
+214i11 I{integer} 215r52 216r39
+X 11 khepri_types.ads
+25K9*Khepri_Types 9|5w6 5r24 139r28 176r13 205r18 207r13 212r23 215r13 227r24
+. 309r27 310r27 318r28 332r31 341r30 10|71r13 72r16 154r18 156r13 157r16
+. 166r23 169r13 170r16 310r27 311r27 352r28 381r31 393r30 11|345e17
+34R12*Uint256{5|41R9} 9|228r24
+43A12*Address{5|70A9}<integer> 9|139r41 176r26 205r31 207r26 212r36 215r26
+. 227r37 309r40 310r40 318r41 332r44 341r43 10|71r26 72r29 154r31 156r26
+. 157r29 166r36 169r26 170r29 310r40 311r40 352r41 381r44 393r43
+335R9*Bounded_String 9|51r26 52r26 99r28 103r28 145r28 11|338e14
+340r4*Empty_String{335R9} 9|61r27 62r27 117r29 119r29 10|30r36 120r36 135r33
+. 326r36 343r33 368r33
+

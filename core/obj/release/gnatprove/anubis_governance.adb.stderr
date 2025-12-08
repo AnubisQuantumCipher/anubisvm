@@ -1,0 +1,144 @@
+anubis_governance.adb:69:07: info: initialization of "New_Phase" proved
+anubis_governance.adb:130:07: info: initialization of "Next_Handoff" proved
+anubis_governance.adb:223:20: info: precondition proved
+anubis_governance.adb:268:20: info: precondition proved
+anubis_governance.adb:308:20: info: precondition proved
+anubis_governance.adb:323:07: info: initialization of "Max_Increase" proved
+anubis_governance.adb:324:07: info: initialization of "Max_Decrease" proved
+anubis_governance.adb:328:56: info: division check proved
+anubis_governance.adb:330:56: info: division check proved
+anubis_governance.adb:357:42: info: overflow check proved
+anubis_governance.adb:392:58: info: overflow check proved
+anubis_governance.adb:414:58: info: overflow check proved
+anubis_governance.adb:433:38: info: overflow check proved
+anubis_governance.adb:596:30: info: range check proved
+anubis_governance.adb:603:24: info: index check proved, in call inlined at anubis_governance.adb:619
+anubis_governance.adb:603:24: info: index check proved, in call inlined at anubis_governance.adb:620
+anubis_governance.adb:603:24: info: index check proved, in call inlined at anubis_governance.adb:633
+anubis_governance.adb:603:24: info: index check proved, in call inlined at anubis_governance.adb:634
+anubis_governance.adb:603:46: info: division check proved, in call inlined at anubis_governance.adb:619
+anubis_governance.adb:603:46: info: range check proved, in call inlined at anubis_governance.adb:619
+anubis_governance.adb:603:46: info: division check proved, in call inlined at anubis_governance.adb:620
+anubis_governance.adb:603:46: info: range check proved, in call inlined at anubis_governance.adb:620
+anubis_governance.adb:603:46: info: division check proved, in call inlined at anubis_governance.adb:633
+anubis_governance.adb:603:46: info: range check proved, in call inlined at anubis_governance.adb:633
+anubis_governance.adb:603:46: info: division check proved, in call inlined at anubis_governance.adb:634
+anubis_governance.adb:603:46: info: range check proved, in call inlined at anubis_governance.adb:634
+anubis_governance.adb:604:23: info: division check proved, in call inlined at anubis_governance.adb:619
+anubis_governance.adb:604:23: info: division check proved, in call inlined at anubis_governance.adb:620
+anubis_governance.adb:604:23: info: division check proved, in call inlined at anubis_governance.adb:633
+anubis_governance.adb:604:23: info: division check proved, in call inlined at anubis_governance.adb:634
+anubis_governance.adb:605:27: info: overflow check proved, in call inlined at anubis_governance.adb:619
+anubis_governance.adb:605:27: info: overflow check proved, in call inlined at anubis_governance.adb:620
+anubis_governance.adb:605:27: info: overflow check proved, in call inlined at anubis_governance.adb:633
+anubis_governance.adb:605:27: info: overflow check proved, in call inlined at anubis_governance.adb:634
+anubis_governance.adb:611:14: info: length check proved
+anubis_governance.adb:615:18: info: index check proved
+anubis_governance.adb:616:21: info: overflow check proved
+anubis_governance.adb:624:18: info: index check proved
+anubis_governance.adb:625:21: info: overflow check proved
+anubis_governance.adb:629:18: info: index check proved
+
+anubis_governance.adb:629:43: medium: range check might fail
+  629 |         Output (Idx) := Unsigned_8 (State.Council_Active);
+      |                                     ~~~~~^~~~~~~~~~~~~~~
+  reason for check: value must be convertible to the target type of the conversion
+  possible fix: add precondition (State.Council_Active in Unsigned_8) to subprogram at anubis_governance.ads:372
+  372 |   procedure Serialize_Governance_State (
+      |             ^ here
+anubis_governance.adb:630:21: info: overflow check proved
+anubis_governance.adb:637:18: info: index check proved
+anubis_governance.adb:637:59: info: division check proved
+anubis_governance.adb:637:59: info: range check proved
+anubis_governance.adb:638:21: info: overflow check proved
+anubis_governance.adb:641:21: info: overflow check proved
+anubis_governance.adb:641:21: info: range check proved
+
+anubis_governance.adb:649:29: medium: range check might fail
+  649 |      Idx : Natural := Input'First;
+      |                       ~~~~~^~~~~~
+  e.g. when Input'Last = -2
+  reason for check: default component value must fit in the type
+  possible fix: add or complete related loop invariants or postconditions
+anubis_governance.adb:651:27: info: initialization of "Val" proved
+anubis_governance.adb:656:49: info: index check proved, in call inlined at anubis_governance.adb:680
+anubis_governance.adb:656:49: info: index check proved, in call inlined at anubis_governance.adb:681
+anubis_governance.adb:656:49: info: index check proved, in call inlined at anubis_governance.adb:694
+anubis_governance.adb:656:49: info: index check proved, in call inlined at anubis_governance.adb:695
+anubis_governance.adb:657:27: info: overflow check proved, in call inlined at anubis_governance.adb:680
+anubis_governance.adb:657:27: info: overflow check proved, in call inlined at anubis_governance.adb:681
+anubis_governance.adb:657:27: info: overflow check proved, in call inlined at anubis_governance.adb:694
+anubis_governance.adb:657:27: info: overflow check proved, in call inlined at anubis_governance.adb:695
+anubis_governance.adb:663:07: info: precondition proved
+anubis_governance.adb:672:29: info: index check proved
+anubis_governance.adb:675:58: info: range check proved
+anubis_governance.adb:675:74: info: index check proved
+anubis_governance.adb:677:21: info: overflow check proved
+anubis_governance.adb:685:41: info: index check proved
+anubis_governance.adb:686:21: info: overflow check proved
+anubis_governance.adb:690:50: info: index check proved
+anubis_governance.adb:691:21: info: overflow check proved
+anubis_governance.adb:698:54: info: index check proved
+
+anubis_governance.adb:699:14: warning: unused assignment
+  699 |         Idx := Idx + 1;
+      |         ~~~~^~~~~~~~~~
+anubis_governance.adb:699:21: info: overflow check proved
+anubis_governance.ads:144:07: info: initialization of "State" proved
+anubis_governance.ads:148:07: info: data dependencies proved
+anubis_governance.ads:150:15: info: postcondition proved
+anubis_governance.ads:162:07: info: data dependencies proved
+anubis_governance.ads:165:13: info: implicit aspect Always_Terminates on "Get_Current_Phase" has been proved, subprogram will terminate
+anubis_governance.ads:168:07: info: data dependencies proved
+anubis_governance.ads:171:13: info: implicit aspect Always_Terminates on "Calculate_Phase" has been proved, subprogram will terminate
+anubis_governance.ads:174:07: info: data dependencies proved
+anubis_governance.ads:177:13: info: implicit aspect Always_Terminates on "Blocks_Until_Next_Phase" has been proved, subprogram will terminate
+anubis_governance.ads:180:07: info: data dependencies proved
+anubis_governance.ads:187:13: info: implicit aspect Always_Terminates on "Has_Privilege" has been proved, subprogram will terminate
+anubis_governance.ads:192:07: info: data dependencies proved
+anubis_governance.ads:195:13: info: implicit aspect Always_Terminates on "Get_Privilege_Holder" has been proved, subprogram will terminate
+anubis_governance.ads:199:07: info: data dependencies proved
+anubis_governance.ads:202:13: info: implicit aspect Always_Terminates on "Privilege_Expired" has been proved, subprogram will terminate
+anubis_governance.ads:206:07: info: data dependencies proved
+anubis_governance.ads:219:07: info: initialization of "Result" proved
+anubis_governance.ads:221:07: info: data dependencies proved
+anubis_governance.ads:232:07: info: initialization of "Result" proved
+anubis_governance.ads:234:07: info: data dependencies proved
+anubis_governance.ads:246:07: info: initialization of "Result" proved
+anubis_governance.ads:248:07: info: data dependencies proved
+anubis_governance.ads:252:13: info: implicit aspect Always_Terminates on "Is_Valid_Parameter_Change" has been proved, subprogram will terminate
+anubis_governance.ads:257:07: info: data dependencies proved
+anubis_governance.ads:268:07: info: initialization of "Success" proved
+anubis_governance.ads:270:07: info: data dependencies proved
+anubis_governance.ads:272:15: info: postcondition proved
+anubis_governance.ads:280:07: info: initialization of "Success" proved
+anubis_governance.ads:282:07: info: data dependencies proved
+anubis_governance.ads:289:07: info: initialization of "Success" proved
+anubis_governance.ads:291:07: info: data dependencies proved
+anubis_governance.ads:295:13: info: implicit aspect Always_Terminates on "Verify_Council_Signatures" has been proved, subprogram will terminate
+anubis_governance.ads:300:07: info: data dependencies proved
+anubis_governance.ads:312:07: info: data dependencies proved
+anubis_governance.ads:315:13: info: implicit aspect Always_Terminates on "Handoff_Due" has been proved, subprogram will terminate
+anubis_governance.ads:319:07: info: data dependencies proved
+anubis_governance.ads:322:13: info: implicit aspect Always_Terminates on "Next_Handoff_Block" has been proved, subprogram will terminate
+anubis_governance.ads:325:07: info: data dependencies proved
+anubis_governance.ads:332:13: info: implicit aspect Always_Terminates on "Requires_DAO_Vote" has been proved, subprogram will terminate
+anubis_governance.ads:336:07: info: data dependencies proved
+anubis_governance.ads:339:13: info: implicit aspect Always_Terminates on "Verify_DAO_Vote" has been proved, subprogram will terminate
+anubis_governance.ads:344:07: info: data dependencies proved
+anubis_governance.ads:351:13: info: implicit aspect Always_Terminates on "Builder_Status" has been proved, subprogram will terminate
+anubis_governance.ads:354:07: info: data dependencies proved
+anubis_governance.ads:357:13: info: implicit aspect Always_Terminates on "Builder_Has_Privileges" has been proved, subprogram will terminate
+anubis_governance.ads:360:07: info: data dependencies proved
+anubis_governance.ads:363:13: info: implicit aspect Always_Terminates on "Phase_Description" has been proved, subprogram will terminate
+anubis_governance.ads:366:07: info: data dependencies proved
+anubis_governance.ads:374:07: info: initialization of "Output" proved
+anubis_governance.ads:375:07: info: initialization of "Length" proved
+anubis_governance.ads:377:07: info: data dependencies proved
+anubis_governance.ads:382:07: info: initialization of "State" proved
+anubis_governance.ads:383:07: info: initialization of "Success" proved
+anubis_governance.ads:385:07: info: data dependencies proved
+anubis_governance.ads:391:40: info: initialization of "State" proved
+anubis_governance.ads:392:07: info: data dependencies proved
+anubis_governance.ads:394:38: info: initialization of "M" proved
+anubis_governance.ads:395:07: info: data dependencies proved

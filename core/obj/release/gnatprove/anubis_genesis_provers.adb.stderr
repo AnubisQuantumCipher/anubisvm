@@ -1,0 +1,45 @@
+anubis_genesis_provers.adb:97:15: info: overflow check proved
+anubis_genesis_provers.adb:98:45: info: overflow check proved
+anubis_genesis_provers.adb:98:45: info: index check proved
+anubis_genesis_provers.adb:104:15: info: overflow check proved
+anubis_genesis_provers.adb:105:45: info: overflow check proved
+anubis_genesis_provers.adb:105:45: info: index check proved
+anubis_genesis_provers.adb:116:53: info: overflow check proved
+anubis_genesis_provers.adb:147:79: info: division check proved
+anubis_genesis_provers.adb:181:07: info: initialization of "Size_Bonus" proved
+anubis_genesis_provers.adb:184:45: info: division check proved
+anubis_genesis_provers.adb:187:63: info: division check proved
+anubis_genesis_provers.adb:245:07: info: initialization of "Slash_Amount" proved
+anubis_genesis_provers.adb:249:53: info: division check proved
+
+anubis_genesis_provers.adb:260:51: medium: overflow check might fail
+  260 |         State.Provers (Prover_Idx).Times_Slashed + 1;
+      |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~
+  reason for check: result of addition must fit in a 32-bits machine integer
+  possible fix: precondition of subprogram at anubis_genesis_provers.ads:205 should mention Prover_Idx and State
+  205 |   procedure Slash_Prover (
+      |   ^ here
+anubis_genesis_provers.adb:268:54: info: range check proved
+anubis_genesis_provers.ads:130:07: info: initialization of "State" proved
+anubis_genesis_provers.ads:133:07: info: data dependencies proved
+anubis_genesis_provers.ads:134:15: info: postcondition proved
+anubis_genesis_provers.ads:148:07: info: initialization of "Result" proved
+anubis_genesis_provers.ads:150:07: info: data dependencies proved
+anubis_genesis_provers.ads:165:07: info: data dependencies proved
+anubis_genesis_provers.ads:172:07: info: data dependencies proved
+anubis_genesis_provers.ads:179:13: info: implicit aspect Always_Terminates on "Calculate_Proof_Reward" has been proved, subprogram will terminate
+anubis_genesis_provers.ads:184:07: info: data dependencies proved
+anubis_genesis_provers.ads:191:07: info: data dependencies proved
+anubis_genesis_provers.ads:196:07: info: initialization of "Claimed" proved
+anubis_genesis_provers.ads:197:07: info: initialization of "Success" proved
+anubis_genesis_provers.ads:199:07: info: data dependencies proved
+anubis_genesis_provers.ads:211:07: info: data dependencies proved
+anubis_genesis_provers.ads:219:13: info: implicit aspect Always_Terminates on "Get_Prover" has been proved, subprogram will terminate
+anubis_genesis_provers.ads:223:07: info: data dependencies proved
+anubis_genesis_provers.ads:225:13: info: implicit aspect Always_Terminates on "Get_Active_Count" has been proved, subprogram will terminate
+anubis_genesis_provers.ads:228:07: info: data dependencies proved
+anubis_genesis_provers.ads:238:07: info: data dependencies proved
+anubis_genesis_provers.ads:245:34: info: initialization of "State" proved
+anubis_genesis_provers.ads:246:07: info: data dependencies proved
+anubis_genesis_provers.ads:248:30: info: initialization of "P" proved
+anubis_genesis_provers.ads:249:07: info: data dependencies proved

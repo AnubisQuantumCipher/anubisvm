@@ -1,0 +1,186 @@
+V "GNAT Lib v14"
+A -O0
+A -gnatA
+A -gnat2022
+A -gnatwa
+A -gnatyO
+A -gnatVa
+A -gnatw.F
+A -gnata
+A -g
+A -gnateE
+A -gnatVa
+A -mmacosx-version-min=16.0.0
+A -mcpu=apple-m1
+A -mlittle-endian
+A -mabi=lp64
+A -fPIC
+P ZX
+
+RN
+RV NO_LONG_LONG_INTEGERS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U aegis_gas%b		aegis_gas.adb		b10d79e2 NE OO PK
+Z system.assertions%s	s-assert.adb		s-assert.ali
+
+U aegis_gas%s		aegis_gas.ads		5e0332b5 NE OO PU PK
+W aegis_vm_types%s	aegis_vm_types.ads	aegis_vm_types.ali
+
+D ada.ads		20240808082856 76789da1 ada%s
+D a-assert.ads		20240808082856 ba465f5c ada.assertions%s
+D a-unccon.ads		20240808082856 0e9b276f ada.unchecked_conversion%s
+D aegis_gas.ads		20251206065225 82d2336c aegis_gas%s
+D aegis_gas.adb		20251205184125 33df4a8e aegis_gas%b
+D aegis_vm_types.ads	20251205185836 dcd101d9 aegis_vm_types%s
+D interfac.ads		20240808082856 9111f9c1 interfaces%s
+D system.ads		20240808082856 70765b54 system%s
+D s-assert.ads		20240808082856 9c4520c7 system.assertions%s
+D s-exctab.ads		20240808082856 91bef6ef system.exception_table%s
+D s-stalib.ads		20240808082856 1c9580f6 system.standard_library%s
+G a e
+G c Z s b [apply_discount aegis_gas 129 13 none]
+G c Z s b [has_gas aegis_gas 138 13 none]
+G c Z s b [consume_gas aegis_gas 148 14 none]
+G c Z s b [consume_gas_discounted aegis_gas 160 14 none]
+G c Z s b [remaining_gas aegis_gas 169 13 none]
+G c Z s b [refund_gas aegis_gas 177 14 none]
+G c Z s b [gas_hash aegis_gas 193 13 none]
+G c Z s b [gas_memory_expansion aegis_gas 201 13 none]
+G c Z s b [gas_call_complex aegis_gas 208 13 none]
+G c Z s b [gas_log aegis_gas 216 13 none]
+G c Z s b [gas_create_contract aegis_gas 224 13 none]
+G c Z s b [cycles_to_gas aegis_gas 234 13 none]
+G c Z s b [validate_wcet_bound aegis_gas 239 13 none]
+X 4 aegis_gas.ads
+30K9*Aegis_Gas 246l5 246e14 5|3b14 172l5 172t14
+40i4*Gas_Base{6|101I9}
+43i4*Gas_Add{6|101I9}
+44i4*Gas_Sub{6|101I9}
+45i4*Gas_Mul{6|101I9}
+46i4*Gas_Div{6|101I9}
+47i4*Gas_Mod{6|101I9}
+48i4*Gas_Exp_Base{6|101I9}
+49i4*Gas_Exp_Per_Byte{6|101I9}
+52i4*Gas_Lt{6|101I9}
+53i4*Gas_Gt{6|101I9}
+54i4*Gas_Eq{6|101I9}
+57i4*Gas_And{6|101I9}
+58i4*Gas_Or{6|101I9}
+59i4*Gas_Xor{6|101I9}
+60i4*Gas_Not{6|101I9}
+61i4*Gas_Shl{6|101I9}
+62i4*Gas_Shr{6|101I9}
+65i4*Gas_SHA3_Base{6|101I9} 198r36 5|83r14
+66i4*Gas_SHA3_Per_Word{6|101I9} 5|83r51
+67i4*Gas_Keccak256_Base{6|101I9}
+68i4*Gas_Keccak256_Per_Word{6|101I9}
+71i4*Gas_MLDSA_KeyGen{6|101I9}
+72i4*Gas_MLDSA_Sign{6|101I9}
+73i4*Gas_MLDSA_Verify{6|101I9}
+76i4*Gas_MLKEM_KeyGen{6|101I9}
+77i4*Gas_MLKEM_Encaps{6|101I9}
+78i4*Gas_MLKEM_Decaps{6|101I9}
+81i4*Gas_MLoad{6|101I9}
+82i4*Gas_MStore{6|101I9}
+83i4*Gas_MStore8{6|101I9}
+84i4*Gas_MCopy_Base{6|101I9}
+85i4*Gas_MCopy_Per_Word{6|101I9}
+88i4*Gas_SLoad{6|101I9}
+89i4*Gas_SStore_Set{6|101I9}
+90i4*Gas_SStore_Reset{6|101I9}
+91i4*Gas_SStore_Clear{6|101I9}
+92i4*Gas_SStore_Refund{6|101I9}
+95i4*Gas_Call_Base{6|101I9} 5|116r28
+96i4*Gas_Call_Value{6|101I9} 5|119r25
+97i4*Gas_Call_New_Account{6|101I9} 5|123r25
+98i4*Gas_StaticCall{6|101I9}
+99i4*Gas_DelegateCall{6|101I9}
+102i4*Gas_Create{6|101I9} 5|152r14
+103i4*Gas_Create2{6|101I9}
+104i4*Gas_Create_Per_Byte{6|101I9} 5|152r54
+107i4*Gas_Log_Base{6|101I9} 5|143r14
+108i4*Gas_Log_Topic{6|101I9} 5|144r41
+109i4*Gas_Log_Per_Byte{6|101I9} 5|145r41
+112i4*Gas_Balance{6|101I9}
+113i4*Gas_SelfBalance{6|101I9}
+114i4*Gas_Call{6|101I9}
+115i4*Gas_ExtCodeSize{6|101I9}
+116i4*Gas_ExtCodeCopy_Base{6|101I9}
+117i4*Gas_ExtCodeCopy_Per_Word{6|101I9}
+118i4*Gas_SelfDestruct{6|101I9}
+126i4*Max_Safe_Base_Gas{6|101I9} 134r29 166r29
+129V13*Apply_Discount{6|101I9} 130>7 131>7 135r17 5|11b13 52s43
+130i7 Base_Gas{6|101I9} 134r17 135r42 5|12b7 18r46
+131i7 Discount{6|87I9} 5|13b7 19r45
+138V13*Has_Gas{boolean} 139>7 140>7 143r17 5|22b13 39s10
+139r7 Context{6|113R9} 144r11 144r31 145r11 145r31 5|23b7 27r10 27r29 30r14
+. 30r34
+140i7 Required{6|101I9} 145r51 5|24b7 30r54
+148U14*Consume_Gas 149=7 150>7 151<7 5|33b14 54s7
+149r7 Context{6|113R9} 155r21 155r40 157r21 157r31 5|34b7 39r19 40m10 40r30
+150i7 Amount{6|101I9} 155r63 5|35b7 39r28 40r49
+151b7 Success{boolean} 154r21 5|36b7 41m10 43m10
+160U14*Consume_Gas_Discounted 161=7 162>7 163<7 5|47b14 55l8 55t30
+161r7 Context{6|113R9} 5|48b7 52r69 54m20
+162i7 Base_Gas{6|101I9} 166r17 5|49b7 52r59
+163b7 Success{boolean} 5|50b7 54m41
+169V13*Remaining_Gas{6|101I9} 169>28 171r17 5|57b13
+169r28 Context{6|113R9} 172r14 172r34 173r14 173r34 5|57b28 59r10 59r30 60r17
+. 60r37
+177U14*Refund_Gas 178=7 179>7 5|66b14
+178r7 Context{6|113R9} 182r17 183r17 183r36 5|67b7 71m7 71r27
+179i7 Amount{6|101I9} 182r37 183r59 5|68b7 71r46
+190i4*Max_Hash_Byte_Length{natural} 197r32
+193V13*Gas_Hash{6|101I9} 194>7 198r17 5|78b13
+194i7 Byte_Length{natural} 197r17 5|79b7 81r36
+201V13*Gas_Memory_Expansion{6|101I9} 202>7 203>7 5|86b13 109l8 109t28
+202i7 Current_Words{natural} 5|87b7 91r23 105r54
+203i7 New_Words{natural} 5|88b7 91r10 104r54
+208V13*Gas_Call_Complex{6|101I9} 209>7 210>7 211>7 5|111b13 136l8 136t24
+209b7 Has_Value{boolean} 5|112b7 118r10
+210b7 Is_New{boolean} 5|113b7 122r10
+211i7 Available{6|101I9} 5|114b7 128r48 128r60
+216V13*Gas_Log{6|101I9} 217>7 218>7 5|138b13 146l8 146t15
+217i7 Topic_Count{natural} 221r17 5|139b7 144r26
+218i7 Data_Length{natural} 5|140b7 145r26
+224V13*Gas_Create_Contract{6|101I9} 225>7 5|148b13 153l8 153t27
+225i7 Code_Length{natural} 5|149b7 152r39
+234V13*Cycles_To_Gas{6|101I9} 234>28 236r17 5|159b13
+234i28 Cycles{natural} 236r52 5|159b28 161r26
+239V13*Validate_WCET_Bound{boolean} 240>7 241>7 244r17 5|164b13
+240i7 WCET_Gas{6|101I9} 244r47 5|165b7 169r14
+241i7 Gas_Limit{6|101I9} 244r59 5|166b7 169r26
+X 5 aegis_gas.adb
+52i7 Discounted{6|101I9} 54r29
+81i7 Words{natural} 83r42
+98V19 Mem_Cost{6|101I9} 98b19 98>29 102l14 102t22 104s44 105s44
+98i29 Words{natural} 99r52
+99i13 W{6|101I9} 101r20 101r29 101r33
+104i10 New_Cost{6|101I9} 107r17
+105i10 Old_Cost{6|101I9} 107r28
+116i7 Cost{6|101I9} 119m10 119r18 123m10 123r18 130r13 133r20
+128i10 Max_For_Call{6|101I9} 130r20 131r20
+X 6 aegis_vm_types.ads
+21K9*Aegis_VM_Types 4|3w6 3r26 6|279e19
+87I9*Discount_Factor<short_integer> 4|131r18 5|13r18
+101I9*Gas_Amount<long_integer> 4|40r32 43r32 44r32 45r32 46r32 47r32 48r32
+. 49r32 52r32 53r32 54r32 57r32 58r32 59r32 60r32 61r32 62r32 65r32 66r33
+. 67r34 68r38 71r32 72r32 73r32 76r32 77r32 78r32 81r32 82r32 83r32 84r32
+. 85r34 88r32 89r32 90r32 91r32 92r33 95r32 96r32 97r36 98r32 99r32 102r32
+. 103r32 104r35 107r32 108r32 109r32 112r32 113r32 114r32 115r32 116r36 117r40
+. 118r32 126r33 130r18 132r13 140r18 150r25 162r25 169r58 179r24 195r13 204r13
+. 211r22 212r13 219r13 226r13 234r53 236r40 240r19 241r19 5|12r18 14r13 18r14
+. 24r18 35r25 49r25 52r29 57r58 68r24 80r13 83r30 89r13 98r53 99r26 99r40
+. 104r30 105r30 114r22 115r13 116r14 128r34 141r13 144r14 145r14 150r13 152r27
+. 159r53 161r14 165r19 166r19
+104N4*Cycles_Per_Gas 4|236r61 5|161r35
+113R9*Gas_Context 4|139r17 149r25 161r25 169r38 178r24 5|23r18 34r25 48r25
+. 57r38 67r24 6|118e14
+114i7*Gas_Limit{101I9} 4|144r39 145r19 172r42 173r22 5|27r37 30r22 59r38
+. 60r25
+115i7*Gas_Used{101I9} 4|144r19 145r39 155r29 155r52 172r22 173r42 182r25
+. 183r25 183r48 5|27r18 30r42 40m18 40r38 59r18 60r45 71m15 71r35
+117i7*Discount{87I9} 5|52r77
+

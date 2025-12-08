@@ -1,0 +1,228 @@
+V "GNAT Lib v14"
+A -x
+A ada
+A -gnatA
+A -gnat2022
+A -gnatwa
+A -gnatyO
+A -gnatVa
+A -gnatw.F
+A -gnata
+A -O2
+A -gnatn
+A -ffunction-sections
+A -fdata-sections
+A -gnatc
+A -fPIC
+P GP
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_ELABORATION_CODE
+
+U anubis_mlkem_sample%b	anubis_mlkem_sample.adb	52a40800 OO PK
+W anubis_cbd%s		anubis_cbd.adb		anubis_cbd.ali
+W anubis_config%s	anubis_config.ads	anubis_config.ali
+W anubis_field%s	anubis_field.adb	anubis_field.ali
+W anubis_sha3%s		anubis_sha3.adb		anubis_sha3.ali
+W interfaces%s		interfac.ads		interfac.ali
+
+U anubis_mlkem_sample%s	anubis_mlkem_sample.ads	a06e6e04 OO PK
+W anubis_config%s	anubis_config.ads	anubis_config.ali
+W anubis_field%s	anubis_field.adb	anubis_field.ali
+W anubis_mlkem_types%s	anubis_mlkem_types.ads	anubis_mlkem_types.ali
+W anubis_types%s	anubis_types.ads	anubis_types.ali
+
+D anubis_cbd.ads	20251204035605 98c156db anubis_cbd%s
+D anubis_config.ads	20251203093747 19c7b4b2 anubis_config%s
+D anubis_field.ads	20251204123812 ccc1c329 anubis_field%s
+D anubis_keccak.ads	20251203171810 19b431a9 anubis_keccak%s
+D anubis_mlkem_sample.ads  20251206161621 761c54ef anubis_mlkem_sample%s
+D anubis_mlkem_sample.adb  20251206164446 911df9fb anubis_mlkem_sample%b
+D anubis_mlkem_types.ads  20251204152002 4cc71de7 anubis_mlkem_types%s
+D anubis_sha3.ads	20251206155030 69737d95 anubis_sha3%s
+D anubis_types.ads	20251203093723 4fb35097 anubis_types%s
+D interfac.ads		20240601155135 9111f9c1 interfaces%s
+D system.ads		20240601155135 70765b54 system%s
+G a Z
+X 1 anubis_cbd.ads
+22K9*Anubis_CBD 62e15 6|7w6 141r20 154r7
+32A9*Polynomial(3|21M9)<integer> 6|141r31
+37U14*CBD_2 6|154s18
+X 2 anubis_config.ads
+3K9*Anubis_Config 112e18 5|5w6 5r25 6|4w6 4r25
+35N4*Q 5|35r54 61r54 72r60 6|44r71 63r18 68r18 164r67 166r56 184r58
+38N4*N 6|41r24 42r45 63r35 68r35
+X 3 anubis_field.ads
+6K9*Anubis_Field 102e17 5|6w6 6r24 6|5w6 5r24
+21M9*Field_Element 6|64r32 69r32
+X 5 anubis_mlkem_sample.ads
+23K9*Anubis_MLKEM_Sample 74l5 74e24 6|9b14 189l5 189t24
+29U14*Sample_NTT 30>7 31<7 6|22b14 73l8 73t18 99s13 127s13
+30a7 XOF_Input{9|14A9} 34r14 34r45 6|23b7 35r22 38r17 50r23
+31a7 Poly{7|40A9} 35r43 6|24b7 32m7 44r60 64m13 69m13
+35i24 I{7|39I12} 35r49
+39U14*Generate_Matrix 40>7 41<7 6|77b14 102l8 102t23
+40a7 Rho{7|69A12} 6|78b7 86r27
+41a7 Matrix{7|50A9} 6|79b7 99m36 99r36
+47U14*Generate_Matrix_Transpose 48>7 49<7 6|105b14 130l8 130t33
+48a7 Rho{7|69A12} 6|106b7 114r27
+49a7 Matrix{7|50A9} 6|107b7 127m36 127r36
+55U14*Sample_Poly_CBD 56>7 57>7 58<7 6|134b14 169l8 169t23 185s10
+56a7 Sigma{7|69A12} 6|135b7 146r27
+57m7 Nonce{9|13M12} 6|136b7 148r25
+58a7 Poly{7|40A9} 61r43 6|137b7 157m7 164r56 167m10
+61i24 I{7|39I12} 61r49
+64U14*Sample_Vector_CBD 65>7 66>7 67<7 6|172b14 187l8 187t25
+65a7 Sigma{7|69A12} 6|173b7 185r27
+66i7 Offset{natural} 70r14 6|174b7 185r40
+67a7 Vec{7|47A9} 72r46 6|175b7 179m7 184r44 185m53 185r53
+71i24 J{7|46I12} 72r51
+72i27 I{7|39I12} 72r55
+X 6 anubis_mlkem_sample.adb
+16N4 XOF_Buffer_Size 26r37 38r40 43r44 47r28 50r46
+19N4 CBD_Input_Size 140r37 151r40
+26a7 XOF_Output{9|14A9} 38m28 50m34 55r29 56r41 57r42 58r41
+27i7 Coef_Idx{natural} 41r13 42r33 63r24 64r19 65m13 65r25 68r24 69r19 70m13
+. 70r25
+28i7 Buf_Idx{natural} 43r33 47r13 51m13 55r41 56r53 57r54 58r53 60m10 60r21
+29m7 D1{10|73M9} 55m10 63r13 64r47
+29m11 D2{10|73M9} 57m10 68r13 69r47
+44i41 I{7|39I12} 44r66
+81a7 XOF_Input{9|14A9} 86m10 96m13 97m13 99r25
+84i11 B{integer} 85r33 86r21 86r32
+90i11 I{7|46I12} 91r33 97r37 99r44
+92i14 J{7|46I12} 93r36 96r37 99r47
+109a7 XOF_Input{9|14A9} 114m10 124m13 125m13 127r25
+112i11 B{integer} 113r33 114r21 114r32
+118i11 I{7|46I12} 119r33 124r37 127r44
+120i14 J{7|46I12} 121r36 125r37 127r47
+139a7 PRF_Input{9|14A9} 146m10 148m7 151r17
+140a7 PRF_Output{9|14A9} 151m28 154r25
+141a7 CBD_Poly{1|32A9} 154m37 166r41 167r22
+144i11 B{integer} 145r33 146r21 146r34
+161i11 I{7|39I12} 162r33 164r47 167r16 167r32
+164i22 J{integer} 164r62
+166i22 J{7|39I12} 166r51
+180i11 I{7|46I12} 181r33 183r46 185r49 185r58
+183i22 J{integer} 184r49
+184i25 K{7|39I12} 184r53
+X 7 anubis_mlkem_types.ads
+26K9*Anubis_MLKEM_Types 5|3w6 3r30 7|94e23
+32N4*K 5|70r30
+39I12*Poly_Index{natural} 5|35r29 61r29 72r32 6|44r46 161r16 162r38 164r27
+. 166r27 184r30
+40A9*Polynomial(3|21M9)<integer> 5|31r23 58r20 6|24r23 137r20
+46I12*Vec_Index{natural} 5|71r29 6|90r16 91r38 92r19 93r41 118r16 119r38
+. 120r19 121r41 180r16 181r38 183r27
+47A9*Poly_Vector(40A9)<integer> 5|67r20 6|175r20
+50A9*Poly_Matrix(40A9)<integer><integer> 5|41r20 49r20 6|79r20 107r20
+69A12*Seed{9|14A9}<integer> 5|40r20 48r20 56r20 65r20 6|78r20 106r20 135r20
+. 173r20
+X 8 anubis_sha3.ads
+27K9*Anubis_SHA3 6|6w6 6r23 8|158e16
+97U14*SHAKE128 6|38s7 50s13
+109U14*SHAKE256 6|151s7
+X 9 anubis_types.ads
+5K9*Anubis_Types 5|4w6 4r24 9|40e17
+13M12*Byte{10|70M9} 5|57r20 6|96r31 97r31 124r31 125r31 136r20 185r34
+14A9*Byte_Array(13M12)<integer> 5|30r23 6|23r23 26r20 81r19 109r19 139r20
+. 140r20
+X 10 interfac.ads
+38K9*Interfaces 6|3w6 3r22 10|233e15
+70M9*Unsigned_8
+73M9*Unsigned_16 6|29r20 55r16 56r28 57r29 58r28
+116V13*Shift_Left{73M9} 6|56s16 58s16
+121V13*Shift_Right{73M9} 6|57s16
+
+QQ SPARKVERSION 0.0w
+GG EK_DIRECT_CALLS anubis_mlkem_sample__sample_ntt 3 interfaces__shift_left__2 interfaces__shift_right__2 anubis_sha3__shake128
+GG EK_PROOF_DEPENDENCIES anubis_mlkem_sample__sample_ntt 0
+GG EK_GLOBALS anubis_mlkem_sample__sample_ntt local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 anubis_mlkem_sample proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE TRUE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_mlkem_sample__generate_matrix 1 anubis_mlkem_sample__sample_ntt
+GG EK_PROOF_DEPENDENCIES anubis_mlkem_sample__generate_matrix 0
+GG EK_GLOBALS anubis_mlkem_sample__generate_matrix local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 anubis_mlkem_sample proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_mlkem_sample__generate_matrix_transpose 1 anubis_mlkem_sample__sample_ntt
+GG EK_PROOF_DEPENDENCIES anubis_mlkem_sample__generate_matrix_transpose 0
+GG EK_GLOBALS anubis_mlkem_sample__generate_matrix_transpose local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 anubis_mlkem_sample proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_mlkem_sample__sample_poly_cbd 2 anubis_sha3__shake256 anubis_cbd__cbd_2
+GG EK_PROOF_DEPENDENCIES anubis_mlkem_sample__sample_poly_cbd 0
+GG EK_GLOBALS anubis_mlkem_sample__sample_poly_cbd local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 anubis_mlkem_sample proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_mlkem_sample__sample_vector_cbd 1 anubis_mlkem_sample__sample_poly_cbd
+GG EK_PROOF_DEPENDENCIES anubis_mlkem_sample__sample_vector_cbd 0
+GG EK_GLOBALS anubis_mlkem_sample__sample_vector_cbd local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 anubis_mlkem_sample proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_mlkem_sample 0
+GG EK_PROOF_DEPENDENCIES anubis_mlkem_sample 0
+GG EK_GLOBALS anubis_mlkem_sample local FALSE E_PACKAGE TRUE ORIGIN_FLOW 0 proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 initializes 0 refined_initializes 0 calls_proof 0 calls 0 calls_conditional 0 local_packages 0 local_var 0 TRUE FALSE FALSE FALSE FALSE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_FLOW_SCOPE anubis_keccak__chi FALSE FALSE FALSE FALSE TRUE anubis_keccak VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_config TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_field__ct_select FALSE FALSE FALSE FALSE TRUE anubis_field VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_field__sub FALSE FALSE FALSE FALSE TRUE anubis_field VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_sha3__sha3_512 FALSE FALSE FALSE FALSE TRUE anubis_sha3 VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE anubis_cbd__cbd_2 FALSE FALSE FALSE FALSE TRUE anubis_cbd VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_keccak__iota FALSE FALSE FALSE FALSE TRUE anubis_keccak VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_sha3__absorb_block FALSE FALSE FALSE FALSE TRUE anubis_sha3 VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_field__mul FALSE FALSE FALSE FALSE TRUE anubis_field VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_keccak TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE anubis_mlkem_sample__generate_matrix FALSE FALSE FALSE FALSE TRUE anubis_mlkem_sample VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_keccak__keccak_f FALSE FALSE FALSE FALSE TRUE anubis_keccak VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_sha3__sha3_256 FALSE FALSE FALSE FALSE TRUE anubis_sha3 VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_field__reduce FALSE FALSE FALSE FALSE TRUE anubis_field VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_cbd__cbd_3 FALSE FALSE FALSE FALSE TRUE anubis_cbd VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_keccak__theta FALSE FALSE FALSE FALSE TRUE anubis_keccak VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_types TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE anubis_mlkem_sample__generate_matrix_transpose FALSE FALSE FALSE FALSE TRUE anubis_mlkem_sample VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_sha3__keccak_256 FALSE FALSE FALSE FALSE TRUE anubis_sha3 VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_field__to_mont FALSE FALSE FALSE FALSE TRUE anubis_field VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_sha3__bytes_to_lane FALSE FALSE FALSE FALSE TRUE anubis_sha3 PRIVATE_PART
+GG EK_FLOW_SCOPE anubis_sha3__shake256 FALSE FALSE FALSE FALSE TRUE anubis_sha3 VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_keccak__rho FALSE FALSE FALSE FALSE TRUE anubis_keccak VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_field__from_mont FALSE FALSE FALSE FALSE TRUE anubis_field VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_mlkem_sample__sample_poly_cbd FALSE FALSE FALSE FALSE TRUE anubis_mlkem_sample VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_field__barrett_reduce FALSE FALSE FALSE FALSE TRUE anubis_field VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_mlkem_types TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE anubis_sha3 TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE interfaces__shift_left FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_sha3__lane_to_bytes FALSE FALSE FALSE FALSE TRUE anubis_sha3 PRIVATE_PART
+GG EK_FLOW_SCOPE anubis_cbd__popcount_8 FALSE FALSE FALSE FALSE TRUE anubis_cbd PRIVATE_PART
+GG EK_FLOW_SCOPE anubis_sha3__sha3_384 FALSE FALSE FALSE FALSE TRUE anubis_sha3 VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_sha3__squeeze_block FALSE FALSE FALSE FALSE TRUE anubis_sha3 VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_keccak__pi FALSE FALSE FALSE FALSE TRUE anubis_keccak VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_cbd TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE anubis_field__mont_mul FALSE FALSE FALSE FALSE TRUE anubis_field VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_mlkem_sample TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE interfaces__shift_right__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_field TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE anubis_sha3__shake128 FALSE FALSE FALSE FALSE TRUE anubis_sha3 VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_field__add FALSE FALSE FALSE FALSE TRUE anubis_field VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_mlkem_sample__sample_ntt FALSE FALSE FALSE FALSE TRUE anubis_mlkem_sample VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_mlkem_sample__sample_vector_cbd FALSE FALSE FALSE FALSE TRUE anubis_mlkem_sample VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_field__mont_reduce FALSE FALSE FALSE FALSE TRUE anubis_field VISIBLE_PART
+GG EK_END_MARKER

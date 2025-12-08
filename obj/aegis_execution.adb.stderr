@@ -1,0 +1,4 @@
+aegis_execution.adb:257:28: warning: can never be greater than, could replace by "=" [-gnatwc]
+aegis_execution.adb:292:07: warning: formal parameter "Success" is not referenced [-gnatwf]
+aegis_execution.adb:825:07: warning: formal parameter "Return_Data" is not referenced [-gnatwf]
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]

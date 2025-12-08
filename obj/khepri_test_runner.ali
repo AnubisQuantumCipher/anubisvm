@@ -1,0 +1,329 @@
+V "GNAT Lib v14"
+A -O0
+A -gnatA
+A -gnatwa
+A -gnatQ
+A -gnata
+A -gnatf
+A -gnatyM120
+A -gnatyO
+A -gnat2012
+A -g
+A -gnateE
+A -fstack-check=specific
+A -mmacosx-version-min=16.0.0
+A -mcpu=apple-m1
+A -mlittle-endian
+A -mabi=lp64
+A -fPIC
+P SS ZX
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_SECONDARY_STACK
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+RV NO_OBSOLESCENT_FEATURES
+
+U khepri_test_runner%b	khepri_test_runner.adb	3b356301 NE OO PK
+W aegis_u256%s		aegis_u256.adb		aegis_u256.ali
+W interfaces%s		interfac.ads		interfac.ali
+Z system.assertions%s	s-assert.adb		s-assert.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+
+U khepri_test_runner%s	khepri_test_runner.ads	ca6434c4 EE NE OO PK
+W aegis_vm_types%s	aegis_vm_types.ads	aegis_vm_types.ali
+W khepri_types%s	khepri_types.adb	khepri_types.ali
+
+D ada.ads		20240808082856 76789da1 ada%s
+D a-assert.ads		20240808082856 ba465f5c ada.assertions%s
+D a-unccon.ads		20240808082856 0e9b276f ada.unchecked_conversion%s
+D aegis_u256.ads	20251207191105 ff2dfe4b aegis_u256%s
+D aegis_vm_types.ads	20251207191105 dcd101d9 aegis_vm_types%s
+D interfac.ads		20240808082856 9111f9c1 interfaces%s
+D khepri_test_runner.ads  20251207191105 1046b730 khepri_test_runner%s
+D khepri_test_runner.adb  20251207191105 454fd3bb khepri_test_runner%b
+D khepri_types.ads	20251207191106 06f3822d khepri_types%s
+D system.ads		20240808082856 70765b54 system%s
+D s-assert.ads		20240808082856 9c4520c7 system.assertions%s
+D s-exctab.ads		20240808082856 91bef6ef system.exception_table%s
+D s-parame.ads		20240808082856 3597fc11 system.parameters%s
+D s-secsta.ads		20240808082856 578279f5 system.secondary_stack%s
+D s-stalib.ads		20240808082856 1c9580f6 system.standard_library%s
+D s-stoele.ads		20240808082856 ccded4e8 system.storage_elements%s
+G a e
+G c Z s s [test_resultIP khepri_test_runner 42 9 none]
+G c Z s s [test_case_infoIP khepri_test_runner 70 9 none]
+G c Z s s [runner_configIP khepri_test_runner 133 9 none]
+G c Z s b [create_session khepri_test_runner 167 13 none]
+G c Z s b [add_suite khepri_test_runner 173 14 none]
+G c Z s b [add_test khepri_test_runner 181 14 none]
+G c Z s b [run_all khepri_test_runner 189 14 none]
+G c Z s b [run_test khepri_test_runner 196 14 none]
+G c Z s b [get_results khepri_test_runner 204 14 none]
+G c Z s b [get_stats khepri_test_runner 212 13 none]
+G c Z s s [fixture_stateIP khepri_test_runner 222 9 none]
+G c Z s b [setup_fixture khepri_test_runner 241 14 none]
+G c Z s b [teardown_fixture khepri_test_runner 249 14 none]
+G c Z s b [call_contract khepri_test_runner 269 14 none]
+G c Z s b [send_transaction khepri_test_runner 279 14 none]
+G c Z s b [set_storage khepri_test_runner 294 14 none]
+G c Z s b [get_storage khepri_test_runner 304 13 none]
+G c Z s b [set_balance khepri_test_runner 312 14 none]
+G c Z s b [mine_block khepri_test_runner 321 14 none]
+G c Z s b [set_timestamp khepri_test_runner 328 14 none]
+G c Z s b [generate_report khepri_test_runner 347 14 none]
+G c Z s b [summary_line khepri_test_runner 358 13 none]
+G c Z s s [test_caseIP khepri_test_runner 91 9 none]
+G c Z s s [Ttest_arrayBIP khepri_test_runner 100 4 none]
+G c Z s s [suite_infoIP khepri_test_runner 107 9 none]
+G c Z s s [suite_statsIP khepri_test_runner 115 9 none]
+G c Z s s [test_suiteIP khepri_test_runner 368 9 none]
+G c Z s s [Tsuite_arrayBIP khepri_test_runner 376 4 none]
+G c Z s s [test_sessionIP khepri_test_runner 378 9 none]
+G c Z s s [call_resultIP khepri_test_runner 260 9 none]
+G r c none [setup_fixture khepri_test_runner 241 14 none] [from_natural khepri_types 67 13 none]
+X 4 aegis_u256.ads
+21K9*Aegis_U256 276e15 8|4w6 4r22
+X 5 aegis_vm_types.ads
+21K9*Aegis_VM_Types 279e19 7|3w6 3r26
+31M12*Byte{6|70M9} 8|454r16
+32A9*Byte_Array(31M12)<integer> 7|262r20 273r25 283r25 350r24 8|334r25 353r25
+. 440r24
+35M12*Word64{6|84M9} 7|45r23 75r23 111r23 122r23 226r26 227r26 264r20 330r26
+. 8|424r26
+46r4*U256_Zero{41R9} 7|234r27 8|394r14
+56A9*Hash256(31M12)<integer> 7|297r24 307r17 8|376r24 389r17
+70A9*Contract_Address(31M12)<integer>
+X 6 interfac.ads
+38K9*Interfaces 233e15 8|3w6 3r22
+70M9*Unsigned_8
+84M9*Unsigned_64
+X 7 khepri_test_runner.ads
+24K9*Khepri_Test_Runner 365E4 387l5 387e23 8|6b14 473l5 473t23
+33E9*Test_Outcome 39e5 43r23
+34n7*Outcome_Passed{33E9} 53r24 8|165r42 179r30 254r27
+35n7*Outcome_Failed{33E9} 8|182r30
+36n7*Outcome_Error{33E9} 8|185r30 241r30
+37n7*Outcome_Skipped{33E9} 8|152r42 188r30
+38n7*Outcome_Timeout{33E9} 8|191r30
+42R9*Test_Result 50e14 52r29 93r16 199r27 8|114r16 234r27
+43e7*Outcome{33E9} 53m7 8|152m25 165m25 178r34 241m13 254m10
+44i7*Duration_Ms{natural} 54m7 8|153m25 166m25 199r81 242m13 255m10
+45m7*Gas_Used{5|35M12} 55m7 8|154m25 167m25 197r77 243m13 256m10
+46r7*Message{9|335R9} 56m7 8|155m25 168m25 244m13 257m10
+47r7*Expected{9|335R9} 57m7 8|156m25 169m25 245m13 258m10
+48r7*Actual{9|335R9} 58m7 8|157m25 170m25 246m13 259m10
+49r7*Location{9|335R9} 59m7 8|158m25 171m25 247m13 260m10
+52r4*Passed_Result{42R9} 8|27r26 100r23 276r23
+67R12*Test_Name{9|335R9} 71r23
+70R9*Test_Case_Info 78e14 80r33 92r16 183r26 8|79r26
+71r7*Name{67R12} 81m7
+72r7*Description{9|335R9} 82m7
+73r7*Tags{9|335R9} 83m7
+74i7*Timeout_Ms{natural} 84m7
+75m7*Gas_Limit{5|35M12} 85m7
+76b7*Is_Async{boolean} 86m7
+77r7*Skip_Reason{9|335R9} 87m7 8|148r71 155r91
+80r4*Default_Test_Info{70R9} 8|26r26 275r23
+91R9*Test_Case 95e14 100r45
+92r7*Info{70R9} 8|26m16 99m13 148r66 155r86 275m13
+93r7*Result{42R9} 8|27m16 100m13 151m66 174m66 263m77 276m13
+94b7*Is_Run{boolean} 8|28m16 101m13 175m66 264m77 277m13
+98N4*Max_Tests 99r34 8|89r51
+99I9*Test_Index<short_integer> 100r30 198r27 8|95r30 96r13 145r39 145r53
+. 233r27
+100A9*Test_Array(91R9)<99I9> 206r24 370r20 8|269r24
+107R9*Suite_Info 112e14 175r24 369r20 8|61r24
+108r7*Name{9|335R9} 8|20m16
+109r7*Description{9|335R9} 8|21m16
+110r7*Contract_Path{9|335R9} 8|22m16
+111m7*Setup_Gas{5|35M12} 8|23m16
+115R9*Suite_Stats 124e14 191r24 214r13 372r20 383r22 8|112r24 289r13
+116i7*Total_Tests{natural} 8|32m16 46m13 118m10 133m16 202m52 203r55 208m33
+. 209r36 209r83 459r38
+117i7*Passed{natural} 8|33m16 47m13 119m10 134m16 180m61 181r64 210m33 211r36
+. 211r78
+118i7*Failed{natural} 8|34m16 48m13 120m10 135m16 183m61 184r64 212m33 213r36
+. 213r78 466r30
+119i7*Errors{natural} 8|35m16 49m13 121m10 136m16 186m61 187r64 214m33 215r36
+. 215r78 466r65
+120i7*Skipped{natural} 8|36m16 50m13 122m10 137m16 160m55 161r58 189m61 190r64
+. 216m33 217r36 217r79
+121i7*Timeouts{natural} 8|37m16 51m13 123m10 138m16 192m61 193r64 218m33
+. 219r36 219r80
+122m7*Total_Gas{5|35M12} 8|38m16 52m13 124m10 139m16 196m55 197r58 220m33
+. 221r36 221r81
+123i7*Total_Time_Ms{natural} 8|39m16 53m13 125m10 140m16 198m55 199r58 222m33
+. 223r36 223r85
+130R9*Test_Session 169r13 174r24 182r26 190r24 197r27 205r24 213r17 242r24
+. 250r24 270r25 280r25 295r24 305r17 313r24 322r24 329r26 348r24 359r17 378c9
+. 385e14 8|14r13 60r24 78r26 111r24 232r27 268r24 288r17 299r24 318r24 331r25
+. 350r25 374r24 387r17 398r24 410r24 423r26 438r24 463r17
+133R9*Runner_Config 151e14 153r37 168r16 379r22 8|13r16
+135b7*Parallel{boolean} 154m7
+136i7*Max_Parallel{natural} 155m7
+137b7*Stop_On_Failure{boolean} 156m7
+138i7*Timeout_Ms{natural} 157m7
+141r7*Tag_Filter{9|335R9} 158m7
+142r7*Name_Filter{9|335R9} 159m7
+145b7*Verbose{boolean} 160m7
+146i7*Report_Format{natural} 161m7
+149b7*Track_Gas{boolean} 162m7
+150b7*Gas_Report{boolean} 163m7
+153r4*Default_Runner_Config{133R9}
+167V13*Create_Session{130R9} 168>7 8|12b13 57l8 57t22
+168r7 Config{133R9} 8|13b7 17r26
+173U14*Add_Suite 174=7 175>7 176<7 8|59b14 75l8 75t17
+174r7 Session{130R9} 8|60b7 65r10 70m7 70r36 71m7 71r36 72m7 72r32 73m7 73r30
+175r7 Info{107R9} 8|61b7 70r66
+176b7 Success{boolean} 8|62b7 66m10 74m7
+181U14*Add_Test 182=7 183>7 184<7 8|77b14 108l8 108t16
+182r7 Session{130R9} 8|78b7 82r56 84r10 89r10 96r25 98m10 103m10 104r13
+183r7 Test_Info{70R9} 8|79b7 99r23
+184b7 Success{boolean} 8|80b7 85m10 90m10 107m7
+189U14*Run_All 190=7 191<7 8|110b14 229l8 229t15
+190r7 Session{130R9} 8|111b7 116m7 117m7 128r21 132m13 143r27 148r22 151m22
+. 155r42 160m22 161r25 174m22 175m22 180m28 181r31 183m28 184r31 186m28 187r31
+. 189m28 190r31 192m28 193r31 196m22 197r25 198m22 199r25 202m19 203r22 208m13
+. 209r16 209r50 210m13 211r16 211r45 212m13 213r16 213r45 214m13 215r16 215r45
+. 216m13 217r16 217r46 218m13 219r16 219r47 220m13 221r16 221r48 222m13 223r16
+. 223r52 227m7 228r16
+191r7 Stats{115R9} 8|112b7 228m7
+196U14*Run_Test 197=7 198>7 199<7 8|231b14 265l8 265t16
+197r7 Session{130R9} 8|232b7 237r10 238r32 238r61 263m7 263r36 264m7 264r36
+198i7 Test_Idx{99I9} 8|233b7 238r19 263r67 264r67
+199r7 Result{42R9} 8|234b7 240m10 253m7 263r87
+204U14*Get_Results 205>7 206<7 207<7 8|267b14 285l8 285t19
+205r7 Session{130R9} 8|268b7 273r10 283r16 283r45 284r21 284r50
+206a7 Tests{100A9} 8|269b7 274m10 283m7
+207i7 Test_Count{natural} 8|270b7 279m10 284m7
+212V13*Get_Stats{115R9} 213>7 8|287b13 292l8 292t17
+213r7 Session{130R9} 8|288b7 291r14
+222R9*Fixture_State 229e14 231r28 243r24 251r24 271r25 281r25 296r24 306r17
+. 373r20 8|300r24 319r24 332r25 351r25 375r24 388r17
+223a7*Contract_Address{9|43A12} 232m7 8|307m10
+224a7*Deployer_Address{9|43A12} 233m7 8|308m10
+225r7*Initial_Balance{9|34R12} 234m7 8|309m10
+226m7*Block_Number{5|35M12} 235m7 8|310m10 417m71 418r74
+227m7*Timestamp{5|35M12} 236m7 8|311m10 428m71
+228b7*Is_Setup{boolean} 237m7 8|312m10 323m15
+231r4*Null_Fixture{222R9} 8|41r27
+241U14*Setup_Fixture 242=7 243<7 244<7 8|298b14 315l8 315t21
+242r7 Session{130R9} 8|299b7 303r28
+243r7 Fixture{222R9} 8|300b7 306m7
+244b7 Success{boolean} 8|301b7 314m7
+249U14*Teardown_Fixture 250=7 251=7 8|317b14 324l8 324t24
+250r7 Session{130R9} 8|318b7 321r28
+251r7 Fixture{222R9} 8|319b7 323m7
+260R9*Call_Result 266e14 274r25 285r25 8|335r25 355r25
+261b7*Success{boolean} 8|341m10 361m10
+262a7*Return_Data{5|32A9} 8|342m10 362m10
+263i7*Data_Size{natural} 8|343m10 363m10
+264m7*Gas_Used{5|35M12} 8|344m10 364m10
+265r7*Revert_Msg{9|335R9} 8|345m10 365m10
+269U14*Call_Contract 270>7 271>7 272>7 273>7 274<7 8|330b14 347l8 347t21
+270r7 Session{130R9} 8|331b7 337r28
+271r7 Fixture{222R9} 8|332b7 337r37
+272a7 Selector{9|317A9} 8|333b7 337r46
+273a7 Args{5|32A9} 8|334b7 337r56
+274r7 Result{260R9} 8|335b7 340m7
+279U14*Send_Transaction 280>7 281>7 282>7 283>7 284>7 285<7 8|349b14 367l8
+. 367t24
+280r7 Session{130R9} 8|350b7 357r28
+281r7 Fixture{222R9} 8|351b7 357r37
+282a7 Selector{9|317A9} 8|352b7 357r46
+283a7 Args{5|32A9} 8|353b7 357r56
+284r7 Value{9|34R12} 8|354b7 357r62
+285r7 Result{260R9} 8|355b7 360m7
+294U14*Set_Storage 295=7 296>7 297>7 298>7 299<7 8|373b14 384l8 384t19
+295r7 Session{130R9} 8|374b7 380r28
+296r7 Fixture{222R9} 8|375b7 380r37
+297a7 Slot{5|56A9} 8|376b7 380r46
+298r7 Value{9|34R12} 8|377b7 380r52
+299b7 Success{boolean} 8|378b7 383m7
+304V13*Get_Storage{9|34R12} 305>7 306>7 307>7 8|386b13 395l8 395t19
+305r7 Session{130R9} 8|387b7 391r28
+306r7 Fixture{222R9} 8|388b7 391r37
+307a7 Slot{5|56A9} 8|389b7 391r46
+312U14*Set_Balance 313=7 314>7 315>7 316<7 8|397b14 407l8 407t19
+313r7 Session{130R9} 8|398b7 403r28
+314a7 Address{9|43A12} 8|399b7 403r37
+315r7 Balance{9|34R12} 8|400b7 403r46
+316b7 Success{boolean} 8|401b7 406m7
+321U14*Mine_Block 322=7 323>7 8|409b14 420l8 420t18
+322r7 Session{130R9} 8|410b7 416r10 417m10 417r39 418r13 418r42
+323i7 Count{natural} 8|411b7 413r28
+328U14*Set_Timestamp 329=7 330>7 8|422b14 431l8 431t21
+329r7 Session{130R9} 8|423b7 427r10 428m10 428r39
+330m7 Timestamp{5|35M12} 8|424b7 429r13
+339E9*Report_Format 344e5 349r24 8|439r24
+340n7*Format_Text{339E9}
+341n7*Format_JSON{339E9}
+342n7*Format_JUnit{339E9}
+343n7*Format_TAP{339E9}
+347U14*Generate_Report 348>7 349>7 350<7 351<7 352<7 8|437b14 460l8 460t23
+348r7 Session{130R9} 8|438b7 459r18
+349e7 Format{339E9} 8|439b7 444r28
+350a7 Output{5|32A9} 355r17 8|440b7 446m7 453m13 453r21
+351i7 Size{natural} 8|441b7 456m10
+352b7 Success{boolean} 8|442b7 459m7
+358V13*Summary_Line{string} 359>7 8|462b13 471l8 471t20
+359r7 Session{130R9} 8|463b7 466r10 466r45
+365N4 Max_Suites 366r35 8|65r33
+366I9 Suite_Index<short_short_integer> 376r31 8|70r23 71r23 82r28 82r43 130r34
+. 130r49 238r48 263r23 264r23 283r32 284r37 417r26 418r29 428r26
+368R9 Test_Suite 374e14 376r47
+369r7*Info{107R9} 8|19m13 70m58
+370a7*Tests{100A9} 8|25m13 98m37 148r49 151m49 155r69 174m49 175m49 263m60
+. 264m60 283r69
+371i7*Test_Count{natural} 8|30m13 71m58 89r37 96r52 103m37 104r40 143r54
+. 238r85 284r74
+372r7*Stats{115R9} 8|31m13 132m40 160m49 161r52 180m55 181r58 183m55 184r58
+. 186m55 187r58 189m55 190r58 192m55 193r58 196m49 197r52 198m49 199r52 202m46
+. 203r49 209r77 211r72 213r72 215r72 217r73 219r74 221r75 223r79
+373r7*Fixture{222R9} 8|41m13 417m63 418r66 428m63
+376A9 Suite_Array(368R9)<366I9> 380r22
+379r7*Config{133R9} 8|17m10
+380a7*Suites{376A9} 8|18m10 70m15 71m15 89r18 96r33 98m18 103m18 104r21 132m21
+. 143r35 148r30 151m30 155r50 160m30 161r33 174m30 175m30 180m36 181r39 183m36
+. 184r39 186m36 187r39 189m36 190r39 192m36 193r39 196m30 197r33 198m30 199r33
+. 202m27 203r30 209r58 211r53 213r53 215r53 217r54 219r55 221r56 223r60 238r40
+. 263m15 264m15 283r24 284r29 417m18 418r21 428m18
+381i7*Suite_Count{natural} 8|43m10 65r18 70r44 71r44 72r40 73m15 73r38 84r18
+. 128r29 237r18 273r18 416r18 427r18
+382i7*Current_Suite{natural} 8|44m10 72m15 82r64 238r69 263r44 264r44 283r53
+. 284r58 417r47 418r50 428r47
+383r7*Total_Stats{115R9} 8|45m10 117m15 208m21 209r24 210m21 211r24 212m21
+. 213r24 214m21 215r24 216m21 217r24 218m21 219r24 220m21 221r24 222m21 223r24
+. 228r24 291r22 459r26 466r18 466r53
+384b7*Is_Running{boolean} 8|55m10 116m15 227m15
+X 8 khepri_test_runner.adb
+82i7 Suite_Idx{7|366I9} 89r26 96r41 98r26 103r26 104r29
+95i10 Test_Idx{7|99I9} 98r44
+114r7 Result{7|42R9} 164m22 174r76 178r27 197r70 199r74
+128i11 S{integer} 130r62
+130i13 Suite_Idx{7|366I9} 132r29 143r43 148r38 151r38 155r58 160r38 161r41
+. 174r38 175r38 180r44 181r47 183r44 184r47 186r44 187r47 189r44 190r47 192r44
+. 193r47 196r38 197r41 198r38 199r41 202r35 203r38 209r66 211r61 213r61 215r61
+. 217r62 219r63 221r64 223r68
+143i17 T{integer} 145r65
+145i19 Test_Idx{7|99I9} 148r56 151r56 155r76 174r56 175r56
+449a10 Header{string} 452r19 453r40 454r37 456r18
+452i14 I{integer} 453r36 454r45
+X 9 khepri_types.ads
+25K9*Khepri_Types 7|4w6 4r24 223r26 224r26 314r24 8|399r24 9|345e17
+34R12*Uint256{5|41R9} 7|225r26 284r25 298r24 308r13 315r24 8|354r25 377r24
+. 390r13 400r24
+43A12*Address{5|70A9}<integer> 7|223r39 224r39 314r37 8|399r37
+67V13*From_Natural{34R12} 8|309s30
+317A9*Bytes4(5|31M12)<integer> 7|272r25 282r25 8|333r25 352r25
+335R9*Bounded_String 7|46r23 47r23 48r23 49r23 67r25 72r23 73r23 77r23 108r23
+. 109r23 110r23 141r24 142r24 265r20 9|338e14
+340r4*Empty_String{335R9} 7|56r24 57r24 58r24 59r24 81r24 82r24 83r24 87r24
+. 158r25 159r25 8|20r33 21r33 22r33 149r22 156r42 157r42 158r42 168r42 169r42
+. 170r42 171r42 244r30 245r30 246r30 247r30 257r27 258r27 259r27 260r27 345r25
+. 365r25
+

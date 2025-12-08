@@ -1,0 +1,246 @@
+[
+{
+  "name": "Anubis_Mlkem.H_Hash.Digest",
+  "location": "anubis_mlkem.adb:21:7",
+  "Size": 256,
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Mlkem.G_Hash.Digest",
+  "location": "anubis_mlkem.adb:36:7",
+  "Size": 512,
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Mlkem.Encaps.M_Hat",
+  "location": "anubis_mlkem.adb:365:7",
+  "Size": 256,
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Mlkem.Encaps.H_Ek",
+  "location": "anubis_mlkem.adb:366:7",
+  "Size": 256,
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Mlkem.Encaps.G_Input",
+  "location": "anubis_mlkem.adb:367:7",
+  "Size": 512,
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Mlkem.Encaps.K_Bar",
+  "location": "anubis_mlkem.adb:368:7",
+  "Size": 256,
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Mlkem.Encaps.R",
+  "location": "anubis_mlkem.adb:368:14",
+  "Size": 256,
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Mlkem.Encaps.Kdf_Input",
+  "location": "anubis_mlkem.adb:371:7",
+  "Size": 512,
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Mlkem.Encaps.B_28.H_Ct",
+  "location": "anubis_mlkem.adb:392:10",
+  "Size": 256,
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Mlkem.Decaps.Dk_Pke",
+  "location": "anubis_mlkem.adb:417:7",
+  "Size": 12288,
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Mlkem.Decaps.Ek",
+  "location": "anubis_mlkem.adb:418:7",
+  "Size": 12544,
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Mlkem.Decaps.H_Ek",
+  "location": "anubis_mlkem.adb:419:7",
+  "Size": 256,
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Mlkem.Decaps.Z",
+  "location": "anubis_mlkem.adb:420:7",
+  "Size": 256,
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Mlkem.Decaps.M_Prime",
+  "location": "anubis_mlkem.adb:423:7",
+  "Size": 256,
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Mlkem.Decaps.G_Input",
+  "location": "anubis_mlkem.adb:426:7",
+  "Size": 512,
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Mlkem.Decaps.K_Bar",
+  "location": "anubis_mlkem.adb:427:7",
+  "Size": 256,
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Mlkem.Decaps.R",
+  "location": "anubis_mlkem.adb:427:14",
+  "Size": 256,
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Mlkem.Decaps.Ct_Prime",
+  "location": "anubis_mlkem.adb:428:7",
+  "Size": 12544,
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Mlkem.Decaps.Ct_Match",
+  "location": "anubis_mlkem.adb:431:7",
+  "Size": 8,
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Mlkem.Decaps.Kdf_Input",
+  "location": "anubis_mlkem.adb:434:7",
+  "Size": 512,
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Mlkem.Decaps.H_Ct",
+  "location": "anubis_mlkem.adb:435:7",
+  "Size": 256,
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Mlkem.K_Pke_Decrypt.S_Hat",
+  "location": "anubis_mlkem.adb:270:7",
+  "Size": 16384,
+  "Alignment": 2
+}
+,
+{
+  "name": "Anubis_Mlkem.K_Pke_Decrypt.S_Encoded",
+  "location": "anubis_mlkem.adb:271:7",
+  "Size": 12288,
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Mlkem.K_Pke_Decrypt.U",
+  "location": "anubis_mlkem.adb:274:7",
+  "Size": 16384,
+  "Alignment": 2
+}
+,
+{
+  "name": "Anubis_Mlkem.K_Pke_Decrypt.U_Decompressed",
+  "location": "anubis_mlkem.adb:274:10",
+  "Size": 16384,
+  "Alignment": 2
+}
+,
+{
+  "name": "Anubis_Mlkem.K_Pke_Decrypt.V",
+  "location": "anubis_mlkem.adb:275:7",
+  "Size": 4096,
+  "Alignment": 2
+}
+,
+{
+  "name": "Anubis_Mlkem.K_Pke_Decrypt.V_Decompressed",
+  "location": "anubis_mlkem.adb:275:10",
+  "Size": 4096,
+  "Alignment": 2
+}
+,
+{
+  "name": "Anubis_Mlkem.K_Pke_Decrypt.W",
+  "location": "anubis_mlkem.adb:278:7",
+  "Size": 4096,
+  "Alignment": 2
+}
+,
+{
+  "name": "Anubis_Mlkem.K_Pke_Decrypt.W_Temp",
+  "location": "anubis_mlkem.adb:278:10",
+  "Size": 4096,
+  "Alignment": 2
+}
+,
+{
+  "name": "Anubis_Mlkem.K_Pke_Decrypt.B_19.Buf",
+  "location": "anubis_mlkem.adb:300:13",
+  "Size": 2816,
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Mlkem.K_Pke_Decrypt.B_19.Offset",
+  "location": "anubis_mlkem.adb:301:13",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Anubis_Mlkem.K_Pke_Decrypt.B_21.V_Encoded",
+  "location": "anubis_mlkem.adb:313:10",
+  "Size": 1280,
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Mlkem.K_Pke_Decrypt.B_24.Acc",
+  "location": "anubis_mlkem.adb:339:13",
+  "Size": 8,
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Mlkem.K_Pke_Decrypt.B_24.B_26.Coef",
+  "location": "anubis_mlkem.adb:344:19",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Anubis_Mlkem.K_Pke_Decrypt.B_24.B_26.Bit",
+  "location": "anubis_mlkem.adb:346:19",
+  "Size": 8,
+  "Alignment": 1
+}
+]

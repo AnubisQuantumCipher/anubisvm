@@ -1,0 +1,92 @@
+
+anubis_mlkem_encoding.adb:26:33: error: if expression must be parenthesized
+   26>|         pragma Loop_Invariant (if Idx > 0 then
+   27 |            (for all K in 0 .. Idx - 1 => Output (K)"Initialized));
+
+anubis_mlkem_encoding.adb:27:53: error: binary operator expected
+   27 |            (for all K in 0 .. Idx - 1 => Output (K)"Initialized));
+      |                                                    ^ here
+
+anubis_mlkem_encoding.adb:27:66: error: missing string quote
+   27 |            (for all K in 0 .. Idx - 1 => Output (K)"Initialized));
+      |                                                                 ^ here
+
+anubis_mlkem_encoding.adb:60:18: error: binary operator expected
+   60 |            F (K)"Initialized and F (K) < Q);
+      |                 ^ here
+
+anubis_mlkem_encoding.adb:60:44: error: missing string quote
+   60 |            F (K)"Initialized and F (K) < Q);
+      |                                           ^ here
+
+anubis_mlkem_encoding.adb:90:72: error: binary operator expected
+   90 |         pragma Loop_Invariant (for all K in 0 .. Idx - 1 => Output (K)"Initialized);
+      |                                                                       ^ here
+
+anubis_mlkem_encoding.adb:90:84: error: missing string quote
+   90 |         pragma Loop_Invariant (for all K in 0 .. Idx - 1 => Output (K)"Initialized);
+      |                                                                                   ^ here
+
+anubis_mlkem_encoding.adb:127:18: error: binary operator expected
+  127 |            F (K)"Initialized and F (K) < 2**Du);
+      |                 ^ here
+
+anubis_mlkem_encoding.adb:127:48: error: missing string quote
+  127 |            F (K)"Initialized and F (K) < 2**Du);
+      |                                               ^ here
+
+anubis_mlkem_encoding.adb:161:72: error: binary operator expected
+  161 |         pragma Loop_Invariant (for all K in 0 .. Idx - 1 => Output (K)"Initialized);
+      |                                                                       ^ here
+
+anubis_mlkem_encoding.adb:161:84: error: missing string quote
+  161 |         pragma Loop_Invariant (for all K in 0 .. Idx - 1 => Output (K)"Initialized);
+      |                                                                                   ^ here
+
+anubis_mlkem_encoding.adb:192:18: error: binary operator expected
+  192 |            F (K)"Initialized and F (K) < 2**Dv);
+      |                 ^ here
+
+anubis_mlkem_encoding.adb:192:48: error: missing string quote
+  192 |            F (K)"Initialized and F (K) < 2**Dv);
+      |                                               ^ here
+
+anubis_mlkem_encoding.adb:245:18: error: binary operator expected
+  245 |            F (K)"Initialized and F (K) in 0 | 1);
+      |                 ^ here
+
+anubis_mlkem_encoding.adb:245:49: error: missing string quote
+  245 |            F (K)"Initialized and F (K) in 0 | 1);
+      |                                                ^ here
+
+anubis_mlkem_encoding.adb:250:21: error: binary operator expected
+  250 |               F (K)"Initialized and F (K) in 0 | 1);
+      |                    ^ here
+
+anubis_mlkem_encoding.adb:250:52: error: missing string quote
+  250 |               F (K)"Initialized and F (K) in 0 | 1);
+      |                                                   ^ here
+
+anubis_mlkem_encoding.adb:267:23: error: binary operator expected
+  267 |            Output (K)"Initialized);
+      |                      ^ here
+
+anubis_mlkem_encoding.adb:267:35: error: missing string quote
+  267 |            Output (K)"Initialized);
+      |                                  ^ here
+
+anubis_mlkem_encoding.adb:273:26: error: binary operator expected
+  273 |               Output (K)"Initialized);
+      |                         ^ here
+
+anubis_mlkem_encoding.adb:273:38: error: missing string quote
+  273 |               Output (K)"Initialized);
+      |                                     ^ here
+
+anubis_mlkem_encoding.adb:275:26: error: binary operator expected
+  275 |               Output (K)"Initialized);
+      |                         ^ here
+
+anubis_mlkem_encoding.adb:275:38: error: missing string quote
+  275 |               Output (K)"Initialized);
+      |                                     ^ here

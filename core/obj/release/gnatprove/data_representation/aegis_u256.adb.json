@@ -1,0 +1,498 @@
+[
+{
+  "name": "Aegis_U256.Add.Carry",
+  "location": "aegis_u256.adb:132:7",
+  "Size": 8,
+  "Alignment": 1
+}
+,
+{
+  "name": "Aegis_U256.Add_Mod.Result",
+  "location": "aegis_u256.adb:142:7",
+  "Size": 256,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_U256.Add_Mod.Overflow",
+  "location": "aegis_u256.adb:143:7",
+  "Size": 8,
+  "Alignment": 1
+}
+,
+{
+  "name": "Aegis_U256.Sub.Borrow",
+  "location": "aegis_u256.adb:154:7",
+  "Size": 8,
+  "Alignment": 1
+}
+,
+{
+  "name": "Aegis_U256.Sub_Mod.Result",
+  "location": "aegis_u256.adb:164:7",
+  "Size": 256,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_U256.Sub_Mod.Underflow",
+  "location": "aegis_u256.adb:165:7",
+  "Size": 8,
+  "Alignment": 1
+}
+,
+{
+  "name": "Aegis_U256.Mul.Acc",
+  "location": "aegis_u256.adb:177:7",
+  "Size": 512,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_U256.Mul.H",
+  "location": "aegis_u256.adb:178:7",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_U256.Mul.L",
+  "location": "aegis_u256.adb:178:10",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_U256.Mul.Sum",
+  "location": "aegis_u256.adb:179:7",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_U256.Mul.Carry",
+  "location": "aegis_u256.adb:180:7",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_U256.Mul_Mod.High",
+  "location": "aegis_u256.adb:207:7",
+  "Size": 256,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_U256.Mul_Mod.Low",
+  "location": "aegis_u256.adb:207:13",
+  "Size": 256,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_U256.Div_Mod.Temp_Rem",
+  "location": "aegis_u256.adb:219:7",
+  "Size": 256,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_U256.Div_Mod.Temp_Quot",
+  "location": "aegis_u256.adb:220:7",
+  "Size": 256,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_U256.Div_Mod.B_8.Limb_Idx",
+  "location": "aegis_u256.adb:230:13",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Aegis_U256.Div_Mod.B_8.Bit_Idx",
+  "location": "aegis_u256.adb:231:13",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Aegis_U256.Div_Mod.B_8.Bit_Val",
+  "location": "aegis_u256.adb:232:13",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_U256.Div_Mod.B_9.Sub_Result",
+  "location": "aegis_u256.adb:241:16",
+  "Size": 256,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_U256.Div_Mod.B_9.Underflow",
+  "location": "aegis_u256.adb:242:16",
+  "Size": 8,
+  "Alignment": 1
+}
+,
+{
+  "name": "Aegis_U256.Div_Mod.B_10.Limb_Idx",
+  "location": "aegis_u256.adb:249:16",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Aegis_U256.Div_Mod.B_10.Bit_Idx",
+  "location": "aegis_u256.adb:250:16",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Aegis_U256.Div.Q",
+  "location": "aegis_u256.adb:263:7",
+  "Size": 256,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_U256.Div.R",
+  "location": "aegis_u256.adb:263:10",
+  "Size": 256,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_U256.Mod_Op.Q",
+  "location": "aegis_u256.adb:270:7",
+  "Size": 256,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_U256.Mod_Op.R",
+  "location": "aegis_u256.adb:270:10",
+  "Size": 256,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_U256.Bit_And.Result",
+  "location": "aegis_u256.adb:281:7",
+  "Size": 256,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_U256.Bit_Or.Result",
+  "location": "aegis_u256.adb:290:7",
+  "Size": 256,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_U256.Bit_Xor.Result",
+  "location": "aegis_u256.adb:299:7",
+  "Size": 256,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_U256.Bit_Not.Result",
+  "location": "aegis_u256.adb:308:7",
+  "Size": 256,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_U256.Shift_Left.Result",
+  "location": "aegis_u256.adb:317:7",
+  "Size": 256,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_U256.Shift_Left.Limb_Shift",
+  "location": "aegis_u256.adb:318:7",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Aegis_U256.Shift_Left.Bit_Shift",
+  "location": "aegis_u256.adb:319:7",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Aegis_U256.Shift_Right.Result",
+  "location": "aegis_u256.adb:349:7",
+  "Size": 256,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_U256.Shift_Right.Limb_Shift",
+  "location": "aegis_u256.adb:350:7",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Aegis_U256.Shift_Right.Bit_Shift",
+  "location": "aegis_u256.adb:351:7",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Aegis_U256.From_Bytes_Be.Result",
+  "location": "aegis_u256.adb:395:7",
+  "Size": 256,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_U256.From_Bytes_Be.B_20.Base",
+  "location": "aegis_u256.adb:400:13",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Aegis_U256.From_Bytes_Be.B_20.Val",
+  "location": "aegis_u256.adb:401:13",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_U256.To_Bytes_Be.Result",
+  "location": "aegis_u256.adb:413:7",
+  "Size": 256,
+  "Alignment": 1
+}
+,
+{
+  "name": "Aegis_U256.To_Bytes_Be.B_23.Base",
+  "location": "aegis_u256.adb:417:13",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Aegis_U256.To_Bytes_Be.B_23.Val",
+  "location": "aegis_u256.adb:418:13",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_U256.From_Bytes_Le.Result",
+  "location": "aegis_u256.adb:430:7",
+  "Size": 256,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_U256.From_Bytes_Le.B_26.Base",
+  "location": "aegis_u256.adb:435:13",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Aegis_U256.From_Bytes_Le.B_26.Val",
+  "location": "aegis_u256.adb:436:13",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_U256.To_Bytes_Le.Result",
+  "location": "aegis_u256.adb:448:7",
+  "Size": 256,
+  "Alignment": 1
+}
+,
+{
+  "name": "Aegis_U256.To_Bytes_Le.B_29.Base",
+  "location": "aegis_u256.adb:452:13",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Aegis_U256.To_Bytes_Le.B_29.Val",
+  "location": "aegis_u256.adb:453:13",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_U256.Address_To_U256.Bytes",
+  "location": "aegis_u256.adb:481:7",
+  "Size": 256,
+  "Alignment": 1
+}
+,
+{
+  "name": "Aegis_U256.U256_To_Address.Bytes",
+  "location": "aegis_u256.adb:490:7",
+  "Size": 256,
+  "Alignment": 1
+}
+,
+{
+  "name": "Aegis_U256.U256_To_Address.Result",
+  "location": "aegis_u256.adb:491:7",
+  "Size": 256,
+  "Alignment": 1
+}
+,
+{
+  "name": "Aegis_U256.Mod_Exp.Result",
+  "location": "aegis_u256.adb:573:7",
+  "Size": 256,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_U256.Mod_Exp.B",
+  "location": "aegis_u256.adb:574:7",
+  "Size": 256,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_U256.Mod_Exp.E",
+  "location": "aegis_u256.adb:575:7",
+  "Size": 256,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_U256.Add64_With_Carry.Sum",
+  "location": "aegis_u256.adb:17:7",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_U256.Add64_With_Carry.C",
+  "location": "aegis_u256.adb:18:7",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_U256.Sub64_With_Borrow.Diff",
+  "location": "aegis_u256.adb:34:7",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_U256.Sub64_With_Borrow.B_Adj",
+  "location": "aegis_u256.adb:35:7",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_U256.Mul64.A_Lo",
+  "location": "aegis_u256.adb:51:7",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_U256.Mul64.A_Hi",
+  "location": "aegis_u256.adb:52:7",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_U256.Mul64.B_Lo",
+  "location": "aegis_u256.adb:53:7",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_U256.Mul64.B_Hi",
+  "location": "aegis_u256.adb:54:7",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_U256.Mul64.P0",
+  "location": "aegis_u256.adb:57:7",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_U256.Mul64.P1",
+  "location": "aegis_u256.adb:58:7",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_U256.Mul64.P2",
+  "location": "aegis_u256.adb:59:7",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_U256.Mul64.P3",
+  "location": "aegis_u256.adb:60:7",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_U256.Mul64.Mid",
+  "location": "aegis_u256.adb:63:7",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_U256.Mul64.Carry",
+  "location": "aegis_u256.adb:64:7",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_U256.Mul64.B_1.Mid_Lo",
+  "location": "aegis_u256.adb:72:10",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_U256.Mul64.B_1.New_Low",
+  "location": "aegis_u256.adb:73:10",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Aegis_U256.Mul64.B_1.Low_Carry",
+  "location": "aegis_u256.adb:74:10",
+  "Size": 64,
+  "Alignment": 8
+}
+]

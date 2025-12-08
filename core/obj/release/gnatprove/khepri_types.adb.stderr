@@ -1,0 +1,27 @@
+khepri_types.adb:35:14: info: precondition proved
+khepri_types.adb:40:14: info: precondition proved
+khepri_types.ads:67:13: info: implicit aspect Always_Terminates on "From_Natural" has been proved, subprogram will terminate
+khepri_types.ads:68:07: info: data dependencies proved
+khepri_types.ads:69:17: info: postcondition proved
+khepri_types.ads:76:13: info: implicit aspect Always_Terminates on overriding operator "+" has been proved, subprogram will terminate
+khepri_types.ads:77:07: info: data dependencies proved
+khepri_types.ads:80:13: info: implicit aspect Always_Terminates on overriding operator "-" has been proved, subprogram will terminate
+khepri_types.ads:81:07: info: data dependencies proved
+khepri_types.ads:84:13: info: implicit aspect Always_Terminates on overriding operator "*" has been proved, subprogram will terminate
+khepri_types.ads:85:07: info: data dependencies proved
+khepri_types.ads:88:13: info: implicit aspect Always_Terminates on overriding operator "/" has been proved, subprogram will terminate
+khepri_types.ads:89:07: info: data dependencies proved
+khepri_types.ads:93:13: info: implicit aspect Always_Terminates on overriding operator "mod" has been proved, subprogram will terminate
+khepri_types.ads:94:07: info: data dependencies proved
+khepri_types.ads:222:13: info: implicit aspect Always_Terminates on "Ok" has been proved, subprogram will terminate
+khepri_types.ads:223:07: info: data dependencies proved
+khepri_types.ads:224:17: info: postcondition proved
+khepri_types.ads:224:48: info: discriminant check proved
+khepri_types.ads:226:13: info: implicit aspect Always_Terminates on "Err" has been proved, subprogram will terminate
+khepri_types.ads:227:07: info: data dependencies proved
+khepri_types.ads:229:17: info: postcondition proved
+khepri_types.ads:229:54: info: discriminant check proved
+khepri_types.ads:244:13: info: implicit aspect Always_Terminates on "Ok_Bool" has been proved, subprogram will terminate
+khepri_types.ads:245:07: info: data dependencies proved
+khepri_types.ads:246:17: info: postcondition proved
+khepri_types.ads:246:58: info: discriminant check proved

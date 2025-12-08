@@ -1,0 +1,218 @@
+[
+{
+  "name": "Anubis_Sha3.Sha3_Sponge.State",
+  "location": "anubis_sha3.adb:120:7",
+  "Size": 1600,
+  "Alignment": 8
+}
+,
+{
+  "name": "Anubis_Sha3.Sha3_Sponge.Pos",
+  "location": "anubis_sha3.adb:121:7",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Anubis_Sha3.Sha3_Sponge.B_11.Block_First",
+  "location": "anubis_sha3.adb:133:13",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Anubis_Sha3.Sha3_Sponge.B_11.Block_Last",
+  "location": "anubis_sha3.adb:134:13",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Anubis_Sha3.Sha3_Sponge.B_11.Block",
+  "location": "anubis_sha3.adb:135:13",
+  "Size": "??",
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Sha3.Sha3_Sponge.B_12.Remaining",
+  "location": "anubis_sha3.adb:144:10",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Anubis_Sha3.Sha3_Sponge.B_12.Final_Block",
+  "location": "anubis_sha3.adb:145:10",
+  "Size": "??",
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Sha3.Sha3_Sponge.B_14.Squeezed",
+  "location": "anubis_sha3.adb:167:13",
+  "Size": "??",
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Sha3.Sha3_Sponge.B_15.Output_Pos",
+  "location": "anubis_sha3.adb:175:13",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Anubis_Sha3.Sha3_Sponge.B_15.B_17.Squeezed",
+  "location": "anubis_sha3.adb:182:19",
+  "Size": "??",
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Sha3.Sha3_Sponge.B_15.B_17.Copy_Len",
+  "location": "anubis_sha3.adb:183:19",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Anubis_Sha3.Shake_Sponge.State",
+  "location": "anubis_sha3.adb:252:7",
+  "Size": 1600,
+  "Alignment": 8
+}
+,
+{
+  "name": "Anubis_Sha3.Shake_Sponge.Pos",
+  "location": "anubis_sha3.adb:253:7",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Anubis_Sha3.Shake_Sponge.Output_Pos",
+  "location": "anubis_sha3.adb:254:7",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Anubis_Sha3.Shake_Sponge.Output_First_Copy",
+  "location": "anubis_sha3.adb:255:7",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Anubis_Sha3.Shake_Sponge.Output_Last_Copy",
+  "location": "anubis_sha3.adb:256:7",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Anubis_Sha3.Shake_Sponge.B_20.Block_First",
+  "location": "anubis_sha3.adb:270:13",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Anubis_Sha3.Shake_Sponge.B_20.Block_Last",
+  "location": "anubis_sha3.adb:271:13",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Anubis_Sha3.Shake_Sponge.B_20.Block",
+  "location": "anubis_sha3.adb:272:13",
+  "Size": "??",
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Sha3.Shake_Sponge.B_21.Remaining",
+  "location": "anubis_sha3.adb:281:10",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Anubis_Sha3.Shake_Sponge.B_21.Final_Block",
+  "location": "anubis_sha3.adb:282:10",
+  "Size": "??",
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Sha3.Shake_Sponge.B_24.Squeezed",
+  "location": "anubis_sha3.adb:308:13",
+  "Size": "??",
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Sha3.Shake_Sponge.B_24.Copy_Len",
+  "location": "anubis_sha3.adb:309:13",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Anubis_Sha3.Absorb_Block.Num_Lanes",
+  "location": "anubis_sha3.adb:52:7",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Anubis_Sha3.Absorb_Block.B_6.X",
+  "location": "anubis_sha3.adb:58:13",
+  "Size": 8,
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Sha3.Absorb_Block.B_6.Y",
+  "location": "anubis_sha3.adb:59:13",
+  "Size": 8,
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Sha3.Absorb_Block.B_6.Lane_Bytes",
+  "location": "anubis_sha3.adb:60:13",
+  "Size": "??",
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Sha3.Absorb_Block.B_6.Block_Lane",
+  "location": "anubis_sha3.adb:61:13",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Anubis_Sha3.Bytes_To_Lane.Result_U64",
+  "location": "anubis_sha3.adb:11:7",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Anubis_Sha3.Bytes_To_Lane.B_2.Shift_Amount",
+  "location": "anubis_sha3.adb:16:13",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Anubis_Sha3.Bytes_To_Lane.B_2.Byte_As_U64",
+  "location": "anubis_sha3.adb:17:13",
+  "Size": 64,
+  "Alignment": 8
+}
+]

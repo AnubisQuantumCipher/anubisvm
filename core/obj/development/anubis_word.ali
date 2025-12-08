@@ -1,0 +1,130 @@
+V "GNAT Lib v14"
+A -O0
+A -gnatA
+A -gnat2022
+A -gnatwa
+A -gnatyO
+A -gnatVa
+A -gnatw.F
+A -gnata
+A -g
+A -gnateE
+A -gnatVa
+A -mmacosx-version-min=16.0.0
+A -mcpu=apple-m1
+A -mlittle-endian
+A -mabi=lp64
+A -fPIC
+P SS ZX
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_LOCAL_ALLOCATORS
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U anubis_word%b		anubis_word.adb		7870cd28 NE OO PK
+W interfaces%s		interfac.ads		interfac.ali
+Z system.assertions%s	s-assert.adb		s-assert.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+
+U anubis_word%s		anubis_word.ads		ec44f66b BN NE OO PU PK
+
+D ada.ads		20240808082856 76789da1 ada%s
+D a-assert.ads		20240808082856 ba465f5c ada.assertions%s
+D a-unccon.ads		20240808082856 0e9b276f ada.unchecked_conversion%s
+D anubis_word.ads	20251207191105 ec44f66b anubis_word%s
+D anubis_word.adb	20251207191105 0525c282 anubis_word%b
+D interfac.ads		20240808082856 9111f9c1 interfaces%s
+D system.ads		20240808082856 70765b54 system%s
+D s-assert.ads		20240808082856 9c4520c7 system.assertions%s
+D s-exctab.ads		20240808082856 91bef6ef system.exception_table%s
+D s-parame.ads		20240808082856 3597fc11 system.parameters%s
+D s-secsta.ads		20240808082856 578279f5 system.secondary_stack%s
+D s-stalib.ads		20240808082856 1c9580f6 system.standard_library%s
+D s-stoele.ads		20240808082856 ccded4e8 system.storage_elements%s
+G a e
+G c Z s b [ct_select anubis_word 27 13 none]
+G c Z s b [ct_eq anubis_word 34 13 none]
+G c Z s b [ct_lt anubis_word 41 13 none]
+G c Z s b [ct_gt anubis_word 48 13 none]
+G c Z s b [ct_is_zero anubis_word 55 13 none]
+G c Z s b [ct_byte anubis_word 63 13 none]
+G c Z s b [ct_swap anubis_word 70 14 none]
+G c Z s b [ct_min anubis_word 78 13 none]
+G c Z s b [ct_max anubis_word 86 13 none]
+G c Z s b [rotate_left anubis_word 93 13 none]
+G c Z s b [rotate_right anubis_word 98 13 none]
+G c Z s s [word_arrayIP anubis_word 22 9 none]
+X 4 anubis_word.ads
+3K9*Anubis_Word 102l5 102e16 5|5b14 126l5 126t16
+21M9*Word 22r51 27r31 27r44 27r57 34r27 34r40 41r27 41r40 48r27 48r40 55r29
+. 55r42 63r26 63r56 70r30 70r50 78r28 78r41 86r28 86r41 93r34 93r65 98r35
+. 98r66 5|11r31 11r44 11r57 12r23 19r27 19r40 20r11 32r12 42r27 42r40 51r14
+. 55r27 55r40 61r29 61r42 68r26 68r56 72r14 78r30 78r50 79r23 80r20 88r28
+. 88r41 89r28 96r28 96r41 97r31 103r34 103r65 110r17 115r35 115r66 122r17
+22A9*Word_Array(21M9)<integer>
+27V13*CT_Select{21M9} 27>24 27>37 27>40 30r33 30r59 5|11b13 91s14 99s14
+27m24 Cond{21M9} 29r14 30r19 5|11b24 12r35
+27m37 A{21M9} 30r52 5|11b37 14r15
+27m40 B{21M9} 30r78 5|11b40 14r31
+34V13*CT_Eq{21M9} 34>20 34>23 36r15 37r16 5|19b13 63s14
+34m20 A{21M9} 37r37 5|19b20 20r19
+34m23 B{21M9} 37r41 5|19b23 20r25
+41V13*CT_Lt{21M9} 41>20 41>23 43r15 44r16 5|42b13 57s14 89s36
+41m20 A{21M9} 44r37 5|42b20 43r52
+41m23 B{21M9} 44r41 5|42b23 44r52
+48V13*CT_Gt{21M9} 48>20 48>23 50r15 51r16 5|55b13 97s39
+48m20 A{21M9} 51r37 5|55b20 57r24
+48m23 B{21M9} 51r41 5|55b23 57r21
+55V13*CT_Is_Zero{21M9} 55>25 57r15 58r16 5|61b13
+55m25 A{21M9} 58r42 5|61b25 63r21
+63V13*CT_Byte{21M9} 63>22 63>32 66r15 5|68b13
+63m22 W{21M9} 5|68b22 70r52
+63i32 Index{natural} 65r14 5|68b32 69r42
+70U14*CT_Swap 70>23 70=36 70=39 5|78b14
+70m23 Cond{21M9} 72r14 73r19 5|78b23 79r35
+70m36 A{21M9} 73r34 73r52 74r22 74r26 5|78b36 80r29 82m7 82r12
+70m39 B{21M9} 73r38 73r48 74r36 74r40 5|78b39 80r35 83m7 83r12
+78V13*CT_Min{21M9} 78>21 78>24 80r16 80r37 81r15 82r15 5|88b13
+78m21 A{21M9} 80r32 81r32 5|88b21 89r43 91r36
+78m24 B{21M9} 80r53 82r32 5|88b24 89r46 91r39
+86V13*CT_Max{21M9} 86>21 86>24 88r16 88r37 89r15 90r15 5|96b13
+86m21 A{21M9} 88r32 89r32 5|96b21 97r46 99r39
+86m24 B{21M9} 88r53 90r32 5|96b24 97r49 99r42
+93V13*Rotate_Left{21M9} 93>26 93>40 5|103b13 112l8 112t19
+93m26 Value{21M9} 5|103b26 105r54 108r17
+93i40 Amount{natural} 95r14 5|103b40 104r33
+98V13*Rotate_Right{21M9} 98>27 98>41 5|115b13 124l8 124t20
+98m27 Value{21M9} 5|115b27 117r54 120r17
+98i41 Amount{natural} 100r14 5|115b41 116r33
+X 5 anubis_word.adb
+12m7 Mask{4|21M9} 14r21 14r41
+20m7 X{4|21M9} 25r29 32m7 36r19
+21m7 X_U64{6|84M9} 25m7 26m7 26r16 26r38 27m7 27r16 27r38 28m7 28r16 28r38
+. 29m7 29r16 29r38 30m7 30r16 30r38 31m7 31r16 31r38 32r18
+43m7 A_U64{6|84M9} 45r40 46r38 47r53 48r45
+44m7 B_U64{6|84M9} 45r50 46r46
+45m7 XOR_AB{6|84M9} 48r56
+46m7 Diff{6|84M9} 47r44
+47m7 XOR_Diff_A{6|84M9} 48r66
+48m7 Result_Bits{6|84M9} 51r33
+69i7 Shift_Amount{natural} 72r40
+70m7 W_U64{6|84M9} 72r33
+79m7 Mask{4|21M9} 80r42
+80m7 T{4|21M9} 82r18 83r18
+89m7 Is_A_Less{4|21M9} 91r25
+97m7 Is_A_Greater{4|21M9} 99r25
+104i7 Amt{natural} 107r10 110r44 110r79
+105m7 Val_U64{6|84M9} 110r35 110r65
+116i7 Amt{natural} 119r10 122r45 122r79
+117m7 Val_U64{6|84M9} 122r36 122r65
+X 6 interfac.ads
+38K9*Interfaces 5|3w6 3r22 6|233e15
+84M9*Unsigned_64 5|21r15 25r16 43r24 43r39 44r24 44r39 45r25 46r23 47r29
+. 48r30 70r24 70r39 105r26 105r41 117r26 117r41
+166V13*Shift_Left{84M9} 5|110s23 122s53
+171V13*Shift_Right{84M9} 5|26s25 27s25 28s25 29s25 30s25 31s25 51s20 72s20
+. 110s52 122s23
+

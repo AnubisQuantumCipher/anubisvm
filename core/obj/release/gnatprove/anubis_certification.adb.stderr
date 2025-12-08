@@ -1,0 +1,57 @@
+anubis_certification.adb:77:15: info: overflow check proved
+anubis_certification.adb:78:38: info: overflow check proved
+anubis_certification.adb:78:38: info: index check proved
+anubis_certification.adb:89:15: info: overflow check proved
+anubis_certification.adb:90:36: info: overflow check proved
+anubis_certification.adb:90:36: info: index check proved
+anubis_certification.adb:162:21: info: overflow check proved
+anubis_certification.adb:163:44: info: overflow check proved
+anubis_certification.adb:163:44: info: index check proved
+anubis_certification.adb:191:21: info: overflow check proved
+anubis_certification.adb:192:40: info: overflow check proved
+anubis_certification.adb:192:40: info: index check proved
+anubis_certification.adb:225:07: info: initialization of "Required" proved
+anubis_certification.adb:270:48: info: division check proved
+anubis_certification.adb:306:07: info: initialization of "Discount_Amount" proved
+anubis_certification.adb:309:65: info: division check proved
+anubis_certification.adb:319:07: info: initialization of "Saved" proved
+anubis_certification.adb:356:15: info: overflow check proved
+anubis_certification.adb:357:36: info: overflow check proved
+anubis_certification.adb:357:36: info: index check proved
+anubis_certification.ads:153:07: info: initialization of "State" proved
+anubis_certification.ads:156:07: info: data dependencies proved
+anubis_certification.ads:168:07: info: initialization of "Cert" proved
+anubis_certification.ads:169:07: info: initialization of "Result" proved
+anubis_certification.ads:171:07: info: data dependencies proved
+anubis_certification.ads:186:07: info: initialization of "Result" proved
+anubis_certification.ads:188:07: info: data dependencies proved
+anubis_certification.ads:192:13: info: implicit aspect Always_Terminates on "Check_VC_Coverage" has been proved, subprogram will terminate
+anubis_certification.ads:196:07: info: data dependencies proved
+anubis_certification.ads:197:15: info: postcondition proved
+anubis_certification.ads:208:07: info: initialization of "Result" proved
+anubis_certification.ads:210:07: info: data dependencies proved
+anubis_certification.ads:217:07: info: initialization of "Refund" proved
+anubis_certification.ads:219:07: info: data dependencies proved
+anubis_certification.ads:227:07: info: initialization of "Slashed_Amount" proved
+anubis_certification.ads:229:07: info: data dependencies proved
+anubis_certification.ads:236:13: info: implicit aspect Always_Terminates on "Get_Discount_Rate" has been proved, subprogram will terminate
+anubis_certification.ads:239:07: info: data dependencies proved
+anubis_certification.ads:240:15: info: postcondition proved
+anubis_certification.ads:242:13: info: implicit aspect Always_Terminates on "Calculate_Discounted_Gas" has been proved, subprogram will terminate
+anubis_certification.ads:246:07: info: data dependencies proved
+anubis_certification.ads:251:07: info: initialization of "Final_Gas" proved
+anubis_certification.ads:253:07: info: data dependencies proved
+anubis_certification.ads:263:07: info: initialization of "Success" proved
+anubis_certification.ads:265:07: info: data dependencies proved
+anubis_certification.ads:268:13: info: implicit aspect Always_Terminates on "Is_Expired" has been proved, subprogram will terminate
+anubis_certification.ads:272:07: info: data dependencies proved
+anubis_certification.ads:278:13: info: implicit aspect Always_Terminates on "Get_Level" has been proved, subprogram will terminate
+anubis_certification.ads:279:07: info: data dependencies proved
+anubis_certification.ads:281:13: info: implicit aspect Always_Terminates on "Get_Deposit" has been proved, subprogram will terminate
+anubis_certification.ads:282:07: info: data dependencies proved
+anubis_certification.ads:284:13: info: implicit aspect Always_Terminates on "Get_Total_Certified" has been proved, subprogram will terminate
+anubis_certification.ads:285:07: info: data dependencies proved
+anubis_certification.ads:291:43: info: initialization of "State" proved
+anubis_certification.ads:292:07: info: data dependencies proved
+anubis_certification.ads:294:37: info: initialization of "Cert" proved
+anubis_certification.ads:295:07: info: data dependencies proved

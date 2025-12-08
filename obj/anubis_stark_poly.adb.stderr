@@ -1,0 +1,6 @@
+anubis_stark_poly.adb:7:06: warning: redundant with clause in body [-gnatwr]
+anubis_stark_poly.adb:7:18: warning: "Interfaces" is already use-visible through previous use_clause at anubis_stark_poly.ads:10 [-gnatwr]
+anubis_stark_poly.adb:7:18: warning: use clause for package "Interfaces" has no effect [-gnatwu]
+anubis_stark_poly.adb:293:07: warning: constant "N" is not referenced [-gnatwu]
+anubis_stark_poly.adb:386:07: warning: constant "N" is not referenced [-gnatwu]
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]

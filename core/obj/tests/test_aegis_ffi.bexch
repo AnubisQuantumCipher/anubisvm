@@ -1,0 +1,21 @@
+[GENERATED OBJECT FILE]
+b__test_aegis_ffi.o
+[PROJECT FILES]
+/Users/sicarii/anubisvm/core/tests/test_ffi.gpr
+20251206044142 1e4e76b91bace70fe78929e8674b8122
+[BOUND OBJECT FILES]
+/Users/sicarii/anubisvm/core/obj/tests/anubis_types.o
+/Users/sicarii/anubisvm/core/obj/tests/anubis_keccak.o
+/Users/sicarii/anubisvm/core/obj/tests/anubis_sha3.o
+/Users/sicarii/anubisvm/core/obj/tests/aegis_ffi.o
+/Users/sicarii/anubisvm/core/obj/tests/test_aegis_ffi.o
+[GENERATED SOURCE FILES]
+b__test_aegis_ffi.ads
+b__test_aegis_ffi.adb
+b__test_aegis_ffi.ali
+[RESULTING OPTIONS]
+-L/Users/sicarii/anubisvm/core/obj/tests/
+-L/Users/sicarii/anubisvm/core/obj/tests/
+-L/Users/sicarii/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/adalib/
+-static
+/Users/sicarii/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/adalib/libgnat.a

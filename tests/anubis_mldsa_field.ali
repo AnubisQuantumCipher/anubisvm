@@ -1,0 +1,152 @@
+V "GNAT Lib v14"
+P ZX
+
+RN
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U anubis_mldsa_field%b	anubis_mldsa_field.adb	5042584c NE OO PK
+W interfaces%s		interfac.ads		interfac.ali
+
+U anubis_mldsa_field%s	anubis_mldsa_field.ads	754f47a7 BN NE OO PU PK
+W anubis_mldsa_config%s	anubis_mldsa_config.ads	anubis_mldsa_config.ali
+W interfaces%s		interfac.ads		interfac.ali
+
+D anubis_mldsa_config.ads  20251204191102 97e0aa98 anubis_mldsa_config%s
+D anubis_mldsa_field.ads  20251205121517 73be14fe anubis_mldsa_field%s
+D anubis_mldsa_field.adb  20251205122532 b2edb573 anubis_mldsa_field%b
+D interfac.ads		20240808082856 9111f9c1 interfaces%s
+D system.ads		20240808082856 70765b54 system%s
+G a e
+G c Z s b [reduce anubis_mldsa_field 43 13 none]
+G c Z s b [barrett_reduce anubis_mldsa_field 48 13 none]
+G c Z s b [add anubis_mldsa_field 53 13 none]
+G c Z s b [sub anubis_mldsa_field 58 13 none]
+G c Z s b [mul anubis_mldsa_field 63 13 none]
+G c Z s b [mont_reduce anubis_mldsa_field 70 13 none]
+G c Z s b [mont_mul anubis_mldsa_field 74 13 none]
+G c Z s b [to_mont anubis_mldsa_field 78 13 none]
+G c Z s b [from_mont anubis_mldsa_field 82 13 none]
+G c Z s b [freeze anubis_mldsa_field 89 13 none]
+G c Z s b [center anubis_mldsa_field 94 13 none]
+G c Z s b [power2round anubis_mldsa_field 99 14 none]
+G c Z s b [decompose anubis_mldsa_field 107 14 none]
+G c Z s b [highbits anubis_mldsa_field 115 13 none]
+G c Z s b [lowbits anubis_mldsa_field 119 13 none]
+G c Z s b [makehint anubis_mldsa_field 124 13 none]
+G c Z s b [usehint anubis_mldsa_field 128 13 none]
+G c Z s s [field_arrayIP anubis_mldsa_field 29 9 none]
+X 1 anubis_mldsa_config.ads
+14K9*Anubis_MLDSA_Config 87e24 2|4w6 4r31
+21N4*Q 2|23r52 27r45 27r56 45r31 50r39 55r28 60r28 65r28 84r34 91r31 96r34
+. 96r45 3|16r23 17r32 30r38 37r22 49r17 50r36 62r30 81r74 85r16 86r21 87r19
+. 88r24 122r23 124r29 131r29 134r40 193r33 229r47 230r69 244r24
+29N4*D 2|104r27 104r42 3|146r30 147r32
+36N4*Gamma2 2|112r22 112r32 121r34 121r44 3|177r36 188r33 244r38
+X 2 anubis_mldsa_field.ads
+14K9*Anubis_MLDSA_Field 131l5 131e23 3|5b14 268l5 268t23
+20M9*Field_Element 23r27 29r52 43r25 70r50 74r30 74r52 78r46 82r28 89r25
+. 3|10r25 11r16 42r27 77r50 82r15 82r32 95r30 95r52 102r46 111r28 119r25
+. 120r16
+23M12*Valid_Field{20M9} 43r47 48r53 53r25 53r45 58r25 58r45 63r25 63r45 78r26
+. 82r50 89r47 94r25 100r16 101r16 108r20 109r20 115r27 115r47 119r26 124r30
+. 128r42 128r62 3|10r47 20r14 24r53 42r14 46r25 46r45 50r17 52r17 57r25 57r45
+. 60r17 62r17 67r25 67r45 102r26 111r50 115r14 119r47 126r14 130r25 142r16
+. 143r16 164r16 166r16 173r20 174r20 198r16 204r27 204r47 205r12 213r26 214r12
+. 223r30 224r25 225r16 226r17 230r20 232r20 241r42 241r62 242r12 254r18 261r20
+27I12*Centered_Coef{integer}
+29A9*Field_Array(20M9)<integer>
+33N4*Barrett_Const 3|27r59
+34N4*Barrett_Shift
+37N4*Mont_R_Sq 3|103r72
+38N4*Mont_Q_Inv 3|79r74
+43V13*Reduce{23M12} 43>21 45r15 3|10b13 21l8 21t14
+43m21 A{20M9} 3|10b21 11r33
+48V13*Barrett_Reduce{23M12} 48>29 50r15 3|24b13 43l8 43t22 70s14
+48m29 A{4|84M9} 3|24b29 27r49 30r26
+53V13*Add{23M12} 53>18 53>21 55r15 3|46b13 54l8 54t11
+53m18 A{23M12} 3|46b18 47r50
+53m21 B{23M12} 3|46b21 47r68
+58V13*Sub{23M12} 58>18 58>21 60r15 3|57b13 64l8 64t11
+58m18 A{23M12} 3|57b18 59r10 60r30 62r34
+58m21 B{23M12} 3|57b21 59r15 60r34 62r38
+63V13*Mul{23M12} 63>18 63>21 65r15 3|67b13 71l8 71t11
+63m18 A{23M12} 3|67b18 68r54
+63m21 B{23M12} 3|67b21 68r72
+70V13*Mont_Reduce{20M9} 70>26 3|77b13 92l8 92t19 98s14 105s14 115s27
+70m26 A{4|84M9} 3|77b26 78r52 81r39
+74V13*Mont_Mul{20M9} 74>23 74>26 3|95b13 99l8 99t16
+74m23 A{20M9} 3|95b23 96r54
+74m26 B{20M9} 3|95b26 96r72
+78V13*To_Mont{20M9} 78>22 3|102b13 106l8 106t15
+78m22 A{23M12} 3|102b22 103r54
+82V13*From_Mont{23M12} 82>24 84r15 3|111b13 116l8 116t17
+82m24 A{20M9} 3|111b24 115r53
+89V13*Freeze{23M12} 89>21 91r15 3|119b13 127l8 127t14
+89m21 A{20M9} 3|119b21 120r33 123r43
+94V13*Center{integer} 94>21 96r15 3|130b13 138l8 138t14
+94m21 A{23M12} 3|130b21 133r10 134r26 136r26
+99U14*Power2Round 100>7 101<7 102<7 3|141b14 168l8 168t19
+100m7 A{23M12} 3|142b7 149r44
+101m7 A1{23M12} 3|143b7 164m10 166m10
+102i7 A0{integer} 104r15 3|144b7 157m10 159m10 163r10 164r38 166r40
+107U14*Decompose 108>7 109<7 110<7 3|172b14 201l8 201t17 208s7 217s7 246s7
+108m7 A{23M12} 3|173b7 184r26
+109m7 A1{23M12} 3|174b7 194m10 198m10
+110i7 A0{integer} 112r15 3|175b7 195m10 199m10
+115V13*HighBits{23M12} 115>23 3|204b13 210l8 210t16 224s40 235s18
+115m23 A{23M12} 3|204b23 208r18
+119V13*LowBits{integer} 119>22 121r15 3|213b13 219l8 219t15
+119m22 A{23M12} 3|213b22 217r18
+124V13*MakeHint{boolean} 124>23 124>26 3|223b13 238l8 238t16
+124m23 Z{23M12} 3|223b23 224r50 229r23 230r46 232r33
+124m26 R{23M12} 3|223b26 229r41 230r64 232r37
+128V13*UseHint{23M12} 128>22 128>38 3|241b13 266l8 266t15
+128b22 Hint{boolean} 3|241b22 248r14
+128m38 R{23M12} 3|241b38 246r18
+X 3 anubis_mldsa_field.adb
+11m7 Result{2|20M9} 16r13 17m13 17r23 20r27
+14i11 I{integer} 15r33
+26m7 Q_Est{4|84M9} 30r30
+30m7 R{4|84M9} 37r18 40m10 40r16 42r42
+31m7 Diff{4|84M9} 37m10 38r31 40r38
+32m7 Mask{4|84M9} 38m10 40r27 40r56
+35i11 I{integer} 36r33
+47m7 Sum{4|84M9} 49r10 50r30 52r30
+68m7 Product{4|84M9} 70r30
+78m7 T_Low{4|81M9} 79r52
+79m7 M_Tmp{4|84M9} 80r52
+80m7 M{4|81M9} 81r56
+81m7 U{4|84M9} 82r60
+82m7 Rr{2|20M9} 85r10 86m10 86r16 87r13 88m13 88r19 91r14
+96m7 Product{4|84M9} 98r27
+103m7 Product{4|84M9} 105r27
+120m7 Result{2|20M9} 122r13 123r33 124m10 124r20 126r27
+131N7 Half_Q 133r14
+146N7 Two_D 153r32 157r40 164r44 166r47
+147N7 Half_D 156r24
+149i7 A_Int{natural} 153r22 164r30 166r30
+150i7 A0_Unsigned{natural} 153m7 156r10 157r25 159r25
+177N7 Two_Gamma2 187r33 189r39 197r46
+179i7 A_Plus{natural} 184m7 187r22 193r10 197r22
+180i7 A0_Centered{integer} 187m7 188r10 189m10 189r25 193r19 195r16 197r31
+. 199r16
+181i7 A1_Temp{natural} 197m10 198r29
+205m7 A1{2|23M12} 208m21 209r14
+206i7 A0{integer} 208m25
+214m7 A1{2|23M12} 217m21
+215i7 A0{integer} 217m25 218r14
+224m7 Z_High{2|23M12} 237r14
+225m7 ZR_Sum{2|23M12} 230m10 232m10 235r28
+226m7 ZR_High{2|23M12} 235m7 237r24
+242m7 R1{2|23M12} 246m21 249r17 254r13 257r20 260r13 263r20
+243i7 R0{integer} 246m25 253r10
+244N7 M 254r31 261r33
+X 4 interfac.ads
+38K9*Interfaces 2|3w6 3r22 3|3w6 3r22 4|233e15
+81M9*Unsigned_32 3|78r24 78r39 80r24 80r39
+84M9*Unsigned_64 2|48r33 70r30 3|24r33 26r24 27r23 30r11 31r14 32r14 47r22
+. 47r37 47r55 68r26 68r41 68r59 77r30 79r24 79r39 79r61 81r24 81r43 81r61
+. 96r26 96r41 96r59 103r26 103r41 103r59 115r40 229r10 229r28 230r33 230r51
+171V13*Shift_Right{84M9} 3|27s10 27s36 38s18 82s47
+

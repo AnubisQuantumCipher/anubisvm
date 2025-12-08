@@ -1,0 +1,475 @@
+{
+  "spark": {
+    " 6": "all",
+    " 2": "all",
+    " 4": "all",
+    " 5": "all",
+    " 1": "all",
+    " 3": "all"
+  },
+  "skip_flow_proof": [
+  ],
+  "skip_proof": [
+  ],
+  "progress": "PROGRESS_PROOF",
+  "stop_reason": "STOP_REASON_NONE",
+  "flow": [
+    {
+      "file": "aegis_sandbox.ads",
+      "line": 291,
+      "col": 13,
+      "rule": "SUBPROGRAM_TERMINATION",
+      "severity": "info",
+      "entity": 1,
+      "check_tree": {
+      },
+      "msg_id": 0,
+      "how_proved": "flow"
+    },
+    {
+      "file": "aegis_sandbox.ads",
+      "line": 295,
+      "col": 7,
+      "rule": "GLOBAL_WRONG",
+      "severity": "info",
+      "entity": 1,
+      "check_tree": {
+      },
+      "msg_id": 1,
+      "how_proved": "flow"
+    },
+    {
+      "file": "aegis_sandbox.ads",
+      "line": 269,
+      "col": 13,
+      "rule": "SUBPROGRAM_TERMINATION",
+      "severity": "info",
+      "entity": 2,
+      "check_tree": {
+      },
+      "msg_id": 2,
+      "how_proved": "flow"
+    },
+    {
+      "file": "aegis_sandbox.ads",
+      "line": 273,
+      "col": 7,
+      "rule": "GLOBAL_WRONG",
+      "severity": "info",
+      "entity": 2,
+      "check_tree": {
+      },
+      "msg_id": 3,
+      "how_proved": "flow"
+    },
+    {
+      "file": "aegis_sandbox.ads",
+      "line": 298,
+      "col": 13,
+      "rule": "SUBPROGRAM_TERMINATION",
+      "severity": "info",
+      "entity": 3,
+      "check_tree": {
+      },
+      "msg_id": 4,
+      "how_proved": "flow"
+    },
+    {
+      "file": "aegis_sandbox.ads",
+      "line": 304,
+      "col": 7,
+      "rule": "GLOBAL_WRONG",
+      "severity": "info",
+      "entity": 3,
+      "check_tree": {
+      },
+      "msg_id": 5,
+      "how_proved": "flow"
+    },
+    {
+      "file": "aegis_sandbox.ads",
+      "line": 277,
+      "col": 13,
+      "rule": "SUBPROGRAM_TERMINATION",
+      "severity": "info",
+      "entity": 4,
+      "check_tree": {
+      },
+      "msg_id": 6,
+      "how_proved": "flow"
+    },
+    {
+      "file": "aegis_sandbox.ads",
+      "line": 278,
+      "col": 7,
+      "rule": "GLOBAL_WRONG",
+      "severity": "info",
+      "entity": 4,
+      "check_tree": {
+      },
+      "msg_id": 7,
+      "how_proved": "flow"
+    },
+    {
+      "file": "aegis_sandbox.ads",
+      "line": 281,
+      "col": 13,
+      "rule": "SUBPROGRAM_TERMINATION",
+      "severity": "info",
+      "entity": 5,
+      "check_tree": {
+      },
+      "msg_id": 8,
+      "how_proved": "flow"
+    },
+    {
+      "file": "aegis_sandbox.ads",
+      "line": 284,
+      "col": 7,
+      "rule": "GLOBAL_WRONG",
+      "severity": "info",
+      "entity": 5,
+      "check_tree": {
+      },
+      "msg_id": 9,
+      "how_proved": "flow"
+    }
+  ],
+  "pragma_assume": [
+  ],
+  "proof": [
+    {
+      "file": "aegis_sandbox.ads",
+      "line": 274,
+      "col": 17,
+      "rule": "VC_POSTCONDITION",
+      "severity": "info",
+      "entity": 2,
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC5": {
+              "result": "Valid",
+              "steps": 1,
+              "time": 0
+            },
+            "Z3": {
+              "result": "High failure",
+              "steps": 1,
+              "time": 0
+            },
+            "altergo": {
+              "result": "High failure",
+              "steps": 1,
+              "time": 0
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "aegis_sandbox.ads",
+      "check_line": 274,
+      "check_col": 17,
+      "msg_id": 10,
+      "how_proved": "prover",
+      "stats": {
+        "CVC5": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 0.00000000000000E+00
+        }
+      }
+    },
+    {
+      "file": "aegis_sandbox.adb",
+      "line": 99,
+      "col": 17,
+      "rule": "VC_OVERFLOW_CHECK",
+      "severity": "info",
+      "entity": 3,
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC5": {
+              "result": "Valid",
+              "steps": 1,
+              "time": 1.00000000000000E-02
+            },
+            "Z3": {
+              "result": "Valid",
+              "steps": 1,
+              "time": 1.00000000000000E-02
+            },
+            "altergo": {
+              "result": "High failure",
+              "steps": 1,
+              "time": 7.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "aegis_sandbox.adb",
+      "check_line": 99,
+      "check_col": 17,
+      "msg_id": 11,
+      "how_proved": "prover",
+      "stats": {
+        "CVC5": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 9.99999977648258E-03
+        }
+      }
+    },
+    {
+      "file": "aegis_sandbox.ads",
+      "line": 305,
+      "col": 40,
+      "rule": "VC_OVERFLOW_CHECK",
+      "severity": "info",
+      "entity": 3,
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC5": {
+              "result": "Valid",
+              "steps": 1,
+              "time": 1.00000000000000E-02
+            },
+            "Z3": {
+              "result": "Valid",
+              "steps": 1,
+              "time": 1.00000000000000E-02
+            },
+            "altergo": {
+              "result": "Failure\n(interrupted)",
+              "steps": 1,
+              "time": 0
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "aegis_sandbox.ads",
+      "check_line": 305,
+      "check_col": 40,
+      "msg_id": 12,
+      "how_proved": "prover",
+      "stats": {
+        "CVC5": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 9.99999977648258E-03
+        }
+      }
+    }
+  ],
+  "assumptions": [
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_POST",
+        "arg": 2
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": 2
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": 6
+      }
+    },
+    {
+      "assumptions": [
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": 4
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": 5
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": 4
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": 5
+        }
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": 1
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": 5
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": 3
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": 4
+      }
+    }
+  ],
+  "timings": {
+    "global": {
+      "init_why_sections": 2.41000001551583E-04,
+      "globals (advanced)": 8.03000002633780E-04,
+      "flow analysis": 6.32600020617247E-03,
+      "marking": 1.25099997967482E-03,
+      "translation of standard": 1.21300003957003E-03,
+      "properties (advanced)": 2.40000008489005E-05,
+      "globals (basic)": 4.65999997686595E-04
+    },
+    " 5": {
+      "gnat2why.vc_generation": 2.30999998166226E-04
+    },
+    " 3": {
+      "gnatwhy3.transformations.inline_trivial": 1.99900000552589E-06,
+      "gnatwhy3.transformations.eliminate_algebraic": 0.00000000000000E+00,
+      "gnatwhy3.transformations.detect_polymorphism": 9.99000008050643E-07,
+      "gnat2why.vc_generation": 3.92999994801357E-04,
+      "gnatwhy3.transformations.eliminate_literal": 9.99000008050643E-07,
+      "gnatwhy3.run_vcs": 4.99899988426478E-06,
+      "gnatwhy3.transformations.eliminate_algebraic_if_poly": 9.99000008050643E-07,
+      "gnatwhy3.transformations.eliminate_projections_sums": 9.99000008050643E-07,
+      "gnatwhy3.transformations.eliminate_gnatprove_guard_epsilon": 9.99000008050643E-07,
+      "gnatwhy3.transformations.simplify_formula": 9.99000008050643E-07,
+      "gnatwhy3.transformations.eliminate_recursion": 0.00000000000000E+00,
+      "gnatwhy3.transformations.eliminate_definition_conditionally": 0.00000000000000E+00,
+      "gnatwhy3.transformations.counterexamples_dependent_intros": 0.00000000000000E+00,
+      "gnatwhy3.register_vcs": 0.00000000000000E+00,
+      "gnatwhy3.transformations.eliminate_epsilon": 1.99900000552589E-06,
+      "gnatwhy3.transformations.remove_unused_keep_constants": 9.99000008050643E-07,
+      "gnatwhy3.schedule_vcs": 2.40546002984047E-01,
+      "gnatwhy3.transformations.prepare_for_counterexmp": 0.00000000000000E+00,
+      "gnatwhy3.save_session": 1.07500003650784E-03,
+      "gnatwhy3.transformations.eliminate_inductive": 0.00000000000000E+00,
+      "gnatwhy3.transformations.encoding_smt_if_poly": 9.99000008050643E-07,
+      "gnatwhy3.transformations.eliminate_builtin": 1.99900000552589E-06,
+      "gnatwhy3.transformations.discriminate_if_poly": 9.99000008050643E-07,
+      "gnatwhy3.transformations.introduce_premises": 0.00000000000000E+00,
+      "gnatwhy3.init": 3.06845992803574E-01
+    },
+    " 1": {
+      "gnat2why.vc_generation": 7.07999977748841E-04
+    },
+    " 2": {
+      "gnatwhy3.transformations.inline_trivial": 9.99000008050643E-07,
+      "gnatwhy3.transformations.eliminate_algebraic": 0.00000000000000E+00,
+      "gnatwhy3.transformations.detect_polymorphism": 0.00000000000000E+00,
+      "gnat2why.vc_generation": 9.99800022691488E-03,
+      "gnatwhy3.transformations.eliminate_literal": 1.99900000552589E-06,
+      "gnatwhy3.run_vcs": 1.99900000552589E-06,
+      "gnatwhy3.transformations.eliminate_algebraic_if_poly": 9.99000008050643E-07,
+      "gnatwhy3.transformations.eliminate_projections_sums": 0.00000000000000E+00,
+      "gnatwhy3.transformations.eliminate_gnatprove_guard_epsilon": 0.00000000000000E+00,
+      "gnatwhy3.transformations.simplify_formula": 0.00000000000000E+00,
+      "gnatwhy3.transformations.eliminate_recursion": 0.00000000000000E+00,
+      "gnatwhy3.transformations.eliminate_definition_conditionally": 0.00000000000000E+00,
+      "gnatwhy3.transformations.counterexamples_dependent_intros": 0.00000000000000E+00,
+      "gnatwhy3.register_vcs": 9.99000008050643E-07,
+      "gnatwhy3.transformations.eliminate_epsilon": 9.99000008050643E-07,
+      "gnatwhy3.transformations.remove_unused_keep_constants": 9.99000008050643E-07,
+      "gnatwhy3.schedule_vcs": 8.28699860721827E-03,
+      "gnatwhy3.transformations.prepare_for_counterexmp": 0.00000000000000E+00,
+      "gnatwhy3.save_session": 5.60000014957041E-04,
+      "gnatwhy3.transformations.eliminate_inductive": 0.00000000000000E+00,
+      "gnatwhy3.transformations.encoding_smt_if_poly": 0.00000000000000E+00,
+      "gnatwhy3.transformations.eliminate_builtin": 9.99000008050643E-07,
+      "gnatwhy3.transformations.discriminate_if_poly": 0.00000000000000E+00,
+      "gnatwhy3.transformations.introduce_premises": 0.00000000000000E+00,
+      "gnatwhy3.init": 1.58825993537903E-01
+    },
+    " 4": {
+      "gnat2why.vc_generation": 5.85999991744757E-03
+    }
+  },
+  "entities": {
+    " 1": {
+      "name": "Aegis_Sandbox.Validate_Syscall",
+      "sloc": [
+        {
+          "file": "aegis_sandbox.ads",
+          "line": 291
+        }
+      ]
+    },
+    " 2": {
+      "name": "Aegis_Sandbox.Has_Capability",
+      "sloc": [
+        {
+          "file": "aegis_sandbox.ads",
+          "line": 269
+        }
+      ]
+    },
+    " 3": {
+      "name": "Aegis_Sandbox.Validate_Memory_Access",
+      "sloc": [
+        {
+          "file": "aegis_sandbox.ads",
+          "line": 298
+        }
+      ]
+    },
+    " 4": {
+      "name": "Aegis_Sandbox.Is_Static_Safe",
+      "sloc": [
+        {
+          "file": "aegis_sandbox.ads",
+          "line": 277
+        }
+      ]
+    },
+    " 5": {
+      "name": "Aegis_Sandbox.Required_Capabilities",
+      "sloc": [
+        {
+          "file": "aegis_sandbox.ads",
+          "line": 281
+        }
+      ]
+    },
+    " 6": {
+      "name": "Aegis_Sandbox",
+      "sloc": [
+        {
+          "file": "aegis_sandbox.ads",
+          "line": 27
+        }
+      ]
+    }
+  }
+}

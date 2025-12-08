@@ -1,0 +1,250 @@
+V "GNAT Lib v14"
+A -O2
+A -gnatA
+A -gnat2022
+A -gnatwa
+A -gnatyO
+A -gnatVa
+A -gnatw.F
+A -gnata
+A -gnatn
+A -ffunction-sections
+A -fdata-sections
+A -mmacosx-version-min=16.0.0
+A -mcpu=apple-m1
+A -mlittle-endian
+A -mabi=lp64
+A -fPIC
+P ZX
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+
+U anubis_certification%b  anubis_certification.adb  a9509f79 NE OO PK
+Z system.assertions%s	s-assert.adb		s-assert.ali
+
+U anubis_certification%s  anubis_certification.ads  b91dcb40 EE NE OO PK
+W anubis_types%s	anubis_types.ads	anubis_types.ali
+W interfaces%s		interfac.ads		interfac.ali
+
+D ada.ads		20240808082856 76789da1 ada%s
+D a-assert.ads		20240808082856 ba465f5c ada.assertions%s
+D a-unccon.ads		20240808082856 0e9b276f ada.unchecked_conversion%s
+D anubis_certification.ads  20251207191107 67bf6216 anubis_certification%s
+D anubis_certification.adb  20251207191107 ceeffd6f anubis_certification%b
+D anubis_types.ads	20251207191105 4fb35097 anubis_types%s
+D interfac.ads		20240808082856 9111f9c1 interfaces%s
+D system.ads		20240808082856 70765b54 system%s
+D s-assert.ads		20240808082856 9c4520c7 system.assertions%s
+D s-exctab.ads		20240808082856 91bef6ef system.exception_table%s
+D s-stalib.ads		20240808082856 1c9580f6 system.standard_library%s
+G a e
+G c Z s b [init_certification_state anubis_certification 152 14 none]
+G c Z s b [apply_certification anubis_certification 162 14 none]
+G c Z s b [verify_certification anubis_certification 180 14 none]
+G c Z s b [check_vc_coverage anubis_certification 192 13 none]
+G c Z s b [upgrade_level anubis_certification 203 14 none]
+G c Z s b [downgrade_level anubis_certification 214 14 none]
+G c Z s b [revoke_certification anubis_certification 222 14 none]
+G c Z s b [get_discount_rate anubis_certification 236 13 none]
+G c Z s b [calculate_discounted_gas anubis_certification 242 13 none]
+G c Z s b [apply_gas_discount anubis_certification 248 14 none]
+G c Z s b [renew_certification anubis_certification 259 14 none]
+G c Z s b [is_expired anubis_certification 268 13 none]
+G c Z s b [get_level anubis_certification 278 13 none]
+G c Z s b [get_deposit anubis_certification 281 13 none]
+G c Z s b [get_total_certified anubis_certification 284 13 none]
+G c Z s b [zeroize_certification_state anubis_certification 291 14 none]
+G c Z s b [zeroize_contract_cert anubis_certification 294 14 none]
+G c Z s s [contract_certificationIP anubis_certification 79 9 none]
+G c Z s s [certification_arrayIP anubis_certification 107 9 none]
+G c Z s s [Tlevel_count_arrayBIP anubis_certification 110 4 none]
+G c Z s s [certification_stateIP anubis_certification 112 9 none]
+X 4 anubis_certification.ads
+22K9*Anubis_Certification 297l5 297e25 5|10b14 436l5 436t25
+30E9*Cert_Level 30e61 33r38 42r37 59r41 81r26 110r37 165r24 205r24 216r24
+. 237r24 244r24 278r62 281r34 5|26r16 41r24 220r24 245r24 295r24 303r24 382r62
+. 387r34 407r16
+30n24*None{30E9} 34r7 43r7 60r7 174r27 5|54r22 138r15 418r21
+30n30*Bronze{30E9} 35r7 44r7 61r7 5|142r15
+30n38*Silver{30E9} 36r7 45r7 62r7 5|146r15
+30n46*Gold{30E9} 37r7 46r7 63r7 5|154r15
+30n52*Platinum{30E9} 38r7 47r7 64r7 5|168r15
+33a4*Level_Discounts(natural) 5|298r14 305r41
+42a4*Level_Deposits(7|84M9) 5|47r50 229r19 229r48 248r45 249r45 389r14
+51E9*Verification_Requirement 57e5 59r56
+52n7*None_Required{51E9} 60r19
+53n7*SPARK_Mode_Enabled{51E9} 61r19
+54n7*All_VCs_Proven{51E9} 62r19
+55n7*Constant_Time_Verified{51E9} 63r19
+56n7*Third_Party_Audited{51E9} 64r19
+59a4*Level_Requirements(51E9)
+71E9*Certification_Status 77e5 82r26 5|349r56
+72n7*Not_Applied{71E9} 5|55r23 419r22
+73n7*Pending_Review{71E9} 5|84r22 131r25
+74n7*Active{71E9} 5|144r28 152r28 166r28 195r28 322r25 349r25 365r22
+75n7*Suspended{71E9} 5|349r78
+76n7*Revoked{71E9} 5|286r22
+79R9*Contract_Certification 105e14 107r60 168r28 181r31 204r31 215r31 224r31
+. 249r31 260r31 269r24 278r31 294r48 5|44r28 120r31 219r31 244r31 261r31
+. 315r31 341r31 371r24 382r31 415r48
+80a7*Contract_Address{6|14A9} 5|53m13 75m12 77r45 78m18 417m12
+81e7*Level{30E9} 212r35 220r31 5|54m13 83m12 137r17 229r69 237m12 248r66
+. 255m12 281r35 282r35 283r38 328r61 384r19 418m12
+82e7*Status{71E9} 5|55m13 84m12 131r15 144m18 152m18 166m18 195m18 286m12
+. 322r15 349r15 349r46 365m12 419m12
+85a7*GNATprove_Hash{6|14A9} 5|56m13 87m12 89r46 90m18 356r46 357m18 420m12
+86m7*VC_Count{7|81M9} 5|57m13 95m12 148r44 156r44 170r44 421m12
+87m7*VCs_Proven{7|81M9} 5|58m13 96m12 148r59 156r59 170r59 422m12
+88a7*CT_Analysis_Hash{6|14A9} 5|59m13 97m12 162r45 163m24 423m12
+89a7*Audit_Report{6|14A9} 5|60m13 98m12 191r48 192m24 424m12
+90a7*Auditor_PK{6|14A9} 5|61m13 99m12 425m12
+93m7*Deposit_Amount{7|84M9} 5|62m13 100m12 238m12 238r35 256m12 256r35 270r33
+. 271m15 271r38 277r39 278r62 426m12
+94b7*Deposit_Locked{boolean} 5|63m13 101m12 287m12 427m12
+97m7*Applied_At{7|84M9} 5|64m13 102m12 199r33 428m12
+98m7*Certified_At{7|84M9} 5|65m13 103m12 199m12 200r31 201r34 429m12
+99m7*Expires_At{7|84M9} 5|66m13 104m12 200m12 363m12 375r36 430m12
+100m7*Last_Verified{7|84M9} 5|67m13 105m12 201m12 364m12 431m12
+103m7*Gas_Saved{7|84M9} 5|68m13 106m12 332m12 332r30 432m12
+104m7*TX_Count{7|84M9} 5|69m13 107m12 333m12 333r29 433m12
+107A9*Certification_Array(79R9)<integer>
+110A9*Level_Count_Array(7|81M9)<30E9> 116r28
+112R9*Certification_State 119e14 153r28 163r31 223r31 284r42 291r55 5|18r28
+. 39r31 260r31 392r42 401r55
+113m7*Total_Certified{7|84M9} 5|22m13 394r20 403m13
+114m7*Total_Deposits{7|84M9} 5|23m13 110m13 110r37 277r16 278m16 278r40 404m13
+115m7*Total_Gas_Saved{7|84M9} 5|24m13 405m13
+116a7*Level_Counts{110A9} 5|27m16 281r16 282m16 283r19 408m16
+117m7*Genesis_Block{7|84M9} 5|30m13 411m13
+118m7*Current_Block{7|84M9} 5|31m13 102r32 412m13
+125E9*Apply_Result 131e5 169r28 5|45r28
+126n7*Applied{125E9} 5|112r17
+127n7*Already_Certified{125E9}
+128n7*Insufficient_Deposit{125E9} 5|51r20
+129n7*Invalid_Contract{125E9}
+130n7*Invalid_Level{125E9}
+133E9*Verify_Result 139e5 186r28 5|125r28
+134n7*Verified{133E9} 5|203r17
+135n7*Verification_Failed{133E9} 5|132r20 139r23
+136n7*Missing_Proofs{133E9} 5|149r26 157r26 171r26
+137n7*Audit_Required{133E9} 5|185r29
+138n7*Expired{133E9}
+141E9*Upgrade_Result 146e5 208r28 5|223r28
+142n7*Upgraded{141E9} 5|240r17
+143n7*Requirements_Not_Met{141E9}
+144n7*Insufficient_Deposit{141E9} 5|232r20
+145n7*Invalid_Upgrade_Path{141E9}
+152U14*Init_Certification_State 153<7 154>7 5|17b14 32l8 32t32
+153r7 State{112R9} 5|18b7 22m7 23m7 24m7 27m10 30m7 31m7
+154m7 Genesis_Block{7|84M9} 5|19b7 30r30 31r30
+162U14*Apply_Certification 163=7 164>7 165>7 166>7 167>7 168<7 169<7 5|38b14
+. 113l8 113t27
+163r7 State{112R9} 5|39b7 102r26 110m7 110r31
+164a7 Contract_Addr{6|14A9} 172r14 5|40b7 76r16 77r17 78r40 79r16
+165e7 Level{30E9} 174r18 5|41b7 47r66 83r21
+166m7 Deposit{7|84M9} 5|42b7 50r10 100r30 110r54
+167a7 GNATprove_Hash{6|14A9} 173r18 5|43b7 88r16 89r17 90r38 91r16
+168r7 Cert{79R9} 5|44b7 52m10 75m7 77r40 78m13 83m7 84m7 87m7 89r41 90m13
+. 95m7 96m7 97m7 98m7 99m7 100m7 101m7 102m7 103m7 104m7 105m7 106m7 107m7
+169e7 Result{125E9} 5|45b7 51m10 112m7
+180U14*Verify_Certification 181=7 182>7 183>7 184>7 185>7 186<7 5|119b14
+. 204l8 204t28
+181r7 Cert{79R9} 5|120b7 131r10 137r12 144m13 148r39 148r54 152m13 156r39
+. 156r54 162r40 163m19 166m13 170r39 170r54 191r43 192m19 195m13 199m7 199r28
+. 200m7 200r26 201m7 201r29
+182a7 Verifier{6|14A9} 189r14 5|121b7 127r28
+183a7 Proof_Hash{6|14A9} 190r18 5|122b7 127r38
+184a7 CT_Hash{6|14A9} 5|123b7 161r22 162r23 163r46 163r64
+185a7 Audit_Hash{6|14A9} 5|124b7 178r25 179r22 190r22 191r23 192r42 192r63
+186e7 Result{133E9} 5|125b7 132m10 139m13 149m16 157m16 171m16 185m19 203m7
+192V13*Check_VC_Coverage{boolean} 193>7 194>7 197r15 5|148s20 156s20 170s20
+. 206b13
+193m7 VC_Count{7|81M9} 197r56 5|207b7 211r27
+194m7 VCs_Proven{7|81M9} 197r43 5|208b7 211r14
+203U14*Upgrade_Level 204=7 205>7 206>7 207>7 208<7 5|218b14 241l8 241t21
+204r7 Cert{79R9} 212r30 5|219b7 229r64 237m7 238m7 238r30
+205e7 New_Level{30E9} 212r18 5|220b7 229r35 237r21
+206m7 Additional_Deposit{7|84M9} 5|221b7 231r10 238r52
+207a7 Additional_Proof{6|14A9} 211r14 5|222b7 226r28
+208e7 Result{141E9} 5|223b7 232m10 240m7
+214U14*Downgrade_Level 215=7 216>7 217<7 5|243b14 257l8 257t23
+215r7 Cert{79R9} 220r26 5|244b7 248r61 255m7 256m7 256r30
+216e7 New_Level{30E9} 220r14 5|245b7 249r61 255r21
+217m7 Refund{7|84M9} 5|246b7 252m7 256r52
+222U14*Revoke_Certification 223=7 224=7 225>7 226>7 227<7 5|259b14 288l8
+. 288t28
+223r7 State{112R9} 5|260b7 277r10 278m10 278r34 281r10 282m10 283r13
+224r7 Cert{79R9} 5|261b7 270r28 271m10 271r33 277r34 278r57 281r30 282r30
+. 283r33 286m7 287m7
+225a7 Reason_Hash{6|14A9} 230r14 5|262b7 266r28
+226b7 Slash{boolean} 5|263b7 268r10
+227m7 Slashed_Amount{7|84M9} 5|264b7 270m10 271r55 273m10
+236V13*Get_Discount_Rate{natural} 237>7 240r15 5|294b13
+237e7 Level{30E9} 5|295b7 298r31
+242V13*Calculate_Discounted_Gas{7|84M9} 243>7 244>7 5|301b13 312l8 312t32
+. 328s20
+243m7 Base_Gas{7|84M9} 5|302b7 309r27 311r14
+244e7 Level{30E9} 5|303b7 305r58
+248U14*Apply_Gas_Discount 249=7 250>7 251<7 5|314b14 334l8 334t26
+249r7 Cert{79R9} 5|315b7 322r10 328r56 332m7 332r25 333m7 333r24
+250m7 Base_Gas{7|84M9} 5|316b7 323r23 328r46 331r16
+251m7 Final_Gas{7|84M9} 5|317b7 323m10 328m7 331r27
+259U14*Renew_Certification 260=7 261>7 262>7 263<7 5|340b14 368l8 368t27
+260r7 Cert{79R9} 5|341b7 349r10 349r41 356r41 357m13 363m7 364m7 365m7
+261a7 New_Proof_Hash{6|14A9} 266r14 5|342b7 355r16 356r17 357r38 358r16
+262m7 Current_Block{7|84M9} 5|343b7 363r26 364r29
+263b7 Success{boolean} 5|344b7 350m10 367m7
+268V13*Is_Expired{boolean} 269>7 270>7 5|370b13 376l8 376t18
+269r7 Cert{79R9} 5|371b7 375r31
+270m7 Current_Block{7|84M9} 5|372b7 375r14
+278V13*Get_Level{30E9} 278>24 5|382b13 385l8 385t17
+278r24 Cert{79R9} 5|382b24 384r14
+281V13*Get_Deposit{7|84M9} 281>26 5|387b13 390l8 390t19
+281e26 Level{30E9} 5|387b26 389r30
+284V13*Get_Total_Certified{7|84M9} 284>34 5|392b13 395l8 395t27
+284r34 State{112R9} 5|392b34 394r14
+291U14*Zeroize_Certification_State 291<43 5|401b14 413l8 413t35
+291r43 State{112R9} 5|401b43 403m7 404m7 405m7 408m10 411m7 412m7
+294U14*Zeroize_Contract_Cert 294<37 5|415b14 434l8 434t29
+294r37 Cert{79R9} 5|415b37 417m7 418m7 419m7 420m7 421m7 422m7 423m7 424m7
+. 425m7 426m7 427m7 428m7 429m7 430m7 431m7 432m7 433m7
+X 5 anubis_certification.adb
+26e11 L{4|30E9} 27r30
+47m7 Required_Deposit{7|84M9} 50r20
+76i11 I{integer} 77r13 78r36 79r31
+88i11 I{integer} 89r13 90r34 91r32
+128N7 Blocks_Per_Year 200r46
+161i17 I{integer} 162r19 163r42 163r73
+176b16 Has_Audit{boolean} 180m22 184r23
+178i20 I{integer} 179r34
+190i17 I{integer} 191r19 192r38 192r75
+225m7 Required{7|84M9} 229m7 231r31
+248m7 Old_Deposit{7|84M9} 252r17
+249m7 New_Deposit{7|84M9} 252r31
+305i7 Discount_BP{natural} 309r51
+306m7 Discount_Amount{7|84M9} 309m7 311r25
+319m7 Saved{7|84M9} 331m7 332r42
+346N7 Blocks_Per_Year 363r42
+355i11 I{integer} 356r13 357r34 358r32
+407e11 L{4|30E9} 408r30
+X 6 anubis_types.ads
+5K9*Anubis_Types 4|20w6 20r24 6|40e17
+13M12*Byte{7|70M9}
+14A9*Byte_Array(13M12)<integer> 4|80r26 85r26 88r26 89r26 90r26 164r24 167r24
+. 182r24 183r24 184r24 185r24 207r28 225r24 261r24 5|40r24 43r24 121r24 122r24
+. 123r24 124r24 222r28 262r24 342r24
+X 7 interfac.ads
+38K9*Interfaces 4|19w6 19r22 7|233e15
+70M9*Unsigned_8
+81M9*Unsigned_32 4|86r26 87r26 110r52 193r24 194r24 5|207r24 208r24
+84M9*Unsigned_64 4|42r52 93r26 97r26 98r26 99r26 100r26 103r26 104r26 113r28
+. 114r28 115r28 117r28 118r28 154r24 166r24 206r28 217r28 227r28 243r24 245r13
+. 250r24 251r28 262r24 270r24 281r53 284r70 5|19r24 42r24 47r35 221r28 225r18
+. 246r28 248r30 249r30 264r28 302r24 304r13 306r25 309r38 316r24 317r28 319r15
+. 343r24 372r24 387r53 392r70
+

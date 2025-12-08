@@ -1,0 +1,291 @@
+[
+{
+  "name": "Khepri_Registry.Certification_Level",
+  "location": "khepri_registry.ads:36:9",
+  "Object_Size": 8,
+  "Value_Size": 3,
+  "Alignment": 1
+}
+,
+{
+  "name": "Khepri_Registry.Auditor_Attestation",
+  "location": "khepri_registry.ads:62:9",
+  "Object_Size": 896,
+  "Value_Size": 840,
+  "Alignment": 8,
+  "record": [
+    {
+      "name": "Auditor",
+      "Position":   0,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Signature",
+      "Position":  32,
+      "First_Bit": 0,
+      "Size": 512
+    },
+    {
+      "name": "Timestamp",
+      "Position":  96,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Valid",
+      "Position": 104,
+      "First_Bit": 0,
+      "Size": 8
+    }
+  ]
+}
+,
+{
+  "name": "Khepri_Registry.Auditor_Array",
+  "location": "khepri_registry.ads:69:9",
+  "Size": 4480,
+  "Alignment": 8,
+  "Component_Size": 896
+}
+,
+{
+  "name": "Khepri_Registry.Registry_Entry",
+  "location": "khepri_registry.ads:72:9",
+  "Size": 6848,
+  "Alignment": 8,
+  "record": [
+    {
+      "name": "Contract_Addr",
+      "Position":   0,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Code_Hash",
+      "Position":  32,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Deployer",
+      "Position":  64,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Level",
+      "Position":  96,
+      "First_Bit": 0,
+      "Size": 8
+    },
+    {
+      "name": "Proof_Hash",
+      "Position":  97,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Wcet_Bound",
+      "Position": 136,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Auditors",
+      "Position": 168,
+      "First_Bit": 0,
+      "Size": 4480
+    },
+    {
+      "name": "Auditor_Count",
+      "Position": 728,
+      "First_Bit": 0,
+      "Size": 32
+    },
+    {
+      "name": "Registered_At",
+      "Position": 736,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Updated_At",
+      "Position": 744,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Revoked",
+      "Position": 752,
+      "First_Bit": 0,
+      "Size": 8
+    },
+    {
+      "name": "Revoked_Reason",
+      "Position": 753,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Call_Count",
+      "Position": 792,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Gas_Saved",
+      "Position": 824,
+      "First_Bit": 0,
+      "Size": 256
+    }
+  ]
+}
+,
+{
+  "name": "Khepri_Registry.Null_Entry",
+  "location": "khepri_registry.ads:99:4",
+  "Size": 6848,
+  "Alignment": 8
+}
+,
+{
+  "name": "Khepri_Registry.Registry_Error",
+  "location": "khepri_registry.ads:125:9",
+  "Object_Size": 8,
+  "Value_Size": 4,
+  "Alignment": 1
+}
+,
+{
+  "name": "Khepri_Registry.Registration_Event",
+  "location": "khepri_registry.ads:324:9",
+  "Size": 832,
+  "Alignment": 8,
+  "record": [
+    {
+      "name": "Contract",
+      "Position":  0,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Code_Hash",
+      "Position": 32,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Deployer",
+      "Position": 64,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Timestamp",
+      "Position": 96,
+      "First_Bit": 0,
+      "Size": 64
+    }
+  ]
+}
+,
+{
+  "name": "Khepri_Registry.Certification_Event",
+  "location": "khepri_registry.ads:331:9",
+  "Size": 640,
+  "Alignment": 8,
+  "record": [
+    {
+      "name": "Contract",
+      "Position":  0,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Old_Level",
+      "Position": 32,
+      "First_Bit": 0,
+      "Size": 8
+    },
+    {
+      "name": "New_Level",
+      "Position": 33,
+      "First_Bit": 0,
+      "Size": 8
+    },
+    {
+      "name": "Proof_Hash",
+      "Position": 34,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Timestamp",
+      "Position": 72,
+      "First_Bit": 0,
+      "Size": 64
+    }
+  ]
+}
+,
+{
+  "name": "Khepri_Registry.Revocation_Event",
+  "location": "khepri_registry.ads:339:9",
+  "Size": 832,
+  "Alignment": 8,
+  "record": [
+    {
+      "name": "Contract",
+      "Position":  0,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Reason",
+      "Position": 32,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Revoker",
+      "Position": 64,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Timestamp",
+      "Position": 96,
+      "First_Bit": 0,
+      "Size": 64
+    }
+  ]
+}
+,
+{
+  "name": "Khepri_Registry.Audit_Event",
+  "location": "khepri_registry.ads:346:9",
+  "Size": 576,
+  "Alignment": 8,
+  "record": [
+    {
+      "name": "Contract",
+      "Position":  0,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Auditor",
+      "Position": 32,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Timestamp",
+      "Position": 64,
+      "First_Bit": 0,
+      "Size": 64
+    }
+  ]
+}
+]

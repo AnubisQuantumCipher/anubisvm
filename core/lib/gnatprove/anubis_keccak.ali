@@ -1,0 +1,153 @@
+V "GNAT Lib v14"
+A -x
+A ada
+A -gnatA
+A -gnat2022
+A -gnatwa
+A -gnatyO
+A -gnatVa
+A -gnatw.F
+A -gnata
+A -O2
+A -gnatn
+A -ffunction-sections
+A -fdata-sections
+A -gnatc
+A -fPIC
+P GP
+
+RN
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_ELABORATION_CODE
+
+U anubis_keccak%b	anubis_keccak.adb	68d297b3 OO PK
+
+U anubis_keccak%s	anubis_keccak.ads	88a5c868 OO PK
+W interfaces%s		interfac.ads		interfac.ali
+
+D anubis_keccak.ads	20251203171810 19b431a9 anubis_keccak%s
+D anubis_keccak.adb	20251203171933 7166a61a anubis_keccak%b
+D interfac.ads		20240601155135 9111f9c1 interfaces%s
+D system.ads		20240601155135 70765b54 system%s
+G a Z
+X 1 anubis_keccak.ads
+16K9*Anubis_Keccak 107l5 107e18 2|3b14 150l5 150t18
+22M9*Lane 24r58 29r57 2|12r33 13r33 32r34 32r42 56r32 96r35 119r36 120r37
+. 121r36
+23I9*Lane_Index<short_short_integer> 24r31 24r43 42r37 42r49 2|12r18 13r18
+. 16r16 17r38 23r16 24r38 29r34 30r34 37r22 38r44 48r16 49r38 50r19 51r41
+. 68r16 69r38 70r19 71r41 79r35 79r49 80r35 96r20 98r16 99r38 102r19 103r41
+. 110r19 111r41 114r36 115r36
+24A9*State_Array(22M9)<23I9><23I9> 54r36 61r34 68r33 88r34 95r35 102r39 2|11r36
+. 46r34 65r33 66r14 95r34 131r35 137r39
+28I9*Round_Index<short_short_integer> 29r41 95r56 2|131r56 139r20 140r42
+29A9*Round_Constants_Array(22M9)<28I9> 31r31
+31a4*Round_Constants{29A9} 2|133r40
+42A9*Rho_Offsets_Array(natural)<23I9><23I9> 44r27
+44a4*Rho_Offsets{42A9} 2|54r76
+54U14*Theta 54=21 2|11b14 43l8 43t13 142s10
+54a21 State{24A9} 2|11b21 18r19 18r36 18r53 19r19 19r36 39m16 39r32
+61U14*Rho 61=19 2|46b14 60l8 60t11 143s10
+61a19 State{24A9} 2|46b19 53r67 56m16
+68U14*Pi 68=18 2|65b14 86l8 86t10 144s10
+68a18 State{24A9} 2|65b18 66r29 82m16
+88U14*Chi 88=19 2|95b14 128l8 128t11 145s10
+88a19 State{24A9} 2|95b19 104r24 124m16
+95U14*Iota 95=20 95>48 2|131b14 134l8 134t12 146s10
+95a20 State{24A9} 2|131b20 133m7 133r23
+95i48 Round{28I9} 2|131b48 133r57
+102U14*Keccak_F 102=24 2|137b14 148l8 148t16
+102a24 State{24A9} 2|137b24 142m17 143m15 144m14 145m15 146m16
+X 2 anubis_keccak.adb
+12a7 C(1|22M9) 18m10 31r62 34r22
+13a7 D(1|22M9) 34m13 39r49
+16i11 X{1|23I9} 17r33 18r13 18r26 18r43 18r60 19r26 19r43
+23i11 X{1|23I9} 24r33 29r52 29r70 30r52 30r70 34r16 39r23 39r39 39r52
+29i13 X_Minus_1{1|23I9} 34r25
+30i13 X_Plus_1{1|23I9} 31r65
+31m13 C_As_U64{3|84M9} 32r61
+32m13 C_Rotated{1|22M9} 34r40
+37i17 Y{1|23I9} 38r39 39r26 39r42
+48i11 X{1|23I9} 49r33 53r74 54r89 56r23
+50i14 Y{1|23I9} 51r36 53r77 54r92 56r26
+53m16 Lane_As_U64{3|84M9} 54r63
+54m16 Rotated{3|84M9} 56r38
+66a7 Temp{1|24A9} 82r32
+68i11 X{1|23I9} 69r33 78r60 80r49 82r23
+70i14 Y{1|23I9} 71r36 77r59 82r26
+77i16 Three_Y{natural} 78r65
+78i16 X_Prime_Nat{natural} 79r61
+79i16 X_Prime{1|23I9} 82r38
+80i16 Y_Prime{1|23I9} 82r47
+96a7 Row(1|22M9) 104m13 119r48 120r45 124r32
+98i11 Y{1|23I9} 99r33 104r34 124r26
+102i14 X{1|23I9} 103r36 104r18 104r31
+110i14 X{1|23I9} 111r36 114r54 114r72 115r56 124r23 124r37
+114i16 X_Plus_1{1|23I9} 119r53
+115i16 X_Plus_2{1|23I9} 120r50
+119m16 Not_Next{1|22M9} 121r44
+120m16 Next_Next{1|22M9} 121r57
+121m16 Chi_Term{1|22M9} 124r44
+139i11 Round{1|28I9} 140r33 146r23
+X 3 interfac.ads
+38K9*Interfaces 1|3w6 3r22 3|233e15
+84M9*Unsigned_64 2|31r34 31r49 53r39 53r54 54r35
+181V13*Rotate_Left{84M9} 2|32s48 54s50
+
+QQ SPARKVERSION 0.0w
+GG EK_DIRECT_CALLS anubis_keccak__theta 1 interfaces__rotate_left__4
+GG EK_PROOF_DEPENDENCIES anubis_keccak__theta 0
+GG EK_GLOBALS anubis_keccak__theta local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 anubis_keccak proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_keccak__rho 1 interfaces__rotate_left__4
+GG EK_PROOF_DEPENDENCIES anubis_keccak__rho 0
+GG EK_GLOBALS anubis_keccak__rho local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 anubis_keccak proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_keccak__pi 0
+GG EK_PROOF_DEPENDENCIES anubis_keccak__pi 0
+GG EK_GLOBALS anubis_keccak__pi local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 anubis_keccak proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_keccak__chi 0
+GG EK_PROOF_DEPENDENCIES anubis_keccak__chi 0
+GG EK_GLOBALS anubis_keccak__chi local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 anubis_keccak proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_keccak__iota 0
+GG EK_PROOF_DEPENDENCIES anubis_keccak__iota 0
+GG EK_GLOBALS anubis_keccak__iota local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 anubis_keccak proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_keccak__keccak_f 5 anubis_keccak__theta anubis_keccak__rho anubis_keccak__pi anubis_keccak__chi anubis_keccak__iota
+GG EK_PROOF_DEPENDENCIES anubis_keccak__keccak_f 0
+GG EK_GLOBALS anubis_keccak__keccak_f local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 anubis_keccak proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_keccak 0
+GG EK_PROOF_DEPENDENCIES anubis_keccak 0
+GG EK_GLOBALS anubis_keccak local FALSE E_PACKAGE TRUE ORIGIN_FLOW 0 proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 initializes 0 refined_initializes 0 calls_proof 0 calls 0 calls_conditional 0 local_packages 0 local_var 0 TRUE FALSE FALSE FALSE FALSE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_FLOW_SCOPE interfaces__rotate_left__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_keccak__pi FALSE FALSE FALSE FALSE TRUE anubis_keccak VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_keccak__keccak_f FALSE FALSE FALSE FALSE TRUE anubis_keccak VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_keccak__chi FALSE FALSE FALSE FALSE TRUE anubis_keccak VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_keccak TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE anubis_keccak__theta FALSE FALSE FALSE FALSE TRUE anubis_keccak VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE interfaces__rotate_right__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_keccak__iota FALSE FALSE FALSE FALSE TRUE anubis_keccak VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_keccak__rho FALSE FALSE FALSE FALSE TRUE anubis_keccak VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_END_MARKER

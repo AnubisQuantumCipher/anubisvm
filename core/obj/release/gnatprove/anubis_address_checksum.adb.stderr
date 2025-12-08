@@ -1,0 +1,100 @@
+anubis_address_checksum.adb:23:37: info: range check proved
+anubis_address_checksum.adb:26:16: info: length check proved
+anubis_address_checksum.adb:30:33: info: loop invariant initialization proved
+anubis_address_checksum.adb:30:33: info: loop invariant preservation proved
+anubis_address_checksum.adb:31:33: info: loop invariant initialization proved
+
+anubis_address_checksum.adb:31:33: medium: loop invariant might not be preserved by an arbitrary iteration
+   31 |         pragma Loop_Invariant (Pos < Preimage'Last);
+      |                                ^~~~~~~~~~~~~~~~~~~
+anubis_address_checksum.adb:32:20: info: index check proved
+anubis_address_checksum.adb:33:21: info: overflow check proved
+anubis_address_checksum.adb:37:17: info: index check proved
+
+anubis_address_checksum.adb:38:18: medium: overflow check might fail
+   38 |      Pos := Pos + 1;
+      |             ~~~~^~~
+  reason for check: result of addition must fit in a 32-bits machine integer
+anubis_address_checksum.adb:42:33: info: loop invariant preservation proved
+anubis_address_checksum.adb:42:33: info: loop invariant initialization proved
+
+anubis_address_checksum.adb:43:33: medium: loop invariant might not be preserved by an arbitrary iteration
+   43 |         pragma Loop_Invariant (Pos < Preimage'Last);
+      |                                ^~~~~~~~~~~~~~~~~~~
+
+anubis_address_checksum.adb:43:33: medium: loop invariant might fail in first iteration
+   43 |         pragma Loop_Invariant (Pos < Preimage'Last);
+      |                                ^~~~~~~~~~~~~~~~~~~
+anubis_address_checksum.adb:44:20: info: index check proved
+anubis_address_checksum.adb:44:37: info: index check proved
+anubis_address_checksum.adb:45:21: info: overflow check proved
+anubis_address_checksum.adb:49:17: info: index check proved
+
+anubis_address_checksum.adb:50:18: medium: overflow check might fail
+   50 |      Pos := Pos + 1;
+      |             ~~~~^~~
+  reason for check: result of addition must fit in a 32-bits machine integer
+
+anubis_address_checksum.adb:53:17: medium: array index check might fail
+   53 |      Preimage (Pos) := Ent_Char;
+      |                ^~~
+  reason for check: value must be a valid index into the array
+
+anubis_address_checksum.adb:54:18: medium: overflow check might fail
+   54 |      Pos := Pos + 1;
+      |             ~~~~^~~
+  reason for check: result of addition must fit in a 32-bits machine integer
+
+anubis_address_checksum.adb:57:17: medium: array index check might fail
+   57 |      Preimage (Pos) := ':';
+      |                ^~~
+  reason for check: value must be a valid index into the array
+
+anubis_address_checksum.adb:58:18: medium: overflow check might fail
+   58 |      Pos := Pos + 1;
+      |             ~~~~^~~
+  reason for check: result of addition must fit in a 32-bits machine integer
+anubis_address_checksum.adb:62:33: info: loop invariant initialization proved
+anubis_address_checksum.adb:62:33: info: loop invariant preservation proved
+
+anubis_address_checksum.adb:63:33: medium: loop invariant might not be preserved by an arbitrary iteration
+   63 |         pragma Loop_Invariant (Pos < Preimage'Last);
+      |                                ^~~~~~~~~~~~~~~~~~~
+
+anubis_address_checksum.adb:63:33: medium: loop invariant might fail in first iteration
+   63 |         pragma Loop_Invariant (Pos < Preimage'Last);
+      |                                ^~~~~~~~~~~~~~~~~~~
+anubis_address_checksum.adb:64:20: info: index check proved
+anubis_address_checksum.adb:65:21: info: overflow check proved
+anubis_address_checksum.adb:68:21: info: overflow check proved
+anubis_address_checksum.adb:68:21: info: range check proved
+anubis_address_checksum.adb:79:07: info: initialization of "Preimage_Str" proved
+anubis_address_checksum.adb:80:07: info: initialization of "Preimage_Length" proved
+anubis_address_checksum.adb:84:07: info: initialization of "Digest" proved
+anubis_address_checksum.adb:87:07: info: precondition proved
+anubis_address_checksum.adb:91:33: info: loop invariant preservation proved
+anubis_address_checksum.adb:91:33: info: loop invariant initialization proved
+anubis_address_checksum.adb:92:26: info: index check proved
+anubis_address_checksum.adb:92:63: info: overflow check proved
+anubis_address_checksum.adb:92:63: info: index check proved
+anubis_address_checksum.adb:96:07: info: precondition proved
+
+anubis_address_checksum.adb:96:17: medium: "Preimage_Bytes" might not be initialized
+   96 |      SHA3_256 (Preimage_Bytes (0 .. Preimage_Length - 1), Digest);
+      |                ^~~~~~~~~~~~~~
+anubis_address_checksum.adb:96:17: info: range check proved
+anubis_address_checksum.adb:111:07: info: initialization of "Computed" proved
+
+anubis_address_checksum.ads:35:07: medium: "Checksum" might not be initialized in "Compute_Checksum"
+   35 |      Checksum  : out Checksum_Bytes
+      |      ^~~~~~~~
+  reason for check: OUT parameter should be fully initialized on return
+  possible fix: initialize "Checksum" on all paths, make "Checksum" an IN OUT parameter or annotate it with aspect Relaxed_Initialization
+anubis_address_checksum.ads:37:07: info: data dependencies proved
+anubis_address_checksum.ads:41:13: info: implicit aspect Always_Terminates on "Verify_Checksum" has been proved, subprogram will terminate
+anubis_address_checksum.ads:47:07: info: data dependencies proved
+anubis_address_checksum.ads:60:07: info: initialization of "Preimage" proved
+anubis_address_checksum.ads:61:07: info: initialization of "Length" proved
+anubis_address_checksum.ads:63:07: info: data dependencies proved
+anubis_address_checksum.ads:65:17: info: postcondition proved
+anubis_address_checksum.ads:65:35: info: range check proved

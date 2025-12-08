@@ -1,0 +1,85 @@
+[
+{
+  "name": "Anubis_Genesis_Validators.Check_Regional_Balance.Count",
+  "location": "anubis_genesis_validators.adb:134:7",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Anubis_Genesis_Validators.Check_Regional_Balance.Max_Per_Region",
+  "location": "anubis_genesis_validators.adb:135:7",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Anubis_Genesis_Validators.Register_Validator.Slot",
+  "location": "anubis_genesis_validators.adb:161:7",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Anubis_Genesis_Validators.Register_Validator.Found_Slot",
+  "location": "anubis_genesis_validators.adb:162:7",
+  "Size": 8,
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Genesis_Validators.Slash_Double_Sign.Slash_Amount",
+  "location": "anubis_genesis_validators.adb:404:7",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Anubis_Genesis_Validators.Slash_Downtime.Slash_Amount",
+  "location": "anubis_genesis_validators.adb:454:7",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Anubis_Genesis_Validators.Find_Validator.B_9.Match",
+  "location": "anubis_genesis_validators.adb:553:13",
+  "Size": 8,
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Genesis_Validators.Register_Open_Entry.Slot",
+  "location": "anubis_genesis_validators.adb:641:7",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Anubis_Genesis_Validators.Register_Open_Entry.Found_Slot",
+  "location": "anubis_genesis_validators.adb:642:7",
+  "Size": 8,
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Genesis_Validators.Serialize_Validator_Set.Idx",
+  "location": "anubis_genesis_validators.adb:712:7",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Anubis_Genesis_Validators.Serialize_Validator_Set.Write_U64.V",
+  "location": "anubis_genesis_validators.adb:715:10",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Anubis_Genesis_Validators.Deserialize_Validator_Set.Idx",
+  "location": "anubis_genesis_validators.adb:766:7",
+  "Size": 32,
+  "Alignment": 4
+}
+]

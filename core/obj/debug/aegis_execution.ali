@@ -1,0 +1,324 @@
+V "GNAT Lib v14"
+A -O0
+A -gnatA
+A -gnat2022
+A -gnatwa
+A -gnatyO
+A -gnatVa
+A -gnatw.F
+A -gnata
+A -g
+A -gnateE
+A -gnatVa
+A -mmacosx-version-min=16.0.0
+A -mcpu=apple-m1
+A -mlittle-endian
+A -mabi=lp64
+A -fPIC
+P ZX
+
+RN
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+
+U aegis_execution%b	aegis_execution.adb	6136b6c6 NE OO PK
+W aegis_u256%s		aegis_u256.adb		aegis_u256.ali
+Z system.assertions%s	s-assert.adb		s-assert.ali
+
+U aegis_execution%s	aegis_execution.ads	07e7bc30 EE NE OO PK
+W aegis_contract%s	aegis_contract.adb	aegis_contract.ali
+W aegis_gas%s		aegis_gas.adb		aegis_gas.ali
+W aegis_sandbox%s	aegis_sandbox.adb	aegis_sandbox.ali
+W aegis_storage%s	aegis_storage.adb	aegis_storage.ali
+W aegis_vm_types%s	aegis_vm_types.ads	aegis_vm_types.ali
+
+D ada.ads		20240808082856 76789da1 ada%s
+D a-assert.ads		20240808082856 ba465f5c ada.assertions%s
+D a-unccon.ads		20240808082856 0e9b276f ada.unchecked_conversion%s
+D aegis_contract.ads	20251206064439 f406fabe aegis_contract%s
+D aegis_execution.ads	20251205185008 2e21913e aegis_execution%s
+D aegis_execution.adb	20251206060333 b03ad9b3 aegis_execution%b
+D aegis_gas.ads		20251206065225 82d2336c aegis_gas%s
+D aegis_sandbox.ads	20251206064420 f4bbcbbc aegis_sandbox%s
+D aegis_storage.ads	20251205184403 77782eb9 aegis_storage%s
+D aegis_u256.ads	20251205185917 ff2dfe4b aegis_u256%s
+D aegis_vm_types.ads	20251205185836 dcd101d9 aegis_vm_types%s
+D interfac.ads		20240808082856 9111f9c1 interfaces%s
+D system.ads		20240808082856 70765b54 system%s
+D s-assert.ads		20240808082856 9c4520c7 system.assertions%s
+D s-exctab.ads		20240808082856 91bef6ef system.exception_table%s
+D s-stalib.ads		20240808082856 1c9580f6 system.standard_library%s
+G a e
+G c Z s b [create_context aegis_execution 75 13 none]
+G c Z s b [enter_call aegis_execution 87 14 none]
+G c Z s b [exit_call aegis_execution 99 14 none]
+G c Z s b [current_depth aegis_execution 107 13 none]
+G c Z s b [take_snapshot aegis_execution 115 14 none]
+G c Z s b [commit_snapshot aegis_execution 123 14 none]
+G c Z s b [rollback_to_snapshot aegis_execution 130 14 none]
+G c Z s b [use_gas aegis_execution 141 14 none]
+G c Z s b [gas_remaining aegis_execution 149 13 none]
+G c Z s b [refund aegis_execution 153 14 none]
+G c Z s b [storage_load aegis_execution 164 14 none]
+G c Z s b [storage_store aegis_execution 174 14 none]
+G c Z s b [get_balance aegis_execution 184 13 none]
+G c Z s b [transfer_value aegis_execution 191 14 none]
+G c Z s b [get_caller aegis_execution 205 13 none]
+G c Z s b [get_address aegis_execution 209 13 none]
+G c Z s b [get_call_value aegis_execution 213 13 none]
+G c Z s b [get_origin aegis_execution 217 13 none]
+G c Z s b [get_block_number aegis_execution 221 13 none]
+G c Z s b [get_timestamp aegis_execution 225 13 none]
+G c Z s b [get_chain_id aegis_execution 229 13 none]
+G c Z s b [emit_log aegis_execution 237 14 none]
+G c Z s b [finalize_success aegis_execution 253 14 none]
+G c Z s b [finalize_revert aegis_execution 261 14 none]
+G c Z s b [finalize_failure aegis_execution 269 14 none]
+G c Z s s [execution_contextIP aegis_execution 49 9 none]
+G r c none [create_context aegis_execution 75 13 none] [initial_gas_context aegis_vm_types 121 13 none]
+G r c none [use_gas aegis_execution 141 14 none] [consume_gas_discounted aegis_gas 160 14 none]
+G r c none [gas_remaining aegis_execution 149 13 none] [remaining_gas aegis_gas 169 13 none]
+G r c none [storage_load aegis_execution 164 14 none] [consume_gas_discounted aegis_gas 160 14 none]
+G r c none [storage_store aegis_execution 174 14 none] [consume_gas_discounted aegis_gas 160 14 none]
+G r c none [emit_log aegis_execution 237 14 none] [gas_log aegis_gas 216 13 none]
+G r c none [emit_log aegis_execution 237 14 none] [consume_gas_discounted aegis_gas 160 14 none]
+X 4 aegis_contract.ads
+28K9*Aegis_Contract 276e19 5|7w6 7r26 255r28 6|375r28
+70R9*Return_Data 75e14 5|255r43 6|375r43
+127A9*Event_Topic<11|56A9>(11|31M12)<integer>
+130N4*Max_Topics 5|246r32
+133A9*Topic_Array(127A9)<132I9> 5|239r27 6|342r27
+X 5 aegis_execution.ads
+32K9*Aegis_Execution 277l5 277e20 6|5b14 411l5 411t20
+41E9*Execution_Mode 46e5 58r22
+42n7*Mode_Normal{41E9} 6|29r19
+43n7*Mode_Static{41E9} 6|254r21 288r21 352r21
+44n7*Mode_Delegate{41E9}
+45n7*Mode_Create{41E9}
+49R9*Execution_Context 68e14 83r13 88r26 100r26 107r34 116r24 124r20 131r20
+. 142r24 149r34 154r23 165r24 175r24 185r17 192r24 205r31 209r32 213r35 217r31
+. 221r37 225r34 229r33 238r27 254r28 262r28 270r23 6|21r13 22r13 68r26 113r26
+. 131r34 141r24 165r20 176r20 197r24 205r34 211r23 223r24 245r24 271r17 280r24
+. 301r31 306r32 311r35 316r31 321r37 326r34 331r33 341r27 374r28 386r28 399r23
+51a7*Origin{11|70A9} 6|24m11 318r18
+52r7*Gas_Price{11|41R9} 6|25m11
+53r7*Block_Number{11|41R9} 6|26m11 323r18
+54r7*Timestamp{11|41R9} 6|27m11 328r18
+55r7*Chain_ID{11|41R9} 6|28m11 333r18
+58e7*Mode{41E9} 6|29m11 254r14 288r14 352r14
+59r7*Sandbox{8|127R9} 6|34m11 41m11 42m11 43m11 44m11 47m11 48m11 49m11 50m11
+. 51m11 52m11 53m11 54m11 55m11 56m11 57m11 79r14 92r26 105m11 105r31 106m11
+. 106r32 107m11 118r14 119r26 120m14 120r35 122r17 123m17 124r20 124r40 133r18
+. 155r28 186m17 202m35 207r33 303r18 308r18 313r18 380r30 382m11 392r30 394m11
+. 405r30 407m11
+62r7*Effects{9|119R9} 6|60m11 61m11 62m11 154r32 185m17 215m11 215r37 395m11
+. 408m11
+63a7*Snapshots{9|212A9} 6|158m11 171m14 182r22
+64i7*Snapshot_Depth{natural} 6|31m11 147r14 153r35 158r26 160m11 160r33 170r29
+. 181r29 187m17
+67e7*Certification{11|84E9} 6|30m11
+75V13*Create_Context{49R9} 76>7 77>7 78>7 79>7 80>7 81>7 82>7 6|13b13 65l8
+. 65t22
+76a7 Origin{11|70A9} 6|14b7 24r21 47r43 48r43
+77i7 Gas_Limit{11|101I9} 6|15b7 35r19 50r46
+78r7 Gas_Price{11|41R9} 6|16b7 25r24 36r19
+79r7 Block_Number{11|41R9} 6|17b7 26r27
+80r7 Timestamp{11|41R9} 6|18b7 27r24
+81r7 Chain_ID{11|41R9} 6|19b7 28r23
+82e7 Certification{11|84E9} 6|20b7 30r28 37r19
+87U14*Enter_Call 88=7 89>7 90>7 91>7 92>7 93>7 94<7 6|67b14 110l8 110t18
+88r7 Ctx{49R9} 6|68b7 79r10 92r22 105m7 105r27 106m7 106r28 107m7
+89a7 Caller{11|70A9} 6|69b7 85r23
+90a7 Callee{11|70A9} 6|70b7 86r23
+91r7 Value{11|41R9} 6|71b7 87r22
+92i7 Gas_Limit{11|101I9} 6|72b7 88r26
+93e7 Call_Kind{11|178E9} 6|73b7 93r26 94r27 97r12
+94b7 Success{boolean} 6|74b7 80m10 109m7
+99U14*Exit_Call 100=7 101>7 102<7 6|112b14 129l8 129t17
+100r7 Ctx{49R9} 6|113b7 118r10 119r22 120m10 120r31 122r13 123m13 124r16
+. 124r36
+101b7 Success{boolean} 6|114b7
+102i7 Gas_Used{11|101I9} 6|115b7 119m10 127m10
+107V13*Current_Depth{11|188I9} 107>28 6|131b13 134l8 134t21
+107r28 Ctx{49R9} 6|131b28 133r14
+115U14*Take_Snapshot 116=7 117<7 118<7 6|140b14 162l8 162t21
+116r7 Ctx{49R9} 6|141b7 147r10 153r31 154r28 155r24 158m7 158r22 160m7 160r29
+117i7 ID{9|201I9} 6|142b7 148m10 159m7
+118b7 Success{boolean} 6|143b7 149m10 161m7
+123U14*Commit_Snapshot 124=7 125>7 6|164b14 173l8 173t23
+124r7 Ctx{49R9} 6|165b7 170r25 171m10
+125i7 ID{9|201I9} 6|166b7 170r19 171r34
+130U14*Rollback_To_Snapshot 131=7 132>7 6|175b14 190l8 190t28
+131r7 Ctx{49R9} 6|176b7 181r25 182r18 185m13 186m13 187m13
+132i7 ID{9|201I9} 6|177b7 181r19 182r42 187r44
+141U14*Use_Gas 142=7 143>7 144<7 6|196b14 203l8 203t15 232s7 260s7 359s7
+142r7 Ctx{49R9} 6|197b7 202m31 202r31
+143i7 Amount{11|101I9} 6|198b7 202r48
+144b7 Success{boolean} 6|199b7 202m56
+149V13*Gas_Remaining{11|101I9} 149>28 6|205b13 208l8 208t21
+149r28 Ctx{49R9} 6|205b28 207r29
+153U14*Refund 154=7 155>7 6|210b14 216l8 216t14
+154r7 Ctx{49R9} 6|211b7 215m7 215r33
+155i7 Amount{11|101I9} 6|212b7 215r58
+164U14*Storage_Load 165=7 166>7 167>7 168<7 169<7 6|222b14 242l8 242t20
+165r7 Ctx{49R9} 6|223b7 232m16
+166a7 Address{11|70A9} 6|224b7
+167r7 Key{11|161R9} 6|225b7
+168r7 Value{11|162R9} 6|226b7 234m10 240m7
+169b7 Success{boolean} 6|227b7 235m10 241m7
+174U14*Storage_Store 175=7 176>7 177>7 178>7 179<7 6|244b14 268l8 268t21
+175r7 Ctx{49R9} 6|245b7 254r10 260m16
+176a7 Address{11|70A9} 6|246b7
+177r7 Key{11|161R9} 6|247b7
+178r7 Value{11|162R9} 6|248b7
+179b7 Success{boolean} 6|249b7 255m10 262m10 267m7
+184V13*Get_Balance{11|41R9} 185>7 186>7 6|270b13 277l8 277t19
+185r7 Ctx{49R9} 6|271b7
+186a7 Address{11|70A9} 6|272b7
+191U14*Transfer_Value 192=7 193>7 194>7 195>7 196<7 6|279b14 295l8 295t22
+192r7 Ctx{49R9} 6|280b7 288r10
+193a7 From{11|70A9} 6|281b7
+194a7 To{11|70A9} 6|282b7
+195r7 Amount{11|41R9} 6|283b7
+196b7 Success{boolean} 6|284b7 289m10 294m7
+205V13*Get_Caller{11|70A9} 205>25 6|301b13 304l8 304t18
+205r25 Ctx{49R9} 6|301b25 303r14
+209V13*Get_Address{11|70A9} 209>26 6|306b13 309l8 309t19
+209r26 Ctx{49R9} 6|306b26 308r14
+213V13*Get_Call_Value{11|41R9} 213>29 6|311b13 314l8 314t22
+213r29 Ctx{49R9} 6|311b29 313r14
+217V13*Get_Origin{11|70A9} 217>25 6|316b13 319l8 319t18
+217r25 Ctx{49R9} 6|316b25 318r14
+221V13*Get_Block_Number{11|41R9} 221>31 6|321b13 324l8 324t24
+221r31 Ctx{49R9} 6|321b31 323r14
+225V13*Get_Timestamp{11|41R9} 225>28 6|326b13 329l8 329t21
+225r28 Ctx{49R9} 6|326b28 328r14
+229V13*Get_Chain_ID{11|41R9} 229>27 6|331b13 334l8 334t20
+229r27 Ctx{49R9} 6|331b27 333r14
+237U14*Emit_Log 238=7 239>7 240>7 241>7 242>7 243<7 6|340b14 367l8 367t16
+238r7 Ctx{49R9} 6|341b7 352r10 359m16
+239a7 Topics{4|133A9} 6|342b7
+240i7 Topic_Count{natural} 246r17 6|343b7 358r28
+241a7 Data{8|237A9} 6|344b7
+242i7 Data_Size{natural} 6|345b7 358r41
+243b7 Success{boolean} 6|346b7 353m10 361m10 366m7
+253U14*Finalize_Success 254=7 255>7 256<7 6|373b14 383l8 383t24
+254r7 Ctx{49R9} 6|374b7 380r26 382m7
+255r7 Return_Data{4|70R9} 6|375b7
+256r7 Result{11|206R9} 6|376b7 379m7 380m7 381m7
+261U14*Finalize_Revert 262=7 263>7 264<7 6|385b14 396l8 396t23
+262r7 Ctx{49R9} 6|386b7 392r26 394m7 395m7
+263a7 Revert_Data{11|56A9} 6|387b7 393r29
+264r7 Result{11|206R9} 6|388b7 391m7 392m7 393m7
+269U14*Finalize_Failure 270=7 271>7 272<7 6|398b14 409l8 409t24
+270r7 Ctx{49R9} 6|399b7 405r26 407m7 408m7
+271e7 Status{11|195E9} 275r17 6|400b7 404r24
+272r7 Result{11|206R9} 6|401b7 404m7 405m7 406m7
+X 6 aegis_execution.adb
+22r7 Ctx{5|49R9} 24m7 25m7 26m7 27m7 28m7 29m7 30m7 31m7 34m7 41m7 42m7 43m7
+. 44m7 47m7 48m7 49m7 50m7 51m7 52m7 53m7 54m7 55m7 56m7 57m7 60m7 61m7 62m7
+. 64r14
+76r7 Frame{8|106R9} 85m7 86m7 87m7 88m7 89m7 90m7 91m7 92m7 93m7 94m7 99m13
+. 101m13 105r49 107r36
+145r7 Snap{9|204R9} 153m7 154m7 155m7 156m7 158r45 159r13
+179r7 Snap{9|204R9} 182m10 183r13 185r41 186r41
+229b7 Gas_Ok{boolean} 232m32 233r14
+251b7 Gas_Ok{boolean} 260m37 261r14
+348b7 Gas_Ok{boolean} 359m31 360r14
+349i7 Gas_Cost{11|101I9} 358m7 359r21
+X 7 aegis_gas.ads
+30K9*Aegis_Gas 5|5w6 5r21 7|246e14
+88i4*Gas_SLoad{11|101I9} 6|232r21
+89i4*Gas_SStore_Set{11|101I9} 6|260r21
+160U14*Consume_Gas_Discounted 6|202s7
+169V13*Remaining_Gas{11|101I9} 6|207s14
+216V13*Gas_Log{11|101I9} 6|358s19
+X 8 aegis_sandbox.ads
+27K9*Aegis_Sandbox 5|6w6 6r25 8|307e18
+98n7*Sandbox_Running{97E9} 6|41r29
+100n7*Sandbox_Returned{97E9} 6|382r29
+101n7*Sandbox_Reverted{97E9} 6|394r29
+102n7*Sandbox_Error{97E9} 6|407r29
+106R9*Call_Frame 6|76r15 8|118e14
+107a7*Caller{11|70A9} 6|47m33 85m13 303r40
+108a7*Callee{11|70A9} 6|48m33 86m13 308r40
+109r7*Value{11|41R9} 6|49m33 87m13 313r40
+110i7*Gas_Limit{11|101I9} 6|50m33 88m13
+111i7*Gas_Used{11|101I9} 6|51m33 89m13 119r48
+112a7*Call_Data{11|56A9} 6|52m33 90m13
+113a7*Return_Data{11|56A9} 6|53m33 91m13
+114i7*Depth{11|188I9} 6|54m33 92m13
+115e7*Call_Kind{11|178E9} 6|55m33 93m13
+116a7*Capabilities{11|263A9} 6|56m33 99m19 101m19
+117b7*Is_Static{boolean} 6|57m33 94m13
+124A9*Call_Stack(106R9)<11|188I9>
+127R9*Sandbox_Context 5|59r22 8|151e14
+129e7*Status{97E9} 6|41m19 382m19 394m19 407m19
+130r7*Current_Frame{106R9} 6|47m19 48m19 49m19 50m19 51m19 52m19 53m19 54m19
+. 55m19 56m19 57m19 107m19 119r34 123m25 303r26 308r26 313r26
+133a7*Frames{124A9} 6|105m19 124r28
+134i7*Depth{11|188I9} 6|42m19 79r22 92r34 105r39 106m19 106r40 118r22 120m22
+. 120r43 122r25 124r48 133r26
+137i7*Memory_Size{natural} 6|43m19
+140r7*Gas{11|113R9} 6|34m19 155r36 186m25 202m43 207r41 380r38 392r38 405r38
+147i7*Snapshot_Count{natural} 6|44m19
+237A9*Log_Data_Buffer(11|31M12)<236I9> 5|241r27 6|344r27
+X 9 aegis_storage.ads
+27K9*Aegis_Storage 5|4w6 4r25 9|258e18
+119R9*Transaction_Effects 5|62r22 9|124e14
+121i7*Change_Count{natural} 6|60m19 154r40 185m25
+122i7*Gas_Refund{11|101I9} 6|61m19 215m19 215r45
+123b7*Is_Reverted{boolean} 6|62m19 395m19 408m19
+201I9*Snapshot_ID<short_integer> 5|117r24 125r20 132r20 6|142r24 153r18 166r20
+. 177r20
+204R9*State_Snapshot 6|145r14 179r14 9|209e14
+205i7*ID{201I9} 6|153m12 159r18
+206i7*Change_Index{natural} 6|154m12 185r46
+207i7*Gas_Used{11|101I9} 6|155m12 186r46
+208b7*Valid{boolean} 6|156m12 171m39 183r18
+212A9*Snapshot_Stack(204R9)<integer> 5|63r22
+X 10 aegis_u256.ads
+21K9*Aegis_U256 6|3w6 3r22 10|276e15
+X 11 aegis_vm_types.ads
+21K9*Aegis_VM_Types 5|3w6 3r26 6|379r24 11|279e19
+31M12*Byte{12|70M9}
+41R9*U256 5|52r22 53r22 54r22 55r22 78r22 79r22 80r22 81r22 91r26 187r13
+. 195r24 213r61 221r63 225r60 229r59 6|16r22 17r22 18r22 19r22 71r26 273r13
+. 283r24 311r61 321r63 326r60 331r59 11|43e14
+46r4*U256_Zero{41R9} 6|49r42 234r34 240r31 276r14
+56A9*Hash256(31M12)<integer> 5|263r28 6|387r28
+62a4*Hash256_Zero{56A9} 6|52r46 53r48 90r26 91r28 381r29 406r29
+70A9*Contract_Address(31M12)<integer> 5|51r22 76r22 89r26 90r26 166r24 176r24
+. 186r17 193r24 194r24 205r57 209r58 217r57 6|14r22 69r26 70r26 224r24 246r24
+. 272r17 281r24 282r24 301r57 306r58 316r57
+84E9*Certification_Level 5|67r23 82r23 6|20r23 11|84e64
+101I9*Gas_Amount<long_integer> 5|77r22 92r26 102r26 143r24 149r60 155r23
+. 6|15r22 72r26 115r26 198r24 205r60 212r23 349r18
+114i7*Gas_Limit{101I9} 6|405r42
+115i7*Gas_Used{101I9} 6|155r40 186m29 380r42 392r42
+121V13*Initial_Gas_Context{113R9} 6|34s26
+122i7 Limit{101I9} 6|35r10
+123r7 Price{41R9} 6|36r10
+124e7 Level{84E9} 6|37r10
+161R9*Storage_Key<41R9> 5|167r24 177r24 6|225r24 247r24
+162R9*Storage_Value<41R9> 5|168r24 178r24 6|226r24 234r19 240r16 248r24
+178E9*Call_Type 5|93r26 6|73r26 11|184e5
+179n7*Call{178E9} 6|55r46
+180n7*Static_Call{178E9} 6|94r39 98r15
+187N4*Max_Call_Depth 6|79r31 147r32
+188I9*Call_Depth<short_integer> 5|107r60 6|131r60
+195E9*Execution_Status 5|271r23 6|400r23 11|203e5
+196n7*Success{195E9} 5|275r27 6|379r39
+197n7*Revert{195E9} 6|391r24
+206R9*Execution_Result 5|256r28 264r28 272r23 6|376r28 388r28 401r23 11|210e14
+207e7*Status{195E9} 6|379m14 391m14 404m14
+208i7*Gas_Used{101I9} 6|380m14 392m14 405m14
+209a7*Return_Data{56A9} 6|381m14 393m14 406m14
+263A9*Capability_Mask(boolean)<250E9>
+268a4*Full_Capabilities{263A9} 6|56r49 101r35
+273a4*Read_Only_Capabilities{263A9} 6|99r35
+X 12 interfac.ads
+70M9*Unsigned_8
+

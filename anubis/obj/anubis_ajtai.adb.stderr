@@ -1,0 +1,17 @@
+anubis_ajtai.adb:70:26: error: value not in range of type "Field_Element" defined at anubis_types.ads:46
+anubis_ajtai.adb:70:26: error: static expression fails Constraint_Check
+anubis_ajtai.adb:78:17: error: value not in range of type "Field_Element" defined at anubis_types.ads:46
+anubis_ajtai.adb:78:17: error: static expression fails Constraint_Check
+anubis_ajtai.adb:247:64: error: value not in range of type "Standard.Integer"
+anubis_ajtai.adb:247:64: error: static expression fails Constraint_Check
+anubis_ajtai.adb:248:35: error: there is no applicable operator "Xor" for type "Standard.Integer"
+anubis_ajtai.adb:251:64: error: value not in range of type "Standard.Integer"
+anubis_ajtai.adb:251:64: error: static expression fails Constraint_Check
+anubis_ajtai.adb:315:61: error: value not in range of type "Standard.Integer"
+anubis_ajtai.adb:315:61: error: static expression fails Constraint_Check
+anubis_ajtai.adb:316:32: error: there is no applicable operator "Xor" for type "Standard.Integer"
+anubis_ajtai.adb:479:25: error: value not in range of type "Field_Element" defined at anubis_types.ads:46
+anubis_ajtai.adb:479:25: error: static expression fails Constraint_Check
+anubis_types.ads:61:55: error: non-static constant in preelaborated unit
+anubis_types.ads:61:55: error: static expression must have scalar or string type (RM 4.9(2))
+anubis_types.ads:85:28: error: nonbinary modulus exceeds limit (2 ** 32 - 1)

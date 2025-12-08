@@ -1,0 +1,81 @@
+[
+{
+  "name": "Anubis_Types.Byte",
+  "location": "anubis_types.ads:13:12",
+  "Size": 8,
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Types.Byte_Array",
+  "location": "anubis_types.ads:14:9",
+  "Alignment": 1,
+  "Component_Size": 8
+}
+,
+{
+  "name": "Anubis_Types.Word32",
+  "location": "anubis_types.ads:17:9",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Anubis_Types.Word64",
+  "location": "anubis_types.ads:18:9",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Anubis_Types.Word256",
+  "location": "anubis_types.ads:21:9",
+  "Size": 256,
+  "Alignment": 8,
+  "Component_Size": 64
+}
+,
+{
+  "name": "Anubis_Types.Address",
+  "location": "anubis_types.ads:24:12",
+  "Size": 256,
+  "Alignment": 1,
+  "Component_Size": 8
+}
+,
+{
+  "name": "Anubis_Types.Hash256",
+  "location": "anubis_types.ads:27:12",
+  "Size": 256,
+  "Alignment": 1,
+  "Component_Size": 8
+}
+,
+{
+  "name": "Anubis_Types.Zero_Byte",
+  "location": "anubis_types.ads:30:4",
+  "Size": 8,
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Types.Zero_Word32",
+  "location": "anubis_types.ads:31:4",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Anubis_Types.Zero_Word64",
+  "location": "anubis_types.ads:32:4",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Anubis_Types.Zero_Hash",
+  "location": "anubis_types.ads:33:4",
+  "Size": 256,
+  "Alignment": 1
+}
+]

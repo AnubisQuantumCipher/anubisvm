@@ -1,0 +1,189 @@
+V "GNAT Lib v14"
+A -O0
+A -gnatA
+A -gnatws
+A -g
+A -mcpu=apple-m1
+A -mlittle-endian
+A -mabi=lp64
+A -mmacosx-version-min=16.0.0
+A -fPIC
+P ZX
+
+RN
+RV NO_ACCESS_SUBPROGRAMS
+RV NO_DEFAULT_INITIALIZATION
+RV NO_IMPLEMENTATION_ATTRIBUTES
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+RV NO_ELABORATION_CODE
+
+U aegisvmmain%b		b__aegisvm.adb		aff75dc0 OO PK IL
+Z system%s		system.ads		system.ali
+
+U aegisvmmain%s		b__aegisvm.ads		75f64381 EE NE OO PK IL
+W system%s		system.ads		system.ali
+W system.parameters%s	s-parame.adb		s-parame.ali
+W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+
+D b__aegisvm.ads	20251206065253 67959d31 aegisvmmain%s
+D b__aegisvm.adb	20251206065253 c862c0f1 aegisvmmain%b
+D system.ads		20240808082856 70765b54 system%s
+D s-parame.ads		20240808082856 3597fc11 system.parameters%s
+D s-secsta.ads		20240808082856 578279f5 system.secondary_stack%s
+D s-stoele.ads		20240808082856 ccded4e8 system.storage_elements%s
+G a e
+G c Z s b [aegisvminit aegisvmmain 8 14 none]
+G c Z s b [aegisvmfinal aegisvmmain 12 14 none]
+G c Z b b [Tsec_default_sized_stacksBIP aegisvmmain 44 4 none]
+X 1 b__aegisvm.ads
+6K9*aegisvmmain 276l5 276e16 2|7b14 255l5 255t16
+8U14*aegisvminit 9i<c,aegisvminit>22 10r31 2|68b14 210l8 210t19
+12U14*aegisvmfinal 13i<c,aegisvmfinal>22 14r30 2|51b14 63l8 63t20
+16M9*Version_32 17r22 19r22 21r22 23r22 25r22 27r22 29r22 31r22 33r22 35r22
+. 37r22 39r22 41r22 43r22 45r22 47r22 49r22 51r22 53r22 55r22 57r22 59r22
+. 61r22 63r22 65r22 67r22 69r22 71r22 73r22 75r22 77r22 79r22 81r22 83r22
+. 85r22 87r22 89r22 91r22 93r22 95r22 97r22 99r22 101r22 103r22 105r22 107r22
+. 109r22 111r22 113r22 115r22 117r22 119r22 121r22 123r22 125r22 127r22 129r22
+. 131r22 133r22 135r22 137r22 139r22 141r22 143r22 145r22
+17m4*u00001{16M9} 18r22
+19m4*u00002{16M9} 20r22
+21m4*u00003{16M9} 22r22
+23m4*u00004{16M9} 24r22
+25m4*u00005{16M9} 26r22
+27m4*u00006{16M9} 28r22
+29m4*u00007{16M9} 30r22
+31m4*u00008{16M9} 32r22
+33m4*u00009{16M9} 34r22
+35m4*u00010{16M9} 36r22
+37m4*u00011{16M9} 38r22
+39m4*u00012{16M9} 40r22
+41m4*u00013{16M9} 42r22
+43m4*u00014{16M9} 44r22
+45m4*u00015{16M9} 46r22
+47m4*u00016{16M9} 48r22
+49m4*u00017{16M9} 50r22
+51m4*u00018{16M9} 52r22
+53m4*u00019{16M9} 54r22
+55m4*u00020{16M9} 56r22
+57m4*u00021{16M9} 58r22
+59m4*u00022{16M9} 60r22
+61m4*u00023{16M9} 62r22
+63m4*u00024{16M9} 64r22
+65m4*u00025{16M9} 66r22
+67m4*u00026{16M9} 68r22
+69m4*u00027{16M9} 70r22
+71m4*u00028{16M9} 72r22
+73m4*u00029{16M9} 74r22
+75m4*u00030{16M9} 76r22
+77m4*u00031{16M9} 78r22
+79m4*u00032{16M9} 80r22
+81m4*u00033{16M9} 82r22
+83m4*u00034{16M9} 84r22
+85m4*u00035{16M9} 86r22
+87m4*u00036{16M9} 88r22
+89m4*u00037{16M9} 90r22
+91m4*u00038{16M9} 92r22
+93m4*u00039{16M9} 94r22
+95m4*u00040{16M9} 96r22
+97m4*u00041{16M9} 98r22
+99m4*u00042{16M9} 100r22
+101m4*u00043{16M9} 102r22
+103m4*u00044{16M9} 104r22
+105m4*u00045{16M9} 106r22
+107m4*u00046{16M9} 108r22
+109m4*u00047{16M9} 110r22
+111m4*u00048{16M9} 112r22
+113m4*u00049{16M9} 114r22
+115m4*u00050{16M9} 116r22
+117m4*u00051{16M9} 118r22
+119m4*u00052{16M9} 120r22
+121m4*u00053{16M9} 122r22
+123m4*u00054{16M9} 124r22
+125m4*u00055{16M9} 126r22
+127m4*u00056{16M9} 128r22
+129m4*u00057{16M9} 130r22
+131m4*u00058{16M9} 132r22
+133m4*u00059{16M9} 134r22
+135m4*u00060{16M9} 136r22
+137m4*u00061{16M9} 138r22
+139m4*u00062{16M9} 140r22
+141m4*u00063{16M9} 142r22
+143m4*u00064{16M9} 144r22
+145m4*u00065{16M9} 146r22
+X 2 b__aegisvm.adb
+9i4 E073{short_integer} 9m46 9r46 146r10 169m7 169r15
+10i4 E078{short_integer} 10m46 10r46 149r10 168m7 168r15
+11i4 E089{short_integer} 11m46 11r46 152r10 155m7 155r15
+12i4 E096{short_integer} 12m46 12r46 156r10 159m7 159r15
+13i4 E090{short_integer} 13m46 13r46 160r10 163m7 163r15
+14i4 E085{short_integer} 14m46 14r46 164r10 167m7 167r15
+15i4 E118{short_integer} 15m46 15r46 170r10 173m7 173r15
+16i4 E120{short_integer} 16m46 16r46 174r10 177m7 177r15
+17i4 E122{short_integer} 17m46 17r46 178r10 181m7 181r15
+18i4 E014{short_integer} 18m46 18r46 182m7 182r15
+19i4 E002{short_integer} 19m46 19r46 183m7 183r15
+20i4 E012{short_integer} 20m46 20r46 184r10 187m7 187r15
+21i4 E006{short_integer} 21m46 21r46 188m7 188r15
+22i4 E023{short_integer} 22m46 22r46 189m7 189r15
+23i4 E030{short_integer} 23m46 23r46 190m7 190r15
+24i4 E035{short_integer} 24m46 24r46 191m7 191r15
+25i4 E040{short_integer} 25m46 25r46 192m7 192r15
+26i4 E044{short_integer} 26m46 26r46 193m7 193r15
+27i4 E046{short_integer} 27m46 27r46 194m7 194r15
+28i4 E053{short_integer} 28m46 28r46 195m7 195r15
+29i4 E055{short_integer} 29m46 29r46 196m7 196r15
+30i4 E062{short_integer} 30m46 30r46 197m7 197r15
+31i4 E057{short_integer} 31m46 31r46 198m7 198r15
+32i4 E064{short_integer} 32m46 32r46 199m7 199r15
+33i4 E008{short_integer} 33m46 33r46 200m7 200r15
+34i4 E025{short_integer} 34m46 34r46 201m7 201r15
+35i4 E027{short_integer} 35m46 35r46 202m7 202r15
+36i4 E021{short_integer} 36m46 36r46 203m7 203r15
+37i4 E048{short_integer} 37m46 37r46 204m7 204r15
+38i4 E037{short_integer} 38m46 38r46 205m7 205r15
+39i4 E059{short_integer} 39m46 39r46 206m7 206r15
+40i4 E051{short_integer} 40m46 40r46 207m7 207r15
+41i4 E004{short_integer} 41m46 41r46 208m7 208r15
+42i4 E016{short_integer} 42m46 42r46 209m7 209r15
+44a4 Sec_Default_Sized_Stacks(5|43R9) 142m32 142r32
+46a4 Local_Priority_Specific_Dispatching{string} 128r9
+47a4 Local_Interrupt_States{string} 131r27
+49b4 Is_Elaborated{boolean} 57r14 60m7 117r10 120m7
+53U17*Runtime_Finalize 54b<c,__gnat_runtime_finalize>25 61s7
+65P9 No_Param_Proc 66r28 109r34
+69i7*Main_Priority{integer} 70m25 70r25 121m7
+71i7*Time_Slice_Value{integer} 72m25 72r25 122m7
+73e7*WC_Encoding{character} 74m25 74r25 123m7
+75e7*Locking_Policy{character} 76m25 76r25 124m7
+77e7*Queuing_Policy{character} 78m25 78r25 125m7
+79e7*Task_Dispatching_Policy{character} 80m25 80r25 126m7
+81m7*Priority_Specific_Dispatching{3|67M9} 82m25 82r25 127m7
+83i7*Num_Specific_Dispatching{integer} 84m25 84r25 129m7
+85i7*Main_CPU{integer} 86m25 86r25 130m7
+87m7*Interrupt_States{3|67M9} 88m25 88r25 131m7
+89i7*Num_Interrupt_States{integer} 90m25 90r25 132m7
+91i7*Unreserve_All_Interrupts{integer} 92m25 92r25 133m7
+93i7*Exception_Tracebacks{integer} 94m25 94r25 134m7
+95i7*Exception_Tracebacks_Symbolic{integer} 96m25 96r25 135m7
+97i7*Detect_Blocking{integer} 98m25 98r25 136m7
+99i7*Default_Stack_Size{integer} 100m25 100r25 137m7
+101i7*Default_Secondary_Stack_Size{4|56I9} 102m25 102r25 140m7
+103m7*Bind_Env_Addr{3|67M9} 104m25 104r25
+106U17*Runtime_Initialize 106>37 107b<c,__gnat_runtime_initialize>25 144s7
+106i37 Install_Handler{integer}
+109p7*Finalize_Library_Objects{65P9} 110m25 110r25
+111i7*Binder_Sec_Stacks_Count{natural} 112m27 112r27 141m7
+113m7*Default_Sized_SS_Pool{3|67M9} 114m27 114r27 142m7
+X 3 system.ads
+37K9*System 1|3w6 4r6 5r6 2|44r57 44r90 81r39 87r26 101r38 103r23 113r31
+. 140r39 3|173e11
+67M9*Address 2|81r46 87r33 103r30 113r38
+X 4 s-parame.ads
+49K16*Parameters 1|4w13 2|44r97 101r45 140r46 4|188e22
+56I9*Size_Type<long_integer> 2|101r56
+91i4*Runtime_Default_Sec_Stack_Size{56I9} 2|44r108 140r57
+X 5 s-secsta.ads
+35K16*Secondary_Stack 1|5w13 2|44r64 5|429e27
+43R9*SS_Stack 2|44r80 5|329e14
+

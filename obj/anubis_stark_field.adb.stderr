@@ -1,0 +1,6 @@
+anubis_stark_field.adb:50:07: warning: variable "Borrow" is never read and never assigned [-gnatwu]
+anubis_stark_field.adb:253:35: warning: explicit membership test may be optimized away [enabled by default]
+anubis_stark_field.adb:253:35: warning: use 'Valid attribute instead [enabled by default]
+anubis_stark_field.adb:270:35: warning: explicit membership test may be optimized away [enabled by default]
+anubis_stark_field.adb:270:35: warning: use 'Valid attribute instead [enabled by default]
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]

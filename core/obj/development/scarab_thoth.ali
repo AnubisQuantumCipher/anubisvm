@@ -1,0 +1,529 @@
+V "GNAT Lib v14"
+A -O0
+A -gnatA
+A -gnat2022
+A -gnatwa
+A -gnatyO
+A -gnatVa
+A -gnatw.F
+A -gnata
+A -g
+A -gnateE
+A -gnatVa
+A -mmacosx-version-min=16.0.0
+A -mcpu=apple-m1
+A -mlittle-endian
+A -mabi=lp64
+A -fPIC
+P ZX
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+
+U scarab_thoth%b	scarab_thoth.adb	caf22b74 NE OO PK
+Z system.assertions%s	s-assert.adb		s-assert.ali
+
+U scarab_thoth%s	scarab_thoth.ads	a5f47dd8 EE NE OO PK
+W anubis_bytes%s	anubis_bytes.adb	anubis_bytes.ali
+W anubis_stark_field%s	anubis_stark_field.adb	anubis_stark_field.ali
+W anubis_types%s	anubis_types.ads	anubis_types.ali
+W interfaces%s		interfac.ads		interfac.ali
+
+D ada.ads		20240808082856 76789da1 ada%s
+D a-assert.ads		20240808082856 ba465f5c ada.assertions%s
+D a-unccon.ads		20240808082856 0e9b276f ada.unchecked_conversion%s
+D anubis_bytes.ads	20251207191105 9e5d5cad anubis_bytes%s
+D anubis_stark_field.ads  20251207191105 98d82a71 anubis_stark_field%s
+D anubis_types.ads	20251207191105 4fb35097 anubis_types%s
+D anubis_word.ads	20251207191105 ec44f66b anubis_word%s
+D interfac.ads		20240808082856 9111f9c1 interfaces%s
+D scarab_thoth.ads	20251207191106 7dd3a252 scarab_thoth%s
+D scarab_thoth.adb	20251207191106 b7218926 scarab_thoth%b
+D system.ads		20240808082856 70765b54 system%s
+D s-assert.ads		20240808082856 9c4520c7 system.assertions%s
+D s-exctab.ads		20240808082856 91bef6ef system.exception_table%s
+D s-stalib.ads		20240808082856 1c9580f6 system.standard_library%s
+G a e
+G c Z s b [const_expr scarab_thoth 183 13 none]
+G c Z s b [reg_expr scarab_thoth 188 13 none]
+G c Z s b [periodic_expr scarab_thoth 194 13 none]
+G c Z s b [add_expr scarab_thoth 199 13 none]
+G c Z s b [sub_expr scarab_thoth 204 13 none]
+G c Z s b [mul_expr scarab_thoth 209 13 none]
+G c Z s b [neg_expr scarab_thoth 215 13 none]
+G c Z s b [exp_expr scarab_thoth 220 13 none]
+G c Z s b [init_air scarab_thoth 230 14 none]
+G c Z s b [add_column scarab_thoth 240 14 none]
+G c Z s b [add_transition_constraint scarab_thoth 252 14 none]
+G c Z s b [add_boundary_constraint scarab_thoth 263 14 none]
+G c Z s b [add_periodic_column scarab_thoth 275 14 none]
+G c Z s b [boolean_gadget scarab_thoth 291 13 none]
+G c Z s b [range_check_gadget scarab_thoth 296 14 none]
+G c Z s b [conditional_gadget scarab_thoth 307 13 none]
+G c Z s b [memory_gadget scarab_thoth 317 14 none]
+G c Z s b [hash_chain_gadget scarab_thoth 328 14 none]
+G c Z s b [reduce_degree scarab_thoth 341 14 none]
+G c Z s b [auto_reduce_all scarab_thoth 351 14 none]
+G c Z s b [compile_air scarab_thoth 381 14 none]
+G c Z s b [verify_air scarab_thoth 388 13 none]
+G c Z s b [eval_expr scarab_thoth 396 13 none]
+G c Z s b [check_constraint scarab_thoth 408 13 none]
+G c Z s b [verify_trace scarab_thoth 419 13 none]
+G c Z s b [serialize_air scarab_thoth 431 14 none]
+G c Z s b [deserialize_air scarab_thoth 440 14 none]
+G c Z s b [constraint_to_string scarab_thoth 452 14 none]
+G c Z s b [get_air_stats scarab_thoth 470 13 none]
+G c Z s s [register_refIP scarab_thoth 57 9 none]
+G c Z s s [expr_nodeIP scarab_thoth 78 9 none]
+G c Z s s [Texpr_arrayBIP scarab_thoth 88 4 none]
+G c Z s s [expressionIP scarab_thoth 91 9 none]
+G c Z s s [boundary_specIP scarab_thoth 112 9 none]
+G c Z s s [constraintIP scarab_thoth 118 9 none]
+G c Z s s [Tconstraint_arrayBIP scarab_thoth 128 4 none]
+G c Z s s [periodic_columnIP scarab_thoth 131 9 none]
+G c Z s s [Tperiodic_arrayBIP scarab_thoth 138 4 none]
+G c Z s s [column_defIP scarab_thoth 148 9 none]
+G c Z s s [Tcolumn_def_arrayBIP scarab_thoth 155 4 none]
+G c Z s s [air_definitionIP scarab_thoth 158 9 none]
+G c Z s s [compilation_resultIP scarab_thoth 373 9 none]
+G c Z s s [air_statsIP scarab_thoth 461 9 none]
+G c Z b b [empty_expr_node scarab_thoth 14 13 none]
+G c Z b b [make_expression scarab_thoth 25 13 none]
+G r c none [range_check_gadget scarab_thoth 296 14 none] [mul anubis_stark_field 84 13 none]
+G r c none [eval_expr scarab_thoth 396 13 none] [add anubis_stark_field 65 13 none]
+G r c none [eval_expr scarab_thoth 396 13 none] [sub anubis_stark_field 71 13 none]
+G r c none [eval_expr scarab_thoth 396 13 none] [mul anubis_stark_field 84 13 none]
+G r c none [eval_expr scarab_thoth 396 13 none] [neg anubis_stark_field 77 13 none]
+G r c none [eval_expr scarab_thoth 396 13 none] [exp anubis_stark_field 108 13 none]
+G r c none [check_constraint scarab_thoth 408 13 none] [add anubis_stark_field 65 13 none]
+G r c none [check_constraint scarab_thoth 408 13 none] [sub anubis_stark_field 71 13 none]
+G r c none [check_constraint scarab_thoth 408 13 none] [mul anubis_stark_field 84 13 none]
+G r c none [check_constraint scarab_thoth 408 13 none] [neg anubis_stark_field 77 13 none]
+G r c none [check_constraint scarab_thoth 408 13 none] [exp anubis_stark_field 108 13 none]
+G r c none [verify_trace scarab_thoth 419 13 none] [add anubis_stark_field 65 13 none]
+G r c none [verify_trace scarab_thoth 419 13 none] [sub anubis_stark_field 71 13 none]
+G r c none [verify_trace scarab_thoth 419 13 none] [mul anubis_stark_field 84 13 none]
+G r c none [verify_trace scarab_thoth 419 13 none] [neg anubis_stark_field 77 13 none]
+G r c none [verify_trace scarab_thoth 419 13 none] [exp anubis_stark_field 108 13 none]
+X 4 anubis_bytes.ads
+7K9*Anubis_Bytes 52e17 9|21w6 21r24
+X 5 anubis_stark_field.ads
+16K9*Anubis_STARK_Field 254e23 9|22w6 22r30
+31M12*Field_Element{8|84M9} 9|80r20 183r33 402r13 10|42r33 424r20 442r34
+. 629r13 630r43 700r15
+34m4*Zero{31M12} 10|17r24 59r29 72r29 116r36 161r36 204r36 221r33 235r33
+. 263r59 271r58 422r46 630r71 653r39 706r28 713r37 723r37 731r31
+35m4*One{31M12} 10|408r54 424r37 468r53
+65V13*Add{31M12} 10|672s33
+71V13*Sub{31M12} 10|675s33
+77V13*Neg{31M12} 10|681s33
+84V13*Mul{31M12} 10|442s22 678s33
+108V13*Exp{31M12} 10|684s33
+141A9*Field_Array(31M12)<integer> 9|133r20 277r24 398r24 410r24 421r24 10|374r24
+. 625r24 694r24 739r24
+X 6 anubis_types.ads
+5K9*Anubis_Types 40e17 9|20w6 20r24
+13M12*Byte{8|70M9} 10|781r39 782r39 783r39
+14A9*Byte_Array(13M12)<integer> 9|433r28 441r24 10|767r28 789r24
+X 8 interfac.ads
+38K9*Interfaces 233e15 9|19w6 19r22
+70M9*Unsigned_8
+84M9*Unsigned_64 10|684r55
+X 9 scarab_thoth.ads
+24K9*Scarab_Thoth 473l5 473e17 10|7b14 353r37 708r15 857r18 872l5 872t17
+32N4*Max_Trace_Width 51r47 405r33 10|286r29 430r40 581r28 607r28 845r37
+35N4*Max_Constraint_Deg 54r47 211r37 222r30 10|597r42 613r27
+38N4*Max_Constraints 53r51 10|314r33 347r33 588r32 610r32 854r37
+41N4*Max_Trace_Log_Len 42r42 236r31
+42N4*Max_Trace_Length 52r44 404r43
+45N4*Max_Periodic_Cols 138r39 10|380r30 658r38
+51I12*Column_Index{natural} 58r20 149r20 155r36 188r29 244r28 291r35 298r24
+. 299r24 308r24 309r24 310r24 311r24 319r24 320r24 321r24 322r24 330r24 331r24
+. 10|55r29 282r28 406r35 416r24 417r24 459r24 460r24 461r24 462r24 479r24
+. 480r24 481r24 482r24 505r24 506r24 529r17
+52I12*Row_Index{natural} 114r20 400r24 412r24 10|627r24 696r24
+53I12*Constraint_Index{natural} 128r36 343r24 10|312r13 345r13 524r24
+54I12*Degree_Range{natural} 95r20 123r20 174r24 344r24 353r24 10|29r20 84r20
+. 131r20 176r20 525r24 551r24
+57R9*Register_Ref 60e14 81r20
+58i7*Column{51I12} 10|18m23 47m28 60m28 73m28 117m35 162m35 205m35 222m32
+. 236m32 649r72
+59i7*Row_Offset{integer} 10|18m36 47m41 60m43 73m41 117m48 162m48 205m48
+. 222m45 236m45 643r68
+63E9*Expr_Kind 72e5 79r20
+64n7*Expr_Const{63E9} 10|16r23 45r29 638r21
+65n7*Expr_Register{63E9} 10|58r29 641r21
+66n7*Expr_Periodic{63E9} 10|71r29 657r21
+67n7*Expr_Add{63E9} 10|103r29 115r36 149r29 192r29 671r21
+68n7*Expr_Sub{63E9} 10|103r40 149r40 160r36 192r40 674r21
+69n7*Expr_Mul{63E9} 10|103r51 149r51 192r51 203r36 677r21
+70n7*Expr_Neg{63E9} 10|106r31 152r31 195r31 220r33 680r21
+71n7*Expr_Exp{63E9} 10|106r52 152r52 195r52 234r33 683r21
+75N4*Max_Expr_Nodes 76r50 10|633r37
+76I12*Expr_Node_Index{natural} 83r20 84r20 88r30 93r20 10|27r20 630r23
+78R9*Expr_Node 86e14 88r50 10|14r36 100r20 147r20 190r20 635r17
+79e7*Kind{63E9} 10|16m15 45m21 58m21 71m21 103r21 106r24 106r45 115m28 149r21
+. 152r24 152r45 160m28 192r21 195r24 195r45 203m28 220m25 234m25 637r20
+80m7*Value{5|31M12} 10|17m15 46m20 59m20 72m20 116m27 161m27 204m27 221m24
+. 235m24 639r35
+81r7*Reg{57R9} 10|18m15 47m20 60m20 73m20 117m27 162m27 205m27 222m24 236m24
+. 643r64 649r68
+82i7*Periodic_ID{natural} 10|19m15 48m20 61m20 74m20 118m27 163m27 206m27
+. 223m24 237m24 658r24 659r44 662r66
+83i7*Left{76I12} 10|20m15 49m20 62m20 75m20 104m21 104r31 107m21 107r31 119m27
+. 150m21 150r31 153m21 153r31 164m27 193m21 193r31 196m21 196r31 207m27 224m24
+. 238m24 672r48 675r48 678r48 681r48 684r48
+84i7*Right{76I12} 10|21m15 50m20 63m20 76m20 105m21 105r32 120m27 151m21
+. 151r32 165m27 194m21 194r32 208m27 225m24 239m24 672r65 675r65 678r65
+85i7*Exponent{natural} 10|22m15 51m20 64m20 77m20 121m27 166m27 209m27 226m24
+. 240m24 684r70
+88A9*Expr_Array(78R9)<integer> 92r20 10|26r20 43r15 56r15 69r15 82r15 129r15
+. 174r15 217r15 231r15
+91R9*Expression 96e14 120r20 183r55 188r73 194r58 199r30 199r49 204r30 204r49
+. 209r30 209r49 215r27 215r46 220r27 220r59 254r24 265r24 291r56 312r13 397r24
+. 10|30r13 42r55 55r73 68r58 81r30 81r49 128r30 128r49 173r30 173r49 216r27
+. 216r46 230r27 230r59 308r24 340r24 406r56 407r20 408r28 409r30 421r29 422r20
+. 423r20 436r36 437r34 449r35 463r13 464r23 465r20 466r20 467r25 468r27 469r33
+. 470r25 471r35 472r27 487r28 488r28 489r28 490r28 491r28 492r34 509r24 510r25
+. 511r29 512r35 624r24
+92a7*Nodes{88A9} 10|32m15 89r29 100r35 136r29 147r35 180r29 190r35 217r31
+. 231r31 635m40
+93i7*Root{76I12} 10|33m15 119r37 120r38 164r37 165r38 207r37 208r38 224r34
+. 238r34 689r27
+94i7*Node_Count{natural} 10|34m15 87r23 97r26 134r23 144r26 178r23 187r26
+. 218r37 232r37 632r26
+95i7*Degree{54I12} 185r33 191r31 196r36 201r31 201r55 201r65 206r31 206r55
+. 206r65 211r16 211r27 212r31 212r42 212r53 217r31 217r42 222r16 223r31 223r42
+. 293r37 314r41 10|35m15 123r39 123r49 168r39 168r49 211r26 211r37 227r58
+. 241r58 322r44 330r15 331r33 356r44 364r15 365r33
+99E9*Constraint_Kind 103e5 119r20
+100n7*Transition{99E9} 10|262r46 320r37 704r15 856r18
+101n7*Boundary{99E9} 10|353r50 708r28 857r31
+102n7*Periodic{99E9} 10|728r15
+106E9*Boundary_Type 110e5 113r20
+107n7*First_Row{106E9} 10|264r60 710r21
+108n7*Last_Row{106E9} 10|717r21
+109n7*Specific_Row{106E9} 10|720r21
+112R9*Boundary_Spec 115e14 121r20 266r24 10|341r24
+113e7*Kind{106E9} 10|264m52 709r29
+114i7*Row{52I12} 10|264m71 721r39
+118R9*Constraint 126e14 128r57 409r24 453r24 10|528r11 693r24 819r24
+119e7*Kind{99E9} 10|262m38 320m29 353m29 703r14 855r35
+120r7*Expr{91R9} 10|263m39 321m29 354m29 705r35 712r44 722r44 730r38
+121r7*Boundary{112R9} 10|264m39 355m29 709r20 721r30
+122i7*Period{natural} 10|265m39 729r18 729r48
+123i7*Degree{54I12} 10|266m39 322m29 356m29 532r12 558r45 597r33
+124a7*Name{string} 10|267m39 327m32 361m32 831r49
+125i7*Name_Len{natural} 10|268m39 323m29 325r43 357m29 359r43 828r23
+128A9*Constraint_Array(118R9)<integer> 167r24
+131R9*Periodic_Column 136e14 138r65 10|662r29
+132i7*ID{natural} 10|270m36 387m26
+133a7*Values{5|141A9} 10|271m37 394m32 666r44
+134i7*Period{natural} 10|272m37 388m26 663r61
+135b7*Active{boolean} 10|273m37 389m26 659r57
+138A9*Periodic_Array(131R9)<integer> 171r24 401r24 414r24 10|628r24 698r24
+141E9*Column_Type 146e5 150r20 242r24 10|280r24
+142n7*Main{141E9} 10|256r47 847r18
+143n7*Auxiliary{141E9} 10|538r24 848r18
+144n7*Public_Input{141E9}
+145n7*Random{141E9}
+148R9*Column_Def 153e14 155r53
+149i7*Index{51I12} 10|255m34 293m27
+150e7*Col_Type{141E9} 10|256m35 294m27 846r31
+151a7*Name{string} 10|257m35 299m30
+152i7*Name_Len{natural} 10|258m35 295m27 297r41
+155A9*Column_Def_Array(148R9)<integer> 161r24
+158R9*AIR_Definition 176e14 231r28 241r31 253r31 264r31 276r31 297r31 318r31
+. 329r31 342r31 352r31 382r31 388r31 420r24 432r24 442r28 470r34 10|249r28
+. 279r31 307r31 339r31 373r31 415r31 478r31 504r31 523r31 550r31 571r31 605r31
+. 738r24 766r24 790r28 837r34
+160i7*Num_Columns{natural} 237r19 249r36 249r54 424r33 10|254m11 286r14 292r20
+. 302m11 302r30 581r14 607r14 749r20 781r49 844r25 867r35
+161a7*Columns{155A9} 10|255m11 293m11 294m11 295m11 297r25 299m14 846r19
+162i7*Trace_Length{natural} 424r51 10|259m11 742r27 743r43 751r20 867r53
+163i7*Log_Trace_Len{natural} 10|260m11
+166i7*Num_Constraints{natural} 237r43 260r36 260r58 272r36 272r58 10|261m11
+. 314r14 319r18 334m11 334r34 347r14 352r18 368m11 368r34 556r25 588r14 595r25
+. 610r14 744r32 745r48 782r49 853r25
+167a7*Constraints{128A9} 10|262m11 320m11 321m11 322m11 323m11 325r25 327m14
+. 353m11 354m11 355m11 356m11 357m11 359r25 361m14 528m34 558r29 597r17 747r20
+. 855r19
+170i7*Num_Periodic{natural} 284r36 284r55 10|269m11 380r14 386r17 398m11
+. 398r31
+171a7*Periodics{138A9} 10|270m11 387m11 388m11 389m11 394m17 752r20
+174i7*Max_Degree{54I12} 10|274m11 330r28 331m14 364r28 365m14 563m11 613r14
+. 783r49 866r31
+175i7*Blowup_Factor{positive} 10|275m11 867r76
+183V13*Const_Expr{91R9} 183>25 185r15 10|42b13 263s47 408s42 422s34 437s58
+. 468s41
+183m25 Value{5|31M12} 10|42b25 46r29
+188V13*Reg_Expr{91R9} 188>23 188>43 191r15 10|55b13 407s34 421s43 436s50
+. 464s37 465s34 466s34 467s39 487s42 488s42 489s42 490s42 509s38 510s39 511s43
+188i23 Col{51I12} 10|55b23 60r38
+188i43 Offset{integer} 190r14 10|55b43 60r57
+194V13*Periodic_Expr{91R9} 194>28 196r15 10|68b13
+194i28 Periodic_ID{natural} 10|68b28 74r35
+199V13*Add_Expr{91R9} 199>23 199>26 201r15 10|81b13 439s28 472s41
+199r23 A{91R9} 201r53 10|81b23 87r21 89r27 119r35 123r37
+199r26 B{91R9} 201r63 10|81b26 97r24 100r33 120r36 123r47
+204V13*Sub_Expr{91R9} 204>23 204>26 206r15 10|128b13 409s44 449s49 469s47
+. 474s14 491s42 492s48 512s49
+204r23 A{91R9} 206r53 10|128b23 134r21 136r27 164r35 168r37
+204r26 B{91R9} 206r63 10|128b26 144r24 147r33 165r36 168r47
+209V13*Mul_Expr{91R9} 209>23 209>26 212r15 10|173b13 411s14 437s48 470s39
+. 471s49
+209r23 A{91R9} 211r14 212r40 10|173b23 178r21 180r27 207r35 211r24
+209r26 B{91R9} 211r25 212r51 10|173b26 187r24 190r33 208r36 211r35
+215V13*Neg_Expr{91R9} 215>23 217r15 10|216b13
+215r23 E{91R9} 217r40 10|216b23 217r29 218r35 224r32 227r56
+220V13*Exp_Expr{91R9} 220>23 220>39 223r15 10|230b13
+220r23 E{91R9} 222r14 223r40 10|230b23 231r29 232r35 238r32 241r56
+220i39 N{natural} 222r25 222r53 223r51 10|230b39 240r36 241r67
+230U14*Init_AIR 231<7 232>7 233>7 10|248b14 794s7
+231r7 AIR{158R9} 237r15 237r39 10|249b7 254m7 255m7 259m7 260m7 261m7 262m7
+. 269m7 270m7 274m7 275m7
+232i7 Trace_Log_Len{natural} 236r14 10|250b7 259r32 260r28
+233i7 Blowup{positive} 236r53 10|251b7 275r28
+240U14*Add_Column 241=7 242>7 243>7 244<7 245<7 10|278b14 538s7
+241r7 AIR{158R9} 249r32 249r50 10|279b7 286r10 292r16 293m7 294m7 295m7 297r21
+. 299m10 302m7 302r26
+242e7 Col_Type{141E9} 10|280b7 294r39
+243a7 Name{string} 248r14 10|281b7 295r52 299r42 299r48
+244i7 Index{51I12} 10|282b7 287m10 292m7 293r20 293r36 294r20 295r20 297r34
+. 299r23
+245b7 Success{boolean} 249r19 10|283b7 288m10 303m7
+252U14*Add_Transition_Constraint 253=7 254>7 255>7 256<7 10|306b14 432s13
+. 451s13 496s7 498s10 515s7
+253r7 AIR{158R9} 260r32 260r54 10|307b7 314r10 319r14 320m7 321m7 322m7 323m7
+. 325r21 327m10 330r24 331m10 334m7 334r30
+254r7 Expr{91R9} 10|308b7 321r37 322r39 330r10 331r28
+255a7 Name{string} 259r14 10|309b7 323r54 327r44 327r50
+256b7 Success{boolean} 260r19 10|310b7 315m10 335m7
+263U14*Add_Boundary_Constraint 264=7 265>7 266>7 267>7 268<7 10|338b14
+264r7 AIR{158R9} 272r32 272r54 10|339b7 347r10 352r14 353m7 354m7 355m7 356m7
+. 357m7 359r21 361m10 364r24 365m10 368m7 368r30
+265r7 Expr{91R9} 10|340b7 354r37 356r39 364r10 365r28
+266r7 Boundary{112R9} 10|341b7 355r41
+267a7 Name{string} 271r14 10|342b7 357r54 361r44 361r50
+268b7 Success{boolean} 272r19 10|343b7 348m10 369m7
+275U14*Add_Periodic_Column 276=7 277>7 278>7 279<7 280<7 10|372b14
+276r7 AIR{158R9} 284r32 284r51 10|373b7 380r10 386r13 387m7 388m7 389m7 394m13
+. 398m7 398r27
+277a7 Values{5|141A9} 283r14 10|374b7 391r16 392r38 392r60 393r17 394r44
+. 394r61
+278i7 Period{natural} 283r40 10|375b7 388r36
+279i7 ID{natural} 10|376b7 381m10 386m7 387r22 387r32 388r22 389r22 394r28
+280b7 Success{boolean} 284r19 10|377b7 382m10 399m7
+291V13*Boolean_Gadget{91R9} 291>29 293r15 10|406b13 431s27
+291i29 Col{51I12} 10|406b29 407r44
+296U14*Range_Check_Gadget 297=7 298>7 299>7 300>7 301<7 10|414b14 456l8 456t26
+297r7 AIR{158R9} 10|415b7 432m40 451m40
+298i7 Value_Col{51I12} 10|416b7 421r53
+299i7 Bit_Cols{51I12} 10|417b7 430r25 431r43 436r60
+300i7 Num_Bits{natural} 304r14 10|418b7 428r21
+301b7 Success{boolean} 10|419b7 455m7
+307V13*Conditional_Gadget{91R9} 308>7 309>7 310>7 311>7 314r15 10|458b13
+308i7 Cond_Col{51I12} 10|459b7 464r47
+309i7 A_Col{51I12} 10|460b7 465r44
+310i7 B_Col{51I12} 10|461b7 466r44
+311i7 Result_Col{51I12} 10|462b7 467r49
+317U14*Memory_Gadget 318=7 319>7 320>7 321>7 322>7 323<7 10|477b14 501l8
+. 501t21
+318r7 AIR{158R9} 10|478b7 496m34 498m37
+319i7 Addr_Col{51I12} 10|479b7 487r52 488r52
+320i7 Value_Col{51I12} 10|480b7 485r28
+321i7 Time_Col{51I12} 10|481b7 489r52 490r52
+322i7 Is_Write_Col{51I12} 10|482b7 486r28
+323b7 Success{boolean} 10|483b7 500m7
+328U14*Hash_Chain_Gadget 329=7 330>7 331>7 332<7 10|503b14 516l8 516t25
+329r7 AIR{158R9} 10|504b7 515m34
+330i7 Input_Col{51I12} 10|505b7 509r48 511r53
+331i7 Output_Col{51I12} 10|506b7 510r49
+332b7 Success{boolean} 10|507b7 515m71
+341U14*Reduce_Degree 342=7 343>7 344>7 345<7 10|522b14 547l8 547t21 559s13
+342r7 AIR{158R9} 10|523b7 528r30 538m19
+343i7 Constraint_Idx{53I12} 10|524b7 528r47
+344i7 Target_Degree{54I12} 348r14 10|525b7 532r22
+345b7 Success{boolean} 10|526b7 533m10 540m10 546m7
+351U14*Auto_Reduce_All 352=7 353>7 354<7 10|549b14 564l8 564t23
+352r7 AIR{158R9} 10|550b7 556r21 558r25 559m28 563m7
+353i7 Max_Degree{54I12} 357r14 10|551b7 558r54 559r36 563r25
+354b7 Success{boolean} 10|552b7 562m7
+363E9*Compilation_Error 371e5 375r24
+364n7*No_Error{363E9} 10|576r23
+365n7*Degree_Too_High{363E9} 10|599r29
+366n7*Too_Many_Columns{363E9} 10|583r26
+367n7*Too_Many_Constraints{363E9} 10|590r26
+368n7*Invalid_Reference{363E9}
+369n7*Cyclic_Dependency{363E9}
+370n7*Out_Of_Memory{363E9}
+373R9*Compilation_Result 378e14 383r28 10|572r28
+374b7*Success{boolean} 10|575m14 582m17 589m17 596r40 598m20
+375e7*Error{363E9} 10|576m14 583m17 590m17 599m20
+376a7*Error_Details{string} 10|578m14
+377i7*Detail_Len{natural} 10|577m14
+381U14*Compile_AIR 382=7 383<7 10|570b14 603l8 603t19
+382r7 AIR{158R9} 10|571b7 581r10 588r10 595r21 597r13
+383r7 Result{373R9} 10|572b7 575m7 576m7 577m7 578m7 582m10 583m10 589m10
+. 590m10 596r33 598m13 599m13
+388V13*Verify_AIR{boolean} 388>25 10|605b13 617l8 617t18
+388r25 AIR{158R9} 10|605b25 607r10 610r10 613r10
+396V13*Eval_Expr{5|31M12} 397>7 398>7 399>7 400>7 401>7 10|623b13 690l8 690t17
+. 705s22 712s31 722s31 730s25
+397r7 Expr{91R9} 10|624b7 632r21 635r35 689r22
+398a7 Trace{5|141A9} 404r14 10|625b7 650r31 651r39 651r46
+399i7 Trace_Width{natural} 404r29 405r18 10|626b7 649r52
+400i7 Row{52I12} 10|627b7 643r55 663r51
+401a7 Periodics{138A9} 10|628b7 659r31 662r53
+408V13*Check_Constraint{boolean} 409>7 410>7 411>7 412>7 413>7 414>7 10|692b13
+. 735l8 735t24 746s20
+409r7 C{118R9} 10|693b7 703r12 705r33 709r18 712r42 721r28 722r42 729r16
+. 729r46 730r36
+410a7 Trace{5|141A9} 10|694b7 705r41 712r50 722r50 730r44
+411i7 Trace_Width{natural} 10|695b7 705r48 712r57 722r57 730r51
+412i7 Row{52I12} 10|696b7 705r61 711r22 712r70 721r22 722r70 729r38 730r64
+413i7 Trace_Length{natural} 10|697b7 701r28
+414a7 Periodics{138A9} 10|698b7 705r66 712r75 722r75 730r69
+419V13*Verify_Trace{boolean} 420>7 421>7 10|737b13 759l8 759t20
+420r7 AIR{158R9} 424r29 424r47 10|738b7 742r23 743r39 744r28 745r44 747r16
+. 749r16 751r16 752r16
+421a7 Trace{5|141A9} 424r14 10|739b7 748r16
+431U14*Serialize_AIR 432>7 433<7 434<7 10|765b14 786l8 786t21
+432r7 AIR{158R9} 10|766b7 781r45 782r45 783r45
+433a7 Output{6|14A9} 437r14 10|767b7 771m7 775r10 776m10 776r18 777m10 777r18
+. 778m10 778r18 779m10 779r18 780m10 780r18 781m10 781r18 782m10 782r18 783m10
+. 783r18
+434i7 Length{natural} 10|768b7 772m7 784m10
+440U14*Deserialize_AIR 441>7 442<7 443<7 10|788b14 812l8 812t23
+441a7 Input{6|14A9} 10|789b7 796r10 802r10 802r17 803r13 803r20 804r13 804r20
+. 805r13 805r20
+442r7 AIR{158R9} 10|790b7 794m17
+443b7 Success{boolean} 10|791b7 797m10 807m10 811m7
+452U14*Constraint_To_String 453>7 454<7 455<7 10|818b14 835l8 835t28
+453r7 C{118R9} 10|819b7 828r21 831r47
+454a7 Output{string} 458r14 10|820b7 824m7 829r54 830r22 831m13 831r21
+455i7 Length{natural} 10|821b7 825m7 829r45 830r13 831r36 832m13 832r23
+461R9*AIR_Stats 468e14 470r57 10|837r57 838r15
+462i7*Num_Main_Cols{natural} 10|862m13
+463i7*Num_Aux_Cols{natural} 10|863m13
+464i7*Num_Transition{natural} 10|864m13
+465i7*Num_Boundary{natural} 10|865m13
+466i7*Max_Degree{natural} 10|866m13
+467i7*Est_Proof_Size{natural} 10|867m13
+470V13*Get_AIR_Stats{461R9} 470>28 10|837b13 870l8 870t21
+470r28 AIR{158R9} 10|837b28 844r21 846r15 853r21 855r15 866r27 867r31 867r49
+. 867r72
+X 10 scarab_thoth.adb
+14V13 Empty_Expr_Node{9|78R9} 14b13 23l8 23t23 43s40 56s40 69s40 82s40 129s40
+. 174s40
+25V13 Make_Expression{9|91R9} 25b13 26>7 27>7 28>7 29>7 36l8 36t23 52s14
+. 65s14 78s14 124s17 169s17 212s17 227s14 241s14
+26a7 Nodes{9|88A9} 32r24
+27i7 Root{9|76I12} 33r23
+28i7 Count{natural} 34r29
+29i7 Deg{9|54I12} 35r25
+43a7 Nodes{9|88A9} 45m7 52r31
+56a7 Nodes{9|88A9} 58m7 65r31
+69a7 Nodes{9|88A9} 71m7 78r31
+82a7 Nodes{9|88A9} 89m10 109m16 115m10 124r34
+83i7 Count{natural} 88r33 89r17 90m10 90r19 95r39 98r36 109r23 110m16 110r25
+. 115r17 124r41 124r48
+84i7 Result_Deg{9|54I12} 123m10 124r59
+87i11 I{integer} 88r41 89r36
+95i10 Offset{natural} 98r44 104r38 105r40 107r38 120r45
+97i14 I{integer} 98r53 100r42
+100r16 N{9|78R9} 103r19 104m19 104r29 105m19 105r30 106r22 106r43 107m19
+. 107r29 109r33
+129a7 Nodes{9|88A9} 136m10 155m16 160m10 169r34
+130i7 Count{natural} 135r33 136r17 137m10 137r19 142r39 145r36 155r23 156m16
+. 156r25 160r17 169r41 169r48
+131i7 Result_Deg{9|54I12} 168m10 169r59
+134i11 I{integer} 135r41 136r36
+142i10 Offset{natural} 145r44 150r38 151r40 153r38 165r45
+144i14 I{integer} 145r53 147r42
+147r16 N{9|78R9} 149r19 150m19 150r29 151m19 151r30 152r22 152r43 153m19
+. 153r29 155r33
+174a7 Nodes{9|88A9} 180m10 198m16 203m10 212r34
+175i7 Count{natural} 179r33 180r17 181m10 181r19 185r39 188r36 198r23 199m16
+. 199r25 203r17 212r41 212r48
+176i7 Result_Deg{9|54I12} 211m10 212r59
+178i11 I{integer} 179r41 180r36
+185i10 Offset{natural} 188r44 193r38 194r40 196r38 208r45
+187i14 I{integer} 188r53 190r42
+190r16 N{9|78R9} 192r19 193m19 193r29 194m19 194r30 195r22 195r43 196m19
+. 196r29 198r33
+217a7 Nodes{9|88A9} 220m7 227r31
+218i7 Count{natural} 220r14 227r38 227r45
+231a7 Nodes{9|88A9} 234m7 241r31
+232i7 Count{natural} 234r14 241r38 241r45
+297i11 I{integer} 298r33 299r36 299r61
+312i7 Idx{9|53I12} 319m7 320r24 321r24 322r24 323r24 325r38 327r27
+325i11 I{integer} 326r33 327r38 327r63
+345i7 Idx{9|53I12} 352m7 353r24 354r24 355r24 356r24 357r24 359r38 361r27
+359i11 I{integer} 360r33 361r38 361r63
+391i11 I{integer} 392r33 392r55 393r13 394r40 394r69
+407r7 X{9|91R9} 409r65 411r24
+408r7 One_Const{9|91R9} 409r54
+409r7 One_Minus_X{9|91R9} 411r27
+421r7 Value_Expr{9|91R9} 449r59
+422r7 Sum_Expr{9|91R9} 439m16 439r38 449r71
+423r7 Bool_Const{9|91R9} 431m13 432r45
+424m7 Power{5|31M12} 437r70 442m13 442r27
+425b7 Ok{boolean} 429r33 429r43 430r13 432m69 447r10 451m70 455r18
+428i11 I{integer} 430r36 431r54 436r71
+436r16 Bit_Expr{9|91R9} 437r78
+437r16 Scaled{9|91R9} 439r48
+449r13 Final_Expr{9|91R9} 451r45
+464r7 Cond{9|91R9} 469r67 470r49
+465r7 A{9|91R9} 470r55
+466r7 B{9|91R9} 471r75
+467r7 Result{9|91R9} 474r24
+468r7 One_Expr{9|91R9} 469r57
+469r7 One_Minus_Cond{9|91R9} 471r59
+470r7 Cond_A{9|91R9} 472r51
+471r7 One_Minus_Cond_B{9|91R9} 472r59
+472r7 Expected{9|91R9} 474r32
+487r7 Addr_Curr{9|91R9} 491r63
+488r7 Addr_Next{9|91R9} 491r52
+489r7 Time_Curr{9|91R9} 492r69
+490r7 Time_Next{9|91R9} 492r58
+491r7 Addr_Diff{9|91R9} 496r39
+492r7 Time_Increasing{9|91R9} 498r42
+493b7 Ok{boolean} 496m67 497r10 498m71 500r18
+509r7 Input{9|91R9} 513r28
+510r7 Output{9|91R9} 512r71
+511r7 Next_Input{9|91R9} 512r59
+512r7 Chain_Constraint{9|91R9} 515r39
+528r7 C{9|118R9} 532r10
+529i7 Aux_Col{9|51I12} 538m49
+530b7 Ok{boolean} 538m58 539r14
+554b7 Ok{boolean} 557r33 557r43 558r13 559m48 562r18
+556i11 I{integer} 558r42 559r33
+595i11 I{integer} 597r30
+630a7 Values(5|31M12) 639m19 651m25 653m25 666m28 672m19 672r38 672r55 675m19
+. 675r38 675r55 678m19 678r38 678r55 681m19 681r38 684m19 684r38 689r14
+632i11 I{integer} 633r33 635r47 639r27 651r33 653r33 666r36 672r27 675r27
+. 678r27 681r27 684r27
+635r13 N{9|78R9} 637r18 639r33 643r62 649r66 658r22 659r42 662r64 672r46
+. 672r63 675r46 675r63 678r46 678r63 681r46 684r46 684r68
+643i22 Actual_Row{integer} 646r25 647m25 649r38
+644i22 Idx{natural} 649m22 650r25 651r60
+662r25 P=662:53{9|131R9} 663r59 666r42
+663i25 Idx{natural} 665r28 666r52
+700m7 Value{5|31M12} 705m13 706r20 712m22 713r29 722m22 723r29 730m16 731r23
+742i11 Row{integer} 743r33 750r16
+744i14 C_Idx{integer} 745r36 747r33
+828i11 I{integer} 829r33 831r55
+838r7 Stats{9|461R9} 862m7 863m7 864m7 865m7 866m7 867m7 869r14
+839i7 Main_Count{natural} 847m26 847r40 862r30
+840i7 Aux_Count{natural} 848m31 848r44 863r29
+841i7 Trans_Count{natural} 856m32 856r47 864r31
+842i7 Bound_Count{natural} 857m43 857r58 865r29
+844i11 I{integer} 845r33 846r28
+853i11 I{integer} 854r33 855r32
+

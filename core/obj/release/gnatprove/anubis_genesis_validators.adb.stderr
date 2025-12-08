@@ -1,0 +1,251 @@
+anubis_genesis_validators.adb:99:15: info: overflow check proved
+anubis_genesis_validators.adb:100:37: info: overflow check proved
+anubis_genesis_validators.adb:100:37: info: index check proved
+anubis_genesis_validators.adb:106:15: info: overflow check proved
+anubis_genesis_validators.adb:107:46: info: overflow check proved
+anubis_genesis_validators.adb:107:46: info: index check proved
+
+anubis_genesis_validators.adb:141:28: medium: overflow check might fail
+  141 |            Count := Count + 1;
+      |                     ~~~~~~^~~
+  e.g. when Count = Natural'Last
+  reason for check: result of addition must fit in a 32-bits machine integer
+  possible fix: loop at line 137 should mention Count in a loop invariant
+  137 |      for I in Validator_Index loop
+      |                               ^ here
+
+anubis_genesis_validators.adb:204:48: medium: array index check might fail
+  204 |         State.Validators (Slot).Consensus_PK (I) := Consensus_PK (I);
+      |                                               ^ here
+  reason for check: value must be a valid index into the array
+
+anubis_genesis_validators.adb:215:50: medium: overflow check might fail
+  215 |      State.Genesis_Count := State.Genesis_Count + 1;
+      |                             ~~~~~~~~~~~~~~~~~~~~^~~
+  reason for check: result of addition must fit in a 32-bits machine integer
+  possible fix: loop at line 203 should mention State in a loop invariant
+  203 |      for I in Consensus_PK'Range loop
+      |                                  ^ here
+anubis_genesis_validators.adb:313:51: info: range check proved
+anubis_genesis_validators.adb:404:07: info: initialization of "Slash_Amount" proved
+anubis_genesis_validators.adb:420:80: info: division check proved
+
+anubis_genesis_validators.adb:440:57: medium: overflow check might fail
+  440 |         State.Validators (Validator_Idx).Times_Slashed + 1;
+      |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~
+  reason for check: result of addition must fit in a 32-bits machine integer
+  possible fix: precondition of subprogram at anubis_genesis_validators.ads:416 should mention State and Validator_Idx
+  416 |   procedure Slash_Double_Sign (
+      |   ^ here
+anubis_genesis_validators.adb:454:07: info: initialization of "Slash_Amount" proved
+anubis_genesis_validators.adb:470:77: info: division check proved
+
+anubis_genesis_validators.adb:483:57: medium: overflow check might fail
+  483 |         State.Validators (Validator_Idx).Times_Slashed + 1;
+      |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~
+  reason for check: result of addition must fit in a 32-bits machine integer
+  possible fix: subprogram at anubis_genesis_validators.ads:426 should mention State and Validator_Idx in a precondition
+  426 |   procedure Slash_Downtime (
+      |   ^ here
+anubis_genesis_validators.adb:501:54: info: range check proved
+
+anubis_genesis_validators.adb:524:48: medium: overflow check might fail
+  524 |      State.Active_Count := State.Active_Count + 1;
+      |                            ~~~~~~~~~~~~~~~~~~~^~~
+  reason for check: result of addition must fit in a 32-bits machine integer
+  possible fix: subprogram at anubis_genesis_validators.ads:443 should mention State in a precondition
+  443 |   procedure Unjail_Validator (
+      |   ^ here
+anubis_genesis_validators.adb:556:21: info: overflow check proved
+anubis_genesis_validators.adb:558:54: info: overflow check proved
+anubis_genesis_validators.adb:558:54: info: index check proved
+anubis_genesis_validators.adb:592:07: info: initialization of "Total" proved
+anubis_genesis_validators.adb:600:59: info: division check proved
+
+anubis_genesis_validators.adb:600:59: high: range check might fail
+  600 |      return Natural ((Validator.Blocks_Produced * 10000) / Total);
+      |                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~
+  e.g. when Total = 1431655763
+        and Validator.Index = 1
+        and Validator.Address = (others => 0)
+        and Validator.PK_Hash(0) = 0
+        and Validator.Consensus_PK(0) = 0
+        and Validator.Status = Approved
+  reason for check: result of division must be convertible to the target type of the conversion
+  possible fix: subprogram at anubis_genesis_validators.ads:487 should mention Validator in a precondition
+  487 |   function Calculate_Uptime (
+      |   ^ here
+anubis_genesis_validators.adb:677:15: info: overflow check proved
+anubis_genesis_validators.adb:678:48: info: overflow check proved
+anubis_genesis_validators.adb:678:48: info: index check proved
+anubis_genesis_validators.adb:684:15: info: overflow check proved
+anubis_genesis_validators.adb:685:53: info: overflow check proved
+anubis_genesis_validators.adb:685:53: info: index check proved
+
+anubis_genesis_validators.adb:697:60: medium: overflow check might fail
+  697 |      State.Post_Genesis_Count := State.Post_Genesis_Count + 1;
+      |                                  ~~~~~~~~~~~~~~~~~~~~~~~~~^~~
+  reason for check: result of addition must fit in a 32-bits machine integer
+  possible fix: loop at line 683 should mention State in a loop invariant
+  683 |      for I in Consensus_PK'Range loop
+      |                                  ^ here
+anubis_genesis_validators.adb:712:30: info: range check proved
+anubis_genesis_validators.adb:719:24: info: index check proved, in call inlined at anubis_genesis_validators.adb:740
+anubis_genesis_validators.adb:719:24: info: index check proved, in call inlined at anubis_genesis_validators.adb:741
+anubis_genesis_validators.adb:719:24: info: index check proved, in call inlined at anubis_genesis_validators.adb:742
+anubis_genesis_validators.adb:719:24: info: index check proved, in call inlined at anubis_genesis_validators.adb:743
+anubis_genesis_validators.adb:719:24: info: index check proved, in call inlined at anubis_genesis_validators.adb:744
+anubis_genesis_validators.adb:719:24: info: index check proved, in call inlined at anubis_genesis_validators.adb:745
+anubis_genesis_validators.adb:719:24: info: index check proved, in call inlined at anubis_genesis_validators.adb:746
+anubis_genesis_validators.adb:719:46: info: division check proved, in call inlined at anubis_genesis_validators.adb:740
+anubis_genesis_validators.adb:719:46: info: range check proved, in call inlined at anubis_genesis_validators.adb:740
+anubis_genesis_validators.adb:719:46: info: division check proved, in call inlined at anubis_genesis_validators.adb:741
+anubis_genesis_validators.adb:719:46: info: range check proved, in call inlined at anubis_genesis_validators.adb:741
+anubis_genesis_validators.adb:719:46: info: division check proved, in call inlined at anubis_genesis_validators.adb:742
+anubis_genesis_validators.adb:719:46: info: range check proved, in call inlined at anubis_genesis_validators.adb:742
+anubis_genesis_validators.adb:719:46: info: division check proved, in call inlined at anubis_genesis_validators.adb:743
+anubis_genesis_validators.adb:719:46: info: range check proved, in call inlined at anubis_genesis_validators.adb:743
+anubis_genesis_validators.adb:719:46: info: division check proved, in call inlined at anubis_genesis_validators.adb:744
+anubis_genesis_validators.adb:719:46: info: range check proved, in call inlined at anubis_genesis_validators.adb:744
+anubis_genesis_validators.adb:719:46: info: division check proved, in call inlined at anubis_genesis_validators.adb:745
+anubis_genesis_validators.adb:719:46: info: range check proved, in call inlined at anubis_genesis_validators.adb:745
+anubis_genesis_validators.adb:719:46: info: division check proved, in call inlined at anubis_genesis_validators.adb:746
+anubis_genesis_validators.adb:719:46: info: range check proved, in call inlined at anubis_genesis_validators.adb:746
+anubis_genesis_validators.adb:720:23: info: division check proved, in call inlined at anubis_genesis_validators.adb:740
+anubis_genesis_validators.adb:720:23: info: division check proved, in call inlined at anubis_genesis_validators.adb:741
+anubis_genesis_validators.adb:720:23: info: division check proved, in call inlined at anubis_genesis_validators.adb:742
+anubis_genesis_validators.adb:720:23: info: division check proved, in call inlined at anubis_genesis_validators.adb:743
+anubis_genesis_validators.adb:720:23: info: division check proved, in call inlined at anubis_genesis_validators.adb:744
+anubis_genesis_validators.adb:720:23: info: division check proved, in call inlined at anubis_genesis_validators.adb:745
+anubis_genesis_validators.adb:720:23: info: division check proved, in call inlined at anubis_genesis_validators.adb:746
+anubis_genesis_validators.adb:721:27: info: overflow check proved, in call inlined at anubis_genesis_validators.adb:740
+anubis_genesis_validators.adb:721:27: info: overflow check proved, in call inlined at anubis_genesis_validators.adb:741
+anubis_genesis_validators.adb:721:27: info: overflow check proved, in call inlined at anubis_genesis_validators.adb:742
+anubis_genesis_validators.adb:721:27: info: overflow check proved, in call inlined at anubis_genesis_validators.adb:743
+anubis_genesis_validators.adb:721:27: info: overflow check proved, in call inlined at anubis_genesis_validators.adb:744
+anubis_genesis_validators.adb:721:27: info: overflow check proved, in call inlined at anubis_genesis_validators.adb:745
+anubis_genesis_validators.adb:721:27: info: overflow check proved, in call inlined at anubis_genesis_validators.adb:746
+anubis_genesis_validators.adb:727:14: info: length check proved
+anubis_genesis_validators.adb:731:18: info: index check proved
+anubis_genesis_validators.adb:731:57: info: division check proved
+anubis_genesis_validators.adb:731:57: info: range check proved
+anubis_genesis_validators.adb:732:21: info: overflow check proved
+anubis_genesis_validators.adb:736:18: info: index check proved
+anubis_genesis_validators.adb:736:58: info: division check proved
+anubis_genesis_validators.adb:736:58: info: range check proved
+anubis_genesis_validators.adb:737:21: info: overflow check proved
+anubis_genesis_validators.adb:749:18: info: index check proved
+anubis_genesis_validators.adb:750:21: info: overflow check proved
+anubis_genesis_validators.adb:754:18: info: index check proved
+anubis_genesis_validators.adb:754:63: info: division check proved
+anubis_genesis_validators.adb:754:63: info: range check proved
+anubis_genesis_validators.adb:755:21: info: overflow check proved
+anubis_genesis_validators.adb:758:21: info: overflow check proved
+anubis_genesis_validators.adb:758:21: info: range check proved
+
+anubis_genesis_validators.adb:766:29: medium: range check might fail
+  766 |      Idx : Natural := Input'First;
+      |                       ~~~~~^~~~~~
+  e.g. when Input'Last = -2
+  reason for check: default component value must fit in the type
+  possible fix: add or complete related loop invariants or postconditions
+anubis_genesis_validators.adb:768:27: info: initialization of "Val" proved
+anubis_genesis_validators.adb:773:49: info: index check proved, in call inlined at anubis_genesis_validators.adb:797
+anubis_genesis_validators.adb:773:49: info: index check proved, in call inlined at anubis_genesis_validators.adb:798
+anubis_genesis_validators.adb:773:49: info: index check proved, in call inlined at anubis_genesis_validators.adb:799
+anubis_genesis_validators.adb:773:49: info: index check proved, in call inlined at anubis_genesis_validators.adb:800
+anubis_genesis_validators.adb:773:49: info: index check proved, in call inlined at anubis_genesis_validators.adb:801
+anubis_genesis_validators.adb:773:49: info: index check proved, in call inlined at anubis_genesis_validators.adb:802
+anubis_genesis_validators.adb:773:49: info: index check proved, in call inlined at anubis_genesis_validators.adb:803
+anubis_genesis_validators.adb:774:27: info: overflow check proved, in call inlined at anubis_genesis_validators.adb:797
+anubis_genesis_validators.adb:774:27: info: overflow check proved, in call inlined at anubis_genesis_validators.adb:798
+anubis_genesis_validators.adb:774:27: info: overflow check proved, in call inlined at anubis_genesis_validators.adb:799
+anubis_genesis_validators.adb:774:27: info: overflow check proved, in call inlined at anubis_genesis_validators.adb:800
+anubis_genesis_validators.adb:774:27: info: overflow check proved, in call inlined at anubis_genesis_validators.adb:801
+anubis_genesis_validators.adb:774:27: info: overflow check proved, in call inlined at anubis_genesis_validators.adb:802
+anubis_genesis_validators.adb:774:27: info: overflow check proved, in call inlined at anubis_genesis_validators.adb:803
+anubis_genesis_validators.adb:788:48: info: index check proved
+anubis_genesis_validators.adb:789:21: info: overflow check proved
+anubis_genesis_validators.adb:793:49: info: index check proved
+anubis_genesis_validators.adb:794:21: info: overflow check proved
+anubis_genesis_validators.adb:806:44: info: index check proved
+anubis_genesis_validators.adb:807:21: info: overflow check proved
+anubis_genesis_validators.adb:811:54: info: index check proved
+
+anubis_genesis_validators.adb:812:14: warning: unused assignment
+  812 |         Idx := Idx + 1;
+      |         ~~~~^~~~~~~~~~
+anubis_genesis_validators.adb:812:21: info: overflow check proved
+anubis_genesis_validators.ads:268:07: info: initialization of "State" proved
+anubis_genesis_validators.ads:271:07: info: data dependencies proved
+anubis_genesis_validators.ads:272:15: info: postcondition proved
+anubis_genesis_validators.ads:284:07: info: initialization of "Result" proved
+anubis_genesis_validators.ads:286:07: info: data dependencies proved
+anubis_genesis_validators.ads:294:07: info: initialization of "Result" proved
+anubis_genesis_validators.ads:296:07: info: data dependencies proved
+anubis_genesis_validators.ads:301:13: info: implicit aspect Always_Terminates on "Verify_Hardware" has been proved, subprogram will terminate
+anubis_genesis_validators.ads:304:07: info: data dependencies proved
+anubis_genesis_validators.ads:305:15: info: postcondition proved
+anubis_genesis_validators.ads:312:13: info: implicit aspect Always_Terminates on "Check_Regional_Balance" has been proved, subprogram will terminate
+anubis_genesis_validators.ads:316:07: info: data dependencies proved
+anubis_genesis_validators.ads:329:07: info: initialization of "Result" proved
+anubis_genesis_validators.ads:331:07: info: data dependencies proved
+anubis_genesis_validators.ads:342:07: info: initialization of "Success" proved
+anubis_genesis_validators.ads:344:07: info: data dependencies proved
+anubis_genesis_validators.ads:353:07: info: initialization of "Success" proved
+anubis_genesis_validators.ads:355:07: info: data dependencies proved
+anubis_genesis_validators.ads:363:07: info: initialization of "Released" proved
+anubis_genesis_validators.ads:364:07: info: initialization of "Success" proved
+anubis_genesis_validators.ads:366:07: info: data dependencies proved
+anubis_genesis_validators.ads:378:07: info: data dependencies proved
+anubis_genesis_validators.ads:386:07: info: data dependencies proved
+anubis_genesis_validators.ads:389:13: info: implicit aspect Always_Terminates on "Calculate_Block_Reward" has been proved, subprogram will terminate
+anubis_genesis_validators.ads:392:07: info: data dependencies proved
+anubis_genesis_validators.ads:400:07: info: data dependencies proved
+anubis_genesis_validators.ads:406:07: info: initialization of "Claimed" proved
+anubis_genesis_validators.ads:407:07: info: initialization of "Success" proved
+anubis_genesis_validators.ads:409:07: info: data dependencies proved
+anubis_genesis_validators.ads:420:07: info: initialization of "Result" proved
+anubis_genesis_validators.ads:422:07: info: data dependencies proved
+anubis_genesis_validators.ads:430:07: info: initialization of "Result" proved
+anubis_genesis_validators.ads:432:07: info: data dependencies proved
+anubis_genesis_validators.ads:440:07: info: data dependencies proved
+anubis_genesis_validators.ads:447:07: info: initialization of "Success" proved
+anubis_genesis_validators.ads:449:07: info: data dependencies proved
+anubis_genesis_validators.ads:456:13: info: implicit aspect Always_Terminates on "Get_Validator" has been proved, subprogram will terminate
+anubis_genesis_validators.ads:460:07: info: data dependencies proved
+anubis_genesis_validators.ads:466:07: info: initialization of "Index" proved
+anubis_genesis_validators.ads:467:07: info: initialization of "Found" proved
+anubis_genesis_validators.ads:469:07: info: data dependencies proved
+anubis_genesis_validators.ads:473:13: info: implicit aspect Always_Terminates on "Get_Active_Count" has been proved, subprogram will terminate
+anubis_genesis_validators.ads:476:07: info: data dependencies proved
+anubis_genesis_validators.ads:477:15: info: postcondition proved
+anubis_genesis_validators.ads:480:13: info: implicit aspect Always_Terminates on "Get_Total_Stake" has been proved, subprogram will terminate
+anubis_genesis_validators.ads:483:07: info: data dependencies proved
+anubis_genesis_validators.ads:484:15: info: postcondition proved
+anubis_genesis_validators.ads:487:13: info: implicit aspect Always_Terminates on "Calculate_Uptime" has been proved, subprogram will terminate
+anubis_genesis_validators.ads:490:07: info: data dependencies proved
+
+anubis_genesis_validators.ads:491:15: medium: postcondition might fail
+  491 |      Post => Calculate_Uptime'Result <= 10000;
+      |              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+anubis_genesis_validators.ads:494:13: info: implicit aspect Always_Terminates on "Meets_Uptime_Requirement" has been proved, subprogram will terminate
+anubis_genesis_validators.ads:497:07: info: data dependencies proved
+anubis_genesis_validators.ads:508:07: info: data dependencies proved
+anubis_genesis_validators.ads:510:15: info: postcondition proved
+anubis_genesis_validators.ads:513:13: info: implicit aspect Always_Terminates on "Is_Open_Entry" has been proved, subprogram will terminate
+anubis_genesis_validators.ads:517:07: info: data dependencies proved
+anubis_genesis_validators.ads:526:07: info: initialization of "Result" proved
+anubis_genesis_validators.ads:528:07: info: data dependencies proved
+anubis_genesis_validators.ads:540:07: info: initialization of "Output" proved
+anubis_genesis_validators.ads:541:07: info: initialization of "Length" proved
+anubis_genesis_validators.ads:543:07: info: data dependencies proved
+anubis_genesis_validators.ads:548:07: info: initialization of "State" proved
+anubis_genesis_validators.ads:549:07: info: initialization of "Success" proved
+anubis_genesis_validators.ads:551:07: info: data dependencies proved
+anubis_genesis_validators.ads:557:37: info: initialization of "State" proved
+anubis_genesis_validators.ads:558:07: info: data dependencies proved
+anubis_genesis_validators.ads:560:33: info: initialization of "V" proved
+anubis_genesis_validators.ads:561:07: info: data dependencies proved
+anubis_genesis_validators.ads:563:35: info: initialization of "A" proved
+anubis_genesis_validators.ads:564:07: info: data dependencies proved

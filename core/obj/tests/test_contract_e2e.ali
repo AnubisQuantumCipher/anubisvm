@@ -1,0 +1,232 @@
+V "GNAT Lib v14"
+M P W=b
+A -O0
+A -gnatA
+A -gnat2022
+A -gnatwa
+A -gnatyO
+A -gnatVa
+A -g
+A -gnata
+A -mmacosx-version-min=16.0.0
+A -mcpu=apple-m1
+A -mlittle-endian
+A -mabi=lp64
+A -fPIC
+P ZX
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_IO
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+
+U test_contract_e2e%b	test_contract_e2e.adb	d3ae2ab7 NE OO SU
+W ada%s			ada.ads			ada.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+W aegis_contract%s	aegis_contract.adb	aegis_contract.ali
+W aegis_execution%s	aegis_execution.adb	aegis_execution.ali
+W aegis_gas%s		aegis_gas.adb		aegis_gas.ali
+W aegis_sandbox%s	aegis_sandbox.adb	aegis_sandbox.ali
+W aegis_syscall%s	aegis_syscall.adb	aegis_syscall.ali
+W aegis_vm_types%s	aegis_vm_types.ads	aegis_vm_types.ali
+W interfaces%s		interfac.ads		interfac.ali
+Z system.concat_2%s	s-conca2.adb		s-conca2.ali
+Z system.img_int%s	s-imgint.ads		s-imgint.ali
+Z system.img_lli%s	s-imglli.ads		s-imglli.ali
+
+D ada.ads		20240808082856 76789da1 ada%s
+D a-assert.ads		20240808082856 ba465f5c ada.assertions%s
+D a-except.ads		20240808082856 e7970cd9 ada.exceptions%s
+D a-ioexce.ads		20240808082856 40018c65 ada.io_exceptions%s
+D a-stream.ads		20240808082856 119b8fb3 ada.streams%s
+D a-string.ads		20240808082856 90ac6797 ada.strings%s
+D a-sttebu.ads		20240808082856 f1ad67a2 ada.strings.text_buffers%s
+D a-stuten.ads		20240808082856 c6ced0ae ada.strings.utf_encoding%s
+D a-tags.ads		20240808082856 9eaa38c6 ada.tags%s
+D a-textio.ads		20240808082856 34ef47de ada.text_io%s
+D a-unccon.ads		20240808082856 0e9b276f ada.unchecked_conversion%s
+D aegis_contract.ads	20251207191106 f406fabe aegis_contract%s
+D aegis_crypto_api.ads	20251207191105 f509c946 aegis_crypto_api%s
+D aegis_execution.ads	20251207191105 f7650f9d aegis_execution%s
+D aegis_gas.ads		20251207191105 2c397305 aegis_gas%s
+D aegis_sandbox.ads	20251207191106 0a9a14d0 aegis_sandbox%s
+D aegis_storage.ads	20251207191106 d62ac4d0 aegis_storage%s
+D aegis_syscall.ads	20251207191106 459fd86d aegis_syscall%s
+D aegis_vm_types.ads	20251207191105 dcd101d9 aegis_vm_types%s
+D interfac.ads		20240808082856 9111f9c1 interfaces%s
+D i-cstrea.ads		20240808082856 ffd01b9d interfaces.c_streams%s
+D system.ads		20240808082856 70765b54 system%s
+D s-assert.ads		20240808082856 9c4520c7 system.assertions%s
+D s-conca2.ads		20240808082856 b5fb73f7 system.concat_2%s
+D s-crtl.ads		20240808082856 beb39b9e system.crtl%s
+D s-exctab.ads		20240808082856 91bef6ef system.exception_table%s
+D s-ficobl.ads		20240808082856 dc5161d4 system.file_control_block%s
+D s-imagei.ads		20240808082856 5e131ce0 system.image_i%s
+D s-imgint.ads		20240808082856 67e4edfb system.img_int%s
+D s-imglli.ads		20240808082856 d88f4f3b system.img_lli%s
+D s-parame.ads		20240808082856 3597fc11 system.parameters%s
+D s-putima.ads		20240808082856 17291fe4 system.put_images%s
+D s-secsta.ads		20240808082856 578279f5 system.secondary_stack%s
+D s-soflin.ads		20240808082856 df77073e system.soft_links%s
+D s-stache.ads		20240808082856 0b81c1fe system.stack_checking%s
+D s-stalib.ads		20240808082856 1c9580f6 system.standard_library%s
+D s-stoele.ads		20240808082856 ccded4e8 system.storage_elements%s
+D s-traent.ads		20240808082856 c81cbf8c system.traceback_entries%s
+D s-unstyp.ads		20240808082856 fa2a7f59 system.unsigned_types%s
+D s-valspe.ads		20240808082856 b0fcd073 system.val_spec%s
+D s-vaispe.ads		20240808082856 8280550e system.value_i_spec%s
+D s-vauspe.ads		20240808082856 89269ba5 system.value_u_spec%s
+D s-vs_int.ads		20240808082856 06b6b724 system.vs_int%s
+D s-vs_lli.ads		20240808082856 b945cf7d system.vs_lli%s
+D s-vs_llu.ads		20240808082856 8f3536c5 system.vs_llu%s
+D s-vs_uns.ads		20240808082856 e7f47a27 system.vs_uns%s
+D s-wchcon.ads		20240808082856 d9032363 system.wch_con%s
+D test_contract_e2e.adb	20251206060414 cadedfea test_contract_e2e%b
+G a e
+G c Z b b [test_contract_e2e standard 25 11 none]
+G r c none [test_contract_e2e standard 25 11 none] [create_context aegis_execution 75 13 none]
+G r c none [test_contract_e2e standard 25 11 none] [gas_remaining aegis_execution 150 13 none]
+G r c none [test_contract_e2e standard 25 11 none] [dispatch aegis_syscall 97 14 none]
+G r c none [test_contract_e2e standard 25 11 none] [enter_call aegis_execution 87 14 none]
+G r s execution_context [test_contract_e2e standard 25 11 none] [execution_contextIP aegis_execution 49 9 none]
+X 1 ada.ads
+16K9*Ada 20e8 48|16r6 16r23
+X 10 a-textio.ads
+58K13*Text_IO 785e16 48|16w10 16r27
+284U14*New_Line 48|74s4 92s4 123s4 154s4 186s4 227s4 254s4 284s4 298s4 309s4
+565U14*Put_Line 48|41s10 43s10 70s4 71s4 72s4 73s4 79s4 97s4 128s4 159s4
+. 191s4 218s7 219s7 220s7 221s7 232s4 259s4 289s4 303s4 304s4 305s4 306s4
+. 307s4 308s4 312s7 313s7 315s7
+X 12 aegis_contract.ads
+28K9*Aegis_Contract 276e19 48|21w6 21r26
+X 14 aegis_execution.ads
+32K9*Aegis_Execution 278e20 48|18w6 18r27
+49R9*Execution_Context 68e14 48|56r13 81r13 99r16 130r16 161r16 193r22 194r22
+. 195r22 196r22 234r16 261r16 291r20
+51a7*Origin{19|70A9} 48|88r19
+55r7*Chain_ID{19|41R9} 48|90r19
+59r7*Sandbox{16|127R9} 48|292r52
+67e7*Certification{19|84E9} 48|84r19
+75V13*Create_Context{49R9} 48|58s14 266s14
+76a7 Origin{19|70A9} 48|59r10 267r10
+77i7 Gas_Limit{19|101I9} 48|60r10 268r10
+78r7 Gas_Price{19|41R9} 48|61r10 269r10
+79r7 Block_Number{19|41R9} 48|62r10 270r10
+80r7 Timestamp{19|41R9} 48|63r10 271r10
+81r7 Chain_ID{19|41R9} 48|64r10 272r10
+82e7 Certification{19|84E9} 48|65r10 273r10
+87U14*Enter_Call 48|167s7
+150V13*Gas_Remaining{19|101I9} 48|86s15 136s21 143s20 147s21 151s20 207s33
+. 210s33 213s31 216s35
+X 15 aegis_gas.ads
+30K9*Aegis_Gas 292e14 48|22w6 22r21
+X 16 aegis_sandbox.ads
+27K9*Aegis_Sandbox 307e18 48|20w6 20r25
+38n7*Sys_SLoad{36E9} 48|174r25
+39n7*Sys_SStore{36E9} 48|180r25
+42n7*Sys_SHA3{36E9} 48|140r22 206r29 209r29 212r27 215r31 278r22
+43n7*Sys_Keccak256{36E9} 48|148r22
+48n7*Sys_Caller{36E9} 48|104r22
+53n7*Sys_BlockNumber{36E9} 48|114r22
+54n7*Sys_Timestamp{36E9} 48|108r22
+56n7*Sys_GasRemaining{36E9} 48|120r22
+70n7*Sys_Return{36E9} 48|244r22
+71n7*Sys_Revert{36E9} 48|249r22
+72n7*Sys_Stop{36E9} 48|239r22
+116a7*Capabilities{19|263A9} 48|292r74
+130r7*Current_Frame{106R9} 48|292r60
+X 18 aegis_syscall.ads
+34K9*Aegis_Syscall 356e18 48|19w6 19r25
+46A9*Syscall_Args(19|41R9)<45I9> 48|100r16 131r16 162r16 198r16 235r16 262r16
+49R9*Syscall_Return 54e14 48|101r16 132r16 163r16 199r16 236r16 263r16
+50b7*Success{boolean} 48|105r49 109r52 115r54 121r56 141r47 149r52 175r51
+. 183r25 240r47 245r49 250r58 279r51
+52r7*Return_Val{19|41R9} 48|111r22 117r22
+53i7*Error_Code{natural} 48|183r43 252r22 281r22 282r22
+80N4*Error_Out_Of_Gas 48|281r35
+84N4*Error_State_Modify 48|183r56
+89N4*Error_Revert 48|252r35
+90N4*Error_Crypto 48|282r35
+97U14*Dispatch 48|104s7 108s7 114s7 120s7 140s7 148s7 174s10 180s10 206s7
+. 209s7 212s7 215s7 239s7 244s7 249s7 278s7
+X 19 aegis_vm_types.ads
+21K9*Aegis_VM_Types 279e19 48|17w6 17r26
+31M12*Byte{20|70M9}
+39A9*U256_Limbs(35M12)<integer>
+41R9*U256 43e14 48|28r47
+42a7*Limbs{39A9} 48|30m15
+46r4*U256_Zero{41R9} 48|100r43 131r43 162r43 167r52 198r43 235r43 262r43
+. 270r27 271r27 272r27
+47r4*U256_One{41R9} 48|61r27 269r27
+70A9*Contract_Address(31M12)<integer> 48|48r27 50r29
+84E9*Certification_Level 84e64 48|55r15
+84n33*Bronze{84E9} 48|55r38 81r55 84r35 99r58 130r58 161r58 193r64 234r58
+. 243r35 248r35 273r27 291r62
+84n41*Silver{84E9} 48|194r64
+84n49*Gold{84E9} 48|195r64
+84n55*Platinum{84E9} 48|196r64
+101I9*Gas_Amount<long_integer> 48|133r20 134r20 201r56 218r40 219r40 220r40
+. 221r40
+179n7*Call{178E9} 48|168r28
+252n7*Cap_Read_Storage{250E9} 48|296r60
+258n7*Cap_Crypto{250E9} 48|295r54
+263A9*Capability_Mask(boolean)<250E9> 48|292r29
+X 20 interfac.ads
+38K9*Interfaces 233e15 48|23w6 23r22
+70M9*Unsigned_8
+84M9*Unsigned_64 48|28r27
+X 48 test_contract_e2e.adb
+25U11*Test_Contract_E2E 25b11 318l5 318t22
+28V13 From_U64{19|41R9} 28b13 28>23 31l8 31t16 62s27 63s27 64s27 90s30 111s35
+. 117s35 139s19 173s22 178s22 179s22 204s19 277s19
+28m23 V{20|84M9} 30r25
+33i4 Total_Tests{natural} 38m7 38r22 306r44 308r44 311r22
+34i4 Passed_Tests{natural} 40m10 40r26 307r44 308r58 311r7
+36U14 Report 36b14 36>22 36>37 45l8 45t14 83s7 85s7 87s7 89s7 105s7 109s7
+. 110s7 115s7 116s7 121s7 141s7 144s7 149s7 152s7 169s7 175s10 182s10 223s7
+. 224s7 225s7 240s7 245s7 250s7 251s7 279s7 280s7 295s7 296s7
+36a22 Name{string} 41r34 43r34
+36b37 Passed{boolean} 39r10
+48a4 Origin_Addr{19|70A9} 59r27 88r28 167r24 267r27
+50a4 Contract_Addr{19|70A9} 167r37
+54V13 Create_Test_Context{14|49R9} 54b13 55>7 67l8 67t27 81s34 99s37 130s37
+. 161s37 193s43 194s43 195s43 196s43 234s37 243s14 248s14 291s41
+55e7 Level{19|84E9} 65r27
+81r7 Ctx{14|49R9} 84r15 86r30 88r15 90r15
+99r7 Ctx{14|49R9} 104m17 104r17 108m17 108r17 114m17 114r17 120m17 120r17
+100a7 Args{18|46A9} 104r34 108r37 114r39 120r40
+101r7 Result{18|49R9} 104m43 105r42 108m46 109r45 111r15 114m48 115r47 117r15
+. 120m49 121r49
+130r7 Ctx{14|49R9} 136r36 140m17 140r17 143r35 147r36 148m17 148r17 151r35
+131a7 Args{18|46A9} 139m7 140r32 148r37
+132r7 Result{18|49R9} 140m41 141r40 148m46 149r45
+133i7 Gas_Before{19|101I9} 136m7 144r48 147m7 152r53
+134i7 Gas_After{19|101I9} 143m7 144r36 151m7 152r41
+161r7 Ctx{14|49R9} 167m19 167r19 174m20 174r20 180m20 180r20
+162a7 Args{18|46A9} 173m10 174r36 178m10 179m10 180r37
+163r7 Result{18|49R9} 174m45 175r44 180m46 183r18 183r36
+164b7 Success{boolean} 168m34 169r44 171r10
+193r7 Ctx_Bronze{14|49R9} 206m17 206r17 207r48
+194r7 Ctx_Silver{14|49R9} 209m17 209r17 210r48
+195r7 Ctx_Gold{14|49R9} 212m17 212r17 213r46
+196r7 Ctx_Platinum{14|49R9} 215m17 215r17 216r50
+198a7 Args{18|46A9} 204m7 206r39 209r39 212r37 215r41
+199r7 Result{18|49R9} 206m48 209m48 212m46 215m50
+201i7 Gas_Bronze{19|101I9} 207m7 218r58 223r64
+201i19 Gas_Silver{19|101I9} 210m7 219r58 223r51 224r60
+201i31 Gas_Gold{19|101I9} 213m7 220r58 224r49 225r66
+201i41 Gas_Platinum{19|101I9} 216m7 221r58 225r51
+234r7 Ctx{14|49R9} 239m17 239r17 243m7 244m17 244r17 248m7 249m17 249r17
+235a7 Args{18|46A9} 239r32 244r34 249r34
+236r7 Result{18|49R9} 239m41 240r40 244m43 245r42 249m43 250r51 252r15
+261r7 Ctx{14|49R9} 266m7 278m17 278r17
+262a7 Args{18|46A9} 277m7 278r32
+263r7 Result{18|49R9} 278m41 279r44 281r15 282r15
+291r7 Ctx{14|49R9} 292r48
+292a7 Caps{19|263A9} 295r48 296r54
+

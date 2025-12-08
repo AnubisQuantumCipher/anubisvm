@@ -1,0 +1,152 @@
+V "GNAT Lib v14"
+A -O2
+A -gnatA
+A -gnat2022
+A -gnatwa
+A -gnatyO
+A -gnatVa
+A -gnatw.F
+A -gnata
+A -gnatn
+A -ffunction-sections
+A -fdata-sections
+A -gnatR2js
+A -gnatws
+A -mmacosx-version-min=16.0.0
+A -mcpu=apple-m1
+A -mlittle-endian
+A -mabi=lp64
+A -fPIC
+P ZX
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U anubis_ntt%b		anubis_ntt.adb		7c55654e NE OO PK
+W interfaces%s		interfac.ads		interfac.ali
+Z system.assertions%s	s-assert.adb		s-assert.ali
+
+U anubis_ntt%s		anubis_ntt.ads		d34de1b7 BN EE NE OO PK IU
+W anubis_config%s	anubis_config.ads	anubis_config.ali
+W anubis_field%s	anubis_field.adb	anubis_field.ali
+
+D ada.ads		20240601155135 76789da1 ada%s
+D a-assert.ads		20240601155135 ba465f5c ada.assertions%s
+D a-unccon.ads		20240601155135 0e9b276f ada.unchecked_conversion%s
+D anubis_config.ads	20251203093747 19c7b4b2 anubis_config%s
+D anubis_field.ads	20251204123812 ccc1c329 anubis_field%s
+D anubis_field.adb	20251204123453 9060b51a anubis_field%b
+D anubis_ntt.ads	20251204145755 064b962c anubis_ntt%s
+D anubis_ntt.adb	20251204155425 eb0f0aa3 anubis_ntt%b
+D interfac.ads		20240601155135 9111f9c1 interfaces%s
+D system.ads		20240601155135 70765b54 system%s
+D s-assert.ads		20240601155135 9c4520c7 system.assertions%s
+D s-exctab.ads		20240601155135 91bef6ef system.exception_table%s
+D s-stalib.ads		20240601155135 1c9580f6 system.standard_library%s
+G a e
+G c Z s b [ntt anubis_ntt 55 14 none]
+G c Z s b [intt anubis_ntt 63 14 none]
+G c Z s b [ntt_mul anubis_ntt 69 14 none]
+G c Z s b [normalize anubis_ntt 79 14 none]
+G c Z s b [bit_reverse anubis_ntt 86 13 none]
+G c Z s s [Ttwiddle_arrayBIP anubis_ntt 38 4 none]
+G c Z s s [TpolynomialBIP anubis_ntt 33 4 none]
+G c Z b b [basemul anubis_ntt 153 14 none]
+G r c none [basemul anubis_ntt 153 14 none] [mont_mul anubis_field 86 13 none]
+G r c none [basemul anubis_ntt 153 14 none] [barrett_reduce anubis_field 53 13 none]
+X 4 anubis_config.ads
+3K9*Anubis_Config 112e18 7|3w6 3r25
+35N4*Q 7|57r50 58r56 65r51 75r54 75r72 76r55 81r51 8|69r73 124r51 199r25
+38N4*N 7|30r45 8|49r24 51r45 62r43 63r49 101r24 103r45 115r43 116r49
+X 5 anubis_field.ads
+6K9*Anubis_Field 102e17 7|4w6 4r24
+21M9*Field_Element 7|33r45 38r48 50r21 8|37r14 38r11 90r14 91r11 154r27 155r27
+. 156r28 158r20 180r25 187r24
+53V13*Barrett_Reduce{24M12} 8|69s31 70s25 122s25 124s31 146s19 164s13 169s13
+. 232s19
+69V13*Mul{24M12} 8|140s19
+86V13*Mont_Mul{21M9} 8|68s21 125s31 161s13 162s13 163s13 167s13 168s13 223s19
+X 7 anubis_ntt.ads
+25K9*Anubis_NTT 86E13 160l5 160e15 8|5b14 236l5 236t15
+30I12*Poly_Index{natural} 33r30 38r33 57r28 58r29 65r29 75r28 76r29 81r29
+. 86r30 86r49 88r37 8|10r30 10r49 138r16 139r38 144r16 145r38 221r16 222r38
+. 230r16 231r38
+33A9*Polynomial(5|21M9)<integer> 55r30 63r31 70r14 71r14 72r15 79r36 8|32r30
+. 85r31 183r14 184r14 185r15 228r36
+38A9*Twiddle_Array(5|21M9)<integer> 41r21 44r25 93r21 125r25
+41a4*Zetas{38A9} 93c4 8|55r21 108r21 194r18
+44a4*Zetas_Inv{38A9} 125c4
+50m4*N_Inv{5|21M9}
+55U14*NTT 55=19 8|32b14
+55a19 F{33A9} 57r42 58r43 8|32b19 68r37 69m16 69r60 70m16 70r54
+57i23 I{30I12} 57r45
+58i24 I{30I12} 58r46
+63U14*INTT 63=20 8|85b14
+63a20 F{33A9} 65r43 8|85b20 121r21 122m16 122r72 124m16 124r68 125m16 125r47
+. 140m10 140r24 146m10 146r48
+65i24 I{30I12} 65r46
+69U14*NTT_Mul 70>7 71>7 72<7 8|182b14
+70a7 F{33A9} 75r42 8|183b7 204r13 204r24 212r13 212r28
+71a7 G{33A9} 75r60 8|184b7 205r13 205r24 213r13 213r28
+72a7 H{33A9} 76r43 8|185b7 207m13 207r13 207m24 207r24 215m13 215r13 215m28
+. 215r28 223m10 223r29
+75i23 I{30I12} 75r45 75r63
+76i24 I{30I12} 76r46
+79U14*Normalize 79=25 8|228b14
+79a25 F{33A9} 81r43 8|228b25 232m10 232r48
+81i24 I{30I12} 81r46
+86V13 Bit_Reverse{30I12} 86>26 88r15 8|10b13
+86i26 X{30I12} 8|10b26 12r24
+X 8 anubis_ntt.adb
+11i7 Result{natural} 17r33 20m10 20r20 22m13 22r23 27r14
+12i7 Val{natural} 18r33 21r13 24m10 24r17
+15i11 I{integer} 16r33
+33i7 Len{positive} 43r33 46r33 52r51 59r31 61r51 63r43 68r44 69r23 75r34
+. 78m10 78r17
+34i7 K{natural} 44r33 45r33 46r45 53r36 55r28 56m13 56r18 64r39
+35i7 Start{natural} 48m10 49r16 50r36 51r36 52r36 58r18 59r23 60r44 61r43
+. 75m13 75r22
+36i7 J{natural} 58m13 59r19 60r39 61r39 62r39 63r39 68r40 69r19 69r63 70r19
+. 70r57 72m16 72r21
+37m7 Zeta{5|21M9} 55m13 68r31
+38m7 T{5|21M9} 68m16 69r90 70r76
+41i11 Layer{integer} 42r33 45r40
+86i7 Len{positive} 96r33 98r33 104r51 112r31 114r51 116r43 122r79 124r23
+. 124r75 125r23 125r54 130r34 133m10 133r17
+87i7 K{natural} 97r33 105r36 108r28 109m13 109r18 117r39
+88i7 Start{natural} 100m10 101r16 102r36 103r36 104r36 111r18 112r23 113r44
+. 114r43 130m13 130r22
+89i7 J{natural} 111m13 112r19 113r39 114r39 115r39 116r39 121r24 122r19 122r75
+. 124r19 124r71 125r19 125r50 127m16 127r21
+90m7 Zeta{5|21M9} 108m13 125r41
+91m7 T{5|21M9} 121m16 122r54 124r96
+94i11 Layer{integer} 95r33 98r43
+138i11 I{7|30I12} 139r33 140r13 140r27
+144i11 I{7|30I12} 145r33 146r13 146r51
+153U14 Basemul 153b14 154>7 154>11 154>15 154>19 155>7 156<7 156<11 170l8
+. 170t15 203s10 211s10
+154m7 A0{5|21M9} 163r23 167r23
+154m11 A1{5|21M9} 161r23 168r23
+154m15 B0{5|21M9} 163r27 168r27
+154m19 B1{5|21M9} 161r27 167r27
+155m7 Zeta{5|21M9} 162r27
+156m7 R0{5|21M9} 164m7
+156m11 R1{5|21M9} 169m7
+158m7 T0{5|21M9} 161m7 162r23 167m7 169r42
+158m11 T1{5|21M9} 162m7 164r42 168m7 169r61
+158m15 T2{5|21M9} 163m7 164r61
+180m4 R_Squared{5|21M9} 223r36
+187m7 Zeta{5|21M9} 194m10 196r13 199r29 206r13
+187m13 Neg_Zeta{5|21M9} 197m13 199m13 214r13
+190i11 I{integer} 191r33 194r30 204r20 204r31 205r20 205r31 207r20 207r31
+. 212r20 212r35 213r20 213r35 215r20 215r35
+221i11 I{7|30I12} 222r33 223r13 223r32
+230i11 I{7|30I12} 231r33 232r13 232r51
+X 9 interfac.ads
+38K9*Interfaces 8|3w6 3r22 9|233e15
+81M9*Unsigned_32 8|69r47 69r77 70r41 70r63 122r41 122r59 124r55 124r83 146r35
+. 164r29 164r48 169r29 169r48 232r35
+

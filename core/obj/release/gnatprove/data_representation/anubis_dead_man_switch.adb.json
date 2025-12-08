@@ -1,0 +1,71 @@
+[
+{
+  "name": "Anubis_Dead_Man_Switch.Check_Heartbeat_Status.Time_Since",
+  "location": "anubis_dead_man_switch.adb:112:7",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Anubis_Dead_Man_Switch.Blocks_Until_Heartbeat.Time_Since",
+  "location": "anubis_dead_man_switch.adb:142:7",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Anubis_Dead_Man_Switch.Finalize_Recovery.Total_Votes",
+  "location": "anubis_dead_man_switch.adb:281:7",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Anubis_Dead_Man_Switch.Finalize_Recovery.Threshold_Votes",
+  "location": "anubis_dead_man_switch.adb:282:7",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Anubis_Dead_Man_Switch.Is_Valid_Change.Max_Change",
+  "location": "anubis_dead_man_switch.adb:542:7",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Anubis_Dead_Man_Switch.Is_Valid_Change.Difference",
+  "location": "anubis_dead_man_switch.adb:543:7",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Anubis_Dead_Man_Switch.Has_Privilege.Match",
+  "location": "anubis_dead_man_switch.adb:652:7",
+  "Size": 8,
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Dead_Man_Switch.Serialize_Switch_State.Idx",
+  "location": "anubis_dead_man_switch.adb:724:7",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Anubis_Dead_Man_Switch.Serialize_Switch_State.Write_U64.V",
+  "location": "anubis_dead_man_switch.adb:727:10",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Anubis_Dead_Man_Switch.Deserialize_Switch_State.Idx",
+  "location": "anubis_dead_man_switch.adb:806:7",
+  "Size": 32,
+  "Alignment": 4
+}
+]

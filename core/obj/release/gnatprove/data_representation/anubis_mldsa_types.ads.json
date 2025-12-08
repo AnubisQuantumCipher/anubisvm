@@ -1,0 +1,147 @@
+[
+{
+  "name": "Anubis_Mldsa_Types.Poly_Index",
+  "location": "anubis_mldsa_types.ads:20:12",
+  "Object_Size": 32,
+  "Value_Size": 8,
+  "Alignment": 4
+}
+,
+{
+  "name": "Anubis_Mldsa_Types.Polynomial",
+  "location": "anubis_mldsa_types.ads:23:9",
+  "Size": 8192,
+  "Alignment": 4,
+  "Component_Size": 32
+}
+,
+{
+  "name": "Anubis_Mldsa_Types.K_Index",
+  "location": "anubis_mldsa_types.ads:26:12",
+  "Object_Size": 32,
+  "Value_Size": 3,
+  "Alignment": 4
+}
+,
+{
+  "name": "Anubis_Mldsa_Types.L_Index",
+  "location": "anubis_mldsa_types.ads:27:12",
+  "Object_Size": 32,
+  "Value_Size": 3,
+  "Alignment": 4
+}
+,
+{
+  "name": "Anubis_Mldsa_Types.Poly_Vector_K",
+  "location": "anubis_mldsa_types.ads:30:9",
+  "Size": 65536,
+  "Alignment": 4,
+  "Component_Size": 8192
+}
+,
+{
+  "name": "Anubis_Mldsa_Types.Poly_Vector_L",
+  "location": "anubis_mldsa_types.ads:31:9",
+  "Size": 57344,
+  "Alignment": 4,
+  "Component_Size": 8192
+}
+,
+{
+  "name": "Anubis_Mldsa_Types.Poly_Matrix",
+  "location": "anubis_mldsa_types.ads:34:9",
+  "Size": 458752,
+  "Alignment": 4,
+  "Component_Size": 8192
+}
+,
+{
+  "name": "Anubis_Mldsa_Types.Seed",
+  "location": "anubis_mldsa_types.ads:37:12",
+  "Size": 256,
+  "Alignment": 1,
+  "Component_Size": 8
+}
+,
+{
+  "name": "Anubis_Mldsa_Types.Seeds_Record",
+  "location": "anubis_mldsa_types.ads:40:9",
+  "Size": 768,
+  "Alignment": 1,
+  "record": [
+    {
+      "name": "Rho",
+      "Position":  0,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Rho_P",
+      "Position": 32,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "K_Seed",
+      "Position": 64,
+      "First_Bit": 0,
+      "Size": 256
+    }
+  ]
+}
+,
+{
+  "name": "Anubis_Mldsa_Types.Tr_Hash",
+  "location": "anubis_mldsa_types.ads:47:12",
+  "Size": 512,
+  "Alignment": 1,
+  "Component_Size": 8
+}
+,
+{
+  "name": "Anubis_Mldsa_Types.Challenge_Seed",
+  "location": "anubis_mldsa_types.ads:50:12",
+  "Size": 256,
+  "Alignment": 1,
+  "Component_Size": 8
+}
+,
+{
+  "name": "Anubis_Mldsa_Types.Hint_Bytes",
+  "location": "anubis_mldsa_types.ads:54:12",
+  "Size": 664,
+  "Alignment": 1,
+  "Component_Size": 8
+}
+,
+{
+  "name": "Anubis_Mldsa_Types.Public_Key",
+  "location": "anubis_mldsa_types.ads:57:12",
+  "Size": 20736,
+  "Alignment": 1,
+  "Component_Size": 8
+}
+,
+{
+  "name": "Anubis_Mldsa_Types.Secret_Key",
+  "location": "anubis_mldsa_types.ads:58:12",
+  "Size": 39168,
+  "Alignment": 1,
+  "Component_Size": 8
+}
+,
+{
+  "name": "Anubis_Mldsa_Types.Signature",
+  "location": "anubis_mldsa_types.ads:59:12",
+  "Size": 37016,
+  "Alignment": 1,
+  "Component_Size": 8
+}
+,
+{
+  "name": "Anubis_Mldsa_Types.Message",
+  "location": "anubis_mldsa_types.ads:62:12",
+  "Alignment": 1,
+  "Component_Size": 8
+}
+]

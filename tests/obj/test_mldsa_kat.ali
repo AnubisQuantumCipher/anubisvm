@@ -1,0 +1,204 @@
+V "GNAT Lib v14"
+M P W=b
+A -O0
+A -gnatA
+A -gnatwa
+A -gnatQ
+A -gnata
+A -gnatf
+A -gnatyM120
+A -gnatyO
+A -gnat2012
+A -g
+A -gnateE
+A -fstack-check=specific
+A -mmacosx-version-min=16.0.0
+A -mcpu=apple-m1
+A -mlittle-endian
+A -mabi=lp64
+A -fPIC
+P SS ZX
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_EXCEPTIONS
+RV NO_IO
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U test_mldsa_kat%b	test_mldsa_kat.adb	ce5a0f22 NE OO SU
+W ada%s			ada.ads			ada.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+W anubis_mldsa%s	anubis_mldsa.adb	anubis_mldsa.ali
+W anubis_mldsa_types%s	anubis_mldsa_types.ads	anubis_mldsa_types.ali
+W anubis_types%s	anubis_types.ads	anubis_types.ali
+W interfaces%s		interfac.ads		interfac.ali
+Z system.concat_2%s	s-conca2.adb		s-conca2.ali
+Z system.concat_3%s	s-conca3.adb		s-conca3.ali
+Z system.img_int%s	s-imgint.ads		s-imgint.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+
+D ada.ads		20240808082856 76789da1 ada%s
+D a-except.ads		20240808082856 e7970cd9 ada.exceptions%s
+D a-ioexce.ads		20240808082856 40018c65 ada.io_exceptions%s
+D a-stream.ads		20240808082856 119b8fb3 ada.streams%s
+D a-string.ads		20240808082856 90ac6797 ada.strings%s
+D a-sttebu.ads		20240808082856 f1ad67a2 ada.strings.text_buffers%s
+D a-stuten.ads		20240808082856 c6ced0ae ada.strings.utf_encoding%s
+D a-tags.ads		20240808082856 9eaa38c6 ada.tags%s
+D a-textio.ads		20240808082856 34ef47de ada.text_io%s
+D a-unccon.ads		20240808082856 0e9b276f ada.unchecked_conversion%s
+D anubis_mldsa.ads	20251205161546 df788a13 anubis_mldsa%s
+D anubis_mldsa_config.ads  20251205141650 21404e58 anubis_mldsa_config%s
+D anubis_mldsa_field.ads  20251205160739 b52aaacb anubis_mldsa_field%s
+D anubis_mldsa_types.ads  20251204160229 b08dfc72 anubis_mldsa_types%s
+D anubis_types.ads	20251203093723 4fb35097 anubis_types%s
+D interfac.ads		20240808082856 9111f9c1 interfaces%s
+D i-cstrea.ads		20240808082856 ffd01b9d interfaces.c_streams%s
+D system.ads		20240808082856 70765b54 system%s
+D s-conca2.ads		20240808082856 b5fb73f7 system.concat_2%s
+D s-conca3.ads		20240808082856 8a7a19a2 system.concat_3%s
+D s-crtl.ads		20240808082856 beb39b9e system.crtl%s
+D s-exctab.ads		20240808082856 91bef6ef system.exception_table%s
+D s-ficobl.ads		20240808082856 dc5161d4 system.file_control_block%s
+D s-imagei.ads		20240808082856 5e131ce0 system.image_i%s
+D s-imgint.ads		20240808082856 67e4edfb system.img_int%s
+D s-parame.ads		20240808082856 3597fc11 system.parameters%s
+D s-putima.ads		20240808082856 17291fe4 system.put_images%s
+D s-secsta.ads		20240808082856 578279f5 system.secondary_stack%s
+D s-soflin.ads		20240808082856 df77073e system.soft_links%s
+D s-stache.ads		20240808082856 0b81c1fe system.stack_checking%s
+D s-stalib.ads		20240808082856 1c9580f6 system.standard_library%s
+D s-stoele.ads		20240808082856 ccded4e8 system.storage_elements%s
+D s-traent.ads		20240808082856 c81cbf8c system.traceback_entries%s
+D s-unstyp.ads		20240808082856 fa2a7f59 system.unsigned_types%s
+D s-valspe.ads		20240808082856 b0fcd073 system.val_spec%s
+D s-vaispe.ads		20240808082856 8280550e system.value_i_spec%s
+D s-vauspe.ads		20240808082856 89269ba5 system.value_u_spec%s
+D s-vs_int.ads		20240808082856 06b6b724 system.vs_int%s
+D s-vs_uns.ads		20240808082856 e7f47a27 system.vs_uns%s
+D s-wchcon.ads		20240808082856 d9032363 system.wch_con%s
+D test_mldsa_kat.adb	20251205174240 4be297cb test_mldsa_kat%b
+G a e
+G c Z b b [test_mldsa_kat standard 12 11 none]
+G r c none [test_mldsa_kat standard 12 11 none] [keygen anubis_mldsa 32 14 none]
+G r c none [test_mldsa_kat standard 12 11 none] [sign anubis_mldsa 51 14 none]
+G r c none [test_mldsa_kat standard 12 11 none] [verify anubis_mldsa 68 13 none]
+X 1 ada.ads
+16K9*Ada 20e8 41|6r6 6r23
+X 9 a-textio.ads
+58K13*Text_IO 785e16 41|6w10 6r27
+284U14*New_Line 41|288s4 297s4 301s4
+515U14*Put 41|82s7 110s7 145s7 183s7 220s7 250s7
+565U14*Put_Line 41|90s10 93s10 116s10 124s10 127s10 151s10 160s10 163s10
+. 197s13 199s13 201s13 202s13 203s13 227s10 233s10 236s10 277s10 280s10 286s4
+. 287s4 298s4 299s4 300s4 304s7 306s7
+X 11 anubis_mldsa.ads
+22K9*Anubis_MLDSA 76e17 41|10w6 10r24
+32U14*KeyGen 41|84s7 85s7 112s7 147s7 190s7 222s7 252s7
+51U14*Sign 41|113s7 148s7 223s7 224s7 262s13
+68V13*Verify{boolean} 41|121s20 157s20 264s29
+X 14 anubis_mldsa_types.ads
+14K9*Anubis_MLDSA_Types 64e23 41|9w6 9r30
+37A12*Seed{15|14A9}<integer> 41|76r24 77r24 100r29 102r30 134r29 137r30 177r18
+. 211r29 213r30 243r29 244r30
+57A12*Public_Key{15|14A9}<integer> 41|78r18 103r12 138r12 178r12 214r12 245r12
+58A12*Secret_Key{15|14A9}<integer> 41|79r18 104r12 139r12 179r12 215r12 246r12
+59A12*Signature{15|14A9}<integer> 41|105r13 140r13 216r20 258r19
+X 15 anubis_types.ads
+5K9*Anubis_Types 40e17 41|8w6 8r24
+13M12*Byte{16|70M9} 41|19r53 20r49 257r68
+14A9*Byte_Array(13M12)<integer> 41|34r48 35r16 47r35 61r34 87r10 87r29 88r10
+. 88r29 101r22 135r23 136r23 180r29 194r55 212r22 232r24 232r43 257r28
+X 16 interfac.ads
+38K9*Interfaces 233e15 41|7w6 7r22
+70M9*Unsigned_8
+91V13*Shift_Left{70M9} 41|30s14
+96V13*Shift_Right{70M9} 41|53s46
+X 41 test_mldsa_kat.adb
+12U11*Test_MLDSA_KAT 12b11 309l5 309t19
+14b4 Test_Failed{boolean} 94m10 117m10 128m10 152m10 164m10 204m13 228m10
+. 237m10 281m10 303r7
+15i4 Test_Count{natural} 81m7 81r21 82r39 109m7 109r21 110r39 144m7 144r21
+. 145r39 182m7 182r21 183r39 219m7 219r21 220r39 249m7 249r21 250r39 299r48
+16i4 Pass_Count{natural} 91m10 91r24 125m10 125r24 161m10 161r24 198m13 198r27
+. 234m10 234r24 278m10 278r24 300r48
+19V13 Hex_To_Byte{15|13M12} 19b13 19>26 19>30 31l8 31t19 38s24
+19e26 C1{character} 30r37
+19e30 C2{character} 30r59
+20V16 Hex_Digit{15|13M12} 20b16 20>27 28l11 28t20 30s26 30s48
+20e27 C{character} 22r15 23r54 24r54 25r54
+34V13 Hex_To_Bytes{15|14A9} 34b13 34>27 44l8 44t20 180s43
+34a27 Hex{string} 35r33 39r13 39r18 40r13 40r18
+35a7 Result{15|14A9} 37r16 38m10 43r14
+37i11 I{integer} 38r18 39r30 40r30
+47V13 Bytes_To_Hex{string} 47b13 47>27 58l8 58t20 194s41
+47a27 Bytes{15|14A9} 49r29 52r16
+48a7 Hex_Chars{string} 53r26 54r30
+49a7 Result{string} 53m10 54m10 57r14
+50i7 Pos{natural} 53r18 54r18 55m10 55r17
+52m11 B=52:16{15|13M12} 53r59 54r50
+61V13 Arrays_Equal{boolean} 61b13 61>27 61>30 72l8 72t20 232s10
+61a27 A{15|14A9} 63r10 66r16 67r13 67r25 67r40
+61a30 B{15|14A9} 63r22 67r22
+66i11 I{integer} 67r16 67r36
+75U14 Test_KeyGen_Determinism 75b14 96l8 96t31 290s4
+76a7 Seed1{14|37A12} 84r15
+77a7 Seed2{14|37A12} 85r15
+78a7 PK1{14|57A12} 84m22 87r22
+78a12 PK2{14|57A12} 85m22 87r41
+79a7 SK1{14|58A12} 84m27 88r22
+79a12 SK2{14|58A12} 85m27 88r41
+99U14 Test_Sign_Verify_Roundtrip 99b14 130l8 130t34 291s4
+100a7 Seed_Bytes{14|37A12} 112r15
+101a7 Msg{15|14A9} 113r17 121r32
+102a7 Random_Seed{14|37A12} 113r22
+103a7 PK{14|57A12} 112m27 121r28
+104a7 SK{14|58A12} 112m31 113r13
+105a7 Sig{14|59A12} 113m35 121r37
+106b7 Sign_Ok{boolean} 113m40 115r14
+107b7 Verify_Ok{boolean} 121m7 123r10
+133U14 Test_Wrong_Message_Rejected 133b14 166l8 166t35 292s4
+134a7 Seed_Bytes{14|37A12} 147r15
+135a7 Msg1{15|14A9} 148r17
+136a7 Msg2{15|14A9} 157r32
+137a7 Random_Seed{14|37A12} 148r23
+138a7 PK{14|57A12} 147m27 157r28
+139a7 SK{14|58A12} 147m31 148r13
+140a7 Sig{14|59A12} 148m36 157r38
+141b7 Sign_Ok{boolean} 148m41 150r14
+142b7 Verify_Ok{boolean} 157m7 159r14
+169U14 Test_KAT_Vector_1_KeyGen 169b14 207l8 207t32 293s4
+172a7 KAT_Seed_Hex{string} 180r57
+174a7 KAT_PK_Prefix{string} 196r25 202r42
+177a7 KAT_Seed{14|37A12} 187m10 190r15
+178a7 PK{14|57A12} 190m25 194r67
+179a7 SK{14|58A12} 190m29
+180a7 Seed_Bytes{15|14A9} 186r16 187r26
+186i11 I{integer} 187r20 187r38
+194a10 PK_Prefix{string} 196r13 199r51 203r42
+210U14 Test_Sign_Determinism 210b14 239l8 239t29 294s4
+211a7 Seed_Bytes{14|37A12} 222r15
+212a7 Msg{15|14A9} 223r17 224r17
+213a7 Random_Seed{14|37A12} 223r22 224r22
+214a7 PK{14|57A12} 222m27
+215a7 SK{14|58A12} 222m31 223r13 224r13
+216a7 Sig1{14|59A12} 223m35 232r36
+216a13 Sig2{14|59A12} 224m35 232r55
+217b7 Sign_Ok1{boolean} 223m41 226r15
+217b17 Sign_Ok2{boolean} 224m41 226r28
+242U14 Test_Multiple_Messages 242b14 283l8 283t30 295s4
+243a7 Seed_Bytes{14|37A12} 252r15
+244a7 Random_Seed{14|37A12} 262r28
+245a7 PK{14|57A12} 252m27 264r37
+246a7 SK{14|58A12} 252m31 262r19
+247b7 All_Passed{boolean} 266m19 270m16 276r10
+255i11 Len{integer} 257r45 257r74
+257a13 Msg{15|14A9} 262r23 264r41
+258a13 Sig{14|59A12} 262m41 264r46
+259b13 Sign_Ok{boolean} 262m46 263r16
+260b13 Verify_Ok{boolean} 264m16 265r23
+

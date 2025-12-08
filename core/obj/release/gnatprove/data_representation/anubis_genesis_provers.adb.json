@@ -1,0 +1,43 @@
+[
+{
+  "name": "Anubis_Genesis_Provers.Register_Prover.Slot",
+  "location": "anubis_genesis_provers.adb:67:7",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Anubis_Genesis_Provers.Register_Prover.Found_Slot",
+  "location": "anubis_genesis_provers.adb:68:7",
+  "Size": 8,
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Genesis_Provers.Calculate_Proof_Reward.Base_Reward",
+  "location": "anubis_genesis_provers.adb:179:7",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Anubis_Genesis_Provers.Calculate_Proof_Reward.Multiplier",
+  "location": "anubis_genesis_provers.adb:180:7",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Anubis_Genesis_Provers.Calculate_Proof_Reward.Size_Bonus",
+  "location": "anubis_genesis_provers.adb:181:7",
+  "Size": 64,
+  "Alignment": 8
+}
+,
+{
+  "name": "Anubis_Genesis_Provers.Slash_Prover.Slash_Amount",
+  "location": "anubis_genesis_provers.adb:245:7",
+  "Size": 64,
+  "Alignment": 8
+}
+]

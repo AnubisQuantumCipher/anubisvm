@@ -1,0 +1,108 @@
+V "GNAT Lib v14"
+A -O2
+A -gnatA
+A -gnat2022
+A -gnatwa
+A -gnatyO
+A -gnatVa
+A -gnatw.F
+A -gnata
+A -gnatn
+A -ffunction-sections
+A -fdata-sections
+A -mmacosx-version-min=16.0.0
+A -mcpu=apple-m1
+A -mlittle-endian
+A -mabi=lp64
+A -fPIC
+P ZX
+
+RN
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U anubis_cbd%b		anubis_cbd.adb		88f42651 NE OO PK
+W interfaces%s		interfac.ads		interfac.ali
+Z system.assertions%s	s-assert.adb		s-assert.ali
+
+U anubis_cbd%s		anubis_cbd.ads		027471d7 BN EE NE OO PK IU
+W anubis_config%s	anubis_config.ads	anubis_config.ali
+W anubis_field%s	anubis_field.adb	anubis_field.ali
+W anubis_types%s	anubis_types.ads	anubis_types.ali
+
+D ada.ads		20240808082856 76789da1 ada%s
+D a-assert.ads		20240808082856 ba465f5c ada.assertions%s
+D a-unccon.ads		20240808082856 0e9b276f ada.unchecked_conversion%s
+D anubis_cbd.ads	20251207191106 98c156db anubis_cbd%s
+D anubis_cbd.adb	20251207191106 8124894b anubis_cbd%b
+D anubis_config.ads	20251207191107 19c7b4b2 anubis_config%s
+D anubis_field.ads	20251207191105 ccc1c329 anubis_field%s
+D anubis_types.ads	20251207191105 4fb35097 anubis_types%s
+D interfac.ads		20240808082856 9111f9c1 interfaces%s
+D system.ads		20240808082856 70765b54 system%s
+D s-assert.ads		20240808082856 9c4520c7 system.assertions%s
+D s-exctab.ads		20240808082856 91bef6ef system.exception_table%s
+D s-stalib.ads		20240808082856 1c9580f6 system.standard_library%s
+G a e
+G c Z s b [cbd_2 anubis_cbd 37 14 none]
+G c Z s b [cbd_3 anubis_cbd 47 14 none]
+G c Z s b [popcount_8 anubis_cbd 58 13 none]
+G c Z s s [TpolynomialBIP anubis_cbd 32 4 none]
+X 4 anubis_cbd.ads
+22K9*Anubis_CBD 58E13 62l5 62e15 5|5b14 127l5 127t15
+29A12*CBD_Input_2{8|14A9}<integer> 38r15 5|31r15
+30A12*CBD_Input_3{8|14A9}<integer> 48r15 5|72r15
+32A9*Polynomial(7|21M9)<integer> 39r19 49r19 5|32r19 73r19
+37U14*CBD_2 38>7 39<7 5|30b14
+38a7 Input{29A12} 5|31b7 42r15 43r15
+39a7 Poly{32A9} 42r43 5|32b7 47m10 52m10 57m10 62m10
+42i24 I{integer} 42r49
+47U14*CBD_3 48>7 49<7 5|71b14
+48a7 Input{30A12} 5|72b7 87r24
+49a7 Poly{32A9} 52r43 5|73b7 120m19
+52i24 I{integer} 52r49
+58V13 Popcount_8{natural} 58>25 60r15 5|11b13 46s15 46s43 50s15 51s15 55s15
+. 56s15 60s15 61s15 118s33 119s33
+58m25 X{8|13M12} 5|11b25 13r25
+X 5 anubis_cbd.adb
+13m7 V{9|70M9} 16m7 16r13 16r43 18m7 18r13 18r43 20m7 20r13 20r42 22r23
+34m7 A{9|70M9} 42m10 46r27 50r40 55r40 60r40
+34m10 B{9|70M9} 43m10 46r55 51r40 56r40 61r40
+35i7 T{integer} 46m10 47r42 50m10 52r46 55m10 57r46 60m10 62r46
+39i11 I{integer} 40r33 42r26 43r26 47r20 52r20 57r20 62r20
+75a7 Buf(9|70M9) 87m13 97r31 98r43 99r44 101r44 102r43
+76m7 A{9|81M9} 97m13 114r65
+76m10 B{9|81M9} 101m13 115r65
+77i7 T{integer} 118m19 120r54
+78i7 Idx{natural} 94m13 97r36 98r48 99r49 101r49 102r48
+81i11 Block{integer} 82r33 87r31 107r39 111r50
+85i14 J{integer} 86r36 87r18 87r44
+91i14 Chunk{integer} 92r36 94r20 108r39 111r63
+105i17 K{integer} 106r39 111r75 112r54
+111i19 Coef_Idx{natural} 120r25
+112i19 Shift_Amount{natural} 114r68 115r68
+113m19 Mask{9|81M9} 114r86 115r86
+114m19 A_Bits{9|81M9} 118r51
+115m19 B_Bits{9|81M9} 119r51
+X 6 anubis_config.ads
+3K9*Anubis_Config 4|3w6 3r25 6|112e18
+35N4*Q 4|42r54 52r54 5|47r46 47r53 52r50 52r57 57r50 57r57 62r50 62r57 120r58
+. 120r65
+38N4*N 4|32r35 42r34 52r34
+X 7 anubis_field.ads
+6K9*Anubis_Field 4|4w6 4r24 7|102e17
+21M9*Field_Element 4|32r45 5|47r26 52r30 57r30 62r30 120r38
+X 8 anubis_types.ads
+5K9*Anubis_Types 4|5w6 5r24 8|40e17
+13M12*Byte{9|70M9} 4|58r29 5|11r29 118r45 119r45
+14A9*Byte_Array(13M12)<integer> 4|29r27 30r27
+X 9 interfac.ads
+38K9*Interfaces 5|3w6 3r22 9|233e15
+70M9*Unsigned_8 5|13r11 34r14 75r32
+81M9*Unsigned_32 5|76r14 97r18 98r30 99r31 101r31 102r30 113r35 114r37 115r37
+96V13*Shift_Right{70M9} 5|16s30 18s30 20s29 50s27 51s27 55s27 56s27 60s27
+. 61s27
+141V13*Shift_Left{81M9} 5|98s18 99s19 102s18
+146V13*Shift_Right{81M9} 5|101s18 114s52 115s52
+

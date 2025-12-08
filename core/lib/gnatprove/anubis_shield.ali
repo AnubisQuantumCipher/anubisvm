@@ -1,0 +1,299 @@
+V "GNAT Lib v14"
+A -x
+A ada
+A -gnatA
+A -gnat2022
+A -gnatwa
+A -gnatyO
+A -gnatVa
+A -gnatw.F
+A -gnata
+A -O2
+A -gnatn
+A -ffunction-sections
+A -fdata-sections
+A -gnatc
+A -fPIC
+P GP
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_ELABORATION_CODE
+
+U anubis_shield%b	anubis_shield.adb	806bb76f OO PK
+W anubis_sha3%s		anubis_sha3.adb		anubis_sha3.ali
+W interfaces%s		interfac.ads		interfac.ali
+
+U anubis_shield%s	anubis_shield.ads	3575cd8a OO PK
+W anubis_bytes%s	anubis_bytes.adb	anubis_bytes.ali
+W anubis_types%s	anubis_types.ads	anubis_types.ali
+
+D anubis_bytes.ads	20251203100850 9e5d5cad anubis_bytes%s
+D anubis_keccak.ads	20251203171810 19b431a9 anubis_keccak%s
+D anubis_sha3.ads	20251206152042 e3274ab3 anubis_sha3%s
+D anubis_shield.ads	20251206153412 e49bc1b0 anubis_shield%s
+D anubis_shield.adb	20251206153427 16c6c5ad anubis_shield%b
+D anubis_types.ads	20251203093723 4fb35097 anubis_types%s
+D anubis_word.ads	20251203094401 ec44f66b anubis_word%s
+D interfac.ads		20240601155135 9111f9c1 interfaces%s
+D system.ads		20240601155135 70765b54 system%s
+G a Z
+X 1 anubis_bytes.ads
+7K9*Anubis_Bytes 52e17 4|15w6 15r28
+X 3 anubis_sha3.ads
+27K9*Anubis_SHA3 154e16 5|8w6 51r7 120r10 213r13 371r7
+57U14*SHA3_256 5|120s22 213s25
+109U14*SHAKE256 5|51s19 371s19
+X 4 anubis_shield.ads
+17K9*Anubis_Shield 197l5 197e18 5|10b14 396l5 396t18
+25N4*Max_Entry_Size 43r49 102r43 107r56 119r43 121r47 122r45 133r43 150r47
+. 186r43 5|175r68 178r41 189r47 199r49 274r36 296r35 341r34 364r53
+28N4*AEAD_Nonce_Size 30r34 44r44 5|83r44 189r64 193r24 194r40 202r39 203r27
+. 209r58 212r42
+29N4*AEAD_Tag_Size 30r52 45r42
+30N4*AEAD_Overhead 43r66 107r73
+33N4*KEM_Ciphertext_Size 46r47
+36N4*Commitment_Size 47r49
+43A12*Entry_Ciphertext{6|14A9}<integer> 51r24
+44A12*Entry_Nonce{6|14A9}<integer> 58r24
+45A12*Entry_Tag{6|14A9}<integer> 61r24
+46A12*KEM_Ciphertext{6|14A9}<integer> 55r24
+47A12*Commitment_Value{6|14A9}<integer> 66r15
+49R9*Private_Entry 62e14 96r28 111r24 138r24 142r28 190r49 5|62r28 142r24
+. 267r24 271r28 379r49
+51a7*Ciphertext{43A12} 5|74m18 108m21 179r41 284m13 381m18
+52i7*CT_Length{natural} 107r43 121r34 150r34 192r26 5|75m18 111m18 175r21
+. 175r55 176r35 177r51 181r34 285m13 382m18
+55a7*Encapsulated{46A12} 5|76m18 128m18 165r31 286m13 383m18
+58a7*Nonce{44A12} 5|77m18 83m18 115r69 118r37 118r69 119r32 195r41 287m13
+. 384m18
+61a7*Tag{45A12} 5|78m18 121m21 221r30 222r41 288m13 385m18
+65R9*Entry_Commitment 67e14 97r28 127r24 180r28 5|63r28 244r24 247r18 277r22
+. 346r28
+66a7*Value{47A12} 5|79m18 255r30 256r41 256r64 372m18
+70A12*Viewing_Key{6|14A9}<integer> 81r24 159r28 5|316r28
+71A12*Commitment_Seed{6|14A9}<integer> 84r24 167r28 5|327r28
+73R9*User_Key_Bundle 85e14 194r46 5|388r46
+75a7*KEM_Public{6|14A9} 5|390m14
+78a7*DSA_Public{6|14A9} 5|391m14
+81a7*View_Key{70A12} 5|392m14
+84a7*Commit_Random{71A12} 5|393m14
+92U14*Encrypt_State 93>7 94>7 95>7 96<7 97<7 98<7 5|58b14 135l8 135t21 297s7
+93a7 Plaintext{6|14A9} 101r14 102r23 103r23 5|59b7 107r16 108r37 109r13 109r46
+. 111r31 115r39 119r67 125r26
+94a7 User_KEM_PK{6|14A9} 106r23 5|60b7
+95a7 Randomness{6|14A9} 104r23 105r23 5|61b7 83r27 88r20 125r37
+96r7 Priv_Entry{49R9} 107r32 5|62b7 74m7 75m7 76m7 77m7 78m7 83m7 108m10
+. 111m7 115r58 118r26 118r58 119r21 121m10 128m7
+97r7 Commitment{65R9} 5|63b7 79m7 125m59
+98b7 Success{boolean} 107r19 5|64b7 80m7 134m7
+110U14*Decrypt_State 111>7 112>7 113<7 114<7 115<7 5|141b14 236l8 236t21
+. 280s7
+111r7 Priv_Entry{49R9} 121r23 5|142b7 165r20 175r10 175r44 176r24 177r40
+. 179r30 181r23 195r30 221r19 222r30
+112a7 User_KEM_SK{6|14A9} 118r14 5|143b7
+113a7 Plaintext{6|14A9} 119r23 120r23 5|144b7 159m7 179m13 203r51 229m10
+114i7 PT_Length{natural} 122r32 5|145b7 160m7 181m10 183m10 199r13 199r36
+. 200r27 201r43 209r46 230m10
+115b7 Success{boolean} 122r19 5|146b7 161m7 224m10 228r14
+125V13*Verify_Commitment{boolean} 126>7 127>7 128>7 5|242b13 260l8 260t25
+126a7 Plaintext{6|14A9} 133r23 134r23 5|243b7 249r26
+127r7 Commitment{65R9} 5|244b7 255r19 256r30
+128a7 Opening{6|14A9} 131r14 132r23 5|245b7 249r37
+137U14*Re_Encrypt 138>7 139>7 140>7 141>7 142<7 143<7 5|266b14 308l8 308t18
+138r7 Priv_Entry{49R9} 150r23 5|267b7 280r22
+139a7 Old_KEM_SK{6|14A9} 146r14 5|268b7 280r34
+140a7 New_KEM_PK{6|14A9} 147r23 5|269b7 299r25
+141a7 New_Randomness{6|14A9} 148r23 149r23 5|270b7 300r25
+142r7 New_Entry{49R9} 5|271b7 283m10 301m25
+143b7 Success{boolean} 5|272b7 290m10 303m25
+157U14*Derive_Viewing_Key 158>7 159<7 5|314b14 323l8 323t26
+158a7 Master_Seed{6|14A9} 162r14 5|315b7 322r21
+159a7 View_Key{70A12} 5|316b7 322m41
+165U14*Derive_Commit_Seed 166>7 167<7 5|325b14 334l8 334t26
+166a7 Master_Seed{6|14A9} 170r14 5|326b7 333r21
+167a7 Seed{71A12} 5|327b7 333m41
+177U14*Create_Commitment 178>7 179>7 180<7 5|125s7 249s7 343b14 373l8 373t25
+178a7 Plaintext{6|14A9} 186r23 187r23 5|344b7 348r42 362r21 363r37 364r33
+. 367r46 367r57
+179a7 Randomness{6|14A9} 184r14 185r23 5|345b7 348r61 354r21 355r26 355r38
+. 356r37 365r33 367r20
+180r7 Commitment{65R9} 5|346b7 372m7
+190U14*Zeroize_Entry 190=29 5|379b14 386l8 386t21
+190r29 Priv_Entry{49R9} 192r15 5|379b29 381m7 382m7 383m7 384m7 385m7
+194U14*Zeroize_Bundle 194=30 5|388b14 394l8 394t22
+194r30 Bundle{73R9} 5|388b30 390m7 391m7 392m7 393m7
+X 5 anubis_shield.adb
+18N4 KDF_Max_Size 31r39 32r39 33r54 36r35 47r52
+20U14 SHAKE256_KDF 20b14 21>7 22>7 23<7 52l8 52t20 87s7 99s10 168s7 322s7
+. 333s7
+21a7 Input{6|14A9} 26r14 31r23 33r23 35r42 44r21 45r41 45r48 46r37
+22a7 Label{6|14A9} 27r23 32r23 33r38 35r57 39r21 40r26 40r33 41r37 45r20
+. 47r33
+23a7 Output{6|14A9} 28r23 29r23 30r23 51m63 51r71
+35i7 Combined_Len{natural} 51r44
+36a7 Combined{6|14A9} 40m10 45m10 51r29
+39i11 I{integer} 40r20 40r47 41r33
+44i11 I{integer} 45r35 45r62 46r33 47r48
+66a7 SS_Buffer{6|14A9} 90m20 100r23 128r44 131m7
+67a7 AEAD_Key{6|14A9} 102m23 109r31 132m7
+68a7 KDF_Label{6|14A9} 89r20
+95a10 Key_Label{6|14A9} 101r23
+107i11 I{integer} 108r33 109r24 109r42
+115a10 Tag_Input{6|14A9} 118m10 119m10 119r48 120r32
+116a10 Tag_Hash{6|14A9} 120m43 121r28
+148a7 SS_Buffer{6|14A9} 165m7 169r20 234m7
+149a7 AEAD_Key{6|14A9} 171m20 179r60 235m7
+150a7 KDF_Label{6|14A9}
+154a7 Key_Label{6|14A9} 170r20
+157a7 Computed_Tag{6|14A9} 213m68 222r53
+176i14 I{integer} 177r36 178r36 179r24 179r53 179r70
+189i10 Tag_Input_Size{natural} 190r39 202r61
+190a10 Tag_Input{6|14A9} 195m13 203m16 213r35
+193i14 I{integer} 194r36 195r24 195r48
+200i17 I{integer} 201r39 202r57 203r45 203r62
+209i13 Actual_Len{natural} 212r28 213r51
+219m10 Diff{6|13M12} 222m13 222r21 224r22
+221i14 I{integer} 222r46 222r67
+247r7 Computed{4|65R9} 249m46 256r55
+253m10 Diff{6|13M12} 256m13 256r21 258r17
+255i14 I{integer} 256r48 256r71
+274a7 Plaintext{6|14A9} 280m46 298r25 307m7
+275i7 PT_Length{natural} 280m57 282r28 295r22 296r22 298r41
+276b7 Decrypt_OK{boolean} 280m68 282r14
+277r7 Dummy_Commit{4|65R9} 302m25
+318a7 Label{6|14A9} 322r34
+329a7 Label{6|14A9} 333r34
+341N4 Commit_Max_Size 349r35 366r42
+348i7 Combined_Len{natural} 371r44
+349a7 Combined{6|14A9} 355m10 367m10 371r29
+350a7 Hash{6|14A9} 371m63 371r69 372r27
+354i11 I{integer} 355r20 355r57 356r33
+362i11 I{integer} 363r33 366r38 367r40 367r75
+X 6 anubis_types.ads
+5K9*Anubis_Types 4|14w6 14r28 6|40e17
+13M12*Byte{8|70M9} 5|219r17 253r17
+14A9*Byte_Array(13M12)<integer> 4|43r32 44r27 45r25 46r30 47r32 70r27 71r31
+. 75r24 78r24 93r24 94r24 95r24 112r24 113r28 126r24 128r24 139r24 140r24
+. 141r24 158r24 166r24 178r24 179r24 5|21r16 22r16 23r20 36r18 59r24 60r24
+. 61r24 66r19 67r19 68r32 95r31 115r22 116r21 143r24 144r28 148r23 149r23
+. 150r32 154r32 157r23 190r22 243r24 245r24 268r24 269r24 270r24 274r19 315r24
+. 318r24 326r24 329r24 344r24 345r24 349r18 350r18
+X 8 interfac.ads
+38K9*Interfaces 5|7w6 7r24 8|233e15
+70M9*Unsigned_8
+
+QQ SPARKVERSION 0.0w
+GG EK_DIRECT_CALLS anubis_shield__encrypt_state 3 anubis_shield__shake256_kdf anubis_shield__create_commitment anubis_sha3__sha3_256
+GG EK_PROOF_DEPENDENCIES anubis_shield__encrypt_state 0
+GG EK_GLOBALS anubis_shield__encrypt_state local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 anubis_shield proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_shield__decrypt_state 2 anubis_shield__shake256_kdf anubis_sha3__sha3_256
+GG EK_PROOF_DEPENDENCIES anubis_shield__decrypt_state 0
+GG EK_GLOBALS anubis_shield__decrypt_state local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 anubis_shield proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_shield__verify_commitment 1 anubis_shield__create_commitment
+GG EK_PROOF_DEPENDENCIES anubis_shield__verify_commitment 0
+GG EK_GLOBALS anubis_shield__verify_commitment local FALSE E_FUNCTION FALSE ORIGIN_FLOW 1 anubis_shield proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_shield__re_encrypt 2 anubis_shield__encrypt_state anubis_shield__decrypt_state
+GG EK_PROOF_DEPENDENCIES anubis_shield__re_encrypt 0
+GG EK_GLOBALS anubis_shield__re_encrypt local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 anubis_shield proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_shield__derive_viewing_key 1 anubis_shield__shake256_kdf
+GG EK_PROOF_DEPENDENCIES anubis_shield__derive_viewing_key 0
+GG EK_GLOBALS anubis_shield__derive_viewing_key local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 anubis_shield proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_shield__derive_commit_seed 1 anubis_shield__shake256_kdf
+GG EK_PROOF_DEPENDENCIES anubis_shield__derive_commit_seed 0
+GG EK_GLOBALS anubis_shield__derive_commit_seed local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 anubis_shield proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_shield__create_commitment 1 anubis_sha3__shake256
+GG EK_PROOF_DEPENDENCIES anubis_shield__create_commitment 0
+GG EK_GLOBALS anubis_shield__create_commitment local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 anubis_shield proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_shield__zeroize_entry 0
+GG EK_PROOF_DEPENDENCIES anubis_shield__zeroize_entry 0
+GG EK_GLOBALS anubis_shield__zeroize_entry local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 anubis_shield proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_shield__zeroize_bundle 0
+GG EK_PROOF_DEPENDENCIES anubis_shield__zeroize_bundle 0
+GG EK_GLOBALS anubis_shield__zeroize_bundle local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 anubis_shield proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_shield__shake256_kdf 1 anubis_sha3__shake256
+GG EK_PROOF_DEPENDENCIES anubis_shield__shake256_kdf 0
+GG EK_GLOBALS anubis_shield__shake256_kdf local TRUE E_PROCEDURE FALSE ORIGIN_FLOW 1 anubis_shield proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS anubis_shield 0
+GG EK_PROOF_DEPENDENCIES anubis_shield 0
+GG EK_GLOBALS anubis_shield local FALSE E_PACKAGE TRUE ORIGIN_FLOW 0 proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 initializes 0 refined_initializes 0 calls_proof 0 calls 0 calls_conditional 0 local_packages 0 local_var 0 TRUE FALSE FALSE FALSE FALSE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_FLOW_SCOPE anubis_bytes__ct_equal FALSE FALSE FALSE FALSE TRUE anubis_bytes VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_word__ct_eq FALSE FALSE FALSE FALSE TRUE anubis_word VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_word__rotate_right FALSE FALSE FALSE FALSE TRUE anubis_word VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_sha3__absorb_block FALSE FALSE FALSE FALSE TRUE anubis_sha3 VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_word__ct_min FALSE FALSE FALSE FALSE TRUE anubis_word VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_keccak__rho FALSE FALSE FALSE FALSE TRUE anubis_keccak VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_sha3__sha3_256 FALSE FALSE FALSE FALSE TRUE anubis_sha3 VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_shield__encrypt_state FALSE FALSE FALSE FALSE TRUE anubis_shield VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_bytes__ct_is_zero FALSE FALSE FALSE FALSE TRUE anubis_bytes VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_sha3__lane_to_bytes FALSE FALSE FALSE FALSE TRUE anubis_sha3 PRIVATE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_bytes__xor_arrays FALSE FALSE FALSE FALSE TRUE anubis_bytes VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_keccak__pi FALSE FALSE FALSE FALSE TRUE anubis_keccak VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_word__ct_byte FALSE FALSE FALSE FALSE TRUE anubis_word VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_sha3__keccak_256 FALSE FALSE FALSE FALSE TRUE anubis_sha3 VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_bytes__ct_less_than FALSE FALSE FALSE FALSE TRUE anubis_bytes VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_sha3__shake256 FALSE FALSE FALSE FALSE TRUE anubis_sha3 VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_word__ct_lt FALSE FALSE FALSE FALSE TRUE anubis_word VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_word TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE anubis_sha3__squeeze_block FALSE FALSE FALSE FALSE TRUE anubis_sha3 VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_keccak__chi FALSE FALSE FALSE FALSE TRUE anubis_keccak VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_shield__zeroize_entry FALSE FALSE FALSE FALSE TRUE anubis_shield VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_word__ct_max FALSE FALSE FALSE FALSE TRUE anubis_word VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_sha3 TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE interfaces__shift_left__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_shield__verify_commitment FALSE FALSE FALSE FALSE TRUE anubis_shield VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_shield TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE interfaces__shift_left FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_bytes__ct_copy FALSE FALSE FALSE FALSE TRUE anubis_bytes VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_shield__derive_viewing_key FALSE FALSE FALSE FALSE TRUE anubis_shield VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_sha3__sha3_384 FALSE FALSE FALSE FALSE TRUE anubis_sha3 VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_word__ct_swap FALSE FALSE FALSE FALSE TRUE anubis_word VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_keccak__iota FALSE FALSE FALSE FALSE TRUE anubis_keccak VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_shield__zeroize_bundle FALSE FALSE FALSE FALSE TRUE anubis_shield VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_word__ct_select FALSE FALSE FALSE FALSE TRUE anubis_word VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_sha3__shake128 FALSE FALSE FALSE FALSE TRUE anubis_sha3 VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_word__ct_gt FALSE FALSE FALSE FALSE TRUE anubis_word VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_shield__derive_commit_seed FALSE FALSE FALSE FALSE TRUE anubis_shield VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_keccak TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE anubis_shield__shake256_kdf FALSE FALSE FALSE FALSE TRUE anubis_shield BODY_PART
+GG EK_FLOW_SCOPE anubis_keccak__keccak_f FALSE FALSE FALSE FALSE TRUE anubis_keccak VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_word__rotate_left FALSE FALSE FALSE FALSE TRUE anubis_word VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_keccak__theta FALSE FALSE FALSE FALSE TRUE anubis_keccak VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_bytes__and_arrays FALSE FALSE FALSE FALSE TRUE anubis_bytes VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_sha3__sha3_512 FALSE FALSE FALSE FALSE TRUE anubis_sha3 VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_types TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE anubis_shield__decrypt_state FALSE FALSE FALSE FALSE TRUE anubis_shield VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_bytes TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE anubis_shield__re_encrypt FALSE FALSE FALSE FALSE TRUE anubis_shield VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_bytes__secure_zero FALSE FALSE FALSE FALSE TRUE anubis_bytes VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE anubis_shield__create_commitment FALSE FALSE FALSE FALSE TRUE anubis_shield VISIBLE_PART
+GG EK_FLOW_SCOPE anubis_sha3__bytes_to_lane FALSE FALSE FALSE FALSE TRUE anubis_sha3 PRIVATE_PART
+GG EK_FLOW_SCOPE anubis_word__ct_is_zero FALSE FALSE FALSE FALSE TRUE anubis_word VISIBLE_PART
+GG EK_END_MARKER

@@ -1,0 +1,768 @@
+[
+{
+  "name": "Khepri_Mpt.Node_Entry",
+  "location": "khepri_mpt.adb:17:9",
+  "Object_Size": 5408,
+  "Value_Size": 5384,
+  "Alignment": 4,
+  "record": [
+    {
+      "name": "Node",
+      "Position":   0,
+      "First_Bit": 0,
+      "Size": 5376
+    },
+    {
+      "name": "Used",
+      "Position": 672,
+      "First_Bit": 0,
+      "Size": 8
+    }
+  ]
+}
+,
+{
+  "name": "Khepri_Mpt.Node_Array",
+  "location": "khepri_mpt.adb:23:9",
+  "Size": 5408000000,
+  "Alignment": 4,
+  "Component_Size": 5408
+}
+,
+{
+  "name": "Khepri_Mpt.Trie_Entry",
+  "location": "khepri_mpt.adb:26:9",
+  "Object_Size": 96,
+  "Value_Size": 72,
+  "Alignment": 4,
+  "record": [
+    {
+      "name": "Root_Idx",
+      "Position": 0,
+      "First_Bit": 0,
+      "Size": 32
+    },
+    {
+      "name": "Count",
+      "Position": 4,
+      "First_Bit": 0,
+      "Size": 32
+    },
+    {
+      "name": "Used",
+      "Position": 8,
+      "First_Bit": 0,
+      "Size": 8
+    }
+  ]
+}
+,
+{
+  "name": "Khepri_Mpt.Trie_Array",
+  "location": "khepri_mpt.adb:32:9",
+  "Size": 24576,
+  "Alignment": 4,
+  "Component_Size": 96
+}
+,
+{
+  "name": "Khepri_Mpt.Snapshot_Entry",
+  "location": "khepri_mpt.adb:36:9",
+  "Object_Size": 96,
+  "Value_Size": 72,
+  "Alignment": 4,
+  "record": [
+    {
+      "name": "Trie_Ref",
+      "Position": 0,
+      "First_Bit": 0,
+      "Size": 32
+    },
+    {
+      "name": "Root_Idx",
+      "Position": 4,
+      "First_Bit": 0,
+      "Size": 32
+    },
+    {
+      "name": "Used",
+      "Position": 8,
+      "First_Bit": 0,
+      "Size": 8
+    }
+  ]
+}
+,
+{
+  "name": "Khepri_Mpt.Snapshot_Array",
+  "location": "khepri_mpt.adb:42:9",
+  "Size": 9600,
+  "Alignment": 4,
+  "Component_Size": 96
+}
+,
+{
+  "name": "Khepri_Mpt.Tries",
+  "location": "khepri_mpt.adb:48:4",
+  "Size": 24576,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Mpt.Node_Store",
+  "location": "khepri_mpt.adb:54:4",
+  "Size": 5408000000,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Mpt.Snapshot_Store",
+  "location": "khepri_mpt.adb:59:4",
+  "Size": 9600,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Mpt.Allocate_Node.Slot",
+  "location": "khepri_mpt.adb:105:7",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Mpt.Node_Value_To_Bytes.Result",
+  "location": "khepri_mpt.adb:136:7",
+  "Size": "??",
+  "Alignment": 1
+}
+,
+{
+  "name": "Khepri_Mpt.Make_Leaf.Node",
+  "location": "khepri_mpt.adb:548:7",
+  "Size": 5376,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Mpt.Make_Branch.Node",
+  "location": "khepri_mpt.adb:562:7",
+  "Size": 5376,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Mpt.Make_Extension.Node",
+  "location": "khepri_mpt.adb:573:7",
+  "Size": 5376,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Mpt.Insert_Into_Node.Current",
+  "location": "khepri_mpt.adb:592:7",
+  "Size": 5376,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Mpt.Insert_Into_Node.Common_Len",
+  "location": "khepri_mpt.adb:593:7",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Mpt.Insert_Into_Node.New_Node",
+  "location": "khepri_mpt.adb:594:7",
+  "Size": 5376,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Mpt.Insert_Into_Node.Branch_Node",
+  "location": "khepri_mpt.adb:595:7",
+  "Size": 5376,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Mpt.Insert_Into_Node.Child_Idx",
+  "location": "khepri_mpt.adb:596:7",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Mpt.Insert_Into_Node.Alloc_Ok",
+  "location": "khepri_mpt.adb:597:7",
+  "Size": 8,
+  "Alignment": 1
+}
+,
+{
+  "name": "Khepri_Mpt.Insert_Into_Node.B_23.Old_Nibble",
+  "location": "khepri_mpt.adb:645:22",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Mpt.Insert_Into_Node.B_23.Old_Suffix",
+  "location": "khepri_mpt.adb:647:22",
+  "Size": 544,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Mpt.Insert_Into_Node.B_23.Old_Leaf",
+  "location": "khepri_mpt.adb:648:22",
+  "Size": 5376,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Mpt.Insert_Into_Node.B_25.New_Nibble",
+  "location": "khepri_mpt.adb:672:22",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Mpt.Insert_Into_Node.B_25.New_Suffix",
+  "location": "khepri_mpt.adb:673:22",
+  "Size": 544,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Mpt.Insert_Into_Node.B_25.New_Leaf",
+  "location": "khepri_mpt.adb:674:22",
+  "Size": 5376,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Mpt.Insert_Into_Node.B_27.Ext_Key",
+  "location": "khepri_mpt.adb:696:22",
+  "Size": 544,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Mpt.Insert_Into_Node.B_29.Ext_Nibble",
+  "location": "khepri_mpt.adb:744:19",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Mpt.Insert_Into_Node.B_29.B_30.Rest_Key",
+  "location": "khepri_mpt.adb:749:25",
+  "Size": 544,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Mpt.Insert_Into_Node.B_29.B_30.New_Ext",
+  "location": "khepri_mpt.adb:750:25",
+  "Size": 5376,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Mpt.Insert_Into_Node.B_31.New_Nibble",
+  "location": "khepri_mpt.adb:768:22",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Mpt.Insert_Into_Node.B_31.New_Suffix",
+  "location": "khepri_mpt.adb:769:22",
+  "Size": 544,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Mpt.Insert_Into_Node.B_31.New_Leaf",
+  "location": "khepri_mpt.adb:770:22",
+  "Size": 5376,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Mpt.Insert_Into_Node.B_34.Child_Nibble",
+  "location": "khepri_mpt.adb:816:19",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Mpt.Insert_Into_Node.B_34.Rest_Key",
+  "location": "khepri_mpt.adb:817:19",
+  "Size": 544,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Mpt.Insert_Into_Node.B_34.B_35.New_Leaf",
+  "location": "khepri_mpt.adb:822:25",
+  "Size": 5376,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Mpt.Branch_Child_Count.Count",
+  "location": "khepri_mpt.adb:1003:7",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Mpt.Delete_From_Node.Current",
+  "location": "khepri_mpt.adb:1032:7",
+  "Size": 5376,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Mpt.Delete_From_Node.B_41.Rest_Key",
+  "location": "khepri_mpt.adb:1065:19",
+  "Size": 544,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Mpt.Delete_From_Node.B_42.Child_Count",
+  "location": "khepri_mpt.adb:1089:22",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Mpt.Delete_From_Node.B_43.Child_Nibble",
+  "location": "khepri_mpt.adb:1113:19",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Mpt.Delete_From_Node.B_43.B_44.Child_Count",
+  "location": "khepri_mpt.adb:1122:25",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Mpt.Create_Trie.New_Trie",
+  "location": "khepri_mpt.adb:478:7",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Mpt.Load_Trie.New_Trie",
+  "location": "khepri_mpt.adb:505:7",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Mpt.Put.Nibble_Key_Val",
+  "location": "khepri_mpt.adb:856:7",
+  "Size": 544,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Mpt.Put.New_Node",
+  "location": "khepri_mpt.adb:857:7",
+  "Size": 5376,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Mpt.Put.Node_Idx",
+  "location": "khepri_mpt.adb:858:7",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Mpt.Put.New_Root_Idx",
+  "location": "khepri_mpt.adb:859:7",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Mpt.Put.Alloc_Success",
+  "location": "khepri_mpt.adb:860:7",
+  "Size": 8,
+  "Alignment": 1
+}
+,
+{
+  "name": "Khepri_Mpt.Get.Nibble_Key_Val",
+  "location": "khepri_mpt.adb:914:7",
+  "Size": 544,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Mpt.Get.Current_Idx",
+  "location": "khepri_mpt.adb:915:7",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Mpt.Get.B_37.Current",
+  "location": "khepri_mpt.adb:937:13",
+  "Size": 5376,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Mpt.Get.B_37.B_38.Child_Idx",
+  "location": "khepri_mpt.adb:978:25",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Mpt.Delete.Nibble_Key_Val",
+  "location": "khepri_mpt.adb:1153:7",
+  "Size": 544,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Mpt.Delete.New_Root_Idx",
+  "location": "khepri_mpt.adb:1154:7",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Mpt.Delete.Deleted",
+  "location": "khepri_mpt.adb:1155:7",
+  "Size": 8,
+  "Alignment": 1
+}
+,
+{
+  "name": "Khepri_Mpt.Contains.Value",
+  "location": "khepri_mpt.adb:1205:7",
+  "Size": 288,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Mpt.Contains.Found",
+  "location": "khepri_mpt.adb:1206:7",
+  "Size": 8,
+  "Alignment": 1
+}
+,
+{
+  "name": "Khepri_Mpt.Contains.Error",
+  "location": "khepri_mpt.adb:1207:7",
+  "Size": 8,
+  "Alignment": 1
+}
+,
+{
+  "name": "Khepri_Mpt.Generate_Proof.Nibble_Key_Val",
+  "location": "khepri_mpt.adb:1273:7",
+  "Size": 544,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Mpt.Generate_Proof.Current_Idx",
+  "location": "khepri_mpt.adb:1274:7",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Mpt.Generate_Proof.Depth",
+  "location": "khepri_mpt.adb:1275:7",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Mpt.Generate_Proof.Enc_Buffer",
+  "location": "khepri_mpt.adb:1276:7",
+  "Size": 4256,
+  "Alignment": 1
+}
+,
+{
+  "name": "Khepri_Mpt.Generate_Proof.Enc_Len",
+  "location": "khepri_mpt.adb:1277:7",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Mpt.Generate_Proof.Enc_Success",
+  "location": "khepri_mpt.adb:1278:7",
+  "Size": 8,
+  "Alignment": 1
+}
+,
+{
+  "name": "Khepri_Mpt.Generate_Proof.B_46.Current",
+  "location": "khepri_mpt.adb:1312:13",
+  "Size": 5376,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Mpt.Generate_Proof.B_46.B_48.Child_Nibble",
+  "location": "khepri_mpt.adb:1379:25",
+  "Size": 8,
+  "Alignment": 1
+}
+,
+{
+  "name": "Khepri_Mpt.Generate_Proof.B_46.B_48.Child_Idx",
+  "location": "khepri_mpt.adb:1381:25",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Mpt.Verify_Proof.Computed_Hash",
+  "location": "khepri_mpt.adb:1414:7",
+  "Size": 256,
+  "Alignment": 1
+}
+,
+{
+  "name": "Khepri_Mpt.Verify_Proof.Expected_Hash",
+  "location": "khepri_mpt.adb:1415:7",
+  "Size": 256,
+  "Alignment": 1
+}
+,
+{
+  "name": "Khepri_Mpt.Verify_Proof.Node_Data",
+  "location": "khepri_mpt.adb:1416:7",
+  "Size": 4256,
+  "Alignment": 1
+}
+,
+{
+  "name": "Khepri_Mpt.Verify_Proof.Node_Len",
+  "location": "khepri_mpt.adb:1417:7",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Mpt.Verify_Proof.B_49.Empty_Root",
+  "location": "khepri_mpt.adb:1426:13",
+  "Size": 256,
+  "Alignment": 1
+}
+,
+{
+  "name": "Khepri_Mpt.Create_Snapshot.Slot",
+  "location": "khepri_mpt.adb:1518:7",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Mpt.Encode_Node.Pos",
+  "location": "khepri_mpt.adb:258:7",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Mpt.Encode_Node.B_9.Path_Buf",
+  "location": "khepri_mpt.adb:274:16",
+  "Size": 264,
+  "Alignment": 1
+}
+,
+{
+  "name": "Khepri_Mpt.Encode_Node.B_9.Path_Len",
+  "location": "khepri_mpt.adb:275:16",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Mpt.Encode_Node.B_9.Hp_Prefix",
+  "location": "khepri_mpt.adb:276:16",
+  "Size": 8,
+  "Alignment": 1
+}
+,
+{
+  "name": "Khepri_Mpt.Encode_Node.B_12.Path_Buf",
+  "location": "khepri_mpt.adb:313:16",
+  "Size": 264,
+  "Alignment": 1
+}
+,
+{
+  "name": "Khepri_Mpt.Encode_Node.B_12.Path_Len",
+  "location": "khepri_mpt.adb:314:16",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Mpt.Encode_Node.B_12.Hp_Prefix",
+  "location": "khepri_mpt.adb:315:16",
+  "Size": 8,
+  "Alignment": 1
+}
+,
+{
+  "name": "Khepri_Mpt.Encode_Node.B_15.List_Content",
+  "location": "khepri_mpt.adb:357:16",
+  "Size": 4808,
+  "Alignment": 1
+}
+,
+{
+  "name": "Khepri_Mpt.Encode_Node.B_15.Content_Len",
+  "location": "khepri_mpt.adb:358:16",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Mpt.Decode_Node.B_18.List_Len",
+  "location": "khepri_mpt.adb:430:13",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Mpt.Decode_Node.B_18.Start",
+  "location": "khepri_mpt.adb:431:13",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Mpt.Decode_Node.B_18.Elements",
+  "location": "khepri_mpt.adb:432:13",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Mpt.Decode_Node.B_18.B_19.Len_Bytes",
+  "location": "khepri_mpt.adb:440:19",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Mpt.Keccak_256.Result",
+  "location": "khepri_mpt.adb:149:7",
+  "Size": 256,
+  "Alignment": 1
+}
+,
+{
+  "name": "Khepri_Mpt.Keccak_256.Digest",
+  "location": "khepri_mpt.adb:150:7",
+  "Size": 256,
+  "Alignment": 1
+}
+,
+{
+  "name": "Khepri_Mpt.Keccak_256.Message",
+  "location": "khepri_mpt.adb:152:7",
+  "Size": "??",
+  "Alignment": 1
+}
+,
+{
+  "name": "Khepri_Mpt.Hash_Node.Buffer",
+  "location": "khepri_mpt.adb:236:7",
+  "Size": 4256,
+  "Alignment": 1
+}
+,
+{
+  "name": "Khepri_Mpt.Hash_Node.Len",
+  "location": "khepri_mpt.adb:237:7",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Mpt.Hash_Node.Success",
+  "location": "khepri_mpt.adb:238:7",
+  "Size": 8,
+  "Alignment": 1
+}
+,
+{
+  "name": "Khepri_Mpt.Begin_Iteration.Empty_Check",
+  "location": "khepri_mpt.adb:1586:7",
+  "Size": 8,
+  "Alignment": 1
+}
+,
+{
+  "name": "Khepri_Mpt.Next.Node",
+  "location": "khepri_mpt.adb:1614:7",
+  "Size": 5376,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Mpt.Next.Node_Idx",
+  "location": "khepri_mpt.adb:1615:7",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Mpt.Next.Found",
+  "location": "khepri_mpt.adb:1616:7",
+  "Size": 8,
+  "Alignment": 1
+}
+,
+{
+  "name": "Khepri_Mpt.Next.B_54.Stack_Top",
+  "location": "khepri_mpt.adb:1631:13",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Mpt.Next.B_54.B_57.Start_Child",
+  "location": "khepri_mpt.adb:1677:25",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Mpt.Next.B_54.B_57.B_58.Child_Start",
+  "location": "khepri_mpt.adb:1690:31",
+  "Size": 32,
+  "Alignment": 4
+}
+,
+{
+  "name": "Khepri_Mpt.Next.B_54.B_57.B_58.Found_Child",
+  "location": "khepri_mpt.adb:1692:31",
+  "Size": 8,
+  "Alignment": 1
+}
+]

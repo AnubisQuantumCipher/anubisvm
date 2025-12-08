@@ -1,0 +1,458 @@
+V "GNAT Lib v14"
+A -O0
+A -gnatA
+A -gnatwa
+A -gnatQ
+A -gnata
+A -gnatf
+A -gnatyM120
+A -gnatyO
+A -gnat2012
+A -g
+A -gnateE
+A -fstack-check=specific
+A -mmacosx-version-min=16.0.0
+A -mcpu=apple-m1
+A -mlittle-endian
+A -mabi=lp64
+A -fPIC
+P ZX
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+RV NO_ELABORATION_CODE
+
+U khepri_staking%b	khepri_staking.adb	a7242396 OO PK
+W interfaces%s		interfac.ads		interfac.ali
+Z system.assertions%s	s-assert.adb		s-assert.ali
+
+U khepri_staking%s	khepri_staking.ads	4724514a EE NE OO PK
+W aegis_u256%s		aegis_u256.adb		aegis_u256.ali
+W aegis_vm_types%s	aegis_vm_types.ads	aegis_vm_types.ali
+W khepri_types%s	khepri_types.adb	khepri_types.ali
+
+D ada.ads		20240808082856 76789da1 ada%s
+D a-assert.ads		20240808082856 ba465f5c ada.assertions%s
+D a-unccon.ads		20240808082856 0e9b276f ada.unchecked_conversion%s
+D aegis_u256.ads	20251207191105 ff2dfe4b aegis_u256%s
+D aegis_vm_types.ads	20251207191105 dcd101d9 aegis_vm_types%s
+D interfac.ads		20240808082856 9111f9c1 interfaces%s
+D khepri_staking.ads	20251206202917 622b2cf5 khepri_staking%s
+D khepri_staking.adb	20251206024207 541ef6a2 khepri_staking%b
+D khepri_types.ads	20251207191106 06f3822d khepri_types%s
+D system.ads		20240808082856 70765b54 system%s
+D s-assert.ads		20240808082856 9c4520c7 system.assertions%s
+D s-exctab.ads		20240808082856 91bef6ef system.exception_table%s
+D s-stalib.ads		20240808082856 1c9580f6 system.standard_library%s
+G a e
+G c Z s s [pool_configIP khepri_staking 61 9 none]
+G c Z s b [initialize khepri_staking 146 14 none]
+G c Z s b [get_pool_config khepri_staking 158 13 none]
+G c Z s b [get_pool_state khepri_staking 162 13 none]
+G c Z s b [get_stake_info khepri_staking 166 13 none]
+G c Z s b [staked_balance khepri_staking 170 13 none]
+G c Z s b [pending_rewards khepri_staking 174 13 none]
+G c Z s b [total_staked khepri_staking 178 13 none]
+G c Z s b [is_locked khepri_staking 182 13 none]
+G c Z s b [current_block khepri_staking 186 13 none]
+G c Z s b [apr khepri_staking 190 13 none]
+G c Z s b [stake khepri_staking 198 14 none]
+G c Z s b [unstake khepri_staking 206 14 none]
+G c Z s b [claim_rewards khepri_staking 214 14 none]
+G c Z s b [compound khepri_staking 222 14 none]
+G c Z s b [emergency_withdraw khepri_staking 229 14 none]
+G c Z s b [set_reward_rate khepri_staking 241 14 none]
+G c Z s b [add_rewards khepri_staking 249 14 none]
+G c Z s b [set_lock_period khepri_staking 257 14 none]
+G c Z s b [set_penalty khepri_staking 265 14 none]
+G c Z s b [pause_pool khepri_staking 274 14 none]
+G c Z s b [resume_pool khepri_staking 281 14 none]
+G c Z s b [get_validator khepri_staking 292 13 none]
+G c Z s b [validator_count khepri_staking 296 13 none]
+G c Z s b [register_validator khepri_staking 300 14 none]
+G c Z s b [delegate khepri_staking 309 14 none]
+G c Z s b [undelegate khepri_staking 318 14 none]
+G c Z s b [slash khepri_staking 327 14 none]
+G c Z s s [stake_infoIP khepri_staking 47 9 none]
+G c Z s s [pool_stateIP khepri_staking 95 9 none]
+G c Z s s [validator_infoIP khepri_staking 114 9 none]
+G c Z b b [Tstake_arrayBIP khepri_staking 17 4 none]
+G c Z b b [Tvalidator_arrayBIP khepri_staking 18 4 none]
+G c Z b b [find_stake khepri_staking 60 13 none]
+G c Z b b [find_or_create_stake khepri_staking 70 13 none]
+G c Z b b [find_validator khepri_staking 85 13 none]
+G c Z b b [find_or_create_validator khepri_staking 95 13 none]
+G c Z b b [update_pool khepri_staking 110 14 none]
+G c Z b b [calculate_pending khepri_staking 146 13 none]
+G r c none [pending_rewards khepri_staking 174 13 none] [mul_mod aegis_u256 97 13 none]
+G r c none [pending_rewards khepri_staking 174 13 none] [from_word64 aegis_u256 155 13 none]
+G r c none [pending_rewards khepri_staking 174 13 none] [div_mod aegis_u256 102 14 none]
+G r c none [pending_rewards khepri_staking 174 13 none] [less_than aegis_u256 36 13 none]
+G r c none [pending_rewards khepri_staking 174 13 none] [sub_mod aegis_u256 84 13 none]
+G r c none [pending_rewards khepri_staking 174 13 none] [add aegis_u256 64 14 none]
+G r c none [apr khepri_staking 190 13 none] [equal aegis_u256 31 13 none]
+G r c none [stake khepri_staking 198 14 none] [less_than aegis_u256 36 13 none]
+G r c none [stake khepri_staking 198 14 none] [equal aegis_u256 31 13 none]
+G r c none [stake khepri_staking 198 14 none] [from_word64 aegis_u256 155 13 none]
+G r c none [stake khepri_staking 198 14 none] [mul_mod aegis_u256 97 13 none]
+G r c none [stake khepri_staking 198 14 none] [div_mod aegis_u256 102 14 none]
+G r c none [stake khepri_staking 198 14 none] [add aegis_u256 64 14 none]
+G r c none [stake khepri_staking 198 14 none] [sub_mod aegis_u256 84 13 none]
+G r c none [unstake khepri_staking 206 14 none] [less_than aegis_u256 36 13 none]
+G r c none [unstake khepri_staking 206 14 none] [equal aegis_u256 31 13 none]
+G r c none [unstake khepri_staking 206 14 none] [from_word64 aegis_u256 155 13 none]
+G r c none [unstake khepri_staking 206 14 none] [mul_mod aegis_u256 97 13 none]
+G r c none [unstake khepri_staking 206 14 none] [div_mod aegis_u256 102 14 none]
+G r c none [unstake khepri_staking 206 14 none] [add aegis_u256 64 14 none]
+G r c none [unstake khepri_staking 206 14 none] [sub_mod aegis_u256 84 13 none]
+G r c none [claim_rewards khepri_staking 214 14 none] [equal aegis_u256 31 13 none]
+G r c none [claim_rewards khepri_staking 214 14 none] [from_word64 aegis_u256 155 13 none]
+G r c none [claim_rewards khepri_staking 214 14 none] [mul_mod aegis_u256 97 13 none]
+G r c none [claim_rewards khepri_staking 214 14 none] [div_mod aegis_u256 102 14 none]
+G r c none [claim_rewards khepri_staking 214 14 none] [add aegis_u256 64 14 none]
+G r c none [claim_rewards khepri_staking 214 14 none] [less_than aegis_u256 36 13 none]
+G r c none [claim_rewards khepri_staking 214 14 none] [sub_mod aegis_u256 84 13 none]
+G r c none [compound khepri_staking 222 14 none] [equal aegis_u256 31 13 none]
+G r c none [compound khepri_staking 222 14 none] [from_word64 aegis_u256 155 13 none]
+G r c none [compound khepri_staking 222 14 none] [mul_mod aegis_u256 97 13 none]
+G r c none [compound khepri_staking 222 14 none] [div_mod aegis_u256 102 14 none]
+G r c none [compound khepri_staking 222 14 none] [add aegis_u256 64 14 none]
+G r c none [compound khepri_staking 222 14 none] [less_than aegis_u256 36 13 none]
+G r c none [compound khepri_staking 222 14 none] [sub_mod aegis_u256 84 13 none]
+G r c none [emergency_withdraw khepri_staking 229 14 none] [sub_mod aegis_u256 84 13 none]
+G r c none [set_reward_rate khepri_staking 241 14 none] [equal aegis_u256 31 13 none]
+G r c none [set_reward_rate khepri_staking 241 14 none] [from_word64 aegis_u256 155 13 none]
+G r c none [set_reward_rate khepri_staking 241 14 none] [mul_mod aegis_u256 97 13 none]
+G r c none [set_reward_rate khepri_staking 241 14 none] [div_mod aegis_u256 102 14 none]
+G r c none [set_reward_rate khepri_staking 241 14 none] [add aegis_u256 64 14 none]
+G r c none [add_rewards khepri_staking 249 14 none] [add aegis_u256 64 14 none]
+G r c none [pause_pool khepri_staking 274 14 none] [equal aegis_u256 31 13 none]
+G r c none [pause_pool khepri_staking 274 14 none] [from_word64 aegis_u256 155 13 none]
+G r c none [pause_pool khepri_staking 274 14 none] [mul_mod aegis_u256 97 13 none]
+G r c none [pause_pool khepri_staking 274 14 none] [div_mod aegis_u256 102 14 none]
+G r c none [pause_pool khepri_staking 274 14 none] [add aegis_u256 64 14 none]
+G r c none [delegate khepri_staking 309 14 none] [add aegis_u256 64 14 none]
+G r c none [undelegate khepri_staking 318 14 none] [less_than aegis_u256 36 13 none]
+G r c none [undelegate khepri_staking 318 14 none] [sub_mod aegis_u256 84 13 none]
+G r c none [slash khepri_staking 327 14 none] [from_word64 aegis_u256 155 13 none]
+G r c none [slash khepri_staking 327 14 none] [mul_mod aegis_u256 97 13 none]
+G r c none [slash khepri_staking 327 14 none] [div_mod aegis_u256 102 14 none]
+G r c none [slash khepri_staking 327 14 none] [sub_mod aegis_u256 84 13 none]
+G r c none [update_pool khepri_staking 110 14 none] [equal aegis_u256 31 13 none]
+G r c none [update_pool khepri_staking 110 14 none] [from_word64 aegis_u256 155 13 none]
+G r c none [update_pool khepri_staking 110 14 none] [mul_mod aegis_u256 97 13 none]
+G r c none [update_pool khepri_staking 110 14 none] [div_mod aegis_u256 102 14 none]
+G r c none [update_pool khepri_staking 110 14 none] [add aegis_u256 64 14 none]
+G r c none [calculate_pending khepri_staking 146 13 none] [mul_mod aegis_u256 97 13 none]
+G r c none [calculate_pending khepri_staking 146 13 none] [from_word64 aegis_u256 155 13 none]
+G r c none [calculate_pending khepri_staking 146 13 none] [div_mod aegis_u256 102 14 none]
+G r c none [calculate_pending khepri_staking 146 13 none] [less_than aegis_u256 36 13 none]
+G r c none [calculate_pending khepri_staking 146 13 none] [sub_mod aegis_u256 84 13 none]
+G r c none [calculate_pending khepri_staking 146 13 none] [add aegis_u256 64 14 none]
+X 4 aegis_u256.ads
+21K9*Aegis_U256 276e15 7|11w6 11r27
+31V13*Equal{boolean} 8|120s10 271s10 467s10
+36V13*Less_Than{boolean} 8|160s10 300s10 372s10 743s10
+64U14*Add 8|137s10 165s7 321s7 328s7 442s10 542s7 715s7
+84V13*Sub_Mod{5|41R9} 8|164s18 391s31 392s35 495s35 749s34 784s34
+97V13*Mul_Mod{5|41R9} 8|128s17 135s20 157s21 345s20 398s20 432s20 780s20
+102U14*Div_Mod 8|136s10 158s7 346s10 399s10 433s10 781s7
+155V13*From_Word64{5|41R9} 8|128s26 135s37 158s28 346s27 399s27 433s27 780s54
+. 781s27
+X 5 aegis_vm_types.ads
+21K9*Aegis_VM_Types 279e19 7|10w6 10r27
+31M12*Byte{6|70M9}
+35M12*Word64{6|84M9} 7|41r28 8|111r25 135r50 158r41 346r40 399r40 433r40
+. 780r67
+41R9*U256 43e14 7|35r28 38r29 8|112r25 113r25 132r19 133r32 147r29 148r29
+. 150r29 289r27 290r27 292r27 343r19 364r27 396r19 414r27 430r19 439r21 533r19
+. 700r20 763r20 764r20 765r20
+46r4*U256_Zero{41R9} 7|83r23 84r23 8|30r31 31r31 33r31 34r31 39r25 40r25
+. 41r25 49r25 120r43 153r17 217r31 218r31 219r31 233r17 243r17 271r43 417r21
+. 426r39 467r26 486r22 496r31 497r39 498r36 638r31 680r28
+48r4*U256_Max{41R9} 8|167r17
+70A9*Contract_Address(31M12)<integer>
+X 6 interfac.ads
+38K9*Interfaces 233e15 8|4w6 4r22
+70M9*Unsigned_8
+84M9*Unsigned_64
+X 7 khepri_staking.ads
+14K9*Khepri_Staking 338l5 338e19 8|6b14 792l5 792t19
+16@23*Staking_State 17r19 151r28 159r17 163r17 167r17 171r17 175r17 179r17
+. 183r17 187r17 191r17 204r28 212r28 220r28 227r28 235r28 247r28 255r28 263r28
+. 271r28 279r28 286r28 293r17 297r17 306r28 316r28 325r28 335r28 8|8r22
+24a4*Zero_Address{9|43A12} 81r23 82r23 152r26 8|25r30 38r25 48r25 183r24
+. 216r31 637r31
+26N4*Max_Stakers 8|17r36 152r18 212r42 230r42 255r42
+27N4*Max_Validators 8|18r40 633r42
+28N4*Precision_Factor 8|135r58 158r49 346r48 399r48 433r48
+35R12*Stake_Amount{5|41R9} 49r24 69r24 96r27 116r24 170r55 178r33 200r24
+. 208r24 231r25 312r25 321r25 8|227r55 247r33 284r24 358r24 479r25 694r25
+. 730r25
+38R12*Reward_Amount{5|41R9} 50r24 51r24 67r24 97r30 99r27 100r27 174r56 216r24
+. 243r25 251r24 8|146r55 237r56 363r27 409r24 457r17 458r17 510r25 529r24
+41M12*Block_Number{5|35M12} 52r24 53r24 71r24 75r24 77r24 98r27 119r24 186r34
+. 259r27 331r27 8|26r19 262r34 556r27 758r27
+47R9*Stake_Info 55e14 166r55 8|17r56 209r55
+48a7*Account{9|43A12} 8|38m7 63r49 75r27 216m13 335m21
+49r7*Amount{35R12} 8|39m7 157r44 217m13 231r31 321r26 336m21 372r35 391m21
+. 391r54 398r43 432r43 492r33 496m21
+50r7*Reward_Debt{38R12} 8|40m7 160r45 164r51 218m13 347m24 400m24 434m24
+. 498m21
+51r7*Pending_Reward{38R12} 8|41m7 161r31 165r35 219m13 317m24 388m21 426m21
+. 497m21
+52m7*Stake_Time{41M12} 8|42m7 220m13 337m21
+53m7*Lock_End{41M12} 8|43m7 221m13 256r47 338m21 378r40
+54b7*Used{boolean} 8|44m7 63r24 74r24 152r56 222m13 316r24 339m21
+61R9*Pool_Config 78e14 80r35 147r20 158r36 8|24r19 178r20 199r36
+63a7*Stake_Token{9|43A12} 81m7
+65a7*Reward_Token{9|43A12} 82m7
+67r7*Reward_Rate{38R12} 83m7 8|128r69 522m20
+69r7*Min_Stake{35R12} 84m7 8|300r42
+71m7*Lock_Period{41M12} 85m7 8|338r62 567m20
+73i7*Penalty_BPS{natural} 86m7 8|585m20
+75m7*Start_Block{41M12} 87m7 8|190r47
+77m7*End_Block{41M12} 88m7
+80r4*Default_Pool_Config{61R9} 8|24r34
+95R9*Pool_State 101e14 162r35 8|29r18 204r35
+96r7*Total_Staked{35R12} 8|30m7 120r29 136r39 249r26 271r29 328r24 350m19
+. 392m19 392r56 495m19 495r56
+97r7*Acc_Reward_Per_Share{38R12} 8|31m7 137r27 139m25 157r64 345r53 398r63
+. 432r63
+98m7*Last_Reward_Block{41M12} 8|32m7 116r39 121m22 125r53 143m19 190m19 621m19
+99r7*Total_Rewards{38R12} 8|33m7 542r24 549m19
+100r7*Distributed{38R12} 8|34m7 442r27 444m25
+107E9*Validator_Status 112e5 118r24
+108n7*Status_Inactive{107E9} 8|51r25 640r31
+109n7*Status_Active{107E9} 8|682r28
+110n7*Status_Jailed{107E9} 8|709r37 785r35
+111n7*Status_Unbonding{107E9}
+114R9*Validator_Info 121e14 292r55 8|18r63 630r55
+115a7*Operator{9|43A12} 8|48m7 88r57 100r31 637m13 679m10
+116r7*Stake{35R12} 8|49m7 638m13 680m10 715r30 722m25 743r39 749m25 749r61
+. 780r47 784m25 784r61
+117i7*Commission_BPS{natural} 8|50m7 639m13 681m10
+118e7*Status{107E9} 8|51m7 640m13 682m10 709r28 785m25
+119m7*Jailed_Until{41M12} 8|52m7 641m13 683m10 786m25
+120b7*Used{boolean} 8|53m7 88r28 99r28 642m13 651r28 684m10
+127E9*Staking_Error 140e5 202r24 210r24 218r24 225r24 233r25 245r25 253r24
+. 261r27 269r28 277r24 284r24 304r27 314r25 323r25 333r27 8|286r24 360r24
+. 411r24 455r24 481r25 512r25 531r24 558r27 576r28 593r24 611r24 662r27 696r25
+. 732r25 760r27
+128n7*Error_None{127E9} 8|353r16 404r16 449r16 469r19 501r16 524r16 551r16
+. 569r16 587r16 605r16 623r16 688r16 724r16 751r16 789r16
+129n7*Error_Not_Authorized{127E9} 8|517r19 538r19 563r19 581r19 598r19 616r19
+. 769r19
+130n7*Error_Insufficient_Balance{127E9} 8|374r19 745r19
+131n7*Error_Below_Minimum{127E9} 8|302r19
+132n7*Error_Lock_Not_Expired{127E9} 8|380r19
+133n7*Error_Pool_Not_Active{127E9} 8|296r19
+134n7*Error_Pool_Ended{127E9}
+135n7*Error_Already_Staked{127E9}
+136n7*Error_Not_Staked{127E9} 8|368r19 419r19 488r19 705r19 739r19 775r19
+137n7*Error_Overflow{127E9} 8|311r19 324r19 331r19 545r19 668r19 718r19
+138n7*Error_Validator_Jailed{127E9} 8|711r19
+139n7*Error_Invalid_Commission{127E9} 8|674r19
+146U14*Initialize 147>7 148>7 149<7 8|177b14 193l8 193t18
+147r7 Config{61R9} 8|178b7 188r23 190r40
+148a7 Admin{9|43A12} 152r17 8|179b7 189r21
+149b7 Success{boolean} 8|180b7 184m10 192m7
+158V13*Get_Pool_Config{61R9} 8|199b13 202l8 202t23
+162V13*Get_Pool_State{95R9} 8|204b13 207l8 207t22
+166V13*Get_Stake_Info{47R9} 166>29 8|209b13 225l8 225t22
+166a29 Account{9|43A12} 8|209b29 210r46
+170V13*Staked_Balance{35R12} 170>29 8|227b13 235l8 235t22
+170a29 Account{9|43A12} 8|227b29 228r46
+174V13*Pending_Rewards{38R12} 174>30 8|237b13 245l8 245t23
+174a30 Account{9|43A12} 8|237b30 238r46
+178V13*Total_Staked{35R12} 8|247b13 250l8 250t20
+182V13*Is_Locked{boolean} 182>24 8|252b13 260l8 260t17
+182a24 Account{9|43A12} 8|252b24 253r46
+186V13*Current_Block{41M12} 8|262b13 265l8 265t21
+190V13*APR{natural} 8|267b13 276l8 276t11
+198U14*Stake 199>7 200>7 201<7 202<7 8|282b14 354l8 354t13 474s7
+199a7 Caller{9|43A12} 8|283b7 308r37 335r32
+200r7 Amount{35R12} 8|284b7 300r21 321r34 328r38
+201b7 Success{boolean} 8|285b7 295m10 301m10 310m10 323m10 330m10 352m7
+202e7 Error{127E9} 8|286b7 296m10 302m10 311m10 324m10 331m10 353m7
+206U14*Unstake 207>7 208>7 209<7 210<7 8|356b14 405l8 405t15
+207a7 Caller{9|43A12} 8|357b7 362r59
+208r7 Amount{35R12} 8|358b7 372r43 391r62 392r70
+209b7 Success{boolean} 8|359b7 367m10 373m10 379m10 403m7
+210e7 Error{127E9} 8|360b7 368m10 374m10 380m10 404m7
+214U14*Claim_Rewards 215>7 216<7 217<7 218<7 8|407b14 450l8 450t21 461s7
+215a7 Caller{9|43A12} 8|408b7 413r59
+216r7 Claimed{38R12} 8|409b7 417m10 425m7 442r40
+217b7 Success{boolean} 8|410b7 418m10 448m7
+218e7 Error{127E9} 8|411b7 419m10 449m7
+222U14*Compound 223>7 224<7 225<7 8|452b14 475l8 475t16
+223a7 Caller{9|43A12} 8|453b7 461r22 474r14
+224b7 Success{boolean} 8|454b7 461m39 462r14 468m10 474m31
+225e7 Error{127E9} 8|455b7 461m48 469m10 474m40
+229U14*Emergency_Withdraw 230>7 231<7 232<7 233<7 8|477b14 502l8 502t26
+230a7 Caller{9|43A12} 8|478b7 483r46
+231r7 Received{35R12} 8|479b7 486m10 492m7 495r70
+232b7 Success{boolean} 8|480b7 487m10 500m7
+233e7 Error{127E9} 8|481b7 488m10 501m7
+241U14*Set_Reward_Rate 242>7 243>7 244<7 245<7 8|508b14 525l8 525t23
+242a7 Caller{9|43A12} 8|509b7 515r10
+243r7 New_Rate{38R12} 8|510b7 522r35
+244b7 Success{boolean} 8|511b7 516m10 523m7
+245e7 Error{127E9} 8|512b7 517m10 524m7
+249U14*Add_Rewards 250>7 251>7 252<7 253<7 8|527b14 552l8 552t19
+250a7 Caller{9|43A12} 8|528b7 536r10
+251r7 Amount{38R12} 8|529b7 542r39
+252b7 Success{boolean} 8|530b7 537m10 544m10 550m7
+253e7 Error{127E9} 8|531b7 538m10 545m10 551m7
+257U14*Set_Lock_Period 258>7 259>7 260<7 261<7 8|554b14 570l8 570t23
+258a7 Caller{9|43A12} 8|555b7 561r10
+259m7 New_Period{41M12} 8|556b7 567r35
+260b7 Success{boolean} 8|557b7 562m10 568m7
+261e7 Error{127E9} 8|558b7 563m10 569m7
+265U14*Set_Penalty 266>7 267>7 268<7 269<7 8|572b14 588l8 588t19
+266a7 Caller{9|43A12} 8|573b7 579r10
+267i7 New_Penalty{natural} 272r17 8|574b7 585r35
+268b7 Success{boolean} 8|575b7 580m10 586m7
+269e7 Error{127E9} 8|576b7 581m10 587m7
+274U14*Pause_Pool 275>7 276<7 277<7 8|590b14 606l8 606t18
+275a7 Caller{9|43A12} 8|591b7 596r10
+276b7 Success{boolean} 8|592b7 597m10 604m7
+277e7 Error{127E9} 8|593b7 598m10 605m7
+281U14*Resume_Pool 282>7 283<7 284<7 8|608b14 624l8 624t19
+282a7 Caller{9|43A12} 8|609b7 614r10
+283b7 Success{boolean} 8|610b7 615m10 622m7
+284e7 Error{127E9} 8|611b7 616m10 623m7
+292V13*Get_Validator{114R9} 292>28 8|630b13 645l8 645t21
+292a28 Operator{9|43A12} 8|630b28 631r50
+296V13*Validator_Count{natural} 8|647b13 656l8 656t23
+300U14*Register_Validator 301>7 302>7 303<7 304<7 8|658b14 689l8 689t26
+301a7 Caller{9|43A12} 8|659b7 664r60 679r28
+302i7 Commission{natural} 307r17 8|660b7 672r10 681r28
+303b7 Success{boolean} 8|661b7 667m10 673m10 687m7
+304e7 Error{127E9} 8|662b7 668m10 674m10 688m7
+309U14*Delegate 310>7 311>7 312>7 313<7 314<7 8|691b14 725l8 725t16
+310a7 Caller{9|43A12} 8|692b7 698r28
+311a7 Operator{9|43A12} 8|693b7 699r56
+312r7 Amount{35R12} 8|694b7 715r37
+313b7 Success{boolean} 8|695b7 704m10 710m10 717m10 723m7
+314e7 Error{127E9} 8|696b7 705m10 711m10 718m10 724m7
+318U14*Undelegate 319>7 320>7 321>7 322<7 323<7 8|727b14 752l8 752t18
+319a7 Caller{9|43A12} 8|728b7 734r28
+320a7 Operator{9|43A12} 8|729b7 735r50
+321r7 Amount{35R12} 8|730b7 743r46 749r68
+322b7 Success{boolean} 8|731b7 738m10 744m10 750m7
+323e7 Error{127E9} 8|732b7 739m10 745m10 751m7
+327U14*Slash 328>7 329>7 330>7 331>7 332<7 333<7 8|754b14 790l8 790t13
+328a7 Caller{9|43A12} 8|755b7 767r10
+329a7 Operator{9|43A12} 8|756b7 762r56
+330i7 Slash_BPS{natural} 336r17 8|757b7 780r75
+331m7 Jail_Until{41M12} 8|758b7 786r41
+332b7 Success{boolean} 8|759b7 768m10 774m10 788m7
+333e7 Error{127E9} 8|760b7 769m10 775m10 789m7
+X 8 khepri_staking.adb
+17A9 Stake_Array(7|47R9)<integer> 37r13
+18A9 Validator_Array(7|114R9)<integer> 47r17
+24r4 Config_Store{7|61R9} 9r8 128r56 188m7 201r14 300r29 338r49 522m7 567m7
+. 585m7
+25a4 Admin_Addr{9|43A12} 9r55 183r10 189m7 515r20 536r20 561r20 579r20 596r20
+. 614r20 767r20
+26m4 Block_Counter{7|41M12} 10r8 116r10 121r43 125r25 143r40 256r17 264r14
+. 337r35 338r33 378r10 621r40
+27b4 Paused{boolean} 10r23 191m7 294r10 603m7 620m7
+29r4 State_Store{7|95R9} 9r22 116r27 120r17 121m10 125r41 136r27 137r15 139m13
+. 143m7 157r52 190m7 206r14 249r14 271r17 328r12 345r41 350m7 392m7 392r44
+. 398r51 432r51 442r15 444m13 495m7 495r44 542r12 549m7 621m7
+37a4 Stakes{17A9} 9r35 62r16 63r13 63r38 73r16 74r13 75r16 152r42 157r30
+. 160r31 161r17 164r37 165r21 213r17 231r17 256r33 316r10 317m10 321r12 335m7
+. 336m7 337m7 338m7 339m7 347m10 372r21 378r26 388m7 391m7 391r40 398r29
+. 400m10 426m7 432r29 434m10 492r19 496m7 497m7 498m7
+47a4 Validators{18A9} 9r43 87r16 88r13 88r42 98r16 99r13 100r16 634r17 650r16
+. 651r13 678m7 709r10 715r12 722m7 743r21 749m7 749r43 780r29 784m7 784r43
+. 785m7 786m7
+60V13 Find_Stake{natural} 60b13 60>25 68l8 68t18 210s34 228s34 238s34 253s34
+. 362s47 413s47 483s34
+60a25 Account{9|43A12} 63r59
+62i11 I{integer} 63r21 63r46 64r20
+70V13 Find_Or_Create_Stake{natural} 70b13 70>35 83l8 83t28 308s15
+70a35 Account{9|43A12} 75r37
+71i7 Empty{natural} 78r16 79m13 82r14
+73i11 I{integer} 74r21 75r24 76r23 79r22
+85V13 Find_Validator{natural} 85b13 85>29 93l8 93t22 631s34 699s40 735s34
+. 762s40
+85a29 Operator{9|43A12} 88r68
+87i11 I{integer} 88r25 88r54 89r20
+95V13 Find_Or_Create_Validator{natural} 95b13 95>39 108l8 108t32 664s34
+95a39 Operator{9|43A12} 100r42
+96i7 Empty{natural} 103r16 104m13 107r14
+98i11 I{integer} 99r25 100r28 101r23 104r22
+110U14 Update_Pool 110b14 144l8 144t19 306s7 384s7 423s7 521s7 602s7
+111m7 Blocks_Elapsed{5|35M12} 125m7 128r39
+112r7 Reward{5|41R9} 128m7 135r29
+113r7 New_Acc{5|41R9} 137m59 139r49
+114b7 Overflow{boolean} 137m68 138r17
+132r10 Scaled{5|41R9} 135m10 136r19
+133r10 Quotient{5|41R9} 136m53 137r49
+133r20 Remainder{5|41R9} 136m63
+146V13 Calculate_Pending{7|38R12} 146b13 146>32 171l8 171t25 241s17 317s42
+. 387s18 425s18
+146i32 Slot{natural} 152r10 152r50 157r38 160r39 161r25 164r45 165r29
+147r7 Acc_Reward{5|41R9} 157m7 158r16 165m51 170r14
+148r7 Pending{5|41R9} 164m7 165r12
+149b7 Overflow{boolean} 165m63 166r10
+150r7 Quotient{5|41R9} 158m69 160r21 164r27
+150r17 Remainder{5|41R9} 158m79
+210i7 Slot{natural} 212r10 212r35 213r25
+228i7 Slot{natural} 230r10 230r35 231r25
+238i7 Slot{natural} 240r10 241r36
+253i7 Slot{natural} 255r10 255r35 256r41
+288i7 Slot{natural} 308m7 309r10 316r18 317r18 317r61 321r20 335r15 336r15
+. 337r15 338r15 339r15 347r18
+289r7 New_Amount{5|41R9} 321m42 336r31 345r29
+290r7 New_Total{5|41R9} 328m46 350r35
+291b7 Overflow{boolean} 321m54 322r10 328m57 329r10
+292r7 Quotient{5|41R9} 346m68 347r39
+292r17 Remaind{5|41R9} 346m78
+343r10 Scaled{5|41R9} 345m10 346r19
+362i7 Slot{natural} 366r10 372r29 378r34 387r37 388r15 391r15 391r48 398r37
+. 400r18
+363r7 Pending{7|38R12} 387m7 388r39
+364r7 Quotient{5|41R9} 399m68 400r39
+364r17 Remaind{5|41R9} 399m78
+396r10 Scaled{5|41R9} 398m10 399r19
+413i7 Slot{natural} 416r10 425r37 426r15 432r37 434r18
+414r7 Quotient{5|41R9} 433m68 434r39
+414r17 Remaind{5|41R9} 433m78
+430r10 Scaled{5|41R9} 432m10 433r19
+439r10 New_Dist{5|41R9} 442m49 444r40
+440b10 Overflow{boolean} 442m59 443r17
+457r7 Pending{7|38R12} 466m7 467r17 474r22
+458r7 Claimed{7|38R12} 461m30 466r18
+483i7 Slot{natural} 485r10 492r27 496r15 497r15 498r15
+533r7 New_Total{5|41R9} 542m47 549r36
+534b7 Overflow{boolean} 542m58 543r10
+631i7 Slot{natural} 633r10 633r35 634r29
+648i7 Count{natural} 652m13 652r22 655r14
+650i11 I{integer} 651r25
+664i7 Slot{natural} 666r10 678r19
+699i7 Slot{natural} 703r10 709r22 715r24 722r19
+700r7 New_Stake{5|41R9} 715m45 722r34
+701b7 Overflow{boolean} 715m56 716r10
+735i7 Slot{natural} 737r10 743r33 749r19 749r55
+762i7 Slot{natural} 773r10 780r41 784r19 784r55 785r19 786r19
+763r7 Slash_Amt{5|41R9} 780m7 781r16
+764r7 Quotient{5|41R9} 781m48 784r68
+765r7 Remainder{5|41R9} 781m58
+X 9 khepri_types.ads
+25K9*Khepri_Types 7|12w6 12r27 9|345e17
+43A12*Address{5|70A9}<integer> 7|24r28 48r24 63r24 65r24 115r24 148r20 166r39
+. 170r39 174r40 182r34 199r24 207r24 215r24 223r24 230r25 242r25 250r24 258r27
+. 266r28 275r24 282r24 292r39 301r27 310r25 311r25 319r25 320r25 328r27 329r27
+. 8|25r19 60r35 70r45 85r40 95r50 179r20 209r39 227r39 237r40 252r34 283r24
+. 357r24 408r24 453r24 478r25 509r25 528r24 555r27 573r28 591r24 609r24 630r39
+. 659r27 692r25 693r25 728r25 729r25 755r27 756r27
+46a4*Null_Address{43A12} 7|24r39
+

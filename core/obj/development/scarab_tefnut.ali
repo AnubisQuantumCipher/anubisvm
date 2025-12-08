@@ -1,0 +1,506 @@
+V "GNAT Lib v14"
+A -O0
+A -gnatA
+A -gnat2022
+A -gnatwa
+A -gnatyO
+A -gnatVa
+A -gnatw.F
+A -gnata
+A -g
+A -gnateE
+A -gnatVa
+A -mmacosx-version-min=16.0.0
+A -mcpu=apple-m1
+A -mlittle-endian
+A -mabi=lp64
+A -fPIC
+P SS ZX
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+
+U scarab_tefnut%b	scarab_tefnut.adb	ca23dbdf NE OO PK
+W anubis_sha3%s		anubis_sha3.adb		anubis_sha3.ali
+Z system.assertions%s	s-assert.adb		s-assert.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+
+U scarab_tefnut%s	scarab_tefnut.ads	bef1e9fb EE NE OO PK
+W anubis_bytes%s	anubis_bytes.adb	anubis_bytes.ali
+W anubis_types%s	anubis_types.ads	anubis_types.ali
+W interfaces%s		interfac.ads		interfac.ali
+
+D ada.ads		20240808082856 76789da1 ada%s
+D a-assert.ads		20240808082856 ba465f5c ada.assertions%s
+D a-unccon.ads		20240808082856 0e9b276f ada.unchecked_conversion%s
+D anubis_bytes.ads	20251207191105 9e5d5cad anubis_bytes%s
+D anubis_keccak.ads	20251207191105 19b431a9 anubis_keccak%s
+D anubis_sha3.ads	20251207191105 69737d95 anubis_sha3%s
+D anubis_types.ads	20251207191105 4fb35097 anubis_types%s
+D anubis_word.ads	20251207191105 ec44f66b anubis_word%s
+D interfac.ads		20240808082856 9111f9c1 interfaces%s
+D scarab_tefnut.ads	20251207191106 fe0e1c00 scarab_tefnut%s
+D scarab_tefnut.adb	20251207191106 5d5eba4a scarab_tefnut%b
+D system.ads		20240808082856 70765b54 system%s
+D s-assert.ads		20240808082856 9c4520c7 system.assertions%s
+D s-exctab.ads		20240808082856 91bef6ef system.exception_table%s
+D s-parame.ads		20240808082856 3597fc11 system.parameters%s
+D s-secsta.ads		20240808082856 578279f5 system.secondary_stack%s
+D s-stalib.ads		20240808082856 1c9580f6 system.standard_library%s
+D s-stoele.ads		20240808082856 ccded4e8 system.storage_elements%s
+G a e
+G c Z s b [init_from_checkpoint scarab_tefnut 168 14 none]
+G c Z s b [init_from_genesis scarab_tefnut 179 14 none]
+G c Z s b [reset_state scarab_tefnut 188 14 none]
+G c Z s b [begin_verify scarab_tefnut 198 14 none]
+G c Z s b [process_proof_chunk scarab_tefnut 206 14 none]
+G c Z s b [finalize_verify scarab_tefnut 216 14 none]
+G c Z s b [verify_header_immediate scarab_tefnut 226 14 none]
+G c Z s b [verify_state_proof scarab_tefnut 240 13 none]
+G c Z s b [verify_balance scarab_tefnut 247 14 none]
+G c Z s b [verify_tx_inclusion scarab_tefnut 258 14 none]
+G c Z s b [verify_storage scarab_tefnut 269 14 none]
+G c Z s b [verify_epoch_transition scarab_tefnut 287 14 none]
+G c Z s b [verify_validator scarab_tefnut 296 13 none]
+G c Z s b [get_validator_root scarab_tefnut 304 13 none]
+G c Z s b [get_sync_status scarab_tefnut 315 13 none]
+G c Z s b [blocks_behind scarab_tefnut 322 13 none]
+G c Z s b [request_sync_range scarab_tefnut 329 14 none]
+G c Z s b [skip_forward scarab_tefnut 338 14 none]
+G c Z s b [verify_aggregated_proof scarab_tefnut 351 13 none]
+G c Z s b [verify_sig_aggregate scarab_tefnut 360 13 none]
+G c Z s b [verify_merkle_streaming scarab_tefnut 373 14 none]
+G c Z s b [reset_merkle_state scarab_tefnut 387 14 none]
+G c Z s b [finalize_merkle scarab_tefnut 393 13 none]
+G c Z s b [compress_header scarab_tefnut 405 14 none]
+G c Z s b [hash_header scarab_tefnut 413 14 none]
+G c Z s b [verify_header_chain scarab_tefnut 421 14 none]
+G c Z s b [serialize_state scarab_tefnut 435 14 none]
+G c Z s b [deserialize_state scarab_tefnut 444 14 none]
+G c Z s b [serialize_header scarab_tefnut 452 14 none]
+G c Z s b [deserialize_header scarab_tefnut 460 14 none]
+G c Z s b [get_metrics scarab_tefnut 473 13 none]
+G c Z s b [get_ram_usage scarab_tefnut 479 13 none]
+G c Z s b [self_test scarab_tefnut 486 13 none]
+G c Z s b [is_timely scarab_tefnut 494 13 none]
+G c Z s b [detect_eclipse scarab_tefnut 502 13 none]
+G c Z s b [has_finality scarab_tefnut 509 13 none]
+G c Z s s [compact_headerIP scarab_tefnut 60 9 none]
+G c Z s s [light_client_stateIP scarab_tefnut 74 9 none]
+G c Z s s [state_proofIP scarab_tefnut 121 9 none]
+G c Z s s [proof_chunkIP scarab_tefnut 131 9 none]
+G c Z s s [validator_infoIP scarab_tefnut 140 9 none]
+G c Z s s [epoch_proofIP scarab_tefnut 147 9 none]
+G c Z s s [verify_metricsIP scarab_tefnut 156 9 none]
+G c Z b b [get_timestamp scarab_tefnut 17 13 none]
+G c Z b b [min scarab_tefnut 23 13 none]
+G r c none [begin_verify scarab_tefnut 198 14 none] [sha3_256 anubis_sha3 57 14 none]
+G r c none [verify_header_immediate scarab_tefnut 226 14 none] [sha3_256 anubis_sha3 57 14 none]
+G r c none [verify_state_proof scarab_tefnut 240 13 none] [sha3_256 anubis_sha3 57 14 none]
+G r c none [verify_balance scarab_tefnut 247 14 none] [sha3_256 anubis_sha3 57 14 none]
+G r c none [verify_tx_inclusion scarab_tefnut 258 14 none] [sha3_256 anubis_sha3 57 14 none]
+G r c none [verify_storage scarab_tefnut 269 14 none] [sha3_256 anubis_sha3 57 14 none]
+G r c none [verify_validator scarab_tefnut 296 13 none] [sha3_256 anubis_sha3 57 14 none]
+G r c none [skip_forward scarab_tefnut 338 14 none] [sha3_256 anubis_sha3 57 14 none]
+G r c none [verify_sig_aggregate scarab_tefnut 360 13 none] [sha3_256 anubis_sha3 57 14 none]
+G r c none [verify_merkle_streaming scarab_tefnut 373 14 none] [sha3_256 anubis_sha3 57 14 none]
+G r c none [hash_header scarab_tefnut 413 14 none] [sha3_256 anubis_sha3 57 14 none]
+G r c none [verify_header_chain scarab_tefnut 421 14 none] [sha3_256 anubis_sha3 57 14 none]
+X 4 anubis_bytes.ads
+7K9*Anubis_Bytes 52e17 10|23w6 23r24
+X 6 anubis_sha3.ads
+27K9*Anubis_SHA3 158e16 11|8w6 117r21 142r10 204r20 219r10 282r18 291r10
+. 320r10 436r18 456r7 468r28 479r16 570r20 573r7 614r18 617r7 644r18 659r7
+. 750r18 764r7
+32A12*SHA3_256_Digest{7|14A9}<integer> 11|117r33 204r32 282r30 436r30 468r40
+. 570r32 614r30 644r30 750r30
+57U14*SHA3_256 11|142s22 219s22 291s22 320s22 456s19 479s28 573s19 617s19
+. 659s19 764s19
+X 7 anubis_types.ads
+5K9*Anubis_Types 40e17 10|22w6 22r24
+13M12*Byte{9|70M9} 11|134r33 445r31 449r31 754r30 836r48 930r39
+14A9*Byte_Array(13M12)<integer> 10|63r28 64r28 67r28 70r28 83r28 93r28 97r28
+. 122r24 123r24 125r24 127r24 132r24 141r24 150r24 151r24 152r24 171r24 229r24
+. 249r24 260r24 271r24 272r24 273r28 299r24 306r13 341r24 353r24 362r24 363r24
+. 374r24 375r24 376r24 395r24 406r24 415r28 423r24 437r28 445r24 454r28 461r24
+. 11|39r24 83r19 131r25 213r24 242r24 279r22 280r17 281r18 286r24 339r24
+. 352r24 369r24 370r24 371r28 433r24 435r18 437r22 466r26 467r23 500r13 501r16
+. 567r24 594r24 611r24 612r24 634r24 635r24 636r24 643r18 695r24 717r24 747r28
+. 749r22 773r24 786r28 819r28 852r24 925r28 943r24
+X 9 interfac.ads
+38K9*Interfaces 233e15 10|21w6 21r22
+70M9*Unsigned_8
+84M9*Unsigned_64 10|62r28 86r28 142r24 148r24 149r24 157r24 250r24 261r24
+. 317r24 324r24 325r13 331r24 332r28 333r28 497r24 504r24 511r24 11|17r34
+. 340r24 353r24 515r24 517r23 538r24 539r13 550r24 551r28 552r28 731r13 884r13
+. 957r13 1026r24 1038r24 1040r14 1054r24 1062r68
+X 10 scarab_tefnut.ads
+25K9*Scarab_Tefnut 516l5 516e18 11|10b14 802r27 1065l5 1065t18
+33N4*Max_RAM_Footprint 441r31 483r39 11|1012r10
+36N4*Target_Verify_Time
+39N4*Compact_Header_Size 71r28 428r45 457r31 466r30 11|786r45 788r27 789r65
+. 825r88 826r17 858r25 865r46 872r17 948r25 1008r10
+42N4*Max_Chunk_Size 93r45 132r41 213r30 233r30 11|177r38 256r40 260r42
+45N4*Max_Merkle_Depth 57r47 97r45 125r41 127r41 11|463r21 669r23
+48N4*State_Root_Size
+51N4*Block_Hash_Size
+57I12*Merkle_Depth{natural} 98r28 126r24 378r24 11|638r24
+60R9*Compact_Header 71e15 76r28 79r28 170r24 181r24 200r24 228r24 340r24
+. 407r28 414r24 453r24 462r28 496r24 11|38r24 81r24 114r24 241r24 566r24
+. 718r28 746r24 777r24 924r24 944r28 1025r24
+62m7*Block_Height{9|84M9} 11|55m28 120r17 120r56 121r20 121r59 134r63 359r48
+. 519r51 523r64 541r51 544r57 555r46 728m15 730m18 730r42 754r44 906m28 930r53
+. 954m14 956m17 956r40 1042r51 1046r55 1058r48 1062r37
+63a7*Parent_Hash{7|14A9} 11|56r37 57m31 137r60 147r20 736m18 758r41 907r37
+. 908m31 935r50 962m17
+64a7*State_Root{7|14A9} 11|59r37 60m31 138r61 329r56 621r77 737m18 759r42
+. 910r37 911m31 936r51 963m17
+67a7*Proof_Commitment{7|14A9} 11|62r37 63m31 139r61 224r52 577r45 601r73
+. 738m18 760r42 913r37 914m31 937r51 964m17
+70a7*Validator_Sig{7|14A9} 11|65r37 66m31 739m18 761r43 916r37 917m31 938r52
+. 965m17
+74R9*Light_Client_State 99e14 169r28 180r28 189r31 199r31 207r31 217r31 227r31
+. 241r24 248r24 259r24 270r24 288r31 297r24 305r24 316r24 323r24 330r24 339r31
+. 352r24 361r24 379r31 388r31 394r24 422r31 436r24 446r28 474r24 480r24 495r24
+. 503r24 510r24 11|37r28 80r28 90r31 113r31 163r31 201r31 240r31 276r24 338r24
+. 351r24 368r24 396r31 431r24 499r24 514r24 537r24 549r24 565r31 593r24 610r24
+. 639r31 684r31 694r24 772r31 818r24 853r28 976r24 993r24 1024r24 1037r24
+. 1053r24
+76r7*Finalized_Header{60R9} 175r21 184r21 222r22 11|42m13 120r39 121r42 134r46
+. 137r43 138r44 139r44 232m13 329r39 359r31 519r34 523r47 541r34 544r40 555r29
+. 584m13 601r56 621r60 808m16 825r31 866m16 1042r34 1046r38 1058r31 1062r20
+79r7*Pending_Header{60R9} 222r47 11|55m13 56r22 57m16 59r22 60m16 62r22 63m16
+. 65r22 66m16 154m13 224r37 232r39 906m13 907r22 908m16 910r22 911m16 913r22
+. 914m16 916r22 917m16
+80b7*Has_Pending{boolean} 176r29 223r30 11|43m13 93m13 155m13 170r20 206r20
+. 226m19 233m13 525r38 809m16 841r16 889m13
+83a7*Validator_Root{7|14A9} 11|51m16 409r45 424m16 490r39 504r30 830r54 876m16
+86m7*Current_Epoch{9|84M9} 185r25 293r36 11|44m13 86m13 402r35 422m13 836r61
+. 881m13 883m16 883r39
+89i7*Verify_Progress{natural} 11|45m13 94m13 156m13 192m13 892m13 982r41
+90b7*Verify_Complete{boolean} 11|46m13 95m13 157m13 196m16 206r45 893m13
+. 985r16
+93a7*Proof_Buffer{7|14A9} 11|70r22 71m16 99r22 100m16 180m16 216r38 897r22
+. 898m16
+94i7*Buffer_Used{natural} 11|47m13 96m13 177r61 180r36 183m13 183r34 213r47
+. 215r30 234m13 894m13
+97a7*Path_Cache{7|14A9} 11|74r22 75m16 103r22 104m16 663m16 688r22 689m16
+. 704r19 901r22 902m16
+98i7*Path_Depth{57I12} 11|48m13 97m13 666m13 687m13 698r16 704r38 895m13
+102E9*Sync_Status 108e5 318r13 11|516r13
+103n7*Synced{102E9} 11|520r17 532r17
+104n7*Syncing{102E9} 11|526r17 530r17
+105n7*Behind{102E9} 11|528r17
+106n7*Disconnected{102E9}
+107n7*Error_State{102E9}
+111E9*Header_Result 118e5 201r28 218r28 230r28 11|115r28 202r28 243r28 778r20
+112n7*Valid{111E9} 221r28 11|159r17 236r17 251r20 802r41
+113n7*Invalid_Proof{111E9} 11|207r20 225r23
+114n7*Invalid_Sig{111E9}
+115n7*Invalid_Parent{111E9} 11|148r23
+116n7*Invalid_Height{111E9} 11|124r23
+117n7*Stale{111E9} 11|122r23
+121R9*State_Proof 128e14 242r24 251r24 262r24 275r24 11|277r24 341r24 354r24
+. 373r24
+122a7*Key{7|14A9}
+123a7*Value{7|14A9} 11|289r38 384r46
+124i7*Value_Length{natural} 11|286r47 288r30 382r37
+125a7*Path{7|14A9} 11|306r19
+126i7*Path_Length{57I12} 11|299r27
+127a7*Siblings{7|14A9} 11|302r34
+131R9*Proof_Chunk 137e14 208r24 11|164r24 245r15
+132a7*Data{7|14A9} 11|180r62 257m16
+133i7*Length{natural} 213r20 11|177r30 260m13
+134i7*Chunk_Index{natural} 11|187r30 261m13
+135i7*Total_Chunks{natural} 11|186r16 187r62 262m13
+136b7*Is_Final{boolean} 11|193r25 263m13
+140R9*Validator_Info 144e14 298r24 11|432r24
+141a7*PK_Hash{7|14A9} 11|441r36
+142m7*Weight{9|84M9} 11|445r48
+143i7*Index{natural} 11|449r48
+147R9*Epoch_Proof 153e14 289r24 11|397r24
+148m7*Old_Epoch{9|84M9} 11|402r16 416r35
+149m7*New_Epoch{9|84M9} 293r58 11|416r16 422r36
+150a7*Old_Val_Root{7|14A9} 11|409r19
+151a7*New_Val_Root{7|14A9} 11|424r44
+152a7*Transition_Sig{7|14A9}
+156R9*Verify_Metrics 161e14 475r13 11|977r13 978r17
+157m7*Verify_Time_Us{9|84M9} 11|980m15
+158i7*RAM_Used{natural} 11|981m15
+159i7*Chunks_Processed{natural} 11|982m15
+160i7*Proofs_Verified{natural} 11|983m15 986m18
+168U14*Init_From_Checkpoint 169<7 170>7 171>7 11|36b14 85s7
+169r7 State{74R9} 175r15 176r23 11|37b7 42m7 43m7 44m7 45m7 46m7 47m7 48m7
+. 51m10 55m7 56r16 57m10 59r16 60m10 62r16 63m10 65r16 66m10 70r16 71m10
+. 74r16 75m10
+170r7 Checkpoint{60R9} 175r40 11|38b7 42r33
+171a7 Validator_Root{7|14A9} 174r14 11|39b7 51r38 51r54
+179U14*Init_From_Genesis 180<7 181>7 11|79b14
+180r7 State{74R9} 184r15 185r19 11|80b7 85m29 86m7
+181r7 Genesis{60R9} 184r40 11|81b7 85r36
+188U14*Reset_State 189=7 11|89b14 106l8 106t19
+189r7 State{74R9} 11|90b7 93m7 94m7 95m7 96m7 97m7 99r16 100m10 103r16 104m10
+198U14*Begin_Verify 199=7 200>7 201<7 11|112b14 160l8 160t20 250s7 801s10
+199r7 State{74R9} 11|113b7 120r33 121r36 134r40 137r37 138r38 139r38 154m7
+. 155m7 156m7 157m7
+200r7 Header{60R9} 11|114b7 120r10 121r13 147r13 154r31
+201e7 Result{111E9} 11|115b7 122m13 124m13 148m13 159m7
+206U14*Process_Proof_Chunk 207=7 208>7 209<7 210<7 11|162b14 198l8 198t27
+. 265s7
+207r7 State{74R9} 11|163b7 170r14 177r55 180m10 180r30 183m7 183r28 192m7
+. 196m10
+208r7 Chunk{131R9} 213r14 11|164b7 177r24 180r56 186r10 187r24 187r56 193r19
+209i7 Progress{natural} 11|165b7 171m10 187m10 189m10 192r32
+210b7 Complete{boolean} 11|166b7 172m10 193m7 195r10
+216U14*Finalize_Verify 217=7 218<7 11|200b14 268s7
+217r7 State{74R9} 222r16 222r41 223r24 11|201b7 206r14 206r39 213r41 215r24
+. 216r32 224r31 226m13 232m7 232r33 233m7 234m7
+218e7 Result{111E9} 221r19 11|202b7 207m10 225m13 236m7
+226U14*Verify_Header_Immediate 227=7 228>7 229>7 230<7 11|239b14 269l8 269t31
+227r7 State{74R9} 11|240b7 250m21 265m28 268m24
+228r7 Header{60R9} 11|241b7 250r28
+229a7 Proof{7|14A9} 233r14 11|242b7 256r26 257r28 257r35 260r28
+230e7 Result{111E9} 11|243b7 250m36 251r10 268m31
+240V13*Verify_State_Proof{boolean} 241>7 242>7 11|275b13 335l8 335t26 347s16
+. 364s16 379s16
+241r7 State{74R9} 11|276b7 329r33
+242r7 Proof{121R9} 11|277b7 286r41 288r24 289r32 299r21 302r28 306r13
+247U14*Verify_Balance 248>7 249>7 250>7 251>7 252<7 11|337b14 348l8 348t22
+248r7 State{74R9} 11|338b7 347r36
+249a7 Address{7|14A9} 255r14 11|339b7 344r28
+250m7 Balance{9|84M9} 11|340b7 345r28
+251r7 Proof{121R9} 11|341b7 347r43
+252b7 Valid{boolean} 11|342b7 347m7
+258U14*Verify_TX_Inclusion 259>7 260>7 261>7 262>7 263<7 11|350b14 365l8
+. 365t27
+259r7 State{74R9} 11|351b7 359r25 364r36
+260a7 TX_Hash{7|14A9} 266r14 11|352b7 357r28
+261m7 Block_Height{9|84M9} 11|353b7 359r10
+262r7 Proof{121R9} 11|354b7 364r43
+263b7 Valid{boolean} 11|355b7 360m10 364m7
+269U14*Verify_Storage 270>7 271>7 272>7 273<7 274<7 275>7 276<7 11|367b14
+. 389l8 389t22
+270r7 State{74R9} 11|368b7 379r36
+271a7 Contract{7|14A9} 279r14 11|369b7 376r28
+272a7 Key{7|14A9} 279r39 11|370b7 377r28
+273a7 Value{7|14A9} 280r18 11|371b7 382r51 384m13 384r20
+274i7 Value_Length{natural} 11|372b7 382m10 383r24 387m10
+275r7 Proof{121R9} 11|373b7 379r43 382r31 384r40
+276b7 Valid{boolean} 11|374b7 379m7 381r10
+287U14*Verify_Epoch_Transition 288=7 289>7 290<7 11|395b14
+288r7 State{74R9} 293r30 11|396b7 402r29 409r39 422m7 424m10
+289r7 Proof{147R9} 293r52 11|397b7 402r10 409r13 416r10 416r29 422r30 424r38
+290b7 Valid{boolean} 293r19 11|398b7 403m10 410m13 417m10 427m7
+296V13*Verify_Validator{boolean} 297>7 298>7 299>7 11|430b13 496l8 496t24
+297r7 State{74R9} 11|431b7 490r33
+298r7 Validator{140R9} 11|432b7 441r26 445r38 449r38
+299a7 Proof{7|14A9} 11|433b7 464r27 471r34 471r41
+304V13*Get_Validator_Root{7|14A9} 305>7 308r15 11|498b13
+305r7 State{74R9} 11|499b7 504r24
+315V13*Get_Sync_Status{102E9} 316>7 317>7 11|513b13 534l8 534t23
+316r7 State{74R9} 11|514b7 519r28 523r41 525r32
+317m7 Network_Height{9|84M9} 11|515b7 519r10 523r24
+322V13*Blocks_Behind{9|84M9} 323>7 324>7 11|536b13 546l8 546t21
+323r7 State{74R9} 11|537b7 541r28 544r34
+324m7 Network_Height{9|84M9} 11|538b7 541r10 544r17
+329U14*Request_Sync_Range 330>7 331>7 332<7 333<7 11|548b14 562l8 562t26
+330r7 State{74R9} 11|549b7 555r23
+331m7 Network_Height{9|84M9} 11|550b7 557r10 560r24
+332m7 Start_Height{9|84M9} 11|551b7 555m7 557r27 558r24
+333m7 End_Height{9|84M9} 11|552b7 558m10 560m10
+338U14*Skip_Forward 339=7 340>7 341>7 342<7 11|564b14 586l8 586t20
+339r7 State{74R9} 11|565b7 584m7
+340r7 Target_Header{60R9} 11|566b7 577r31 584r33
+341a7 Skip_Proof{7|14A9} 11|567b7 573r29
+342b7 Valid{boolean} 11|568b7 578m13 585m7
+351V13*Verify_Aggregated_Proof{boolean} 352>7 353>7 354>7 11|592b13 607l8
+. 607t31
+352r7 State{74R9} 11|593b7 601r50
+353a7 Proof_Root{7|14A9} 357r14 11|594b7 601r13 601r25
+354i7 Num_Proofs{natural} 11|595b7 597r28
+360V13*Verify_Sig_Aggregate{boolean} 361>7 362>7 363>7 11|609b13 627l8 627t28
+361r7 State{74R9} 11|610b7 621r54
+362a7 Agg_Sig{7|14A9} 366r14 11|611b7 617r29
+363a7 Message_Root{7|14A9} 366r40 11|612b7 621r13 621r27
+373U14*Verify_Merkle_Streaming 374>7 375>7 376>7 377>7 378>7 379=7 380<7
+. 381<7 11|633b14 681l8 681t31
+374a7 Root{7|14A9} 384r14 11|634b7 673r32 673r38
+375a7 Leaf{7|14A9} 384r35 11|635b7 649r29 649r35 655r34 655r40
+376a7 Sibling{7|14A9} 384r56 11|636b7 650r34 650r43 654r29 654r38
+377b7 Is_Left{boolean} 11|637b7 647r10
+378i7 Depth{57I12} 11|638b7 663r28 666r27 669r10
+379r7 State{74R9} 11|639b7 663m10 666m7
+380b7 Continue{boolean} 11|640b7 670m10 678m10
+381b7 Valid{boolean} 11|641b7 671m10 674m16 679m10
+387U14*Reset_Merkle_State 388=7 11|683b14 691l8 691t26
+388r7 State{74R9} 11|684b7 687m7 688r16 689m10
+393V13*Finalize_Merkle{boolean} 394>7 395>7 11|693b13 710l8 710t23
+394r7 State{74R9} 11|694b7 698r10 704r13 704r32
+395a7 Expected_Root{7|14A9} 398r14 11|695b7 704r67 704r82
+405U14*Compress_Header 406>7 407<7 408<7 11|716b14 743l8 743t23 792s13
+406a7 Full_Header{7|14A9} 11|717b7 722r10 731r26 731r39 736r37 736r50 737r36
+. 737r49 738r42 738r55 739r39 739r52
+407r7 Compact{60R9} 11|718b7 728m7 730m10 730r34 736m10 737m10 738m10 739m10
+408b7 Success{boolean} 11|719b7 723m10 742m7
+413U14*Hash_Header 414>7 415<7 11|745b14 769l8 769t19
+414r7 Header{60R9} 11|746b7 754r37 758r34 759r35 760r35 761r36
+415a7 Hash{7|14A9} 418r14 11|747b7 767m10 767r16
+421U14*Verify_Header_Chain 422=7 423>7 424>7 425<7 11|771b14 811l8 811t27
+422r7 State{74R9} 11|772b7 801m24 808m10 809m10
+423a7 Headers{7|14A9} 428r14 11|773b7 789r36 789r45
+424i7 Num_Headers{natural} 428r31 11|774b7 783r21
+425b7 Valid{boolean} 11|775b7 781m7 796m13 803m13
+435U14*Serialize_State 436>7 437<7 438<7 11|817b14 849l8 849t23
+436r7 State{74R9} 11|818b7 825r25 830r48 836r55 841r10
+437a7 Output{7|14A9} 441r14 11|819b7 825m49 825r49 825r57 825r73 830m10 830r18
+. 836m10 836r18 842m10 842r18 844m10 844r18
+438i7 Length{natural} 11|820b7 848m7
+444U14*Deserialize_State 445>7 446<7 447<7 11|851b14 921l8 921t25
+445a7 Input{7|14A9} 11|852b7 858r10 865r10 865r17 865r32 876r38 876r45 884r26
+. 884r33 889r29 889r36
+446r7 State{74R9} 11|853b7 866m10 866r10 876m10 881m7 883m10 883r33 889m7
+. 892m7 893m7 894m7 895m7 897r16 898m10 901r16 902m10 906m7 907r16 908m10
+. 910r16 911m10 913r16 914m10 916r16 917m10
+447b7 Success{boolean} 11|854b7 859m10 867m10 869r14 920m7
+452U14*Serialize_Header 453>7 454<7 11|825s7 923b14 940l8 940t24
+453r7 Header{60R9} 11|924b7 930r46 935r43 936r44 937r44 938r45
+454a7 Output{7|14A9} 457r14 11|925b7 930m10 930r18 935m10 935r18 936m10 936r18
+. 937m10 937r18 938m10 938r18
+460U14*Deserialize_Header 461>7 462<7 463<7 11|864s7 942b14 969l8 969t26
+461a7 Input{7|14A9} 466r14 11|943b7 948r10 957r26 957r33 962r36 962r43 963r35
+. 963r42 964r41 964r48 965r38 965r45
+462r7 Header{60R9} 11|944b7 954m7 956m10 956r33 962m10 963m10 964m10 965m10
+463b7 Success{boolean} 11|945b7 949m10 968m7
+473V13*Get_Metrics{156R9} 474>7 11|975b13 990l8 990t19
+474r7 State{74R9} 11|976b7 981r42 982r35 985r10
+479V13*Get_RAM_Usage{natural} 480>7 483r15 11|981s27 992b13
+480r7 State{74R9} 11|993b7 995r28
+486V13*Self_Test{boolean} 11|1005b13 1017l8 1017t17
+494V13*Is_Timely{boolean} 495>7 496>7 497>7 11|1023b13 1034l8 1034t17
+495r7 State{74R9} 11|1024b7 1028r28
+496r7 Header{60R9} 11|1025b7 1029r28
+497m7 Current_Time{9|84M9} 11|1026b7 1030r28
+502V13*Detect_Eclipse{boolean} 503>7 504>7 11|1036b13 1050l8 1050t22
+503r7 State{74R9} 11|1037b7 1042r28 1046r32
+504m7 Network_Height{9|84M9} 11|1038b7 1042r10 1046r15
+509V13*Has_Finality{boolean} 510>7 511>7 512>7 11|1052b13 1063l8 1063t20
+510r7 State{74R9} 11|1053b7 1058r25 1062r14
+511m7 Block_Height{9|84M9} 11|1054b7 1058r10 1062r52
+512i7 Confirmations{natural} 11|1055b7 1062r81
+X 11 scarab_tefnut.adb
+17V13 Get_Timestamp{9|84M9} 17b13 21l8 21t21
+23V13 Min{natural} 23b13 23>18 23>21 30l8 30t11 177s19 256s21 260s23 382s26
+23i18 A{natural} 25r10 26r17
+23i21 B{natural} 25r14 28r17
+50i11 I{integer} 51r32 51r77
+56i11 I{integer} 57r44
+59i11 I{integer} 60r43
+62i11 I{integer} 63r49
+65i11 I{integer} 66r46
+70i11 I{integer} 71r30
+74i11 I{integer} 75r28
+83a7 Zero_Root{7|14A9} 85r45
+99i11 I{integer} 100r30
+103i11 I{integer} 104r28
+117a7 Parent_Hash{6|32A12} 142m46 147r39
+131a10 Header_Bytes{7|14A9} 134m13 137m13 138m13 139m13 142r32
+133i14 I{integer} 134r27 134r85
+136i14 I{integer} 137r31 137r73 138r32 138r73 139r32 139r79
+146i11 I{integer} 147r33 147r52
+168i7 Copy_Len{natural} 177m7 179r21 183r48
+179i11 I{integer} 180r50 180r68
+204a7 Proof_Hash{6|32A12} 219m45 224r13
+213a10 Proof_Slice{7|14A9} 216m13 219r32
+215i14 I{integer} 216r26 216r52
+223i11 I{integer} 224r25 224r70
+245r7 Chunk{10|131R9} 257m10 260m7 261m7 262m7 263m7 265r35
+246i7 Progress{natural} 265m42
+247b7 Complete{boolean} 265m52
+256i11 I{integer} 257r22 257r49
+279a7 Current_Hash{7|14A9} 295m10 309r32 316r37 323m13 329r13
+280a7 Sibling{7|14A9} 302m13 310r37 315r32
+281a7 Combined{7|14A9} 309m16 310m16 315m16 316m16 320r32
+282a7 Hash_Out{6|32A12} 291m45 295r30 320m42 323r33
+286a10 Value_Slice{7|14A9} 289m13 291r32
+288i14 I{integer} 289r26 289r45
+294i11 I{integer} 295r24 295r40
+299i11 D{integer} 302r44 306r25
+301i14 I{integer} 302r22 302r53
+308i17 I{integer} 309r26 309r46 310r26 310r46
+314i17 I{integer} 315r26 315r41 316r26 316r51
+322i14 I{integer} 323r27 323r43
+328i11 I{integer} 329r27 329r68
+383i14 I{integer} 384r34 384r53
+408i11 I{integer} 409r33 409r61
+423i11 I{integer} 424r32 424r58
+435a7 Combined{7|14A9} 441m10 445m10 449m10 453m10 456r29
+436a7 Val_Hash{6|32A12} 456m39 459r30
+437a7 Current_Hash{7|14A9} 459m10 475r31 482m19 490r13
+440i11 I{integer} 441r20 441r45
+444i11 I{integer} 445r25 445r64
+448i11 I{integer} 449r25 449r63
+452i11 I{integer} 453r20
+458i11 I{integer} 459r24 459r40
+463i11 D{integer} 464r13 471r55
+466a16 Sibling{7|14A9} 471m19 476r36
+467a16 Pair{7|14A9} 475m19 476m19 479r38
+468a16 Pair_Hash{6|32A12} 479m44 482r39
+470i20 I{integer} 471r28 471r64
+474i20 I{integer} 475r25 475r45 476r25 476r45
+481i20 I{integer} 482r33 482r50
+489i11 I{integer} 490r27 490r55
+501a7 Result{7|14A9} 504m10 506r14
+503i11 I{integer} 504r18 504r46
+517m7 Blocks_Behind{9|84M9} 523m7 525r10 527r13 529r13
+570a7 Proof_Hash{6|32A12} 573m41 577r13
+576i11 I{integer} 577r25 577r63
+600i11 I{integer} 601r44 601r91
+614a7 Sig_Hash{6|32A12} 617m38
+620i11 I{integer} 621r48 621r89
+643a7 Combined{7|14A9} 649m13 650m13 654m13 655m13 659r29
+644a7 Hash_Out{6|32A12} 659m39 663r47 673r16
+648i14 I{integer} 649r23 649r48 650r23 650r59
+653i14 I{integer} 654r23 654r54 655r23 655r53
+662i11 I{integer} 663r41 663r57
+672i14 I{integer} 673r26 673r51
+688i11 I{integer} 689r28
+703i11 I{integer} 704r61 704r104
+729i11 I{integer} 731r59 731r72
+735i11 I{integer} 736r31 736r74 737r30 737r74 738r36 738r80 739r33 739r78
+749a7 Header_Bytes{7|14A9} 754m10 758m10 759m10 760m10 761m10 764r29
+750a7 Hash_Out{6|32A12} 764m43 767r35
+753i11 I{integer} 754r24 754r66
+757i11 I{integer} 758r28 758r54 759r29 759r54 760r29 760r60 761r30 761r58
+766i11 I{integer} 767r29 767r45
+777r7 Current_Header{10|60R9} 792m44 801r31 808r36
+778e7 Hdr_Result{10|111E9} 801m47 802r13
+779b7 Decompress_Ok{boolean} 792m60 795r17
+783i11 H{integer} 789r61
+786a13 Header_Slice{7|14A9} 789m16 792r30
+788i17 I{integer} 789r30 789r87
+822i7 Offset{natural} 826m7 830r33 832m7 832r17 836r33 838m7 838r17 842r33
+. 844r33 846m7 846r17 848r17
+829i11 I{integer} 830r42 830r70
+835i11 I{integer} 836r42 836r84
+856i7 Offset{natural} 872m7 876r59 878m7 878r17 884r47 886m7 886r17 889r50
+875i11 I{integer} 876r32 876r68
+882i11 I{integer} 884r56 884r69
+897i11 I{integer} 898r30
+901i11 I{integer} 902r28
+907i11 I{integer} 908r44
+910i11 I{integer} 911r43
+913i11 I{integer} 914r49
+916i11 I{integer} 917r46
+929i11 I{integer} 930r33 930r75
+934i11 I{integer} 935r37 935r63 936r38 936r63 937r38 937r69 938r39 938r67
+955i11 I{integer} 957r47 957r60
+961i11 I{integer} 962r30 962r61 963r29 963r61 964r35 964r67 965r32 965r65
+978r7 Metrics{10|156R9} 980m7 981m7 982m7 983m7 986m10 989r14
+1040m7 Diff{9|84M9} 1046m7 1049r14
+

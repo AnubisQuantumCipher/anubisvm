@@ -1,0 +1,252 @@
+V "GNAT Lib v14"
+A -O0
+A -gnatA
+A -gnat2022
+A -gnatwa
+A -gnatyO
+A -gnatVa
+A -gnatw.F
+A -gnata
+A -g
+A -gnateE
+A -gnatVa
+A -mmacosx-version-min=16.0.0
+A -mcpu=apple-m1
+A -mlittle-endian
+A -mabi=lp64
+A -fPIC
+P ZX
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U anubis_shield%b	anubis_shield.adb	bea3a350 NE OO PK
+W anubis_chacha20_poly1305%s  anubis_chacha20_poly1305.adb  anubis_chacha20_poly1305.ali
+W anubis_sha3%s		anubis_sha3.adb		anubis_sha3.ali
+W interfaces%s		interfac.ads		interfac.ali
+Z system.assertions%s	s-assert.adb		s-assert.ali
+
+U anubis_shield%s	anubis_shield.ads	f46a840f EE NE OO PK
+W anubis_bytes%s	anubis_bytes.adb	anubis_bytes.ali
+W anubis_chacha20_poly1305%s  anubis_chacha20_poly1305.adb  anubis_chacha20_poly1305.ali
+W anubis_types%s	anubis_types.ads	anubis_types.ali
+
+D ada.ads		20240808082856 76789da1 ada%s
+D a-assert.ads		20240808082856 ba465f5c ada.assertions%s
+D a-unccon.ads		20240808082856 0e9b276f ada.unchecked_conversion%s
+D anubis_bytes.ads	20251207191105 9e5d5cad anubis_bytes%s
+D anubis_chacha20.ads	20251207191104 d1117266 anubis_chacha20%s
+D anubis_chacha20_poly1305.ads  20251207191105 5ad6e8c6 anubis_chacha20_poly1305%s
+D anubis_keccak.ads	20251207191105 19b431a9 anubis_keccak%s
+D anubis_poly1305.ads	20251207191104 9947b0e5 anubis_poly1305%s
+D anubis_sha3.ads	20251207191105 69737d95 anubis_sha3%s
+D anubis_shield.ads	20251207191105 7f5260f3 anubis_shield%s
+D anubis_shield.adb	20251207191105 6345af31 anubis_shield%b
+D anubis_types.ads	20251207191105 4fb35097 anubis_types%s
+D anubis_word.ads	20251207191105 ec44f66b anubis_word%s
+D interfac.ads		20240808082856 9111f9c1 interfaces%s
+D system.ads		20240808082856 70765b54 system%s
+D s-assert.ads		20240808082856 9c4520c7 system.assertions%s
+D s-exctab.ads		20240808082856 91bef6ef system.exception_table%s
+D s-stalib.ads		20240808082856 1c9580f6 system.standard_library%s
+G a e
+G c Z s b [encrypt_state anubis_shield 93 14 none]
+G c Z s b [decrypt_state anubis_shield 111 14 none]
+G c Z s b [verify_commitment anubis_shield 126 13 none]
+G c Z s b [re_encrypt anubis_shield 138 14 none]
+G c Z s b [derive_viewing_key anubis_shield 158 14 none]
+G c Z s b [derive_commit_seed anubis_shield 166 14 none]
+G c Z s b [create_commitment anubis_shield 178 14 none]
+G c Z s b [zeroize_entry anubis_shield 191 14 none]
+G c Z s b [zeroize_bundle anubis_shield 195 14 none]
+G c Z s s [private_entryIP anubis_shield 50 9 none]
+G c Z s s [entry_commitmentIP anubis_shield 66 9 none]
+G c Z s s [user_key_bundleIP anubis_shield 74 9 none]
+G c Z b b [shake256_kdf anubis_shield 21 14 none]
+G r c none [verify_commitment anubis_shield 126 13 none] [shake256 anubis_sha3 109 14 none]
+G r c none [derive_viewing_key anubis_shield 158 14 none] [shake256 anubis_sha3 109 14 none]
+G r c none [derive_commit_seed anubis_shield 166 14 none] [shake256 anubis_sha3 109 14 none]
+G r c none [create_commitment anubis_shield 178 14 none] [shake256 anubis_sha3 109 14 none]
+G r c none [shake256_kdf anubis_shield 21 14 none] [shake256 anubis_sha3 109 14 none]
+X 4 anubis_bytes.ads
+7K9*Anubis_Bytes 52e17 10|15w6 15r28
+X 5 anubis_chacha20.ads
+40A9*ChaCha20_Key(12|13M12)<integer>
+41A9*ChaCha20_Nonce(12|13M12)<integer>
+X 6 anubis_chacha20_poly1305.ads
+20K9*Anubis_ChaCha20_Poly1305 102e29 10|16w6 29r34 30r34 11|9w6 9r36 110r27
+. 125r10 145r10 201r30 202r30 226r13 251r13
+29N4*Nonce_Size 10|29r59
+30N4*Tag_Size 10|30r59
+39A12*AEAD_Key{5|40A9}<integer> 11|110r52 201r55
+40A12*AEAD_Nonce{5|41A9}<integer> 11|109r27 200r30
+41A12*AEAD_Tag{8|36A9}<integer> 11|111r27 202r55
+53U14*AEAD_Encrypt 11|125s35
+54a7 Ciphertext{12|14A9} 11|126r13
+55a7 Tag{41A12} 11|127r13
+56a7 Plaintext{12|14A9} 11|128r13
+57a7 AAD{12|14A9} 11|129r13
+58a7 Nonce{40A12} 11|130r13
+59a7 Key{39A12} 11|131r13
+77U14*AEAD_Decrypt 11|226s38
+78a7 Plaintext{12|14A9} 11|227r16
+79b7 Success{boolean} 11|228r16
+80a7 Ciphertext{12|14A9} 11|229r16
+81a7 Tag{41A12} 11|230r16
+82a7 AAD{12|14A9} 11|231r16
+83a7 Nonce{40A12} 11|232r16
+84a7 Key{39A12} 11|233r16
+98U14*Sanitize 11|145s35 251s38
+X 8 anubis_poly1305.ads
+36A9*Poly1305_Tag(12|13M12)<integer>
+X 9 anubis_sha3.ads
+27K9*Anubis_SHA3 158e16 11|8w6 52r7 396r7
+109U14*SHAKE256 11|52s19 396s19
+X 10 anubis_shield.ads
+18K9*Anubis_Shield 198l5 198e18 11|11b14 421l5 421t18
+26N4*Max_Entry_Size 44r49 103r43 108r56 120r43 122r47 123r45 134r43 151r47
+. 187r43 11|198r68 299r36 321r35 366r34 389r53
+29N4*AEAD_Nonce_Size 31r34 45r44 11|84r44
+30N4*AEAD_Tag_Size 31r52 46r42
+31N4*AEAD_Overhead 44r66 108r73
+34N4*KEM_Ciphertext_Size 47r47
+37N4*Commitment_Size 48r49
+44A12*Entry_Ciphertext{12|14A9}<integer> 52r24
+45A12*Entry_Nonce{12|14A9}<integer> 59r24
+46A12*Entry_Tag{12|14A9}<integer> 62r24
+47A12*KEM_Ciphertext{12|14A9}<integer> 56r24
+48A12*Commitment_Value{12|14A9}<integer> 67r15
+50R9*Private_Entry 63e14 97r28 112r24 139r24 143r28 191r49 11|63r28 166r24
+. 292r24 296r28 404r49
+52a7*Ciphertext{44A12} 11|75m18 136m24 222r40 309m13 406m18
+53i7*CT_Length{natural} 108r43 122r34 151r34 193r26 11|76m18 142m21 198r21
+. 198r55 203r58 204r58 220r38 221r54 238r41 239r57 242r40 310m13 407m18
+56a7*Encapsulated{47A12} 11|77m18 152m18 188r31 311m13 408m18
+59a7*Nonce{45A12} 11|78m18 84m18 121r46 213r49 312m13 409m18
+62a7*Tag{46A12} 11|79m18 139r30 140m24 216r47 313m13 410m18
+66R9*Entry_Commitment 68e14 98r28 128r24 181r28 11|64r28 269r24 272r18 302r22
+. 371r28
+67a7*Value{48A12} 11|80m18 280r30 281r41 281r64 397m18
+71A12*Viewing_Key{12|14A9}<integer> 82r24 160r28 11|341r28
+72A12*Commitment_Seed{12|14A9}<integer> 85r24 168r28 11|352r28
+74R9*User_Key_Bundle 86e14 195r46 11|413r46
+76a7*KEM_Public{12|14A9} 11|415m14
+79a7*DSA_Public{12|14A9} 11|416m14
+82a7*View_Key{71A12} 11|417m14
+85a7*Commit_Random{72A12} 11|418m14
+93U14*Encrypt_State 94>7 95>7 96>7 97<7 98<7 99<7 11|59b14 322s7
+94a7 Plaintext{12|14A9} 102r14 103r23 104r23 11|60b7 112r44 128r27 142r34
+. 149r26 323r10
+95a7 User_KEM_PK{12|14A9} 107r23 11|61b7 324r10
+96a7 Randomness{12|14A9} 105r23 106r23 11|62b7 84r27 89r20 149r37 325r10
+97r7 Priv_Entry{50R9} 108r32 11|63b7 75m7 76m7 77m7 78m7 79m7 84m7 121r35
+. 136m13 139r19 140m13 142m10 152m7 326r10
+98r7 Commitment{66R9} 11|64b7 80m7 149m59 327r10
+99b7 Success{boolean} 108r19 11|65b7 81m7 158m7 328r10
+111U14*Decrypt_State 112>7 113>7 114<7 115<7 116<7 11|165b14 305s7
+112r7 Priv_Entry{50R9} 122r23 11|166b7 188r20 198r10 198r44 203r47 204r47
+. 213r38 216r36 220r27 221r43 222r29 238r30 239r46 242r29
+113a7 User_KEM_SK{12|14A9} 119r14 11|167b7
+114a7 Plaintext{12|14A9} 120r23 121r23 11|168b7 182m7 240m19 245m16
+115i7 PT_Length{natural} 123r32 11|169b7 183m7 242m16 246m16 254m10
+116b7 Success{boolean} 123r19 11|170b7 184m7 243m16 247m16 255m10
+126V13*Verify_Commitment{boolean} 127>7 128>7 129>7 11|267b13 285l8 285t25
+127a7 Plaintext{12|14A9} 134r23 135r23 11|268b7 274r26
+128r7 Commitment{66R9} 11|269b7 280r19 281r30
+129a7 Opening{12|14A9} 132r14 133r23 11|270b7 274r37
+138U14*Re_Encrypt 139>7 140>7 141>7 142>7 143<7 144<7 11|291b14 333l8 333t18
+139r7 Priv_Entry{50R9} 151r23 11|292b7 305r22
+140a7 Old_KEM_SK{12|14A9} 147r14 11|293b7 305r34
+141a7 New_KEM_PK{12|14A9} 148r23 11|294b7 324r25
+142a7 New_Randomness{12|14A9} 149r23 150r23 11|295b7 325r25
+143r7 New_Entry{50R9} 11|296b7 308m10 326m25
+144b7 Success{boolean} 11|297b7 315m10 328m25
+158U14*Derive_Viewing_Key 159>7 160<7 11|339b14 348l8 348t26
+159a7 Master_Seed{12|14A9} 163r14 11|340b7 347r21
+160a7 View_Key{71A12} 11|341b7 347m41
+166U14*Derive_Commit_Seed 167>7 168<7 11|350b14 359l8 359t26
+167a7 Master_Seed{12|14A9} 171r14 11|351b7 358r21
+168a7 Seed{72A12} 11|352b7 358m41
+178U14*Create_Commitment 179>7 180>7 181<7 11|149s7 274s7 368b14 398l8 398t25
+179a7 Plaintext{12|14A9} 187r23 188r23 11|369b7 373r42 387r21 388r37 389r33
+. 392r46 392r57
+180a7 Randomness{12|14A9} 185r14 186r23 11|370b7 373r61 379r21 380r26 380r38
+. 381r37 390r33 392r20
+181r7 Commitment{66R9} 11|371b7 397m7
+191U14*Zeroize_Entry 191=29 11|404b14
+191r29 Priv_Entry{50R9} 193r15 11|404b29 406m7 407m7 408m7 409m7 410m7
+195U14*Zeroize_Bundle 195=30 11|413b14 419l8 419t22
+195r30 Bundle{74R9} 11|413b30 415m7 416m7 417m7 418m7
+X 11 anubis_shield.adb
+19N4 KDF_Max_Size 32r39 33r39 34r54 37r35 48r52
+21U14 SHAKE256_KDF 21b14 22>7 23>7 24<7 53l8 53t20 88s7 100s10 191s7 347s7
+. 358s7
+22a7 Input{12|14A9} 27r14 32r23 34r23 36r42 45r21 46r41 46r48 47r37 89r10
+. 101r13 192r10
+23a7 Label{12|14A9} 28r23 33r23 34r38 36r57 40r21 41r26 41r33 42r37 46r20
+. 48r33 90r10 102r13 193r10
+24a7 Output{12|14A9} 29r23 30r23 31r23 52m63 52r71 91r10 103r13 194r10
+36i7 Combined_Len{natural} 52r44
+37a7 Combined{12|14A9} 41m10 46m10 52r29
+40i11 I{integer} 41r20 41r47 42r33
+45i11 I{integer} 46r35 46r62 47r33 48r48
+67a7 SS_Buffer{12|14A9} 91m20 101r23 152r44 155m7
+68a7 AEAD_Key{12|14A9} 103m23 118r33 156m7
+69a7 KDF_Label{12|14A9} 90r20
+96a10 Key_Label{12|14A9} 102r23
+109a10 Nonce_For_AEAD{6|40A12} 120r19 121m13 130r27
+110a10 Key_For_AEAD{6|39A12} 117r19 118m13 131r27 145m45
+111a10 Tag_Out{6|41A12} 127m27 140r35
+112a10 CT_Out{12|14A9} 126m27 135r19 136r42
+114a10 Empty_AAD{12|14A9} 129r27
+117i14 I{integer} 118r27 118r43
+120i14 I{integer} 121r29 121r53
+135i14 I{integer} 136r36 136r50
+139i14 I{integer} 140r29 140r44
+172a7 SS_Buffer{12|14A9} 188m7 192r20 259m7
+173a7 AEAD_Key{12|14A9} 194m20 210r36 260m7
+174a7 KDF_Label{12|14A9}
+178a7 Key_Label{12|14A9} 193r20
+200a13 Nonce_For_AEAD{6|40A12} 212r22 213m16 232r30
+201a13 Key_For_AEAD{6|39A12} 209r22 210m16 233r30 251m48
+202a13 Tag_For_AEAD{6|41A12} 215r22 216m16 230r30
+203a13 CT_In{12|14A9} 222m16 229r30
+204a13 PT_Out{12|14A9} 227m30 240r36
+205a13 Empty_AAD{12|14A9} 231r30
+206b13 Decrypt_OK{boolean} 228m30 236r16
+209i17 I{integer} 210r30 210r46
+212i17 I{integer} 213r32 213r56
+215i17 I{integer} 216r30 216r52
+220i17 I{integer} 221r39 222r23 222r52
+238i20 I{integer} 239r42 240r30 240r44
+272r7 Computed{10|66R9} 274m46 281r55
+278m10 Diff{12|13M12} 281m13 281r21 283r17
+280i14 I{integer} 281r48 281r71
+299a7 Plaintext{12|14A9} 305m46 323r25 332m7
+300i7 PT_Length{natural} 305m57 307r28 320r22 321r22 323r41
+301b7 Decrypt_OK{boolean} 305m68 307r14
+302r7 Dummy_Commit{10|66R9} 327m25
+343a7 Label{12|14A9} 347r34
+354a7 Label{12|14A9} 358r34
+366N4 Commit_Max_Size 374r35 391r42
+373i7 Combined_Len{natural} 396r44
+374a7 Combined{12|14A9} 380m10 392m10 396r29
+375a7 Hash{12|14A9} 396m63 396r69 397r27
+379i11 I{integer} 380r20 380r57 381r33
+387i11 I{integer} 388r33 391r38 392r40 392r75
+X 12 anubis_types.ads
+5K9*Anubis_Types 10|14w6 14r28 12|40e17
+13M12*Byte{14|70M9} 11|278r17
+14A9*Byte_Array(13M12)<integer> 10|44r32 45r27 46r25 47r30 48r32 71r27 72r31
+. 76r24 79r24 94r24 95r24 96r24 113r24 114r28 127r24 129r24 140r24 141r24
+. 142r24 159r24 167r24 179r24 180r24 11|22r16 23r16 24r20 37r18 60r24 61r24
+. 62r24 67r19 68r19 69r32 96r31 112r27 114r36 167r24 168r28 172r23 173r23
+. 174r32 178r32 203r30 204r30 205r39 268r24 270r24 293r24 294r24 295r24 299r19
+. 340r24 343r24 351r24 354r24 369r24 370r24 374r18 375r18
+X 14 interfac.ads
+38K9*Interfaces 11|7w6 7r24 14|233e15
+70M9*Unsigned_8
+

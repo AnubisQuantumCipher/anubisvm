@@ -1,0 +1,31 @@
+{
+  "spark": {
+  },
+  "skip_flow_proof": [
+  ],
+  "skip_proof": [
+  ],
+  "progress": "PROGRESS_PROOF",
+  "stop_reason": "STOP_REASON_NONE",
+  "flow": [
+  ],
+  "pragma_assume": [
+  ],
+  "proof": [
+  ],
+  "assumptions": [
+  ],
+  "timings": {
+    "global": {
+      "init_why_sections": 1.76000001374632E-04,
+      "globals (advanced)": 9.24700032919645E-03,
+      "flow analysis": 3.79999983124435E-05,
+      "marking": 8.29099956899881E-03,
+      "translation of standard": 1.20499997865409E-03,
+      "properties (advanced)": 9.99999974737875E-06,
+      "globals (basic)": 1.51779996231198E-02
+    }
+  },
+  "entities": {
+  }
+}

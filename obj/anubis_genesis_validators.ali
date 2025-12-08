@@ -1,0 +1,458 @@
+V "GNAT Lib v14"
+A -O0
+A -gnatA
+A -gnatwa
+A -gnatQ
+A -gnata
+A -gnatf
+A -gnatyM120
+A -gnatyO
+A -gnat2012
+A -g
+A -gnateE
+A -fstack-check=specific
+A -mmacosx-version-min=16.0.0
+A -mcpu=apple-m1
+A -mlittle-endian
+A -mabi=lp64
+A -fPIC
+P ZX
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+
+U anubis_genesis_validators%b  anubis_genesis_validators.adb  4c38163d NE OO PK
+Z system.assertions%s	s-assert.adb		s-assert.ali
+Z system.exp_llu%s	s-expllu.ads		s-expllu.ali
+
+U anubis_genesis_validators%s  anubis_genesis_validators.ads  c18559bd EE NE OO PK
+W anubis_types%s	anubis_types.ads	anubis_types.ali
+W interfaces%s		interfac.ads		interfac.ali
+
+D ada.ads		20240808082856 76789da1 ada%s
+D a-assert.ads		20240808082856 ba465f5c ada.assertions%s
+D a-unccon.ads		20240808082856 0e9b276f ada.unchecked_conversion%s
+D anubis_genesis_validators.ads  20251207191107 1f27f0eb anubis_genesis_validators%s
+D anubis_genesis_validators.adb  20251207191107 531fe6d6 anubis_genesis_validators%b
+D anubis_types.ads	20251207191105 4fb35097 anubis_types%s
+D interfac.ads		20240808082856 9111f9c1 interfaces%s
+D system.ads		20240808082856 70765b54 system%s
+D s-assert.ads		20240808082856 9c4520c7 system.assertions%s
+D s-exctab.ads		20240808082856 91bef6ef system.exception_table%s
+D s-expllu.ads		20240808082856 ad7cdd87 system.exp_llu%s
+D s-exponu.ads		20240808082856 5feafca7 system.exponu%s
+D s-stalib.ads		20240808082856 1c9580f6 system.standard_library%s
+D s-unstyp.ads		20240808082856 fa2a7f59 system.unsigned_types%s
+G a e
+G c Z s b [init_validator_set anubis_genesis_validators 267 14 none]
+G c Z s b [submit_application anubis_genesis_validators 281 14 none]
+G c Z s b [review_application anubis_genesis_validators 289 14 none]
+G c Z s b [verify_hardware anubis_genesis_validators 301 13 none]
+G c Z s b [check_regional_balance anubis_genesis_validators 312 13 none]
+G c Z s b [register_validator anubis_genesis_validators 323 14 none]
+G c Z s b [add_stake anubis_genesis_validators 337 14 none]
+G c Z s b [begin_unstake anubis_genesis_validators 348 14 none]
+G c Z s b [complete_unstake anubis_genesis_validators 359 14 none]
+G c Z s b [record_block_produced anubis_genesis_validators 373 14 none]
+G c Z s b [record_block_missed anubis_genesis_validators 381 14 none]
+G c Z s b [calculate_block_reward anubis_genesis_validators 389 13 none]
+G c Z s b [distribute_block_reward anubis_genesis_validators 395 14 none]
+G c Z s b [claim_rewards anubis_genesis_validators 403 14 none]
+G c Z s b [slash_double_sign anubis_genesis_validators 416 14 none]
+G c Z s b [slash_downtime anubis_genesis_validators 426 14 none]
+G c Z s b [jail_validator anubis_genesis_validators 435 14 none]
+G c Z s b [unjail_validator anubis_genesis_validators 443 14 none]
+G c Z s b [get_validator anubis_genesis_validators 456 13 none]
+G c Z s b [find_validator anubis_genesis_validators 463 14 none]
+G c Z s b [get_active_count anubis_genesis_validators 473 13 none]
+G c Z s b [get_total_stake anubis_genesis_validators 480 13 none]
+G c Z s b [calculate_uptime anubis_genesis_validators 487 13 none]
+G c Z s b [meets_uptime_requirement anubis_genesis_validators 494 13 none]
+G c Z s b [enable_open_entry anubis_genesis_validators 504 14 none]
+G c Z s b [is_open_entry anubis_genesis_validators 513 13 none]
+G c Z s b [register_open_entry anubis_genesis_validators 520 14 none]
+G c Z s b [serialize_validator_set anubis_genesis_validators 538 14 none]
+G c Z s b [deserialize_validator_set anubis_genesis_validators 546 14 none]
+G c Z s b [zeroize_validator_set anubis_genesis_validators 557 14 none]
+G c Z s b [zeroize_validator anubis_genesis_validators 560 14 none]
+G c Z s b [zeroize_application anubis_genesis_validators 563 14 none]
+G c Z s s [hardware_specsIP anubis_genesis_validators 121 9 none]
+G c Z s s [validator_recordIP anubis_genesis_validators 141 9 none]
+G c Z s s [Tvalidator_arrayBIP anubis_genesis_validators 177 4 none]
+G c Z s s [validator_applicationIP anubis_genesis_validators 183 9 none]
+G c Z s s [application_arrayIP anubis_genesis_validators 206 9 none]
+G c Z s s [validator_set_stateIP anubis_genesis_validators 212 9 none]
+X 4 anubis_genesis_validators.ads
+30K9*Anubis_Genesis_Validators 566l5 566e30 5|10b14 112r52 113r40 165r52
+. 208r59 444r31 486r31 691r59 893l5 893t30
+38N4*Validator_Allocation 273r42 5|54r31
+39N4*Distribution_Period_Blocks
+42N4*Genesis_Validator_Count 109r50 5|135r44
+43N4*Open_Entry_Block 509r31 5|629r31
+46N4*Min_Stake 334r27 532r27 5|81r40 171r18 271r65 649r18
+47N4*Max_Stake 5|176r18 237r66 654r18
+48N4*Max_Stake_Percentage_BP
+51N4*Block_Time_Seconds
+52N4*Blocks_Per_Day
+53N4*Blocks_Per_Year
+56N4*Initial_Block_Reward 5|55r37
+57N4*Reward_Decay_Rate_BP
+60N4*Unbonding_Period_Blocks 5|280r26
+63N4*Slash_Double_Sign_BP 5|420r58
+64N4*Slash_Downtime_BP 5|470r58
+65N4*Slash_Safety_Violation_BP
+68N4*Min_Uptime_Percentage_BP 5|607r46
+69N4*Blocks_Per_Epoch
+76E9*Validator_Status 84e5 149r28 5|208r41 691r41
+77n7*Pending_Application{76E9} 5|29r34 183r43 229r52 406r52 456r52 566r62
+. 661r43 847r19
+78n7*Approved{76E9} 5|208r85 691r85
+79n7*Active{76E9} 5|138r43 329r52 343r52 495r52 523r50
+80n7*Jailed{76E9} 5|413r52 463r52 496r53 513r53
+81n7*Unbonding{76E9} 5|278r50 295r53
+82n7*Slashed{76E9} 5|441r50
+83n7*Removed{76E9} 5|230r52 310r50 407r52 457r52
+87E9*Application_Status 93e5 185r28 294r28 5|94r28 112r32 113r20 115r32 116r20
+. 165r32
+88n7*Submitted{87E9} 5|870r19
+89n7*Under_Review{87E9}
+90n7*Approved{87E9} 5|112r78 113r66 165r78
+91n7*Rejected{87E9} 5|115r52 116r40
+92n7*Waitlisted{87E9}
+96E9*Geographic_Region 107e5 151r28 186r28 314r24 5|132r24
+97n7*North_America{96E9} 5|31r34 849r19 871r19
+98n7*South_America{96E9}
+99n7*Europe{96E9}
+100n7*Africa{96E9}
+101n7*Middle_East{96E9}
+102n7*Central_Asia{96E9}
+103n7*South_Asia{96E9}
+104n7*East_Asia{96E9}
+105n7*Southeast_Asia{96E9}
+106n7*Oceania{96E9}
+109I12*Validator_Index{natural} 143r28 177r35 339r24 350r24 361r24 375r24
+. 383r24 397r24 405r24 418r24 428r24 437r24 445r24 458r24 466r28 5|23r16
+. 137r16 161r14 182r16 223r24 259r24 287r24 325r24 338r24 358r24 374r24 399r24
+. 449r24 491r24 508r24 535r24 544r28 551r16 641r14 660r16 824r16
+115E9*Hardware_Tier 119e5 128r24
+116n7*Minimum{115E9} 5|879r26
+117n7*Recommended{115E9}
+118n7*Professional{115E9}
+121R9*Hardware_Specs 129e14 187r28 302r24 5|121r24
+122i7*CPU_Cores{natural} 306r22 5|124r20 873m10
+123i7*RAM_GB{natural} 307r26 5|125r29 874m10
+124i7*Storage_TB{natural} 308r26 5|126r29 875m10
+125i7*Network_Mbps{natural} 309r26 5|127r29 876m10
+126b7*Is_Dedicated{boolean} 5|877m10
+127b7*Has_UPS{boolean} 5|878m10
+128e7*Tier{115E9} 5|879m10
+132N4*Min_CPU_Cores 306r35 5|124r33
+133N4*Min_RAM_GB 307r36 5|125r39
+134N4*Min_Storage_TB 308r40 5|126r43
+135N4*Min_Network_Mbps 309r42 5|127r45
+141R9*Validator_Record 175e14 177r55 459r13 488r24 495r24 560r41 5|536r13
+. 590r24 604r24 841r41
+143i7*Index{109I12} 5|25m13 207m31 690m31 843m9
+144a7*Address{6|14A9} 5|26m13 199m34 556r61 558r43 677r58 678m37 844m9
+145a7*PK_Hash{6|14A9} 5|27m13 845m9
+146a7*Consensus_PK{6|14A9} 5|28m13 204m34 684r63 685m37 846m9
+149e7*Status{76E9} 5|29m13 138r34 183r34 208m31 229r43 230r43 278m40 295r43
+. 310m40 329r43 343r43 406r43 407r43 413r43 441m40 456r43 457r43 463r43 495r43
+. 496m43 513r43 523m40 566r52 661r34 691m31 847m9
+150b7*Is_Genesis{boolean} 5|30m13 209m31 692m31 848m9
+151e7*Region{96E9} 5|31m13 139r34 210m31 849m9
+154m7*Self_Stake{7|84M9} 5|32m13 211m31 243m43 244r46 265r52 271r43 272r43
+. 305r52 307m40 425m43 429r62 430m46 432m46 433r49 693m31 850m9
+155m7*Delegated_Stake{7|84M9} 5|33m13 246m43 247r46 309r43 851m9
+156m7*Total_Stake{7|84M9} 5|34m13 212m31 237r43 250m40 251r43 308m40 420r44
+. 423r59 424m43 427m43 428r46 470r44 473r59 474m43 476m43 477r46 694m31 852m9
+159m7*Blocks_Produced{7|84M9} 5|35m13 330m43 331r46 594r26 600r34 853m9
+160m7*Blocks_Missed{7|84M9} 5|36m13 344m43 345r46 594r54 854m9
+161m7*Total_Rewards{7|84M9} 5|37m13 386m40 387r43 855m9
+162m7*Pending_Rewards{7|84M9} 5|38m13 366m40 367r43 379r51 388m40 856m9
+163i7*Commission_Rate_BP{natural} 5|39m13 857m9
+166i7*Times_Slashed{natural} 5|40m13 439m40 440r43 482m40 483r43 858m9
+167m7*Total_Slashed{7|84M9} 5|41m13 437m40 438r43 480m40 481r43 859m9
+168m7*Jail_End_Block{7|84M9} 5|42m13 497m43 518r59 860m9
+171m7*Registered_At{7|84M9} 5|43m13 184r34 213m31 662r34 695m31 861m9
+172m7*Active_Since{7|84M9} 5|44m13 862m9
+173m7*Last_Block{7|84M9} 5|45m13 332m43 863m9
+174m7*Unbonding_End{7|84M9} 5|46m13 279m40 300r59 864m9
+177A9*Validator_Array(141R9)<integer> 214r28
+183R9*Validator_Application 204e14 206r58 282r24 290r31 325r24 563r43 5|68r24
+. 90r31 154r24 867r43
+184a7*Applicant{6|14A9} 5|198r28 199r61 869m9
+185e7*Status{87E9} 5|112m22 115m22 165r22 870m9
+186e7*Region{96E9} 5|210r53 871m9
+187r7*Hardware{121R9} 5|75r43 872m9
+190a7*Hardware_Proof_Hash{6|14A9} 5|881m9
+191a7*Uptime_Proof_Hash{6|14A9} 5|882m9
+192a7*Experience_Hash{6|14A9} 5|883m9
+193a7*IPFS_Application{6|14A9} 5|884m9
+196m7*Committed_Stake{7|84M9} 5|81r22 885m9
+197a7*Stake_Source{6|14A9} 5|886m9
+200m7*Submitted_At{7|84M9} 5|887m9
+201m7*Reviewed_At{7|84M9} 5|888m9
+202a7*Reviewer{6|14A9} 5|99r47 100m25 889m9
+203a7*Review_Notes_Hash{6|14A9} 5|106r49 107m25 890m9
+206A9*Application_Array(183R9)<integer>
+212R9*Validator_Set_State 232e14 268r28 313r24 324r31 338r31 349r31 360r31
+. 374r31 382r31 390r24 396r31 404r31 417r31 427r31 436r31 444r31 457r24 464r24
+. 474r24 481r24 505r31 514r24 521r31 539r24 548r28 557r49 5|18r28 131r24
+. 153r31 222r31 258r31 286r31 324r31 337r31 350r24 357r31 373r31 398r31 448r31
+. 490r31 507r31 534r24 542r24 576r24 583r24 615r31 624r24 633r31 708r24 763r28
+. 822r49
+214a7*Validators{177A9} 5|24m16 138r19 139r19 183r19 184r19 199m16 204m16
+. 207m13 208m13 209m13 210m13 211m13 212m13 213m13 229r16 230r16 237r16 243m16
+. 244r19 246m16 247r19 250m13 251r16 265r25 271r16 272r16 278m13 279m13 295r16
+. 300r32 305r25 307m13 308m13 309r16 310m13 329r16 330m16 331r19 332m16 343r16
+. 344m16 345r19 366m13 367r16 379r24 386m13 387r16 388m13 406r16 407r16 413r16
+. 420r17 423r32 424m16 425m16 427m16 428r19 429r35 430m19 432m19 433r22 437m13
+. 438r16 439m13 440r16 441m13 456r16 457r16 463r16 470r17 473r32 474m16 476m16
+. 477r19 480m13 481r16 482m13 483r16 495r16 496m16 497m16 513r16 518r32 523m13
+. 538r20 556r46 558r28 566r37 661r19 662r19 677r40 678m19 684r45 685m19 690m13
+. 691m13 692m13 693m13 694m13 695m13 825m35
+215i7*Active_Count{natural} 272r21 477r47 5|50m13 312r16 313m16 313r38 500r19
+. 501m19 501r41 524m13 524r35 579r20 731r44 788m16 828m13
+216i7*Genesis_Count{natural} 5|51m13 215m13 215r36 736r44 793m16 829m13
+217m7*Total_Stake{7|84M9} 484r46 5|52m13 216m13 216r34 252m13 252r34 306m13
+. 306r34 442m13 442r34 484m13 484r34 586r20 698m13 698r34 740r24 797m23 830m13
+220m7*Total_Distributed{7|84M9} 5|53m13 369m13 369r40 741r24 798m23 831m13
+221m7*Remaining_Pool{7|84M9} 273r25 5|54m13 362r31 368m13 368r37 742r24 799m23
+. 832m13
+222m7*Current_Block_Reward{7|84M9} 5|55m13 353r20 743r24 800m23 833m13
+225m7*Genesis_Block{7|84M9} 5|56m13 744r24 801m23 834m13
+226m7*Current_Block{7|84M9} 5|57m13 213r54 498r19 695r54 745r24 802m23 835m13
+227m7*Current_Epoch{7|84M9} 5|58m13 746r24 803m23 836m13
+230b7*Open_Entry_Active{boolean} 274r29 510r21 5|59m13 620m13 628r20 644r20
+. 749r36 806m16 837m13
+231i7*Post_Genesis_Count{natural} 5|60m13 697m13 697r41 754r44 811m16 838m13
+238E9*Apply_Result 245e5 284r28 5|70r28
+239n7*Application_Submitted{238E9} 5|86r17
+240n7*Insufficient_Specs{238E9} 5|76r20
+241n7*Already_Applied{238E9}
+242n7*Genesis_Period_Closed{238E9}
+243n7*Invalid_Region{238E9}
+244n7*Invalid_Stake{238E9} 5|82r20
+247E9*Register_Result 253e5 329r28 526r28 5|158r28 638r28
+248n7*Registered{247E9} 5|218r17 700r17
+249n7*Not_Approved{247E9} 5|166r20 193r20 645r20 671r20
+250n7*Insufficient_Stake{247E9} 5|172r20 650r20
+251n7*Stake_Cap_Exceeded{247E9} 5|177r20 655r20
+252n7*Invalid_Signature{247E9}
+255E9*Slash_Result 260e5 420r28 430r28 5|401r28 444r17 451r28 486r17
+256n7*Slashed{255E9} 5|444r57 486r57
+257n7*Already_Jailed{255E9} 5|414r20 464r20
+258n7*Invalid_Evidence{255E9}
+259n7*Not_Validator{255E9} 5|409r20 459r20
+267U14*Init_Validator_Set 268<7 269>7 5|17b14 780s7
+268r7 State{212R9} 272r15 273r19 274r23 5|18b7 24m10 50m7 51m7 52m7 53m7
+. 54m7 55m7 56m7 57m7 58m7 59m7 60m7
+269m7 Genesis_Block{7|84M9} 5|19b7 56r30 57r30
+281U14*Submit_Application 282>7 283>7 284<7 5|67b14 87l8 87t26
+282r7 Application{183R9} 5|68b7 75r31 81r10
+283m7 Current_Block{7|84M9} 5|69b7 72r28
+284e7 Result{238E9} 5|70b7 76m10 82m10 86m7
+289U14*Review_Application 290=7 291>7 292>7 293>7 294<7 5|89b14 118l8 118t26
+290r7 Application{183R9} 5|90b7 99r35 100m13 106r37 107m13 112m10 115m10
+291a7 Reviewer{6|14A9} 297r14 5|91b7 98r16 99r17 100r39 100r58
+292b7 Approved{boolean} 5|92b7 111r10
+293a7 Notes_Hash{6|14A9} 298r18 5|93b7 105r16 106r17 107r48 107r69
+294e7 Result{87E9} 5|94b7 113m10 116m10
+301V13*Verify_Hardware{boolean} 302>7 305r15 5|75s14 120b13
+302r7 Specs{121R9} 306r16 307r20 308r20 309r20 5|121b7 124r14 125r23 126r23
+. 127r23
+312V13*Check_Regional_Balance{boolean} 313>7 314>7 5|130b13 146l8 146t30
+313r7 State{212R9} 5|131b7 138r13 139r13
+314e7 Region{96E9} 5|132b7 139r43
+323U14*Register_Validator 324=7 325>7 326>7 327>7 328>7 329<7 5|152b14 219l8
+. 219t26
+324r7 State{212R9} 5|153b7 183r13 184r13 199m10 204m10 207m7 208m7 209m7
+. 210m7 211m7 212m7 213m7 213r48 215m7 215r30 216m7 216r28
+325r7 Application{183R9} 5|154b7 165r10 198r16 199r49 210r41
+326m7 Stake{7|84M9} 334r18 5|155b7 171r10 176r10 211r45 212r46 216r48
+327a7 Consensus_PK{6|14A9} 332r14 5|156b7 203r16 204r54
+328a7 Signature{6|14A9} 333r18 5|157b7 160r28
+329e7 Result{247E9} 5|158b7 166m10 172m10 177m10 193m10 218m7
+337U14*Add_Stake 338=7 339>7 340>7 341>7 342<7 5|221b14 255l8 255t17
+338r7 State{212R9} 5|222b7 229r10 230r10 237r10 243m10 244r13 246m10 247r13
+. 250m7 251r10 252m7 252r28
+339i7 Validator_Idx{109I12} 5|223b7 229r28 230r28 237r28 243r28 244r31 246r28
+. 247r31 250r25 251r28
+340m7 Amount{7|84M9} 345r14 5|224b7 237r57 244r59 247r64 251r57 252r48
+341b7 Is_Self{boolean} 5|225b7 242r10
+342b7 Success{boolean} 5|226b7 232m10 238m10 254m7
+348U14*Begin_Unstake 349=7 350>7 351>7 352>7 353<7 5|257b14 283l8 283t21
+349r7 State{212R9} 5|258b7 265r19 271r10 272r10 278m7 279m7
+350i7 Validator_Idx{109I12} 5|259b7 265r37 271r28 272r28 278r25 279r25
+351m7 Amount{7|84M9} 356r14 5|260b7 265r10 271r56 272r56
+352m7 Current_Block{7|84M9} 5|261b7 280r10
+353b7 Success{boolean} 5|262b7 266m10 274m10 282m7
+359U14*Complete_Unstake 360=7 361>7 362>7 363<7 364<7 5|285b14 317l8 317t24
+360r7 State{212R9} 5|286b7 295r10 300r26 305r19 306m7 306r28 307m7 308m7
+. 309r10 310m7 312r10 313m10 313r32
+361i7 Validator_Idx{109I12} 5|287b7 295r28 300r44 305r37 307r25 308r25 309r28
+. 310r25
+362m7 Current_Block{7|84M9} 5|288b7 300r10
+363m7 Released{7|84M9} 5|289b7 293m7 305m7 306r48
+364b7 Success{boolean} 5|290b7 296m10 301m10 316m7
+373U14*Record_Block_Produced 374=7 375>7 376>7 5|323b14 334l8 334t29
+374r7 State{212R9} 5|324b7 329r10 330m10 331r13 332m10
+375i7 Validator_Idx{109I12} 5|325b7 329r28 330r28 331r31 332r28
+376m7 Block_Number{7|84M9} 5|326b7 332r57
+381U14*Record_Block_Missed 382=7 383>7 384>7 5|336b14 347l8 347t27
+382r7 State{212R9} 5|337b7 343r10 344m10 345r13
+383i7 Validator_Idx{109I12} 5|338b7 343r28 344r28 345r31
+384m7 Block_Number{7|84M9} 5|339b7 341r28
+389V13*Calculate_Block_Reward{7|84M9} 390>7 5|349b13 354l8 354t30
+390r7 State{212R9} 5|350b7 353r14
+395U14*Distribute_Block_Reward 396=7 397>7 398>7 5|356b14 370l8 370t31
+396r7 State{212R9} 5|357b7 362r25 366m7 367r10 368m7 368r31 369m7 369r34
+397i7 Validator_Idx{109I12} 5|358b7 366r25 367r28
+398m7 Block_Reward{7|84M9} 5|359b7 362r10 367r61 368r54 369r60
+403U14*Claim_Rewards 404=7 405>7 406<7 407<7 5|372b14 391l8 391t21
+404r7 State{212R9} 5|373b7 379r18 386m7 387r10 388m7
+405i7 Validator_Idx{109I12} 5|374b7 379r36 386r25 387r28 388r25
+406m7 Claimed{7|84M9} 5|375b7 379m7 381r10 387r59
+407b7 Success{boolean} 5|376b7 382m10 390m7
+416U14*Slash_Double_Sign 417=7 418>7 419>7 420<7 5|397b14 445l8 445t25
+417r7 State{212R9} 5|398b7 406r10 407r10 413r10 420r11 423r26 424m10 425m10
+. 427m10 428r13 429r29 430m13 432m13 433r16 437m7 438r10 439m7 440r10 441m7
+. 442m7 442r28
+418i7 Validator_Idx{109I12} 5|399b7 406r28 407r28 413r28 420r29 423r44 424r28
+. 425r28 427r28 428r31 429r47 430r31 432r31 433r34 437r25 438r28 439r25 440r28
+. 441r25
+419a7 Evidence_Hash{6|14A9} 423r14 5|400b7 403r28
+420e7 Result{255E9} 5|401b7 409m10 414m10 444m7
+426U14*Slash_Downtime 427=7 428>7 429>7 430<7 5|447b14 487l8 487t22
+427r7 State{212R9} 5|448b7 456r10 457r10 463r10 470r11 473r26 474m10 476m10
+. 477r13 480m7 481r10 482m7 483r10 484m7 484r28
+428i7 Validator_Idx{109I12} 5|449b7 456r28 457r28 463r28 470r29 473r44 474r28
+. 476r28 477r31 480r25 481r28 482r25 483r28
+429i7 Missed_Blocks{natural} 5|450b7 453r28
+430e7 Result{255E9} 5|451b7 459m10 464m10 486m7
+435U14*Jail_Validator 436=7 437>7 438>7 5|489b14 504l8 504t22
+436r7 State{212R9} 5|490b7 495r10 496m10 497m10 498r13 500r13 501m13 501r35
+437i7 Validator_Idx{109I12} 5|491b7 495r28 496r28 497r28
+438m7 Jail_Duration{7|84M9} 5|492b7 498r35
+443U14*Unjail_Validator 444=7 445>7 446>7 447<7 5|506b14 527l8 527t24
+444r7 State{212R9} 5|507b7 513r10 518r26 523m7 524m7 524r29
+445i7 Validator_Idx{109I12} 5|508b7 513r28 518r44 523r25
+446m7 Current_Block{7|84M9} 5|509b7 518r10
+447b7 Success{boolean} 5|510b7 514m10 519m10 526m7
+456V13*Get_Validator{141R9} 457>7 458>7 5|533b13 539l8 539t21
+457r7 State{212R9} 5|534b7 538r14
+458i7 Index{109I12} 5|535b7 538r32
+463U14*Find_Validator 464>7 465>7 466<7 467<7 5|541b14 573l8 573t22
+464r7 State{212R9} 5|542b7 556r40 558r22 566r31
+465a7 Address{6|14A9} 470r14 5|543b7 555r22 556r23 557r22 558r56
+466i7 Index{109I12} 5|544b7 548m7 567m16
+467b7 Found{boolean} 5|545b7 549m7 568m16
+473V13*Get_Active_Count{natural} 474>7 477r15 5|575b13
+474r7 State{212R9} 477r41 5|576b7 579r14
+480V13*Get_Total_Stake{7|84M9} 481>7 484r15 5|582b13
+481r7 State{212R9} 484r40 5|583b7 586r14
+487V13*Calculate_Uptime{natural} 488>7 491r15 5|589b13 607s14
+488r7 Validator{141R9} 5|590b7 594r16 594r44 600r24
+494V13*Meets_Uptime_Requirement{boolean} 495>7 5|603b13 608l8 608t32
+495r7 Validator{141R9} 5|604b7 607r32
+504U14*Enable_Open_Entry 505=7 506>7 5|614b14
+505r7 State{212R9} 510r15 5|615b7 620m7
+506m7 Current_Block{7|84M9} 509r14 5|616b7 618r28
+513V13*Is_Open_Entry{boolean} 514>7 515>7 5|623b13 630l8 630t21
+514r7 State{212R9} 5|624b7 628r14
+515m7 Current_Block{7|84M9} 5|625b7 629r14
+520U14*Register_Open_Entry 521=7 522>7 523>7 524>7 525>7 526<7 5|632b14 701l8
+. 701t27
+521r7 State{212R9} 5|633b7 644r14 661r13 662r13 677r34 678m13 684r39 685m13
+. 690m7 691m7 692m7 693m7 694m7 695m7 695r48 697m7 697r35 698m7 698r28
+522a7 Address{6|14A9} 529r14 5|634b7 676r16 677r17 678r50 678r68
+523m7 Stake{7|84M9} 532r18 5|635b7 649r10 654r10 693r45 694r46 698r48
+524a7 Consensus_PK{6|14A9} 530r18 5|636b7 683r16 684r17 685r55 686r16
+525a7 Signature{6|14A9} 531r18 5|637b7 640r28
+526e7 Result{247E9} 5|638b7 645m10 650m10 655m10 671m10 700m7
+538U14*Serialize_Validator_Set 539>7 540<7 541<7 5|707b14 759l8 759t31
+539r7 State{212R9} 5|708b7 731r38 736r38 740r18 741r18 742r18 743r18 744r18
+. 745r18 746r18 749r30 754r38
+540a7 Output{6|14A9} 544r14 5|709b7 712r24 718r23 719m16 727m7 730r17 731m10
+. 735r17 736m10 748r17 749m10 753r17 754m10 758r23
+541i7 Length{natural} 5|710b7 758m7
+546U14*Deserialize_Validator_Set 547>7 548<7 549<7 5|761b14 816l8 816t33
+547a7 Input{6|14A9} 5|762b7 766r24 772r23 773r42 783r10 787r17 788r41 792r17
+. 793r42 805r17 806r37 810r17 811r47
+548r7 State{212R9} 5|763b7 780m27 788m10 793m10 797m17 797r17 798m17 798r17
+. 799m17 799r17 800m17 800r17 801m17 801r17 802m17 802r17 803m17 803r17 806m10
+. 811m10
+549b7 Success{boolean} 5|764b7 781m7 815m7
+557U14*Zeroize_Validator_Set 557<37 5|822b14 839l8 839t29
+557r37 State{212R9} 5|822b37 825m29 825r29 828m7 829m7 830m7 831m7 832m7
+. 833m7 834m7 835m7 836m7 837m7 838m7
+560U14*Zeroize_Validator 560<33 5|825s10 841b14 865l8 865t25
+560r33 V{141R9} 5|841b33 843m7 844m7 845m7 846m7 847m7 848m7 849m7 850m7
+. 851m7 852m7 853m7 854m7 855m7 856m7 857m7 858m7 859m7 860m7 861m7 862m7
+. 863m7 864m7
+563U14*Zeroize_Application 563<35 5|867b14 891l8 891t27
+563r35 A{183R9} 5|867b35 869m7 870m7 871m7 872m7 881m7 882m7 883m7 884m7
+. 885m7 886m7 887m7 888m7 889m7 890m7
+X 5 anubis_genesis_validators.adb
+23i11 I{4|109I12} 24r28 25r34
+98i11 I{integer} 99r13 100r35 100r68
+105i11 I{integer} 106r13 107r44 107r81
+134i7 Count{natural} 141m13 141r22 145r14
+135i7 Max_Per_Region{natural} 145r22
+137i11 I{4|109I12} 138r31 139r31
+161i7 Slot{4|109I12} 186m13 199r28 204r28 207r25 207r40 208r25 209r25 210r25
+. 211r25 212r25 213r25
+162b7 Found_Slot{boolean} 187m13 192r14
+182i11 I{4|109I12} 183r31 184r31 186r21
+198i11 I{integer} 199r43 199r72
+203i11 I{integer} 204r48 204r68
+404m7 Slash_Amount{7|84M9} 419m7 423r10 428r60 429r13 433r62 438r59 442r48
+454m7 Slash_Amount{7|84M9} 469m7 473r10 477r60 481r59 484r48
+551i11 I{4|109I12} 556r58 558r40 566r49 567r25
+553b13 Match{boolean} 560m22 566r16
+555i17 J{integer} 556r19 557r31 558r52
+592m7 Total{7|84M9} 594m7 596r10 600r61
+641i7 Slot{4|109I12} 664m13 677r52 678r31 684r57 685r31 690r25 690r40 691r25
+. 692r25 693r25 694r25 695r25
+642b7 Found_Slot{boolean} 665m13 670r14
+660i11 I{4|109I12} 661r31 662r31 664r21
+676i11 I{integer} 677r13 678r46 678r77
+683i11 I{integer} 684r13 685r51 686r30
+712i7 Idx{natural} 718r16 719r24 721m16 721r23 730r10 731r18 732m10 732r17
+. 735r10 736r18 737m10 737r17 748r10 749r18 750m10 750r17 753r10 754r18 755m10
+. 755r17 758r17
+714U17 Write_U64 714b17 714>28 724l11 724t20 740s7 741s7 742s7 743s7 744s7
+. 745s7 746s7
+714m28 Val{7|84M9} 715r29
+715m10 V{7|84M9} 719r44 720m16 720r21
+717i14 J{integer}
+766i7 Idx{natural} 772r16 773r49 774m16 774r23 787r10 788r48 789m10 789r17
+. 792r10 793r49 794m10 794r17 805r10 806r44 807m10 807r17 810r10 811r54 812m10
+. 812r17
+768U17 Read_U64 768b17 768<27 777l11 777t19 797s7 798s7 799s7 800s7 801s7
+. 802s7 803s7
+768m27 Val{7|84M9} 770m10 773m16 773r23
+771i14 J{integer} 773r65
+824i11 I{4|109I12} 825r47
+X 6 anubis_types.ads
+5K9*Anubis_Types 4|28w6 28r24 6|40e17
+14A9*Byte_Array(13M12)<integer> 4|144r28 145r28 146r28 184r28 190r28 191r28
+. 192r28 193r28 197r28 202r28 203r28 291r24 293r24 327r24 328r24 419r24 465r24
+. 522r24 524r24 525r24 540r28 547r24 5|91r24 93r24 156r24 157r24 400r24 543r24
+. 634r24 636r24 637r24 709r28 762r24
+X 7 interfac.ads
+38K9*Interfaces 4|27w6 27r22 7|233e15
+70M9*Unsigned_8 5|719r32 731r26 736r26 754r26
+84M9*Unsigned_64 4|154r28 155r28 156r28 159r28 160r28 161r28 162r28 167r28
+. 168r28 171r28 172r28 173r28 174r28 196r28 200r28 201r28 217r28 220r28 221r28
+. 222r30 225r28 226r28 227r28 269r24 283r24 326r24 340r24 351r24 352r24 362r24
+. 363r28 376r24 384r24 391r13 398r24 406r28 438r24 446r24 482r13 506r24 515r24
+. 523r24 5|19r24 69r24 155r24 224r24 260r24 261r24 288r24 289r28 326r24 339r24
+. 351r13 359r24 375r28 404r22 454r22 492r24 509r24 584r13 592r15 616r24 625r24
+. 635r24 714r34 715r14 768r37 773r29
+

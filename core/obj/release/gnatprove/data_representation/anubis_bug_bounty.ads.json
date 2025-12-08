@@ -1,0 +1,253 @@
+[
+{
+  "name": "Anubis_Bug_Bounty.Severity_Level",
+  "location": "anubis_bug_bounty.ads:31:9",
+  "Object_Size": 8,
+  "Value_Size": 2,
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Bug_Bounty.Reward_Range",
+  "location": "anubis_bug_bounty.ads:34:9",
+  "Size": 128,
+  "Alignment": 8,
+  "record": [
+    {
+      "name": "Min_Reward",
+      "Position": 0,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Max_Reward",
+      "Position": 8,
+      "First_Bit": 0,
+      "Size": 64
+    }
+  ]
+}
+,
+{
+  "name": "Anubis_Bug_Bounty.Severity_Rewards",
+  "location": "anubis_bug_bounty.ads:39:4",
+  "Size": 512,
+  "Alignment": 8
+}
+,
+{
+  "name": "Anubis_Bug_Bounty.Bug_Category",
+  "location": "anubis_bug_bounty.ads:47:9",
+  "Object_Size": 8,
+  "Value_Size": 4,
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Bug_Bounty.Category_Severity",
+  "location": "anubis_bug_bounty.ads:61:4",
+  "Size": 88,
+  "Alignment": 8
+}
+,
+{
+  "name": "Anubis_Bug_Bounty.Report_Status",
+  "location": "anubis_bug_bounty.ads:79:9",
+  "Object_Size": 8,
+  "Value_Size": 3,
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Bug_Bounty.Bug_Report",
+  "location": "anubis_bug_bounty.ads:90:9",
+  "Size": 2112,
+  "Alignment": 8,
+  "record": [
+    {
+      "name": "Id",
+      "Position":   0,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Reporter",
+      "Position":   8,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Category",
+      "Position":  40,
+      "First_Bit": 0,
+      "Size": 8
+    },
+    {
+      "name": "Severity",
+      "Position":  41,
+      "First_Bit": 0,
+      "Size": 8
+    },
+    {
+      "name": "Status",
+      "Position":  42,
+      "First_Bit": 0,
+      "Size": 8
+    },
+    {
+      "name": "Title_Hash",
+      "Position":  43,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Description_Hash",
+      "Position":  75,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Poc_Hash",
+      "Position": 107,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Ipfs_Report",
+      "Position": 139,
+      "First_Bit": 0,
+      "Size": 368
+    },
+    {
+      "name": "Assessed_Severity",
+      "Position": 185,
+      "First_Bit": 0,
+      "Size": 8
+    },
+    {
+      "name": "Final_Reward",
+      "Position": 192,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Fix_Commit",
+      "Position": 200,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Submitted_At",
+      "Position": 232,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Confirmed_At",
+      "Position": 240,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Fixed_At",
+      "Position": 248,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Paid_At",
+      "Position": 256,
+      "First_Bit": 0,
+      "Size": 64
+    }
+  ]
+}
+,
+{
+  "name": "Anubis_Bug_Bounty.Report_Array",
+  "location": "anubis_bug_bounty.ads:115:9",
+  "Alignment": 8,
+  "Component_Size": 2112
+}
+,
+{
+  "name": "Anubis_Bug_Bounty.Bounty_State",
+  "location": "anubis_bug_bounty.ads:117:9",
+  "Size": 512,
+  "Alignment": 8,
+  "record": [
+    {
+      "name": "Total_Allocation",
+      "Position":  0,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Remaining_Pool",
+      "Position":  8,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Total_Paid",
+      "Position": 16,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Total_Reports",
+      "Position": 24,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Reports_Confirmed",
+      "Position": 32,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Reports_Rejected",
+      "Position": 40,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Genesis_Block",
+      "Position": 48,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Current_Block",
+      "Position": 56,
+      "First_Bit": 0,
+      "Size": 64
+    }
+  ]
+}
+,
+{
+  "name": "Anubis_Bug_Bounty.Submit_Result",
+  "location": "anubis_bug_bounty.ads:132:9",
+  "Object_Size": 8,
+  "Value_Size": 3,
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Bug_Bounty.Assess_Result",
+  "location": "anubis_bug_bounty.ads:140:9",
+  "Object_Size": 8,
+  "Value_Size": 2,
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Bug_Bounty.Payout_Result",
+  "location": "anubis_bug_bounty.ads:146:9",
+  "Object_Size": 8,
+  "Value_Size": 2,
+  "Alignment": 1
+}
+]

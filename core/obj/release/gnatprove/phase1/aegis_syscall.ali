@@ -1,0 +1,666 @@
+V "GNAT Lib v14"
+A -x
+A ada
+A -gnatA
+A -gnat2022
+A -gnatwa
+A -gnatyO
+A -gnatVa
+A -gnatw.F
+A -gnata
+A -O2
+A -gnatn
+A -ffunction-sections
+A -fdata-sections
+A -gnatc
+A -fPIC
+P GP
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_ELABORATION_CODE
+
+U aegis_syscall%b	aegis_syscall.adb	7c7e6d57 OO PK
+W aegis_gas%s		aegis_gas.adb		aegis_gas.ali
+W aegis_storage%s	aegis_storage.adb	aegis_storage.ali
+W aegis_u256%s		aegis_u256.adb		aegis_u256.ali
+
+U aegis_syscall%s	aegis_syscall.ads	f4af08c0 OO PK
+W aegis_contract%s	aegis_contract.adb	aegis_contract.ali
+W aegis_crypto_api%s	aegis_crypto_api.adb	aegis_crypto_api.ali
+W aegis_execution%s	aegis_execution.adb	aegis_execution.ali
+W aegis_sandbox%s	aegis_sandbox.adb	aegis_sandbox.ali
+W aegis_vm_types%s	aegis_vm_types.ads	aegis_vm_types.ali
+W interfaces%s		interfac.ads		interfac.ali
+
+D aegis_contract.ads	20251206064439 f406fabe aegis_contract%s
+D aegis_crypto_api.ads	20251205185553 f509c946 aegis_crypto_api%s
+D aegis_execution.ads	20251207035036 f7650f9d aegis_execution%s
+D aegis_gas.ads		20251207041656 2c397305 aegis_gas%s
+D aegis_sandbox.ads	20251207042734 0a9a14d0 aegis_sandbox%s
+D aegis_storage.ads	20251207042921 d62ac4d0 aegis_storage%s
+D aegis_syscall.ads	20251206224559 459fd86d aegis_syscall%s
+D aegis_syscall.adb	20251207054803 3cdffca4 aegis_syscall%b
+D aegis_u256.ads	20251205185917 ff2dfe4b aegis_u256%s
+D aegis_vm_types.ads	20251205185836 dcd101d9 aegis_vm_types%s
+D interfac.ads		20240601155135 9111f9c1 interfaces%s
+D system.ads		20240601155135 70765b54 system%s
+G a Z
+X 1 aegis_contract.ads
+28K9*Aegis_Contract 276e19 7|7w6 7r26 297r28 8|527r28
+70R9*Return_Data 75e14 7|297r43 8|527r43
+78r4*Empty_Return{70R9} 8|132r37 563r30
+127A9*Event_Topic<10|56A9>(10|31M12)<integer> 8|148r45
+130N4*Max_Topics 7|331r32
+133A9*Topic_Array(127A9)<132I9> 7|324r28 8|578r28
+X 2 aegis_crypto_api.ads
+28K9*Aegis_Crypto_API 221e21 7|8w6 8r28
+37N4*Max_Hash_Input 7|140r30 150r30 162r28 8|60r46 61r30 78r46 79r30
+40A9*Hash_Input_Buffer(10|31M12)<integer> 8|216r19 235r19 256r20
+59A9*MLDSA87_Signature(10|31M12)<integer> 8|257r20
+65A9*MLDSA87_Public_Key(10|31M12)<integer> 8|258r20
+75A9*MLKEM1024_Ciphertext(10|31M12)<integer> 8|282r20
+81A9*MLKEM1024_Shared_Secret(10|31M12)<integer> 8|281r20
+87A9*MLKEM1024_Decaps_Key(10|31M12)<integer> 8|283r20
+93E9*Crypto_Result 99e5 8|217r20 236r20 259r20 284r20
+94n7*Crypto_OK{93E9} 8|220r23 239r23 263r23 287r23
+106U14*SHA3_256_Hash 8|219s7
+128U14*Keccak256_Hash 8|238s7
+162U14*MLDSA87_Verify 8|261s7
+180U14*MLKEM1024_Decaps 8|286s7
+215U14*Zeroize_Secret 8|290s10
+X 3 aegis_execution.ads
+32K9*Aegis_Execution 278e20 7|6w6 6r27
+43n7*Mode_Static{41E9} 8|662r26 670r26
+49R9*Execution_Context 68e14 7|98r26 113r24 121r24 134r27 144r27 154r26 166r26
+. 179r23 186r23 193r23 200r23 207r23 214r23 221r23 228r23 239r24 247r23 258r26
+. 270r26 281r26 296r28 304r28 312r23 323r28 346r13 352r13 8|16r26 158r24
+. 181r24 209r27 228r27 247r26 275r26 301r23 315r23 329r23 342r23 355r23 368r23
+. 381r23 394r23 411r24 426r23 444r26 472r26 497r26 526r28 542r28 558r23 577r28
+. 659r13 667r13
+52r7*Gas_Price{10|41R9} 8|388r28
+58e7*Mode{41E9} 8|662r18 670r18
+59r7*Sandbox{5|127R9} 8|22r46 663r18 671r18
+87U14*Enter_Call 8|462s7 487s7 512s7
+107V13*Current_Depth{10|188I9} 8|456s10 482s10 507s10
+150V13*Gas_Remaining{10|101I9} 8|401s37
+165U14*Storage_Load 8|167s7
+175U14*Storage_Store 8|196s7
+185V13*Get_Balance{10|41R9} 8|420s24 434s24
+206V13*Get_Caller{10|70A9} 8|304s50
+210V13*Get_Address{10|70A9} 8|167s26 196s27 318s48 434s42 462s24 487s24 512s24
+214V13*Get_Call_Value{10|41R9} 8|336s24
+222V13*Get_Block_Number{10|41R9} 8|349s24
+226V13*Get_Timestamp{10|41R9} 8|362s24
+230V13*Get_Chain_ID{10|41R9} 8|375s24
+238U14*Emit_Log 8|599s7
+254U14*Finalize_Success 8|532s7 563s7
+262U14*Finalize_Revert 8|548s7
+X 4 aegis_gas.ads
+30K9*Aegis_Gas 292e14 8|3w6 3r21
+40i4*Gas_Base{10|101I9} 8|308r24 322r24 335r24 348r24 361r24 374r24 387r24
+. 400r24
+73i4*Gas_MLDSA_Verify{10|101I9} 8|265r30 267r30
+78i4*Gas_MLKEM_Decaps{10|101I9} 8|288r27
+111i4*Gas_SLoad{10|101I9} 8|171r27 176r28
+112i4*Gas_SStore_Set{10|101I9} 8|198r27 200r28
+121i4*Gas_StaticCall{10|101I9} 8|490r27
+122i4*Gas_DelegateCall{10|101I9} 8|515r27
+135i4*Gas_Balance{10|101I9} 8|419r24
+136i4*Gas_SelfBalance{10|101I9} 8|433r24
+137i4*Gas_Call{10|101I9} 8|465r27
+141i4*Gas_SelfDestruct{10|101I9} 8|142r33
+218V13*Gas_Hash{10|101I9} 8|221s27 240s27
+243i4*Max_Log_Data_Length{natural} 8|594r41
+246V13*Gas_Log{10|101I9} 8|602s27
+X 5 aegis_sandbox.ads
+27K9*Aegis_Sandbox 307e18 7|5w6 5r25
+36E9*Syscall_Number 81e5 7|99r26 340r22 8|17r26 614r22
+38n7*Sys_SLoad{36E9} 8|37r15 625r15
+39n7*Sys_SStore{36E9} 8|44r15 629r15
+42n7*Sys_SHA3{36E9} 8|51r15 633r15
+43n7*Sys_Keccak256{36E9} 8|69r15 633r26
+44n7*Sys_MLDSA_Verify{36E9} 8|87r15 633r42
+45n7*Sys_MLKEM_Decaps{36E9} 8|91r15 633r61
+48n7*Sys_Caller{36E9} 8|95r15 619r15
+49n7*Sys_Address{36E9} 8|98r15 619r28
+50n7*Sys_CallValue{36E9} 8|101r15 619r42
+51n7*Sys_CallData{36E9} 8|104r15 619r58
+52n7*Sys_CallDataSize{36E9} 8|104r30 620r15
+53n7*Sys_BlockNumber{36E9} 8|108r15 620r34
+54n7*Sys_Timestamp{36E9} 8|111r15 620r52
+55n7*Sys_GasPrice{36E9} 8|114r15 621r15
+56n7*Sys_GasRemaining{36E9} 8|117r15 621r30
+59n7*Sys_Balance{36E9} 8|120r15 621r49
+60n7*Sys_SelfBalance{36E9} 8|123r15 621r63
+63n7*Sys_Call{36E9} 8|126r15 637r15
+64n7*Sys_StaticCall{36E9} 8|126r26 637r26
+65n7*Sys_DelegateCall{36E9} 8|126r43 637r43
+66n7*Sys_Create{36E9} 8|127r15 641r15
+67n7*Sys_Create2{36E9} 8|127r28 641r28
+70n7*Sys_Return{36E9} 8|131r15 645r15
+71n7*Sys_Revert{36E9} 8|134r15 645r28
+72n7*Sys_Stop{36E9} 8|137r15 645r41
+73n7*Sys_SelfDestruct{36E9} 8|140r15 649r15
+76n7*Sys_Log0{36E9} 8|147r15 653r15
+77n7*Sys_Log1{36E9} 8|147r26 653r26
+78n7*Sys_Log2{36E9} 8|147r37 653r37
+79n7*Sys_Log3{36E9} 8|147r48 653r48
+80n7*Sys_Log4{36E9} 8|147r59 653r59
+116a7*Capabilities{10|263A9} 8|22r68 663r40 671r40
+130r7*Current_Frame{106R9} 8|22r54 663r26 671r26
+237A9*Log_Data_Buffer(10|31M12)<236I9> 8|586r18
+X 6 aegis_storage.ads
+27K9*Aegis_Storage 259e18 8|4w6 4r25
+X 7 aegis_syscall.ads
+34K9*Aegis_Syscall 356l5 356e18 8|7b14 674l5 674t18
+43N4*Max_Syscall_Args 45r41 105r30
+45I9*Syscall_Arg_Index<short_short_integer> 46r32
+46A9*Syscall_Args(10|41R9)<45I9> 100r26 8|18r26
+49R9*Syscall_Return 54e14 57r35 65r33 102r26 115r24 124r24 137r27 147r27
+. 159r26 169r26 180r23 187r23 194r23 201r23 208r23 215r23 222r23 229r23 241r24
+. 248r23 264r26 275r26 286r26 298r28 306r28 313r23 328r28 8|20r26 160r24
+. 184r24 212r27 231r27 252r26 278r26 302r23 316r23 330r23 343r23 356r23 369r23
+. 382r23 395r23 413r24 427r23 450r26 477r26 502r26 528r28 544r28 559r23 582r28
+50b7*Success{boolean} 58m7 66m7 8|27m13 170m13 307m10 321m10 334m10 347m10
+. 360m10 373m10 386m10 399m10 418m10 432m10 534m10 550m10 565m10
+51i7*Gas_Used{10|101I9} 59m7 67m7 8|28m13 171m13 308m10 322m10 335m10 348m10
+. 361m10 374m10 387m10 400m10 419m10 433m10 535m10 551m10 566m10
+52r7*Return_Val{10|41R9} 60m7 68m7 8|29m13 172m13 309m10 323m10 336m10 349m10
+. 362m10 375m10 388m10 401m10 420m10 434m10 536m10 552m10 567m10
+53i7*Error_Code{natural} 61m7 69m7 8|30m13 173m13 310m10 324m10 337m10 350m10
+. 363m10 376m10 389m10 402m10 421m10 435m10 537m10 553m10 568m10
+57r4*Syscall_Return_Zero{49R9}
+65r4*Syscall_Return_OK{49R9}
+77N4*Error_None 8|106r44 142r62 173r27 198r54 221r60 240r60 265r58 267r59
+. 288r55 310r24 324r24 337r24 350r24 363r24 376r24 389r24 402r24 421r24 435r24
+. 465r47 490r53 515r55 537r24 568r24 602r72
+78N4*Error_Invalid_Syscall
+79N4*Error_Permission 8|30r27
+80N4*Error_Out_Of_Gas 8|176r50 200r55 604r42
+81N4*Error_Invalid_Args 8|41r48 48r48 595r42
+82N4*Error_Stack_Overflow
+83N4*Error_Stack_Underflow
+84N4*Error_State_Modify 8|144r48 192r42 589r42
+85N4*Error_Call_Depth 8|129r45 457r42 467r42 483r42 492r42 508r42 517r42
+86N4*Error_Value_Transfer
+87N4*Error_Invalid_Jump
+88N4*Error_Memory_Access
+89N4*Error_Revert 8|553r24
+90N4*Error_Crypto 8|223r42 242r42 270r42 292r42
+97U14*Dispatch 98=7 99>7 100>7 101>7 102<7 8|15b14 151l8 151t16
+98r7 Ctx{3|49R9} 8|16b7 22r42 39m34 46m35 66m33 84m38 89m16 93m16 96r32 99r33
+. 102r35 109r37 112r35 115r34 118r38 121r33 124r37 132m32 135m32 138m30 141r34
+. 148m29
+99e7 Syscall{5|36E9} 8|17b7 25r40 36r12
+100a7 Args{46A9} 8|18b7 39r39 46r40 46r50 58r44 76r44
+101i7 Arg_Count{natural} 105r17 8|19b7 38r16 45r16 57r19 75r19
+102r7 Result{49R9} 8|20b7 26m10 39m49 41m16 46m60 48m16 66m55 84m60 89m66
+. 93m49 96m37 99m38 102m40 106m13 109m42 112m40 115m39 118m43 121m52 124m42
+. 129m13 132m51 135m51 138m35 142m16 144m16 149m46
+112U14*Sys_Handle_SLoad 113=7 114>7 115<7 8|39s16 157b14 178l8 178t24
+113r7 Ctx{3|49R9} 8|158b7 167m21 167r39
+114r7 Key{10|41R9} 8|159b7 165r54
+115r7 Result{49R9} 8|160b7 169m10 176m10
+120U14*Sys_Handle_SStore 121=7 122>7 123>7 124<7 8|46s16 180b14 202l8 202t25
+121r7 Ctx{3|49R9} 8|181b7 191r32 196m22 196r40
+122r7 Key{10|41R9} 8|182b7 188r54
+123r7 Value{10|41R9} 8|183b7 189r58
+124r7 Result{49R9} 8|184b7 192m10 198m10 200m10
+133U14*Sys_Handle_SHA3 134=7 135>7 136>7 137<7 8|66s16 208b14 225l8 225t23
+134r7 Ctx{3|49R9} 8|209b7 219m22
+135a7 Data_Hash{10|56A9} 8|210b7 214r28
+136i7 Data_Size{natural} 140r17 8|211b7 219r34 221r37
+137r7 Result{49R9} 8|212b7 221m10 223m10
+143U14*Sys_Handle_Keccak256 144=7 145>7 146>7 147<7 8|84s16 227b14 244l8
+. 244t28
+144r7 Ctx{3|49R9} 8|228b7 238m23
+145a7 Data_Hash{10|56A9} 8|229b7 233r28
+146i7 Data_Size{natural} 150r17 8|230b7 238r35 240r37
+147r7 Result{49R9} 8|231b7 240m10 242m10
+153U14*Sys_Handle_MLDSA_Verify 154=7 155>7 156>7 157>7 158>7 159<7 8|88s13
+. 246b14 272l8 272t31
+154r7 Ctx{3|49R9} 8|247b7 261m23
+155a7 Msg_Hash{10|56A9} 8|248b7 254r28
+156i7 Msg_Len{natural} 162r17 8|249b7 261r35
+157a7 Sig_Hash{10|56A9} 8|250b7 254r38
+158a7 PK_Hash{10|56A9} 8|251b7 254r48
+159r7 Result{49R9} 8|252b7 265m13 267m13 270m10
+165U14*Sys_Handle_MLKEM_Decaps 166=7 167>7 168>7 169<7 8|92s13 274b14 294l8
+. 294t31
+166r7 Ctx{3|49R9} 8|275b7 286m25
+167a7 CT_Hash{10|56A9} 8|276b7 280r28
+168a7 DK_Hash{10|56A9} 8|277b7 280r37
+169r7 Result{49R9} 8|278b7 288m10 292m10
+178U14*Sys_Handle_Caller 179>7 180<7 8|96s13 300b14 312l8 312t25
+179r7 Ctx{3|49R9} 8|301b7 304r62
+180r7 Result{49R9} 8|302b7 306m7
+185U14*Sys_Handle_Address 186>7 187<7 8|99s13 314b14 326l8 326t26
+186r7 Ctx{3|49R9} 8|315b7 318r61
+187r7 Result{49R9} 8|316b7 320m7
+192U14*Sys_Handle_CallValue 193>7 194<7 8|102s13 328b14 339l8 339t28
+193r7 Ctx{3|49R9} 8|329b7 336r40
+194r7 Result{49R9} 8|330b7 333m7
+199U14*Sys_Handle_BlockNumber 200>7 201<7 8|109s13 341b14 352l8 352t30
+200r7 Ctx{3|49R9} 8|342b7 349r42
+201r7 Result{49R9} 8|343b7 346m7
+206U14*Sys_Handle_Timestamp 207>7 208<7 8|112s13 354b14 365l8 365t28
+207r7 Ctx{3|49R9} 8|355b7 362r39
+208r7 Result{49R9} 8|356b7 359m7
+213U14*Sys_Handle_ChainID 214>7 215<7 8|367b14 378l8 378t26
+214r7 Ctx{3|49R9} 8|368b7 375r38
+215r7 Result{49R9} 8|369b7 372m7
+220U14*Sys_Handle_GasPrice 221>7 222<7 8|115s13 380b14 391l8 391t27
+221r7 Ctx{3|49R9} 8|381b7 388r24
+222r7 Result{49R9} 8|382b7 385m7
+227U14*Sys_Handle_GasRemaining 228>7 229<7 8|118s13 393b14 404l8 404t31
+228r7 Ctx{3|49R9} 8|394b7 401r52
+229r7 Result{49R9} 8|395b7 398m7
+238U14*Sys_Handle_Balance 239>7 240>7 241<7 8|121s13 410b14 423l8 423t26
+239r7 Ctx{3|49R9} 8|411b7 420r37
+240a7 Address{10|70A9} 8|412b7 420r42
+241r7 Result{49R9} 8|413b7 417m7
+246U14*Sys_Handle_SelfBalance 247>7 248<7 8|124s13 425b14 437l8 437t30
+247r7 Ctx{3|49R9} 8|426b7 434r37 434r55
+248r7 Result{49R9} 8|427b7 431m7
+257U14*Sys_Handle_Call 258=7 259>7 260>7 261>7 262>7 263>7 264<7 8|443b14
+. 469l8 469t23
+258r7 Ctx{3|49R9} 8|444b7 456r25 462m19 462r37
+259a7 Target{10|70A9} 8|445b7 452r28
+260r7 Value{10|41R9} 8|446b7 452r36
+261i7 Gas_Limit{10|101I9} 8|447b7 452r43
+262a7 Data_Hash{10|56A9} 8|448b7 452r54
+263i7 Data_Size{natural} 8|449b7 452r65
+264r7 Result{49R9} 8|450b7 457m10 465m10 467m10
+269U14*Sys_Handle_StaticCall 270=7 271>7 272>7 273>7 274>7 275<7 8|471b14
+. 494l8 494t29
+270r7 Ctx{3|49R9} 8|472b7 482r25 487m19 487r37
+271a7 Target{10|70A9} 8|473b7 479r28
+272i7 Gas_Limit{10|101I9} 8|474b7 479r36
+273a7 Data_Hash{10|56A9} 8|475b7 479r47
+274i7 Data_Size{natural} 8|476b7 479r58
+275r7 Result{49R9} 8|477b7 483m10 490m10 492m10
+280U14*Sys_Handle_DelegateCall 281=7 282>7 283>7 284>7 285>7 286<7 8|496b14
+. 519l8 519t31
+281r7 Ctx{3|49R9} 8|497b7 507r25 512m19 512r37
+282a7 Target{10|70A9} 8|498b7 504r28
+283i7 Gas_Limit{10|101I9} 8|499b7 504r36
+284a7 Data_Hash{10|56A9} 8|500b7 504r47
+285i7 Data_Size{natural} 8|501b7 504r58
+286r7 Result{49R9} 8|502b7 508m10 515m10 517m10
+295U14*Sys_Handle_Return 296=7 297>7 298<7 8|132s13 525b14 539l8 539t25
+296r7 Ctx{3|49R9} 8|526b7 532m25
+297r7 Return_Data{1|70R9} 8|527b7 532r30
+298r7 Result{49R9} 8|528b7 533m7
+303U14*Sys_Handle_Revert 304=7 305>7 306<7 8|135s13 541b14 555l8 555t25
+304r7 Ctx{3|49R9} 8|542b7 548m24
+305a7 Revert_Data{10|56A9} 8|543b7 548r29
+306r7 Result{49R9} 8|544b7 549m7
+311U14*Sys_Handle_Stop 312=7 313<7 8|138s13 557b14 570l8 570t23
+312r7 Ctx{3|49R9} 8|558b7 563m25
+313r7 Result{49R9} 8|559b7 564m7
+322U14*Sys_Handle_Log 323=7 324>7 325>7 326>7 327>7 328<7 8|148s13 576b14
+. 606l8 606t22
+323r7 Ctx{3|49R9} 8|577b7 588r32 599m17
+324a7 Topics{1|133A9} 8|578b7 599r22
+325i7 Topic_Count{natural} 331r17 8|579b7 594r10 599r30 602r36
+326a7 Data_Hash{10|56A9} 8|580b7 584r28
+327i7 Data_Size{natural} 8|581b7 594r29 599r53 602r49
+328r7 Result{49R9} 8|582b7 589m10 595m10 602m10 604m10
+338V13*Is_Syscall_Allowed{boolean} 339>7 340>7 8|25s14 612b13 656l8 656t26
+339a7 Capabilities{10|263A9} 8|613b7 626r20 630r20 634r20 638r20 642r20 650r20
+. 654r20
+340e7 Syscall{5|36E9} 8|614b7 617r12
+345V13*Can_Modify_State{boolean} 346>7 8|141s16 191s14 588s14 658b13 664l8
+. 664t24
+346r7 Ctx{3|49R9} 8|659b7 662r14 663r14
+351V13*Can_Transfer_Value{boolean} 352>7 8|666b13 672l8 672t26
+352r7 Ctx{3|49R9} 8|667b7 670r14 671r14
+X 8 aegis_syscall.adb
+22a7 Caps{10|263A9} 25r34
+53a16 Data_Hash{10|56A9} 66r38
+54i16 Size{natural} 61m22 63m22 66r49
+55m16 Raw_Size{11|84M9} 58m19 60r22 63r39
+71a16 Data_Hash{10|56A9} 84r43
+72i16 Size{natural} 79m22 81m22 84r54
+73m16 Raw_Size{11|84M9} 76m19 78r22 81r39
+163r7 Value{10|162R9} 167m49 172r33
+164b7 Success{boolean} 167m56 168r10
+165r7 SK{10|161R9} 167r45
+187b7 Success{boolean} 196m54 197r10
+188r7 SK{10|161R9} 196r46
+189r7 SV{10|162R9} 196r50
+215a7 Output{10|56A9} 219m45
+216a7 Input{2|40A9} 219r27
+217e7 Crypto_Res{2|93E9} 219m53 220r10
+234a7 Output{10|56A9} 238m46
+235a7 Input{2|40A9} 238r28
+236e7 Crypto_Res{2|93E9} 238m54 239r10
+255b7 Valid{boolean} 262m23 264r13
+256a7 Input{2|40A9} 261r28
+257a7 Signature{2|59A9} 261r44
+258a7 Public_Key{2|65A9} 261r55
+259e7 Crypto_Res{2|93E9} 262m30 263r10
+281a7 Shared{2|81A9} 286m54 290m26 290r26
+282a7 Ciphertext{2|75A9} 286r30
+283a7 Decaps_Key{2|87A9} 286r42
+284e7 Crypto_Res{2|93E9} 286m62 287r10
+304a7 Caller_Addr{10|70A9} 309r41
+318a7 Self_Addr{10|70A9} 323r41
+453b7 Success{boolean} 463m28 464r10
+480b7 Success{boolean} 488m35 489r10
+505b7 Success{boolean} 513m37 514r10
+530r7 Exec_Result{10|206R9} 532m43 535r24
+546r7 Exec_Result{10|206R9} 548m42 551r24
+561r7 Exec_Result{10|206R9} 563m44 566r24
+585b7 Success{boolean} 599m64 600r10
+586a7 Log_Data{5|237A9} 599r43
+X 9 aegis_u256.ads
+21K9*Aegis_U256 8|5w6 5r22 9|276e15
+189V13*U256_To_U64{10|35M12} 8|58s31 76s31
+194V13*Gas_To_U256{10|41R9} 8|401s24
+198V13*Address_To_U256{10|41R9} 8|309s24 323s24
+X 10 aegis_vm_types.ads
+21K9*Aegis_VM_Types 7|4w6 4r26 10|279e19
+31M12*Byte{11|70M9}
+41R9*U256 7|46r54 52r20 114r24 122r24 123r24 260r26 8|159r24 172r27 182r24
+. 183r24 446r26 10|43e14
+46r4*U256_Zero{41R9} 7|60r21 68r21 8|29r27 41r37 48r37 106r33 129r34 142r51
+. 144r37 176r39 192r31 198r43 200r44 221r49 223r31 240r49 242r31 267r48 270r31
+. 292r31 457r31 462r57 467r31 483r31 487r57 492r31 508r31 512r57 517r31 536r24
+. 552r24 567r24 589r31 595r31 602r61 604r31
+47r4*U256_One{41R9} 8|265r48 288r45 465r37 490r43 515r45
+56A9*Hash256(31M12)<integer> 7|135r27 145r27 155r26 157r26 158r26 167r26
+. 168r26 262r26 273r26 284r26 305r28 326r28 8|53r28 71r28 210r27 215r19 229r27
+. 234r19 248r26 250r26 251r26 276r26 277r26 448r26 475r26 500r26 543r28 580r28
+62a4*Hash256_Zero{56A9} 8|53r39 71r39 89r21 89r38 89r52 93r21 93r35 135r37
+. 148r58 149r29
+70A9*Contract_Address(31M12)<integer> 7|240r24 259r26 271r26 282r26 8|304r30
+. 318r28 412r24 445r26 473r26 498r26
+72a4*Address_Zero{70A9} 8|121r38 462r43 487r43 512r43
+101I9*Gas_Amount<long_integer> 7|51r20 261r26 272r26 283r26 8|447r26 474r26
+. 499r26
+161R9*Storage_Key<41R9> 8|165r26 165r41 188r26 188r41
+162R9*Storage_Value<41R9> 8|163r17 189r26 189r43
+179n7*Call{178E9} 8|463r22
+180n7*Static_Call{178E9} 8|488r22
+181n7*Delegate_Call{178E9} 8|513r22
+187N4*Max_Call_Depth 8|456r33 482r33 507r33
+188I9*Call_Depth<short_integer>
+206R9*Execution_Result 8|530r21 546r21 561r21 10|210e14
+208i7*Gas_Used{101I9} 8|535r36 551r36 566r36
+252n7*Cap_Read_Storage{250E9} 8|626r34
+253n7*Cap_Write_Storage{250E9} 8|630r34 663r54
+254n7*Cap_Call{250E9} 8|638r34
+255n7*Cap_Transfer{250E9} 8|671r54
+256n7*Cap_Create{250E9} 8|642r34
+257n7*Cap_Self_Destruct{250E9} 8|650r34
+258n7*Cap_Crypto{250E9} 8|634r34
+259n7*Cap_Event{250E9} 8|654r34
+263A9*Capability_Mask(boolean)<250E9> 7|339r22 8|22r23 613r22
+X 11 interfac.ads
+38K9*Interfaces 7|3w6 3r22 11|233e15
+70M9*Unsigned_8
+84M9*Unsigned_64 8|55r27 60r33 73r27 78r33
+
+QQ SPARKVERSION 0.0w
+GG EK_DIRECT_CALLS aegis_syscall__dispatch 22 aegis_syscall__sys_handle_sload aegis_syscall__sys_handle_sstore aegis_syscall__sys_handle_sha3 aegis_syscall__sys_handle_keccak256 aegis_syscall__sys_handle_mldsa_verify aegis_syscall__sys_handle_mlkem_decaps aegis_syscall__sys_handle_caller aegis_syscall__sys_handle_address aegis_syscall__sys_handle_callvalue aegis_syscall__sys_handle_blocknumber aegis_syscall__sys_handle_timestamp aegis_syscall__sys_handle_gasprice aegis_syscall__sys_handle_gasremaining aegis_syscall__sys_handle_balance aegis_syscall__sys_handle_selfbalance aegis_syscall__sys_handle_return aegis_syscall__sys_handle_revert aegis_syscall__sys_handle_stop aegis_syscall__sys_handle_log aegis_syscall__is_syscall_allowed aegis_syscall__can_modify_state aegis_u256__u256_to_u64
+GG EK_PROOF_DEPENDENCIES aegis_syscall__dispatch 0
+GG EK_GLOBALS aegis_syscall__dispatch local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 aegis_syscall proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS aegis_syscall__sys_handle_sload 0
+GG EK_PROOF_DEPENDENCIES aegis_syscall__sys_handle_sload 0
+GG EK_GLOBALS aegis_syscall__sys_handle_sload local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 aegis_syscall proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE TRUE FALSE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS aegis_syscall__sys_handle_sstore 0
+GG EK_PROOF_DEPENDENCIES aegis_syscall__sys_handle_sstore 0
+GG EK_GLOBALS aegis_syscall__sys_handle_sstore local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 aegis_syscall proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE TRUE FALSE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS aegis_syscall__sys_handle_sha3 2 aegis_gas__gas_hash aegis_crypto_api__sha3_256_hash
+GG EK_PROOF_DEPENDENCIES aegis_syscall__sys_handle_sha3 0
+GG EK_GLOBALS aegis_syscall__sys_handle_sha3 local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 aegis_syscall proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS aegis_syscall__sys_handle_keccak256 2 aegis_gas__gas_hash aegis_crypto_api__keccak256_hash
+GG EK_PROOF_DEPENDENCIES aegis_syscall__sys_handle_keccak256 0
+GG EK_GLOBALS aegis_syscall__sys_handle_keccak256 local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 aegis_syscall proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS aegis_syscall__sys_handle_mldsa_verify 1 aegis_crypto_api__mldsa87_verify
+GG EK_PROOF_DEPENDENCIES aegis_syscall__sys_handle_mldsa_verify 0
+GG EK_GLOBALS aegis_syscall__sys_handle_mldsa_verify local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 aegis_syscall proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS aegis_syscall__sys_handle_mlkem_decaps 2 aegis_crypto_api__mlkem1024_decaps aegis_crypto_api__zeroize_secret
+GG EK_PROOF_DEPENDENCIES aegis_syscall__sys_handle_mlkem_decaps 0
+GG EK_GLOBALS aegis_syscall__sys_handle_mlkem_decaps local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 aegis_syscall proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS aegis_syscall__sys_handle_caller 2 aegis_execution__get_caller aegis_u256__address_to_u256
+GG EK_PROOF_DEPENDENCIES aegis_syscall__sys_handle_caller 0
+GG EK_GLOBALS aegis_syscall__sys_handle_caller local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 aegis_syscall proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS aegis_syscall__sys_handle_address 2 aegis_execution__get_address aegis_u256__address_to_u256
+GG EK_PROOF_DEPENDENCIES aegis_syscall__sys_handle_address 0
+GG EK_GLOBALS aegis_syscall__sys_handle_address local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 aegis_syscall proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS aegis_syscall__sys_handle_callvalue 1 aegis_execution__get_call_value
+GG EK_PROOF_DEPENDENCIES aegis_syscall__sys_handle_callvalue 0
+GG EK_GLOBALS aegis_syscall__sys_handle_callvalue local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 aegis_syscall proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS aegis_syscall__sys_handle_blocknumber 1 aegis_execution__get_block_number
+GG EK_PROOF_DEPENDENCIES aegis_syscall__sys_handle_blocknumber 0
+GG EK_GLOBALS aegis_syscall__sys_handle_blocknumber local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 aegis_syscall proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS aegis_syscall__sys_handle_timestamp 1 aegis_execution__get_timestamp
+GG EK_PROOF_DEPENDENCIES aegis_syscall__sys_handle_timestamp 0
+GG EK_GLOBALS aegis_syscall__sys_handle_timestamp local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 aegis_syscall proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS aegis_syscall__sys_handle_chainid 1 aegis_execution__get_chain_id
+GG EK_PROOF_DEPENDENCIES aegis_syscall__sys_handle_chainid 0
+GG EK_GLOBALS aegis_syscall__sys_handle_chainid local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 aegis_syscall proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS aegis_syscall__sys_handle_gasprice 0
+GG EK_PROOF_DEPENDENCIES aegis_syscall__sys_handle_gasprice 0
+GG EK_GLOBALS aegis_syscall__sys_handle_gasprice local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 aegis_syscall proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS aegis_syscall__sys_handle_gasremaining 2 aegis_execution__gas_remaining aegis_u256__gas_to_u256
+GG EK_PROOF_DEPENDENCIES aegis_syscall__sys_handle_gasremaining 0
+GG EK_GLOBALS aegis_syscall__sys_handle_gasremaining local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 aegis_syscall proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS aegis_syscall__sys_handle_balance 0
+GG EK_PROOF_DEPENDENCIES aegis_syscall__sys_handle_balance 0
+GG EK_GLOBALS aegis_syscall__sys_handle_balance local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 aegis_syscall proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE TRUE FALSE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS aegis_syscall__sys_handle_selfbalance 0
+GG EK_PROOF_DEPENDENCIES aegis_syscall__sys_handle_selfbalance 0
+GG EK_GLOBALS aegis_syscall__sys_handle_selfbalance local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 aegis_syscall proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE TRUE FALSE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS aegis_syscall__sys_handle_call 3 aegis_execution__enter_call aegis_execution__current_depth aegis_execution__get_address
+GG EK_PROOF_DEPENDENCIES aegis_syscall__sys_handle_call 0
+GG EK_GLOBALS aegis_syscall__sys_handle_call local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 aegis_syscall proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS aegis_syscall__sys_handle_staticcall 3 aegis_execution__enter_call aegis_execution__current_depth aegis_execution__get_address
+GG EK_PROOF_DEPENDENCIES aegis_syscall__sys_handle_staticcall 0
+GG EK_GLOBALS aegis_syscall__sys_handle_staticcall local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 aegis_syscall proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS aegis_syscall__sys_handle_delegatecall 3 aegis_execution__enter_call aegis_execution__current_depth aegis_execution__get_address
+GG EK_PROOF_DEPENDENCIES aegis_syscall__sys_handle_delegatecall 0
+GG EK_GLOBALS aegis_syscall__sys_handle_delegatecall local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 aegis_syscall proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS aegis_syscall__sys_handle_return 1 aegis_execution__finalize_success
+GG EK_PROOF_DEPENDENCIES aegis_syscall__sys_handle_return 0
+GG EK_GLOBALS aegis_syscall__sys_handle_return local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 aegis_syscall proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS aegis_syscall__sys_handle_revert 1 aegis_execution__finalize_revert
+GG EK_PROOF_DEPENDENCIES aegis_syscall__sys_handle_revert 0
+GG EK_GLOBALS aegis_syscall__sys_handle_revert local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 aegis_syscall proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS aegis_syscall__sys_handle_stop 1 aegis_execution__finalize_success
+GG EK_PROOF_DEPENDENCIES aegis_syscall__sys_handle_stop 0
+GG EK_GLOBALS aegis_syscall__sys_handle_stop local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 aegis_syscall proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS aegis_syscall__sys_handle_log 3 aegis_syscall__can_modify_state aegis_execution__emit_log aegis_gas__gas_log
+GG EK_PROOF_DEPENDENCIES aegis_syscall__sys_handle_log 0
+GG EK_GLOBALS aegis_syscall__sys_handle_log local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 aegis_syscall proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS aegis_syscall__is_syscall_allowed 0
+GG EK_PROOF_DEPENDENCIES aegis_syscall__is_syscall_allowed 0
+GG EK_GLOBALS aegis_syscall__is_syscall_allowed local FALSE E_FUNCTION FALSE ORIGIN_FLOW 1 aegis_syscall proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS aegis_syscall__can_modify_state 0
+GG EK_PROOF_DEPENDENCIES aegis_syscall__can_modify_state 0
+GG EK_GLOBALS aegis_syscall__can_modify_state local FALSE E_FUNCTION FALSE ORIGIN_FLOW 1 aegis_syscall proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS aegis_syscall__can_transfer_value 0
+GG EK_PROOF_DEPENDENCIES aegis_syscall__can_transfer_value 0
+GG EK_GLOBALS aegis_syscall__can_transfer_value local FALSE E_FUNCTION FALSE ORIGIN_FLOW 1 aegis_syscall proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS aegis_syscall 0
+GG EK_PROOF_DEPENDENCIES aegis_syscall 0
+GG EK_GLOBALS aegis_syscall local FALSE E_PACKAGE TRUE ORIGIN_FLOW 0 proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 initializes 0 refined_initializes 0 calls_proof 0 calls 0 calls_conditional 0 local_packages 0 local_var 0 TRUE FALSE FALSE FALSE FALSE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_FLOW_SCOPE interfaces__shift_left__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_execution__finalize_failure FALSE FALSE FALSE FALSE TRUE aegis_execution VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_storage__key_to_nibbles FALSE FALSE FALSE FALSE TRUE aegis_storage VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__sub_mod FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_crypto_api__shake_xof FALSE FALSE FALSE FALSE TRUE aegis_crypto_api VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_execution__get_balance FALSE FALSE FALSE FALSE TRUE aegis_execution VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__address_to_u256 FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_vm_types__success_result FALSE FALSE FALSE FALSE TRUE aegis_vm_types VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_contract__encode_bool FALSE FALSE FALSE FALSE TRUE aegis_contract VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_gas__gas_call_complex FALSE FALSE FALSE FALSE TRUE aegis_gas VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_syscall__dispatch FALSE FALSE FALSE FALSE TRUE aegis_syscall VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_syscall__sys_handle_callvalue FALSE FALSE FALSE FALSE TRUE aegis_syscall VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_syscall__sys_handle_return FALSE FALSE FALSE FALSE TRUE aegis_syscall VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_storage__is_empty_account FALSE FALSE FALSE FALSE TRUE aegis_storage VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__u256_to_address FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__mul FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__from_word64 FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_contract__decode_bool FALSE FALSE FALSE FALSE TRUE aegis_contract VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_execution__transfer_value FALSE FALSE FALSE FALSE TRUE aegis_execution VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_gas__consume_gas FALSE FALSE FALSE FALSE TRUE aegis_gas VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__less_than FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_syscall__sys_handle_blocknumber FALSE FALSE FALSE FALSE TRUE aegis_syscall VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_vm_types__failure_result FALSE FALSE FALSE FALSE TRUE aegis_vm_types VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_execution__exit_call FALSE FALSE FALSE FALSE TRUE aegis_execution VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__clz FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_sandbox__has_capability FALSE FALSE FALSE FALSE TRUE aegis_sandbox VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_contract__compute_selector FALSE FALSE FALSE FALSE TRUE aegis_contract VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_gas__gas_log FALSE FALSE FALSE FALSE TRUE aegis_gas VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_syscall__sys_handle_revert FALSE FALSE FALSE FALSE TRUE aegis_syscall VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_vm_types TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE aegis_u256__mul_mod FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_syscall__sys_handle_sload FALSE FALSE FALSE FALSE TRUE aegis_syscall VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__less_than_or_equal FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_syscall__sys_handle_timestamp FALSE FALSE FALSE FALSE TRUE aegis_syscall VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_gas TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE aegis_crypto_api__mldsa87_verify FALSE FALSE FALSE FALSE TRUE aegis_crypto_api VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_execution__get_caller FALSE FALSE FALSE FALSE TRUE aegis_execution VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_contract__find_function FALSE FALSE FALSE FALSE TRUE aegis_contract VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_execution__current_depth FALSE FALSE FALSE FALSE TRUE aegis_execution VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_vm_types__initial_gas_context FALSE FALSE FALSE FALSE TRUE aegis_vm_types VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_storage__compute_slot_key FALSE FALSE FALSE FALSE TRUE aegis_storage VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__ctz FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_syscall__sys_handle_stop FALSE FALSE FALSE FALSE TRUE aegis_syscall VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__div_mod FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_syscall__sys_handle_chainid FALSE FALSE FALSE FALSE TRUE aegis_syscall VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_syscall__sys_handle_sstore FALSE FALSE FALSE FALSE TRUE aegis_syscall VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_sandbox__is_static_safe FALSE FALSE FALSE FALSE TRUE aegis_sandbox VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_execution__get_address FALSE FALSE FALSE FALSE TRUE aegis_execution VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_execution__take_snapshot FALSE FALSE FALSE FALSE TRUE aegis_execution VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_gas__consume_gas_discounted FALSE FALSE FALSE FALSE TRUE aegis_gas VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_syscall__sys_handle_log FALSE FALSE FALSE FALSE TRUE aegis_syscall VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_syscall__sys_handle_gasprice FALSE FALSE FALSE FALSE TRUE aegis_syscall VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_sandbox__required_capabilities FALSE FALSE FALSE FALSE TRUE aegis_sandbox VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_execution__get_call_value FALSE FALSE FALSE FALSE TRUE aegis_execution VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__bit_length FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__greater_than FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_gas__gas_create_contract FALSE FALSE FALSE FALSE TRUE aegis_gas VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__to_word64 FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_contract__validate_manifest FALSE FALSE FALSE FALSE TRUE aegis_contract VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_execution__commit_snapshot FALSE FALSE FALSE FALSE TRUE aegis_execution VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_syscall__sys_handle_sha3 FALSE FALSE FALSE FALSE TRUE aegis_syscall VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_crypto_api__mlkem1024_decaps FALSE FALSE FALSE FALSE TRUE aegis_crypto_api VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__div FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_sandbox__validate_syscall FALSE FALSE FALSE FALSE TRUE aegis_sandbox VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_execution__get_origin FALSE FALSE FALSE FALSE TRUE aegis_execution VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_gas__remaining_gas FALSE FALSE FALSE FALSE TRUE aegis_gas VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_syscall__sys_handle_gasremaining FALSE FALSE FALSE FALSE TRUE aegis_syscall VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_gas__gas_stark_batch_verify FALSE FALSE FALSE FALSE TRUE aegis_gas VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_syscall TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE aegis_contract__can_call_function FALSE FALSE FALSE FALSE TRUE aegis_contract VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__byte_length FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_execution__rollback_to_snapshot FALSE FALSE FALSE FALSE TRUE aegis_execution VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_execution__get_block_number FALSE FALSE FALSE FALSE TRUE aegis_execution VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__greater_than_or_equal FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_sandbox__validate_memory_access FALSE FALSE FALSE FALSE TRUE aegis_sandbox VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__from_bytes_be FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_syscall__sys_handle_balance FALSE FALSE FALSE FALSE TRUE aegis_syscall VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_syscall__is_syscall_allowed FALSE FALSE FALSE FALSE TRUE aegis_syscall VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__mod_op FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_execution TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE aegis_crypto_api__derive_address FALSE FALSE FALSE FALSE TRUE aegis_crypto_api VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_syscall__sys_handle_keccak256 FALSE FALSE FALSE FALSE TRUE aegis_syscall VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_gas__gas_privacy_operation FALSE FALSE FALSE FALSE TRUE aegis_gas VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_execution__use_gas FALSE FALSE FALSE FALSE TRUE aegis_execution VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_execution__get_timestamp FALSE FALSE FALSE FALSE TRUE aegis_execution VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__mod_exp FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__to_bytes_be FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_syscall__can_modify_state FALSE FALSE FALSE FALSE TRUE aegis_syscall VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_syscall__sys_handle_selfbalance FALSE FALSE FALSE FALSE TRUE aegis_syscall VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_crypto_api__sha3_256_hash FALSE FALSE FALSE FALSE TRUE aegis_crypto_api VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_gas__refund_gas FALSE FALSE FALSE FALSE TRUE aegis_gas VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_execution__get_chain_id FALSE FALSE FALSE FALSE TRUE aegis_execution VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_gas__cycles_to_gas FALSE FALSE FALSE FALSE TRUE aegis_gas VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__bit_and FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__from_bytes_le FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__is_zero FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_syscall__can_transfer_value FALSE FALSE FALSE FALSE TRUE aegis_syscall VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_crypto_api__constant_time_equal FALSE FALSE FALSE FALSE TRUE aegis_crypto_api VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_syscall__sys_handle_mldsa_verify FALSE FALSE FALSE FALSE TRUE aegis_syscall VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_syscall__sys_handle_call FALSE FALSE FALSE FALSE TRUE aegis_syscall VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_execution__gas_remaining FALSE FALSE FALSE FALSE TRUE aegis_execution VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_execution__emit_log FALSE FALSE FALSE FALSE TRUE aegis_execution VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__add64_with_carry FALSE FALSE FALSE FALSE TRUE aegis_u256 PRIVATE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__to_bytes_le FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__bit_or FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_crypto_api__zeroize_secret FALSE FALSE FALSE FALSE TRUE aegis_crypto_api VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_execution__refund FALSE FALSE FALSE FALSE TRUE aegis_execution VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_gas__validate_wcet_bound FALSE FALSE FALSE FALSE TRUE aegis_gas VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE aegis_crypto_api__sha3_512_hash FALSE FALSE FALSE FALSE TRUE aegis_crypto_api VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__u64_to_u256 FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__add FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_storage TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE aegis_u256__bit_xor FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_crypto_api TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE aegis_gas__apply_discount FALSE FALSE FALSE FALSE TRUE aegis_gas VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_execution__storage_load FALSE FALSE FALSE FALSE TRUE aegis_execution VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_contract__encode_u256 FALSE FALSE FALSE FALSE TRUE aegis_contract VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__sub64_with_borrow FALSE FALSE FALSE FALSE TRUE aegis_u256 PRIVATE_PART
+GG EK_FLOW_SCOPE aegis_syscall__sys_handle_staticcall FALSE FALSE FALSE FALSE TRUE aegis_syscall VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_syscall__sys_handle_mlkem_decaps FALSE FALSE FALSE FALSE TRUE aegis_syscall VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_gas__gas_hash FALSE FALSE FALSE FALSE TRUE aegis_gas VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_execution__finalize_success FALSE FALSE FALSE FALSE TRUE aegis_execution VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__bit_not FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_execution__create_context FALSE FALSE FALSE FALSE TRUE aegis_execution VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__add_mod FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__u256_to_u64 FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_contract__decode_u256 FALSE FALSE FALSE FALSE TRUE aegis_contract VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_crypto_api__keccak256_hash FALSE FALSE FALSE FALSE TRUE aegis_crypto_api VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__shift_left FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_sandbox TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE interfaces__rotate_right FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_execution__storage_store FALSE FALSE FALSE FALSE TRUE aegis_execution VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_syscall__sys_handle_caller FALSE FALSE FALSE FALSE TRUE aegis_syscall VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__sub FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_contract__encode_address FALSE FALSE FALSE FALSE TRUE aegis_contract VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_vm_types__get_discount FALSE FALSE FALSE FALSE TRUE aegis_vm_types VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_execution__finalize_revert FALSE FALSE FALSE FALSE TRUE aegis_execution VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_gas__has_gas FALSE FALSE FALSE FALSE TRUE aegis_gas VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__mul64 FALSE FALSE FALSE FALSE TRUE aegis_u256 PRIVATE_PART
+GG EK_FLOW_SCOPE aegis_syscall__sys_handle_delegatecall FALSE FALSE FALSE FALSE TRUE aegis_syscall VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256 TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE aegis_u256__gas_to_u256 FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_contract TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE aegis_gas__gas_memory_expansion FALSE FALSE FALSE FALSE TRUE aegis_gas VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_contract__decode_address FALSE FALSE FALSE FALSE TRUE aegis_contract VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_syscall__sys_handle_address FALSE FALSE FALSE FALSE TRUE aegis_syscall VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__equal FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__shift_right FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_execution__enter_call FALSE FALSE FALSE FALSE TRUE aegis_execution VISIBLE_PART
+GG EK_END_MARKER

@@ -1,0 +1,320 @@
+V "GNAT Lib v14"
+A -O0
+A -gnatA
+A -gnatwa
+A -gnatQ
+A -gnata
+A -gnatf
+A -gnatyM120
+A -gnatyO
+A -gnat2012
+A -g
+A -gnateE
+A -fstack-check=specific
+A -mmacosx-version-min=16.0.0
+A -mcpu=apple-m1
+A -mlittle-endian
+A -mabi=lp64
+A -fPIC
+P ZX
+
+RN
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+
+U khepri_manifest%b	khepri_manifest.adb	df675bea NE OO PK
+Z system.assertions%s	s-assert.adb		s-assert.ali
+
+U khepri_manifest%s	khepri_manifest.ads	a9bc7dcb EE NE OO PK
+W aegis_vm_types%s	aegis_vm_types.ads	aegis_vm_types.ali
+W interfaces%s		interfac.ads		interfac.ali
+W khepri_certification%s  khepri_certification.adb  khepri_certification.ali
+W khepri_types%s	khepri_types.adb	khepri_types.ali
+
+D ada.ads		20240808082856 76789da1 ada%s
+D a-assert.ads		20240808082856 ba465f5c ada.assertions%s
+D a-unccon.ads		20240808082856 0e9b276f ada.unchecked_conversion%s
+D aegis_u256.ads	20251207191105 ff2dfe4b aegis_u256%s
+D aegis_vm_types.ads	20251207191105 dcd101d9 aegis_vm_types%s
+D interfac.ads		20240808082856 9111f9c1 interfaces%s
+D khepri_certification.ads  20251207191107 853714ad khepri_certification%s
+D khepri_manifest.ads	20251207191107 67b81353 khepri_manifest%s
+D khepri_manifest.adb	20251207191107 b8df48b9 khepri_manifest%b
+D khepri_types.ads	20251207191106 06f3822d khepri_types%s
+D system.ads		20240808082856 70765b54 system%s
+D s-assert.ads		20240808082856 9c4520c7 system.assertions%s
+D s-exctab.ads		20240808082856 91bef6ef system.exception_table%s
+D s-stalib.ads		20240808082856 1c9580f6 system.standard_library%s
+G a e
+G c Z s s [contract_metadataIP khepri_manifest 79 9 none]
+G c Z s b [parse_manifest khepri_manifest 272 14 none]
+G c Z s b [serialize_manifest khepri_manifest 280 14 none]
+G c Z s b [validate_manifest khepri_manifest 290 13 none]
+G c Z s b [calculate_checksum khepri_manifest 296 13 none]
+G c Z s b [get_function khepri_manifest 302 13 none]
+G c Z s b [get_event khepri_manifest 309 13 none]
+G c Z s b [get_wcet_bound khepri_manifest 316 13 none]
+G c Z s b [create_builder khepri_manifest 330 13 none]
+G c Z s b [set_metadata khepri_manifest 334 14 none]
+G c Z s b [add_function khepri_manifest 341 14 none]
+G c Z s b [add_event khepri_manifest 349 14 none]
+G c Z s b [set_certification khepri_manifest 357 14 none]
+G c Z s b [add_dependency khepri_manifest 364 14 none]
+G c Z s b [build khepri_manifest 372 13 none]
+G c Z s s [manifest_headerIP khepri_manifest 39 9 none]
+G c Z s s [function_paramIP khepri_manifest 144 9 none]
+G c Z s s [Tparam_arrayBIP khepri_manifest 153 4 none]
+G c Z s s [function_abiIP khepri_manifest 156 9 none]
+G c Z s s [event_abiIP khepri_manifest 169 9 none]
+G c Z s s [error_abiIP khepri_manifest 178 9 none]
+G c Z s s [Tfunction_arrayBIP khepri_manifest 194 4 none]
+G c Z s s [Tevent_arrayBIP khepri_manifest 195 4 none]
+G c Z s s [Terror_arrayBIP khepri_manifest 196 4 none]
+G c Z s s [abi_specificationIP khepri_manifest 199 9 none]
+G c Z s s [wcet_entryIP khepri_manifest 213 9 none]
+G c Z s s [Twcet_arrayBIP khepri_manifest 221 4 none]
+G c Z s s [certification_dataIP khepri_manifest 224 9 none]
+G c Z s s [dependency_entryIP khepri_manifest 238 9 none]
+G c Z s s [Tdependency_arrayBIP khepri_manifest 247 4 none]
+G c Z s s [dependencies_sectionIP khepri_manifest 250 9 none]
+G c Z s s [contract_manifestIP khepri_manifest 259 9 none]
+G c Z s s [manifest_builderIP khepri_manifest 377 9 none]
+X 5 aegis_vm_types.ads
+21K9*Aegis_VM_Types 279e19 8|4w6 4r26
+31M12*Byte{6|70M9} 9|137r32 138r32 139r32 140r32 170r21
+32A9*Byte_Array(31M12)<integer> 8|273r22 282r22 9|10r22 128r22
+34M12*Word32{6|81M9} 8|33r30 36r32 40r25 41r25 42r25 43r25 44r25 45r25 46r25
+. 47r25 48r25 53r33 54r33 55r33 56r33 57r33 58r33 9|107r18 109r19 110r19
+. 111r19 112r19
+35M12*Word64{6|84M9} 8|99r24 100r24
+56A9*Hash256(31M12)<integer> 8|49r25 171r21 228r26 229r26 230r26 298r13 311r19
+. 9|166r13 167r16 209r19
+70A9*Contract_Address(31M12)<integer>
+101I9*Gas_Amount<long_integer> 8|164r21 165r21 216r26 319r13 9|234r13
+X 6 interfac.ads
+38K9*Interfaces 233e15 8|3w6 3r22
+70M9*Unsigned_8
+81M9*Unsigned_32
+84M9*Unsigned_64
+X 7 khepri_certification.ads
+28K9*Khepri_Certification 325e25 8|6w6 6r32 242r27
+36E9*Certification_Level 42e5 8|242r48
+37n7*Level_None{36E9} 9|93r37 328r40
+100R9*Certification_Status 110e14 8|225r26
+113r4*Uncertified_Status{100R9} 9|76r33 311r36
+X 8 khepri_manifest.ads
+24K9*Khepri_Manifest 146r20 377E9 382l5 382e20 9|3b14 412l5 412t20
+33m4*Manifest_Magic{5|34M12} 9|114r22 152r35 253r35
+36m4*Manifest_Version{5|34M12} 9|157r36 254r35
+39R9*Manifest_Header 50e14 260r22
+40m7*Magic{5|34M12} 9|18m13 119m26 137r54 138r55 139r55 140r55 152r26 170r43
+. 253m16
+41m7*Version{5|34M12} 9|19m13 157r26 254m16
+42m7*Flags{5|34M12} 9|20m13 255m16
+43m7*Header_Size{5|34M12} 9|21m13 256m16
+44m7*Metadata_Offset{5|34M12} 9|22m13 257m16
+45m7*ABI_Offset{5|34M12} 9|23m13 258m16
+46m7*Cert_Offset{5|34M12} 9|24m13 259m16
+47m7*Deps_Offset{5|34M12} 9|25m13 260m16
+48m7*Total_Size{5|34M12} 9|26m13 261m16
+49a7*Checksum{5|56A9} 9|27m13 262m16
+53m4*Has_Certification{5|34M12}
+54m4*Has_WCET_Bounds{5|34M12}
+55m4*Has_CT_Analysis{5|34M12}
+56m4*Has_Audit_Report{5|34M12}
+57m4*Is_Upgradeable{5|34M12}
+58m4*Is_Library{5|34M12}
+65N4*Max_Name_Length 72r40
+66N4*Max_Version_Length 73r43
+67N4*Max_Author_Length 74r42
+68N4*Max_License_Length 75r43
+69N4*Max_URL_Length 76r39
+72A12*Name_String{string}<integer>
+73A12*Version_String{string}<integer>
+74A12*Author_String{string}<integer>
+75A12*License_String{string}<integer>
+76A12*URL_String{string}<integer>
+79R9*Contract_Metadata 101e14 103r30 261r22 336r25 9|339r25
+81r7*Name{10|335R9} 104m7
+82r7*Symbol{10|335R9} 105m7
+83i7*Version_Major{natural} 106m7
+84i7*Version_Minor{natural} 107m7
+85i7*Version_Patch{natural} 108m7
+88r7*Author{10|335R9} 109m7
+89r7*License{10|335R9} 110m7
+90r7*Homepage{10|335R9} 111m7
+91r7*Repository{10|335R9} 112m7
+94r7*Compiler_Version{10|335R9} 113m7
+95r7*SPARK_Version{10|335R9} 114m7
+96r7*Target_Arch{10|335R9} 115m7
+99m7*Created_At{5|35M12} 116m7
+100m7*Updated_At{5|35M12} 117m7
+103r4*Empty_Metadata{79R9} 9|29r26 264r29
+125E9*Function_Mutability 130e5 159r21
+126n7*Mutability_Pure{125E9} 9|34r31 189r25 269r34
+127n7*Mutability_View{125E9}
+128n7*Mutability_Nonpayable{125E9}
+129n7*Mutability_Payable{125E9}
+133E9*Param_Type 141e5 146r36
+134n7*Type_U256{133E9} 9|37r33 43r33 56r33 68r33 192r27 198r27 223r27 272r36
+. 278r36 291r36 303r36
+135n7*Type_Address{133E9}
+136n7*Type_Bool{133E9}
+137n7*Type_Bytes32{133E9}
+138n7*Type_Bytes{133E9}
+139n7*Type_String{133E9}
+140n7*Type_Array{133E9}
+144R9*Function_Param 148e14 153r47
+145r7*Name{10|335R9} 9|36m19 42m19 55m19 67m19 191m13 197m13 222m13 271m22
+. 277m22 290m22 302m22
+146e7*Param_Type{133E9} 9|37m19 43m19 56m19 68m19 192m13 198m13 223m13 272m22
+. 278m22 291m22 303m22
+147b7*Indexed{boolean} 9|38m19 44m19 57m19 69m19 193m13 199m13 224m13 273m22
+. 279m22 292m22 304m22
+151N4*Max_Params 152r35
+152I9*Param_Index<short_short_integer> 153r31
+153A9*Param_Array(144R9)<152I9> 160r21 162r21 172r21 181r21
+156R9*Function_ABI 166e14 194r53 305r13 343r24 9|177r13 347r24
+157r7*Name{10|335R9} 9|32m16 187m10 267m19
+158a7*Selector{10|317A9} 9|33m16 180r57 188m10 268m19
+159e7*Mutability{125E9} 9|34m16 189m10 269m19
+160a7*Inputs{153A9} 9|35m16 190m10 270m19
+161i7*Input_Count{natural} 9|40m16 195m10 275m19
+162a7*Outputs{153A9} 9|41m16 196m10 276m19
+163i7*Output_Count{natural} 9|46m16 201m10 281m19
+164i7*Gas_Estimate{5|101I9} 9|47m16 202m10 282m19
+165i7*WCET_Bound{5|101I9} 9|48m16 203m10 283m19
+169R9*Event_ABI 175e14 195r47 312r13 351r24 9|210r13 365r24
+170r7*Name{10|335R9} 9|52m16 219m10 287m19
+171a7*Signature{5|56A9} 9|53m16 213r51 220m10 288m19
+172a7*Params{153A9} 9|54m16 221m10 289m19
+173i7*Param_Count{natural} 9|59m16 226m10 294m19
+174b7*Anonymous{boolean} 9|60m16 227m10 295m19
+178R9*Error_ABI 183e14 196r47
+179r7*Name{10|335R9} 9|64m16 299m19
+180a7*Selector{10|317A9} 9|65m16 300m19
+181a7*Params{153A9} 9|66m16 301m19
+182i7*Param_Count{natural} 9|71m16 306m19
+186N4*Max_Functions 190r38 220r34 9|351r49
+187N4*Max_Events 191r35 9|369r46
+188N4*Max_Errors 192r35
+190I9*Function_Index<short_short_integer> 194r34 9|180r37 181r44 357r10
+191I9*Event_Index<short_short_integer> 195r31 9|213r34 214r41 375r10
+192I9*Error_Index<short_short_integer> 196r31
+194A9*Function_Array(156R9)<190I9> 200r24
+195A9*Event_Array(169R9)<191I9> 202r24
+196A9*Error_Array(178R9)<192I9> 204r24
+199R9*ABI_Specification 206e14 262r22
+200a7*Functions{194A9} 9|31m13 180r26 181r33 266m16 356m28
+201i7*Function_Count{natural} 9|50m13 179r34 285m16 351r31 357r47 358m28
+. 359r31
+202a7*Events{195A9} 9|51m13 213r26 214r33 286m16 374m28
+203i7*Event_Count{natural} 9|62m13 212r34 297m16 369r31 375r44 376m28 377r31
+204a7*Errors{196A9} 9|63m13 298m16
+205i7*Error_Count{natural} 9|73m13 308m16
+213R9*WCET_Entry 218e14 221r45
+214a7*Function_Selector{10|317A9} 9|78m16 237r65 313m19
+215i7*Cycles{natural} 9|79m16 314m19
+216i7*Gas_Bound{5|101I9} 9|80m16 238r72 315m19
+217b7*Proven{boolean} 9|81m16 316m19
+220I9*WCET_Index<short_short_integer> 221r30 9|237r49 238r56
+221A9*WCET_Array(213R9)<220I9> 226r26
+224R9*Certification_Data 231e14 263r22 359r24 9|383r24
+225r7*Status{7|100R9} 9|76m13 311m16
+226a7*WCET_Bounds{221A9} 9|77m13 237r36 238r43 312m16
+227i7*WCET_Count{natural} 9|83m13 236r44 318m16
+228a7*Proof_Hash{5|56A9} 9|84m13 319m16
+229a7*CT_Analysis_Hash{5|56A9} 9|85m13 320m16
+230a7*Audit_Hash{5|56A9} 9|86m13 321m16
+238R9*Dependency_Entry 243e14 247r50 366r24 9|391r24
+239r7*Name{10|335R9} 9|90m16 325m19
+240a7*Contract_Address{10|43A12} 9|91m16 326m19
+241r7*Version_Required{10|335R9} 9|92m16 327m19
+242e7*Min_Cert_Level{7|36E9} 9|93m16 328m19
+245N4*Max_Dependencies 246r33 9|395r53
+246I9*Dep_Index<short_short_integer> 247r36 9|401r10
+247A9*Dependency_Array(238R9)<246I9> 251r20
+250R9*Dependencies_Section 253e14 264r22
+251a7*Deps{247A9} 9|89m13 324m16 400m37
+252i7*Dep_Count{natural} 9|95m13 330m16 395r40 401r51 402m37 403r40
+259R9*Contract_Manifest 265e14 274r22 281r22 291r18 297r18 303r18 310r19
+. 317r18 372r55 378r18 9|11r22 127r22 148r18 165r18 175r18 208r19 232r18
+. 407r55
+260r7*Header{39R9} 9|17m10 119m19 137r47 138r48 139r48 140r48 152r19 157r19
+. 170r36 252m13
+261r7*Metadata{79R9} 9|29m10 264m13 342m24
+262r7*ABI{199R9} 9|30m10 179r30 180r22 181r29 212r30 213r22 214r29 265m13
+. 351r27 356m24 357r43 358m24 359r27 369r27 374m24 375r40 376m24 377r27
+263r7*Certification{224R9} 9|75m10 236r30 237r22 238r29 310m13 386m24
+264r7*Dependencies{250R9} 9|88m10 323m13 395r27 400m24 401r38 402m24 403r27
+272U14*Parse_Manifest 273>7 274<7 275<7 9|9b14 124l8 124t22
+273a7 Data{5|32A9} 9|10b7 100r10 109r27 109r33 110r27 110r33 111r27 111r33
+. 112r27 112r33
+274r7 Manifest{259R9} 9|11b7 16m7 119m10
+275b7 Success{boolean} 9|12b7 101m10 115m13 123m7
+280U14*Serialize_Manifest 281>7 282<7 283<7 284<7 9|126b14 145l8 145t26
+281r7 Manifest{259R9} 9|127b7 137r38 138r39 139r39 140r39
+282a7 Data{5|32A9} 287r17 9|128b7 133m7 137m7 137r13 138m7 138r13 139m7 139r13
+. 140m7 140r13
+283i7 Size{natural} 9|129b7 134m7 143m7
+284b7 Success{boolean} 9|130b7 144m7
+290V13*Validate_Manifest{boolean} 291>7 9|147b13 162l8 162t25
+291r7 Manifest{259R9} 9|148b7 152r10 157r10
+296V13*Calculate_Checksum{5|56A9} 297>7 9|164b13 172l8 172t26
+297r7 Manifest{259R9} 9|165b7 170r27
+302V13*Get_Function{156R9} 303>7 304>7 9|174b13 205l8 205t20
+303r7 Manifest{259R9} 9|175b7 179r21 180r13 181r20
+304a7 Selector{10|317A9} 9|176b7 180r68
+309V13*Get_Event{169R9} 310>7 311>7 9|207b13 229l8 229t17
+310r7 Manifest{259R9} 9|208b7 212r21 213r13 214r20
+311a7 Signature{5|56A9} 9|209b7 213r63
+316V13*Get_WCET_Bound{5|101I9} 317>7 318>7 9|231b13 242l8 242t22
+317r7 Manifest{259R9} 9|232b7 236r21 237r13 238r20
+318a7 Selector{10|317A9} 9|233b7 237r85
+327R9*Manifest_Builder 330r35 335r25 342r24 350r24 358r24 365r24 372r30 377c9
+. 380e14 9|248r35 338r25 346r24 364r24 382r24 390r24 407r30
+330V13*Create_Builder{327R9} 9|248b13 335l8 335t22
+334U14*Set_Metadata 335=7 336>7 9|337b14 343l8 343t20
+335r7 Builder{327R9} 9|338b7 342m7
+336r7 Metadata{79R9} 9|339b7 342r36
+341U14*Add_Function 342=7 343>7 344<7 9|345b14 361l8 361t20
+342r7 Builder{327R9} 9|346b7 351r10 356m7 357r26 358m7 359r10
+343r7 Func{156R9} 9|347b7 357r67
+344b7 Success{boolean} 9|348b7 352m10 360m7
+349U14*Add_Event 350=7 351>7 352<7 9|363b14 379l8 379t17
+350r7 Builder{327R9} 9|364b7 369r10 374m7 375r23 376m7 377r10
+351r7 Event{169R9} 9|365b7 375r61
+352b7 Success{boolean} 9|366b7 370m10 378m7
+357U14*Set_Certification 358=7 359>7 9|381b14 387l8 387t25
+358r7 Builder{327R9} 9|382b7 386m7
+359r7 Cert{224R9} 9|383b7 386r41
+364U14*Add_Dependency 365=7 366>7 367<7 9|389b14 405l8 405t22
+365r7 Builder{327R9} 9|390b7 395r10 400m7 401r21 402m7 403r10
+366r7 Dep{238R9} 9|391b7 401r66
+367b7 Success{boolean} 9|392b7 396m10 404m7
+372V13*Build{259R9} 372>20 9|407b13 410l8 410t13
+372r20 Builder{327R9} 9|407b20 409r14
+378r7*Manifest{259R9} 9|251m10 342m15 351r18 356m15 357r34 358m15 359r18
+. 369r18 374m15 375r31 376m15 377r18 386m15 395r18 400m15 401r29 402m15 403r18
+. 409r22
+379b7*Is_Valid{boolean} 9|333m10
+X 9 khepri_manifest.adb
+107m10 Magic{5|34M12} 109m10 114r13 119r35
+167a7 Result{5|56A9} 170m7 171r14
+179i11 I{integer} 180r53 181r60
+212i11 I{integer} 213r47 214r54
+236i11 I{integer} 237r61 238r68
+X 10 khepri_types.ads
+25K9*Khepri_Types 8|5w6 5r24 10|345e17
+43A12*Address{5|70A9}<integer> 8|240r27
+317A9*Bytes4(5|31M12)<integer> 8|158r21 180r21 214r27 304r18 318r18 9|176r18
+. 233r18
+335R9*Bounded_String 8|81r24 82r24 88r24 89r24 90r24 91r24 94r26 95r26 96r26
+. 145r20 157r21 170r21 179r21 239r27 241r27 10|338e14
+340r4*Empty_String{335R9} 8|104r25 105r25 109r25 110r25 111r25 112r25 113r27
+. 114r27 115r27 9|32r31 36r33 42r33 52r31 55r33 64r31 67r33 90r37 92r37 187r25
+. 191r27 197r27 219r25 222r27 267r34 271r36 277r36 287r34 290r36 299r34 302r36
+. 325r40 327r40
+

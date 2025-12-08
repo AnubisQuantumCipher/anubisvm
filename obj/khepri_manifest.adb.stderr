@@ -1,0 +1,4 @@
+khepri_manifest.adb:134:07: warning: useless assignment to "Size", value overwritten at line 143 [-gnatwm]
+khepri_manifest.ads:3:06: warning: no entities of "Interfaces" are referenced in spec [-gnatwu]
+khepri_manifest.ads:3:06: warning: with clause might be moved to body [-gnatwu]
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]

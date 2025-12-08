@@ -1,0 +1,426 @@
+V "GNAT Lib v14"
+A -x
+A ada
+A -gnatA
+A -gnat2022
+A -gnatwa
+A -gnatyO
+A -gnatVa
+A -gnatw.F
+A -gnata
+A -O2
+A -gnatn
+A -ffunction-sections
+A -fdata-sections
+A -gnatc
+A -fPIC
+P GP
+
+RN
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_ELABORATION_CODE
+
+U sphinx_lite_account%b	sphinx_lite_account.adb	81cc39d9 OO PK
+
+U sphinx_lite_account%s	sphinx_lite_account.ads	32a35769 OO PK
+W aegis_u256%s		aegis_u256.adb		aegis_u256.ali
+W aegis_vm_types%s	aegis_vm_types.ads	aegis_vm_types.ali
+W interfaces%s		interfac.ads		interfac.ali
+W sphinx_lite_types%s	sphinx_lite_types.adb	sphinx_lite_types.ali
+
+D aegis_u256.ads	20251205185917 ff2dfe4b aegis_u256%s
+D aegis_vm_types.ads	20251205185836 dcd101d9 aegis_vm_types%s
+D interfac.ads		20240601155135 9111f9c1 interfaces%s
+D sphinx_lite_account.ads  20251207120709 5e4ac13a sphinx_lite_account%s
+D sphinx_lite_account.adb  20251207120307 df86f8e3 sphinx_lite_account%b
+D sphinx_lite_types.ads	20251207120227 de049000 sphinx_lite_types%s
+D system.ads		20240601155135 70765b54 system%s
+G a Z
+X 1 aegis_u256.ads
+21K9*Aegis_U256 276e15 4|20w6 20r22
+X 2 aegis_vm_types.ads
+21K9*Aegis_VM_Types 279e19 4|19w6 19r26
+41R9*U256 43e14 4|48r22 148r25 5|157r25
+46r4*U256_Zero{41R9} 4|57r23
+56A9*Hash256(31M12)<integer> 4|50r22 51r22 69r15 70r15 89r23 111r25 127r25
+. 138r25 149r25 171r26 172r26 184r26 198r26 206r37 220r26 233r69 237r45 237r61
+. 242r24 243r24 245r24 5|16r27 28r58 29r16 37r37 37r53 38r16 47r43 47r59
+. 48r16 50r16 61r25 88r25 93r31 114r36 123r25 127r29 158r25 164r22 240r26
+. 241r26 247r22 273r26 298r34 313r26 338r37 358r26 388r69 397r45 397r61 407r24
+. 408r24 410r24 413r17
+70A9*Contract_Address(31M12)<integer> 4|47r22 126r25 147r25 219r26 233r44
+. 5|28r33 87r25 156r25 357r26 388r44
+X 3 interfac.ads
+38K9*Interfaces 233e15 4|18w6 18r22
+70M9*Unsigned_8 4|259r83 5|425r42 462r25 476r25
+84M9*Unsigned_64 4|49r22 90r23 112r25 199r26 210r38 221r26 5|17r27 62r25
+. 314r26 347r38 359r26 500r19 520r25
+91V13*Shift_Left{70M9} 5|425s30
+166V13*Shift_Left{84M9} 5|520s13
+171V13*Shift_Right{84M9} 5|463s13
+X 4 sphinx_lite_account.ads
+23K9*Sphinx_Lite_Account 296l5 296e24 5|5b14 582l5 582t24
+25@22*Account_State 26r19 114r28 118r17 162r28 203r28 207r17 211r17 285r17
+. 289r17 293r17 5|7r22
+34N4*Max_Account_Proof_Size 257r72 294r46 5|575r48 576r17
+37N4*Max_Storage_Slots 80r38 190r32 5|288r24 294r42
+40N4*Max_RLP_Item_Length
+46R9*Account_State_Data 53e14 55r34 88r23 137r25 170r26 182r26 5|122r25 239r26
+. 271r26
+47a7*Address{2|70A9} 56m7 5|127r69 370m21 468r30 470r39 526r30 528m24
+48r7*Balance{2|41R9} 57m7
+49m7*Nonce{3|84M9} 58m7
+50a7*Code_Hash{2|56A9} 59m7
+51a7*Storage_Root{2|56A9} 60m7 5|255r27 298r18
+52b7*Exists{boolean} 61m7 143r25 178r25 5|211r24
+55r4*Null_Account_State{46R9} 97r24
+68R9*Storage_Slot 72e14 74r33 80r64
+69a7*Key{2|56A9} 75m7
+70a7*Value{2|56A9} 76m7
+71b7*Valid{boolean} 77m7 5|286r23
+74r4*Null_Storage_Slot{68R9}
+80A9*Storage_Slots(68R9)<integer> 183r26 5|272r26
+87R9*Account_Proof 94e14 96r34 159r21 222r26 263r19 273r21 5|192r21 360r26
+. 443r19 496r21
+88r7*Account{46R9} 97m7 5|211r16 213r33 370m13 468r22 470r31 526r22 528m16
+89a7*State_Root{2|56A9} 98m7 5|205r16 214r33 371m13 453r22 455r31 510r22
+. 512m16
+90m7*Block_Number{3|84M9} 99m7 5|372m13 463r32 523m13
+91r7*Proof{6|138R9} 100m7 5|215r33 376m13 377m13 378m13 476r43 534m16
+92r7*Storage_Proof{6|138R9} 101m7
+93b7*Valid{boolean} 102m7 5|199r20 380m13 482r35 540m16
+96r4*Null_Account_Proof{87R9} 5|365r16 502r16
+110U14*Initialize 111>7 112>7 5|60b14 71l8 71t18
+111a7 Trusted_Root{2|56A9} 5|61b7 65r29
+112m7 Block_Number{3|84M9} 5|62b7 66r30
+117V13*Is_Initialized{boolean} 5|77b13 80l8 80t22
+125U14*Verify_Account_Existence 126>7 127>7 128>7 129<7 130<7 5|86b14 115l8
+. 115t32
+126a7 Address{2|70A9} 5|87b7 93r63
+127a7 State_Root{2|56A9} 5|88b7 102r19
+128r7 Proof{6|138R9} 133r17 5|89b7 103r19 114r17
+129b7 Exists{boolean} 5|90b7 96m7 114m7
+130e7 Error{6|217E9} 5|91b7 97m7 109m10
+136U14*Verify_Account_State 137>7 138>7 139>7 140<7 5|121b14 149l8 149t28
+. 212s10
+137r7 Account{46R9} 143r17 5|122b7 127r61
+138a7 State_Root{2|56A9} 5|123b7 135r19
+139r7 Proof{6|138R9} 143r41 5|124b7 134r19 136r19
+140r7 Result{6|237R9} 5|125b7 130m7 142m10 148m7
+146U14*Verify_Balance 147>7 148>7 149>7 150>7 151<7 152<7 5|155b14 185l8
+. 185t22
+147a7 Address{2|70A9} 5|156b7 164r54
+148r7 Balance{2|41R9} 5|157b7 163r28
+149a7 State_Root{2|56A9} 5|158b7 172r19
+150r7 Proof{6|138R9} 155r17 5|159b7 171r19 173r19
+151b7 Valid{boolean} 5|160b7 166m7 175m19 178r14 184m7
+152e7 Error{6|217E9} 5|161b7 167m7 179m10
+158U14*Verify_Account_Proof 159>7 160<7 5|191b14 232l8 232t28
+159r7 Proof{87R9} 5|192b7 199r14 205r10 211r10 213r27 214r27 215r27
+160r7 Result{6|237R9} 5|193b7 196m7 200m10 206m10 216m27 219m10 227r10
+169U14*Verify_Storage_Slot 170>7 171>7 172>7 173>7 174<7 175<7 5|238b14 264l8
+. 264t27
+170r7 Account{46R9} 178r17 5|239b7 255r19
+171a7 Slot_Key{2|56A9} 5|240b7 247r54
+172a7 Slot_Value{2|56A9} 5|241b7 246r28
+173r7 Storage_Proof{6|138R9} 178r41 5|242b7 254r19 256r19
+174b7 Valid{boolean} 5|243b7 249m7 258m19 261r14
+175e7 Error{6|217E9} 5|244b7 250m7 262m10
+181U14*Verify_Storage_Slots 182>7 183>7 184>7 185>7 186<7 187<7 5|270b14
+. 306l8 306t28
+182r7 Account{46R9} 5|271b7 298r10
+183a7 Slots{80A9} 5|272b7 285r16 286r13
+184a7 Storage_Root{2|56A9} 5|273b7 278r28
+185r7 Proof{6|138R9} 5|274b7 278r42
+186i7 Valid_Count{natural} 190r17 5|275b7 281m7 305m7
+187e7 Error{6|217E9} 5|276b7 282m7 300m13
+197U14*Update_Trusted_Root 198>7 199>7 200<7 201<7 5|312b14 332l8 332t27
+198a7 New_Root{2|56A9} 5|313b7 329r29
+199m7 Block_Number{3|84M9} 5|314b7 323r10 330r30
+200b7 Success{boolean} 5|315b7 319m7 331m7
+201e7 Error{6|217E9} 5|316b7 320m7 324m10
+206V13*Get_Trusted_Root{2|56A9} 5|338b13 341l8 341t24
+210V13*Get_Trusted_Block{3|84M9} 5|347b13 350l8 350t25
+218U14*Create_Account_Proof 219>7 220>7 221>7 222<7 223<7 224<7 5|356b14
+. 382l8 382t28
+219a7 Address{2|70A9} 5|357b7 370r32 376r53
+220a7 State_Root{2|56A9} 5|358b7 371r27 377r27
+221m7 Block_Number{3|84M9} 5|359b7 372r29
+222r7 Proof{87R9} 5|360b7 365m7 370m7 371m7 372m7 376m7 377m7 378m7 380m7
+223b7 Success{boolean} 5|361b7 366m7 381m7
+224e7 Error{6|217E9} 5|362b7 367m7
+233V13*Compute_Account_Key{2|56A9} 233>34 5|93s42 127s40 164s33 376s32 388b13
+. 391l8 391t27
+233a34 Address{2|70A9} 5|388b34 390r27
+237V13*Compute_Storage_Key{2|56A9} 237>34 5|247s33 397b13 400l8 400t27
+237a34 Slot_Key{2|56A9} 5|397b34 399r31
+241U14*Verify_Merkle_Branch 242>7 243>7 244>7 245>7 246<7 5|100s7 133s7 170s7
+. 253s7 406b14 436l8 436t28
+242a7 Leaf{2|56A9} 5|407b7 413r28
+243a7 Root{2|56A9} 5|408b7 435r26
+244r7 Proof{6|138R9} 249r17 5|409b7 419r21 427r49 430r40
+245a7 Key{2|56A9} 5|410b7 425r14
+246b7 Valid{boolean} 5|411b7 416m7 435m7
+256N4*Account_Proof_Header_Size 257r44
+257N4*Max_Serialized_Proof_Size 259r49 277r25 5|454r27 461r27 469r27 475r16
+. 481r16
+259A9*Serialized_Account_Proof(3|70M9)<integer> 264r19 271r21 5|444r19 494r21
+262U14*Serialize_Account_Proof 263>7 264<7 265<7 5|442b14 487l8 487t31
+263r7 Proof{87R9} 5|443b7 453r16 455r25 463r26 468r16 470r25 476r37 482r29
+264a7 Bytes{259A9} 5|444b7 449m7 455m10 462m10 470m10 476m10 482m10
+265i7 Size{natural} 5|445b7 450m7 486m7
+270U14*Deserialize_Account_Proof 271>7 272>7 273<7 274<7 5|493b14 544l8 544t33
+271a7 Bytes{259A9} 5|494b7 512r34 520r38 528r39 534r40 540r25
+272i7 Size{natural} 277r17 5|495b7 505r10 511r27 518r27 527r27 533r16 539r16
+273r7 Proof{87R9} 5|496b7 502m7 510r16 512m10 523m7 526r16 528m10 534m10
+. 540m10
+274b7 Success{boolean} 5|497b7 503m7 543m7
+284V13*Total_Proofs_Verified{natural} 5|550b13 553l8 553t29
+288V13*Successful_Verifications{natural} 5|559b13 562l8 562t32
+292V13*Average_Proof_Size{natural} 294r17 5|568b13 580l8 580t26
+X 5 sphinx_lite_account.adb
+16a4 Trusted_Root_State{2|56A9} 8r7 65m7 205r30 329m7 340r14
+17m4 Trusted_Block_State{3|84M9} 8r27 66m7 323r26 330m7 349r14
+18b4 Initialized_Flag{boolean} 8r48 70m7 79r14
+19i4 Proofs_Verified{natural} 9r7 67m7 223r10 224m10 224r29 552r14 570r10
+. 575r30 578r37
+20i4 Proofs_Successful{natural} 9r24 68m7 228r13 229m13 229r34 561r14
+21i4 Total_Proof_Bytes{natural} 9r43 69m7 575r10 578r17
+28V13 Simple_Hash{2|56A9} 35l8 35t19 390s14
+28a26 Data{2|70A9} 31r16 32r53
+29a7 Result{2|56A9} 32m10 32r31 34r14
+31i11 I{integer} 32r18 32r39 32r59
+37V13 Simple_Hash_256{2|56A9} 44l8 44t23 53s14 399s14 53s14 53s14
+37a30 Data{2|56A9} 40r16 41r65
+38a7 Result{2|56A9} 41m10 41r37 43r14
+40i11 I{integer} 41r19 41r46 41r71
+47V13 Combine_Hashes{2|56A9} 54l8 54t22 427s24 430s24
+47a29 Left{2|56A9} 51r24
+47a35 Right{2|56A9} 51r37
+48a7 Result{2|56A9} 51m10 53r31
+50i11 I{integer} 51r18 51r30 51r44
+93a7 Key{2|56A9} 101r19 104r19
+94b7 Valid{boolean} 105m19 108r14
+127a7 Key{2|56A9} 137r19
+128b7 Valid{boolean} 138m19 141r14
+164a7 Key{2|56A9} 174r19
+247a7 Key{2|56A9} 257r19
+279i7 Count{natural} 288r16 289m16 289r25 293r33 294r33 299r13 305r22
+285i11 I{integer} 286r20 293r42
+413a7 Current{2|56A9} 427m13 427r40 430m13 430r61 435r16
+414i7 Bit_Pos{natural} 422m10 425r58
+419i11 I{integer} 420r20 422r21 425r19 427r61 430r52
+447i7 Idx{natural} 454r20 455r17 456m10 456r17 461r20 462r17 464m10 464r17
+. 469r20 470r17 471m10 471r17 475r10 476r17 477m10 477r17 481r10 482r17 483m10
+. 483r17 486r15
+453i11 I{integer} 455r43
+460i11 I{integer} 463r46
+468i11 I{integer} 470r48
+499i7 Idx{natural} 511r20 512r41 513m10 513r17 518r20 520r45 521m10 521r17
+. 527r20 528r46 529m10 529r17 533r10 534r47 535m10 535r17 539r10 540r32
+500m7 Block_Num{3|84M9} 519m10 519r23 523r29
+510i11 I{integer} 512r28
+517i11 I{integer} 520r52
+526i11 I{integer} 528r33
+X 6 sphinx_lite_types.ads
+22K9*Sphinx_Lite_Types 4|21w6 21r29 5|148r17 219r20 6|275e22
+37N4*Max_Proof_Depth 4|133r32 143r56 155r32 178r64 249r32 5|420r25
+126a7*Hash{2|56A9} 5|427r64 430r55
+135A9*Proof_Path(125R9)<integer>
+138R9*Merkle_Proof 4|91r23 92r23 128r25 139r25 150r25 173r26 185r26 244r24
+. 5|89r25 124r25 159r25 242r26 274r26 409r24 6|144e14
+139a7*Path{135A9} 5|427r55 430r46
+140i7*Depth{natural} 4|133r23 143r47 155r23 178r55 249r23 5|378m19 419r27
+. 476r49 534m22
+141a7*Leaf_Hash{2|56A9} 5|114r23 134r25 171r25 254r33 376m19
+142a7*Root{2|56A9} 5|377m19
+146r4*Null_Merkle_Proof{138R9} 4|100r24 101r24
+217E9*Sphinx_Lite_Error 4|130r25 152r25 175r26 187r26 201r26 224r26 5|91r25
+. 161r25 244r26 276r26 316r26 362r26 6|231e5
+218n7*Error_None{217E9} 5|97r16 130r45 167r16 196r45 250r16 282r16 320r16
+. 367r16
+222n7*Error_Invalid_Proof{217E9} 5|109r19 142r26 179r19 200r26 262r19 300r22
+228n7*Error_Invalid_Block_Number{217E9} 5|324r19
+230n7*Error_State_Root_Mismatch{217E9} 5|206r26
+237R9*Verification_Result 4|140r25 160r21 5|125r25 193r21 6|240e14
+238b7*Success{boolean} 5|130m18 196m18 227r17
+239e7*Error{217E9} 5|130m36 142m17 196m36 200m17 206m17
+242r4*Success_Result{237R9} 5|148r35 219r38
+
+QQ SPARKVERSION 0.0w
+GG EK_STATE_MAP sphinx_lite_account__account_state 6 sphinx_lite_account__trusted_root_state sphinx_lite_account__trusted_block_state sphinx_lite_account__initialized_flag sphinx_lite_account__proofs_verified sphinx_lite_account__proofs_successful sphinx_lite_account__total_proof_bytes
+GG EK_DIRECT_CALLS sphinx_lite_account__initialize 0
+GG EK_PROOF_DEPENDENCIES sphinx_lite_account__initialize 0
+GG EK_GLOBALS sphinx_lite_account__initialize local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 sphinx_lite_account proper_proof_in 0 proper_input 0 proper_output 1 sphinx_lite_account__account_state refined_proof_in 0 refined_input 0 refined_output 6 sphinx_lite_account__trusted_root_state sphinx_lite_account__trusted_block_state sphinx_lite_account__initialized_flag sphinx_lite_account__proofs_verified sphinx_lite_account__proofs_successful sphinx_lite_account__total_proof_bytes calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 6 sphinx_lite_account__trusted_root_state sphinx_lite_account__trusted_block_state sphinx_lite_account__initialized_flag sphinx_lite_account__proofs_verified sphinx_lite_account__proofs_successful sphinx_lite_account__total_proof_bytes LOCKS 0
+GG EK_DIRECT_CALLS sphinx_lite_account__is_initialized 0
+GG EK_PROOF_DEPENDENCIES sphinx_lite_account__is_initialized 0
+GG EK_GLOBALS sphinx_lite_account__is_initialized local FALSE E_FUNCTION FALSE ORIGIN_FLOW 1 sphinx_lite_account proper_proof_in 0 proper_input 1 sphinx_lite_account__account_state proper_output 0 refined_proof_in 0 refined_input 1 sphinx_lite_account__initialized_flag refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 1 sphinx_lite_account__initialized_flag LOCKS 0
+GG EK_DIRECT_CALLS sphinx_lite_account__verify_account_existence 2 sphinx_lite_account__compute_account_key sphinx_lite_account__verify_merkle_branch
+GG EK_PROOF_DEPENDENCIES sphinx_lite_account__verify_account_existence 0
+GG EK_GLOBALS sphinx_lite_account__verify_account_existence local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 sphinx_lite_account proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS sphinx_lite_account__verify_account_state 2 sphinx_lite_account__compute_account_key sphinx_lite_account__verify_merkle_branch
+GG EK_PROOF_DEPENDENCIES sphinx_lite_account__verify_account_state 0
+GG EK_GLOBALS sphinx_lite_account__verify_account_state local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 sphinx_lite_account proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS sphinx_lite_account__verify_balance 2 sphinx_lite_account__compute_account_key sphinx_lite_account__verify_merkle_branch
+GG EK_PROOF_DEPENDENCIES sphinx_lite_account__verify_balance 0
+GG EK_GLOBALS sphinx_lite_account__verify_balance local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 sphinx_lite_account proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS sphinx_lite_account__verify_account_proof 1 sphinx_lite_account__verify_account_state
+GG EK_PROOF_DEPENDENCIES sphinx_lite_account__verify_account_proof 0
+GG EK_GLOBALS sphinx_lite_account__verify_account_proof local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 sphinx_lite_account proper_proof_in 0 proper_input 1 sphinx_lite_account__account_state proper_output 1 sphinx_lite_account__account_state refined_proof_in 0 refined_input 3 sphinx_lite_account__trusted_root_state sphinx_lite_account__proofs_verified sphinx_lite_account__proofs_successful refined_output 2 sphinx_lite_account__proofs_verified sphinx_lite_account__proofs_successful calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 3 sphinx_lite_account__trusted_root_state sphinx_lite_account__proofs_verified sphinx_lite_account__proofs_successful LOCKS 0
+GG EK_DIRECT_CALLS sphinx_lite_account__verify_storage_slot 2 sphinx_lite_account__compute_storage_key sphinx_lite_account__verify_merkle_branch
+GG EK_PROOF_DEPENDENCIES sphinx_lite_account__verify_storage_slot 0
+GG EK_GLOBALS sphinx_lite_account__verify_storage_slot local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 sphinx_lite_account proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS sphinx_lite_account__verify_storage_slots 0
+GG EK_PROOF_DEPENDENCIES sphinx_lite_account__verify_storage_slots 0
+GG EK_GLOBALS sphinx_lite_account__verify_storage_slots local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 sphinx_lite_account proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS sphinx_lite_account__update_trusted_root 0
+GG EK_PROOF_DEPENDENCIES sphinx_lite_account__update_trusted_root 0
+GG EK_GLOBALS sphinx_lite_account__update_trusted_root local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 sphinx_lite_account proper_proof_in 0 proper_input 1 sphinx_lite_account__account_state proper_output 1 sphinx_lite_account__account_state refined_proof_in 0 refined_input 2 sphinx_lite_account__trusted_root_state sphinx_lite_account__trusted_block_state refined_output 2 sphinx_lite_account__trusted_root_state sphinx_lite_account__trusted_block_state calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 2 sphinx_lite_account__trusted_root_state sphinx_lite_account__trusted_block_state LOCKS 0
+GG EK_DIRECT_CALLS sphinx_lite_account__get_trusted_root 0
+GG EK_PROOF_DEPENDENCIES sphinx_lite_account__get_trusted_root 0
+GG EK_GLOBALS sphinx_lite_account__get_trusted_root local FALSE E_FUNCTION FALSE ORIGIN_FLOW 1 sphinx_lite_account proper_proof_in 0 proper_input 1 sphinx_lite_account__account_state proper_output 0 refined_proof_in 0 refined_input 1 sphinx_lite_account__trusted_root_state refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 1 sphinx_lite_account__trusted_root_state LOCKS 0
+GG EK_DIRECT_CALLS sphinx_lite_account__get_trusted_block 0
+GG EK_PROOF_DEPENDENCIES sphinx_lite_account__get_trusted_block 0
+GG EK_GLOBALS sphinx_lite_account__get_trusted_block local FALSE E_FUNCTION FALSE ORIGIN_FLOW 1 sphinx_lite_account proper_proof_in 0 proper_input 1 sphinx_lite_account__account_state proper_output 0 refined_proof_in 0 refined_input 1 sphinx_lite_account__trusted_block_state refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 1 sphinx_lite_account__trusted_block_state LOCKS 0
+GG EK_DIRECT_CALLS sphinx_lite_account__create_account_proof 1 sphinx_lite_account__compute_account_key
+GG EK_PROOF_DEPENDENCIES sphinx_lite_account__create_account_proof 0
+GG EK_GLOBALS sphinx_lite_account__create_account_proof local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 sphinx_lite_account proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS sphinx_lite_account__compute_account_key 0
+GG EK_PROOF_DEPENDENCIES sphinx_lite_account__compute_account_key 0
+GG EK_GLOBALS sphinx_lite_account__compute_account_key local FALSE E_FUNCTION FALSE ORIGIN_FLOW 1 sphinx_lite_account proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS sphinx_lite_account__compute_storage_key 0
+GG EK_PROOF_DEPENDENCIES sphinx_lite_account__compute_storage_key 0
+GG EK_GLOBALS sphinx_lite_account__compute_storage_key local FALSE E_FUNCTION FALSE ORIGIN_FLOW 1 sphinx_lite_account proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS sphinx_lite_account__verify_merkle_branch 1 interfaces__shift_left
+GG EK_PROOF_DEPENDENCIES sphinx_lite_account__verify_merkle_branch 0
+GG EK_GLOBALS sphinx_lite_account__verify_merkle_branch local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 sphinx_lite_account proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS sphinx_lite_account__serialize_account_proof 1 interfaces__shift_right__4
+GG EK_PROOF_DEPENDENCIES sphinx_lite_account__serialize_account_proof 0
+GG EK_GLOBALS sphinx_lite_account__serialize_account_proof local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 sphinx_lite_account proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS sphinx_lite_account__deserialize_account_proof 1 interfaces__shift_left__4
+GG EK_PROOF_DEPENDENCIES sphinx_lite_account__deserialize_account_proof 0
+GG EK_GLOBALS sphinx_lite_account__deserialize_account_proof local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 sphinx_lite_account proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS sphinx_lite_account__total_proofs_verified 0
+GG EK_PROOF_DEPENDENCIES sphinx_lite_account__total_proofs_verified 0
+GG EK_GLOBALS sphinx_lite_account__total_proofs_verified local FALSE E_FUNCTION FALSE ORIGIN_FLOW 1 sphinx_lite_account proper_proof_in 0 proper_input 1 sphinx_lite_account__account_state proper_output 0 refined_proof_in 0 refined_input 1 sphinx_lite_account__proofs_verified refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 1 sphinx_lite_account__proofs_verified LOCKS 0
+GG EK_DIRECT_CALLS sphinx_lite_account__successful_verifications 0
+GG EK_PROOF_DEPENDENCIES sphinx_lite_account__successful_verifications 0
+GG EK_GLOBALS sphinx_lite_account__successful_verifications local FALSE E_FUNCTION FALSE ORIGIN_FLOW 1 sphinx_lite_account proper_proof_in 0 proper_input 1 sphinx_lite_account__account_state proper_output 0 refined_proof_in 0 refined_input 1 sphinx_lite_account__proofs_successful refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 1 sphinx_lite_account__proofs_successful LOCKS 0
+GG EK_DIRECT_CALLS sphinx_lite_account__average_proof_size 0
+GG EK_PROOF_DEPENDENCIES sphinx_lite_account__average_proof_size 0
+GG EK_GLOBALS sphinx_lite_account__average_proof_size local FALSE E_FUNCTION FALSE ORIGIN_FLOW 1 sphinx_lite_account proper_proof_in 0 proper_input 1 sphinx_lite_account__account_state proper_output 0 refined_proof_in 0 refined_input 2 sphinx_lite_account__proofs_verified sphinx_lite_account__total_proof_bytes refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 2 sphinx_lite_account__proofs_verified sphinx_lite_account__total_proof_bytes LOCKS 0
+GG EK_DIRECT_CALLS sphinx_lite_account__simple_hash 0
+GG EK_PROOF_DEPENDENCIES sphinx_lite_account__simple_hash 0
+GG EK_GLOBALS sphinx_lite_account__simple_hash local TRUE E_FUNCTION FALSE ORIGIN_FLOW 1 sphinx_lite_account proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS sphinx_lite_account__simple_hash_256 0
+GG EK_PROOF_DEPENDENCIES sphinx_lite_account__simple_hash_256 0
+GG EK_GLOBALS sphinx_lite_account__simple_hash_256 local TRUE E_FUNCTION FALSE ORIGIN_FLOW 1 sphinx_lite_account proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS sphinx_lite_account__combine_hashes 0
+GG EK_PROOF_DEPENDENCIES sphinx_lite_account__combine_hashes 0
+GG EK_GLOBALS sphinx_lite_account__combine_hashes local TRUE E_FUNCTION FALSE ORIGIN_FLOW 1 sphinx_lite_account proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS sphinx_lite_account 0
+GG EK_PROOF_DEPENDENCIES sphinx_lite_account 0
+GG EK_GLOBALS sphinx_lite_account local FALSE E_PACKAGE TRUE ORIGIN_FLOW 0 proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 initializes 1 sphinx_lite_account__account_state refined_initializes 6 sphinx_lite_account__trusted_root_state sphinx_lite_account__trusted_block_state sphinx_lite_account__initialized_flag sphinx_lite_account__proofs_verified sphinx_lite_account__proofs_successful sphinx_lite_account__total_proof_bytes calls_proof 0 calls 0 calls_conditional 0 local_packages 0 local_var 0 TRUE FALSE FALSE FALSE FALSE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_FLOW_SCOPE interfaces__rotate_right__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__mul64 FALSE FALSE FALSE FALSE TRUE aegis_u256 PRIVATE_PART
+GG EK_FLOW_SCOPE aegis_u256 TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE interfaces__rotate_right FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE sphinx_lite_account__verify_balance FALSE FALSE FALSE FALSE TRUE sphinx_lite_account VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_vm_types__get_discount FALSE FALSE FALSE FALSE TRUE aegis_vm_types VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__gas_to_u256 FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE sphinx_lite_account__compute_storage_key FALSE FALSE FALSE FALSE TRUE sphinx_lite_account VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__equal FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__shift_right FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__sub_mod FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__address_to_u256 FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE sphinx_lite_account__verify_merkle_branch FALSE FALSE FALSE FALSE TRUE sphinx_lite_account VISIBLE_PART
+GG EK_FLOW_SCOPE sphinx_lite_account__simple_hash_256 FALSE FALSE FALSE FALSE TRUE sphinx_lite_account BODY_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_vm_types__success_result FALSE FALSE FALSE FALSE TRUE aegis_vm_types VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__mul FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__u256_to_address FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__from_word64 FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE sphinx_lite_account__verify_account_proof FALSE FALSE FALSE FALSE TRUE sphinx_lite_account VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__less_than FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__clz FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_vm_types__failure_result FALSE FALSE FALSE FALSE TRUE aegis_vm_types VISIBLE_PART
+GG EK_FLOW_SCOPE sphinx_lite_types TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE aegis_u256__mul_mod FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__less_than_or_equal FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE sphinx_lite_account__verify_storage_slot FALSE FALSE FALSE FALSE TRUE sphinx_lite_account VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_vm_types TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__ctz FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__div_mod FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_vm_types__initial_gas_context FALSE FALSE FALSE FALSE TRUE aegis_vm_types VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE sphinx_lite_account__combine_hashes FALSE FALSE FALSE FALSE TRUE sphinx_lite_account BODY_PART
+GG EK_FLOW_SCOPE sphinx_lite_account__serialize_account_proof FALSE FALSE FALSE FALSE TRUE sphinx_lite_account VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__greater_than FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__bit_length FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__to_word64 FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE sphinx_lite_account__verify_storage_slots FALSE FALSE FALSE FALSE TRUE sphinx_lite_account VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__div FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE sphinx_lite_account__deserialize_account_proof FALSE FALSE FALSE FALSE TRUE sphinx_lite_account VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__byte_length FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__greater_than_or_equal FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__from_bytes_be FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE sphinx_lite_account__initialize FALSE FALSE FALSE FALSE TRUE sphinx_lite_account VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__mod_op FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE sphinx_lite_types__count_signatures FALSE FALSE FALSE FALSE TRUE sphinx_lite_types VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__mod_exp FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE sphinx_lite_account TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE interfaces__shift_left FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__to_bytes_be FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE sphinx_lite_account__total_proofs_verified FALSE FALSE FALSE FALSE TRUE sphinx_lite_account VISIBLE_PART
+GG EK_FLOW_SCOPE sphinx_lite_account__update_trusted_root FALSE FALSE FALSE FALSE TRUE sphinx_lite_account VISIBLE_PART
+GG EK_FLOW_SCOPE sphinx_lite_account__is_initialized FALSE FALSE FALSE FALSE TRUE sphinx_lite_account VISIBLE_PART
+GG EK_FLOW_SCOPE sphinx_lite_account__successful_verifications FALSE FALSE FALSE FALSE TRUE sphinx_lite_account VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__bit_and FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__from_bytes_le FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__is_zero FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE sphinx_lite_types__has_signed FALSE FALSE FALSE FALSE TRUE sphinx_lite_types VISIBLE_PART
+GG EK_FLOW_SCOPE sphinx_lite_account__verify_account_existence FALSE FALSE FALSE FALSE TRUE sphinx_lite_account VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE sphinx_lite_account__average_proof_size FALSE FALSE FALSE FALSE TRUE sphinx_lite_account VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__add64_with_carry FALSE FALSE FALSE FALSE TRUE aegis_u256 PRIVATE_PART
+GG EK_FLOW_SCOPE aegis_u256__to_bytes_le FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE sphinx_lite_account__get_trusted_root FALSE FALSE FALSE FALSE TRUE sphinx_lite_account VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__bit_or FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE sphinx_lite_types__set_signature FALSE FALSE FALSE FALSE TRUE sphinx_lite_types VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE sphinx_lite_account__get_trusted_block FALSE FALSE FALSE FALSE TRUE sphinx_lite_account VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__add FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__u64_to_u256 FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__bit_xor FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE sphinx_lite_account__create_account_proof FALSE FALSE FALSE FALSE TRUE sphinx_lite_account VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE sphinx_lite_types__threshold_reached FALSE FALSE FALSE FALSE TRUE sphinx_lite_types VISIBLE_PART
+GG EK_FLOW_SCOPE sphinx_lite_account__verify_account_state FALSE FALSE FALSE FALSE TRUE sphinx_lite_account VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__sub64_with_borrow FALSE FALSE FALSE FALSE TRUE aegis_u256 PRIVATE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__bit_not FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__add_mod FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__u256_to_u64 FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE sphinx_lite_account__simple_hash FALSE FALSE FALSE FALSE TRUE sphinx_lite_account BODY_PART
+GG EK_FLOW_SCOPE aegis_u256__shift_left FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE sphinx_lite_account__compute_account_key FALSE FALSE FALSE FALSE TRUE sphinx_lite_account VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__sub FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_END_MARKER

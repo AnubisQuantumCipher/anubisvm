@@ -1,0 +1,248 @@
+V "GNAT Lib v14"
+A -x
+A ada
+A -gnatA
+A -gnat2022
+A -gnatwa
+A -gnatyO
+A -gnatVa
+A -gnatw.F
+A -gnata
+A -O2
+A -gnatn
+A -ffunction-sections
+A -fdata-sections
+A -gnatc
+A -fPIC
+P GP
+
+RN
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_ELABORATION_CODE
+
+U sphinx_lite_types%b	sphinx_lite_types.adb	3dc2b353 OO PK
+
+U sphinx_lite_types%s	sphinx_lite_types.ads	6ce99653 OO PK
+W aegis_u256%s		aegis_u256.adb		aegis_u256.ali
+W aegis_vm_types%s	aegis_vm_types.ads	aegis_vm_types.ali
+W interfaces%s		interfac.ads		interfac.ali
+
+D aegis_u256.ads	20251205185917 ff2dfe4b aegis_u256%s
+D aegis_vm_types.ads	20251205185836 dcd101d9 aegis_vm_types%s
+D interfac.ads		20240601155135 9111f9c1 interfaces%s
+D sphinx_lite_types.ads	20251207120227 de049000 sphinx_lite_types%s
+D sphinx_lite_types.adb	20251207113622 e3c62353 sphinx_lite_types%b
+D system.ads		20240601155135 70765b54 system%s
+G a Z
+X 1 aegis_u256.ads
+21K9*Aegis_U256 276e15 4|20w6 20r22
+X 2 aegis_vm_types.ads
+21K9*Aegis_VM_Types 279e19 4|19w6 19r26
+31M12*Byte{3|70M9}
+41R9*U256 43e14 4|161r23
+46r4*U256_Zero{41R9} 4|169r24
+56A9*Hash256(31M12)<integer> 4|78r24 79r24 126r18 141r20 142r20 163r23 164r23
+. 199r28
+59A9*Hash512(31M12)<integer> 4|56r20 108r24
+70A9*Contract_Address(31M12)<integer> 4|55r20 160r23
+X 3 interfac.ads
+38K9*Interfaces 233e15 4|18w6 18r22
+70M9*Unsigned_8
+81M9*Unsigned_32 4|85r24 202r28 252r40 258r16 265r16 267r13 5|13r40 15r15
+. 39r16 42r23 52r16 54r13 55r23
+84M9*Unsigned_64 4|77r24 82r24 162r23 179r24
+141V13*Shift_Left{81M9} 5|42s38 55s38
+146V13*Shift_Right{81M9} 5|25s18
+X 4 sphinx_lite_types.ads
+22K9*Sphinx_Lite_Types 275l5 275e22 5|5b14 69l5 69t22
+31N4*Committee_Size 46r50 48r50 254r44 5|19r21 21r24 28r42
+34N4*Threshold 273r58 5|66r27
+37N4*Max_Proof_Depth 47r52
+40N4*Max_Checkpoint_Age
+46I12*Committee_Index{natural} 68r35 107r24 118r35 259r16 266r16 5|40r16
+. 53r16
+47I12*Proof_Depth_Index{natural} 135r30
+48I12*Signature_Count{natural} 86r24 271r44 5|64r44
+54R9*Committee_Member 59e14 61r27 68r55
+55a7*Address{2|70A9} 62m7
+56a7*Public_Key{2|59A9} 63m7
+57i7*Weight{natural} 64m7
+58b7*Active{boolean} 65m7
+61r4*Null_Member{54R9}
+68A9*Committee_Array(54R9)<integer>
+75R9*Checkpoint 90e14 92r31 196r28
+77m7*Block_Number{3|84M9} 93m7
+78a7*Block_Hash{2|56A9} 94m7
+79a7*State_Root{2|56A9} 95m7
+82m7*Timestamp{3|84M9} 96m7
+85m7*Sig_Bitmap{3|81M9} 97m7
+86i7*Sig_Count{48I12} 98m7
+89b7*Valid{boolean} 99m7
+92r4*Null_Checkpoint{75R9} 207r29
+106R9*Checkpoint_Signature 110e14 112r30 118r55
+107i7*Member_Index{46I12} 113m7
+108a7*Signature{2|59A9} 114m7
+109b7*Valid{boolean} 115m7
+112r4*Null_Signature{106R9}
+118A9*Signature_Array(106R9)<integer>
+125R9*Proof_Node 128e14 130r31 135r52
+126a7*Hash{2|56A9} 131m7
+127b7*Is_Left{boolean} 132m7
+130r4*Null_Proof_Node{125R9} 147r32
+135A9*Proof_Path(125R9)<integer> 139r20
+138R9*Merkle_Proof 144e14 146r33 178r23
+139a7*Path{135A9} 147m7
+140i7*Depth{natural} 148m7
+141a7*Leaf_Hash{2|56A9} 149m7
+142a7*Root{2|56A9} 150m7
+143b7*Valid{boolean} 151m7
+146r4*Null_Merkle_Proof{138R9} 185r24
+159R9*Account_Summary 165e14 167r36 177r23
+160a7*Address{2|70A9} 168m7
+161r7*Balance{2|41R9} 169m7
+162m7*Nonce{3|84M9} 170m7
+163a7*Storage_Root{2|56A9} 171m7
+164a7*Code_Hash{2|56A9} 172m7
+167r4*Null_Account_Summary{159R9} 184r24
+176R9*Account_Proof 181e14 183r34
+177r7*Account{159R9} 184m7
+178r7*Proof{138R9} 185m7
+179m7*Checkpoint_Ref{3|84M9} 186m7
+180b7*Valid{boolean} 187m7
+183r4*Null_Account_Proof{176R9}
+194R9*IoT_Client_State 204e14 206r30
+196r7*Last_Checkpoint{75R9} 207m7
+199a7*Committee_Root{2|56A9} 208m7
+202m7*Chain_ID{3|81M9} 209m7
+203b7*Initialized{boolean} 210m7
+206r4*Null_IoT_State{194R9}
+217E9*Sphinx_Lite_Error 231e5 239r18
+218n7*Error_None{217E9} 244r19
+219n7*Error_Not_Initialized{217E9}
+220n7*Error_Invalid_Checkpoint{217E9}
+221n7*Error_Insufficient_Signatures{217E9}
+222n7*Error_Invalid_Proof{217E9}
+223n7*Error_Stale_Checkpoint{217E9}
+224n7*Error_Committee_Mismatch{217E9}
+225n7*Error_Committee_Changed{217E9}
+226n7*Error_Invalid_Member{217E9}
+227n7*Error_Duplicate_Signature{217E9}
+228n7*Error_Invalid_Block_Number{217E9}
+229n7*Error_Invalid_State_Root{217E9}
+230n7*Error_State_Root_Mismatch{217E9}
+237R9*Verification_Result 240e14 242r30
+238b7*Success{boolean} 243m7
+239e7*Error{217E9} 244m7
+242r4*Success_Result{237R9}
+252V13*Count_Signatures{natural} 252>31 254r17 5|13b13 32l8 32t24
+252m31 Bitmap{3|81M9} 5|13b31 15r30
+257V13*Has_Signed{boolean} 258>7 259>7 5|38b13 45l8 45t18
+258m7 Bitmap{3|81M9} 5|39b7 44r15
+259i7 Index{46I12} 5|40b7 42r53
+264V13*Set_Signature{3|81M9} 265>7 266>7 5|51b13 58l8 58t21
+265m7 Bitmap{3|81M9} 5|52b7 57r14
+266i7 Index{46I12} 5|53b7 55r53
+271V13*Threshold_Reached{boolean} 271>32 273r17 5|64b13 67l8 67t25
+271i32 Sig_Count{48I12} 273r45 5|64b32 66r14
+X 5 sphinx_lite_types.adb
+14i7 Count{natural} 21r16 22m16 22r25 27r33 28r33 31r14
+15m7 Temp{3|81M9} 20r14 25m10 25r31
+19i11 I{integer} 27r42
+42m7 Mask{3|81M9} 44r26
+55m7 Mask{3|81M9} 57r24
+
+QQ SPARKVERSION 0.0w
+GG EK_DIRECT_CALLS sphinx_lite_types__count_signatures 1 interfaces__shift_right__3
+GG EK_PROOF_DEPENDENCIES sphinx_lite_types__count_signatures 0
+GG EK_GLOBALS sphinx_lite_types__count_signatures local FALSE E_FUNCTION FALSE ORIGIN_FLOW 1 sphinx_lite_types proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS sphinx_lite_types__has_signed 1 interfaces__shift_left__3
+GG EK_PROOF_DEPENDENCIES sphinx_lite_types__has_signed 0
+GG EK_GLOBALS sphinx_lite_types__has_signed local FALSE E_FUNCTION FALSE ORIGIN_FLOW 1 sphinx_lite_types proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS sphinx_lite_types__set_signature 1 interfaces__shift_left__3
+GG EK_PROOF_DEPENDENCIES sphinx_lite_types__set_signature 0
+GG EK_GLOBALS sphinx_lite_types__set_signature local FALSE E_FUNCTION FALSE ORIGIN_FLOW 1 sphinx_lite_types proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS sphinx_lite_types__threshold_reached 0
+GG EK_PROOF_DEPENDENCIES sphinx_lite_types__threshold_reached 0
+GG EK_GLOBALS sphinx_lite_types__threshold_reached local FALSE E_FUNCTION FALSE ORIGIN_FLOW 1 sphinx_lite_types proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS sphinx_lite_types 0
+GG EK_PROOF_DEPENDENCIES sphinx_lite_types 0
+GG EK_GLOBALS sphinx_lite_types local FALSE E_PACKAGE TRUE ORIGIN_FLOW 0 proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 initializes 0 refined_initializes 0 calls_proof 0 calls 0 calls_conditional 0 local_packages 0 local_var 0 TRUE FALSE FALSE FALSE FALSE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_FLOW_SCOPE interfaces__rotate_left FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__shift_left FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__div FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__mul64 FALSE FALSE FALSE FALSE TRUE aegis_u256 PRIVATE_PART
+GG EK_FLOW_SCOPE sphinx_lite_types__count_signatures FALSE FALSE FALSE FALSE TRUE sphinx_lite_types VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__sub FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__byte_length FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256 TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE aegis_u256__gas_to_u256 FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__greater_than_or_equal FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_vm_types__get_discount FALSE FALSE FALSE FALSE TRUE aegis_vm_types VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__from_bytes_be FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__shift_right FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__equal FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__mod_op FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE sphinx_lite_types__has_signed FALSE FALSE FALSE FALSE TRUE sphinx_lite_types VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__address_to_u256 FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__sub_mod FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__mod_exp FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__to_bytes_be FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE sphinx_lite_types TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE aegis_u256__u256_to_address FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__from_word64 FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__mul FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_vm_types__success_result FALSE FALSE FALSE FALSE TRUE aegis_vm_types VISIBLE_PART
+GG EK_FLOW_SCOPE sphinx_lite_types__set_signature FALSE FALSE FALSE FALSE TRUE sphinx_lite_types VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__from_bytes_le FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__bit_and FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__is_zero FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__less_than FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__clz FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__add64_with_carry FALSE FALSE FALSE FALSE TRUE aegis_u256 PRIVATE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__to_bytes_le FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE sphinx_lite_types__threshold_reached FALSE FALSE FALSE FALSE TRUE sphinx_lite_types VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__bit_or FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_vm_types__failure_result FALSE FALSE FALSE FALSE TRUE aegis_vm_types VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__mul_mod FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__less_than_or_equal FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__u64_to_u256 FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__ctz FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__add FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__bit_xor FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_vm_types TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__div_mod FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__sub64_with_borrow FALSE FALSE FALSE FALSE TRUE aegis_u256 PRIVATE_PART
+GG EK_FLOW_SCOPE aegis_vm_types__initial_gas_context FALSE FALSE FALSE FALSE TRUE aegis_vm_types VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE aegis_u256__bit_not FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__bit_length FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__u256_to_u64 FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__add_mod FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__greater_than FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE aegis_u256__to_word64 FALSE FALSE FALSE FALSE TRUE aegis_u256 VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_END_MARKER

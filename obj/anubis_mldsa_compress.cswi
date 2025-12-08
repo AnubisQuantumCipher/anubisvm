@@ -1,0 +1,16 @@
+20251208004223
+-c
+-x
+ada
+-gnatA
+-gnatwa
+-gnatQ
+-gnata
+-gnatf
+-gnatyM120
+-gnatyO
+-gnat2012
+-g
+-O0
+-gnateE
+-fstack-check

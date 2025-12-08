@@ -1,0 +1,181 @@
+[
+{
+  "name": "Anubis_Address_Types.Algorithm_Tag",
+  "location": "anubis_address_types.ads:34:4",
+  "Size": 56,
+  "Alignment": 8
+}
+,
+{
+  "name": "Anubis_Address_Types.Network_Type",
+  "location": "anubis_address_types.ads:37:9",
+  "Object_Size": 8,
+  "Value_Size": 3,
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Address_Types.Entity_Type",
+  "location": "anubis_address_types.ads:46:9",
+  "Object_Size": 8,
+  "Value_Size": 2,
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Address_Types.Account_Id_Index",
+  "location": "anubis_address_types.ads:56:12",
+  "Object_Size": 32,
+  "Value_Size": 5,
+  "Alignment": 4
+}
+,
+{
+  "name": "Anubis_Address_Types.Account_Id",
+  "location": "anubis_address_types.ads:57:9",
+  "Size": 256,
+  "Alignment": 1,
+  "Component_Size": 8
+}
+,
+{
+  "name": "Anubis_Address_Types.Checksum_Index",
+  "location": "anubis_address_types.ads:60:12",
+  "Object_Size": 32,
+  "Value_Size": 2,
+  "Alignment": 4
+}
+,
+{
+  "name": "Anubis_Address_Types.Checksum_Bytes",
+  "location": "anubis_address_types.ads:61:9",
+  "Size": 24,
+  "Alignment": 1,
+  "Component_Size": 8
+}
+,
+{
+  "name": "Anubis_Address_Types.Base32_Char",
+  "location": "anubis_address_types.ads:65:12",
+  "Size": 8,
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Address_Types.Payload_Index",
+  "location": "anubis_address_types.ads:70:12",
+  "Object_Size": 32,
+  "Value_Size": 6,
+  "Alignment": 4
+}
+,
+{
+  "name": "Anubis_Address_Types.Payload_Base32",
+  "location": "anubis_address_types.ads:71:9",
+  "Size": 416,
+  "Alignment": 1,
+  "Component_Size": 8
+}
+,
+{
+  "name": "Anubis_Address_Types.Chunked_Payload_Index",
+  "location": "anubis_address_types.ads:75:12",
+  "Object_Size": 32,
+  "Value_Size": 6,
+  "Alignment": 4
+}
+,
+{
+  "name": "Anubis_Address_Types.Chunked_Payload",
+  "location": "anubis_address_types.ads:76:9",
+  "Size": 464,
+  "Alignment": 1,
+  "Component_Size": 8
+}
+,
+{
+  "name": "Anubis_Address_Types.Checksum_B32_Index",
+  "location": "anubis_address_types.ads:79:12",
+  "Object_Size": 32,
+  "Value_Size": 3,
+  "Alignment": 4
+}
+,
+{
+  "name": "Anubis_Address_Types.Checksum_Base32",
+  "location": "anubis_address_types.ads:80:9",
+  "Size": 40,
+  "Alignment": 1,
+  "Component_Size": 8
+}
+,
+{
+  "name": "Anubis_Address_Types.Address_String",
+  "location": "anubis_address_types.ads:86:12",
+  "Size": 656,
+  "Alignment": 1,
+  "Component_Size": 8
+}
+,
+{
+  "name": "Anubis_Address_Types.Address",
+  "location": "anubis_address_types.ads:89:9",
+  "Size": 280,
+  "Alignment": 1,
+  "record": [
+    {
+      "name": "Network",
+      "Position":  0,
+      "First_Bit": 0,
+      "Size": 8
+    },
+    {
+      "name": "Entity",
+      "Position":  1,
+      "First_Bit": 0,
+      "Size": 8
+    },
+    {
+      "name": "Account",
+      "Position":  2,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Valid",
+      "Position": 34,
+      "First_Bit": 0,
+      "Size": 8
+    }
+  ]
+}
+,
+{
+  "name": "Anubis_Address_Types.Separator_Colon",
+  "location": "anubis_address_types.ads:128:4",
+  "Size": 8,
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Address_Types.Separator_Dash",
+  "location": "anubis_address_types.ads:129:4",
+  "Size": 8,
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Address_Types.Base32_Alphabet_Array",
+  "location": "anubis_address_types.ads:132:9",
+  "Size": 256,
+  "Alignment": 1,
+  "Component_Size": 8
+}
+,
+{
+  "name": "Anubis_Address_Types.Base32_Alphabet",
+  "location": "anubis_address_types.ads:133:4",
+  "Size": 256,
+  "Alignment": 1
+}
+]

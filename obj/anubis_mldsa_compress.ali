@@ -1,0 +1,328 @@
+V "GNAT Lib v14"
+A -O0
+A -gnatA
+A -gnatwa
+A -gnatQ
+A -gnata
+A -gnatf
+A -gnatyM120
+A -gnatyO
+A -gnat2012
+A -g
+A -gnateE
+A -fstack-check=specific
+A -mmacosx-version-min=16.0.0
+A -mcpu=apple-m1
+A -mlittle-endian
+A -mabi=lp64
+A -fPIC
+P ZX
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+RV NO_ELABORATION_CODE
+
+U anubis_mldsa_compress%b  anubis_mldsa_compress.adb  f824d15e OO PK
+Z system%s		system.ads		system.ali
+Z system.assertions%s	s-assert.adb		s-assert.ali
+Z system.exception_table%s  s-exctab.adb	s-exctab.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+Z system.unsigned_types%s  s-unstyp.ads		s-unstyp.ali
+
+U anubis_mldsa_compress%s  anubis_mldsa_compress.ads  b3e2b2a7 EE NE OO PK
+W anubis_bytes%s	anubis_bytes.adb	anubis_bytes.ali
+W anubis_types%s	anubis_types.ads	anubis_types.ali
+W interfaces%s		interfac.ads		interfac.ali
+Z system.unsigned_types%s  s-unstyp.ads		s-unstyp.ali
+
+D ada.ads		20240808082856 76789da1 ada%s
+D a-assert.ads		20240808082856 ba465f5c ada.assertions%s
+D a-unccon.ads		20240808082856 0e9b276f ada.unchecked_conversion%s
+D anubis_bytes.ads	20251207191105 9e5d5cad anubis_bytes%s
+D anubis_mldsa_compress.ads  20251207191104 f31d475c anubis_mldsa_compress%s
+D anubis_mldsa_compress.adb  20251208003913 0b399602 anubis_mldsa_compress%b
+D anubis_types.ads	20251207191105 4fb35097 anubis_types%s
+D anubis_word.ads	20251207191105 ec44f66b anubis_word%s
+D interfac.ads		20240808082856 9111f9c1 interfaces%s
+D system.ads		20240808082856 70765b54 system%s
+D s-assert.ads		20240808082856 9c4520c7 system.assertions%s
+D s-exctab.ads		20240808082856 91bef6ef system.exception_table%s
+D s-stalib.ads		20240808082856 1c9580f6 system.standard_library%s
+D s-unstyp.ads		20240808082856 fa2a7f59 system.unsigned_types%s
+G a e
+G c Z s b [compress_signature anubis_mldsa_compress 147 14 none]
+G c Z s b [decompress_signature anubis_mldsa_compress 163 14 none]
+G c Z s b [compress_with_context anubis_mldsa_compress 176 14 none]
+G c Z s b [decompress_with_context anubis_mldsa_compress 191 14 none]
+G c Z s b [compress_batch anubis_mldsa_compress 214 14 none]
+G c Z s b [decompress_batch anubis_mldsa_compress 229 14 none]
+G c Z s b [encode_z_vector anubis_mldsa_compress 244 14 none]
+G c Z s b [decode_z_vector anubis_mldsa_compress 256 14 none]
+G c Z s b [analyze_z_vector anubis_mldsa_compress 265 14 none]
+G c Z s b [encode_hints_rle anubis_mldsa_compress 281 14 none]
+G c Z s b [decode_hints_rle anubis_mldsa_compress 295 14 none]
+G c Z s b [count_hint_bits anubis_mldsa_compress 304 13 none]
+G c Z s b [can_truncate_c anubis_mldsa_compress 313 13 none]
+G c Z s b [recompute_c_tilde anubis_mldsa_compress 322 14 none]
+G c Z s b [parse_signature anubis_mldsa_compress 340 14 none]
+G c Z s b [serialize_signature anubis_mldsa_compress 352 14 none]
+G c Z s b [compute_crc16 anubis_mldsa_compress 368 13 none]
+G c Z s b [verify_crc16 anubis_mldsa_compress 372 13 none]
+G c Z s b [write_header anubis_mldsa_compress 384 14 none]
+G c Z s b [read_header anubis_mldsa_compress 394 14 none]
+G c Z s b [estimate_compressed_size anubis_mldsa_compress 410 13 none]
+G c Z s b [analyze_signature anubis_mldsa_compress 419 14 none]
+G c Z s b [init_stream anubis_mldsa_compress 434 14 none]
+G c Z s b [stream_add_signature anubis_mldsa_compress 442 14 none]
+G c Z s b [stream_finalize anubis_mldsa_compress 451 14 none]
+G c Z s b [ratio_to_percent anubis_mldsa_compress 463 13 none]
+G c Z s b [is_compressed anubis_mldsa_compress 468 13 none]
+G c Z s b [zeroize_stats anubis_mldsa_compress 479 14 none]
+G c Z s b [zeroize_z_vector anubis_mldsa_compress 482 14 none]
+G c Z s b [zeroize_hint_vector anubis_mldsa_compress 485 14 none]
+G c Z s b [zeroize_stream anubis_mldsa_compress 488 14 none]
+G c Z s s [compression_statsIP anubis_mldsa_compress 69 9 none]
+G c Z s s [Tz_polyBIP anubis_mldsa_compress 127 4 none]
+G c Z s s [Tz_vectorBIP anubis_mldsa_compress 130 4 none]
+G c Z s s [Thint_polyBIP anubis_mldsa_compress 137 4 none]
+G c Z s s [Thint_vectorBIP anubis_mldsa_compress 140 4 none]
+G c Z s s [signature_batchIP anubis_mldsa_compress 210 9 none]
+G c Z s s [compression_streamIP anubis_mldsa_compress 493 9 none]
+X 4 anubis_bytes.ads
+7K9*Anubis_Bytes 52e17 5|28w6 28r24
+X 5 anubis_mldsa_compress.ads
+30K9*Anubis_MLDSA_Compress 493E9 502l5 502e26 6|9b14 380l5 380t26
+38N4*MLDSA87_Sig_Size 155r33 170r37 172r38 185r33 202r37 211r24 348r33 361r37
+. 414r33 425r33 448r33 6|286r27 323r59
+39N4*MLDSA87_C_Tilde_Size 333r35 349r35 360r31
+40N4*MLDSA87_Z_Size
+41N4*MLDSA87_Hint_Size
+44N4*Target_Compressed_Size 6|276r14 287r29
+45N4*Max_Compressed_Size 416r54 439r31
+46N4*Min_Compressed_Size 156r39 188r39 226r50 415r50
+49N4*N 127r31 137r34 252r35 272r34 273r56 289r35 306r45 6|293r31
+50N4*K 140r36 289r31 306r41
+51N4*L 130r33 252r31 272r30 273r52 6|293r27
+52N4*Q
+53N4*Gamma1 59r45 124r45 124r60
+54N4*Gamma2
+55N4*Tau
+56N4*Omega 292r35 6|294r28
+59N4*Z_Max_Range
+60N4*Z_Bits_Full
+61N4*Z_Bits_Small
+62N4*Z_Small_Threshold
+69R9*Compression_Stats 79e14 151r28 421r28 479r44 6|17r28 281r28 353r44
+70i7*Original_Size{natural} 6|286m10
+71i7*Compressed_Size{natural} 6|287m10
+72i7*Hint_Bytes{natural} 6|288m10
+73i7*Z_Bytes{natural} 6|289m10
+74i7*C_Bytes{natural} 6|290m10
+75i7*Overhead_Bytes{natural} 6|291m10
+76i7*Compression_Ratio{natural} 160r29 6|292m10
+77i7*Small_Z_Count{natural} 6|293m10
+78i7*Hint_Set_Count{natural} 6|294m10
+82E9*Compress_Result 88e5 152r28 182r28 220r28 6|18r28 43r28 69r28
+83n7*Success{82E9} 157r28
+84n7*Invalid_Signature{82E9}
+85n7*Buffer_Too_Small{82E9}
+86n7*Encoding_Error{82E9} 6|24r17 48r17 75r17
+87n7*Checksum_Mismatch{82E9}
+91E9*Decompress_Result 98e5 166r28 196r28 233r28 6|30r28 56r28 82r28
+92n7*Success{91E9} 171r28
+93n7*Invalid_Header{91E9}
+94n7*Corrupted_Data{91E9} 6|34r17 60r17 89r17
+95n7*Buffer_Too_Small{91E9}
+96n7*Checksum_Mismatch{91E9}
+97n7*Version_Mismatch{91E9}
+101N4*Format_Version 6|238r42
+109N4*Header_Size 159r38 169r35 199r35 236r35 391r31 403r31 6|291r28
+110N4*Magic_Byte_1 472r36 6|236r32 255r40 349r34
+111N4*Magic_Byte_2 473r44 6|237r36 256r48 350r42
+114N4*Flag_Truncated_C
+115N4*Flag_All_Small_Z
+116N4*Flag_Sparse_Hints
+117N4*Flag_Has_Context
+124I12*Z_Coefficient{integer} 127r41
+127A9*Z_Poly(124I12)<integer> 130r43
+130A9*Z_Vector(127A9)<integer> 245r24 258r28 266r24 323r24 343r28 354r24
+. 482r43 6|93r24 108r28 119r24 178r24 193r28 206r24 358r43
+137A9*Hint_Poly(boolean)<integer> 140r46
+140A9*Hint_Vector(137A9)<integer> 282r24 297r28 304r38 324r24 344r28 355r24
+. 485r50 6|131r24 146r28 156r38 179r24 194r28 207r24 363r50
+147U14*Compress_Signature 148>7 149<7 150<7 151<7 152<7 6|13b14
+148a7 Signature{7|14A9} 155r14 6|14b7
+149a7 Compressed{7|14A9} 156r18 158r34 6|15b7 21m7
+150i7 Comp_Length{natural} 158r19 159r23 6|16b7 22m7
+151r7 Stats{69R9} 160r23 6|17b7 23m7
+152e7 Result{82E9} 157r19 6|18b7 24m7
+163U14*Decompress_Signature 164>7 165<7 166<7 6|27b14
+164a7 Compressed{7|14A9} 169r14 6|28b7
+165a7 Signature{7|14A9} 170r18 172r19 6|29b7 33m7
+166e7 Result{91E9} 171r19 6|30b7 34m7
+176U14*Compress_With_Context 177>7 178>7 179>7 180<7 181<7 182<7 6|37b14
+. 49l8 49t29
+177a7 Signature{7|14A9} 185r14 6|38b7
+178a7 Message_Hash{7|14A9} 186r18 6|39b7
+179a7 Public_Key{7|14A9} 187r18 6|40b7
+180a7 Compressed{7|14A9} 188r18 6|41b7 46m7
+181i7 Comp_Length{natural} 6|42b7 47m7
+182e7 Result{82E9} 6|43b7 48m7
+191U14*Decompress_With_Context 192>7 193>7 194>7 195<7 196<7 6|51b14 61l8
+. 61t31
+192a7 Compressed{7|14A9} 199r14 6|52b7
+193a7 Message_Hash{7|14A9} 200r18 6|53b7
+194a7 Public_Key{7|14A9} 201r18 6|54b7
+195a7 Signature{7|14A9} 202r18 6|55b7 59m7
+196e7 Result{91E9} 6|56b7 60m7
+208N4*Max_Batch_Signatures 224r30
+210A9*Signature_Batch(7|14A9)<integer> 215r24 231r28 6|64r24 80r28
+214U14*Compress_Batch 215>7 216>7 217<7 218<7 219<7 220<7 6|63b14 76l8 76t22
+215a7 Signatures{210A9} 225r30 6|64b7
+216i7 Num_Sigs{natural} 223r14 224r18 225r18 226r39 6|65b7
+217a7 Compressed{7|14A9} 226r18 6|66b7 72m7
+218i7 Comp_Length{natural} 6|67b7 73m7
+219i7 Avg_Ratio{natural} 6|68b7 74m7
+220e7 Result{82E9} 6|69b7 75m7
+229U14*Decompress_Batch 230>7 231<7 232<7 233<7 6|78b14 90l8 90t24
+230a7 Compressed{7|14A9} 236r14 6|79b7
+231a7 Signatures{210A9} 237r18 6|80b7 85r16 86m10
+232i7 Num_Sigs{natural} 6|81b7 88m7
+233e7 Result{91E9} 6|82b7 89m7
+244U14*Encode_Z_Vector 245>7 246<7 247<7 248<7 249<7 6|92b14
+245a7 Z{130A9} 6|93b7
+246a7 Output{7|14A9} 252r14 253r46 6|94b7 100m7
+247i7 Out_Length{natural} 253r32 6|95b7 101m7
+248i7 Small_Count{natural} 6|96b7 102m7
+249b7 Success{boolean} 253r19 6|97b7 103m7
+256U14*Decode_Z_Vector 257>7 258<7 259<7 260<7 6|106b14 116l8 116t23
+257a7 Input{7|14A9} 6|107b7
+258a7 Z{130A9} 6|108b7 113m7
+259i7 Bytes_Read{natural} 6|109b7 114m7
+260b7 Success{boolean} 6|110b7 115m7
+265U14*Analyze_Z_Vector 266>7 267<7 268<7 269<7 6|118b14
+266a7 Z{130A9} 6|119b7
+267b7 All_Small{boolean} 273r23 6|120b7 125m7
+268i7 Small_Count{natural} 272r15 273r38 6|121b7 126m7
+269i7 Max_Magnitude{natural} 6|122b7 127m7
+281U14*Encode_Hints_RLE 282>7 283<7 284<7 285<7 286<7 6|130b14
+282a7 Hints{140A9} 6|131b7
+283a7 Output{7|14A9} 289r14 291r33 6|132b7 138m7
+284i7 Out_Length{natural} 291r19 6|133b7 139m7
+285i7 Bits_Set{natural} 292r23 6|134b7 140m7
+286b7 Success{boolean} 290r19 6|135b7 141m7
+295U14*Decode_Hints_RLE 296>7 297<7 298<7 299<7 6|144b14 154l8 154t24
+296a7 Input{7|14A9} 6|145b7
+297a7 Hints{140A9} 6|146b7 151m7
+298i7 Bytes_Read{natural} 6|147b7 152m7
+299b7 Success{boolean} 6|148b7 153m7
+304V13*Count_Hint_Bits{natural} 304>30 306r15 6|156b13
+304a30 Hints{140A9} 6|156b30 159r16 160r19 161r16
+313V13*Can_Truncate_C{boolean} 314>7 315>7 6|169b13 175l8 175t22
+314a7 Message_Hash{7|14A9} 318r14 6|170b7
+315a7 Public_Key{7|14A9} 319r18 6|171b7
+322U14*Recompute_C_Tilde 323>7 324>7 325>7 326>7 327<7 328<7 6|177b14 188l8
+. 188t25
+323a7 Z{130A9} 6|178b7
+324a7 Hints{140A9} 6|179b7
+325a7 Message_Hash{7|14A9} 331r14 6|180b7
+326a7 Public_Key{7|14A9} 332r18 6|181b7
+327a7 C_Tilde{7|14A9} 333r18 6|182b7 186m7
+328b7 Success{boolean} 6|183b7 187m7
+340U14*Parse_Signature 341>7 342<7 343<7 344<7 345<7 6|190b14 202l8 202t23
+341a7 Signature{7|14A9} 348r14 6|191b7
+342a7 C_Tilde{7|14A9} 349r18 6|192b7 198m7
+343a7 Z{130A9} 6|193b7 199m7
+344a7 Hints{140A9} 6|194b7 200m7
+345b7 Success{boolean} 6|195b7 201m7
+352U14*Serialize_Signature 353>7 354>7 355>7 356<7 357<7 6|204b14 214l8 214t27
+353a7 C_Tilde{7|14A9} 360r14 6|205b7
+354a7 Z{130A9} 6|206b7
+355a7 Hints{140A9} 6|207b7
+356a7 Signature{7|14A9} 361r18 6|208b7 212m7
+357b7 Success{boolean} 6|209b7 213m7
+368V13*Compute_CRC16{9|73M9} 368>28 377s38 6|216b13 219l8 219t21 226s14
+368a28 Data{7|14A9} 6|216b28
+372V13*Verify_CRC16{boolean} 373>7 374>7 377r15 6|221b13
+373a7 Data{7|14A9} 377r53 6|222b7 226r29
+374m7 Expected{9|73M9} 377r61 6|223b7 226r37
+384U14*Write_Header 385=7 386>7 387>7 388>7 6|229b14 244l8 244t20
+385a7 Buffer{7|14A9} 391r14 6|230b7 236m7 236r15 237m7 237r15 238m7 238r15
+. 239m7 239r15 240m7 240r15 241m7 241r15 242m7 242r15 243m7 243r15
+386m7 Flags{7|13M12} 6|231b7 239r36
+387i7 Data_Size{natural} 6|232b7 240r42 241r42
+388m7 Checksum{9|73M9} 6|233b7 242r55 243r55
+394U14*Read_Header 395>7 396<7 397<7 398<7 399<7 400<7 6|246b14 270l8 270t19
+395a7 Buffer{7|14A9} 403r14 6|247b7 255r16 255r24 256r20 256r28 258r30 258r38
+. 259r19 259r27 260r32 260r40 261r34 261r42 262r35 262r43 263r37 263r45
+396i7 Version{natural} 6|248b7 258m10 265m10
+397m7 Flags{7|13M12} 6|249b7 259m10 266m10
+398i7 Data_Size{natural} 6|250b7 260m10 267m10
+399m7 Checksum{9|73M9} 6|251b7 262m10 268m10
+400b7 Valid{boolean} 6|252b7 255m7 257r10
+410V13*Estimate_Compressed_Size{natural} 411>7 415r15 416r19 6|272b13
+411a7 Signature{7|14A9} 414r14 6|273b7
+419U14*Analyze_Signature 420>7 421<7 422<7 6|279b14 297l8 297t25
+420a7 Signature{7|14A9} 425r14 6|280b7
+421r7 Stats{69R9} 6|281b7 285m7
+422b7 Success{boolean} 6|282b7 296m7
+431R9*Compression_Stream 435r28 443r31 452r31 488r46 493c9 500e14 6|300r28
+. 315r31 328r31 368r46
+434U14*Init_Stream 435<7 436=7 6|299b14 312l8 312t19
+435r7 Stream{431R9} 6|300b7 304m7
+436a7 Buffer{7|14A9} 439r14 6|301b7
+442U14*Stream_Add_Signature 443=7 444>7 445<7 6|314b14 325l8 325t28
+443r7 Stream{431R9} 6|315b7 320r18 320r45 322m10 322r30 323m10 323r35
+444a7 Signature{7|14A9} 448r14 6|316b7
+445b7 Success{boolean} 6|317b7 320m7 321r10
+451U14*Stream_Finalize 452=7 453<7 454<7 6|327b14 336l8 336t23
+452r7 Stream{431R9} 6|328b7 333r18 333r45 334m7 335r24
+453i7 Output_Length{natural} 6|329b7 335m7
+454b7 Success{boolean} 6|330b7 333m7
+463V13*Ratio_To_Percent{natural} 463>31 465r15 6|338b13
+463i31 Ratio{natural} 6|338b31 340r10 343r17
+468V13*Is_Compressed{boolean} 468>28 471r15 6|347b13
+468a28 Data{7|14A9} 470r14 472r16 472r22 473r20 473r26 6|347b28 349r14 349r20
+. 350r18 350r24
+479U14*Zeroize_Stats 479=29 6|353b14 356l8 356t21
+479r29 Stats{69R9} 6|353b29 355m7
+482U14*Zeroize_Z_Vector 482=32 6|358b14 361l8 361t24
+482a32 Z{130A9} 6|358b32 360m7
+485U14*Zeroize_Hint_Vector 485=35 6|363b14 366l8 366t27
+485a35 Hints{140A9} 6|363b35 365m7
+488U14*Zeroize_Stream 488=30 6|368b14 378l8 378t22
+488r30 Stream{431R9} 6|368b30 370m7
+494i7*Buffer_Ptr{natural} 6|305m10 371m10
+495i7*Sig_Count{natural} 6|306m10 322m17 322r37 372m10
+496i7*Total_Original{natural} 6|307m10 323m17 323r42 373m10
+497i7*Total_Compressed{natural} 6|308m10 335r31 374m10
+498b7*Initialized{boolean} 6|309m10 320r25 333r25 375m10
+499b7*Finalized{boolean} 6|310m10 320r52 333r52 334m14 376m10
+X 6 anubis_mldsa_compress.adb
+11X4 Not_Implemented
+85i11 I{integer} 86r22
+157i7 Count{natural} 162m16 162r25 166r14
+159i11 I{integer} 160r26 161r23
+160i14 J{integer} 161r26
+X 7 anubis_types.ads
+5K9*Anubis_Types 5|27w6 27r24 7|40e17
+13M12*Byte{9|70M9} 5|386r24 397r28 6|231r24 238r36 240r36 241r36 242r36 243r36
+. 249r28
+14A9*Byte_Array(13M12)<integer> 5|148r24 149r28 164r24 165r28 177r24 178r24
+. 179r24 180r28 192r24 193r24 194r24 195r28 211r7 217r28 230r24 246r28 257r24
+. 283r28 296r24 314r24 315r24 325r24 326r24 327r28 341r24 342r28 353r24 356r28
+. 368r35 373r24 385r31 395r24 411r24 420r24 436r31 444r24 468r35 6|14r24
+. 15r28 28r24 29r28 38r24 39r24 40r24 41r28 52r24 53r24 54r24 55r28 66r28
+. 79r24 94r28 107r24 132r28 145r24 170r24 171r24 180r24 181r24 182r28 191r24
+. 192r28 205r24 208r28 216r35 222r24 230r31 247r24 273r24 280r24 301r31 316r24
+. 347r35
+X 9 interfac.ads
+38K9*Interfaces 5|26w6 26r22 9|233e15
+70M9*Unsigned_8
+73M9*Unsigned_16 5|368r54 374r24 388r24 399r28 6|216r54 223r24 233r24 242r42
+. 243r42 251r28 262r22 263r24
+

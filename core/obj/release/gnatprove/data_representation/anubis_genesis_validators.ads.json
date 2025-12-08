@@ -1,0 +1,447 @@
+[
+{
+  "name": "Anubis_Genesis_Validators.Validator_Status",
+  "location": "anubis_genesis_validators.ads:76:9",
+  "Object_Size": 8,
+  "Value_Size": 3,
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Genesis_Validators.Application_Status",
+  "location": "anubis_genesis_validators.ads:87:9",
+  "Object_Size": 8,
+  "Value_Size": 3,
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Genesis_Validators.Geographic_Region",
+  "location": "anubis_genesis_validators.ads:96:9",
+  "Object_Size": 8,
+  "Value_Size": 4,
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Genesis_Validators.Validator_Index",
+  "location": "anubis_genesis_validators.ads:109:12",
+  "Object_Size": 32,
+  "Value_Size": 7,
+  "Alignment": 4
+}
+,
+{
+  "name": "Anubis_Genesis_Validators.Hardware_Tier",
+  "location": "anubis_genesis_validators.ads:115:9",
+  "Object_Size": 8,
+  "Value_Size": 2,
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Genesis_Validators.Hardware_Specs",
+  "location": "anubis_genesis_validators.ads:121:9",
+  "Object_Size": 160,
+  "Value_Size": 152,
+  "Alignment": 4,
+  "record": [
+    {
+      "name": "Cpu_Cores",
+      "Position":  0,
+      "First_Bit": 0,
+      "Size": 32
+    },
+    {
+      "name": "Ram_Gb",
+      "Position":  4,
+      "First_Bit": 0,
+      "Size": 32
+    },
+    {
+      "name": "Storage_Tb",
+      "Position":  8,
+      "First_Bit": 0,
+      "Size": 32
+    },
+    {
+      "name": "Network_Mbps",
+      "Position": 12,
+      "First_Bit": 0,
+      "Size": 32
+    },
+    {
+      "name": "Is_Dedicated",
+      "Position": 16,
+      "First_Bit": 0,
+      "Size": 8
+    },
+    {
+      "name": "Has_Ups",
+      "Position": 17,
+      "First_Bit": 0,
+      "Size": 8
+    },
+    {
+      "name": "Tier",
+      "Position": 18,
+      "First_Bit": 0,
+      "Size": 8
+    }
+  ]
+}
+,
+{
+  "name": "Anubis_Genesis_Validators.Validator_Record",
+  "location": "anubis_genesis_validators.ads:141:9",
+  "Size": 1984,
+  "Alignment": 8,
+  "record": [
+    {
+      "name": "Index",
+      "Position":   0,
+      "First_Bit": 0,
+      "Size": 32
+    },
+    {
+      "name": "Address",
+      "Position":   4,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Pk_Hash",
+      "Position":  36,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Consensus_Pk",
+      "Position":  68,
+      "First_Bit": 0,
+      "Size": 512
+    },
+    {
+      "name": "Status",
+      "Position": 132,
+      "First_Bit": 0,
+      "Size": 8
+    },
+    {
+      "name": "Is_Genesis",
+      "Position": 133,
+      "First_Bit": 0,
+      "Size": 8
+    },
+    {
+      "name": "Region",
+      "Position": 134,
+      "First_Bit": 0,
+      "Size": 8
+    },
+    {
+      "name": "Self_Stake",
+      "Position": 136,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Delegated_Stake",
+      "Position": 144,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Total_Stake",
+      "Position": 152,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Blocks_Produced",
+      "Position": 160,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Blocks_Missed",
+      "Position": 168,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Total_Rewards",
+      "Position": 176,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Pending_Rewards",
+      "Position": 184,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Commission_Rate_Bp",
+      "Position": 192,
+      "First_Bit": 0,
+      "Size": 32
+    },
+    {
+      "name": "Times_Slashed",
+      "Position": 196,
+      "First_Bit": 0,
+      "Size": 32
+    },
+    {
+      "name": "Total_Slashed",
+      "Position": 200,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Jail_End_Block",
+      "Position": 208,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Registered_At",
+      "Position": 216,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Active_Since",
+      "Position": 224,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Last_Block",
+      "Position": 232,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Unbonding_End",
+      "Position": 240,
+      "First_Bit": 0,
+      "Size": 64
+    }
+  ]
+}
+,
+{
+  "name": "Anubis_Genesis_Validators.Validator_Array",
+  "location": "anubis_genesis_validators.ads:177:9",
+  "Size": 198400,
+  "Alignment": 8,
+  "Component_Size": 1984
+}
+,
+{
+  "name": "Anubis_Genesis_Validators.Validator_Application",
+  "location": "anubis_genesis_validators.ads:183:9",
+  "Size": 2560,
+  "Alignment": 8,
+  "record": [
+    {
+      "name": "Applicant",
+      "Position":   0,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Status",
+      "Position":  32,
+      "First_Bit": 0,
+      "Size": 8
+    },
+    {
+      "name": "Region",
+      "Position":  33,
+      "First_Bit": 0,
+      "Size": 8
+    },
+    {
+      "name": "Hardware",
+      "Position":  36,
+      "First_Bit": 0,
+      "Size": 160
+    },
+    {
+      "name": "Hardware_Proof_Hash",
+      "Position":  56,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Uptime_Proof_Hash",
+      "Position":  88,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Experience_Hash",
+      "Position": 120,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Ipfs_Application",
+      "Position": 152,
+      "First_Bit": 0,
+      "Size": 368
+    },
+    {
+      "name": "Committed_Stake",
+      "Position": 200,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Stake_Source",
+      "Position": 208,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Submitted_At",
+      "Position": 240,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Reviewed_At",
+      "Position": 248,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Reviewer",
+      "Position": 256,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Review_Notes_Hash",
+      "Position": 288,
+      "First_Bit": 0,
+      "Size": 256
+    }
+  ]
+}
+,
+{
+  "name": "Anubis_Genesis_Validators.Application_Array",
+  "location": "anubis_genesis_validators.ads:206:9",
+  "Alignment": 8,
+  "Component_Size": 2560
+}
+,
+{
+  "name": "Anubis_Genesis_Validators.Validator_Set_State",
+  "location": "anubis_genesis_validators.ads:212:9",
+  "Size": 198976,
+  "Alignment": 8,
+  "record": [
+    {
+      "name": "Validators",
+      "Position":     0,
+      "First_Bit": 0,
+      "Size": 198400
+    },
+    {
+      "name": "Active_Count",
+      "Position": 24800,
+      "First_Bit": 0,
+      "Size": 32
+    },
+    {
+      "name": "Genesis_Count",
+      "Position": 24804,
+      "First_Bit": 0,
+      "Size": 32
+    },
+    {
+      "name": "Total_Stake",
+      "Position": 24808,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Total_Distributed",
+      "Position": 24816,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Remaining_Pool",
+      "Position": 24824,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Current_Block_Reward",
+      "Position": 24832,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Genesis_Block",
+      "Position": 24840,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Current_Block",
+      "Position": 24848,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Current_Epoch",
+      "Position": 24856,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Open_Entry_Active",
+      "Position": 24864,
+      "First_Bit": 0,
+      "Size": 8
+    },
+    {
+      "name": "Post_Genesis_Count",
+      "Position": 24868,
+      "First_Bit": 0,
+      "Size": 32
+    }
+  ]
+}
+,
+{
+  "name": "Anubis_Genesis_Validators.Apply_Result",
+  "location": "anubis_genesis_validators.ads:238:9",
+  "Object_Size": 8,
+  "Value_Size": 3,
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Genesis_Validators.Register_Result",
+  "location": "anubis_genesis_validators.ads:247:9",
+  "Object_Size": 8,
+  "Value_Size": 3,
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Genesis_Validators.Slash_Result",
+  "location": "anubis_genesis_validators.ads:255:9",
+  "Object_Size": 8,
+  "Value_Size": 2,
+  "Alignment": 1
+}
+]

@@ -1,0 +1,549 @@
+V "GNAT Lib v14"
+A -O0
+A -gnatA
+A -gnatwa
+A -gnatQ
+A -gnata
+A -gnatf
+A -gnatyM120
+A -gnatyO
+A -gnat2012
+A -g
+A -gnateE
+A -fstack-check=specific
+A -mmacosx-version-min=16.0.0
+A -mcpu=apple-m1
+A -mlittle-endian
+A -mabi=lp64
+A -fPIC
+P ZX
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+
+U anubis_ring_sig%b	anubis_ring_sig.adb	c80d4667 NE OO PK
+W anubis_sha3%s		anubis_sha3.adb		anubis_sha3.ali
+Z system.assertions%s	s-assert.adb		s-assert.ali
+
+U anubis_ring_sig%s	anubis_ring_sig.ads	c494b3a9 EE NE OO PK
+W anubis_bytes%s	anubis_bytes.adb	anubis_bytes.ali
+W anubis_lattice_zk%s	anubis_lattice_zk.adb	anubis_lattice_zk.ali
+W anubis_types%s	anubis_types.ads	anubis_types.ali
+W interfaces%s		interfac.ads		interfac.ali
+
+D ada.ads		20240808082856 76789da1 ada%s
+D a-assert.ads		20240808082856 ba465f5c ada.assertions%s
+D a-unccon.ads		20240808082856 0e9b276f ada.unchecked_conversion%s
+D anubis_bytes.ads	20251207191105 9e5d5cad anubis_bytes%s
+D anubis_keccak.ads	20251207191105 19b431a9 anubis_keccak%s
+D anubis_lattice_zk.ads	20251207191105 008af6ac anubis_lattice_zk%s
+D anubis_ring_sig.ads	20251207191105 84e1b0fe anubis_ring_sig%s
+D anubis_ring_sig.adb	20251207191105 259f8b0c anubis_ring_sig%b
+D anubis_sha3.ads	20251207191105 69737d95 anubis_sha3%s
+D anubis_types.ads	20251207191105 4fb35097 anubis_types%s
+D anubis_word.ads	20251207191105 ec44f66b anubis_word%s
+D interfac.ads		20240808082856 9111f9c1 interfaces%s
+D system.ads		20240808082856 70765b54 system%s
+D s-assert.ads		20240808082856 9c4520c7 system.assertions%s
+D s-exctab.ads		20240808082856 91bef6ef system.exception_table%s
+D s-stalib.ads		20240808082856 1c9580f6 system.standard_library%s
+G a e
+G c Z s b [generate_key_pair anubis_ring_sig 120 14 none]
+G c Z s b [derive_public_key anubis_ring_sig 130 13 none]
+G c Z s b [compute_key_image anubis_ring_sig 137 14 none]
+G c Z s b [verify_key_image anubis_ring_sig 144 13 none]
+G c Z s b [init_ring anubis_ring_sig 156 14 none]
+G c Z s b [add_to_ring anubis_ring_sig 163 14 none]
+G c Z s b [is_in_ring anubis_ring_sig 173 13 none]
+G c Z s b [find_in_ring anubis_ring_sig 180 13 none]
+G c Z s b [ring_size anubis_ring_sig 188 13 none]
+G c Z s b [sign anubis_ring_sig 197 14 none]
+G c Z s b [init_signing anubis_ring_sig 213 14 none]
+G c Z s b [update_signing anubis_ring_sig 224 14 none]
+G c Z s b [finalize_signing anubis_ring_sig 232 14 none]
+G c Z s b [verify anubis_ring_sig 248 13 none]
+G c Z s b [batch_verify anubis_ring_sig 258 14 none]
+G c Z s b [are_linked anubis_ring_sig 275 13 none]
+G c Z s b [is_spent anubis_ring_sig 281 13 none]
+G c Z s b [mark_spent anubis_ring_sig 288 14 none]
+G c Z s b [issue_credential anubis_ring_sig 320 14 none]
+G c Z s b [verify_credential anubis_ring_sig 339 13 none]
+G c Z s b [prove_attribute anubis_ring_sig 348 14 none]
+G c Z s b [verify_attribute anubis_ring_sig 361 13 none]
+G c Z s b [serialize_signature anubis_ring_sig 382 14 none]
+G c Z s b [deserialize_signature anubis_ring_sig 391 14 none]
+G c Z s b [serialize_public_key anubis_ring_sig 399 14 none]
+G c Z s b [deserialize_public_key anubis_ring_sig 408 14 none]
+G c Z s b [zeroize_secret_key anubis_ring_sig 419 14 none]
+G c Z s b [zeroize_signing_context anubis_ring_sig 422 14 none]
+G c Z s b [get_stats anubis_ring_sig 436 13 none]
+G c Z s s [public_keyIP anubis_ring_sig 52 9 none]
+G c Z s s [Tpublic_key_arrayBIP anubis_ring_sig 57 4 none]
+G c Z s s [secret_keyIP anubis_ring_sig 60 9 none]
+G c Z s s [ringIP anubis_ring_sig 69 9 none]
+G c Z s s [ring_arrayIP anubis_ring_sig 75 9 none]
+G c Z s s [key_image_arrayIP anubis_ring_sig 76 9 none]
+G c Z s s [boolean_arrayIP anubis_ring_sig 77 9 none]
+G c Z s s [response_elementIP anubis_ring_sig 80 9 none]
+G c Z s s [Tresponse_arrayBIP anubis_ring_sig 84 4 none]
+G c Z s s [ring_signatureIP anubis_ring_sig 87 9 none]
+G c Z s s [ring_sig_arrayIP anubis_ring_sig 103 9 none]
+G c Z s s [byte_array_arrayIP anubis_ring_sig 104 9 none]
+G c Z s s [signing_contextIP anubis_ring_sig 107 9 none]
+G c Z s s [credential_attributeIP anubis_ring_sig 302 9 none]
+G c Z s s [Tattribute_arrayBIP anubis_ring_sig 309 4 none]
+G c Z s s [credentialIP anubis_ring_sig 312 9 none]
+G c Z s s [ring_sig_statsIP anubis_ring_sig 429 9 none]
+G c Z b b [Tcommitment_arrayBIP anubis_ring_sig 30 4 none]
+G c Z b b [local_sample_short anubis_ring_sig 37 14 none]
+G c Z b b [hash_to_challenge anubis_ring_sig 74 14 none]
+G c Z b b [challenge_to_ring anubis_ring_sig 116 13 none]
+G r c none [generate_key_pair anubis_ring_sig 120 14 none] [sha3_256 anubis_sha3 57 14 none]
+G r c none [generate_key_pair anubis_ring_sig 120 14 none] [reduce_coeff anubis_lattice_zk 338 13 none]
+G r c none [generate_key_pair anubis_ring_sig 120 14 none] [commit anubis_lattice_zk 134 14 none]
+G r c none [generate_key_pair anubis_ring_sig 120 14 none] [serialize_commitment anubis_lattice_zk 391 14 none]
+G r c none [derive_public_key anubis_ring_sig 130 13 none] [matrix_vector_mul anubis_lattice_zk 361 13 none]
+G r c none [derive_public_key anubis_ring_sig 130 13 none] [ring_add anubis_lattice_zk 318 13 none]
+G r c none [derive_public_key anubis_ring_sig 130 13 none] [serialize_commitment anubis_lattice_zk 391 14 none]
+G r c none [derive_public_key anubis_ring_sig 130 13 none] [sha3_256 anubis_sha3 57 14 none]
+G r c none [compute_key_image anubis_ring_sig 137 14 none] [sha3_512 anubis_sha3 76 14 none]
+G r c none [sign anubis_ring_sig 197 14 none] [sha3_256 anubis_sha3 57 14 none]
+G r c none [sign anubis_ring_sig 197 14 none] [sha3_512 anubis_sha3 76 14 none]
+G r c none [sign anubis_ring_sig 197 14 none] [matrix_vector_mul anubis_lattice_zk 361 13 none]
+G r c none [sign anubis_ring_sig 197 14 none] [serialize_commitment anubis_lattice_zk 391 14 none]
+G r c none [sign anubis_ring_sig 197 14 none] [ring_mul anubis_lattice_zk 326 13 none]
+G r c none [sign anubis_ring_sig 197 14 none] [ring_sub anubis_lattice_zk 322 13 none]
+G r c none [sign anubis_ring_sig 197 14 none] [ring_add anubis_lattice_zk 318 13 none]
+G r c none [update_signing anubis_ring_sig 224 14 none] [sha3_256 anubis_sha3 57 14 none]
+G r c none [verify anubis_ring_sig 248 13 none] [sha3_256 anubis_sha3 57 14 none]
+G r c none [verify anubis_ring_sig 248 13 none] [serialize_commitment anubis_lattice_zk 391 14 none]
+G r c none [verify anubis_ring_sig 248 13 none] [is_short anubis_lattice_zk 380 13 none]
+G r c none [verify anubis_ring_sig 248 13 none] [matrix_vector_mul anubis_lattice_zk 361 13 none]
+G r c none [verify anubis_ring_sig 248 13 none] [ring_mul anubis_lattice_zk 326 13 none]
+G r c none [verify anubis_ring_sig 248 13 none] [ring_sub anubis_lattice_zk 322 13 none]
+G r c none [batch_verify anubis_ring_sig 258 14 none] [sha3_256 anubis_sha3 57 14 none]
+G r c none [batch_verify anubis_ring_sig 258 14 none] [serialize_commitment anubis_lattice_zk 391 14 none]
+G r c none [batch_verify anubis_ring_sig 258 14 none] [is_short anubis_lattice_zk 380 13 none]
+G r c none [batch_verify anubis_ring_sig 258 14 none] [matrix_vector_mul anubis_lattice_zk 361 13 none]
+G r c none [batch_verify anubis_ring_sig 258 14 none] [ring_mul anubis_lattice_zk 326 13 none]
+G r c none [batch_verify anubis_ring_sig 258 14 none] [ring_sub anubis_lattice_zk 322 13 none]
+G r c none [issue_credential anubis_ring_sig 320 14 none] [serialize_commitment anubis_lattice_zk 391 14 none]
+G r c none [issue_credential anubis_ring_sig 320 14 none] [sha3_256 anubis_sha3 57 14 none]
+G r c none [issue_credential anubis_ring_sig 320 14 none] [sha3_512 anubis_sha3 76 14 none]
+G r c none [issue_credential anubis_ring_sig 320 14 none] [matrix_vector_mul anubis_lattice_zk 361 13 none]
+G r c none [issue_credential anubis_ring_sig 320 14 none] [ring_mul anubis_lattice_zk 326 13 none]
+G r c none [issue_credential anubis_ring_sig 320 14 none] [ring_sub anubis_lattice_zk 322 13 none]
+G r c none [issue_credential anubis_ring_sig 320 14 none] [ring_add anubis_lattice_zk 318 13 none]
+G r c none [verify_credential anubis_ring_sig 339 13 none] [sha3_256 anubis_sha3 57 14 none]
+G r c none [verify_credential anubis_ring_sig 339 13 none] [serialize_commitment anubis_lattice_zk 391 14 none]
+G r c none [verify_credential anubis_ring_sig 339 13 none] [is_short anubis_lattice_zk 380 13 none]
+G r c none [verify_credential anubis_ring_sig 339 13 none] [matrix_vector_mul anubis_lattice_zk 361 13 none]
+G r c none [verify_credential anubis_ring_sig 339 13 none] [ring_mul anubis_lattice_zk 326 13 none]
+G r c none [verify_credential anubis_ring_sig 339 13 none] [ring_sub anubis_lattice_zk 322 13 none]
+G r c none [prove_attribute anubis_ring_sig 348 14 none] [prove_opening anubis_lattice_zk 182 14 none]
+G r c none [verify_attribute anubis_ring_sig 361 13 none] [verify_opening_proof anubis_lattice_zk 193 13 none]
+G r c none [serialize_public_key anubis_ring_sig 399 14 none] [serialize_commitment anubis_lattice_zk 391 14 none]
+G r c none [deserialize_public_key anubis_ring_sig 408 14 none] [deserialize_commitment anubis_lattice_zk 400 14 none]
+G r c none [zeroize_secret_key anubis_ring_sig 419 14 none] [zeroize_ring anubis_lattice_zk 431 14 none]
+G r c none [zeroize_secret_key anubis_ring_sig 419 14 none] [zeroize_opening anubis_lattice_zk 428 14 none]
+G r c none [zeroize_signing_context anubis_ring_sig 422 14 none] [zeroize_ring anubis_lattice_zk 431 14 none]
+G r c none [zeroize_signing_context anubis_ring_sig 422 14 none] [zeroize_opening anubis_lattice_zk 428 14 none]
+G r c none [local_sample_short anubis_ring_sig 37 14 none] [sha3_256 anubis_sha3 57 14 none]
+G r c none [hash_to_challenge anubis_ring_sig 74 14 none] [serialize_commitment anubis_lattice_zk 391 14 none]
+G r c none [hash_to_challenge anubis_ring_sig 74 14 none] [sha3_256 anubis_sha3 57 14 none]
+X 4 anubis_bytes.ads
+7K9*Anubis_Bytes 52e17 7|23w6 23r24
+X 6 anubis_lattice_zk.ads
+24K9*Anubis_Lattice_ZK 435e22 7|24w6 24r29 62r24
+32N4*N 8|52r24 163r22 201r45 207r21 555r59 925r38 926r40
+35N4*Q 8|126r25 127r19 128r45 209r65 781r85 842r32
+38N4*Beta 8|555r52
+41N4*M 8|51r21 385r24 422r24 443r21 562r24 778r24 832r24 924r40 925r34 926r36
+53I12*Ring_Coeff{integer} 8|128r27 130r27 843r29 844r53
+54A9*Ring_Element(53I12)<integer> 7|61r24 304r24 365r24 8|116r55 120r16 334r24
+. 335r24 518r24 743r24
+56A9*Ring_Vector(54A9)<integer> 7|81r24 8|39r20 331r24
+59A9*Ajtai_Matrix(54A9)<integer><integer>
+62R9*Commitment 64e14 7|53r24 305r24 8|30r63
+63a7*Value{56A9} 8|187m25 188m25 188r66 244m36 343m23 360m31 384m23 386m26
+. 387r29 388r63 421m23 423m26 424r29 425r63 528m23 561m23 563m26 564r29 565r63
+. 880m28
+67R9*Opening 69e14 7|62r42
+68a7*Randomness{56A9} 8|187r74 446r45
+73a7*Coeffs{54A9} 8|452m33
+74i7*Weight{natural} 8|453m33
+78R9*Opening_Proof 81e14 7|99r24 147r24 354r28 366r24 8|223r24 731r28 744r24
+79a7*Response{56A9} 8|451m23
+80r7*Challenge{72R9} 8|452m23 453m23
+112R9*Public_Params 115e14 7|121r24 131r24 198r24 234r24 249r24 259r24 321r24
+. 340r24 349r24 362r24 8|141r24 179r24 321r24 491r24 510r24 588r24 670r24
+. 710r24 726r24 740r24
+113a7*A{59A9} 8|187r60 360r66 384r58 421r58 561r58
+134U14*Commit 8|171s7
+182U14*Prove_Opening 8|735s7
+193V13*Verify_Opening_Proof{boolean} 8|748s14
+312a4*Zero_Ring{54A9} 8|244r56 343r43 451r46 528r43 831r44 880r48
+318V13*Ring_Add{54A9} 8|188s38 393s22 429s22 444s48
+322V13*Ring_Sub{54A9} 8|386s39 423s39 563s39
+326V13*Ring_Mul{54A9} 8|388s16 425s16 446s13 565s16
+338V13*Reduce_Coeff{53I12} 8|160s30
+361V13*Matrix_Vector_Mul{56A9} 8|187s34 360s40 384s32 421s32 561s32
+380V13*Is_Short{boolean} 8|555s17
+388N4*Commitment_Bytes 7|378r53 379r53 405r31 8|86r32 104r42 108r38 148r36
+. 175r33 183r35 192r33 681r41 695r42 714r41 863r36 878r25 885r67 891r43 892r42
+391U14*Serialize_Commitment 8|107s13 174s7 191s7 698s13 866s7
+400U14*Deserialize_Commitment 8|885s7
+428U14*Zeroize_Opening 8|902s7
+431U14*Zeroize_Ring 8|901s7
+X 7 anubis_ring_sig.ads
+26K9*Anubis_Ring_Sig 442l5 442e20 8|12b14 76r24 930l5 930t20
+34N4*Max_Ring_Size 49r45 169r23 190r35 378r37 8|30r41 102r18 255r20 333r36
+. 517r36 820r30
+37N4*Min_Ring_Size 208r24 220r24 255r24 333r34 345r34
+40N4*Key_Image_Size 66r42 379r32 8|85r46 98r32 99r20 611r21 628r27 773r28
+. 774r20 806r30 826r68 827r20 923r40
+43N4*Response_Size
+49I12*Ring_Index{natural} 57r36 84r34 109r24 8|243r16
+52R9*Public_Key 55e14 57r51 123r28 133r13 145r24 165r24 175r24 182r24 316r24
+. 325r24 400r24 410r28 8|143r28 181r13 182r18 221r24 251r24 267r24 290r24
+. 674r24 859r24 874r28
+53r7*Key_Commitment{6|62R9} 8|171m47 174r32 187m10 188m10 188r51 191r32 244m21
+. 388r48 425r48 565r48 866r32 880m13 886m33
+54a7*Key_Hash{10|14A9} 8|175m59 192m59 245m21 275r30 275r49 298r30 298r49
+. 689r40 718r45 868r46 881m13 891m10
+57A9*Public_Key_Array(52R9)<integer> 70r24
+60R9*Secret_Key 63e14 110r24 124r28 132r24 138r24 201r24 217r24 324r24 352r24
+. 419r46 8|144r28 180r24 198r24 324r24 462r24 673r24 729r24 899r46
+61a7*Secret{6|54A9} 8|160m16 164m13 171r26 188r80 209r51 901m24
+62r7*Opening{6|67R9} 8|171m66 187r66 446r37 736r31 902m27
+66A12*Key_Image{10|14A9}<integer> 76r56 96r24 139r28 146r24 282r24 289r24
+. 8|76r40 199r28 222r24 620r24 643r24
+69R9*Ring 72e14 75r51 108r24 157r28 164r31 174r24 181r24 188r28 199r24 215r24
+. 250r24 322r24 341r24 437r24 8|75r24 238r28 250r31 266r24 289r24 311r28
+. 322r24 460r24 511r24 671r24 711r24 917r24
+70a7*Keys{57A9} 8|244m12 245m12 260m9 275r21 298r21 388r39 425r39 565r39
+71i7*Size{natural} 160r17 169r16 170r34 170r43 185r40 208r16 209r35 220r16
+. 220r59 255r16 333r26 334r45 345r26 8|241m9 255r12 260r17 261m9 261r19 270r23
+. 293r23 308r16 313r16 339r30 363r38 399r61 411r42 412r43 413r43 414r43 434r69
+. 522r33 535r23 575r30 922r28 924r33 925r27 926r29
+75A9*Ring_Array(69R9)<integer> 260r24 8|589r24
+76A9*Key_Image_Array(66A12)<integer> 283r24 290r31 8|621r24 644r31
+77A9*Boolean_Array(boolean)<integer> 263r28 8|592r28
+80R9*Response_Element 82e14 84r49
+81a7*Z{6|56A9} 8|379m62 384r79 416m62 421r79 442m36 444m39 445r42 555r45
+. 561r79 781r72 831m28 844m40
+84A9*Response_Array(80R9)<integer> 92r24
+87R9*Ring_Signature 100e14 103r55 204r28 236r28 252r24 276r24 315r24 383r24
+. 393r28 438r24 8|327r28 493r28 513r24 607r24 757r24 796r28 918r24
+89a7*Challenge_Seed{10|14A9} 8|353m11 543r44 764r39 802m11 812m11
+92a7*Responses{84A9} 8|379m48 384r65 416m48 421r65 442m11 444m14 445r17 555r31
+. 561r65 781r58 831m14 844m26
+93i7*Num_Responses{natural} 8|339m11 522r14 768r33 769r37 777r25 804m11 816m11
+. 820r14 830r25
+96a7*Image{66A12} 8|350m34 365r36 401r39 436r36 544r45 550r39 574r36 612r18
+. 612r36 773r55 803m11 826m11
+99r7*Image_Proof{6|78R9} 8|451m11 452m11 453m11
+103A9*Ring_Sig_Array(87R9)<integer> 262r24 8|591r24
+104A9*Byte_Array_Array(10|14A9)<integer> 261r24 8|590r24
+107R9*Signing_Context 113e14 214r28 225r31 233r31 422r52 8|459r28 473r31
+. 490r31 905r52
+108r7*Ring_Keys{69R9} 8|465m11 498r25
+109i7*Signer_Index{49I12} 8|466m11 498r40
+110r7*Signer_SK{60R9} 8|467m11 498r58 907m31
+111a7*Message_Hash{10|14A9} 8|468m11 479r33 482m58 485m34 499r17 908m11
+112b7*Initialized{boolean} 221r19 229r18 240r18 241r23 8|469m11 909m11
+120U14*Generate_Key_Pair 121>7 122>7 123<7 124<7 8|140b14 176l8 176t25
+121r7 Params{6|112R9} 8|141b7 171r15
+122a7 Randomness{10|14A9} 127r14 8|142b7 152r17 168r19
+123r7 PK{52R9} 8|143b7 171m44 171r44 174r29 175m56 175r56
+124r7 SK{60R9} 8|144b7 160m13 164m10 171r23 171m63 171r63
+130V13*Derive_Public_Key{52R9} 131>7 132>7 8|178b13 195l8 195t25
+131r7 Params{6|112R9} 8|179b7 187r53
+132r7 SK{60R9} 8|180b7 187r63 188r77
+137U14*Compute_Key_Image 138>7 139<7 8|197b14 218l8 218t25 350s7
+138r7 SK{60R9} 8|198b7 209r48
+139a7 Image{66A12} 8|199b7 217m29
+144V13*Verify_Key_Image{boolean} 145>7 146>7 147>7 8|220b13 231l8 231t24
+145r7 PK{52R9} 8|221b7
+146a7 Image{66A12} 8|222b7
+147r7 Proof{6|78R9} 8|223b7
+156U14*Init_Ring 157<7 8|237b14
+157r7 R{69R9} 160r15 8|238b7 241m7 244m10 245m10
+163U14*Add_To_Ring 164=7 165>7 166<7 8|249b14
+164r7 R{69R9} 169r14 170r32 170r41 8|250b7 255r10 260m7 260r15 261m7 261r17
+165r7 PK{52R9} 8|251b7 260r26
+166b7 Success{boolean} 170r19 8|252b7 256m10 262m7
+173V13*Is_In_Ring{boolean} 174>7 175>7 8|265b13 286l8 286t18
+174r7 R{69R9} 8|266b7 270r21 275r19
+175r7 PK{52R9} 8|267b7 275r46
+180V13*Find_In_Ring{natural} 181>7 182>7 185r15 8|288b13
+181r7 R{69R9} 185r38 8|289b7 293r21 298r19 308r14
+182r7 PK{52R9} 8|290b7 298r46
+188V13*Ring_Size{natural} 188>24 190r15 8|311b13
+188r24 R{69R9} 8|311b24 313r14
+197U14*Sign 198>7 199>7 200>7 201>7 202>7 203>7 204<7 205<7 8|320b14 456l8
+. 456t12 498s7 704s7
+198r7 Params{6|112R9} 8|321b7 360r59 384r51 421r51
+199r7 R{69R9} 208r14 209r33 8|322b7 339r28 363r36 365r29 388r37 399r59 401r32
+. 411r40 412r41 413r41 414r41 425r37 434r67 436r29
+200i7 Signer_Index{natural} 209r18 8|323b7 360r17 363r16 397r21 434r45 434r83
+. 437r50 439r51 442r22 444r25 445r28
+201r7 SK{60R9} 8|324b7 350r26 446r34
+202a7 Message{10|14A9} 8|325b7 347r17
+203a7 Randomness{10|14A9} 210r18 8|326b7 353r29 356r17 373r34 410r34
+204r7 Sig{87R9} 8|327b7 339m7 350m30 350r30 353m7 365r32 379m44 379r44 384r61
+. 401r35 416m44 416r44 421r61 436r32 442m7 444m10 445r13 451m7 452m7 453m7
+205b7 Success{boolean} 8|328b7 338m7 455m7
+213U14*Init_Signing 214<7 215>7 216>7 217>7 8|458b14
+214r7 Ctx{107R9} 221r15 8|459b7 465m7 466m7 467m7 468m7 469m7
+215r7 R{69R9} 220r14 220r57 8|460b7 465r24
+216i7 Signer_Index{natural} 220r42 8|461b7 466r27
+217r7 SK{60R9} 8|462b7 467r24
+224U14*Update_Signing 225=7 226>7 8|472b14 487l8 487t22
+225r7 Ctx{107R9} 229r14 8|473b7 479r29 482m54 482r54 485m30 485r30
+226a7 Data{10|14A9} 8|474b7 480r10 481r31 481r51 482r40 484r20
+232U14*Finalize_Signing 233=7 234>7 235>7 236<7 237<7 8|489b14
+233r7 Ctx{107R9} 240r14 241r19 8|490b7 498r21 498r36 498r54 499r13 502m32
+234r7 Params{6|112R9} 8|491b7 498r13
+235a7 Randomness{10|14A9} 240r34 8|492b7 499r31
+236r7 Sig{87R9} 8|493b7 499m43
+237b7 Success{boolean} 8|494b7 499m48
+248V13*Verify{boolean} 249>7 250>7 251>7 252>7 8|509b13 585l8 585t14 598s13
+. 722s14
+249r7 Params{6|112R9} 8|510b7 561r51
+250r7 R{69R9} 255r14 8|511b7 522r31 535r21 550r32 565r37 574r29 575r28
+251a7 Message{10|14A9} 8|512b7 532r17
+252r7 Sig{87R9} 8|513b7 522r10 543r40 544r41 550r35 555r27 561r61 574r32
+258U14*Batch_Verify 259>7 260>7 261>7 262>7 263<7 8|587b14 600l8 600t20
+259r7 Params{6|112R9} 8|588b7 598r21
+260a7 Rings{75A9} 266r14 8|589b7 596r16 597r40 598r29
+261a7 Messages{104A9} 266r29 267r18 8|590b7 598r40
+262a7 Sigs{103A9} 267r36 268r18 8|591b7 598r54
+263a7 Results{77A9} 268r32 8|592b7 597m10 597r19
+275V13*Are_Linked{boolean} 276>7 276>13 8|606b13 617l8 617t18
+276r7 Sig1{87R9} 8|607b7 612r13
+276r13 Sig2{87R9} 8|607b13 612r31
+281V13*Is_Spent{boolean} 282>7 283>7 8|619b13 640l8 640t16 655s10
+282a7 Image{66A12} 8|620b7 629r43
+283a7 Spent_Images{76A9} 8|621b7 624r16 629r19
+288U14*Mark_Spent 289>7 290=7 291=7 292<7 8|642b14 663l8 663t18
+289a7 Image{66A12} 8|643b7 655r20 660r58
+290a7 Spent_Images{76A9} 295r29 8|644b7 649r25 655r27 655r41 655r63 660m7
+. 660r21
+291i7 Spent_Count{natural} 295r14 8|645b7 649r10 655r84 660r42 661m7 661r22
+292b7 Success{boolean} 8|646b7 650m10 656m10 662m7
+302R9*Credential_Attribute 306e14 309r63
+303a7*Name{10|14A9}
+304a7*Value{6|54A9}
+305r7*Committed{6|62R9} 8|698r50 735r59 748r73
+308N4*Max_Attributes 309r40 335r36
+309A9*Attribute_Array(302R9)<integer> 313r24 326r24 8|675r24
+312R9*Credential 317e14 329r28 342r24 350r24 363r24 8|678r28 712r24 727r24
+. 741r24
+313a7*Attributes{309A9} 8|685m12 735r35 748r49
+314i7*Num_Attributes{natural} 357r32 370r32 8|686m12
+315r7*Issuer_Sig{87R9} 8|706m18 722r79
+316r7*Holder_PK{52R9} 8|684m12 718r35
+320U14*Issue_Credential 321>7 322>7 323>7 324>7 325>7 326>7 327>7 328>7 329<7
+. 330<7 8|669b14 707l8 707t24
+321r7 Params{6|112R9} 8|670b7 704r13
+322r7 Issuer_Ring{69R9} 333r14 334r33 8|671b7 704r21
+323i7 Issuer_Index{natural} 334r18 8|672b7 704r34
+324r7 Issuer_SK{60R9} 8|673b7 704r48
+325r7 Holder_PK{52R9} 8|674b7 684r25 689r30
+326a7 Attributes{309A9} 8|675b7 685r26 698r35
+327i7 Num_Attributes{natural} 335r18 8|676b7 686r30 693r21
+328a7 Randomness{10|14A9} 336r18 8|677b7 705r44
+329r7 Cred{312R9} 8|678b7 684m7 685m7 686m7 706m13 706r13
+330b7 Success{boolean} 8|679b7 706m30
+339V13*Verify_Credential{boolean} 340>7 341>7 342>7 8|709b13 723l8 723t25
+340r7 Params{6|112R9} 8|710b7 722r22
+341r7 Issuer_Ring{69R9} 345r14 8|711b7 722r30
+342r7 Cred{312R9} 8|712b7 718r30 722r74
+348U14*Prove_Attribute 349>7 350>7 351>7 352>7 353>7 354<7 8|725b14 737l8
+. 737t23
+349r7 Params{6|112R9} 8|726b7 735r22
+350r7 Cred{312R9} 357r27 8|727b7 735r30
+351i7 Attr_Index{natural} 357r14 8|728b7 735r47
+352r7 Holder_SK{60R9} 8|729b7 736r21
+353a7 Transcript{10|14A9} 358r18 8|730b7 736r40
+354r7 Proof{6|78R9} 8|731b7 736m52
+361V13*Verify_Attribute{boolean} 362>7 363>7 364>7 365>7 366>7 367>7 8|739b13
+. 750l8 750t24
+362r7 Params{6|112R9} 8|740b7 748r36
+363r7 Cred{312R9} 370r27 8|741b7 748r44
+364i7 Attr_Index{natural} 370r14 8|742b7 748r61
+365a7 Expected_Value{6|54A9} 8|743b7
+366r7 Proof{6|78R9} 8|744b7 749r36
+367a7 Transcript{10|14A9} 371r18 8|745b7 749r43
+378N4*Max_Sig_Bytes 388r31
+382U14*Serialize_Signature 383>7 384<7 385<7 8|756b14 792l8 792t27
+383r7 Sig{87R9} 8|757b7 764r35 768r29 769r33 773r51 777r21 781r54
+384a7 Output{10|14A9} 388r14 8|758b7 764m7 768m7 769m7 773m7 783m19 784m19
+385i7 Length{natural} 8|759b7 791m7
+391U14*Deserialize_Signature 392>7 393<7 394<7 8|794b14 856l8 856t29
+392a7 Input{10|14A9} 8|795b7 806r10 812r29 812r36 812r51 816r37 816r44 817r37
+. 817r44 826r20 826r27 826r48 834r19 834r43 839r45 839r52 840r44 840r51
+393r7 Sig{87R9} 8|796b7 802m7 803m7 804m7 812m7 816m7 820r10 826m7 830r21
+. 831m10 844m22
+394b7 Success{boolean} 8|797b7 807m10 821m10 835m19 846m22 855m7
+399U14*Serialize_Public_Key 400>7 401<7 402<7 8|858b14 870l8 870t28
+400r7 PK{52R9} 8|859b7 866r29 868r43
+401a7 Output{10|14A9} 405r14 8|860b7 867m7 868m7
+402i7 Length{natural} 8|861b7 869m7
+408U14*Deserialize_Public_Key 409>7 410<7 411<7 8|872b14 893l8 893t30
+409a7 Input{10|14A9} 8|873b7 878r10 885r31 885r38 885r53 891r22 891r29 892r28
+410r7 PK{52R9} 8|874b7 880m10 881m10 886m30 886r30 891m7
+411b7 Success{boolean} 8|875b7 879m10 886m49 887r14
+419U14*Zeroize_Secret_Key 419=34 8|899b14 903l8 903t26 907s7
+419r34 SK{60R9} 8|899b34 901m21 901r21 902m24 902r24
+422U14*Zeroize_Signing_Context 422=39 8|502s7 905b14 910l8 910t31
+422r39 Ctx{107R9} 8|905b39 907m27 907r27 908m7 909m7
+429R9*Ring_Sig_Stats 434e14 439r13 8|919r13 920r15
+430i7*Ring_Size{natural} 8|922m13
+431i7*Sig_Size_Bytes{natural} 8|923m13
+432i7*Sign_Ops{natural} 8|925m13
+433i7*Verify_Ops{natural} 8|926m13
+436V13*Get_Stats{429R9} 437>7 438>7 8|916b13 928l8 928t17
+437r7 R{69R9} 8|917b7 922r26 924r31 925r25 926r27
+438r7 Sig{87R9} 8|918b7
+X 8 anubis_ring_sig.adb
+20a4 Key_Image_Domain{10|14A9} 204r30
+23a4 Challenge_Domain{10|14A9} 90r30
+30A9 Commitment_Array(6|62R9)<integer> 78r24 332r24 516r24
+37U14 Local_Sample_Short 37b14 38>7 39<7 71l8 71t26 357s7 379s13 416s13
+38a7 Seed{10|14A9} 42r14 49r28
+39a7 Vec{6|56A9} 63m26 64m26 65m31
+44a7 Hash_In{10|14A9} 49m7 53m13 54m13 55m13 56m13 58r23
+45a7 Hash_Out{10|14A9} 58m32 61r29
+46m7 Counter{12|81M9} 53r35 54r36 55r36 56r36 68m13 68r24
+47i7 Val{natural} 61m13 62r18
+51i11 I{integer} 63r31 64r31 65r36
+52i14 J{integer} 63r35 64r35 65r40
+74U14 Hash_To_Challenge 74b14 75>7 76>7 77>7 78>7 79>7 80<7 113l8 113t25
+. 365s10 401s13 436s10 550s13 574s10
+75r7 Ring_Keys{7|69R9}
+76a7 Key_Image_Val{7|66A12} 98r55
+77a7 Message_Hash{10|14A9} 83r14 94r39
+78a7 Commitments{30A9} 107r35
+79i7 Index{natural} 102r10 107r48
+80a7 Challenge{10|14A9} 83r43 112m29
+85a7 Hash_Input{10|14A9} 90m7 94m7 98m7 108m13 112r17
+87i7 Pos{natural} 91m7 94r19 94r26 95m7 95r14 98r19 98r26 99m7 99r14 108r25
+. 108r32
+104a13 Com_Bytes{10|14A9} 107m56 108r63
+105i13 Com_Len{natural} 107m67
+116V13 Challenge_To_Ring{6|54A9} 116b13 116>32 134l8 134t25 383s23 420s23
+. 439s20 560s23
+116a32 C{10|14A9} 118r14 124r26 124r29 125r26 125r29
+120a7 Result{6|54A9} 128m13 130m13 133r14
+121i7 Val{integer} 124m10 126m10 126r17 127r13 128r39 130r39
+123i11 I{integer} 124r43 125r43 128r21 130r21
+146a7 Msg_Rand{10|14A9} 152m29 157r48 158r48
+147a7 Com_Rand{10|14A9} 168m7 171r34
+148a7 Com_Bytes{10|14A9} 174m48 175r17
+149i7 Com_Len{natural} 174m59
+155i11 I{integer} 157r62 158r62 160r24
+157i13 Val{integer} 160r44
+163i11 I{integer} 164r21
+182r7 PK{7|52R9} 187m7 188m7 188r48 191r29 192m56 192r56 194r14
+183a7 Com_Bytes{10|14A9} 191m48 192r17
+184i7 Len{natural} 191m59
+201a7 Hash_Input{10|14A9} 204m7 211m13 212m13 217r17
+207i11 I{integer} 209r59 211r33 212r33
+209i13 Val{integer} 211r45 212r49
+243i11 I{7|49I12} 244r18 245r18
+270i11 I{integer} 275r27
+272b13 Match{boolean} 276m19 280r16
+274i17 J{integer} 275r40 275r59
+293i11 I{integer} 298r27 304r23
+295b13 Match{boolean} 299m19 303r16
+297i17 J{integer} 298r40 298r59
+330a7 Message_Hash{10|14A9} 347m26 365r43 401r46 436r43
+331a7 Alpha{6|56A9} 357m39 360r69 442r41
+332a7 L_Values{30A9} 342r16 343m10 360m7 365r57 384m10 386m13 387r16 401r60
+. 421m10 423m13 424r16 436r57
+333a7 Challenges(10|14A9) 366m35 366r35 383r42 402m41 402r41 420r42 437m38
+. 437r38 439r39
+334a7 Chal_Ring{6|54A9} 383m10 388r26 393r42 420m10 425r26 429r42 439m7 446r23
+335a7 Sum_Chal{6|54A9} 393m10 393r32 429m10 429r32
+336a7 Alpha_Seed{10|14A9} 356m29 357r27
+342i11 I{integer} 343r20
+363i11 I{integer} 366r28 366r47 374r35 375r36 376r36 377r36 379r59 383r54
+. 384r20 384r76 386r23 387r26 388r45
+370a13 Resp_Seed{10|14A9} 378m32 379r33
+371a13 Seed_In{10|14A9} 373m13 374m13 375m13 376m13 377m13 378r23
+385i14 J{integer} 386r33 387r36 388r70
+397i11 I{integer} 399r48 399r75 402r53 411r36 412r37 413r37 414r37 416r59
+. 420r54 421r20 421r76 423r23 424r26 425r45
+399i13 Prev_Idx{natural} 402r31
+407a13 Resp_Seed{10|14A9} 415m32 416r33
+408a13 Seed_In{10|14A9} 410m13 411m13 412m13 413m13 414m13 415r23
+422i14 J{integer} 423r33 424r36 425r70
+434i10 Prev_Idx{natural} 437r28
+443i11 J{integer} 444r42 445r45 446r57
+476a7 Combined{10|14A9} 479m7 481m10 482r20 484m26 484r26 485r20
+515a7 Message_Hash{10|14A9} 532m26 545r42 550r46 574r43
+516a7 L_Values{30A9} 527r16 528m10 550r60 561m10 563m13 564r16 574r57
+517a7 Challenges(10|14A9) 546m38 546r38 548r27 551m38 551r38 560r42
+518a7 Chal_Ring{6|54A9} 560m10 565r26
+519a7 First_Chal{10|14A9} 548m13 578r34
+527i11 I{integer} 528r20
+535i11 I{integer} 537r13 551r31 551r50 555r42 560r54 561r20 561r76 563r23
+. 564r26 565r45
+541a16 Seed_Input{10|14A9} 543m16 544m16 545m16 546r26
+562i14 J{integer} 563r33 564r36 565r70
+572a10 Final_Chal{10|14A9} 575m40 578r16
+577i14 I{integer} 578r28 578r46
+596i11 I{integer} 597r36 598r36 598r50 598r60
+611i11 I{integer} 612r25 612r43
+624i11 I{integer} 629r33
+626b13 Match{boolean} 630m19 634r16
+628i17 J{integer} 629r37 629r50
+681a7 Cred_Data{10|14A9} 689m7 705r13
+682i7 Data_Len{natural} 690m7 705r29
+693i11 I{integer} 698r47
+695a13 Com_Bytes{10|14A9} 698m61
+696i13 Com_Len{natural} 698m72
+714a7 Cred_Data{10|14A9} 718m7 722r43
+715i7 Data_Len{natural} 719m7 722r59
+761i7 Idx{natural} 764r15 764r22 765m7 765r14 768r15 769r15 770m7 770r14
+. 773r15 773r22 774m7 774r14 783r27 784r27 785m19 785r26 791r17
+777i11 I{integer} 781r69
+778i14 J{integer} 781r75
+779i17 K{integer} 781r79
+781i19 Val{integer} 783r41 784r45
+799i7 Idx{natural} 813m7 816r58 817r58 818m7 818r14 826r41 826r62 827m7 827r14
+. 834r33 839r66 840r65 850m16 850r23
+830i11 I{integer} 831r25 844r37
+832i14 J{integer} 844r43
+833i17 K{integer} 844r47
+839i19 Val{integer} 842m19 842r26 843r22 844r65
+863a7 Com_Bytes{10|14A9} 866m48 867r36
+864i7 Com_Len{natural} 866m59 867r20 867r52 868r15 868r26 869r17
+920r7 Stats{7|429R9} 922m7 923m7 925m7 926m7 927r14
+X 9 anubis_sha3.ads
+27K9*Anubis_SHA3 8|10w6 10r23 9|158e16
+57U14*SHA3_256 8|58s13 112s7 152s7 175s7 192s7 347s7 482s10 484s10 485s10
+. 532s7 546s16
+76U14*SHA3_512 8|217s7 356s7 378s13 415s13
+X 10 anubis_types.ads
+5K9*Anubis_Types 7|22w6 22r24 10|40e17
+13M12*Byte{12|70M9} 8|53r29 54r29 55r29 56r29 211r39 212r43 374r29 375r29
+. 376r29 377r29 411r29 412r29 413r29 414r29 768r23 769r27 783r35 784r39
+14A9*Byte_Array(13M12)<integer> 7|54r24 66r25 89r24 104r57 111r24 122r24
+. 202r24 203r24 226r24 235r24 251r24 303r24 328r24 353r24 367r24 384r28 392r24
+. 401r28 409r24 8|20r32 23r32 38r16 44r18 45r18 77r24 80r28 85r20 104r25
+. 116r36 142r24 146r18 147r18 148r19 183r18 201r20 325r24 326r24 330r24 333r58
+. 336r24 370r25 371r25 407r25 408r25 474r24 476r18 492r24 512r24 515r24 517r58
+. 519r24 541r29 572r23 677r24 681r19 695r25 714r19 730r24 745r24 758r28 795r24
+. 860r28 863r19 873r24
+X 12 interfac.ads
+38K9*Interfaces 7|21w6 21r22 12|233e15
+70M9*Unsigned_8
+81M9*Unsigned_32 8|46r18
+

@@ -1,0 +1,28 @@
+[GENERATED OBJECT FILE]
+b__test_address.o
+[PROJECT FILES]
+/Users/sicarii/anubisvm/tests/test_address.gpr
+20251204120059 9d95dd99544543599cc868ef5555dcf6
+/Users/sicarii/anubisvm/anubisvm.gpr
+20251204120053 8dc096b23944d040ab393b5f24d622c0
+[BOUND OBJECT FILES]
+/Users/sicarii/anubisvm/obj/anubis_address_types.o
+/Users/sicarii/anubisvm/obj/anubis_types.o
+/Users/sicarii/anubisvm/obj/anubis_address_base32.o
+/Users/sicarii/anubisvm/obj/anubis_keccak.o
+/Users/sicarii/anubisvm/obj/anubis_sha3.o
+/Users/sicarii/anubisvm/obj/anubis_address_checksum.o
+/Users/sicarii/anubisvm/obj/anubis_address_derive.o
+/Users/sicarii/anubisvm/obj/anubis_address.o
+/Users/sicarii/anubisvm/tests/obj/test_address.o
+[GENERATED SOURCE FILES]
+b__test_address.ads
+b__test_address.adb
+b__test_address.ali
+[RESULTING OPTIONS]
+-L/Users/sicarii/anubisvm/tests/obj/
+-L/Users/sicarii/anubisvm/tests/obj/
+-L/Users/sicarii/anubisvm/obj/
+-L/Users/sicarii/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/adalib/
+-static
+/Users/sicarii/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/adalib/libgnat.a

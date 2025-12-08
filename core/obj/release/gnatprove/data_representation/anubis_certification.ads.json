@@ -1,0 +1,241 @@
+[
+{
+  "name": "Anubis_Certification.Cert_Level",
+  "location": "anubis_certification.ads:30:9",
+  "Object_Size": 8,
+  "Value_Size": 3,
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Certification.Level_Discounts",
+  "location": "anubis_certification.ads:33:4",
+  "Size": 160,
+  "Alignment": 4
+}
+,
+{
+  "name": "Anubis_Certification.Level_Deposits",
+  "location": "anubis_certification.ads:42:4",
+  "Size": 320,
+  "Alignment": 8
+}
+,
+{
+  "name": "Anubis_Certification.Verification_Requirement",
+  "location": "anubis_certification.ads:51:9",
+  "Object_Size": 8,
+  "Value_Size": 3,
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Certification.Level_Requirements",
+  "location": "anubis_certification.ads:59:4",
+  "Size": 40,
+  "Alignment": 8
+}
+,
+{
+  "name": "Anubis_Certification.Certification_Status",
+  "location": "anubis_certification.ads:71:9",
+  "Object_Size": 8,
+  "Value_Size": 3,
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Certification.Contract_Certification",
+  "location": "anubis_certification.ads:79:9",
+  "Size": 1920,
+  "Alignment": 8,
+  "record": [
+    {
+      "name": "Contract_Address",
+      "Position":   0,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Level",
+      "Position":  32,
+      "First_Bit": 0,
+      "Size": 8
+    },
+    {
+      "name": "Status",
+      "Position":  33,
+      "First_Bit": 0,
+      "Size": 8
+    },
+    {
+      "name": "Gnatprove_Hash",
+      "Position":  34,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Vc_Count",
+      "Position":  68,
+      "First_Bit": 0,
+      "Size": 32
+    },
+    {
+      "name": "Vcs_Proven",
+      "Position":  72,
+      "First_Bit": 0,
+      "Size": 32
+    },
+    {
+      "name": "Ct_Analysis_Hash",
+      "Position":  76,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Audit_Report",
+      "Position": 108,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Auditor_Pk",
+      "Position": 140,
+      "First_Bit": 0,
+      "Size": 256
+    },
+    {
+      "name": "Deposit_Amount",
+      "Position": 176,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Deposit_Locked",
+      "Position": 184,
+      "First_Bit": 0,
+      "Size": 8
+    },
+    {
+      "name": "Applied_At",
+      "Position": 192,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Certified_At",
+      "Position": 200,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Expires_At",
+      "Position": 208,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Last_Verified",
+      "Position": 216,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Gas_Saved",
+      "Position": 224,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Tx_Count",
+      "Position": 232,
+      "First_Bit": 0,
+      "Size": 64
+    }
+  ]
+}
+,
+{
+  "name": "Anubis_Certification.Certification_Array",
+  "location": "anubis_certification.ads:107:9",
+  "Alignment": 8,
+  "Component_Size": 1920
+}
+,
+{
+  "name": "Anubis_Certification.Level_Count_Array",
+  "location": "anubis_certification.ads:110:9",
+  "Size": 160,
+  "Alignment": 4,
+  "Component_Size": 32
+}
+,
+{
+  "name": "Anubis_Certification.Certification_State",
+  "location": "anubis_certification.ads:112:9",
+  "Size": 512,
+  "Alignment": 8,
+  "record": [
+    {
+      "name": "Total_Certified",
+      "Position":  0,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Total_Deposits",
+      "Position":  8,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Total_Gas_Saved",
+      "Position": 16,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Level_Counts",
+      "Position": 24,
+      "First_Bit": 0,
+      "Size": 160
+    },
+    {
+      "name": "Genesis_Block",
+      "Position": 48,
+      "First_Bit": 0,
+      "Size": 64
+    },
+    {
+      "name": "Current_Block",
+      "Position": 56,
+      "First_Bit": 0,
+      "Size": 64
+    }
+  ]
+}
+,
+{
+  "name": "Anubis_Certification.Apply_Result",
+  "location": "anubis_certification.ads:125:9",
+  "Object_Size": 8,
+  "Value_Size": 3,
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Certification.Verify_Result",
+  "location": "anubis_certification.ads:133:9",
+  "Object_Size": 8,
+  "Value_Size": 3,
+  "Alignment": 1
+}
+,
+{
+  "name": "Anubis_Certification.Upgrade_Result",
+  "location": "anubis_certification.ads:141:9",
+  "Object_Size": 8,
+  "Value_Size": 2,
+  "Alignment": 1
+}
+]

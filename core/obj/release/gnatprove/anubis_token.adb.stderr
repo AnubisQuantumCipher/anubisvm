@@ -1,0 +1,379 @@
+anubis_token.adb:81:07: info: initialization of "Remaining" proved
+anubis_token.adb:186:07: info: initialization of "Total_Deposit" proved
+anubis_token.adb:222:07: info: initialization of "Burn_Amount" proved
+anubis_token.adb:231:33: info: division check proved
+anubis_token.adb:277:57: info: division check proved
+anubis_token.adb:277:57: info: range check proved
+anubis_token.adb:291:65: info: division check proved
+anubis_token.adb:291:65: info: range check proved
+anubis_token.adb:306:59: info: division check proved
+anubis_token.adb:306:59: info: range check proved
+anubis_token.adb:320:60: info: division check proved
+anubis_token.adb:320:60: info: range check proved
+anubis_token.adb:350:07: info: initialization of "Used" proved
+anubis_token.adb:387:31: info: range check proved
+anubis_token.adb:391:14: info: length check proved
+
+anubis_token.adb:392:14: warning: unused assignment
+  392 |      Length := 0;
+      |      ~~~~~~~^~~~
+anubis_token.adb:396:24: info: index check proved
+
+anubis_token.adb:405:21: medium: array index check might fail
+  405 |            Output (Idx) := '.';
+      |                    ^~~
+  reason for check: value must be a valid index into the array
+anubis_token.adb:406:24: info: range check proved
+
+anubis_token.adb:412:18: medium: array index check might fail
+  412 |         Output (Idx) := Character'Val (48 + Natural (Temp mod 10));
+      |                 ^~~
+  reason for check: value must be a valid index into the array
+anubis_token.adb:412:60: info: division check proved
+anubis_token.adb:412:60: info: range check proved
+anubis_token.adb:413:23: info: division check proved
+anubis_token.adb:414:21: info: range check proved
+
+anubis_token.adb:415:45: medium: overflow check might fail
+  415 |         Decimals_Placed := Decimals_Placed + 1;
+      |                            ~~~~~~~~~~~~~~~~^~~
+  reason for check: result of addition must fit in a 32-bits machine integer
+  possible fix: loop at line 402 should mention Decimals_Placed in a loop invariant
+  402 |      while Temp > 0 and then Idx >= Output'First loop
+      |                                                  ^ here
+anubis_token.adb:419:29: info: overflow check proved
+anubis_token.adb:419:29: info: range check proved
+anubis_token.adb:437:28: info: range check proved
+anubis_token.adb:450:73: info: range check proved
+
+anubis_token.adb:452:37: medium: overflow check might fail
+  452 |               Decimals := Decimals + 1;
+      |                           ~~~~~~~~~^~~
+  reason for check: result of addition must fit in a 32-bits machine integer
+  possible fix: loop at line 443 should mention Decimals in a loop invariant
+  443 |      for I in Input'Range loop
+      |                           ^ here
+anubis_token.adb:465:31: info: overflow check proved
+anubis_token.adb:488:15: info: overflow check proved
+anubis_token.adb:489:32: info: overflow check proved
+anubis_token.adb:489:32: info: index check proved
+anubis_token.adb:560:30: info: range check proved
+anubis_token.adb:562:14: info: length check proved
+
+anubis_token.adb:567:21: medium: array index check might fail
+  567 |            Output (Idx) := Account.Address (I);
+      |                    ^~~
+  reason for check: value must be a valid index into the array
+  possible fix: loop at line 565 should mention Idx in a loop invariant
+  565 |      for I in Account.Address'Range loop
+      |                                     ^ here
+
+anubis_token.adb:568:24: medium: overflow check might fail
+  568 |            Idx := Idx + 1;
+      |                   ~~~~^~~
+  reason for check: result of addition must fit in a 32-bits machine integer
+  possible fix: loop at line 565 should mention Idx in a loop invariant
+  565 |      for I in Account.Address'Range loop
+      |                                     ^ here
+anubis_token.adb:578:24: info: index check proved
+anubis_token.adb:578:48: info: division check proved
+anubis_token.adb:578:48: info: range check proved
+anubis_token.adb:579:27: info: division check proved
+
+anubis_token.adb:580:27: medium: overflow check might fail
+  580 |               Idx := Idx + 1;
+      |                      ~~~~^~~
+  reason for check: result of addition must fit in a 32-bits machine integer
+  possible fix: loop at line 565 should mention Idx in a loop invariant
+  565 |      for I in Account.Address'Range loop
+      |                                     ^ here
+anubis_token.adb:591:24: info: index check proved
+anubis_token.adb:591:46: info: division check proved
+anubis_token.adb:591:46: info: range check proved
+anubis_token.adb:592:23: info: division check proved
+
+anubis_token.adb:593:27: medium: overflow check might fail
+  593 |               Idx := Idx + 1;
+      |                      ~~~~^~~
+  reason for check: result of addition must fit in a 32-bits machine integer
+  possible fix: loop at line 565 should mention Idx in a loop invariant
+  565 |      for I in Account.Address'Range loop
+      |                                     ^ here
+anubis_token.adb:600:18: info: index check proved
+
+anubis_token.adb:601:21: medium: overflow check might fail
+  601 |         Idx := Idx + 1;
+      |                ~~~~^~~
+  reason for check: result of addition must fit in a 32-bits machine integer
+  possible fix: loop at line 565 should mention Idx in a loop invariant
+  565 |      for I in Account.Address'Range loop
+      |                                     ^ here
+anubis_token.adb:606:18: info: index check proved
+
+anubis_token.adb:607:21: medium: overflow check might fail
+  607 |         Idx := Idx + 1;
+      |                ~~~~^~~
+  reason for check: result of addition must fit in a 32-bits machine integer
+  possible fix: loop at line 565 should mention Idx in a loop invariant
+  565 |      for I in Account.Address'Range loop
+      |                                     ^ here
+anubis_token.adb:616:24: info: index check proved
+anubis_token.adb:616:46: info: division check proved
+anubis_token.adb:616:46: info: range check proved
+anubis_token.adb:617:23: info: division check proved
+
+anubis_token.adb:618:27: medium: overflow check might fail
+  618 |               Idx := Idx + 1;
+      |                      ~~~~^~~
+  reason for check: result of addition must fit in a 32-bits machine integer
+  possible fix: loop at line 565 should mention Idx in a loop invariant
+  565 |      for I in Account.Address'Range loop
+      |                                     ^ here
+anubis_token.adb:623:21: info: overflow check proved
+anubis_token.adb:623:21: info: range check proved
+
+anubis_token.adb:631:29: medium: range check might fail
+  631 |      Idx : Natural := Input'First;
+      |                       ~~~~~^~~~~~
+  e.g. when Input'Last = -2
+  reason for check: default component value must fit in the type
+  possible fix: add or complete related loop invariants or postconditions
+
+anubis_token.adb:651:43: medium: array index check might fail
+  651 |            Account.Address (I) := Input (Idx);
+      |                                          ^~~
+  reason for check: value must be a valid index into the array
+  possible fix: loop at line 649 should mention Idx in a loop invariant
+  649 |      for I in Account.Address'Range loop
+      |                                     ^ here
+
+anubis_token.adb:652:24: medium: overflow check might fail
+  652 |            Idx := Idx + 1;
+      |                   ~~~~^~~
+  reason for check: result of addition must fit in a 32-bits machine integer
+  possible fix: loop at line 649 should mention Idx in a loop invariant
+  649 |      for I in Account.Address'Range loop
+      |                                     ^ here
+anubis_token.adb:660:37: info: index check proved
+
+anubis_token.adb:661:24: medium: overflow check might fail
+  661 |            Idx := Idx + 1;
+      |                   ~~~~^~~
+  reason for check: result of addition must fit in a 32-bits machine integer
+  possible fix: loop at line 649 should mention Idx in a loop invariant
+  649 |      for I in Account.Address'Range loop
+      |                                     ^ here
+anubis_token.adb:669:36: info: index check proved
+
+anubis_token.adb:670:24: medium: overflow check might fail
+  670 |            Idx := Idx + 1;
+      |                   ~~~~^~~
+  reason for check: result of addition must fit in a 32-bits machine integer
+  possible fix: loop at line 649 should mention Idx in a loop invariant
+  649 |      for I in Account.Address'Range loop
+      |                                     ^ here
+anubis_token.adb:676:35: info: index check proved
+
+anubis_token.adb:677:21: medium: overflow check might fail
+  677 |         Idx := Idx + 1;
+      |                ~~~~^~~
+  reason for check: result of addition must fit in a 32-bits machine integer
+  possible fix: loop at line 649 should mention Idx in a loop invariant
+  649 |      for I in Account.Address'Range loop
+      |                                     ^ here
+anubis_token.adb:682:29: info: index check proved
+anubis_token.adb:683:60: info: range check proved
+anubis_token.adb:683:76: info: index check proved
+
+anubis_token.adb:685:21: medium: overflow check might fail
+  685 |         Idx := Idx + 1;
+      |                ~~~~^~~
+  reason for check: result of addition must fit in a 32-bits machine integer
+  possible fix: loop at line 649 should mention Idx in a loop invariant
+  649 |      for I in Account.Address'Range loop
+      |                                     ^ here
+anubis_token.adb:692:37: info: index check proved
+
+anubis_token.adb:693:24: medium: overflow check might fail
+  693 |            Idx := Idx + 1;
+      |                   ~~~~^~~
+  reason for check: result of addition must fit in a 32-bits machine integer
+  possible fix: loop at line 649 should mention Idx in a loop invariant
+  649 |      for I in Account.Address'Range loop
+      |                                     ^ here
+anubis_token.adb:705:30: info: range check proved
+anubis_token.adb:712:24: info: index check proved, in call inlined at anubis_token.adb:722
+anubis_token.adb:712:24: info: index check proved, in call inlined at anubis_token.adb:723
+anubis_token.adb:712:24: info: index check proved, in call inlined at anubis_token.adb:724
+anubis_token.adb:712:24: info: index check proved, in call inlined at anubis_token.adb:725
+anubis_token.adb:712:24: info: index check proved, in call inlined at anubis_token.adb:726
+anubis_token.adb:712:24: info: index check proved, in call inlined at anubis_token.adb:727
+anubis_token.adb:712:24: info: index check proved, in call inlined at anubis_token.adb:728
+anubis_token.adb:712:24: info: index check proved, in call inlined at anubis_token.adb:729
+anubis_token.adb:712:24: info: index check proved, in call inlined at anubis_token.adb:730
+anubis_token.adb:712:24: info: index check proved, in call inlined at anubis_token.adb:731
+anubis_token.adb:712:24: info: index check proved, in call inlined at anubis_token.adb:732
+anubis_token.adb:712:24: info: index check proved, in call inlined at anubis_token.adb:733
+anubis_token.adb:712:46: info: division check proved, in call inlined at anubis_token.adb:722
+anubis_token.adb:712:46: info: range check proved, in call inlined at anubis_token.adb:722
+anubis_token.adb:712:46: info: division check proved, in call inlined at anubis_token.adb:723
+anubis_token.adb:712:46: info: range check proved, in call inlined at anubis_token.adb:723
+anubis_token.adb:712:46: info: division check proved, in call inlined at anubis_token.adb:724
+anubis_token.adb:712:46: info: range check proved, in call inlined at anubis_token.adb:724
+anubis_token.adb:712:46: info: division check proved, in call inlined at anubis_token.adb:725
+anubis_token.adb:712:46: info: range check proved, in call inlined at anubis_token.adb:725
+anubis_token.adb:712:46: info: division check proved, in call inlined at anubis_token.adb:726
+anubis_token.adb:712:46: info: range check proved, in call inlined at anubis_token.adb:726
+anubis_token.adb:712:46: info: division check proved, in call inlined at anubis_token.adb:727
+anubis_token.adb:712:46: info: range check proved, in call inlined at anubis_token.adb:727
+anubis_token.adb:712:46: info: division check proved, in call inlined at anubis_token.adb:728
+anubis_token.adb:712:46: info: range check proved, in call inlined at anubis_token.adb:728
+anubis_token.adb:712:46: info: division check proved, in call inlined at anubis_token.adb:729
+anubis_token.adb:712:46: info: range check proved, in call inlined at anubis_token.adb:729
+anubis_token.adb:712:46: info: division check proved, in call inlined at anubis_token.adb:730
+anubis_token.adb:712:46: info: range check proved, in call inlined at anubis_token.adb:730
+anubis_token.adb:712:46: info: division check proved, in call inlined at anubis_token.adb:731
+anubis_token.adb:712:46: info: range check proved, in call inlined at anubis_token.adb:731
+anubis_token.adb:712:46: info: division check proved, in call inlined at anubis_token.adb:732
+anubis_token.adb:712:46: info: range check proved, in call inlined at anubis_token.adb:732
+anubis_token.adb:712:46: info: division check proved, in call inlined at anubis_token.adb:733
+anubis_token.adb:712:46: info: range check proved, in call inlined at anubis_token.adb:733
+anubis_token.adb:713:23: info: division check proved, in call inlined at anubis_token.adb:722
+anubis_token.adb:713:23: info: division check proved, in call inlined at anubis_token.adb:723
+anubis_token.adb:713:23: info: division check proved, in call inlined at anubis_token.adb:724
+anubis_token.adb:713:23: info: division check proved, in call inlined at anubis_token.adb:725
+anubis_token.adb:713:23: info: division check proved, in call inlined at anubis_token.adb:726
+anubis_token.adb:713:23: info: division check proved, in call inlined at anubis_token.adb:727
+anubis_token.adb:713:23: info: division check proved, in call inlined at anubis_token.adb:728
+anubis_token.adb:713:23: info: division check proved, in call inlined at anubis_token.adb:729
+anubis_token.adb:713:23: info: division check proved, in call inlined at anubis_token.adb:730
+anubis_token.adb:713:23: info: division check proved, in call inlined at anubis_token.adb:731
+anubis_token.adb:713:23: info: division check proved, in call inlined at anubis_token.adb:732
+anubis_token.adb:713:23: info: division check proved, in call inlined at anubis_token.adb:733
+anubis_token.adb:714:27: info: overflow check proved, in call inlined at anubis_token.adb:722
+anubis_token.adb:714:27: info: overflow check proved, in call inlined at anubis_token.adb:723
+anubis_token.adb:714:27: info: overflow check proved, in call inlined at anubis_token.adb:724
+anubis_token.adb:714:27: info: overflow check proved, in call inlined at anubis_token.adb:725
+anubis_token.adb:714:27: info: overflow check proved, in call inlined at anubis_token.adb:726
+anubis_token.adb:714:27: info: overflow check proved, in call inlined at anubis_token.adb:727
+anubis_token.adb:714:27: info: overflow check proved, in call inlined at anubis_token.adb:728
+anubis_token.adb:714:27: info: overflow check proved, in call inlined at anubis_token.adb:729
+anubis_token.adb:714:27: info: overflow check proved, in call inlined at anubis_token.adb:730
+anubis_token.adb:714:27: info: overflow check proved, in call inlined at anubis_token.adb:731
+anubis_token.adb:714:27: info: overflow check proved, in call inlined at anubis_token.adb:732
+anubis_token.adb:714:27: info: overflow check proved, in call inlined at anubis_token.adb:733
+anubis_token.adb:720:14: info: length check proved
+anubis_token.adb:735:21: info: overflow check proved
+anubis_token.adb:735:21: info: range check proved
+
+anubis_token.adb:743:29: medium: range check might fail
+  743 |      Idx : Natural := Input'First;
+      |                       ~~~~~^~~~~~
+  e.g. when Input'Last = -2
+  reason for check: default component value must fit in the type
+  possible fix: add or complete related loop invariants or postconditions
+anubis_token.adb:745:27: info: initialization of "Val" proved
+anubis_token.adb:750:49: info: index check proved, in call inlined at anubis_token.adb:777
+anubis_token.adb:750:49: info: index check proved, in call inlined at anubis_token.adb:778
+anubis_token.adb:750:49: info: index check proved, in call inlined at anubis_token.adb:779
+anubis_token.adb:750:49: info: index check proved, in call inlined at anubis_token.adb:780
+anubis_token.adb:750:49: info: index check proved, in call inlined at anubis_token.adb:781
+anubis_token.adb:750:49: info: index check proved, in call inlined at anubis_token.adb:782
+anubis_token.adb:750:49: info: index check proved, in call inlined at anubis_token.adb:783
+anubis_token.adb:750:49: info: index check proved, in call inlined at anubis_token.adb:784
+anubis_token.adb:750:49: info: index check proved, in call inlined at anubis_token.adb:785
+anubis_token.adb:750:49: info: index check proved, in call inlined at anubis_token.adb:786
+anubis_token.adb:750:49: info: index check proved, in call inlined at anubis_token.adb:787
+anubis_token.adb:750:49: info: index check proved, in call inlined at anubis_token.adb:788
+anubis_token.adb:751:27: info: overflow check proved, in call inlined at anubis_token.adb:777
+anubis_token.adb:751:27: info: overflow check proved, in call inlined at anubis_token.adb:778
+anubis_token.adb:751:27: info: overflow check proved, in call inlined at anubis_token.adb:779
+anubis_token.adb:751:27: info: overflow check proved, in call inlined at anubis_token.adb:780
+anubis_token.adb:751:27: info: overflow check proved, in call inlined at anubis_token.adb:781
+anubis_token.adb:751:27: info: overflow check proved, in call inlined at anubis_token.adb:782
+anubis_token.adb:751:27: info: overflow check proved, in call inlined at anubis_token.adb:783
+anubis_token.adb:751:27: info: overflow check proved, in call inlined at anubis_token.adb:784
+anubis_token.adb:751:27: info: overflow check proved, in call inlined at anubis_token.adb:785
+anubis_token.adb:751:27: info: overflow check proved, in call inlined at anubis_token.adb:786
+anubis_token.adb:751:27: info: overflow check proved, in call inlined at anubis_token.adb:787
+
+anubis_token.adb:751:27: medium: overflow check might fail, in call inlined at anubis_token.adb:788
+  751 |               Idx := Idx + 1;
+      |                      ~~~~^~~
+  reason for check: result of addition must fit in a 32-bits machine integer
+anubis_token.ads:166:07: info: initialization of "Result" proved
+anubis_token.ads:168:07: info: data dependencies proved
+anubis_token.ads:170:15: info: postcondition proved
+anubis_token.ads:179:07: info: initialization of "Result" proved
+anubis_token.ads:181:07: info: data dependencies proved
+anubis_token.ads:183:15: info: postcondition proved
+anubis_token.ads:195:07: info: initialization of "Success" proved
+anubis_token.ads:197:07: info: data dependencies proved
+anubis_token.ads:202:13: info: implicit aspect Always_Terminates on "Balance_Of" has been proved, subprogram will terminate
+anubis_token.ads:203:07: info: data dependencies proved
+anubis_token.ads:204:15: info: postcondition proved
+anubis_token.ads:207:13: info: implicit aspect Always_Terminates on "Get_Total_Supply" has been proved, subprogram will terminate
+anubis_token.ads:208:07: info: data dependencies proved
+anubis_token.ads:209:15: info: postcondition proved
+anubis_token.ads:212:13: info: implicit aspect Always_Terminates on "Get_Total_Burned" has been proved, subprogram will terminate
+anubis_token.ads:213:07: info: data dependencies proved
+anubis_token.ads:214:15: info: postcondition proved
+anubis_token.ads:225:07: info: initialization of "Success" proved
+anubis_token.ads:227:07: info: data dependencies proved
+anubis_token.ads:236:07: info: initialization of "Success" proved
+anubis_token.ads:238:07: info: data dependencies proved
+anubis_token.ads:246:07: info: initialization of "Success" proved
+anubis_token.ads:248:07: info: data dependencies proved
+anubis_token.ads:252:13: info: implicit aspect Always_Terminates on "Get_Gas_Discount" has been proved, subprogram will terminate
+anubis_token.ads:253:07: info: data dependencies proved
+anubis_token.ads:254:15: info: postcondition proved
+anubis_token.ads:257:13: info: implicit aspect Always_Terminates on "Get_Required_Deposit" has been proved, subprogram will terminate
+anubis_token.ads:258:07: info: data dependencies proved
+anubis_token.ads:269:07: info: data dependencies proved
+anubis_token.ads:277:07: info: data dependencies proved
+anubis_token.ads:285:07: info: data dependencies proved
+anubis_token.ads:292:07: info: data dependencies proved
+anubis_token.ads:299:13: info: implicit aspect Always_Terminates on "Get_Allocation" has been proved, subprogram will terminate
+anubis_token.ads:300:07: info: data dependencies proved
+anubis_token.ads:303:13: info: implicit aspect Always_Terminates on "Get_Remaining" has been proved, subprogram will terminate
+anubis_token.ads:307:07: info: data dependencies proved
+anubis_token.ads:310:13: info: implicit aspect Always_Terminates on "Is_Exhausted" has been proved, subprogram will terminate
+anubis_token.ads:314:07: info: data dependencies proved
+anubis_token.ads:323:07: info: initialization of "Output" proved
+anubis_token.ads:324:07: info: initialization of "Length" proved
+anubis_token.ads:326:07: info: data dependencies proved
+anubis_token.ads:332:07: info: initialization of "Amount" proved
+anubis_token.ads:333:07: info: initialization of "Success" proved
+anubis_token.ads:335:07: info: data dependencies proved
+anubis_token.ads:338:13: info: implicit aspect Always_Terminates on "Is_Dust" has been proved, subprogram will terminate
+anubis_token.ads:339:07: info: data dependencies proved
+anubis_token.ads:350:07: info: initialization of "Account" proved
+anubis_token.ads:353:07: info: data dependencies proved
+anubis_token.ads:355:15: info: postcondition proved
+anubis_token.ads:364:07: info: data dependencies proved
+anubis_token.ads:365:15: info: postcondition proved
+anubis_token.ads:371:07: info: data dependencies proved
+anubis_token.ads:372:15: info: postcondition proved
+anubis_token.ads:378:07: info: data dependencies proved
+anubis_token.ads:379:15: info: postcondition proved
+anubis_token.ads:387:07: info: initialization of "State" proved
+anubis_token.ads:390:07: info: data dependencies proved
+anubis_token.ads:391:15: info: postcondition proved
+anubis_token.ads:400:07: info: data dependencies proved
+anubis_token.ads:401:15: info: postcondition proved
+anubis_token.ads:410:07: info: initialization of "Output" proved
+anubis_token.ads:411:07: info: initialization of "Length" proved
+anubis_token.ads:413:07: info: data dependencies proved
+anubis_token.ads:419:07: info: initialization of "Account" proved
+anubis_token.ads:420:07: info: initialization of "Success" proved
+anubis_token.ads:422:07: info: data dependencies proved
+anubis_token.ads:427:07: info: initialization of "Output" proved
+anubis_token.ads:428:07: info: initialization of "Length" proved
+anubis_token.ads:430:07: info: data dependencies proved
+anubis_token.ads:436:07: info: initialization of "State" proved
+anubis_token.ads:437:07: info: initialization of "Success" proved
+anubis_token.ads:439:07: info: data dependencies proved
+anubis_token.ads:445:31: info: initialization of "Account" proved
+anubis_token.ads:446:07: info: data dependencies proved
+anubis_token.ads:448:35: info: initialization of "State" proved
+anubis_token.ads:449:07: info: data dependencies proved

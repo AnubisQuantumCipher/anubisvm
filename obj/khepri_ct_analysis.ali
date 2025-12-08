@@ -1,0 +1,279 @@
+V "GNAT Lib v14"
+A -O0
+A -gnatA
+A -gnatwa
+A -gnatQ
+A -gnata
+A -gnatf
+A -gnatyM120
+A -gnatyO
+A -gnat2012
+A -g
+A -gnateE
+A -fstack-check=specific
+A -mmacosx-version-min=16.0.0
+A -mcpu=apple-m1
+A -mlittle-endian
+A -mabi=lp64
+A -fPIC
+P SS ZX
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_SECONDARY_STACK
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+RV NO_OBSOLESCENT_FEATURES
+
+U khepri_ct_analysis%b	khepri_ct_analysis.adb	d87a92dc NE OO PK
+Z system.assertions%s	s-assert.adb		s-assert.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+
+U khepri_ct_analysis%s	khepri_ct_analysis.ads	3c941839 EE NE OO PK
+W aegis_vm_types%s	aegis_vm_types.ads	aegis_vm_types.ali
+W interfaces%s		interfac.ads		interfac.ali
+W khepri_certification%s  khepri_certification.adb  khepri_certification.ali
+W khepri_types%s	khepri_types.adb	khepri_types.ali
+
+D ada.ads		20240808082856 76789da1 ada%s
+D a-assert.ads		20240808082856 ba465f5c ada.assertions%s
+D a-unccon.ads		20240808082856 0e9b276f ada.unchecked_conversion%s
+D aegis_u256.ads	20251207191105 ff2dfe4b aegis_u256%s
+D aegis_vm_types.ads	20251207191105 dcd101d9 aegis_vm_types%s
+D interfac.ads		20240808082856 9111f9c1 interfaces%s
+D khepri_certification.ads  20251207191107 853714ad khepri_certification%s
+D khepri_ct_analysis.ads  20251207191107 f29076a1 khepri_ct_analysis%s
+D khepri_ct_analysis.adb  20251207191107 2aeae47d khepri_ct_analysis%b
+D khepri_types.ads	20251207191106 06f3822d khepri_types%s
+D system.ads		20240808082856 70765b54 system%s
+D s-assert.ads		20240808082856 9c4520c7 system.assertions%s
+D s-exctab.ads		20240808082856 91bef6ef system.exception_table%s
+D s-parame.ads		20240808082856 3597fc11 system.parameters%s
+D s-secsta.ads		20240808082856 578279f5 system.secondary_stack%s
+D s-stalib.ads		20240808082856 1c9580f6 system.standard_library%s
+D s-stoele.ads		20240808082856 ccded4e8 system.storage_elements%s
+G a e
+G c Z s s [ct_configIP khepri_ct_analysis 131 9 none]
+G c Z s b [create_session khepri_ct_analysis 192 13 none]
+G c Z s b [run_analysis khepri_ct_analysis 198 14 none]
+G c Z s b [get_stats khepri_ct_analysis 207 13 none]
+G c Z s b [get_violations khepri_ct_analysis 211 14 none]
+G c Z s b [passes_gold khepri_ct_analysis 219 13 none]
+G c Z s b [get_function_status khepri_ct_analysis 241 14 none]
+G c Z s b [analyze_crypto khepri_ct_analysis 279 14 none]
+G c Z s b [generate_report khepri_ct_analysis 299 14 none]
+G c Z s b [summary_line khepri_ct_analysis 310 13 none]
+G c Z s b [generate_ct_hash khepri_ct_analysis 318 13 none]
+G c Z s b [meets_gold_ct khepri_ct_analysis 322 13 none]
+G c Z s b [ct_equal khepri_ct_analysis 330 13 none]
+G c Z s b [ct_select khepri_ct_analysis 338 13 none]
+G c Z s b [ct_conditional_copy khepri_ct_analysis 345 14 none]
+G c Z s s [classificationIP khepri_ct_analysis 47 9 none]
+G c Z s s [ct_violationIP khepri_ct_analysis 86 9 none]
+G c Z s s [Tviolation_arrayBIP khepri_ct_analysis 99 4 none]
+G c Z s s [ct_annotationIP khepri_ct_analysis 115 9 none]
+G c Z s s [Tannotation_arrayBIP khepri_ct_analysis 125 4 none]
+G c Z s s [ct_statsIP khepri_ct_analysis 179 9 none]
+G c Z s s [ct_sessionIP khepri_ct_analysis 355 9 none]
+G c Z s s [function_ct_statusIP khepri_ct_analysis 227 9 none]
+G c Z s s [Tfunction_status_arrayBIP khepri_ct_analysis 238 4 none]
+G c Z s s [crypto_analysisIP khepri_ct_analysis 266 9 none]
+G c Z s s [Tcrypto_arrayBIP khepri_ct_analysis 276 4 none]
+X 5 aegis_vm_types.ads
+21K9*Aegis_VM_Types 279e19 8|4w6 4r26
+31M12*Byte{6|70M9} 8|340r19 341r13 9|163r16 188r21 189r21 206r14 216r19 217r13
+. 218r14 234r14
+32A9*Byte_Array(31M12)<integer> 8|302r24 331r16 347r26 348r26 9|150r24 203r16
+. 231r26 232r26
+56A9*Hash256(31M12)<integer> 8|318r60 9|185r60 186r16
+X 6 interfac.ads
+38K9*Interfaces 233e15 8|3w6 3r22
+70M9*Unsigned_8
+X 7 khepri_certification.ads
+28K9*Khepri_Certification 325e25 8|6w6 6r32
+X 8 khepri_ct_analysis.ads
+30K9*Khepri_CT_Analysis 355E9 366l5 366e23 9|3b14 252l5 252t23
+39E9*Sensitivity 44e5 48r21
+40n7*Public{39E9}
+41n7*Secret{39E9}
+42n7*Tainted{39E9}
+43n7*Unknown{39E9}
+47R9*Classification 52e14
+48e7*Level{39E9}
+49r7*Source{10|335R9}
+50i7*Line{natural}
+51i7*Column{natural}
+59E9*Violation_Type 75e5 87r21
+61n7*V_Secret_Branch{59E9}
+62n7*V_Secret_Loop{59E9}
+63n7*V_Secret_Return{59E9}
+66n7*V_Secret_Index{59E9}
+67n7*V_Secret_Pointer{59E9}
+70n7*V_Variable_Time_Op{59E9}
+71n7*V_Cache_Timing{59E9}
+74n7*V_Unknown{59E9} 9|27r28
+78E9*Severity 83e5 88r21 270r23
+79n7*Sev_Info{78E9} 9|28r28 137r27
+80n7*Sev_Warning{78E9}
+81n7*Sev_Error{78E9}
+82n7*Sev_Critical{78E9}
+86R9*CT_Violation 94e14 99r55
+87e7*Vtype{59E9} 9|27m13
+88e7*Sev{78E9} 9|28m13
+89r7*File{10|335R9} 9|29m13
+90i7*Line{natural} 9|30m13
+91i7*Column{natural} 9|31m13
+92r7*Message{10|335R9} 9|32m13
+93r7*Suggestion{10|335R9} 9|33m13
+97N4*Max_Violations 98r39
+98I9*Violation_Index<short_integer> 99r35
+99A9*Violation_Array(86R9)<98I9> 213r29 358r25 9|85r29
+106E9*Annotation_Type 112e5 116r20 233r24
+107n7*Ann_Secret{106E9}
+108n7*Ann_Public{106E9} 9|37r27 117r28
+109n7*Ann_CT_Safe{106E9}
+110n7*Ann_CT_Unsafe{106E9}
+111n7*Ann_Declassify{106E9}
+115R9*CT_Annotation 121e14 125r57
+116e7*Ann_Type{106E9} 9|37m13
+117r7*Target{10|335R9} 9|38m13
+118r7*File{10|335R9} 9|39m13
+119i7*Line{natural} 9|40m13
+120r7*Reason{10|335R9} 9|41m13
+123N4*Max_Annotations 124r40
+124I9*Annotation_Index<short_integer> 125r36
+125A9*Annotation_Array(115R9)<124I9> 360r25
+131R9*CT_Config 146e14 148r33 160r30 193r16 356r25 9|10r16
+133b7*Check_Branches{boolean} 149m7 161m7
+134b7*Check_Memory{boolean} 150m7 162m7
+135b7*Check_Loops{boolean} 151m7 163m7
+136b7*Check_Cache{boolean} 152m7 164m7
+137b7*Check_Operations{boolean} 153m7 165m7
+140b7*Strict_Mode{boolean} 154m7 166m7
+141b7*Require_Annotations{boolean} 155m7 167m7
+144b7*Generate_Report{boolean} 156m7 168m7
+145r7*Report_Path{10|335R9} 157m7 169m7
+148r4*Default_CT_Config{131R9}
+160r4*Gold_CT_Config{131R9}
+176R9*CT_Session 194r13 199r30 207r34 212r29 219r36 242r28 280r29 300r24
+. 310r37 318r41 322r38 355c9 364e14 9|11r13 50r30 78r34 84r29 93r36 105r28
+. 127r29 148r24 172r37 185r41 193r38
+179R9*CT_Stats 189e14 207r53 357r25 9|78r53
+180i7*Functions_Analyzed{natural} 9|16m13 63m10 189r41
+181i7*Functions_Safe{natural} 9|17m13 64m10 188r41
+182i7*Functions_Unsafe{natural} 9|18m13 65m10
+183i7*Total_Violations{natural} 9|19m13 66m10
+184i7*Critical_Count{natural} 9|20m13 67m10 96r28
+185i7*Error_Count{natural} 9|21m13 68m10 97r28
+186i7*Warning_Count{natural} 9|22m13 69m10
+187i7*Info_Count{natural} 9|23m13 70m10
+188i7*Analysis_Time{natural} 9|24m13 71m10
+192V13*Create_Session{176R9} 193>7 9|9b13 47l8 47t22
+193r7 Config{131R9} 9|10b7 14r29
+198U14*Run_Analysis 199=7 200>7 201<7 9|49b14 76l8 76t20
+199r7 Session{176R9} 9|50b7 62m7 74m7
+200a7 Contract_Path{string} 204r17 9|51b7 54r28
+201b7 Success{boolean} 9|52b7 75m7
+207V13*Get_Stats{179R9} 207>24 9|78b13 81l8 81t17
+207r24 Session{176R9} 9|78b24 80r14
+211U14*Get_Violations 212>7 213<7 214<7 9|83b14 91l8 91t22
+212r7 Session{176R9} 9|84b7 89r21 90r26
+213a7 Violations{99A9} 9|85b7 89m7
+214i7 Violation_Count{natural} 9|86b7 90m7
+219V13*Passes_Gold{boolean} 219>26 9|93b13 98l8 98t19 174s10 195s14
+219r26 Session{176R9} 9|93b26 95r14 96r14 97r14
+227R9*Function_CT_Status 234e14 238r60
+228r7*Name{10|335R9} 9|112m10
+229a7*Selector{10|317A9} 9|113m10
+230b7*Is_CT_Safe{boolean} 9|114m10
+231i7*Violation_Count{natural} 9|115m10
+232b7*Has_Annotation{boolean} 9|116m10
+233e7*Annotation{106E9} 9|117m10
+236N4*Max_Functions 237r38
+237I9*Function_Index<short_short_integer> 238r41
+238A9*Function_Status_Array(227R9)<237I9> 243r28 9|106r28
+241U14*Get_Function_Status 242>7 243<7 244<7 9|104b14 120l8 120t27
+242r7 Session{176R9} 9|105b7 109r28
+243a7 Functions{238A9} 9|106b7 111m7
+244i7 Function_Count{natural} 9|107b7 119m7
+253E9*Crypto_Op 263e5 267r23
+254n7*Op_Hash{253E9}
+255n7*Op_Sign{253E9}
+256n7*Op_Verify{253E9}
+257n7*Op_Encrypt{253E9}
+258n7*Op_Decrypt{253E9}
+259n7*Op_Key_Gen{253E9}
+260n7*Op_Key_Derive{253E9}
+261n7*Op_Compare{253E9}
+262n7*Op_Other{253E9} 9|134r27
+266R9*Crypto_Analysis 272e14 276r49
+267e7*Op_Type{253E9} 9|134m10
+268r7*Function_Name{10|335R9} 9|135m10
+269b7*Is_CT_Safe{boolean} 9|136m10
+270e7*Risk_Level{78E9} 9|137m10
+271r7*Notes{10|335R9} 9|138m10
+274N4*Max_Crypto_Ops 275r36
+275I9*Crypto_Index<short_short_integer> 276r32
+276A9*Crypto_Array(266R9)<275I9> 281r29 9|128r29
+279U14*Analyze_Crypto 280=7 281<7 282<7 9|126b14 141l8 141t22
+280r7 Session{176R9} 9|127b7 131r28
+281a7 Results{276A9} 9|128b7 133m7
+282i7 Result_Count{natural} 9|129b7 140m7
+291E9*CT_Report_Format 296e5 301r24 9|149r24
+292n7*Format_Text{291E9}
+293n7*Format_JSON{291E9}
+294n7*Format_HTML{291E9}
+295n7*Format_SARIF{291E9}
+299U14*Generate_Report 300>7 301>7 302<7 303<7 304<7 9|147b14 170l8 170t23
+300r7 Session{176R9} 9|148b7 169r18
+301e7 Format{291E9} 9|149b7 154r28
+302a7 Output{5|32A9} 307r17 9|150b7 156m7 162m13 162r21
+303i7 Size{natural} 9|151b7 165m10 168m7 168r15
+304b7 Success{boolean} 9|152b7 169m7
+310V13*Summary_Line{string} 310>27 9|172b13 179l8 179t20
+310r27 Session{176R9} 9|172b27 174r23
+318V13*Generate_CT_Hash{5|56A9} 318>31 9|185b13 191l8 191t24
+318r31 Session{176R9} 9|185b31 188r27 189r27
+322V13*Meets_Gold_CT{boolean} 322>28 9|193b13 196l8 196t21
+322r28 Session{176R9} 9|193b28 195r27
+330V13*CT_Equal{boolean} 331>7 331>10 332>7 9|202b13 212l8 212t16
+331a7 A{5|32A9} 335r17 9|203b7 209r27 209r30
+331a10 B{5|32A9} 335r40 9|203b10 209r47 209r50
+332i7 Length{natural} 335r29 335r52 9|204b7 208r21
+338V13*CT_Select{5|31M12} 339>7 340>7 340>10 9|214b13 227l8 227t17
+339b7 Condition{boolean} 9|215b7 221r10
+340m7 A{5|31M12} 9|216b7 226r15
+340m10 B{5|31M12} 9|216b10 226r31
+345U14*CT_Conditional_Copy 346>7 347>7 348=7 9|229b14 250l8 250t27
+346b7 Condition{boolean} 9|230b7 236r10
+347a7 Src{5|32A9} 351r17 9|231b7 242r16 244r47 247r31
+348a7 Dst{5|32A9} 351r30 9|232b7 245r43 247m13 247r53
+356r7*Config{131R9} 9|14m10
+357r7*Stats{179R9} 9|15m10 62m15 80r22 96r22 97r22 188r35 189r35
+358a7*Violations{99A9} 9|26m10 89r29
+359i7*Violation_Count{natural} 9|35m10 90r34
+360a7*Annotations{125A9} 9|36m10
+361i7*Annotation_Count{natural} 9|43m10
+362b7*Is_Complete{boolean} 9|44m10 74m15 95r22 169r26
+363r7*Error_Msg{10|335R9} 9|45m10
+X 9 khepri_ct_analysis.adb
+159a10 Header{string} 161r19 162r40 163r37 165r18
+161i14 I{integer} 162r36 163r45
+186a7 Result{5|56A9} 188m7 189m7 190r14
+206m7 Diff{5|31M12} 209m10 209r18 211r14
+208i11 I{integer} 209r40 209r60
+218m7 Mask{5|31M12} 222m10 224m10 226r21 226r42
+234m7 Mask{5|31M12} 237m10 239m10 247r43 247r76
+242i11 I{integer} 244r43 247r36
+244i13 Src_Idx{natural} 245r55
+245i13 Dst_Idx{natural} 247r18 247r58
+X 10 khepri_types.ads
+25K9*Khepri_Types 8|5w6 5r24 10|345e17
+317A9*Bytes4(5|31M12)<integer> 8|229r24
+335R9*Bounded_String 8|49r21 89r21 92r21 93r21 117r20 118r20 120r20 145r27
+. 228r24 268r23 271r23 363r25 10|338e14
+340r4*Empty_String{335R9} 8|157r28 169r28 9|29r28 32r28 33r28 38r27 39r27
+. 41r27 45r29 112r28 135r27 138r27
+

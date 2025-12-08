@@ -1,0 +1,343 @@
+V "GNAT Lib v14"
+A -O0
+A -gnatA
+A -gnatwa
+A -gnatQ
+A -gnata
+A -gnatf
+A -gnatyM120
+A -gnatyO
+A -gnat2012
+A -g
+A -gnateE
+A -fstack-check=specific
+A -mmacosx-version-min=16.0.0
+A -mcpu=apple-m1
+A -mlittle-endian
+A -mabi=lp64
+A -fPIC
+P ZX
+
+RN
+RV NO_ACCESS_SUBPROGRAMS
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+RV NO_ELABORATION_CODE
+
+U khepri_runtime%b	khepri_runtime.adb	a47e7972 OO PK
+W aegis_u256%s		aegis_u256.adb		aegis_u256.ali
+W khepri_crypto%s	khepri_crypto.adb	khepri_crypto.ali
+Z system.assertions%s	s-assert.adb		s-assert.ali
+
+U khepri_runtime%s	khepri_runtime.ads	a0042555 EE NE OO PK
+W aegis_vm_types%s	aegis_vm_types.ads	aegis_vm_types.ali
+W interfaces%s		interfac.ads		interfac.ali
+W khepri_types%s	khepri_types.adb	khepri_types.ali
+
+D ada.ads		20240808082856 76789da1 ada%s
+D a-assert.ads		20240808082856 ba465f5c ada.assertions%s
+D a-unccon.ads		20240808082856 0e9b276f ada.unchecked_conversion%s
+D aegis_u256.ads	20251207191105 ff2dfe4b aegis_u256%s
+D aegis_vm_types.ads	20251207191105 dcd101d9 aegis_vm_types%s
+D interfac.ads		20240808082856 9111f9c1 interfaces%s
+D khepri_crypto.ads	20251207191106 c09bc661 khepri_crypto%s
+D khepri_runtime.ads	20251207191106 eb375f60 khepri_runtime%s
+D khepri_runtime.adb	20251207191106 70ff1e38 khepri_runtime%b
+D khepri_types.ads	20251207191106 06f3822d khepri_types%s
+D system.ads		20240808082856 70765b54 system%s
+D s-assert.ads		20240808082856 9c4520c7 system.assertions%s
+D s-exctab.ads		20240808082856 91bef6ef system.exception_table%s
+D s-stalib.ads		20240808082856 1c9580f6 system.standard_library%s
+G a e
+G c Z s b [get_context khepri_runtime 73 13 none]
+G c Z s b [msg_sender khepri_runtime 77 13 none]
+G c Z s b [msg_value khepri_runtime 80 13 none]
+G c Z s b [block_number khepri_runtime 83 13 none]
+G c Z s b [block_timestamp khepri_runtime 86 13 none]
+G c Z s b [chain_id khepri_runtime 89 13 none]
+G c Z s b [self khepri_runtime 92 13 none]
+G c Z s b [gas_left khepri_runtime 95 13 none]
+G c Z s b [calculate_selector khepri_runtime 107 13 none]
+G c Z s b [make_reader khepri_runtime 127 13 none]
+G c Z s b [get_selector khepri_runtime 131 13 none]
+G c Z s b [calldata_size khepri_runtime 135 13 none]
+G c Z s b [decode_u256 khepri_runtime 143 14 none]
+G c Z s b [decode_address khepri_runtime 150 14 none]
+G c Z s b [decode_bool khepri_runtime 157 14 none]
+G c Z s b [decode_bytes32 khepri_runtime 164 14 none]
+G c Z s b [skip_bytes khepri_runtime 171 14 none]
+G c Z s b [make_writer khepri_runtime 185 13 none]
+G c Z s b [encode_u256 khepri_runtime 189 14 none]
+G c Z s b [encode_address khepri_runtime 196 14 none]
+G c Z s b [encode_bool khepri_runtime 203 14 none]
+G c Z s b [encode_bytes32 khepri_runtime 210 14 none]
+G c Z s b [return_size khepri_runtime 217 13 none]
+G c Z s b [finalize_return khepri_runtime 221 14 none]
+G c Z s b [dispatch khepri_runtime 265 14 none]
+G c Z s b [is_constructor_call khepri_runtime 282 13 none]
+G c Z s b [complete_constructor khepri_runtime 286 14 none]
+G c Z s b [is_initialized khepri_runtime 290 13 none]
+G c Z s b [revert khepri_runtime 298 14 none]
+G c Z s b [revert_code khepri_runtime 303 14 none]
+G c Z s b [return_void khepri_runtime 307 14 none]
+G c Z s b [return_data khepri_runtime 311 14 none]
+G c Z s b [require khepri_runtime 320 14 none]
+G c Z s b [only_owner khepri_runtime 328 14 none]
+G c Z s b [enter_non_reentrant khepri_runtime 332 14 none]
+G c Z s b [exit_non_reentrant khepri_runtime 335 14 none]
+G c Z s b [require_payment khepri_runtime 339 14 none]
+G c Z s b [require_no_payment khepri_runtime 343 14 none]
+G c Z s b [was_reverted khepri_runtime 351 13 none]
+G c Z s b [was_returned khepri_runtime 355 13 none]
+G c Z s b [get_revert_data khepri_runtime 359 14 none]
+G c Z s b [get_return_data khepri_runtime 367 14 none]
+G c Z s b [reset_execution_state khepri_runtime 375 14 none]
+G c Z s s [execution_contextIP khepri_runtime 50 9 none]
+G c Z s s [calldata_bufferIP khepri_runtime 117 9 none]
+G c Z s s [return_bufferIP khepri_runtime 121 9 none]
+G c Z s s [calldata_readerIP khepri_runtime 381 9 none]
+G c Z s s [return_writerIP khepri_runtime 388 9 none]
+G c Z s s [handler_entryIP khepri_runtime 241 9 none]
+G c Z s s [Thandler_tableBIP khepri_runtime 249 4 none]
+G c Z b b [set_deploying khepri_runtime 363 14 none]
+G r c none [gas_left khepri_runtime 95 13 none] [sub aegis_u256 76 14 none]
+G r c none [calculate_selector khepri_runtime 107 13 none] [calculate_signature khepri_crypto 187 13 none]
+G r c none [decode_u256 khepri_runtime 143 14 none] [from_bytes_be aegis_u256 168 13 none]
+G r c none [decode_bool khepri_runtime 157 14 none] [from_bytes_be aegis_u256 168 13 none]
+G r c none [decode_bool khepri_runtime 157 14 none] [is_zero aegis_u256 55 13 none]
+G r c none [encode_u256 khepri_runtime 189 14 none] [to_bytes_be aegis_u256 172 13 none]
+G r c none [only_owner khepri_runtime 328 14 none] [address_equal khepri_crypto 182 13 none]
+G r c none [require_payment khepri_runtime 339 14 none] [is_zero aegis_u256 55 13 none]
+G r c none [require_no_payment khepri_runtime 343 14 none] [is_zero aegis_u256 55 13 none]
+X 4 aegis_u256.ads
+21K9*Aegis_U256 276e15 9|3w6 3r22
+55V13*Is_Zero{boolean} 9|185s20 474s10 481s14
+76U14*Sub 9|89s7
+168V13*From_Bytes_BE{5|41R9} 9|159s16
+172V13*To_Bytes_BE{5|56A9} 9|227s34
+X 5 aegis_vm_types.ads
+21K9*Aegis_VM_Types 279e19 8|5w6 5r26
+31M12*Byte{6|70M9} 8|117r63 121r59 9|398r35 411r32 412r32 413r32 414r32
+32A9*Byte_Array(31M12)<integer> 8|223r23 269r29 311r34 360r20 368r20 389r14
+. 9|37r25 39r25 288r23 306r30 425r34 501r20 513r20
+56A9*Hash256(31M12)<integer>
+70A9*Contract_Address(31M12)<integer>
+X 6 interfac.ads
+38K9*Interfaces 233e15 8|3w6 3r22
+70M9*Unsigned_8
+81M9*Unsigned_32 9|403r27 403r42
+146V13*Shift_Right{81M9} 9|411s38 412s38 413s38
+X 7 khepri_crypto.ads
+30K9*Khepri_Crypto 245e18 9|4w6 104r15 454r14
+39A12*Hash_256{10|49A12}<integer>
+182V13*Address_Equal{boolean} 9|454s28
+187V13*Calculate_Signature{39A12} 9|104s29
+X 8 khepri_runtime.ads
+28K9*Khepri_Runtime 242r18 381E9 397l5 397e19 9|6b14 532l5 532t19
+37N4*Max_Calldata_Size 116r38 382r38
+40N4*Max_Return_Size 120r36 275r39 313r32 372r32 389r31 9|39r42 229r30 242r30
+. 255r30 273r30 430r52
+43N4*Max_Handlers 248r37 274r34
+50R9*Execution_Context 70e14 73r32 9|13r22 46r32
+52a7*Msg_Sender{10|43A12} 9|14m7 53r30
+53r7*Msg_Value{10|188R12} 9|15m7 58r30
+54a7*Origin{10|43A12} 9|16m7
+57r7*Block_Number{10|34R12} 9|17m7 63r30
+58r7*Block_Timestamp{10|34R12} 9|18m7 68r30
+59a7*Block_Coinbase{10|43A12} 9|19m7
+60r7*Chain_ID{10|34R12} 9|20m7 73r30
+63a7*Self_Address{10|43A12} 9|21m7 78r30
+64a7*Code_Hash{10|49A12} 9|22m7
+67r7*Gas_Limit{10|34R12} 9|23m7 88r32
+68r7*Gas_Used{10|34R12} 9|24m7 87r31
+69r7*Gas_Price{10|34R12} 9|25m7
+73V13*Get_Context{50R9} 9|46b13 49l8 49t19
+77V13*Msg_Sender{10|43A12} 9|51b13 54l8 54t18 454s43
+80V13*Msg_Value{10|188R12} 9|56b13 59l8 59t17 474s19 481s23
+83V13*Block_Number{10|34R12} 9|61b13 64l8 64t20
+86V13*Block_Timestamp{10|34R12} 9|66b13 69l8 69t23
+89V13*Chain_ID{10|34R12} 9|71b13 74l8 74t16
+92V13*Self{10|43A12} 9|76b13 79l8 79t12
+95V13*Gas_Left{10|34R12} 9|81b13 94l8 94t16
+103A12*Selector{10|317A9}<integer> 107r60 131r60 242r33 9|100r60 102r14 127r60
+. 128r13 312r18
+107V13*Calculate_Selector{103A12} 107>33 9|100b13 109l8 109t26
+107a33 Signature{string} 109r17 9|100b33 104r50
+116I9*Calldata_Index<integer> 117r35 9|122r23 132r37 155r38 172r38 196r39
+117A9*Calldata_Buffer(5|31M12)<116I9> 127r33 268r29 382r16 9|115r33 305r30
+120I9*Return_Index<integer> 121r33
+121A9*Return_Buffer(5|31M12)<120I9>
+124R9*Calldata_Reader 127r57 131r36 135r37 144r23 151r23 158r23 165r23 172r23
+. 235r24 381c9 385e14 9|115r57 116r16 127r36 138r37 148r23 163r23 179r23
+. 189r23 203r23 310r18
+127V13*Make_Reader{124R9} 127>26 9|115b13 125l8 125t19 325s17
+127a26 Data{117A9} 9|115b26 118r22 121r16 122r43 122r59
+131V13*Get_Selector{103A12} 131>27 9|127b13 136l8 136t20 326s14
+131r27 Reader{124R9} 9|127b27 130r10 132r24
+135V13*Calldata_Size{natural} 135>28 9|138b13 141l8 141t21
+135r28 Reader{124R9} 9|138b28 140r14
+143U14*Decode_U256 144=7 145<7 9|147b14 160l8 160t19 184s7
+144r7 Reader{124R9} 9|148b7 153r10 153r32 155r25 155r54 157m10 157r27
+145r7 Value{10|34R12} 9|149b7 159m7
+150U14*Decode_Address 151=7 152<7 9|162b14 176l8 176t22
+151r7 Reader{124R9} 9|163b7 168r10 168r32 172r25 172r54 174m10 174r27
+152a7 Addr{10|43A12} 9|164b7 167m7 172m13
+157U14*Decode_Bool 158=7 159<7 9|178b14 186l8 186t19
+158r7 Reader{124R9} 9|179b7 184m20
+159b7 Value{boolean} 9|180b7 185m7
+164U14*Decode_Bytes32 165=7 166<7 9|188b14 200l8 200t22
+165r7 Reader{124R9} 9|189b7 194r10 194r32 196r26 196r55 198m10 198r27
+166a7 Value{10|49A12} 9|190b7 193m7 196m13
+171U14*Skip_Bytes 172=7 173>7 9|202b14 212l8 212t18 327s7
+172r7 Reader{124R9} 9|203b7 207r10 207r35 208m10 208r27 210m10 210r27
+173i7 Count{natural} 9|204b7 207r26 208r43
+182R9*Return_Writer 185r32 190r23 197r23 204r23 211r23 217r35 222r23 236r24
+. 388c9 391e14 9|218r32 224r23 238r23 251r23 269r23 281r35 287r23 311r18
+185V13*Make_Writer{182R9} 9|218b13 221l8 221t19 329s17
+189U14*Encode_U256 190=7 191>7 9|223b14 235l8 235t19
+190r7 Writer{182R9} 9|224b7 229r10 231m13 231r26 233m10 233r25
+191r7 Value{10|34R12} 9|225b7 227r47
+196U14*Encode_Address 197=7 198>7 9|237b14 248l8 248t22
+197r7 Writer{182R9} 9|238b7 242r10 244m13 244r26 246m10 246r25
+198a7 Addr{10|43A12} 9|239b7 244r46
+203U14*Encode_Bool 204=7 205>7 9|250b14 266l8 266t19
+204r7 Writer{182R9} 9|251b7 255r10 257m13 257r26 260m13 260r26 262m13 262r26
+. 264m10 264r25
+205b7 Value{boolean} 9|252b7 259r13
+210U14*Encode_Bytes32 211=7 212>7 9|268b14 279l8 279t22
+211r7 Writer{182R9} 9|269b7 273r10 275m13 275r26 277m10 277r25
+212a7 Value{10|49A12} 9|270b7 275r46
+217V13*Return_Size{natural} 217>26 227s32 9|281b13 284l8 284t19
+217r26 Writer{182R9} 9|281b26 283r14
+221U14*Finalize_Return 222>7 223<7 224<7 9|286b14 296l8 296t23 352s7
+222r7 Writer{182R9} 227r45 9|287b7 292r15 294r35
+223a7 Data{5|32A9} 227r17 9|288b7 294m10 294r16
+224i7 Size{natural} 9|289b7 292m7 293r21
+234P9*Handler_Proc 235=7 236=7 237<7 243r18
+235r7 Reader{124R9}
+236r7 Writer{182R9}
+237b7 Success{boolean}
+241R9*Handler_Entry 245e14 249r51
+242a7*Selector{103A12} 9|333r42
+243p7*Handler{234P9} 9|335r45 336r45
+244r7*Name{10|335R9}
+248I9*Handler_Index<short_integer> 249r33 9|333r23 335r26 336r26
+249A9*Handler_Table(241R9)<248I9> 266r29 9|303r30
+256E9*Dispatch_Result 262e5 271r29 9|308r30
+257n7*Dispatch_Success{256E9} 9|353r17
+258n7*Dispatch_Selector_Not_Found{256E9} 9|343r20
+259n7*Dispatch_Invalid_Calldata{256E9} 9|321r20
+260n7*Dispatch_Handler_Error{256E9} 9|348r20
+261n7*Dispatch_Out_Of_Gas{256E9}
+265U14*Dispatch 266>7 267>7 268>7 269<7 270<7 271<7 9|302b14 354l8 354t16
+266a7 Handlers{249A9} 9|303b7 333r13 335r16 336r16
+267i7 Handler_Count{natural} 274r17 9|304b7 332r21
+268a7 Calldata{117A9} 9|305b7 320r10 325r30
+269a7 Return_Data{5|32A9} 275r17 9|306b7 317m7 352m32
+270i7 Return_Size{natural} 9|307b7 316m7 352m45
+271e7 Result{256E9} 9|308b7 321m10 343m10 348m10 353m7
+282V13*Is_Constructor_Call{boolean} 9|368b13 373l8 373t27
+286U14*Complete_Constructor 9|375b14 378l8 378t28
+290V13*Is_Initialized{boolean} 9|380b13 383l8 383t22
+298U14*Revert 298>22 9|389b14 400l8 400t14 448s10 455s10 462s10 475s10 482s10
+298a22 Reason{string} 300r17 9|389b22 394r41 398r56 398r64
+303U14*Revert_Code 303>27 9|402b14 415l8 415t19
+303e27 Code{10|198E9} 9|402b27 403r71
+307U14*Return_Void 9|417b14 423l8 423t19
+311U14*Return_Data 311>27 9|425b14 436l8 436t19
+311a27 Data{5|32A9} 313r17 9|425b27 430r39 434r33 434r39
+320U14*Require 321>7 322>7 9|442b14 450l8 450t15
+321b7 Condition{boolean} 9|443b7 447r14
+322a7 Message{string} 325r17 9|444b7 448r18
+328U14*Only_Owner 328>26 9|452b14 457l8 457t18
+328a26 Owner_Address{10|43A12} 9|452b26 454r55
+332U14*Enter_Non_Reentrant 9|459b14 465l8 465t27
+335U14*Exit_Non_Reentrant 9|467b14 470l8 470t26
+339U14*Require_Payment 9|472b14 477l8 477t23
+343U14*Require_No_Payment 9|479b14 484l8 484t26
+351V13*Was_Reverted{boolean} 9|490b13 493l8 493t20
+355V13*Was_Returned{boolean} 9|495b13 498l8 498t20
+359U14*Get_Revert_Data 360<7 361<7 9|500b14 510l8 510t23
+360a7 Data{5|32A9} 364r17 9|501b7 506m7 508m10 508r16
+361i7 Length{natural} 9|502b7 505m7
+367U14*Get_Return_Data 368<7 369<7 9|512b14 522l8 522t23
+368a7 Data{5|32A9} 372r17 9|513b7 518m7 520m10 520r16
+369i7 Length{natural} 9|514b7 517m7
+375U14*Reset_Execution_State 9|524b14 530l8 530t29
+382a7*Data{117A9} 9|120m14 122m17 132r31 155r32 172r32 196r33
+383i7*Size{natural} 9|118m14 130r17 140r21 153r39 168r39 194r39 207r42 210r34
+384i7*Offset{natural} 9|119m14 153r17 155r61 157m17 157r34 168r17 172r61
+. 174m17 174r34 194r17 196r62 198m17 198r34 207r17 208m17 208r34 210m17
+389a7*Data{5|32A9} 9|220m15 231m20 244m20 257m20 260m20 262m20 275m20 294r42
+390i7*Size{natural} 9|220m38 229r17 231r33 233m17 233r32 242r17 244r33 246m17
+. 246r32 255r17 257r33 260r33 262r33 264m17 264r32 273r17 275r33 277m17 277r32
+. 283r21 292r22
+394b4 Reentrancy_Guard{boolean}
+X 9 khepri_runtime.adb
+13r4 Current_Context{8|50R9} 48r14 53r14 58r14 63r14 68r14 73r14 78r14 87r15
+. 88r16
+29b4 Constructor_Complete{boolean} 372r35 377m7 382r14
+32b4 Currently_Entered{boolean} 461r10 464m7 469m7
+35b4 Execution_Reverted{boolean} 392m7 406m7 421m7 429m7 492r14 526m7
+36b4 Execution_Returned{boolean} 393m7 407m7 420m7 428m7 497r14 527m7
+37a4 Revert_Reason_Buf{5|32A9} 398m10 411m7 412m7 413m7 414m7 508r35
+38i4 Revert_Reason_Len{natural} 394m7 397r21 408m7 505r17 507r21 528m7
+39a4 Return_Data_Buf{5|32A9} 434m10 520r35
+40i4 Return_Data_Len{natural} 422m7 430m7 433r21 517r17 519r21 529m7
+82r7 Used{10|34R12} 87m7 89r19
+83r7 Limit{10|34R12} 88m7 89r12
+84r7 Left{10|34R12} 89m25 93r14
+85b7 Underflow{boolean} 89m31 90r10
+101a7 Hash{10|49A12} 104m7 106r21
+102a7 Sel{8|103A12} 106m10 108r14
+105i11 I{integer} 106r15 106r27
+116r7 Reader{8|124R9} 118m7 119m7 120m7 122m10 124r14
+121i11 I<integer> 122r39 122r65
+128a7 Sel{8|103A12} 132m13 135r14
+131i14 I{integer} 132r18 132r53
+151a7 Data{10|49A12} 155m13 159r31
+154i14 I{integer} 155r19 155r70
+171i14 I{integer} 172r19 172r70
+182r7 U_Value{10|34R12} 184m28 185r29
+195i14 I{integer} 196r20 196r71
+227a7 Data{10|49A12} 231r46
+230i14 I{integer} 231r40 231r52
+243i14 I{integer} 244r40 244r52
+256i14 I{integer} 257r40
+274i14 I{integer} 275r40 275r53
+293i11 I{integer} 294r29 294r48
+310r7 Reader{8|124R9} 325m7 326r28 327m19 327r19 336m58 336r58
+311r7 Writer{8|182R9} 329m7 336m66 336r66 352r24
+312a7 Sel{8|103A12} 326m7 333r53
+313b7 Found{boolean} 334m13 342r14
+314b7 Success{boolean} 336m74 347r14
+332i11 I{integer} 333r38 335r41 336r41
+361b4 Is_Deploying{boolean} 365m7 372r14
+363U14 Set_Deploying 363b14 363>29 366l8 366t21
+363b29 Value{boolean} 365r23
+397i11 I{integer} 398r29 398r79
+403m7 Code_Val{6|81M9} 411r51 412r51 413r51 414r38
+433i11 I{integer} 434r27 434r52
+507i11 I{integer} 508r29 508r54
+519i11 I{integer} 520r29 520r52
+X 10 khepri_types.ads
+25K9*Khepri_Types 8|4w6 4r24 10|345e17
+34R12*Uint256{5|41R9} 8|57r25 58r25 60r25 67r22 68r22 69r22 83r33 86r36 89r29
+. 95r29 145r23 191r23 9|61r33 66r36 71r29 81r29 82r15 83r15 84r15 149r23
+. 182r17 225r23
+37r4*Zero{34R12} 9|15r26 17r26 18r26 20r26 23r26 24r26 25r26 91r17
+43A12*Address{5|70A9}<integer> 8|52r21 54r21 59r25 63r22 77r31 92r25 152r23
+. 198r23 328r42 9|51r31 76r25 164r23 239r23 452r42
+46a4*Null_Address{43A12} 9|14r26 16r26 19r26 21r26 167r15
+49A12*Bytes32{5|56A9}<integer> 8|64r22 166r23 212r23 9|101r14 151r14 190r23
+. 227r23 270r23
+52a4*Bytes32_Zero{49A12} 9|22r26
+188R12*Wei{34R12} 8|53r21 80r30 9|56r30
+198E9*Error_Code 8|303r34 9|402r34 403r55 10|209e5
+317A9*Bytes4(5|31M12)<integer> 8|103r24
+335R9*Bounded_String 8|244r18 10|338e14
+

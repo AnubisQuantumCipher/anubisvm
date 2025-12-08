@@ -1,0 +1,82 @@
+V "GNAT Lib v14"
+A -O0
+A -gnatA
+A -gnat2022
+A -gnatwa
+A -gnatyO
+A -gnatVa
+A -gnatw.F
+A -gnata
+A -g
+A -gnateE
+A -gnatVa
+A -mmacosx-version-min=16.0.0
+A -mcpu=apple-m1
+A -mlittle-endian
+A -mabi=lp64
+A -fPIC
+P ZX
+
+RN
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U anubis_mldsa_types%s	anubis_mldsa_types.ads	6b544876 NE OO PU PK
+W anubis_mldsa_config%s	anubis_mldsa_config.ads	anubis_mldsa_config.ali
+W anubis_mldsa_field%s	anubis_mldsa_field.adb	anubis_mldsa_field.ali
+W anubis_types%s	anubis_types.ads	anubis_types.ali
+
+D anubis_mldsa_config.ads  20251205141650 21404e58 anubis_mldsa_config%s
+D anubis_mldsa_field.ads  20251205160739 b52aaacb anubis_mldsa_field%s
+D anubis_mldsa_types.ads  20251204160229 b08dfc72 anubis_mldsa_types%s
+D anubis_types.ads	20251203093723 4fb35097 anubis_types%s
+D interfac.ads		20240808082856 9111f9c1 interfaces%s
+D system.ads		20240808082856 70765b54 system%s
+G a e
+G c Z s s [TpolynomialBIP anubis_mldsa_types 23 4 none]
+G c Z s s [Tpoly_vector_kBIP anubis_mldsa_types 30 4 none]
+G c Z s s [Tpoly_vector_lBIP anubis_mldsa_types 31 4 none]
+G c Z s s [Tpoly_matrixBIP anubis_mldsa_types 34 4 none]
+G c Z s s [seeds_recordIP anubis_mldsa_types 40 9 none]
+X 1 anubis_mldsa_config.ads
+14K9*Anubis_MLDSA_Config 91e24 3|4w6 4r31
+24N4*N 3|20r45
+27N4*K 3|26r42 54r51
+28N4*L 3|27r42
+43N4*Omega 3|54r43
+54N4*Seed_Bytes 3|37r37
+55N4*Tr_Bytes 3|47r40
+57N4*Public_Key_Bytes 3|57r43
+60N4*Secret_Key_Bytes 3|58r43
+67N4*Signature_Bytes 3|59r42
+X 2 anubis_mldsa_field.ads
+14K9*Anubis_MLDSA_Field 137e23 3|5w6 5r30
+20M9*Field_Element 3|23r45
+X 3 anubis_mldsa_types.ads
+14K9*Anubis_MLDSA_Types 64l5 64e23
+20I12*Poly_Index{natural} 23r30
+23A9*Polynomial(2|20M9)<integer> 30r45 31r45 34r52
+26I12*K_Index{natural} 30r33 34r31
+27I12*L_Index{natural} 31r33 34r40
+30A9*Poly_Vector_K(23A9)<integer>
+31A9*Poly_Vector_L(23A9)<integer>
+34A9*Poly_Matrix(23A9)<integer><integer>
+37A12*Seed{4|14A9}<integer> 41r15 42r15 43r16
+40R9*Seeds_Record 44e14
+41a7*Rho{37A12}
+42a7*Rho_P{37A12}
+43a7*K_Seed{37A12}
+47A12*Tr_Hash{4|14A9}<integer>
+50A12*Challenge_Seed{4|14A9}<integer>
+54A12*Hint_Bytes{4|14A9}<integer>
+57A12*Public_Key{4|14A9}<integer>
+58A12*Secret_Key{4|14A9}<integer>
+59A12*Signature{4|14A9}<integer>
+62A12*Message{4|14A9}<integer>
+X 4 anubis_types.ads
+5K9*Anubis_Types 3|3w6 3r24 4|40e17
+13M12*Byte{5|70M9}
+14A9*Byte_Array(13M12)<integer> 3|37r20 47r23 50r30 54r26 57r26 58r26 59r25
+. 62r23
+X 5 interfac.ads
+70M9*Unsigned_8
+

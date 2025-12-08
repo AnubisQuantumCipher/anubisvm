@@ -1,0 +1,362 @@
+V "GNAT Lib v14"
+A -O0
+A -gnatA
+A -gnatwa
+A -gnatQ
+A -gnata
+A -gnatf
+A -gnatyM120
+A -gnatyO
+A -gnat2012
+A -g
+A -gnateE
+A -fstack-check=specific
+A -mmacosx-version-min=16.0.0
+A -mcpu=apple-m1
+A -mlittle-endian
+A -mabi=lp64
+A -fPIC
+P ZX
+
+RN
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+RV NO_ELABORATION_CODE
+
+U khepri_flashloan%b	khepri_flashloan.adb	b8257844 OO PK
+W interfaces%s		interfac.ads		interfac.ali
+Z system.assertions%s	s-assert.adb		s-assert.ali
+
+U khepri_flashloan%s	khepri_flashloan.ads	4ae04c6d EE NE OO PK
+W aegis_u256%s		aegis_u256.adb		aegis_u256.ali
+W aegis_vm_types%s	aegis_vm_types.ads	aegis_vm_types.ali
+W khepri_types%s	khepri_types.adb	khepri_types.ali
+
+D ada.ads		20240808082856 76789da1 ada%s
+D a-assert.ads		20240808082856 ba465f5c ada.assertions%s
+D a-unccon.ads		20240808082856 0e9b276f ada.unchecked_conversion%s
+D aegis_u256.ads	20251207191105 ff2dfe4b aegis_u256%s
+D aegis_vm_types.ads	20251207191105 dcd101d9 aegis_vm_types%s
+D interfac.ads		20240808082856 9111f9c1 interfaces%s
+D khepri_flashloan.ads	20251206202917 6fef31d2 khepri_flashloan%s
+D khepri_flashloan.adb	20251206032523 46dbb057 khepri_flashloan%b
+D khepri_types.ads	20251207191106 06f3822d khepri_types%s
+D system.ads		20240808082856 70765b54 system%s
+D s-assert.ads		20240808082856 9c4520c7 system.assertions%s
+D s-exctab.ads		20240808082856 91bef6ef system.exception_table%s
+D s-stalib.ads		20240808082856 1c9580f6 system.standard_library%s
+G a e
+G c Z s b [initialize khepri_flashloan 101 14 none]
+G c Z s b [flash_loan khepri_flashloan 111 14 none]
+G c Z s b [flash_loan_multi khepri_flashloan 124 14 none]
+G c Z s b [deposit khepri_flashloan 141 14 none]
+G c Z s b [withdraw khepri_flashloan 152 14 none]
+G c Z s b [calculate_fee khepri_flashloan 168 13 none]
+G c Z s b [get_repayment_amount khepri_flashloan 176 13 none]
+G c Z s b [add_token khepri_flashloan 188 14 none]
+G c Z s b [remove_token khepri_flashloan 199 14 none]
+G c Z s b [set_token_fee khepri_flashloan 208 14 none]
+G c Z s b [set_token_enabled khepri_flashloan 219 14 none]
+G c Z s b [is_token_supported khepri_flashloan 233 13 none]
+G c Z s b [get_available_liquidity khepri_flashloan 238 13 none]
+G c Z s b [get_token_fee khepri_flashloan 243 13 none]
+G c Z s b [is_flash_loan_active khepri_flashloan 248 13 none]
+G c Z s b [get_fees_collected khepri_flashloan 253 13 none]
+G c Z s b [collect_fees khepri_flashloan 262 14 none]
+G c Z s b [transfer_ownership khepri_flashloan 273 14 none]
+G c Z s b [pause khepri_flashloan 281 14 none]
+G c Z s b [unpause khepri_flashloan 288 14 none]
+G c Z s b [is_paused khepri_flashloan 295 13 none]
+G c Z s s [token_configIP khepri_flashloan 53 9 none]
+G c Z s s [loan_requestIP khepri_flashloan 62 9 none]
+G c Z s s [Tloan_request_arrayBIP khepri_flashloan 73 4 none]
+G c Z s s [loan_resultIP khepri_flashloan 76 9 none]
+G c Z s s [flashloan_eventIP khepri_flashloan 303 9 none]
+G c Z s s [deposit_eventIP khepri_flashloan 311 9 none]
+G c Z s s [withdraw_eventIP khepri_flashloan 317 9 none]
+G c Z s s [feecollected_eventIP khepri_flashloan 323 9 none]
+G c Z b b [token_entryIP khepri_flashloan 16 9 none]
+G c Z b b [Ttoken_arrayBIP khepri_flashloan 21 4 none]
+G c Z b b [Tfees_arrayBIP khepri_flashloan 22 4 none]
+G c Z b b [find_token khepri_flashloan 49 13 none]
+G c Z b b [find_empty_slot khepri_flashloan 59 13 none]
+G r c none [flash_loan khepri_flashloan 111 14 none] [equal aegis_u256 31 13 none]
+G r c none [flash_loan khepri_flashloan 111 14 none] [less_than aegis_u256 36 13 none]
+G r c none [flash_loan khepri_flashloan 111 14 none] [from_word64 aegis_u256 155 13 none]
+G r c none [flash_loan khepri_flashloan 111 14 none] [mul aegis_u256 89 14 none]
+G r c none [flash_loan khepri_flashloan 111 14 none] [div aegis_u256 111 13 none]
+G r c none [flash_loan khepri_flashloan 111 14 none] [add aegis_u256 64 14 none]
+G r c none [flash_loan khepri_flashloan 111 14 none] [sub aegis_u256 76 14 none]
+G r c none [flash_loan_multi khepri_flashloan 124 14 none] [equal aegis_u256 31 13 none]
+G r c none [flash_loan_multi khepri_flashloan 124 14 none] [less_than aegis_u256 36 13 none]
+G r c none [flash_loan_multi khepri_flashloan 124 14 none] [from_word64 aegis_u256 155 13 none]
+G r c none [flash_loan_multi khepri_flashloan 124 14 none] [mul aegis_u256 89 14 none]
+G r c none [flash_loan_multi khepri_flashloan 124 14 none] [div aegis_u256 111 13 none]
+G r c none [flash_loan_multi khepri_flashloan 124 14 none] [add aegis_u256 64 14 none]
+G r c none [flash_loan_multi khepri_flashloan 124 14 none] [sub aegis_u256 76 14 none]
+G r c none [deposit khepri_flashloan 141 14 none] [equal aegis_u256 31 13 none]
+G r c none [deposit khepri_flashloan 141 14 none] [add aegis_u256 64 14 none]
+G r c none [withdraw khepri_flashloan 152 14 none] [equal aegis_u256 31 13 none]
+G r c none [withdraw khepri_flashloan 152 14 none] [less_than aegis_u256 36 13 none]
+G r c none [withdraw khepri_flashloan 152 14 none] [sub aegis_u256 76 14 none]
+G r c none [calculate_fee khepri_flashloan 168 13 none] [from_word64 aegis_u256 155 13 none]
+G r c none [calculate_fee khepri_flashloan 168 13 none] [mul aegis_u256 89 14 none]
+G r c none [calculate_fee khepri_flashloan 168 13 none] [div aegis_u256 111 13 none]
+G r c none [get_repayment_amount khepri_flashloan 176 13 none] [from_word64 aegis_u256 155 13 none]
+G r c none [get_repayment_amount khepri_flashloan 176 13 none] [mul aegis_u256 89 14 none]
+G r c none [get_repayment_amount khepri_flashloan 176 13 none] [div aegis_u256 111 13 none]
+G r c none [get_repayment_amount khepri_flashloan 176 13 none] [add aegis_u256 64 14 none]
+G r c none [remove_token khepri_flashloan 199 14 none] [equal aegis_u256 31 13 none]
+G r c none [collect_fees khepri_flashloan 262 14 none] [sub aegis_u256 76 14 none]
+X 4 aegis_u256.ads
+21K9*Aegis_U256 276e15 7|23w6 23r30
+31V13*Equal{boolean} 7|121s21 149s21 161s21 8|446s14
+36V13*Less_Than{boolean} 8|142s10 332s10
+64U14*Add 8|158s7 180s7 198s7 294s7 368s7
+76U14*Sub 8|167s7 194s7 337s7 588s10
+89U14*Mul 8|355s7
+111V13*Div{5|41R9} 8|356s14
+155V13*From_Word64{5|41R9} 8|355s20 356s25
+X 5 aegis_vm_types.ads
+21K9*Aegis_VM_Types 279e19 7|22w6 22r30
+31M12*Byte{6|70M9}
+35M12*Word64{6|84M9} 8|355r33 356r38
+41R9*U256 43e14 7|46r34 56r20 57r20 64r19 78r22 113r25 143r24 154r24 169r16
+. 171r13 177r16 179r13 238r62 253r57 266r24 306r19 307r19 313r16 319r16 325r16
+. 8|22r54 98r25 106r23 107r23 108r24 109r23 110r23 276r24 282r15 306r24 313r15
+. 348r16 350r13 351r14 352r14 360r16 362r13 363r15 364r15 519r62 542r57 559r24
+. 585r18
+46r4*U256_Zero{41R9} 7|121r36 149r36 161r36 8|32r23 33r23 43r46 83r26 84r26
+. 89r36 184r42 412r26 413r26 446r51 523r17 546r17 565r17 581r31
+48r4*U256_Max{41R9} 7|46r42 8|370r17
+56A9*Hash256(31M12)<integer> 7|66r19 67r19 115r25 116r25 128r26 129r26 8|100r25
+. 101r25 213r26 214r26
+70A9*Contract_Address(31M12)<integer>
+X 6 interfac.ads
+38K9*Interfaces 233e15 8|4w6 4r22
+70M9*Unsigned_8
+84M9*Unsigned_64
+X 7 khepri_flashloan.ads
+26K9*Khepri_FlashLoan 345l5 345e21 8|6b14 648l5 648t21
+28@23*FlashLoan_State 29r19 104r28 120r28 133r28 148r28 160r28 195r28 205r28
+. 215r28 226r28 234r17 239r17 244r17 249r17 254r17 270r28 278r28 285r28 292r28
+. 296r17 8|8r22
+37N4*Fee_Denominator 173r26 181r26 196r23 216r27 8|356r46
+40N4*Default_Fee 8|31r23 82r26
+43N4*Max_Tokens 8|21r36 22r35
+46r4*Max_Loan_Per_Token{5|41R9}
+53R9*Token_Config 59e14 8|17r16
+54a7*Token{9|43A12} 8|30m10 52r56 81m13 410m13
+55i7*Fee{natural} 8|31m10 82m13 148r57 149r70 411m13 479m27 534r34
+56r7*Available{5|41R9} 8|32m10 83m13 142r41 152r45 167r32 168m27 183m30 191m27
+. 294r32 300m27 332r41 337r32 338m27 412m13 525r34 588r35 590m33
+57r7*Borrowed{5|41R9} 8|33m10 84m13 158r32 164m27 184m30 194r32 195m27 413m13
+. 446r41
+58b7*Enabled{boolean} 8|34m10 85m13 136r34 414m13 506m27
+62R9*Loan_Request 68e14 73r53
+63a7*Token{9|43A12} 8|249r51
+64r7*Amount{5|41R9} 8|250r51
+65a7*Receiver{9|43A12}
+66a7*Callback{5|56A9}
+67a7*Data{5|56A9}
+71N4*Max_Loans_Per_Tx 72r34 134r26
+72I9*Loan_Index<short_short_integer> 73r38 8|249r35 250r35
+73A9*Loan_Request_Array(62R9)<72I9> 125r26 8|210r26
+76R9*Loan_Result 80e14
+77b7*Success{boolean}
+78r7*Fee_Paid{5|41R9}
+79i7*Error_Code{natural}
+83E9*FlashLoan_Error 94e5 118r25 131r26 146r24 158r24 193r24 203r24 213r24
+. 224r24 268r24 8|103r25 216r26 245r26 279r24 310r24 384r24 427r24 461r24
+. 488r24 561r24
+84n7*Error_None{83E9} 8|114r16 220r16 286r16 317r16 389r16 432r16 466r16
+. 493r16 567r16
+85n7*Error_Token_Not_Supported{83E9} 8|131r19 290r19 327r19 398r19 404r19
+. 441r19 475r19 502r19 576r19
+86n7*Error_Insufficient_Liquidity{83E9} 8|143r19 161r19 296r19 333r19 447r19
+87n7*Error_Zero_Amount{83E9} 8|235r19
+88n7*Error_Reentrancy{83E9} 8|118r19 224r19
+89n7*Error_Repayment_Failed{83E9} 8|186r19
+90n7*Error_Fee_Too_High{83E9}
+91n7*Error_Callback_Failed{83E9}
+92n7*Error_Unauthorized{83E9} 8|321r19 392r19 435r19 469r19 496r19 570r19
+93n7*Error_Disabled{83E9} 8|124r19 137r19 230r19
+101U14*Initialize 102>7 8|73b14 90l8 90t18
+102a7 Owner{9|43A12} 8|73b26 75r21
+111U14*Flash_Loan 112>7 113>7 114>7 115>7 116>7 117<7 118<7 8|96b14 207l8
+. 207t18 248s13
+112a7 Token{9|43A12} 8|97b7 129r26 249r16
+113r7 Amount{5|41R9} 121r28 8|98b7 142r52 148r29 149r42 158r42 167r43 194r42
+. 250r16
+114a7 Receiver{9|43A12} 8|99b7 251r16
+115a7 Callback{5|56A9} 8|100b7 252r16
+116a7 Data{5|56A9} 8|101b7 253r16
+117b7 Success{boolean} 8|102b7 113m7 206m7 254r16
+118e7 Error{83E9} 8|103b7 114m7 118m10 124m10 131m10 137m10 143m10 161m10
+. 186m10 255r16
+124U14*Flash_Loan_Multi 125>7 126>7 127>7 128>7 129>7 130<7 131<7 8|209b14
+. 268l8 268t24
+125a7 Loans{73A9} 8|210b7 249r28 250r28
+126i7 Count{natural} 134r17 8|211b7 234r10 243r21
+127a7 Receiver{9|43A12} 8|212b7 251r28
+128a7 Callback{5|56A9} 8|213b7 252r28
+129a7 Data{5|56A9} 8|214b7 253r28
+130b7 Success{boolean} 8|215b7 219m7 267m7
+131e7 Error{83E9} 8|216b7 220m7 224m10 230m10 235m10 260m16
+141U14*Deposit 142>7 143>7 144>7 145<7 146<7 8|274b14 302l8 302t15
+142a7 Token{9|43A12} 8|275b7 288r26
+143r7 Amount{5|41R9} 149r28 8|276b7 294r43
+144a7 From{9|43A12} 8|277b7
+145b7 Success{boolean} 8|278b7 285m7 301m7
+146e7 Error{83E9} 8|279b7 286m7 290m10 296m10
+152U14*Withdraw 153>7 154>7 155>7 156>7 157<7 158<7 8|304b14 341l8 341t16
+153a7 Token{9|43A12} 8|305b7 325r26
+154r7 Amount{5|41R9} 161r28 8|306b7 332r52 337r43
+155a7 To{9|43A12} 8|307b7
+156a7 Caller{9|43A12} 8|308b7 320r10
+157b7 Success{boolean} 8|309b7 316m7 340m7
+158e7 Error{83E9} 8|310b7 317m7 321m10 327m10 333m10
+168V13*Calculate_Fee{5|41R9} 169>7 170>7 8|148s14 347b13 357l8 357t21 367s14
+169r7 Amount{5|41R9} 8|348b7 355r12
+170i7 Fee_BP{natural} 173r17 8|349b7 355r41
+176V13*Get_Repayment_Amount{5|41R9} 177>7 178>7 8|149s20 359b13 373l8 373t28
+177r7 Amount{5|41R9} 8|360b7 367r29 368r12
+178i7 Fee_BP{natural} 181r17 8|361b7 367r37
+188U14*Add_Token 189>7 190>7 191>7 192<7 193<7 8|379b14 421l8 421t17
+189a7 Token{9|43A12} 8|380b7 397r22 410r26
+190i7 Fee{natural} 196r17 8|381b7 411r26
+191a7 Caller{9|43A12} 8|382b7 391r10
+192b7 Success{boolean} 8|383b7 388m7 420m7
+193e7 Error{83E9} 8|384b7 389m7 392m10 398m10 404m10
+199U14*Remove_Token 200>7 201>7 202<7 203<7 8|423b14 454l8 454t20
+200a7 Token{9|43A12} 8|424b7 439r26
+201a7 Caller{9|43A12} 8|425b7 434r10
+202b7 Success{boolean} 8|426b7 431m7 453m7
+203e7 Error{83E9} 8|427b7 432m7 435m10 441m10 447m10
+208U14*Set_Token_Fee 209>7 210>7 211>7 212<7 213<7 8|456b14 481l8 481t21
+209a7 Token{9|43A12} 8|457b7 473r26
+210i7 New_Fee{natural} 216r17 8|458b7 479r34
+211a7 Caller{9|43A12} 8|459b7 468r10
+212b7 Success{boolean} 8|460b7 465m7 480m7
+213e7 Error{83E9} 8|461b7 466m7 469m10 475m10
+219U14*Set_Token_Enabled 220>7 221>7 222>7 223<7 224<7 8|483b14 508l8 508t25
+220a7 Token{9|43A12} 8|484b7 500r26
+221b7 Enabled{boolean} 8|485b7 506r38
+222a7 Caller{9|43A12} 8|486b7 495r10
+223b7 Success{boolean} 8|487b7 492m7 507m7
+224e7 Error{83E9} 8|488b7 493m7 496m10 502m10
+233V13*Is_Token_Supported{boolean} 233>33 8|514b13 517l8 517t26
+233a33 Token{9|43A12} 8|514b33 516r26
+238V13*Get_Available_Liquidity{5|41R9} 238>38 8|519b13 526l8 526t31
+238a38 Token{9|43A12} 8|519b38 520r45
+243V13*Get_Token_Fee{natural} 243>28 8|528b13 535l8 535t21
+243a28 Token{9|43A12} 8|528b28 529r45
+248V13*Is_Flash_Loan_Active{boolean} 8|537b13 540l8 540t28
+253V13*Get_Fees_Collected{5|41R9} 253>33 8|542b13 549l8 549t26
+253a33 Token{9|43A12} 8|542b33 543r45
+262U14*Collect_Fees 263>7 264>7 265>7 266<7 267<7 268<7 8|555b14 595l8 595t20
+263a7 Token{9|43A12} 8|556b7 574r26
+264a7 To{9|43A12} 8|557b7
+265a7 Caller{9|43A12} 8|558b7 569r10
+266r7 Amount{5|41R9} 8|559b7 565m7 580m7 588r46
+267b7 Success{boolean} 8|560b7 566m7 594m7
+268e7 Error{83E9} 8|561b7 567m7 570m10 576m10
+273U14*Transfer_Ownership 274>7 275>7 276<7 8|597b14 611l8 611t26
+274a7 New_Owner{9|43A12} 8|598b7 609r21
+275a7 Caller{9|43A12} 8|599b7 605r10
+276b7 Success{boolean} 8|600b7 603m7 610m7
+281U14*Pause 282>7 283<7 8|613b14 626l8 626t13
+282a7 Caller{9|43A12} 8|614b7 620r10
+283b7 Success{boolean} 8|615b7 618m7 625m7
+288U14*Unpause 289>7 290<7 8|628b14 641l8 641t15
+289a7 Caller{9|43A12} 8|629b7 635r10
+290b7 Success{boolean} 8|630b7 633m7 640m7
+295V13*Is_Paused{boolean} 8|643b13 646l8 646t17
+303R9*FlashLoan_Event 309e14
+304a7*Initiator{9|43A12}
+305a7*Token{9|43A12}
+306r7*Amount{5|41R9}
+307r7*Fee{5|41R9}
+308a7*Receiver{9|43A12}
+311R9*Deposit_Event 315e14
+312a7*Token{9|43A12}
+313r7*Amount{5|41R9}
+314a7*From{9|43A12}
+317R9*Withdraw_Event 321e14
+318a7*Token{9|43A12}
+319r7*Amount{5|41R9}
+320a7*To{9|43A12}
+323R9*FeeCollected_Event 327e14
+324a7*Token{9|43A12}
+325r7*Amount{5|41R9}
+326a7*To{9|43A12}
+X 8 khepri_flashloan.adb
+16R9 Token_Entry 19e14 21r55
+17r7*Config{7|53R9} 29m7 52r49 80m10 136r27 142r34 148r50 149r63 152r38 158r25
+. 164m20 167r25 168m20 183m23 184m23 191m20 194r25 195m20 294r25 300m20 332r34
+. 337r25 338m20 409m10 446r34 479m20 506m20 525r27 534r27 588r28 590m26
+18b7*Used{boolean} 36m7 52r24 62r28 87m10 416m10 451m20
+21A9 Token_Array(16R9)<integer> 28r21
+22A9 Fees_Array(5|41R9)<integer> 43r21
+28a4 Tokens{21A9} 9r7 51r16 52r13 52r38 61r16 62r17 79m7 136r14 142r21 148r37
+. 149r50 152r25 158r12 164m7 167r12 168m7 183m10 184m10 191m7 194r12 195m7
+. 294r12 300m7 332r21 337r12 338m7 408m7 446r21 451m7 479m7 506m7 525r14
+. 534r14 588r15 590m13
+39i4 Token_Count{natural} 9r15 78m7 419m7 419r22 452m7 452r22
+40a4 Owner_Addr{9|43A12} 9r28 75m7 320r20 391r20 434r20 468r20 495r20 569r20
+. 605r20 609m7 620r20 635r20
+41b4 Paused_Flag{boolean} 9r40 76m7 123r10 229r10 624m7 639m7 645r14
+42b4 Active_Loan{boolean} 9r53 77m7 117r10 155m7 160m10 185m10 204m7 223r10
+. 240m7 259m16 266m7 539r14
+43a4 Fees_Collected{22A9} 9r66 89m7 198r12 200m10 548r14 580r17 581m7
+49V13 Find_Token{natural} 49b13 49>25 57l8 57t18 129s14 288s14 325s14 397s10
+. 439s14 473s14 500s14 516s14 520s33 529s33 543s33 574s14
+49a25 Token{9|43A12} 52r64
+51i11 I{integer} 52r21 52r46 53r20
+59V13 Find_Empty_Slot{natural} 59b13 67l8 67t23 402s14
+61i11 I{integer} 62r25 63r20
+105i7 Idx{natural} 129m7 130r10 136r22 142r29 148r45 149r58 152r33 158r20
+. 164r15 167r20 168r15 183r18 184r18 191r15 194r20 195r15 198r28 200r26
+106r7 Fee{5|41R9} 148m7 180r28 198r34
+107r7 Repayment{5|41R9} 149m7
+108r7 Balance_Before{5|41R9} 152m7 180r12 183r43
+109r7 Balance_After{5|41R9} 180m33 191r40
+110r7 Temp{5|41R9} 158m50 164r39 167m51 168r40 194m50 195r39 198m39 200r34
+111b7 Oflow{boolean} 158m56 159r10 167m57 180m48 181r10 194m56 198m45 199r14
+243i11 I{integer} 249r47 250r47
+245e13 Loan_Error{7|83E9} 255m28 260r25
+246b13 Loan_Success{boolean} 254m28 258r20
+281i7 Idx{natural} 288m7 289r10 294r20 300r15
+282r7 Temp{5|41R9} 294m51 300r40
+283b7 Oflow{boolean} 294m57 295r10
+312i7 Idx{natural} 325m7 326r10 332r29 337r20 338r15
+313r7 Temp{5|41R9} 337m51 338r40
+314b7 Uflow{boolean} 337m57
+351r7 High{5|41R9} 355m51
+352r7 Temp{5|41R9} 355m57 356r19
+363r7 Fee{5|41R9} 367m7 368r20
+364r7 Temp{5|41R9} 368m25 372r14
+365b7 Oflow{boolean} 368m31 369r10
+386i7 Idx{natural} 402m7 403r10 408r15
+429i7 Idx{natural} 439m7 440r10 446r29 451r15
+463i7 Idx{natural} 473m7 474r10 479r15
+490i7 Idx{natural} 500m7 501r10 506r15
+520i7 Idx{natural} 522r10 525r22
+529i7 Idx{natural} 531r10 534r22
+543i7 Idx{natural} 545r10 548r30
+563i7 Idx{natural} 574m7 575r10 580r33 581r23 588r23 590r21
+585r10 Temp{5|41R9} 588m54 590r46
+586b10 Uflow{boolean} 588m60 589r17
+X 9 khepri_types.ads
+25K9*Khepri_Types 7|24w6 24r30 9|345e17
+43A12*Address{5|70A9}<integer> 7|54r20 63r19 65r19 102r18 112r25 114r25 127r26
+. 142r24 144r24 153r24 155r24 156r24 189r24 191r24 200r24 201r24 209r24 211r24
+. 220r24 222r24 233r41 238r46 243r36 253r41 263r24 264r24 265r24 274r26 275r26
+. 282r24 289r24 304r19 305r19 308r19 312r16 314r16 318r16 320r16 324r16 326r16
+. 8|40r21 49r33 73r37 97r25 99r25 212r26 275r24 277r24 305r24 307r24 308r24
+. 380r24 382r24 424r24 425r24 457r24 459r24 484r24 486r24 514r41 519r46 528r36
+. 542r41 556r24 557r24 558r24 598r26 599r26 614r24 629r24
+46a4*Null_Address{43A12} 8|30r23 40r32 81r26
+

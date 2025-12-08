@@ -1,0 +1,7 @@
+sphinx_native.ads:3:06: warning: no entities of "Interfaces" are referenced in spec [-gnatwu]
+sphinx_native.ads:3:06: warning: with clause might be moved to body [-gnatwu]
+sphinx_native.ads:6:06: warning: unit "Anubis_Types" is not referenced in spec [-gnatwu]
+sphinx_native.ads:6:06: warning: with clause might be moved to body [-gnatwu]
+sphinx_native.ads:7:06: warning: unit "Anubis_SHA3" is not referenced in spec [-gnatwu]
+sphinx_native.ads:7:06: warning: with clause might be moved to body [-gnatwu]
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]

@@ -1,0 +1,52 @@
+V "GNAT Lib v14"
+A -O0
+A -gnatA
+A -gnatwa
+A -gnatQ
+A -gnata
+A -gnatf
+A -gnatyM120
+A -gnatyO
+A -gnat2012
+A -g
+A -gnateE
+A -fstack-check=specific
+A -mmacosx-version-min=16.0.0
+A -mcpu=apple-m1
+A -mlittle-endian
+A -mabi=lp64
+A -fPIC
+P ZX
+
+RN
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U anubis_types%s	anubis_types.ads	dea2a956 NE OO PU PK
+W interfaces%s		interfac.ads		interfac.ali
+
+D anubis_types.ads	20251207191105 4fb35097 anubis_types%s
+D interfac.ads		20240808082856 9111f9c1 interfaces%s
+D system.ads		20240808082856 70765b54 system%s
+G a e
+G c Z s s [byte_arrayIP anubis_types 14 9 none]
+G c Z s s [Tword256BIP anubis_types 21 4 none]
+X 1 anubis_types.ads
+5K9*Anubis_Types 40l5 40e17
+13M12*Byte{2|70M9} 14r51 30r25
+14A9*Byte_Array(13M12)<integer> 24r23 27r23
+17M9*Word32 31r27
+18M9*Word64 21r38 32r27
+21A9*Word256(18M9)<integer>
+24A12*Address{14A9}<integer>
+27A12*Hash256{14A9}<integer> 33r25
+30m4*Zero_Byte{13M12}
+31m4*Zero_Word32{17M9}
+32m4*Zero_Word64{18M9}
+33a4*Zero_Hash{27A12}
+36N4*Max_Bytecode_Size
+37N4*Max_Storage_Value_Size
+38N4*Max_Memory_Size
+X 2 interfac.ads
+38K9*Interfaces 1|3w6 3r22 2|233e15
+70M9*Unsigned_8 1|13r20
+

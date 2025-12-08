@@ -146,6 +146,51 @@ is
       Pre    => VM.Is_Initialized;
 
    ---------------------------------------------------------------------------
+   --  Contract Deployment (vm_deployContract)
+   ---------------------------------------------------------------------------
+
+   --  Deploy a contract from code buffer
+   procedure Deploy_Contract (
+      VM       : in out VM_Instance;
+      From     : in     Contract_Address;
+      Code     : in     Node_Code_Buffer;
+      Code_Size : in    Natural;
+      Manifest : in     Node_Contract_Manifest;
+      Gas_Limit : in    Gas_Amount;
+      Result   : out    Deploy_Result
+   ) with
+      Global => null,
+      Pre    => VM.Is_Initialized and
+                Code_Size > 0 and Code_Size <= Node_Max_Code_Size and
+                VM.Contract_Count < Max_Contracts,
+      Post   => (Result.Success and then
+                   VM.Contract_Count = VM.Contract_Count'Old + 1)
+                or (not Result.Success and then
+                   VM.Contract_Count = VM.Contract_Count'Old);
+
+   ---------------------------------------------------------------------------
+   --  Contract Invocation (vm_invoke / vm_call)
+   ---------------------------------------------------------------------------
+
+   --  Invoke contract method (state-changing)
+   procedure Invoke_Contract (
+      VM       : in Out VM_Instance;
+      Request  : in     Invoke_Request;
+      Result   : out    Invoke_Result
+   ) with
+      Global => null,
+      Pre    => VM.Is_Initialized;
+
+   --  Call contract method (read-only)
+   procedure Call_Contract (
+      VM       : in     VM_Instance;
+      Request  : in     Invoke_Request;
+      Result   : out    Invoke_Result
+   ) with
+      Global => null,
+      Pre    => VM.Is_Initialized;
+
+   ---------------------------------------------------------------------------
    --  State Access
    ---------------------------------------------------------------------------
 

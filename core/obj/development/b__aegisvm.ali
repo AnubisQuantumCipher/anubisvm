@@ -18,16 +18,16 @@ RV NO_IMPLEMENTATION_PRAGMAS
 RV NO_IMPLICIT_LOOPS
 RV NO_ELABORATION_CODE
 
-U aegisvmmain%b		b__aegisvm.adb		f2e96206 OO PK IL
+U aegisvmmain%b		b__aegisvm.adb		8632afa7 OO PK IL
 Z system%s		system.ads		system.ali
 
-U aegisvmmain%s		b__aegisvm.ads		a8926e5c EE NE OO PK IL
+U aegisvmmain%s		b__aegisvm.ads		dc49a3fd EE NE OO PK IL
 W system%s		system.ads		system.ali
 W system.parameters%s	s-parame.adb		s-parame.ali
 W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
 
-D b__aegisvm.ads	20251207191616 baf1b0ec aegisvmmain%s
-D b__aegisvm.adb	20251207191616 4818d2ea aegisvmmain%b
+D b__aegisvm.ads	20251208044138 ce2a7d4d aegisvmmain%s
+D b__aegisvm.adb	20251208044138 4818d2ea aegisvmmain%b
 D system.ads		20240808082856 70765b54 system%s
 D s-parame.ads		20240808082856 3597fc11 system.parameters%s
 D s-secsta.ads		20240808082856 578279f5 system.secondary_stack%s

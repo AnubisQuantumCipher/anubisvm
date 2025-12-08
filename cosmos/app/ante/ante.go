@@ -51,11 +51,16 @@ func DefaultSigVerificationGasConsumer(meter storetypes.GasMeter, sig signing.Si
 	pubkey := sig.PubKey
 
 	switch pubkey.(type) {
-	case *pqcrypto.PubKey:
+	case *pqcrypto.SDKPubKey:
 		// ML-DSA-87 signature verification cost
 		meter.ConsumeGas(PQSigVerifyCost, "ante verify: mldsa87")
 		return nil
 	default:
+		// Also check by type string for ML-DSA-87 keys
+		if pubkey != nil && pubkey.Type() == pqcrypto.KeyType {
+			meter.ConsumeGas(PQSigVerifyCost, "ante verify: mldsa87")
+			return nil
+		}
 		// Use default gas consumption for other key types
 		return ante.DefaultSigVerificationGasConsumer(meter, sig, params)
 	}

@@ -26,9 +26,9 @@ package aegisvmmain is
    pragma Export (C, u00005, "aegis_executionB");
    u00006 : constant Version_32 := 16#2f3b57ff#;
    pragma Export (C, u00006, "aegis_executionS");
-   u00007 : constant Version_32 := 16#a7b03313#;
+   u00007 : constant Version_32 := 16#8b79870b#;
    pragma Export (C, u00007, "aegis_ffiB");
-   u00008 : constant Version_32 := 16#a8be8052#;
+   u00008 : constant Version_32 := 16#8e7d511d#;
    pragma Export (C, u00008, "aegis_ffiS");
    u00009 : constant Version_32 := 16#05f00f54#;
    pragma Export (C, u00009, "aegis_gasB");

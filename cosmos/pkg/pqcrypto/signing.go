@@ -84,6 +84,18 @@ func Sign(sk SecretKey, message []byte) (Signature, error) {
 		return nil, errors.New("pqcrypto: empty message")
 	}
 
+	// Debug: Check if secret key looks valid (non-zero)
+	allZero := true
+	for i := 0; i < 32 && i < len(sk); i++ {
+		if sk[i] != 0 {
+			allZero = false
+			break
+		}
+	}
+	if allZero {
+		return nil, errors.New("pqcrypto: secret key appears to be all zeros - key not loaded correctly")
+	}
+
 	sig := make([]byte, SignatureSize)
 	var sigLen C.size_t
 

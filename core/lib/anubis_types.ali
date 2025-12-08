@@ -1,5 +1,5 @@
 V "GNAT Lib v14"
-A -O2
+A -O0
 A -gnatA
 A -gnat2022
 A -gnatwa
@@ -7,9 +7,9 @@ A -gnatyO
 A -gnatVa
 A -gnatw.F
 A -gnata
-A -gnatn
-A -ffunction-sections
-A -fdata-sections
+A -g
+A -gnateE
+A -gnatVa
 A -mmacosx-version-min=16.0.0
 A -mcpu=apple-m1
 A -mlittle-endian

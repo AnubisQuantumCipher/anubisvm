@@ -226,12 +226,12 @@
         "builder_address": "mldsa87:main:u:82k8tnws-nzpar3f3-rxt5kxty-gxnhy2sp-fvf0hk21-jr7savyh-8j3g-wat0w",
         "total_allocation": "300000000000000000000000000",
         "milestones": [
-          {"id": 1, "name": "ML-DSA-87 SPARK Implementation", "amount": "50000000000000000000000000", "verified": false},
-          {"id": 2, "name": "ML-KEM-1024 SPARK Implementation", "amount": "50000000000000000000000000", "verified": false},
-          {"id": 3, "name": "Core VM with WCET Gas Model", "amount": "50000000000000000000000000", "verified": false},
-          {"id": 4, "name": "Cosmos SDK PQ Integration", "amount": "50000000000000000000000000", "verified": false},
-          {"id": 5, "name": "zk-STARK Prover (Basic)", "amount": "30000000000000000000000000", "verified": false},
-          {"id": 6, "name": "Privacy Layer (Shield, Whisper)", "amount": "30000000000000000000000000", "verified": false},
+          {"id": 1, "name": "ML-DSA-87 SPARK Implementation", "amount": "50000000000000000000000000", "verified": true},
+          {"id": 2, "name": "ML-KEM-1024 SPARK Implementation", "amount": "50000000000000000000000000", "verified": true},
+          {"id": 3, "name": "Core VM with WCET Gas Model", "amount": "50000000000000000000000000", "verified": true},
+          {"id": 4, "name": "Cosmos SDK PQ Integration", "amount": "50000000000000000000000000", "verified": true},
+          {"id": 5, "name": "zk-STARK Prover (Basic)", "amount": "30000000000000000000000000", "verified": true},
+          {"id": 6, "name": "Privacy Layer (Shield, Whisper)", "amount": "30000000000000000000000000", "verified": true},
           {"id": 7, "name": "Mainnet Launch", "amount": "20000000000000000000000000", "verified": false},
           {"id": 8, "name": "1 Year Mainnet Stability", "amount": "10000000000000000000000000", "verified": false},
           {"id": 9, "name": "2 Year Mainnet Stability", "amount": "10000000000000000000000000", "verified": false}

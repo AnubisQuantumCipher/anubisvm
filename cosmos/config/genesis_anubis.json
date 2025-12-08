@@ -232,7 +232,7 @@
           {"id": 4, "name": "Cosmos SDK PQ Integration", "amount": "50000000000000000000000000", "verified": true},
           {"id": 5, "name": "zk-STARK Prover (Basic)", "amount": "30000000000000000000000000", "verified": true},
           {"id": 6, "name": "Privacy Layer (Shield, Whisper)", "amount": "30000000000000000000000000", "verified": true},
-          {"id": 7, "name": "Mainnet Launch", "amount": "20000000000000000000000000", "verified": false},
+          {"id": 7, "name": "Mainnet Launch", "amount": "20000000000000000000000000", "verified": true},
           {"id": 8, "name": "1 Year Mainnet Stability", "amount": "10000000000000000000000000", "verified": false},
           {"id": 9, "name": "2 Year Mainnet Stability", "amount": "10000000000000000000000000", "verified": false}
         ]

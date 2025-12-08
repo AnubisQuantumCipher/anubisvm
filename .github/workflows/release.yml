@@ -165,19 +165,19 @@ jobs:
 
     steps:
       - name: Download Linux artifacts
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v6
         with:
           name: release-linux-x86_64
           path: artifacts/
 
       - name: Download macOS artifacts
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v6
         with:
           name: release-macos-x86_64
           path: artifacts/
 
       - name: Download proof report
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v6
         with:
           name: proof-report
           path: artifacts/

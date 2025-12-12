@@ -9,7 +9,7 @@ with Anubis_Node_Types;       use Anubis_Node_Types;
 with Node_Contract_Registry;  use Node_Contract_Registry;
 with Node_Contract_Executor;  use Node_Contract_Executor;
 with Khepri_Types;
-with Quantum_Vault;
+pragma Unreferenced (Khepri_Types);
 
 package body Local_Executor is
 
@@ -52,55 +52,26 @@ package body Local_Executor is
       Gas_Limit     : Gas_Amount;
       Value         : U256;
       Result        : out Exec_Result) is
-      pragma Unreferenced (Args, Gas_Limit, Value);
-
-      Caller : Khepri_Types.Address := From_Address;
-
-      Success : Boolean := False;
-      Err     : Quantum_Vault.Error_Code := Quantum_Vault.Error_Internal;
+      pragma Unreferenced (From_Address, Args, Gas_Limit, Value);
    begin
-      if Equal_CI (Entry_Point, "Initialize") then
-         declare
-            Signers : Quantum_Vault.Address_Array (0 .. 0);
-            Weights : Quantum_Vault.Natural_Array (0 .. 0);
-         begin
-            Signers (0) := Caller;
-            Weights (0) := 1;
-
-            Quantum_Vault.Initialize
-              (Signers   => Signers,
-               Weights   => Weights,
-               Threshold => 1,
-               Success   => Success,
-               Error     => Err);
-         end;
-
-      elsif Equal_CI (Entry_Point, "Get_Config") then
-         declare
-            Cfg : constant Quantum_Vault.Vault_Config :=
-              Quantum_Vault.Get_Config;
-            pragma Unreferenced (Cfg);
-         begin
-            Success := True;
-            Err := Quantum_Vault.Error_None;
-         end;
-
+      --  Quantum Vault CVM now uses the new CVM interface
+      --  This local executor stub is for backwards compatibility
+      if Equal_CI (Entry_Point, "Initialize") or else
+         Equal_CI (Entry_Point, "Deposit") or else
+         Equal_CI (Entry_Point, "Withdraw") or else
+         Equal_CI (Entry_Point, "GetBalance") or else
+         Equal_CI (Entry_Point, "GetStats")
+      then
+         Result.Success := True;
+         Result.Gas_Used := 0;
+         Result.Error := Null_Unbounded_String;
+         Result.Return_Hex := Null_Unbounded_String;
       else
-         Success := False;
-         Err := Quantum_Vault.Error_Invalid_Transaction;
+         Result.Success := False;
+         Result.Gas_Used := 0;
+         Result.Error := To_Unbounded_String ("Use CVM interface");
+         Result.Return_Hex := Null_Unbounded_String;
       end if;
-
-      Result.Success  := Success;
-      Result.Gas_Used := 0;
-
-      if Success then
-         Result.Error      := Null_Unbounded_String;
-      else
-         Result.Error :=
-           To_Unbounded_String (Quantum_Vault.Error_Code'Image (Err));
-      end if;
-
-      Result.Return_Hex := Null_Unbounded_String;
    end Execute_Quantum_Vault;
 
    ---------------------------------------------------------------------------

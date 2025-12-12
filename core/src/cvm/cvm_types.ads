@@ -1,5 +1,6 @@
 pragma SPARK_Mode (On);
 
+with Interfaces; use Interfaces;
 with Anubis_Types; use Anubis_Types;
 
 --  CVM_Types: Core types for Cryptographically Verified Modules
@@ -26,9 +27,7 @@ with Anubis_Types; use Anubis_Types;
 --  - Execution results well-formed
 
 package CVM_Types with
-   SPARK_Mode => On,
-   Pure,
-   Always_Terminates
+   SPARK_Mode => On
 is
 
    ---------------------------------------------------------------------------

@@ -3,6 +3,8 @@ project AnubisVM is
    for Languages use ("Ada");
    for Source_Dirs use ("core/src/**", "stdlib/src", "cli/src", "examples/**");
    for Object_Dir use "obj";
+   for Exec_Dir use "core/bin";
+   for Main use ("anubis_main.adb", "khepri_main.adb", "khepri_local_main.adb", "test_ats20_token.adb");
    for Create_Missing_Dirs use "True";
 
    type Build_Mode_Type is ("development", "release", "prove");

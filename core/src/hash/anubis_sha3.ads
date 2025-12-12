@@ -23,10 +23,22 @@ with Anubis_Keccak; use Anubis_Keccak;
 --  3. Squeeze: Extract rate-sized blocks from state (can repeat for XOF)
 --
 --  All operations are constant-time with respect to message content.
+--
+--  Formal Verification (SPARK Gold):
+--  - All procedures proven free of runtime errors (no overflow, bounds)
+--  - Digest length invariants verified
+--  - Sponge construction follows FIPS 202 specification
+--  - Data flow dependencies explicitly declared and verified
 
 package Anubis_SHA3 with
-   SPARK_Mode => On
+   SPARK_Mode => On,
+   Pure,
+   Always_Terminates
 is
+
+   ---------------------------------------------------------------------------
+   --  Digest Types (Fixed Output Lengths)
+   ---------------------------------------------------------------------------
 
    --  SHA3-256: 256-bit output (32 bytes)
    subtype SHA3_256_Digest is Byte_Array (0 .. 31);
@@ -37,122 +49,250 @@ is
    --  SHA3-512: 512-bit output (64 bytes)
    subtype SHA3_512_Digest is Byte_Array (0 .. 63);
 
-   --  Rate parameters (in bytes) for each variant
-   Rate_256 : constant := 136;  -- (1600 - 2*256) / 8
-   Rate_384 : constant := 104;  -- (1600 - 2*384) / 8
-   Rate_512 : constant :=  72;  -- (1600 - 2*512) / 8
-   Rate_SHAKE128 : constant := 168;  -- (1600 - 2*128) / 8
-   Rate_SHAKE256 : constant := 136;  -- (1600 - 2*256) / 8
+   ---------------------------------------------------------------------------
+   --  Rate Parameters (FIPS 202 Section 6)
+   ---------------------------------------------------------------------------
 
-   --  Domain separators for padding
-   SHA3_Suffix   : constant Byte := 16#06#;  -- SHA3 fixed-output
-   SHAKE_Suffix  : constant Byte := 16#1F#;  -- SHAKE extensible-output
+   --  Rate = (1600 - 2*capacity) / 8 bytes
+   --  Capacity = 2 * security_level for SHA3
+   Rate_256 : constant := 136;  -- (1600 - 2*256) / 8 = 136 bytes
+   Rate_384 : constant := 104;  -- (1600 - 2*384) / 8 = 104 bytes
+   Rate_512 : constant :=  72;  -- (1600 - 2*512) / 8 = 72 bytes
+   Rate_SHAKE128 : constant := 168;  -- (1600 - 2*128) / 8 = 168 bytes
+   Rate_SHAKE256 : constant := 136;  -- (1600 - 2*256) / 8 = 136 bytes
+
+   ---------------------------------------------------------------------------
+   --  Domain Separators (FIPS 202 Section 6.1)
+   ---------------------------------------------------------------------------
+
+   --  Domain separator suffixes for padding differentiation
+   SHA3_Suffix   : constant Byte := 16#06#;  -- SHA3 fixed-output (0110)
+   SHAKE_Suffix  : constant Byte := 16#1F#;  -- SHAKE extensible-output (11111)
    Keccak_Suffix : constant Byte := 16#01#;  -- Keccak (pre-FIPS, Ethereum)
 
+   ---------------------------------------------------------------------------
+   --  Ghost Functions for Specification
+   ---------------------------------------------------------------------------
+
+   --  Ghost function: Verify digest has correct length for SHA3-256
+   function Is_Valid_256_Digest (D : SHA3_256_Digest) return Boolean is
+      (D'First = 0 and D'Last = 31)
+   with Ghost, Pure_Function;
+
+   --  Ghost function: Verify digest has correct length for SHA3-384
+   function Is_Valid_384_Digest (D : SHA3_384_Digest) return Boolean is
+      (D'First = 0 and D'Last = 47)
+   with Ghost, Pure_Function;
+
+   --  Ghost function: Verify digest has correct length for SHA3-512
+   function Is_Valid_512_Digest (D : SHA3_512_Digest) return Boolean is
+      (D'First = 0 and D'Last = 63)
+   with Ghost, Pure_Function;
+
+   --  Ghost function: Verify message bounds are safe for processing
+   function Message_Bounds_Safe (M : Byte_Array) return Boolean is
+      (M'Last < Natural'Last)
+   with Ghost, Pure_Function;
+
+   --  Ghost function: Verify output bounds are safe for SHAKE
+   function Output_Bounds_Safe (O : Byte_Array; Len : Positive) return Boolean is
+      (O'Last < Natural'Last and then O'Length = Len and then Len <= 65535)
+   with Ghost, Pure_Function;
+
+   ---------------------------------------------------------------------------
+   --  Constants
+   ---------------------------------------------------------------------------
+
    --  Maximum message length for safe processing (prevents overflow)
-   --  Must be less than Natural'Last to ensure 'Length attribute doesn"t overflow
    Max_Message_Length : constant := Natural'Last / 2;
 
-   --  SHA3-256: Hash arbitrary-length message
+   ---------------------------------------------------------------------------
+   --  SHA3 Fixed-Output Hash Functions
+   ---------------------------------------------------------------------------
+
+   --  SHA3-256: Hash arbitrary-length message to 256-bit digest
+   --
+   --  Security level: 128 bits (collision), 256 bits (preimage)
+   --  Output: Fixed 32 bytes
+   --
+   --  Pre: Message bounds safe for length computation
+   --  Post: Digest has exact length 32 bytes (indices 0..31)
    procedure SHA3_256 (
       Message : Byte_Array;
       Digest  : out SHA3_256_Digest
    ) with
-      Global => null,
-      Always_Terminates => True,
-      Pre => Message'Last < Natural'Last,
-      Post => Digest'First = 0 and Digest'Last = 31;
+      Global  => null,
+      Depends => (Digest => Message),
+      Pre     => Message_Bounds_Safe (Message),
+      Post    => Is_Valid_256_Digest (Digest),
+      Always_Terminates;
 
-   --  SHA3-384: Hash arbitrary-length message
+   --  SHA3-384: Hash arbitrary-length message to 384-bit digest
+   --
+   --  Security level: 192 bits (collision), 384 bits (preimage)
+   --  Output: Fixed 48 bytes
+   --
+   --  Pre: Message bounds safe for length computation
+   --  Post: Digest has exact length 48 bytes (indices 0..47)
    procedure SHA3_384 (
       Message : Byte_Array;
       Digest  : out SHA3_384_Digest
    ) with
-      Global => null,
-      Pre => Message'Last < Natural'Last,
-      Post => Digest'First = 0 and Digest'Last = 47;
+      Global  => null,
+      Depends => (Digest => Message),
+      Pre     => Message_Bounds_Safe (Message),
+      Post    => Is_Valid_384_Digest (Digest),
+      Always_Terminates;
 
-   --  SHA3-512: Hash arbitrary-length message
+   --  SHA3-512: Hash arbitrary-length message to 512-bit digest
+   --
+   --  Security level: 256 bits (collision), 512 bits (preimage)
+   --  Output: Fixed 64 bytes
+   --
+   --  Pre: Message bounds safe for length computation
+   --  Post: Digest has exact length 64 bytes (indices 0..63)
    procedure SHA3_512 (
       Message : Byte_Array;
       Digest  : out SHA3_512_Digest
    ) with
-      Global => null,
-      Pre => Message'Last < Natural'Last,
-      Post => Digest'First = 0 and Digest'Last = 63;
+      Global  => null,
+      Depends => (Digest => Message),
+      Pre     => Message_Bounds_Safe (Message),
+      Post    => Is_Valid_512_Digest (Digest),
+      Always_Terminates;
+
+   ---------------------------------------------------------------------------
+   --  Keccak-256 (Ethereum Compatibility)
+   ---------------------------------------------------------------------------
 
    --  Keccak-256: Ethereum-compatible hash (uses 0x01 domain separator)
+   --
    --  This is the pre-FIPS version used by Ethereum and other systems.
-   --  NOT the same as SHA3-256 (which uses 0x06).
+   --  NOT the same as SHA3-256 (which uses 0x06 domain separator).
+   --  The only difference is the domain separator byte in padding.
+   --
+   --  Security level: Same as SHA3-256 (128-bit collision resistance)
+   --  Output: Fixed 32 bytes
    procedure Keccak_256 (
       Message : Byte_Array;
       Digest  : out SHA3_256_Digest
    ) with
-      Global => null,
-      Pre => Message'Last < Natural'Last,
-      Post => Digest'First = 0 and Digest'Last = 31;
+      Global  => null,
+      Depends => (Digest => Message),
+      Pre     => Message_Bounds_Safe (Message),
+      Post    => Is_Valid_256_Digest (Digest),
+      Always_Terminates;
 
-   --  SHAKE128: Extensible-output function (arbitrary length)
-   --  Produces Output_Length bytes of output (can be any positive value)
+   ---------------------------------------------------------------------------
+   --  SHAKE Extensible-Output Functions (XOFs)
+   ---------------------------------------------------------------------------
+
+   --  SHAKE128: Extensible-output function with 128-bit security
+   --
+   --  Can produce arbitrary length output (up to 65535 bytes).
+   --  Security: min(d/2, 128) bits where d is output length in bits.
+   --
+   --  Pre: Output array matches requested length, bounds safe
    procedure SHAKE128 (
       Message       : Byte_Array;
       Output        : out Byte_Array;
       Output_Length : Positive
    ) with
-      Global => null,
-      Pre => Output'Last < Natural'Last and then Message'Last < Natural'Last and then
-             Output'Length = Output_Length and then Output_Length <= 65535,
-      Post => Output'First = Output'First'Old and Output'Last = Output'Last'Old;
+      Global  => null,
+      Depends => (Output => (Output, Message, Output_Length)),
+      Pre     => Message_Bounds_Safe (Message) and then
+                 Output_Length <= 65535 and then
+                 Output'First = 0 and then
+                 Output'Last = Output_Length - 1,
+      Always_Terminates;
 
-   --  SHAKE256: Extensible-output function (arbitrary length)
-   --  Produces Output_Length bytes of output (can be any positive value)
+   --  SHAKE256: Extensible-output function with 256-bit security
+   --
+   --  Can produce arbitrary length output (up to 65535 bytes).
+   --  Security: min(d/2, 256) bits where d is output length in bits.
+   --
+   --  Pre: Output array matches requested length, bounds safe
    procedure SHAKE256 (
       Message       : Byte_Array;
       Output        : out Byte_Array;
       Output_Length : Positive
    ) with
-      Global => null,
-      Always_Terminates => True,
-      Pre => Output'Last < Natural'Last and then Message'Last < Natural'Last and then
-             Output'Length = Output_Length and then Output_Length <= 65535,
-      Post => Output'First = Output'First'Old and Output'Last = Output'Last'Old;
+      Global  => null,
+      Depends => (Output => (Output, Message, Output_Length)),
+      Pre     => Message_Bounds_Safe (Message) and then
+                 Output_Length <= 65535 and then
+                 Output'First = 0 and then
+                 Output'Last = Output_Length - 1,
+      Always_Terminates;
 
-   --  Internal: Absorb one rate-sized block into Keccak state
-   --  XORs block into first Rate bytes of state (as lanes), then applies Keccak-f
+   ---------------------------------------------------------------------------
+   --  Sponge Construction Primitives
+   ---------------------------------------------------------------------------
+
+   --  Absorb_Block: XOR rate-sized block into state, apply Keccak-f
+   --
+   --  Internal operation for sponge absorption phase.
+   --  XORs block into first Rate bytes of state (as lanes), then permutes.
+   --
+   --  Pre: Rate is valid (8-200, multiple of 8), block length equals rate
    procedure Absorb_Block (
       State : in Out State_Array;
       Block : Byte_Array;
       Rate  : Positive
    ) with
-      Global => null,
-      Pre => Rate >= 8 and then Rate <= 200 and then Rate mod 8 = 0
-             and then Block'Length >= 8 and then Block'Length <= 200
-             and then Block'Length = Rate;
+      Global  => null,
+      Depends => (State => (State, Block, Rate)),
+      Pre     => Rate in 8 | 72 | 104 | 136 | 168 and then  -- Valid SHAKE/SHA3 rates
+                 Block'First = 0 and then
+                 Block'Last = Rate - 1,
+      Always_Terminates;
 
-   --  Internal: Squeeze Rate bytes from Keccak state into output
-   --  Extracts first Rate bytes of state (as lanes) into output buffer
+   --  Squeeze_Block: Extract Rate bytes from state
+   --
+   --  Internal operation for sponge squeezing phase.
+   --  Extracts first Rate bytes of state (as lanes) into output buffer.
+   --
+   --  Pre: Rate is valid, output length equals rate
    procedure Squeeze_Block (
       State  : State_Array;
       Output : out Byte_Array;
       Rate   : Positive
    ) with
-      Global => null,
-      Pre => Output'Length >= 8 and then Output'Length <= 200
-             and then Rate >= 8 and then Rate <= 200 and then Rate mod 8 = 0
-             and then Output'Length = Rate,
-      Post => Output'First = Output'First'Old and Output'Last = Output'Last'Old;
+      Global  => null,
+      Depends => (Output => (Output, State, Rate)),
+      Pre     => Rate in 8 | 72 | 104 | 136 | 168 and then  -- Valid SHAKE/SHA3 rates
+                 Output'First = 0 and then
+                 Output'Last = Rate - 1,
+      Always_Terminates;
 
 private
 
+   ---------------------------------------------------------------------------
+   --  Endian Conversion Helpers
+   ---------------------------------------------------------------------------
+
    --  Convert 8 bytes (little-endian) to Lane
+   --
+   --  Keccak uses little-endian lane encoding per FIPS 202.
+   --
+   --  Pre: Exactly 8 bytes provided with known bounds
    function Bytes_To_Lane (B : Byte_Array) return Lane with
       Global => null,
-      Pre => B'Length = 8;
+      Pre    => B'Length = 8 and then
+                B'First >= 0 and then
+                B'Last = B'First + 7,
+      Pure_Function;
 
    --  Convert Lane to 8 bytes (little-endian)
+   --
+   --  Keccak uses little-endian lane encoding per FIPS 202.
+   --
+   --  Pre: Output buffer is exactly 8 bytes with known bounds
    procedure Lane_To_Bytes (L : Lane; B : out Byte_Array) with
-      Global => null,
-      Pre => B'Length = 8,
-      Post => B'First = B'First'Old and B'Last = B'Last'Old;
+      Global  => null,
+      Depends => (B => (B, L)),
+      Pre     => B'Length = 8 and then
+                 B'First >= 0 and then
+                 B'Last = B'First + 7;
 
 end Anubis_SHA3;

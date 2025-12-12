@@ -32,6 +32,7 @@ is
       Output : out Payload_Base32
    ) with
       Global => null,
+      Depends => (Output => Input),
       Post => (for all I in Payload_Index => Output (I) in Base32_Char);
 
    --  Encode 3 bytes to 5 Base32 characters

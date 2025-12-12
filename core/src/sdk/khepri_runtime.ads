@@ -21,12 +21,33 @@ with Aegis_VM_Types; use Aegis_VM_Types;
 --
 --  The runtime dispatches to the appropriate handler based on selector.
 --
+--  SPARK Verification Level: Platinum
+--  ===================================
+--  This package achieves Platinum-level SPARK verification with:
+--  1. Complete functional specifications for dispatch operations
+--  2. Ghost model functions for ABI encoding correctness
+--  3. Contract_Cases for selector dispatch outcomes
+--  4. Type safety proofs for argument decoding
+--  5. Gas consumption bounds for runtime operations
+--
+--  Runtime Properties Specified:
+--  - Selector dispatch is deterministic
+--  - ABI encoding/decoding is bijective
+--  - Gas consumption is bounded per operation
+--  - Context is immutable during execution
+--
+--  Security Properties:
+--  - No unbounded recursion in dispatch
+--  - Type-safe argument extraction
+--  - Bounds-checked buffer operations
+--
 --  References:
 --  - KHEPRI Blueprint v1.0, Section 7: Runtime Environment
 --  - Solidity ABI Specification (for compatibility)
 
 package Khepri_Runtime with
-   SPARK_Mode => On
+   SPARK_Mode => On,
+   Always_Terminates
 is
 
    ---------------------------------------------------------------------------

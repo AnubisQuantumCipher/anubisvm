@@ -354,7 +354,7 @@ private
       Offset : Natural
    ) return Word32 with
       Global => null,
-      Pre    => Offset + 1 < Max_Binary_Size;
+      Pre    => Offset < Max_Binary_Size - 1;
 
    --  Read little-endian 32-bit value
    function Read_LE32 (
@@ -362,7 +362,7 @@ private
       Offset : Natural
    ) return Word32 with
       Global => null,
-      Pre    => Offset + 3 < Max_Binary_Size;
+      Pre    => Offset < Max_Binary_Size - 3;
 
    --  Read little-endian 64-bit value
    function Read_LE64 (
@@ -370,6 +370,6 @@ private
       Offset : Natural
    ) return Word64 with
       Global => null,
-      Pre    => Offset + 7 < Max_Binary_Size;
+      Pre    => Offset < Max_Binary_Size - 7;
 
 end Sphinx_Native;

@@ -9,15 +9,16 @@ with Aegis_VM_Types; use Aegis_VM_Types;
 --  node session. Production would persist to disk/MPT.
 
 package Node_Contract_Registry with
-   SPARK_Mode => On
+   SPARK_Mode => On,
+   Abstract_State => Hash_Buffer_State
 is
 
    ---------------------------------------------------------------------------
    --  Contract Storage Types
    ---------------------------------------------------------------------------
 
-   --  Maximum stored contracts
-   Max_Stored_Contracts : constant := 256;
+   --  Maximum stored contracts (devnet: 8 contracts × 256KB = 2MB)
+   Max_Stored_Contracts : constant := 8;
    subtype Stored_Contract_Index is Natural range 0 .. Max_Stored_Contracts - 1;
 
    --  Stored contract entry
@@ -31,30 +32,15 @@ is
       Deploy_Block : U256;
    end record;
 
-   --  Empty stored contract
-   Empty_Stored_Contract : constant Stored_Contract := (
-      Is_Valid     => False,
-      Contract_ID  => (others => 0),
-      Code_Hash    => (others => 0),
-      Manifest     => (
-         Name          => (others => ' '),
-         Name_Len      => 0,
-         Version_Major => 0,
-         Version_Minor => 0,
-         Version_Patch => 0,
-         Cert          => Cert_None
-      ),
-      Code         => (others => 0),
-      Code_Size    => 0,
-      Deploy_Block => (Limbs => (0, 0, 0, 0))
-   );
+   --  Note: Empty_Stored_Contract removed to avoid 256KB stack temps.
+   --  Use field-by-field initialization instead.
 
    --  Registry storage
    type Contract_Storage is array (Stored_Contract_Index) of Stored_Contract;
 
    --  Registry state
    type Registry_State is record
-      Contracts     : Contract_Storage;
+      Contracts      : Contract_Storage;
       Contract_Count : Natural;
       Is_Initialized : Boolean;
    end record;
@@ -66,33 +52,36 @@ is
    --  Initialize registry
    procedure Initialize (Registry : out Registry_State) with
       Global => null,
+      Relaxed_Initialization => Registry,
       Post   => Registry.Is_Initialized and Registry.Contract_Count = 0;
 
-   --  Register a new contract
+   --  Register a new contract (returns index, not full record to avoid stack copy)
    procedure Register_Contract (
       Registry  : in out Registry_State;
       Manifest  : in     Node_Contract_Manifest;
       Code      : in     Node_Code_Buffer;
       Code_Size : in     Natural;
       Block_Num : in     U256;
-      Result    : out    Stored_Contract;
+      Index     : out    Stored_Contract_Index;
       Success   : out    Boolean
    ) with
-      Global => null,
+      Global => (In_Out => Hash_Buffer_State),
       Pre    => Registry.Is_Initialized and
                 Code_Size > 0 and Code_Size <= Node_Max_Code_Size and
                 Registry.Contract_Count < Max_Stored_Contracts,
       Post   => (Success and then
                    (Registry.Contract_Count = Registry.Contract_Count'Old + 1) and then
-                   Result.Is_Valid)
+                   Registry.Contracts (Index).Is_Valid)
                 or else (not Success and then
                    (Registry.Contract_Count = Registry.Contract_Count'Old));
 
-   --  Look up contract by ID
-   function Get_Contract (
-      Registry    : Registry_State;
-      Contract_ID : Contract_Address
-   ) return Stored_Contract with
+   --  Find contract by ID (returns index + found flag, not full record)
+   procedure Find_Contract (
+      Registry    : in  Registry_State;
+      Contract_ID : in  Contract_Address;
+      Index       : out Stored_Contract_Index;
+      Found       : out Boolean
+   ) with
       Global => null,
       Pre    => Registry.Is_Initialized;
 

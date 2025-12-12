@@ -7,6 +7,8 @@ pragma SPARK_Mode (On);
 with Interfaces;   use Interfaces;
 with Anubis_SHA3;
 with Anubis_ChaCha20_Poly1305; use Anubis_ChaCha20_Poly1305;
+with Anubis_MLKEM;
+with Anubis_MLKEM_Types;
 
 package body Anubis_Shield with
    SPARK_Mode => On
@@ -70,6 +72,10 @@ is
          16#41#, 16#4E#, 16#55#, 16#42#, 16#49#, 16#53#, 16#2D#, 16#53#,
          16#48#, 16#49#, 16#45#, 16#4C#, 16#44#  -- "ANUBIS-SHIELD"
       );
+      EK        : Anubis_MLKEM_Types.Encapsulation_Key;
+      CT        : Anubis_MLKEM_Types.MLKEM_Ciphertext;
+      SS        : Anubis_MLKEM_Types.Shared_Secret;
+      Seed_M    : Anubis_MLKEM_Types.Seed;
    begin
       --  Initialize output
       Priv_Entry.Ciphertext := (others => 0);
@@ -83,13 +89,34 @@ is
       --  Generate nonce from randomness
       Priv_Entry.Nonce := Randomness (0 .. AEAD_Nonce_Size - 1);
 
-      --  ML-KEM encapsulation would go here
-      --  For now, derive shared secret from randomness (placeholder)
-      SHAKE256_KDF (
-         Input  => Randomness (32 .. 63),
-         Label  => KDF_Label,
-         Output => SS_Buffer
+      --  ML-KEM encapsulation: derive shared secret using receiver's public key
+      --  Map User_KEM_PK into ML-KEM Encapsulation_Key
+      for I in EK'Range loop
+         EK (I) := User_KEM_PK (User_KEM_PK'First + I);
+      end loop;
+
+      --  Derive encapsulation randomness from Randomness (first 32 bytes)
+      for I in Seed_M'Range loop
+         Seed_M (I) := Randomness (Randomness'First + I);
+      end loop;
+
+      --  Encapsulate shared secret and ciphertext
+      Anubis_MLKEM.Encaps (
+         EK       => EK,
+         Random_M => Seed_M,
+         SS       => SS,
+         CT       => CT
       );
+
+      --  Copy ciphertext into entry
+      for I in Priv_Entry.Encapsulated'Range loop
+         Priv_Entry.Encapsulated (I) := CT (I);
+      end loop;
+
+      --  Derive symmetric shared secret buffer from ML-KEM shared secret
+      for I in SS_Buffer'Range loop
+         SS_Buffer (I) := SS (I);
+      end loop;
 
       --  Derive AEAD key from shared secret
       declare
@@ -148,9 +175,6 @@ is
       --  Create commitment
       Create_Commitment (Plaintext, Randomness (0 .. 31), Commitment);
 
-      --  Store encapsulated key (placeholder - would be ML-KEM ciphertext)
-      Priv_Entry.Encapsulated (0 .. 31) := SS_Buffer;
-
       --  Zeroize sensitive intermediates
       SS_Buffer := (others => 0);
       AEAD_Key := (others => 0);
@@ -171,21 +195,36 @@ is
    ) is
       SS_Buffer     : Byte_Array (0 .. 31);
       AEAD_Key      : Byte_Array (0 .. 31);
-      KDF_Label     : constant Byte_Array := (
-         16#41#, 16#4E#, 16#55#, 16#42#, 16#49#, 16#53#, 16#2D#, 16#53#,
-         16#48#, 16#49#, 16#45#, 16#4C#, 16#44#  -- "ANUBIS-SHIELD"
-      );
       Key_Label     : constant Byte_Array := (
          16#41#, 16#45#, 16#41#, 16#44#, 16#2D#, 16#4B#, 16#45#, 16#59#
       );  -- "AEAD-KEY"
+      DK            : Anubis_MLKEM_Types.Decapsulation_Key;
+      CT            : Anubis_MLKEM_Types.MLKEM_Ciphertext;
+      SS            : Anubis_MLKEM_Types.Shared_Secret;
    begin
       Plaintext := (others => 0);
       PT_Length := 0;
       Success := False;
 
-      --  ML-KEM decapsulation would go here
-      --  For now, extract shared secret from encapsulated (placeholder)
-      SS_Buffer := Priv_Entry.Encapsulated (0 .. 31);
+      --  ML-KEM decapsulation: recover shared secret from ciphertext
+      for I in DK'Range loop
+         DK (I) := User_KEM_SK (User_KEM_SK'First + I);
+      end loop;
+
+      for I in CT'Range loop
+         CT (I) := Priv_Entry.Encapsulated (I);
+      end loop;
+
+      Anubis_MLKEM.Decaps (
+         DK => DK,
+         CT => CT,
+         SS => SS
+      );
+
+      --  Derive symmetric shared secret buffer from ML-KEM shared secret
+      for I in SS_Buffer'Range loop
+         SS_Buffer (I) := SS (I);
+      end loop;
 
       --  Derive AEAD key
       SHAKE256_KDF (

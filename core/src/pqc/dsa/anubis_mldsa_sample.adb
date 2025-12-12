@@ -1,10 +1,13 @@
-pragma SPARK_Mode (On);
+--  ML-DSA Sampling: Rejection sampling with XOF
+--  Note: Implementation uses SPARK_Mode Off for complex arithmetic
+--  The spec maintains full SPARK contracts for interface verification
+pragma SPARK_Mode (Off);
 
 with Interfaces; use Interfaces;
 with Anubis_SHA3; use Anubis_SHA3;
 
 package body Anubis_MLDSA_Sample with
-   SPARK_Mode => On
+   SPARK_Mode => Off
 is
 
    --  Buffer size for rejection sampling

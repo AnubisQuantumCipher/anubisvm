@@ -289,6 +289,20 @@ is
       Volatile_Function;
 
    ---------------------------------------------------------------------------
+   --  Time Management
+   ---------------------------------------------------------------------------
+
+   --  Set current timestamp (called by block production)
+   --  In a blockchain context, this is set from the block timestamp
+   procedure Set_Current_Time (Timestamp : Unsigned_64) with
+      Global => (In_Out => Registry_State);
+
+   --  Get current timestamp
+   function Get_Current_Time return Unsigned_64 with
+      Global => Registry_State,
+      Volatile_Function;
+
+   ---------------------------------------------------------------------------
    --  Administrative
    ---------------------------------------------------------------------------
 

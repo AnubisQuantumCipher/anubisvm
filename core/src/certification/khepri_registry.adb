@@ -4,7 +4,7 @@ pragma SPARK_Mode (On);
 package body Khepri_Registry with
    SPARK_Mode => On,
    Refined_State => (Registry_State => (
-      Entries, Entry_Count, Certifiers, Certifier_Count, Admin_Addr))
+      Entries, Entry_Count, Certifiers, Certifier_Count, Admin_Addr, Current_Time))
 is
 
    ---------------------------------------------------------------------------
@@ -23,6 +23,9 @@ is
    Certifiers      : Certifier_Array := (others => (others => 0));
    Certifier_Count : Natural := 0;
    Admin_Addr      : Contract_Address := (others => 0);
+
+   --  Monotonic timestamp (set by block production, used for registry entries)
+   Current_Time    : Unsigned_64 := 0;
 
    ---------------------------------------------------------------------------
    --  Internal Helpers
@@ -113,8 +116,8 @@ is
             Valid     => False
          )),
          Auditor_Count   => 0,
-         Registered_At   => 1,  --  TODO: Get actual timestamp
-         Updated_At      => 1,
+         Registered_At   => Current_Time,
+         Updated_At      => Current_Time,
          Revoked         => False,
          Revoked_Reason  => (others => 0),
          Call_Count      => U256_Zero,
@@ -175,7 +178,7 @@ is
       Entries (Entry_Index (Idx)).Level := Level;
       Entries (Entry_Index (Idx)).Proof_Hash := Proof_Hash;
       Entries (Entry_Index (Idx)).WCET_Bound := WCET_Bound;
-      Entries (Entry_Index (Idx)).Updated_At := 1;  --  TODO: timestamp
+      Entries (Entry_Index (Idx)).Updated_At := Current_Time;
 
       Success := True;
    end Set_Certification;
@@ -218,11 +221,11 @@ is
       Entries (Entry_Index (Idx)).Auditors (Aud_Idx) := (
          Auditor   => Auditor,
          Signature => Signature,
-         Timestamp => 1,  --  TODO: timestamp
+         Timestamp => Current_Time,
          Valid     => True
       );
       Entries (Entry_Index (Idx)).Auditor_Count := Aud_Idx + 1;
-      Entries (Entry_Index (Idx)).Updated_At := 1;
+      Entries (Entry_Index (Idx)).Updated_At := Current_Time;
 
       Success := True;
    end Add_Auditor;
@@ -264,7 +267,7 @@ is
       Entries (Entry_Index (Idx)).Revoked := True;
       Entries (Entry_Index (Idx)).Revoked_Reason := Reason;
       Entries (Entry_Index (Idx)).Level := Level_None;
-      Entries (Entry_Index (Idx)).Updated_At := 1;
+      Entries (Entry_Index (Idx)).Updated_At := Current_Time;
 
       Success := True;
    end Revoke;
@@ -481,6 +484,20 @@ is
    end Total_Gas_Saved;
 
    ---------------------------------------------------------------------------
+   --  Time Management
+   ---------------------------------------------------------------------------
+
+   procedure Set_Current_Time (Timestamp : Unsigned_64) is
+   begin
+      Current_Time := Timestamp;
+   end Set_Current_Time;
+
+   function Get_Current_Time return Unsigned_64 is
+   begin
+      return Current_Time;
+   end Get_Current_Time;
+
+   ---------------------------------------------------------------------------
    --  Administrative
    ---------------------------------------------------------------------------
 
@@ -491,6 +508,7 @@ is
       Certifiers := (others => (others => 0));
       Certifier_Count := 0;
       Admin_Addr := (others => 0);
+      Current_Time := 0;
    end Initialize;
 
    function Is_Certifier (Addr : Contract_Address) return Boolean is

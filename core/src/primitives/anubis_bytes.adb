@@ -147,4 +147,16 @@ is
       end loop;
    end AND_Arrays;
 
+   --  Encode_LE64: encode a 64-bit value as 8 little-endian bytes
+   procedure Encode_LE64 (Value : Unsigned_64; Output : out Byte_Array) is
+      V : Unsigned_64 := Value;
+   begin
+      --  Output'Length is guaranteed to be 8 by the precondition in the spec.
+      for I in 0 .. 7 loop
+         pragma Loop_Invariant (I in 0 .. 7);
+         Output (Output'First + I) := Byte (V and 16#FF#);
+         V := Shift_Right (V, 8);
+      end loop;
+   end Encode_LE64;
+
 end Anubis_Bytes;

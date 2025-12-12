@@ -9,15 +9,17 @@ with Aegis_VM_Types; use Aegis_VM_Types;
 --  Sufficient for the fixed vm_deployContract/vm_invoke schemas.
 
 package Node_JSON_Parser with
-   SPARK_Mode => On
+   SPARK_Mode => On,
+   Abstract_State => (Deploy_Buffer_State, Invoke_Buffer_State),
+   Initializes => (Deploy_Buffer_State, Invoke_Buffer_State)
 is
 
    ---------------------------------------------------------------------------
    --  Hex Conversion
    ---------------------------------------------------------------------------
 
-   --  Maximum hex string length (2MB code = 4MB hex)
-   Max_Hex_Length : constant := 4 * 1024 * 1024;
+   --  Maximum hex string length (64KB code = 128KB hex)
+   Max_Hex_Length : constant := 128 * 1024;
 
    --  Convert hex string to bytes
    procedure Hex_To_Bytes (
@@ -54,7 +56,8 @@ is
       Found     : out    Boolean
    ) with
       Global => null,
-      Pre    => Json'Length > 0 and Key'Length > 0;
+      Pre    => Json'Length > 0 and Key'Length > 0,
+      Relaxed_Initialization => Value;
 
    --  Extract integer value for a key from JSON
    procedure Extract_Integer (
@@ -80,7 +83,8 @@ is
       Gas_Limit   : out    Gas_Amount;
       Success     : out    Boolean
    ) with
-      Global => null;
+      Global => (In_Out => Deploy_Buffer_State),
+      Relaxed_Initialization => Code;
 
    ---------------------------------------------------------------------------
    --  Invoke Request Parsing
@@ -92,7 +96,7 @@ is
       Request     : out    Invoke_Request;
       Success     : out    Boolean
    ) with
-      Global => null;
+      Global => (In_Out => Invoke_Buffer_State);
 
    ---------------------------------------------------------------------------
    --  Response Formatting

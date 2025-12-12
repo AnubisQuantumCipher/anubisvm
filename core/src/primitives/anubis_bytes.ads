@@ -49,4 +49,9 @@ is
    procedure AND_Arrays (Result : in out Byte_Array; A, B : Byte_Array) with
       Pre => Result'Length = A'Length and A'Length = B'Length;
 
+   --  Encode a 64-bit value into little-endian byte order.
+   --  Output must be exactly 8 bytes long.
+   procedure Encode_LE64 (Value : Unsigned_64; Output : out Byte_Array) with
+      Pre => Output'Length = 8;
+
 end Anubis_Bytes;

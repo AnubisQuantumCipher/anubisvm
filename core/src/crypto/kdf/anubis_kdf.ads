@@ -330,7 +330,7 @@ is
    --  Post: All bytes of key are zero (proven by postcondition)
    procedure Zeroize_Key (Key : in Out Derived_Key) with
       Global  => null,
-      Depends => (Key => null),
+      Depends => (Key => Key),
       Post    => Key_Is_Zero (Key),
       Always_Terminates;
 
@@ -342,7 +342,7 @@ is
    --  Post: All bytes of master key are zero (proven by postcondition)
    procedure Zeroize_Master (Key : in Out Master_Key) with
       Global  => null,
-      Depends => (Key => null),
+      Depends => (Key => Key),
       Post    => Master_Is_Zero (Key),
       Always_Terminates;
 

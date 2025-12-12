@@ -24,18 +24,18 @@ RV NO_IMPLICIT_CONDITIONALS
 RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
 RV NO_IMPLEMENTATION_PRAGMAS
 
-U anubis_address_base32%b  anubis_address_base32.adb  0383624d NE OO PK
+U anubis_address_base32%b  anubis_address_base32.adb  2334b202 NE OO PK
 Z system.assertions%s	s-assert.adb		s-assert.ali
 
-U anubis_address_base32%s  anubis_address_base32.ads  412e45bb BN EE NE OO PK
+U anubis_address_base32%s  anubis_address_base32.ads  8790cf4c BN EE NE OO PK
 W anubis_address_types%s  anubis_address_types.ads  anubis_address_types.ali
 W interfaces%s		interfac.ads		interfac.ali
 
 D ada.ads		20240808082856 76789da1 ada%s
 D a-assert.ads		20240808082856 ba465f5c ada.assertions%s
 D a-unccon.ads		20240808082856 0e9b276f ada.unchecked_conversion%s
-D anubis_address_base32.ads  20251207191457 32d1de4f anubis_address_base32%s
-D anubis_address_base32.adb  20251207191549 3152bc02 anubis_address_base32%b
+D anubis_address_base32.ads  20251211195718 f46f54b8 anubis_address_base32%s
+D anubis_address_base32.adb  20251211202935 d75be6ba anubis_address_base32%b
 D anubis_address_types.ads  20251207191105 e2ee6235 anubis_address_types%s
 D interfac.ads		20240808082856 9111f9c1 interfaces%s
 D system.ads		20240808082856 70765b54 system%s
@@ -47,103 +47,149 @@ D s-stalib.ads		20240808082856 1c9580f6 system.standard_library%s
 D s-stoele.ads		20240808082856 ccded4e8 system.storage_elements%s
 G a e
 G c Z s b [encode_account_id anubis_address_base32 30 14 none]
-G c Z s b [encode_checksum anubis_address_base32 39 14 none]
-G c Z s b [decode_account_id anubis_address_base32 48 14 none]
-G c Z s b [decode_checksum anubis_address_base32 57 14 none]
-G c Z s b [chunk_payload anubis_address_base32 67 14 none]
-G c Z s b [unchunk_payload anubis_address_base32 78 14 none]
-G c Z s b [encode_5bits anubis_address_base32 91 13 none]
-G c Z s b [decode_char anubis_address_base32 98 13 none]
+G c Z s b [encode_checksum anubis_address_base32 40 14 none]
+G c Z s b [decode_account_id anubis_address_base32 49 14 none]
+G c Z s b [decode_checksum anubis_address_base32 58 14 none]
+G c Z s b [chunk_payload anubis_address_base32 68 14 none]
+G c Z s b [unchunk_payload anubis_address_base32 79 14 none]
+G c Z s b [encode_5bits anubis_address_base32 92 13 none]
+G c Z s b [decode_char anubis_address_base32 99 13 none]
+G c Z b b [get_enc_in_base anubis_address_base32 29 13 none]
+G c Z b b [get_enc_out_base anubis_address_base32 39 13 none]
+G c Z b b [get_dec_in_base anubis_address_base32 49 13 none]
+G c Z b b [get_dec_out_base anubis_address_base32 59 13 none]
+G c Z b b [get_chunk_in_base anubis_address_base32 72 13 none]
+G c Z b b [extract_5bits anubis_address_base32 83 13 none]
+G c Z b b [extract_5bits_32 anubis_address_base32 95 13 none]
 X 4 anubis_address_base32.ads
-24K9*Anubis_Address_Base32 88E4 102l5 102e26 5|3b14 314l5 314t26
-30U14*Encode_Account_ID 31>7 32<7 5|56b14
-31a7 Input{6|57A9} 5|57b7 74r45 75r45 76r45 77r45 78r33 94r42 95r30
-32a7 Output{6|71A9} 35r46 5|58b7 83m13 98m7 99m7 100m7 101m7
-35i24 I{6|70I12} 35r54
-39U14*Encode_Checksum 40>7 41<7 5|105b14
-40a7 Input{6|61A9} 5|106b7 112r42 113r42 114r30
-41a7 Output{6|80A9} 44r51 5|107b7 117m7 118m7 119m7 120m7 121m7
-44i24 I{6|79I12} 44r59
-48U14*Decode_Account_ID 49>7 50<7 51<7 5|125b14 196l8 196t25
-49a7 Input{6|71A9} 5|126b7 150r33 177r30 186r27
-50a7 Output{6|57A9} 5|127b7 159m10 160m10 161m10 162m10 163m10 194m7 195m7
-51b7 Success{boolean} 5|128b7 135m7 138r33 152m16 179m13 188m10
-57U14*Decode_Checksum 58>7 59<7 60<7 5|199b14 233l8 233t23
-58a7 Input{6|80A9} 5|200b7 213r30 222r27
-59a7 Output{6|61A9} 5|201b7 230m7 231m7 232m7
-60b7 Success{boolean} 5|202b7 207m7 215m13 224m10
-67U14*Chunk_Payload 68>7 69<7 5|236b14
-68a7 Input{6|71A9} 5|237b7 252r37 266r34
-69a7 Output{6|76A9} 72r15 72r36 72r58 73r15 73r37 73r59 5|238b7 252m13 258m10
-. 266m10
-78U14*Unchunk_Payload 79>7 80<7 81<7 5|272b14 312l8 312t23
-79a7 Input{6|76A9} 5|273b7 292r37 299r13 310r29
-80a7 Output{6|71A9} 5|274b7 292m13 310m10
-81b7 Success{boolean} 5|275b7 280m7 300m13
-88a4 Encode_Table{6|132A9} 5|10r14
-91V13 Encode_5bits{6|65E12} 91>27 94r15 5|8b13 83s37 98s22 99s22 100s22 101s22
-. 117s21 118s21 119s21 120s21 121s21
-91m27 Value{7|70M9} 93r15 5|8b27 10r37
-98V13 Decode_Char{7|70M9} 98>26 100r15 100r43 5|14b13 150s20 177s17 186s14
-. 213s17 222s14
-98e26 C{character} 5|14b26 16r12
+24K9*Anubis_Address_Base32 89E4 103l5 103e26 5|5b14 492l5 492t26
+30U14*Encode_Account_ID 31>7 32<7 5|159b14
+31a7 Input{6|57A9} 35r29 5|160b7 182r48 183r48 184r48 185r48 186r36 208r38
+. 208r70
+32a7 Output{6|71A9} 35r19 36r46 5|161b7 170m10 199m16 213m10 214m10 215m10
+. 220m10
+36i24 I{6|70I12} 36r54
+40U14*Encode_Checksum 41>7 42<7 5|225b14
+41a7 Input{6|61A9} 5|226b7 233r42 234r42 235r30
+42a7 Output{6|80A9} 45r51 5|227b7 239m7 240m7 241m7 242m7 247m7
+45i24 I{6|79I12} 45r59
+49U14*Decode_Account_ID 50>7 51<7 52<7 5|251b14 335l8 335t25
+50a7 Input{6|71A9} 5|252b7 281r36 311r30 323r27
+51a7 Output{6|57A9} 5|253b7 261m7 294m13 295m13 296m13 297m13 298m13 333m7
+. 334m7
+52b7 Success{boolean} 5|254b7 260m7 266r33 278r39 283m19 309r33 313m13 325m10
+58U14*Decode_Checksum 59>7 60<7 61<7 5|338b14 380l8 380t23
+59a7 Input{6|80A9} 5|339b7 355r30 367r27
+60a7 Output{6|61A9} 5|340b7 348m7 377m7 378m7 379m7
+61b7 Success{boolean} 5|341b7 347m7 353r33 357m13 369m10
+68U14*Chunk_Payload 69>7 70<7 5|383b14
+69a7 Input{6|71A9} 5|384b7 409r41 422r29
+70a7 Output{6|76A9} 73r15 73r36 73r58 74r15 74r37 74r59 5|385b7 390m10 409m16
+. 414m13 422m10
+79U14*Unchunk_Payload 80>7 81<7 82<7 5|428b14 490l8 490t23
+80a7 Input{6|76A9} 5|429b7 463r19 467r41 472r16 484r13 488r29
+81a7 Output{6|71A9} 5|430b7 440m10 467m16 488m10
+82b7 Success{boolean} 5|431b7 436m7 446r33 457r39 464m19 473m16 482r33 485m13
+89a4 Encode_Table{6|132A9} 5|113r14
+92V13 Encode_5bits{6|65E12} 92>27 95r15 5|107b13 199s41 213s25 214s25 215s25
+. 220s25 239s21 240s21 241s21 242s21 247s21
+92m27 Value{7|70M9} 94r15 5|107b27 111r22 112r27
+99V13 Decode_Char{7|70M9} 99>26 101r15 101r43 5|117b13 281s23 311s17 323s14
+. 355s17 367s14
+99e26 C{character} 5|117b26 119r12
 X 5 anubis_address_base32.adb
-60i7 In_Idx{natural} 66r13 67r33 68r44 69r33 71r44 74r52 75r52 76r52 77r52
-. 78r40 88m10 88r20
-61i7 Out_Idx{natural} 68r33 70r33 82r36 83r21 89m10 89r21
-62m7 Buffer{7|84M9} 74m10 84r41 94m7 98r61 99r61 100r61 101r60
-63i7 Bits{natural}
-81i14 I{integer} 82r46 83r31 84r54
-109m7 Buffer{7|81M9} 112m7 117r60 118r60 119r60 120r60 121r59
-130i7 In_Idx{natural} 138r13 139r33 140r44 141r33 143r44 149r36 150r40 165m10
-. 165r20
-131i7 Out_Idx{natural} 140r33 142r33 159r18 160r18 161r18 162r18 163r18 166m10
-. 166r21
-132m7 Buffer{7|84M9} 145m10 155m13 155r23 159r59 160r59 161r59 162r59 163r46
-. 172m7 182m10 182r20 191m7 191r17 194r47 195r34
-133m7 Val{7|70M9} 150m13 151r16 155r58 177m10 178r13 182r55 186m7 187r10
-. 191r53
-148i14 I{integer} 149r45 150r49 155r69
-175i11 I{integer} 176r33 177r42 182r66
-204m7 Buffer{7|81M9} 218m10 218r20 227m7 227r17 230r46 231r46 232r33
-205m7 Val{7|70M9} 213m10 214r13 218r55 222m7 223r10 227r53
-211i11 I{integer} 212r33 213r37 218r66
-240i7 In_Pos{natural} 246r33 250r36 252r44 255m10 255r20 264r33 266r41
-241i7 Out_Pos{natural} 247r33 251r36 252r21 256m10 256r21 258r18 259m10 259r21
-. 265r33 266r18
-245i11 Chunk{integer} 246r42 247r43
-249i14 I{integer} 250r45 251r46 252r31 252r53
-263i11 I{integer} 266r28 266r50
-277i7 In_Pos{natural} 284r33 286r33 290r36 292r44 295m10 295r20 299r20 303m10
-. 303r20
-278i7 Out_Pos{natural} 285r33 287r33 291r36 292r21 296m10 296r21
-283i11 Chunk{integer} 284r42 285r43
-289i14 I{integer} 290r45 291r46 292r31 292r53
-308i11 I{integer} 309r33 310r23 310r41
+10M12 Val_5bit{7|70M9} 83r54 91r14 95r57 103r14 220r39 247r35
+11I12 Table_Index{natural} 108r13 112r14
+14I12 Round_Index{natural} 29r34 39r35 49r34 59r35 72r36 174r20 264r20 394r20
+. 444r20
+17I12 In_Base_Index{natural} 29r54 178r33
+20I12 Out_Base_Index{natural} 39r55 179r33 398r33 450r33
+23I12 Dec_In_Base_Index{natural} 49r54 269r33
+26I12 Dec_Out_Base_Index{natural} 59r55 270r33
+29V13 Get_Enc_In_Base{17I12} 29>30 178s50
+29i30 R{14I12} 30r13
+39V13 Get_Enc_Out_Base{20I12} 39>31 179s51 398s51 450s51
+39i31 R{14I12} 40r13
+49V13 Get_Dec_In_Base{23I12} 49>30 269s54
+49i30 R{14I12} 50r13
+59V13 Get_Dec_Out_Base{26I12} 59>31 270s55
+59i31 R{14I12} 60r13
+69I12 Chunk_In_Base_Index{natural} 72r56 399r33 449r33
+72V13 Get_Chunk_In_Base{69I12} 72>32 399s56 449s56
+72i32 G{14I12} 73r13
+83V13 Extract_5bits{10M12} 83b13 83>28 86r17 199s55 213s39 214s39 215s39
+83m28 Val{7|84M9} 88r40
+88m7 Masked{7|84M9} 90r22 91r24
+95V13 Extract_5bits_32{10M12} 95b13 95>31 98r17 239s35 240s35 241s35 242s35
+95m31 Val{7|81M9} 100r40
+100m7 Masked{7|81M9} 102r22 103r24
+108i7 Idx{11I12} 112m7 113r28
+163m7 Buffer{7|84M9} 182m13 199r83
+164i7 Shift_Amt{natural} 194m16 195r31 199r91
+166e7 Default_Char{6|65E12} 170r24
+169i11 I{6|70I12} 170r18
+174i11 Round{14I12} 175r33 178r67 179r69
+178i13 In_Base{17I12} 182r55 183r55 184r55 185r55 186r43
+179i13 Out_Base{20I12} 191r39 196r31 199r24
+189i17 I{integer} 190r39 194r34 196r42 199r35
+207m10 Last_Buffer{7|84M9} 213r67 214r67 215r67 218r34
+209m10 Last_Bit{7|84M9} 218m10 219r25 220r49
+229m7 Buffer{7|81M9} 233m7 239r66 240r66 241r66 242r66 245r34
+230m7 Last_Nibble{7|81M9} 245m7 246r22 247r45
+256m7 Buffer{7|84M9} 272m13 289m16 289r26 294r63 295r63 296r63 297r63 298r50
+. 304m7 319m10 319r20 330m7 330r17 333r47 334r34
+257m7 Val{7|70M9} 281m16 282r19 288r31 289r61 311m10 312r13 318r25 319r55
+. 323m7 324r10 329r22 330r53
+258i7 Shift_Amt{natural} 286m16 287r31 289r67 316m10 317r25 319r61
+264i11 Round{14I12} 265r33 269r71 270r73
+269i13 In_Base{23I12} 277r39 280r31 281r43
+270i13 Out_Base{26I12} 293r28 294r21 295r21 296r21 297r21 298r21
+275i17 I{integer} 276r39 280r41 281r53 286r34
+307i11 I{integer} 308r33 311r42 316r28
+343m7 Buffer{7|81M9} 363m10 363r20 374m7 374r17 377r46 378r46 379r33
+344m7 Val{7|70M9} 355m10 356r13 362r25 363r55 367m7 368r10 373r22 374r53
+345i7 Shift_Amt{natural} 360m10 361r25 363r61
+351i11 I{integer} 352r33 355r37 360r28
+389i11 I{6|75I12} 390r18
+394i11 Group{14I12} 395r33 398r69 399r75
+398i13 In_Base{20I12} 404r39 407r31 409r48
+399i13 Out_Base{69I12} 405r39 408r31 409r24 413r28 414r21
+402i17 I{integer} 403r39 407r41 408r42 409r35 409r58
+420i11 I{integer} 421r33 422r23 422r41
+434e7 Default_Char{6|65E12} 440r24
+439i11 I{6|70I12} 440r18
+444i11 Group{14I12} 445r33 449r75 450r69
+449i13 In_Base{69I12} 455r39 459r31 463r26 467r48 471r28 472r23
+450i13 Out_Base{20I12} 456r39 460r31 467r24
+453i17 I{integer} 454r39 459r41 460r42 463r36 467r35 467r58
+480i11 I{integer} 481r33 484r25 488r23 488r41
 X 6 anubis_address_types.ads
 28K9*Anubis_Address_Types 4|3w6 3r32 6|136e25
-57A9*Account_ID(7|70M9)<integer> 4|31r20 50r21 5|57r20 127r21
-61A9*Checksum_Bytes(7|70M9)<integer> 4|40r20 59r21 5|106r20 201r21
-65E12*Base32_Char{character} 4|35r60 44r65 91r54 94r38 5|8r54
-70I12*Payload_Index{natural} 4|35r29
-71A9*Payload_Base32(65E12)<integer> 4|32r20 49r21 68r20 80r21 5|58r20 126r21
-. 237r20 274r21
-76A9*Chunked_Payload(character)<integer> 4|69r20 79r21 5|238r20 273r21
-79I12*Checksum_B32_Index{natural} 4|44r29
-80A9*Checksum_Base32(65E12)<integer> 4|41r20 58r21 5|107r20 200r21
-132A9*Base32_Alphabet_Array(character)<integer> 4|88r28
-133a4*Base32_Alphabet{132A9} 4|88r53
+57A9*Account_ID(7|70M9)<integer> 4|31r20 51r21 5|160r20 253r21
+61A9*Checksum_Bytes(7|70M9)<integer> 4|41r20 60r21 5|226r20 340r21
+65E12*Base32_Char{character} 4|36r60 45r65 92r54 95r38 5|107r54 166r31 434r31
+. 463r46 484r35
+70I12*Payload_Index{natural} 4|36r29 5|169r16 439r16
+71A9*Payload_Base32(65E12)<integer> 4|32r20 50r21 69r20 81r21 5|161r20 252r21
+. 384r20 430r21
+75I12*Chunked_Payload_Index{natural} 5|389r16
+76A9*Chunked_Payload(character)<integer> 4|70r20 80r21 5|385r20 429r21
+79I12*Checksum_B32_Index{natural} 4|45r29
+80A9*Checksum_Base32(65E12)<integer> 4|42r20 59r21 5|227r20 339r21
+132A9*Base32_Alphabet_Array(character)<integer> 4|89r28
+133a4*Base32_Alphabet{132A9} 4|89r53
 X 7 interfac.ads
 38K9*Interfaces 4|4w6 4r22 7|233e15
-70M9*Unsigned_8 4|91r35 98r48 5|8r35 14r48 84r16 98r36 99r36 100r36 101r36
-. 117r35 118r35 119r35 120r35 121r35 133r17 159r34 160r34 161r34 162r34 163r34
-. 194r22 195r22 205r16 230r21 231r21 232r21
-81M9*Unsigned_32 5|109r16 112r29 113r29 114r17 204r16 218r42 227r40
-84M9*Unsigned_64 5|62r17 74r32 75r32 76r32 77r32 78r20 94r29 95r17 132r17
-. 155r45 182r42 191r40
-141V13*Shift_Left{81M9} 5|112s17 113s17 121s47 218s30
-146V13*Shift_Right{81M9} 5|117s47 118s47 119s47 120s47 227s27 230s33 231s33
-166V13*Shift_Left{84M9} 5|74s20 75s20 76s20 77s20 94s17 101s48 155s33 182s30
-171V13*Shift_Right{84M9} 5|84s28 98s48 99s48 100s48 159s46 160s46 161s46
-. 162s46 191s27 194s34
+70M9*Unsigned_8 4|92r35 99r48 5|10r24 107r35 117r48 257r19 294r38 295r38
+. 296r38 297r38 298r38 333r22 334r22 344r19 377r21 378r21 379r21
+81M9*Unsigned_32 5|95r37 100r25 229r16 230r21 233r29 234r29 235r17 343r19
+. 363r42 374r40
+84M9*Unsigned_64 5|83r34 88r25 163r19 182r35 183r35 184r35 185r35 186r23
+. 207r33 208r25 208r57 209r21 256r19 289r48 319r42 330r40
+141V13*Shift_Left{81M9} 5|233s17 234s17 245s22 363s30
+146V13*Shift_Right{81M9} 5|239s53 240s53 241s53 242s53 374s27 377s33 378s33
+166V13*Shift_Left{84M9} 5|182s23 183s23 184s23 185s23 208s13 218s22 289s36
+. 319s30
+171V13*Shift_Right{84M9} 5|199s70 213s54 214s54 215s54 294s50 295s50 296s50
+. 297s50 330s27 333s34
 

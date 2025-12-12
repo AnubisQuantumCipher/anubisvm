@@ -87,6 +87,9 @@ package Khepri_CLI is
       --  Key management
       Cmd_Keys,
 
+      --  Address operations
+      Cmd_Address,
+
       --  Network
       Cmd_Node,
       Cmd_Block,
@@ -246,6 +249,9 @@ package Khepri_CLI is
 
    procedure Handle_Keys (Subcommand : String; Args : String := "");
    --  Key management operations
+
+   procedure Handle_Address (Subcommand : String; Args : String := "");
+   --  Address operations: generate, validate, info, from-key
 
    ---------------------------------------------------------------------------
    --  Output Formatting

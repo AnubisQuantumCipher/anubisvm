@@ -19,12 +19,22 @@ A -fPIC
 P SS ZX
 
 RN
+RV NO_ALLOCATORS
+RV NO_CALENDAR
+RV NO_DELAY
 RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTION_PROPAGATION
+RV NO_EXCEPTIONS
+RV NO_FIXED_POINT
 RV NO_IO
 RV NO_IMPLICIT_CONDITIONALS
 RV NO_LOCAL_ALLOCATORS
+RV NO_LONG_LONG_INTEGERS
+RV NO_NESTED_FINALIZATION
 RV NO_SECONDARY_STACK
 RV NO_STANDARD_STORAGE_POOLS
+RV NO_STREAMS
 RV NO_DEFAULT_INITIALIZATION
 RV NO_DYNAMIC_SIZED_OBJECTS
 RV NO_IMPLEMENTATION_PRAGMAS
@@ -32,27 +42,55 @@ RV NO_IMPLICIT_LOOPS
 RV NO_ELABORATION_CODE
 RV NO_OBSOLESCENT_FEATURES
 
-U khepri_cli%b		khepri_cli.adb		b8360a7d NE OO PK
+U khepri_cli%b		khepri_cli.adb		a99dcf3e NE OO PK
 W ada%s			ada.ads			ada.ali
+W ada.calendar%s	a-calend.adb		a-calend.ali
 W ada.characters%s	a-charac.ads		a-charac.ali
 W ada.characters.handling%s  a-chahan.adb	a-chahan.ali
 W ada.command_line%s	a-comlin.adb		a-comlin.ali
 W ada.directories%s	a-direct.adb		a-direct.ali
+W ada.environment_variables%s  a-envvar.adb	a-envvar.ali
+Z ada.exceptions%s	a-except.adb		a-except.ali
+W ada.streams%s		a-stream.adb		a-stream.ali
+W ada.streams.stream_io%s  a-ststio.adb		a-ststio.ali
 W ada.strings%s		a-string.ads		a-string.ali
 W ada.strings.fixed%s	a-strfix.adb		a-strfix.ali
 W ada.strings.maps%s	a-strmap.adb		a-strmap.ali
 Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+W ada.strings.unbounded%s  a-strunb.adb		a-strunb.ali
 W ada.text_io%s		a-textio.adb		a-textio.ali
+W aegis_u256%s		aegis_u256.adb		aegis_u256.ali
+W aegis_vm_types%s	aegis_vm_types.ads	aegis_vm_types.ali
+W anubis_address%s	anubis_address.adb	anubis_address.ali
+W anubis_address_derive%s  anubis_address_derive.adb  anubis_address_derive.ali
+W anubis_address_types%s  anubis_address_types.ads  anubis_address_types.ali
+W anubis_mldsa%s	anubis_mldsa.adb	anubis_mldsa.ali
+W anubis_mldsa_types%s	anubis_mldsa_types.ads	anubis_mldsa_types.ali
+W anubis_sha3%s		anubis_sha3.adb		anubis_sha3.ali
+W anubis_types%s	anubis_types.ads	anubis_types.ali
+W gnat%s		gnat.ads		gnat.ali
+W gnat.os_lib%s		g-os_lib.ads		g-os_lib.ali
+W interfaces%s		interfac.ads		interfac.ali
+W local_executor%s	local_executor.adb	local_executor.ali
+Z system.arith_64%s	s-arit64.adb		s-arit64.ali
 Z system.assertions%s	s-assert.adb		s-assert.ali
 Z system.concat_2%s	s-conca2.adb		s-conca2.ali
 Z system.concat_3%s	s-conca3.adb		s-conca3.ali
 Z system.concat_4%s	s-conca4.adb		s-conca4.ali
 Z system.concat_5%s	s-conca5.adb		s-conca5.ali
 Z system.concat_6%s	s-conca6.adb		s-conca6.ali
+Z system.concat_7%s	s-conca7.adb		s-conca7.ali
+Z system.concat_8%s	s-conca8.adb		s-conca8.ali
+Z system.concat_9%s	s-conca9.adb		s-conca9.ali
 Z system.img_int%s	s-imgint.ads		s-imgint.ali
+Z system.img_lli%s	s-imglli.ads		s-imglli.ali
 Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+Z system.soft_links%s	s-soflin.adb		s-soflin.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+Z system.stream_attributes%s  s-stratt.adb	s-stratt.ali
+Z system.val_lli%s	s-vallli.ads		s-vallli.ali
 
-U khepri_cli%s		khepri_cli.ads		af192615 EE OO PK
+U khepri_cli%s		khepri_cli.ads		a5150c4b EE OO PK
 W ada%s			ada.ads			ada.ali
 W ada.strings%s		a-string.ads		a-string.ali
 W ada.strings.bounded%s	a-strbou.adb		a-strbou.ali
@@ -68,10 +106,15 @@ D a-chahan.ads		20240808082856 bf752ff6 ada.characters.handling%s
 D a-chlat1.ads		20240808082856 e0d72e76 ada.characters.latin_1%s
 D a-comlin.ads		20240808082856 4aa66568 ada.command_line%s
 D a-direct.ads		20240808082856 467e87a1 ada.directories%s
+D a-envvar.ads		20240808082856 00080416 ada.environment_variables%s
 D a-except.ads		20240808082856 e7970cd9 ada.exceptions%s
 D a-finali.ads		20240808082856 bf4f806b ada.finalization%s
 D a-ioexce.ads		20240808082856 40018c65 ada.io_exceptions%s
+D a-numeri.ads		20240808082856 84bea7a3 ada.numerics%s
+D a-nubinu.ads		20240808082856 93f1f3d1 ada.numerics.big_numbers%s
+D a-nbnbig.ads		20240808082856 31ff4aa1 ada.numerics.big_numbers.big_integers_ghost%s
 D a-stream.ads		20240808082856 119b8fb3 ada.streams%s
+D a-ststio.ads		20240808082856 d6d358e8 ada.streams.stream_io%s
 D a-string.ads		20240808082856 90ac6797 ada.strings%s
 D a-strbou.ads		20240808082856 7064424e ada.strings.bounded%s
 D a-strbou.adb		20240808082856 4a759692 ada.strings.bounded%b
@@ -85,11 +128,29 @@ D a-stuten.ads		20240808082856 c6ced0ae ada.strings.utf_encoding%s
 D a-tags.ads		20240808082856 9eaa38c6 ada.tags%s
 D a-textio.ads		20240808082856 34ef47de ada.text_io%s
 D a-unccon.ads		20240808082856 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20240808082856 c3a8ac65 ada.unchecked_deallocation%s
+D aegis_u256.ads	20251207191105 ff2dfe4b aegis_u256%s
+D aegis_vm_types.ads	20251209080247 503da7fd aegis_vm_types%s
+D anubis_address.ads	20251212130555 fcddf0d4 anubis_address%s
+D anubis_address_derive.ads  20251207191105 10a2d609 anubis_address_derive%s
+D anubis_address_types.ads  20251207191105 e2ee6235 anubis_address_types%s
+D anubis_keccak.ads	20251211132252 b3b03dd1 anubis_keccak%s
+D anubis_mldsa.ads	20251211200416 3162e397 anubis_mldsa%s
+D anubis_mldsa_config.ads  20251207191106 44e9e9a1 anubis_mldsa_config%s
+D anubis_mldsa_field.ads  20251207191106 b52aaacb anubis_mldsa_field%s
+D anubis_mldsa_types.ads  20251207191106 b08dfc72 anubis_mldsa_types%s
+D anubis_node_types.ads	20251211160032 cac31a6d anubis_node_types%s
+D anubis_sha3.ads	20251211201618 5816e130 anubis_sha3%s
+D anubis_types.ads	20251207191105 4fb35097 anubis_types%s
+D gnat.ads		20240808082856 b5988c27 gnat%s
+D g-os_lib.ads		20240808082856 0db74523 gnat.os_lib%s
 D interfac.ads		20240808082856 9111f9c1 interfaces%s
 D i-cstrea.ads		20240808082856 ffd01b9d interfaces.c_streams%s
-D khepri_cli.ads	20251206021045 df7d645b khepri_cli%s
-D khepri_cli.adb	20251206021347 ef960574 khepri_cli%b
+D khepri_cli.ads	20251212125421 d5714e05 khepri_cli%s
+D khepri_cli.adb	20251212153440 5e7f4c3d khepri_cli%b
+D local_executor.ads	20251212124726 5ab4a2b6 local_executor%s
 D system.ads		20240808082856 70765b54 system%s
+D s-arit64.ads		20240808082856 90488c35 system.arith_64%s
 D s-assert.ads		20240808082856 9c4520c7 system.assertions%s
 D s-atocou.ads		20240808082856 dc18efc3 system.atomic_counters%s
 D s-conca2.ads		20240808082856 b5fb73f7 system.concat_2%s
@@ -97,12 +158,19 @@ D s-conca3.ads		20240808082856 8a7a19a2 system.concat_3%s
 D s-conca4.ads		20240808082856 33f85f3e system.concat_4%s
 D s-conca5.ads		20240808082856 4099d1db system.concat_5%s
 D s-conca6.ads		20240808082856 8252f108 system.concat_6%s
+D s-conca7.ads		20240808082856 09fd419f system.concat_7%s
+D s-conca8.ads		20240808082856 8d8f50c1 system.concat_8%s
+D s-conca9.ads		20240808082856 54efc86b system.concat_9%s
 D s-crtl.ads		20240808082856 beb39b9e system.crtl%s
 D s-exctab.ads		20240808082856 91bef6ef system.exception_table%s
 D s-ficobl.ads		20240808082856 dc5161d4 system.file_control_block%s
+D s-finmas.ads		20240808082856 28987ac5 system.finalization_masters%s
 D s-finroo.ads		20240808082856 4ff27390 system.finalization_root%s
 D s-imagei.ads		20240808082856 5e131ce0 system.image_i%s
 D s-imgint.ads		20240808082856 67e4edfb system.img_int%s
+D s-imglli.ads		20240808082856 d88f4f3b system.img_lli%s
+D s-memory.ads		20240808082856 18949c1a system.memory%s
+D s-os_lib.ads		20240808082856 a2467c22 system.os_lib%s
 D s-parame.ads		20240808082856 3597fc11 system.parameters%s
 D s-putima.ads		20240808082856 17291fe4 system.put_images%s
 D s-retsta.ads		20240808082856 0f6b06cb system.return_stack%s
@@ -110,365 +178,590 @@ D s-secsta.ads		20240808082856 578279f5 system.secondary_stack%s
 D s-soflin.ads		20240808082856 df77073e system.soft_links%s
 D s-stache.ads		20240808082856 0b81c1fe system.stack_checking%s
 D s-stalib.ads		20240808082856 1c9580f6 system.standard_library%s
+D s-stalib.adb		20240808082856 eb464a47 system.standard_library%b
 D s-stoele.ads		20240808082856 ccded4e8 system.storage_elements%s
+D s-stopoo.ads		20240808082856 e9fa2dd8 system.storage_pools%s
 D s-stratt.ads		20240808082856 a1861007 system.stream_attributes%s
+D s-string.ads		20240808082856 582aac7d system.strings%s
 D s-traent.ads		20240808082856 c81cbf8c system.traceback_entries%s
 D s-unstyp.ads		20240808082856 fa2a7f59 system.unsigned_types%s
+D s-vallli.ads		20240808082856 353103fd system.val_lli%s
+D s-valllu.ads		20240808082856 4134fa35 system.val_llu%s
 D s-valspe.ads		20240808082856 b0fcd073 system.val_spec%s
+D s-valuei.ads		20240808082856 d9377ca5 system.value_i%s
 D s-vaispe.ads		20240808082856 8280550e system.value_i_spec%s
+D s-valueu.ads		20240808082856 a38d32a6 system.value_u%s
 D s-vauspe.ads		20240808082856 89269ba5 system.value_u_spec%s
 D s-vs_int.ads		20240808082856 06b6b724 system.vs_int%s
+D s-vs_lli.ads		20240808082856 b945cf7d system.vs_lli%s
+D s-vs_llu.ads		20240808082856 8f3536c5 system.vs_llu%s
 D s-vs_uns.ads		20240808082856 e7f47a27 system.vs_uns%s
 D s-wchcon.ads		20240808082856 d9032363 system.wch_con%s
 G a e
-G c Z s s [length khepri_cli__path_strings 88 16 124_4]
-G c Z s s [to_bounded_string khepri_cli__path_strings 97 16 124_4]
-G c Z s s [to_string khepri_cli__path_strings 129 16 124_4]
-G c Z s s [set_bounded_string khepri_cli__path_strings 135 17 124_4]
-G c Z s s [append khepri_cli__path_strings 165 16 124_4]
-G c Z s s [append khepri_cli__path_strings 210 16 124_4]
-G c Z s s [append khepri_cli__path_strings 263 16 124_4]
-G c Z s s [append khepri_cli__path_strings 314 16 124_4]
-G c Z s s [append khepri_cli__path_strings 341 16 124_4]
-G c Z s s [append khepri_cli__path_strings 373 17 124_4]
-G c Z s s [append khepri_cli__path_strings 419 17 124_4]
-G c Z s s [append khepri_cli__path_strings 476 17 124_4]
-G c Z s s [Oconcat khepri_cli__path_strings 507 16 124_4]
-G c Z s s [Oconcat khepri_cli__path_strings 519 16 124_4]
-G c Z s s [Oconcat khepri_cli__path_strings 531 16 124_4]
-G c Z s s [Oconcat khepri_cli__path_strings 543 16 124_4]
-G c Z s s [Oconcat khepri_cli__path_strings 552 16 124_4]
-G c Z s s [element khepri_cli__path_strings 562 16 124_4]
-G c Z s s [replace_element khepri_cli__path_strings 571 17 124_4]
-G c Z s s [slice khepri_cli__path_strings 586 16 124_4]
-G c Z s s [bounded_slice khepri_cli__path_strings 598 16 124_4]
-G c Z s s [bounded_slice khepri_cli__path_strings 611 17 124_4]
-G c Z s s [Oeq khepri_cli__path_strings 627 16 124_4]
-G c Z s s [Oeq khepri_cli__path_strings 634 16 124_4]
-G c Z s s [Oeq khepri_cli__path_strings 641 16 124_4]
-G c Z s s [Olt khepri_cli__path_strings 648 16 124_4]
-G c Z s s [Olt khepri_cli__path_strings 655 16 124_4]
-G c Z s s [Olt khepri_cli__path_strings 662 16 124_4]
-G c Z s s [Ole khepri_cli__path_strings 669 16 124_4]
-G c Z s s [Ole khepri_cli__path_strings 676 16 124_4]
-G c Z s s [Ole khepri_cli__path_strings 683 16 124_4]
-G c Z s s [Ogt khepri_cli__path_strings 690 16 124_4]
-G c Z s s [Ogt khepri_cli__path_strings 697 16 124_4]
-G c Z s s [Ogt khepri_cli__path_strings 704 16 124_4]
-G c Z s s [Oge khepri_cli__path_strings 711 16 124_4]
-G c Z s s [Oge khepri_cli__path_strings 718 16 124_4]
-G c Z s s [Oge khepri_cli__path_strings 725 16 124_4]
-G c Z s s [index khepri_cli__path_strings 741 16 124_4]
-G c Z s s [index khepri_cli__path_strings 794 16 124_4]
-G c Z s s [index khepri_cli__path_strings 847 16 124_4]
-G c Z s s [index khepri_cli__path_strings 891 16 124_4]
-G c Z s s [index khepri_cli__path_strings 954 16 124_4]
-G c Z s s [index khepri_cli__path_strings 1018 16 124_4]
-G c Z s s [index_non_blank khepri_cli__path_strings 1076 16 124_4]
-G c Z s s [index_non_blank khepri_cli__path_strings 1114 16 124_4]
-G c Z s s [count khepri_cli__path_strings 1168 16 124_4]
-G c Z s s [count khepri_cli__path_strings 1176 16 124_4]
-G c Z s s [count khepri_cli__path_strings 1184 16 124_4]
-G c Z s s [find_token khepri_cli__path_strings 1190 17 124_4]
-G c Z s s [find_token khepri_cli__path_strings 1247 17 124_4]
-G c Z s s [translate khepri_cli__path_strings 1314 16 124_4]
-G c Z s s [translate khepri_cli__path_strings 1325 17 124_4]
-G c Z s s [translate khepri_cli__path_strings 1336 16 124_4]
-G c Z s s [translate khepri_cli__path_strings 1350 17 124_4]
-G c Z s s [replace_slice khepri_cli__path_strings 1381 16 124_4]
-G c Z s s [replace_slice khepri_cli__path_strings 1513 17 124_4]
-G c Z s s [insert khepri_cli__path_strings 1637 16 124_4]
-G c Z s s [insert khepri_cli__path_strings 1751 17 124_4]
-G c Z s s [overwrite khepri_cli__path_strings 1864 16 124_4]
-G c Z s s [overwrite khepri_cli__path_strings 1950 17 124_4]
-G c Z s s [delete khepri_cli__path_strings 2035 16 124_4]
-G c Z s s [delete khepri_cli__path_strings 2057 17 124_4]
-G c Z s s [trim khepri_cli__path_strings 2082 16 124_4]
-G c Z s s [trim khepri_cli__path_strings 2109 17 124_4]
-G c Z s s [trim khepri_cli__path_strings 2136 16 124_4]
-G c Z s s [trim khepri_cli__path_strings 2164 17 124_4]
-G c Z s s [head khepri_cli__path_strings 2192 16 124_4]
-G c Z s s [head khepri_cli__path_strings 2247 17 124_4]
-G c Z s s [tail khepri_cli__path_strings 2305 16 124_4]
-G c Z s s [tail khepri_cli__path_strings 2366 17 124_4]
-G c Z s s [Omultiply khepri_cli__path_strings 2433 16 124_4]
-G c Z s s [Omultiply khepri_cli__path_strings 2440 16 124_4]
-G c Z s s [Omultiply khepri_cli__path_strings 2453 16 124_4]
-G c Z s s [replicate khepri_cli__path_strings 2466 16 124_4]
-G c Z s s [replicate khepri_cli__path_strings 2476 16 124_4]
-G c Z s s [replicate khepri_cli__path_strings 2510 16 124_4]
-G c Z s s [path_stringsInitial_Condition khepri_cli__path_strings 61 6 124_4]
-G c Z s s [from_string khepri_cli__path_strings 2567 16 124_4]
-G c Z s s [length khepri_cli__name_strings 88 16 127_4]
-G c Z s s [to_bounded_string khepri_cli__name_strings 97 16 127_4]
-G c Z s s [to_string khepri_cli__name_strings 129 16 127_4]
-G c Z s s [set_bounded_string khepri_cli__name_strings 135 17 127_4]
-G c Z s s [append khepri_cli__name_strings 165 16 127_4]
-G c Z s s [append khepri_cli__name_strings 210 16 127_4]
-G c Z s s [append khepri_cli__name_strings 263 16 127_4]
-G c Z s s [append khepri_cli__name_strings 314 16 127_4]
-G c Z s s [append khepri_cli__name_strings 341 16 127_4]
-G c Z s s [append khepri_cli__name_strings 373 17 127_4]
-G c Z s s [append khepri_cli__name_strings 419 17 127_4]
-G c Z s s [append khepri_cli__name_strings 476 17 127_4]
-G c Z s s [Oconcat khepri_cli__name_strings 507 16 127_4]
-G c Z s s [Oconcat khepri_cli__name_strings 519 16 127_4]
-G c Z s s [Oconcat khepri_cli__name_strings 531 16 127_4]
-G c Z s s [Oconcat khepri_cli__name_strings 543 16 127_4]
-G c Z s s [Oconcat khepri_cli__name_strings 552 16 127_4]
-G c Z s s [element khepri_cli__name_strings 562 16 127_4]
-G c Z s s [replace_element khepri_cli__name_strings 571 17 127_4]
-G c Z s s [slice khepri_cli__name_strings 586 16 127_4]
-G c Z s s [bounded_slice khepri_cli__name_strings 598 16 127_4]
-G c Z s s [bounded_slice khepri_cli__name_strings 611 17 127_4]
-G c Z s s [Oeq khepri_cli__name_strings 627 16 127_4]
-G c Z s s [Oeq khepri_cli__name_strings 634 16 127_4]
-G c Z s s [Oeq khepri_cli__name_strings 641 16 127_4]
-G c Z s s [Olt khepri_cli__name_strings 648 16 127_4]
-G c Z s s [Olt khepri_cli__name_strings 655 16 127_4]
-G c Z s s [Olt khepri_cli__name_strings 662 16 127_4]
-G c Z s s [Ole khepri_cli__name_strings 669 16 127_4]
-G c Z s s [Ole khepri_cli__name_strings 676 16 127_4]
-G c Z s s [Ole khepri_cli__name_strings 683 16 127_4]
-G c Z s s [Ogt khepri_cli__name_strings 690 16 127_4]
-G c Z s s [Ogt khepri_cli__name_strings 697 16 127_4]
-G c Z s s [Ogt khepri_cli__name_strings 704 16 127_4]
-G c Z s s [Oge khepri_cli__name_strings 711 16 127_4]
-G c Z s s [Oge khepri_cli__name_strings 718 16 127_4]
-G c Z s s [Oge khepri_cli__name_strings 725 16 127_4]
-G c Z s s [index khepri_cli__name_strings 741 16 127_4]
-G c Z s s [index khepri_cli__name_strings 794 16 127_4]
-G c Z s s [index khepri_cli__name_strings 847 16 127_4]
-G c Z s s [index khepri_cli__name_strings 891 16 127_4]
-G c Z s s [index khepri_cli__name_strings 954 16 127_4]
-G c Z s s [index khepri_cli__name_strings 1018 16 127_4]
-G c Z s s [index_non_blank khepri_cli__name_strings 1076 16 127_4]
-G c Z s s [index_non_blank khepri_cli__name_strings 1114 16 127_4]
-G c Z s s [count khepri_cli__name_strings 1168 16 127_4]
-G c Z s s [count khepri_cli__name_strings 1176 16 127_4]
-G c Z s s [count khepri_cli__name_strings 1184 16 127_4]
-G c Z s s [find_token khepri_cli__name_strings 1190 17 127_4]
-G c Z s s [find_token khepri_cli__name_strings 1247 17 127_4]
-G c Z s s [translate khepri_cli__name_strings 1314 16 127_4]
-G c Z s s [translate khepri_cli__name_strings 1325 17 127_4]
-G c Z s s [translate khepri_cli__name_strings 1336 16 127_4]
-G c Z s s [translate khepri_cli__name_strings 1350 17 127_4]
-G c Z s s [replace_slice khepri_cli__name_strings 1381 16 127_4]
-G c Z s s [replace_slice khepri_cli__name_strings 1513 17 127_4]
-G c Z s s [insert khepri_cli__name_strings 1637 16 127_4]
-G c Z s s [insert khepri_cli__name_strings 1751 17 127_4]
-G c Z s s [overwrite khepri_cli__name_strings 1864 16 127_4]
-G c Z s s [overwrite khepri_cli__name_strings 1950 17 127_4]
-G c Z s s [delete khepri_cli__name_strings 2035 16 127_4]
-G c Z s s [delete khepri_cli__name_strings 2057 17 127_4]
-G c Z s s [trim khepri_cli__name_strings 2082 16 127_4]
-G c Z s s [trim khepri_cli__name_strings 2109 17 127_4]
-G c Z s s [trim khepri_cli__name_strings 2136 16 127_4]
-G c Z s s [trim khepri_cli__name_strings 2164 17 127_4]
-G c Z s s [head khepri_cli__name_strings 2192 16 127_4]
-G c Z s s [head khepri_cli__name_strings 2247 17 127_4]
-G c Z s s [tail khepri_cli__name_strings 2305 16 127_4]
-G c Z s s [tail khepri_cli__name_strings 2366 17 127_4]
-G c Z s s [Omultiply khepri_cli__name_strings 2433 16 127_4]
-G c Z s s [Omultiply khepri_cli__name_strings 2440 16 127_4]
-G c Z s s [Omultiply khepri_cli__name_strings 2453 16 127_4]
-G c Z s s [replicate khepri_cli__name_strings 2466 16 127_4]
-G c Z s s [replicate khepri_cli__name_strings 2476 16 127_4]
-G c Z s s [replicate khepri_cli__name_strings 2510 16 127_4]
-G c Z s s [name_stringsInitial_Condition khepri_cli__name_strings 61 6 127_4]
-G c Z s s [from_string khepri_cli__name_strings 2567 16 127_4]
-G c Z s s [length khepri_cli__arg_strings 88 16 130_4]
-G c Z s s [to_bounded_string khepri_cli__arg_strings 97 16 130_4]
-G c Z s s [to_string khepri_cli__arg_strings 129 16 130_4]
-G c Z s s [set_bounded_string khepri_cli__arg_strings 135 17 130_4]
-G c Z s s [append khepri_cli__arg_strings 165 16 130_4]
-G c Z s s [append khepri_cli__arg_strings 210 16 130_4]
-G c Z s s [append khepri_cli__arg_strings 263 16 130_4]
-G c Z s s [append khepri_cli__arg_strings 314 16 130_4]
-G c Z s s [append khepri_cli__arg_strings 341 16 130_4]
-G c Z s s [append khepri_cli__arg_strings 373 17 130_4]
-G c Z s s [append khepri_cli__arg_strings 419 17 130_4]
-G c Z s s [append khepri_cli__arg_strings 476 17 130_4]
-G c Z s s [Oconcat khepri_cli__arg_strings 507 16 130_4]
-G c Z s s [Oconcat khepri_cli__arg_strings 519 16 130_4]
-G c Z s s [Oconcat khepri_cli__arg_strings 531 16 130_4]
-G c Z s s [Oconcat khepri_cli__arg_strings 543 16 130_4]
-G c Z s s [Oconcat khepri_cli__arg_strings 552 16 130_4]
-G c Z s s [element khepri_cli__arg_strings 562 16 130_4]
-G c Z s s [replace_element khepri_cli__arg_strings 571 17 130_4]
-G c Z s s [slice khepri_cli__arg_strings 586 16 130_4]
-G c Z s s [bounded_slice khepri_cli__arg_strings 598 16 130_4]
-G c Z s s [bounded_slice khepri_cli__arg_strings 611 17 130_4]
-G c Z s s [Oeq khepri_cli__arg_strings 627 16 130_4]
-G c Z s s [Oeq khepri_cli__arg_strings 634 16 130_4]
-G c Z s s [Oeq khepri_cli__arg_strings 641 16 130_4]
-G c Z s s [Olt khepri_cli__arg_strings 648 16 130_4]
-G c Z s s [Olt khepri_cli__arg_strings 655 16 130_4]
-G c Z s s [Olt khepri_cli__arg_strings 662 16 130_4]
-G c Z s s [Ole khepri_cli__arg_strings 669 16 130_4]
-G c Z s s [Ole khepri_cli__arg_strings 676 16 130_4]
-G c Z s s [Ole khepri_cli__arg_strings 683 16 130_4]
-G c Z s s [Ogt khepri_cli__arg_strings 690 16 130_4]
-G c Z s s [Ogt khepri_cli__arg_strings 697 16 130_4]
-G c Z s s [Ogt khepri_cli__arg_strings 704 16 130_4]
-G c Z s s [Oge khepri_cli__arg_strings 711 16 130_4]
-G c Z s s [Oge khepri_cli__arg_strings 718 16 130_4]
-G c Z s s [Oge khepri_cli__arg_strings 725 16 130_4]
-G c Z s s [index khepri_cli__arg_strings 741 16 130_4]
-G c Z s s [index khepri_cli__arg_strings 794 16 130_4]
-G c Z s s [index khepri_cli__arg_strings 847 16 130_4]
-G c Z s s [index khepri_cli__arg_strings 891 16 130_4]
-G c Z s s [index khepri_cli__arg_strings 954 16 130_4]
-G c Z s s [index khepri_cli__arg_strings 1018 16 130_4]
-G c Z s s [index_non_blank khepri_cli__arg_strings 1076 16 130_4]
-G c Z s s [index_non_blank khepri_cli__arg_strings 1114 16 130_4]
-G c Z s s [count khepri_cli__arg_strings 1168 16 130_4]
-G c Z s s [count khepri_cli__arg_strings 1176 16 130_4]
-G c Z s s [count khepri_cli__arg_strings 1184 16 130_4]
-G c Z s s [find_token khepri_cli__arg_strings 1190 17 130_4]
-G c Z s s [find_token khepri_cli__arg_strings 1247 17 130_4]
-G c Z s s [translate khepri_cli__arg_strings 1314 16 130_4]
-G c Z s s [translate khepri_cli__arg_strings 1325 17 130_4]
-G c Z s s [translate khepri_cli__arg_strings 1336 16 130_4]
-G c Z s s [translate khepri_cli__arg_strings 1350 17 130_4]
-G c Z s s [replace_slice khepri_cli__arg_strings 1381 16 130_4]
-G c Z s s [replace_slice khepri_cli__arg_strings 1513 17 130_4]
-G c Z s s [insert khepri_cli__arg_strings 1637 16 130_4]
-G c Z s s [insert khepri_cli__arg_strings 1751 17 130_4]
-G c Z s s [overwrite khepri_cli__arg_strings 1864 16 130_4]
-G c Z s s [overwrite khepri_cli__arg_strings 1950 17 130_4]
-G c Z s s [delete khepri_cli__arg_strings 2035 16 130_4]
-G c Z s s [delete khepri_cli__arg_strings 2057 17 130_4]
-G c Z s s [trim khepri_cli__arg_strings 2082 16 130_4]
-G c Z s s [trim khepri_cli__arg_strings 2109 17 130_4]
-G c Z s s [trim khepri_cli__arg_strings 2136 16 130_4]
-G c Z s s [trim khepri_cli__arg_strings 2164 17 130_4]
-G c Z s s [head khepri_cli__arg_strings 2192 16 130_4]
-G c Z s s [head khepri_cli__arg_strings 2247 17 130_4]
-G c Z s s [tail khepri_cli__arg_strings 2305 16 130_4]
-G c Z s s [tail khepri_cli__arg_strings 2366 17 130_4]
-G c Z s s [Omultiply khepri_cli__arg_strings 2433 16 130_4]
-G c Z s s [Omultiply khepri_cli__arg_strings 2440 16 130_4]
-G c Z s s [Omultiply khepri_cli__arg_strings 2453 16 130_4]
-G c Z s s [replicate khepri_cli__arg_strings 2466 16 130_4]
-G c Z s s [replicate khepri_cli__arg_strings 2476 16 130_4]
-G c Z s s [replicate khepri_cli__arg_strings 2510 16 130_4]
-G c Z s s [arg_stringsInitial_Condition khepri_cli__arg_strings 61 6 130_4]
-G c Z s s [from_string khepri_cli__arg_strings 2567 16 130_4]
-G c Z s b [main khepri_cli 179 14 none]
-G c Z s b [handle_help khepri_cli 187 14 none]
-G c Z s b [handle_version khepri_cli 190 14 none]
-G c Z s b [handle_init khepri_cli 193 14 none]
-G c Z s b [handle_build khepri_cli 199 14 none]
-G c Z s b [handle_clean khepri_cli 202 14 none]
-G c Z s b [handle_certify khepri_cli 205 14 none]
-G c Z s b [handle_prove khepri_cli 208 14 none]
-G c Z s b [handle_wcet khepri_cli 211 14 none]
-G c Z s b [handle_audit khepri_cli 214 14 none]
-G c Z s b [handle_test khepri_cli 217 14 none]
-G c Z s b [handle_coverage khepri_cli 220 14 none]
-G c Z s b [handle_fuzz khepri_cli 223 14 none]
-G c Z s b [handle_deploy khepri_cli 226 14 none]
-G c Z s b [handle_verify khepri_cli 229 14 none]
-G c Z s b [handle_call khepri_cli 232 14 none]
-G c Z s b [handle_send khepri_cli 239 14 none]
-G c Z s b [handle_keys khepri_cli 247 14 none]
-G c Z s b [print_banner khepri_cli 254 14 none]
-G c Z s b [print_success khepri_cli 257 14 none]
-G c Z s b [print_error khepri_cli 260 14 none]
-G c Z s b [print_warning khepri_cli 263 14 none]
-G c Z s b [print_info khepri_cli 266 14 none]
-G c Z s b [print_progress khepri_cli 269 14 none]
-G c Z s b [print_table_header khepri_cli 272 14 none]
-G c Z s b [print_table_row khepri_cli 275 14 none]
-G c Z s b [prompt_confirm khepri_cli 282 13 none]
-G c Z s b [prompt_password khepri_cli 285 13 none]
-G c Z s b [prompt_input khepri_cli 288 13 none]
-G c Z s b [parse_command khepri_cli 295 13 none]
-G c Z s b [command_to_string khepri_cli 298 13 none]
-G c Z s b [level_to_string khepri_cli 301 13 none]
-G c Z s b [network_to_string khepri_cli 304 13 none]
-G c Z s b [file_exists khepri_cli 307 13 none]
-G c Z s b [dir_exists khepri_cli 310 13 none]
-G c Z s b [get_current_dir khepri_cli 313 13 none]
-G c Z s b [find_project_root khepri_cli 316 13 none]
-G c Z s s [common_optionsIP khepri_cli 137 9 none]
-G c Z s s [build_optionsIP khepri_cli 145 9 none]
-G c Z s s [certify_optionsIP khepri_cli 152 9 none]
-G c Z s s [deploy_optionsIP khepri_cli 159 9 none]
-G c Z s s [test_optionsIP khepri_cli 168 9 none]
+G c Z s s [length khepri_cli__path_strings 88 16 127_4]
+G c Z s s [to_bounded_string khepri_cli__path_strings 97 16 127_4]
+G c Z s s [to_string khepri_cli__path_strings 129 16 127_4]
+G c Z s s [set_bounded_string khepri_cli__path_strings 135 17 127_4]
+G c Z s s [append khepri_cli__path_strings 165 16 127_4]
+G c Z s s [append khepri_cli__path_strings 210 16 127_4]
+G c Z s s [append khepri_cli__path_strings 263 16 127_4]
+G c Z s s [append khepri_cli__path_strings 314 16 127_4]
+G c Z s s [append khepri_cli__path_strings 341 16 127_4]
+G c Z s s [append khepri_cli__path_strings 373 17 127_4]
+G c Z s s [append khepri_cli__path_strings 419 17 127_4]
+G c Z s s [append khepri_cli__path_strings 476 17 127_4]
+G c Z s s [Oconcat khepri_cli__path_strings 507 16 127_4]
+G c Z s s [Oconcat khepri_cli__path_strings 519 16 127_4]
+G c Z s s [Oconcat khepri_cli__path_strings 531 16 127_4]
+G c Z s s [Oconcat khepri_cli__path_strings 543 16 127_4]
+G c Z s s [Oconcat khepri_cli__path_strings 552 16 127_4]
+G c Z s s [element khepri_cli__path_strings 562 16 127_4]
+G c Z s s [replace_element khepri_cli__path_strings 571 17 127_4]
+G c Z s s [slice khepri_cli__path_strings 586 16 127_4]
+G c Z s s [bounded_slice khepri_cli__path_strings 598 16 127_4]
+G c Z s s [bounded_slice khepri_cli__path_strings 611 17 127_4]
+G c Z s s [Oeq khepri_cli__path_strings 627 16 127_4]
+G c Z s s [Oeq khepri_cli__path_strings 634 16 127_4]
+G c Z s s [Oeq khepri_cli__path_strings 641 16 127_4]
+G c Z s s [Olt khepri_cli__path_strings 648 16 127_4]
+G c Z s s [Olt khepri_cli__path_strings 655 16 127_4]
+G c Z s s [Olt khepri_cli__path_strings 662 16 127_4]
+G c Z s s [Ole khepri_cli__path_strings 669 16 127_4]
+G c Z s s [Ole khepri_cli__path_strings 676 16 127_4]
+G c Z s s [Ole khepri_cli__path_strings 683 16 127_4]
+G c Z s s [Ogt khepri_cli__path_strings 690 16 127_4]
+G c Z s s [Ogt khepri_cli__path_strings 697 16 127_4]
+G c Z s s [Ogt khepri_cli__path_strings 704 16 127_4]
+G c Z s s [Oge khepri_cli__path_strings 711 16 127_4]
+G c Z s s [Oge khepri_cli__path_strings 718 16 127_4]
+G c Z s s [Oge khepri_cli__path_strings 725 16 127_4]
+G c Z s s [index khepri_cli__path_strings 741 16 127_4]
+G c Z s s [index khepri_cli__path_strings 794 16 127_4]
+G c Z s s [index khepri_cli__path_strings 847 16 127_4]
+G c Z s s [index khepri_cli__path_strings 891 16 127_4]
+G c Z s s [index khepri_cli__path_strings 954 16 127_4]
+G c Z s s [index khepri_cli__path_strings 1018 16 127_4]
+G c Z s s [index_non_blank khepri_cli__path_strings 1076 16 127_4]
+G c Z s s [index_non_blank khepri_cli__path_strings 1114 16 127_4]
+G c Z s s [count khepri_cli__path_strings 1168 16 127_4]
+G c Z s s [count khepri_cli__path_strings 1176 16 127_4]
+G c Z s s [count khepri_cli__path_strings 1184 16 127_4]
+G c Z s s [find_token khepri_cli__path_strings 1190 17 127_4]
+G c Z s s [find_token khepri_cli__path_strings 1247 17 127_4]
+G c Z s s [translate khepri_cli__path_strings 1314 16 127_4]
+G c Z s s [translate khepri_cli__path_strings 1325 17 127_4]
+G c Z s s [translate khepri_cli__path_strings 1336 16 127_4]
+G c Z s s [translate khepri_cli__path_strings 1350 17 127_4]
+G c Z s s [replace_slice khepri_cli__path_strings 1381 16 127_4]
+G c Z s s [replace_slice khepri_cli__path_strings 1513 17 127_4]
+G c Z s s [insert khepri_cli__path_strings 1637 16 127_4]
+G c Z s s [insert khepri_cli__path_strings 1751 17 127_4]
+G c Z s s [overwrite khepri_cli__path_strings 1864 16 127_4]
+G c Z s s [overwrite khepri_cli__path_strings 1950 17 127_4]
+G c Z s s [delete khepri_cli__path_strings 2035 16 127_4]
+G c Z s s [delete khepri_cli__path_strings 2057 17 127_4]
+G c Z s s [trim khepri_cli__path_strings 2082 16 127_4]
+G c Z s s [trim khepri_cli__path_strings 2109 17 127_4]
+G c Z s s [trim khepri_cli__path_strings 2136 16 127_4]
+G c Z s s [trim khepri_cli__path_strings 2164 17 127_4]
+G c Z s s [head khepri_cli__path_strings 2192 16 127_4]
+G c Z s s [head khepri_cli__path_strings 2247 17 127_4]
+G c Z s s [tail khepri_cli__path_strings 2305 16 127_4]
+G c Z s s [tail khepri_cli__path_strings 2366 17 127_4]
+G c Z s s [Omultiply khepri_cli__path_strings 2433 16 127_4]
+G c Z s s [Omultiply khepri_cli__path_strings 2440 16 127_4]
+G c Z s s [Omultiply khepri_cli__path_strings 2453 16 127_4]
+G c Z s s [replicate khepri_cli__path_strings 2466 16 127_4]
+G c Z s s [replicate khepri_cli__path_strings 2476 16 127_4]
+G c Z s s [replicate khepri_cli__path_strings 2510 16 127_4]
+G c Z s s [path_stringsInitial_Condition khepri_cli__path_strings 61 6 127_4]
+G c Z s s [from_string khepri_cli__path_strings 2567 16 127_4]
+G c Z s s [length khepri_cli__name_strings 88 16 130_4]
+G c Z s s [to_bounded_string khepri_cli__name_strings 97 16 130_4]
+G c Z s s [to_string khepri_cli__name_strings 129 16 130_4]
+G c Z s s [set_bounded_string khepri_cli__name_strings 135 17 130_4]
+G c Z s s [append khepri_cli__name_strings 165 16 130_4]
+G c Z s s [append khepri_cli__name_strings 210 16 130_4]
+G c Z s s [append khepri_cli__name_strings 263 16 130_4]
+G c Z s s [append khepri_cli__name_strings 314 16 130_4]
+G c Z s s [append khepri_cli__name_strings 341 16 130_4]
+G c Z s s [append khepri_cli__name_strings 373 17 130_4]
+G c Z s s [append khepri_cli__name_strings 419 17 130_4]
+G c Z s s [append khepri_cli__name_strings 476 17 130_4]
+G c Z s s [Oconcat khepri_cli__name_strings 507 16 130_4]
+G c Z s s [Oconcat khepri_cli__name_strings 519 16 130_4]
+G c Z s s [Oconcat khepri_cli__name_strings 531 16 130_4]
+G c Z s s [Oconcat khepri_cli__name_strings 543 16 130_4]
+G c Z s s [Oconcat khepri_cli__name_strings 552 16 130_4]
+G c Z s s [element khepri_cli__name_strings 562 16 130_4]
+G c Z s s [replace_element khepri_cli__name_strings 571 17 130_4]
+G c Z s s [slice khepri_cli__name_strings 586 16 130_4]
+G c Z s s [bounded_slice khepri_cli__name_strings 598 16 130_4]
+G c Z s s [bounded_slice khepri_cli__name_strings 611 17 130_4]
+G c Z s s [Oeq khepri_cli__name_strings 627 16 130_4]
+G c Z s s [Oeq khepri_cli__name_strings 634 16 130_4]
+G c Z s s [Oeq khepri_cli__name_strings 641 16 130_4]
+G c Z s s [Olt khepri_cli__name_strings 648 16 130_4]
+G c Z s s [Olt khepri_cli__name_strings 655 16 130_4]
+G c Z s s [Olt khepri_cli__name_strings 662 16 130_4]
+G c Z s s [Ole khepri_cli__name_strings 669 16 130_4]
+G c Z s s [Ole khepri_cli__name_strings 676 16 130_4]
+G c Z s s [Ole khepri_cli__name_strings 683 16 130_4]
+G c Z s s [Ogt khepri_cli__name_strings 690 16 130_4]
+G c Z s s [Ogt khepri_cli__name_strings 697 16 130_4]
+G c Z s s [Ogt khepri_cli__name_strings 704 16 130_4]
+G c Z s s [Oge khepri_cli__name_strings 711 16 130_4]
+G c Z s s [Oge khepri_cli__name_strings 718 16 130_4]
+G c Z s s [Oge khepri_cli__name_strings 725 16 130_4]
+G c Z s s [index khepri_cli__name_strings 741 16 130_4]
+G c Z s s [index khepri_cli__name_strings 794 16 130_4]
+G c Z s s [index khepri_cli__name_strings 847 16 130_4]
+G c Z s s [index khepri_cli__name_strings 891 16 130_4]
+G c Z s s [index khepri_cli__name_strings 954 16 130_4]
+G c Z s s [index khepri_cli__name_strings 1018 16 130_4]
+G c Z s s [index_non_blank khepri_cli__name_strings 1076 16 130_4]
+G c Z s s [index_non_blank khepri_cli__name_strings 1114 16 130_4]
+G c Z s s [count khepri_cli__name_strings 1168 16 130_4]
+G c Z s s [count khepri_cli__name_strings 1176 16 130_4]
+G c Z s s [count khepri_cli__name_strings 1184 16 130_4]
+G c Z s s [find_token khepri_cli__name_strings 1190 17 130_4]
+G c Z s s [find_token khepri_cli__name_strings 1247 17 130_4]
+G c Z s s [translate khepri_cli__name_strings 1314 16 130_4]
+G c Z s s [translate khepri_cli__name_strings 1325 17 130_4]
+G c Z s s [translate khepri_cli__name_strings 1336 16 130_4]
+G c Z s s [translate khepri_cli__name_strings 1350 17 130_4]
+G c Z s s [replace_slice khepri_cli__name_strings 1381 16 130_4]
+G c Z s s [replace_slice khepri_cli__name_strings 1513 17 130_4]
+G c Z s s [insert khepri_cli__name_strings 1637 16 130_4]
+G c Z s s [insert khepri_cli__name_strings 1751 17 130_4]
+G c Z s s [overwrite khepri_cli__name_strings 1864 16 130_4]
+G c Z s s [overwrite khepri_cli__name_strings 1950 17 130_4]
+G c Z s s [delete khepri_cli__name_strings 2035 16 130_4]
+G c Z s s [delete khepri_cli__name_strings 2057 17 130_4]
+G c Z s s [trim khepri_cli__name_strings 2082 16 130_4]
+G c Z s s [trim khepri_cli__name_strings 2109 17 130_4]
+G c Z s s [trim khepri_cli__name_strings 2136 16 130_4]
+G c Z s s [trim khepri_cli__name_strings 2164 17 130_4]
+G c Z s s [head khepri_cli__name_strings 2192 16 130_4]
+G c Z s s [head khepri_cli__name_strings 2247 17 130_4]
+G c Z s s [tail khepri_cli__name_strings 2305 16 130_4]
+G c Z s s [tail khepri_cli__name_strings 2366 17 130_4]
+G c Z s s [Omultiply khepri_cli__name_strings 2433 16 130_4]
+G c Z s s [Omultiply khepri_cli__name_strings 2440 16 130_4]
+G c Z s s [Omultiply khepri_cli__name_strings 2453 16 130_4]
+G c Z s s [replicate khepri_cli__name_strings 2466 16 130_4]
+G c Z s s [replicate khepri_cli__name_strings 2476 16 130_4]
+G c Z s s [replicate khepri_cli__name_strings 2510 16 130_4]
+G c Z s s [name_stringsInitial_Condition khepri_cli__name_strings 61 6 130_4]
+G c Z s s [from_string khepri_cli__name_strings 2567 16 130_4]
+G c Z s s [length khepri_cli__arg_strings 88 16 133_4]
+G c Z s s [to_bounded_string khepri_cli__arg_strings 97 16 133_4]
+G c Z s s [to_string khepri_cli__arg_strings 129 16 133_4]
+G c Z s s [set_bounded_string khepri_cli__arg_strings 135 17 133_4]
+G c Z s s [append khepri_cli__arg_strings 165 16 133_4]
+G c Z s s [append khepri_cli__arg_strings 210 16 133_4]
+G c Z s s [append khepri_cli__arg_strings 263 16 133_4]
+G c Z s s [append khepri_cli__arg_strings 314 16 133_4]
+G c Z s s [append khepri_cli__arg_strings 341 16 133_4]
+G c Z s s [append khepri_cli__arg_strings 373 17 133_4]
+G c Z s s [append khepri_cli__arg_strings 419 17 133_4]
+G c Z s s [append khepri_cli__arg_strings 476 17 133_4]
+G c Z s s [Oconcat khepri_cli__arg_strings 507 16 133_4]
+G c Z s s [Oconcat khepri_cli__arg_strings 519 16 133_4]
+G c Z s s [Oconcat khepri_cli__arg_strings 531 16 133_4]
+G c Z s s [Oconcat khepri_cli__arg_strings 543 16 133_4]
+G c Z s s [Oconcat khepri_cli__arg_strings 552 16 133_4]
+G c Z s s [element khepri_cli__arg_strings 562 16 133_4]
+G c Z s s [replace_element khepri_cli__arg_strings 571 17 133_4]
+G c Z s s [slice khepri_cli__arg_strings 586 16 133_4]
+G c Z s s [bounded_slice khepri_cli__arg_strings 598 16 133_4]
+G c Z s s [bounded_slice khepri_cli__arg_strings 611 17 133_4]
+G c Z s s [Oeq khepri_cli__arg_strings 627 16 133_4]
+G c Z s s [Oeq khepri_cli__arg_strings 634 16 133_4]
+G c Z s s [Oeq khepri_cli__arg_strings 641 16 133_4]
+G c Z s s [Olt khepri_cli__arg_strings 648 16 133_4]
+G c Z s s [Olt khepri_cli__arg_strings 655 16 133_4]
+G c Z s s [Olt khepri_cli__arg_strings 662 16 133_4]
+G c Z s s [Ole khepri_cli__arg_strings 669 16 133_4]
+G c Z s s [Ole khepri_cli__arg_strings 676 16 133_4]
+G c Z s s [Ole khepri_cli__arg_strings 683 16 133_4]
+G c Z s s [Ogt khepri_cli__arg_strings 690 16 133_4]
+G c Z s s [Ogt khepri_cli__arg_strings 697 16 133_4]
+G c Z s s [Ogt khepri_cli__arg_strings 704 16 133_4]
+G c Z s s [Oge khepri_cli__arg_strings 711 16 133_4]
+G c Z s s [Oge khepri_cli__arg_strings 718 16 133_4]
+G c Z s s [Oge khepri_cli__arg_strings 725 16 133_4]
+G c Z s s [index khepri_cli__arg_strings 741 16 133_4]
+G c Z s s [index khepri_cli__arg_strings 794 16 133_4]
+G c Z s s [index khepri_cli__arg_strings 847 16 133_4]
+G c Z s s [index khepri_cli__arg_strings 891 16 133_4]
+G c Z s s [index khepri_cli__arg_strings 954 16 133_4]
+G c Z s s [index khepri_cli__arg_strings 1018 16 133_4]
+G c Z s s [index_non_blank khepri_cli__arg_strings 1076 16 133_4]
+G c Z s s [index_non_blank khepri_cli__arg_strings 1114 16 133_4]
+G c Z s s [count khepri_cli__arg_strings 1168 16 133_4]
+G c Z s s [count khepri_cli__arg_strings 1176 16 133_4]
+G c Z s s [count khepri_cli__arg_strings 1184 16 133_4]
+G c Z s s [find_token khepri_cli__arg_strings 1190 17 133_4]
+G c Z s s [find_token khepri_cli__arg_strings 1247 17 133_4]
+G c Z s s [translate khepri_cli__arg_strings 1314 16 133_4]
+G c Z s s [translate khepri_cli__arg_strings 1325 17 133_4]
+G c Z s s [translate khepri_cli__arg_strings 1336 16 133_4]
+G c Z s s [translate khepri_cli__arg_strings 1350 17 133_4]
+G c Z s s [replace_slice khepri_cli__arg_strings 1381 16 133_4]
+G c Z s s [replace_slice khepri_cli__arg_strings 1513 17 133_4]
+G c Z s s [insert khepri_cli__arg_strings 1637 16 133_4]
+G c Z s s [insert khepri_cli__arg_strings 1751 17 133_4]
+G c Z s s [overwrite khepri_cli__arg_strings 1864 16 133_4]
+G c Z s s [overwrite khepri_cli__arg_strings 1950 17 133_4]
+G c Z s s [delete khepri_cli__arg_strings 2035 16 133_4]
+G c Z s s [delete khepri_cli__arg_strings 2057 17 133_4]
+G c Z s s [trim khepri_cli__arg_strings 2082 16 133_4]
+G c Z s s [trim khepri_cli__arg_strings 2109 17 133_4]
+G c Z s s [trim khepri_cli__arg_strings 2136 16 133_4]
+G c Z s s [trim khepri_cli__arg_strings 2164 17 133_4]
+G c Z s s [head khepri_cli__arg_strings 2192 16 133_4]
+G c Z s s [head khepri_cli__arg_strings 2247 17 133_4]
+G c Z s s [tail khepri_cli__arg_strings 2305 16 133_4]
+G c Z s s [tail khepri_cli__arg_strings 2366 17 133_4]
+G c Z s s [Omultiply khepri_cli__arg_strings 2433 16 133_4]
+G c Z s s [Omultiply khepri_cli__arg_strings 2440 16 133_4]
+G c Z s s [Omultiply khepri_cli__arg_strings 2453 16 133_4]
+G c Z s s [replicate khepri_cli__arg_strings 2466 16 133_4]
+G c Z s s [replicate khepri_cli__arg_strings 2476 16 133_4]
+G c Z s s [replicate khepri_cli__arg_strings 2510 16 133_4]
+G c Z s s [arg_stringsInitial_Condition khepri_cli__arg_strings 61 6 133_4]
+G c Z s s [from_string khepri_cli__arg_strings 2567 16 133_4]
+G c Z s b [main khepri_cli 182 14 none]
+G c Z s b [handle_help khepri_cli 190 14 none]
+G c Z s b [handle_version khepri_cli 193 14 none]
+G c Z s b [handle_init khepri_cli 196 14 none]
+G c Z s b [handle_build khepri_cli 202 14 none]
+G c Z s b [handle_clean khepri_cli 205 14 none]
+G c Z s b [handle_certify khepri_cli 208 14 none]
+G c Z s b [handle_prove khepri_cli 211 14 none]
+G c Z s b [handle_wcet khepri_cli 214 14 none]
+G c Z s b [handle_audit khepri_cli 217 14 none]
+G c Z s b [handle_test khepri_cli 220 14 none]
+G c Z s b [handle_coverage khepri_cli 223 14 none]
+G c Z s b [handle_fuzz khepri_cli 226 14 none]
+G c Z s b [handle_deploy khepri_cli 229 14 none]
+G c Z s b [handle_verify khepri_cli 232 14 none]
+G c Z s b [handle_call khepri_cli 235 14 none]
+G c Z s b [handle_send khepri_cli 242 14 none]
+G c Z s b [handle_keys khepri_cli 250 14 none]
+G c Z s b [handle_address khepri_cli 253 14 none]
+G c Z s b [print_banner khepri_cli 260 14 none]
+G c Z s b [print_success khepri_cli 263 14 none]
+G c Z s b [print_error khepri_cli 266 14 none]
+G c Z s b [print_warning khepri_cli 269 14 none]
+G c Z s b [print_info khepri_cli 272 14 none]
+G c Z s b [print_progress khepri_cli 275 14 none]
+G c Z s b [print_table_header khepri_cli 278 14 none]
+G c Z s b [print_table_row khepri_cli 281 14 none]
+G c Z s b [prompt_confirm khepri_cli 288 13 none]
+G c Z s b [prompt_password khepri_cli 291 13 none]
+G c Z s b [prompt_input khepri_cli 294 13 none]
+G c Z s b [parse_command khepri_cli 301 13 none]
+G c Z s b [command_to_string khepri_cli 304 13 none]
+G c Z s b [level_to_string khepri_cli 307 13 none]
+G c Z s b [network_to_string khepri_cli 310 13 none]
+G c Z s b [file_exists khepri_cli 313 13 none]
+G c Z s b [dir_exists khepri_cli 316 13 none]
+G c Z s b [get_current_dir khepri_cli 319 13 none]
+G c Z s b [find_project_root khepri_cli 322 13 none]
+G c Z s s [common_optionsIP khepri_cli 140 9 none]
+G c Z s s [build_optionsIP khepri_cli 148 9 none]
+G c Z s s [certify_optionsIP khepri_cli 155 9 none]
+G c Z s s [deploy_optionsIP khepri_cli 162 9 none]
+G c Z s s [test_optionsIP khepri_cli 171 9 none]
+G c Z b b [get_anubisvm_root khepri_cli 53 13 none]
+G c Z b b [run_command khepri_cli 72 13 none]
+G c Z b b [run_command_with_output khepri_cli 105 14 none]
+G c Z b b [byte_to_hex khepri_cli 117 13 none]
+G c Z b b [bytes_to_hex khepri_cli 125 13 none]
+G c Z b b [get_system_seed khepri_cli 140 13 none]
+G c Z b b [get_keys_dir khepri_cli 198 13 none]
+G c Z b b [save_key_pair khepri_cli 209 14 none]
+G c Z b b [load_public_key khepri_cli 243 13 none]
+G c Z b b [list_keys khepri_cli 260 14 none]
+G c Z b b [handle_encode khepri_cli 1572 14 none]
+G c Z b b [handle_decode khepri_cli 1636 14 none]
+G c Z b b [handle_node khepri_cli 1700 14 none]
+G c Z b b [handle_block khepri_cli 1736 14 none]
+G c Z b b [handle_tx_query khepri_cli 1746 14 none]
+G c Z b b [handle_account_query khepri_cli 1756 14 none]
+G c Z b b [handle_upgrade khepri_cli 1779 14 none]
+G r s exec_result [main khepri_cli 182 14 none] [exec_resultIP local_executor 25 9 none]
+G r l exec_result [main khepri_cli 182 14 none] [exec_resultDI local_executor 25 9 none]
+G r k exec_result [main khepri_cli 182 14 none] [exec_resultDF local_executor 25 9 none]
+G r s arg_array [main khepri_cli 182 14 none] [arg_arrayIP local_executor 21 9 none]
+G r l arg_array [main khepri_cli 182 14 none] [arg_arrayDI local_executor 21 9 none]
+G r k arg_array [main khepri_cli 182 14 none] [arg_arrayDF local_executor 21 9 none]
+G r c none [main khepri_cli 182 14 none] [execute_local local_executor 46 14 none]
+G r c none [main khepri_cli 182 14 none] [save_state local_executor 60 14 none]
+G r c none [main khepri_cli 182 14 none] [sha3_256 anubis_sha3 120 14 none]
+G r c none [main khepri_cli 182 14 none] [keygen anubis_mldsa 121 14 none]
+G r c none [main khepri_cli 182 14 none] [create_address anubis_address 137 13 none]
+G r c none [main khepri_cli 182 14 none] [format_address anubis_address 168 14 none]
+G r c none [main khepri_cli 182 14 none] [network_string anubis_address_types 97 13 none]
+G r c none [main khepri_cli 182 14 none] [entity_string anubis_address_types 118 13 none]
+G r c none [main khepri_cli 182 14 none] [parse_address anubis_address 198 14 none]
+G r c none [main khepri_cli 182 14 none] [validate_address anubis_address 233 13 none]
+G r s exec_result [handle_call khepri_cli 235 14 none] [exec_resultIP local_executor 25 9 none]
+G r l exec_result [handle_call khepri_cli 235 14 none] [exec_resultDI local_executor 25 9 none]
+G r k exec_result [handle_call khepri_cli 235 14 none] [exec_resultDF local_executor 25 9 none]
+G r s arg_array [handle_call khepri_cli 235 14 none] [arg_arrayIP local_executor 21 9 none]
+G r l arg_array [handle_call khepri_cli 235 14 none] [arg_arrayDI local_executor 21 9 none]
+G r k arg_array [handle_call khepri_cli 235 14 none] [arg_arrayDF local_executor 21 9 none]
+G r c none [handle_call khepri_cli 235 14 none] [execute_local local_executor 46 14 none]
+G r s exec_result [handle_send khepri_cli 242 14 none] [exec_resultIP local_executor 25 9 none]
+G r l exec_result [handle_send khepri_cli 242 14 none] [exec_resultDI local_executor 25 9 none]
+G r k exec_result [handle_send khepri_cli 242 14 none] [exec_resultDF local_executor 25 9 none]
+G r s arg_array [handle_send khepri_cli 242 14 none] [arg_arrayIP local_executor 21 9 none]
+G r l arg_array [handle_send khepri_cli 242 14 none] [arg_arrayDI local_executor 21 9 none]
+G r k arg_array [handle_send khepri_cli 242 14 none] [arg_arrayDF local_executor 21 9 none]
+G r c none [handle_send khepri_cli 242 14 none] [execute_local local_executor 46 14 none]
+G r c none [handle_send khepri_cli 242 14 none] [save_state local_executor 60 14 none]
+G r c none [handle_keys khepri_cli 250 14 none] [sha3_256 anubis_sha3 120 14 none]
+G r c none [handle_keys khepri_cli 250 14 none] [keygen anubis_mldsa 121 14 none]
+G r c none [handle_address khepri_cli 253 14 none] [sha3_256 anubis_sha3 120 14 none]
+G r c none [handle_address khepri_cli 253 14 none] [keygen anubis_mldsa 121 14 none]
+G r c none [handle_address khepri_cli 253 14 none] [create_address anubis_address 137 13 none]
+G r c none [handle_address khepri_cli 253 14 none] [format_address anubis_address 168 14 none]
+G r c none [handle_address khepri_cli 253 14 none] [network_string anubis_address_types 97 13 none]
+G r c none [handle_address khepri_cli 253 14 none] [entity_string anubis_address_types 118 13 none]
+G r c none [handle_address khepri_cli 253 14 none] [parse_address anubis_address 198 14 none]
+G r c none [handle_address khepri_cli 253 14 none] [validate_address anubis_address 233 13 none]
+G r c none [get_system_seed khepri_cli 140 13 none] [sha3_256 anubis_sha3 120 14 none]
+G r c none [handle_encode khepri_cli 1572 14 none] [parse_address anubis_address 198 14 none]
+G r c none [handle_account_query khepri_cli 1756 14 none] [parse_address anubis_address 198 14 none]
+G r c none [handle_account_query khepri_cli 1756 14 none] [network_string anubis_address_types 97 13 none]
+G r c none [handle_account_query khepri_cli 1756 14 none] [entity_string anubis_address_types 118 13 none]
+G r c none [handle_account_query khepri_cli 1756 14 none] [validate_address anubis_address 233 13 none]
 X 1 ada.ads
-16K9*Ada 20e8 28|20r6 124r32 127r32 130r31 29|4r6 4r36 5r6 5r36 6r6 6r36
-. 7r6 7r36 8r6 8r36 9r6 9r36 423r27 701r33 718r36 756r36 764r36 772r36 784r36
+16K9*Ada 20e8 49|20r6 127r32 130r32 133r31 50|4r6 4r36 5r6 5r36 6r6 6r36
+. 7r6 7r36 8r6 8r36 9r6 10r6 10r36 11r6 30r6 31r6 56r14 57r16 146r30 161r20
+. 200r14 201r16 202r17 203r16 214r27 244r27 261r11 691r27 827r30 839r27 851r27
+. 912r27 1019r27 1049r27 1112r27 1152r14 1246r27 1264r27 1378r27 1404r11
+. 1430r27 1441r11 1477r27 1867r33 1892r33 1931r33 1984r33 2001r36 2039r36
+. 2047r36 2055r36 2067r36
+X 3 a-calend.ads
+36K13*Calendar 413e17 50|30w10 161r24
+42I9*Time<226I9> 50|162r29
+48I12*Year_Number{integer} 50|166r29
+49I12*Month_Number{integer} 50|165r29
+50I12*Day_Number{integer} 50|164r29
+54O12*Day_Duration{duration}
+56V13*Clock{42I9} 50|162s37
+64V13*Year{48I12} 50|166s44
+65V13*Month{49I12} 50|165s45
+66V13*Day{50I12} 50|164s43
+67V13*Seconds{54O12} 50|163s41
+226I9 Time_Rep<long_long_integer>
 X 4 a-charac.ads
-16K13*Characters 18e19 29|9r10 9r40
+16K13*Characters 18e19 50|10r10 10r40
 X 5 a-chahan.ads
-43K24*Handling 454e28 29|9w21 9r51
-209V13*To_Lower{character} 29|151s45
-274V13*To_Lower{string} 29|190s38
+43K24*Handling 454e28 50|10w21 10r51
+209V13*To_Lower{character} 50|416s45
+274V13*To_Lower{string} 50|455s38 1628s27
 X 7 a-comlin.ads
-36K13*Command_Line 144e21 29|5w10 5r40 423r31 701r37 718r40 756r40 764r40
-. 772r40 784r40
-39V13*Argument_Count{natural} 29|680s39
-52V13*Argument{string} 29|684s13 695s56 699s51 705s32 715s32 753s34 761s32
-. 761s46 769s32 769s46 778s35 778s49 780s35
+36K13*Command_Line 144e21 50|5w10 5r40 691r31 827r34 839r31 851r31 912r31
+. 1019r31 1049r31 1112r31 1246r31 1264r31 1378r31 1430r31 1477r31 1867r37
+. 1892r37 1931r37 1984r37 2001r40 2039r40 2047r40 2055r40 2067r40
+39V13*Argument_Count{natural} 50|1963s39
+52V13*Argument{string} 50|1967s13 1978s56 1982s51 1988s32 1998s32 2036s34
+. 2044s32 2044s46 2052s32 2052s46 2061s35 2061s49 2063s35 2073s38 2073s52
+. 2075s38 2083s34 2083s48 2102s34 2102s48 2120s35 2127s32 2134s33 2141s36
+. 2148s41
 70I9*Exit_Status<integer>
-73i4*Failure{70I9} 29|423r44 701r50 718r53 756r53 764r53 772r53 784r53
-75U14*Set_Exit_Status 29|423s10 701s16 718s19 756s19 764s19 772s19 784s19
+73i4*Failure{70I9} 50|691r44 827r47 839r44 851r44 912r44 1019r44 1049r44
+. 1112r44 1246r44 1264r44 1378r44 1430r44 1477r44 1867r50 1892r50 1931r50
+. 1984r50 2001r53 2039r53 2047r53 2055r53 2067r53
+75U14*Set_Exit_Status 50|691s10 827s13 839s10 851s10 912s10 1019s10 1049s10
+. 1112s10 1246s10 1264s10 1378s10 1430s10 1477s10 1867s16 1892s16 1931s16
+. 1984s16 2001s19 2039s19 2047s19 2055s19 2067s19
 X 8 a-direct.ads
-76K13*Directories 524e20 29|6w10 6r40
-82V13*Current_Directory{string} 29|309s14 313s27 416s40
-95U14*Create_Directory 29|429s7 430s7 431s7 432s7
-251V13*Containing_Directory{string} 29|321s41
-303n23*Directory{303E9} 29|304r51
-303n34*Ordinary_File{303E9} 29|299r51
-310V13*Exists{boolean} 29|299s14 304s14
-316V13*Kind{303E9} 29|299s37 304s37
-X 13 a-string.ads
-16K13*Strings 35e16 28|20r10 124r36 127r36 130r35 29|7r10 7r40 8r10 8r40
-X 14 a-strbou.ads
-50K21*Bounded 3003e24 28|20w18 124r44 127r44 130r43
-60k12*Generic_Bounded_Length 3001e30 28|124r52 127r52 130r51
-78R12*Bounded_String<19|65R9> 28|125r40[124] 128r40[127] 131r38[130]
-81r7*Null_Bounded_String{78R12[28|124]} 28|141r50[124] 142r50[124] 146r50[127]
-. 149r50[127] 161r50[127] 164r48[130] 169r50[127]
-X 16 a-strfix.ads
-49K21*Fixed 1386e22 29|7w18 7r48
-X 17 a-strmap.ads
-51K21*Maps 650e21 29|8w18 8r48
-X 24 a-textio.ads
-58K13*Text_IO 785e16 29|4w10 4r40
-67P9*File_Type 29|437r24 464r22 465r22 505r22
-69n32*Out_File{69E9} 29|439r31 467r29 489r29 507r29
-99U14*Create 29|439s10 467s10 489s10 507s10
-131U14*Close 29|458s10 487s10 499s10 516s10
-284U14*New_Line 29|52s7 342s10 344s10 349s10 355s10 360s10 365s10 371s10
-. 377s10 383s10 390s10 403s7 419s7 519s7 521s7 531s7 558s7 572s7
-515U14*Put 29|50s10 58s10 60s10 64s10 71s10 73s10 77s10 84s10 86s10 90s10
-. 97s10 101s10 110s10 113s10 143s7 161s7 172s10 174s10
-535U14*Get_Line 29|144s7 163s7 176s7
-555U14*Put_Line 29|440s10 441s10 442s10 443s10 444s10 445s10 446s10 447s10
-. 448s10 449s10 450s10 451s10 452s10 453s10 454s10 455s10 456s10 457s10 468s10
-. 469s10 470s10 471s10 472s10 473s10 474s10 475s10 476s10 477s10 478s10 479s10
-. 480s10 481s10 482s10 483s10 484s10 485s10 486s10 490s10 491s10 492s10 493s10
-. 494s10 495s10 496s10 497s10 498s10 508s10 509s10 510s10 511s10 512s10 513s10
-. 514s10 515s10
-565U14*Put_Line 29|34s10 36s7 37s7 38s7 39s7 40s7 41s7 42s7 43s7 44s7 45s7
-. 46s7 47s7 48s7 62s7 75s7 88s7 99s7 116s7 122s10 124s10 126s7 131s7 341s10
-. 343s10 345s10 346s10 347s10 348s10 350s10 351s10 352s10 353s10 354s10 356s10
-. 357s10 358s10 359s10 361s10 362s10 363s10 364s10 366s10 367s10 368s10 369s10
-. 370s10 372s10 373s10 374s10 375s10 376s10 378s10 379s10 380s10 381s10 382s10
-. 384s10 385s10 386s10 387s10 388s10 389s10 391s10 393s10 400s7 401s7 402s7
-. 404s7 405s7 406s7 407s7 408s7 409s7 522s7 523s7 524s7 525s7 526s7 527s7
-. 528s7 529s7 530s7 532s7 533s7 534s7 535s7 639s7 664s10 665s10 700s16
-X 28 khepri_cli.ads
-22K9*Khepri_CLI 319l5 319e15 29|11b14 799l5 799t15
+76K13*Directories 524e20 50|6w10 6r40 261r15
+82V13*Current_Directory{string} 50|577s14 581s27 684s40
+95U14*Create_Directory 50|223s10 697s7 698s7 699s7 700s7
+251V13*Containing_Directory{string} 50|589s41
+303n23*Directory{303E9} 50|572r51
+303n34*Ordinary_File{303E9} 50|272r48 567r51
+310V13*Exists{boolean} 50|61s10 63s13 65s13 222s14 267s14 567s14 572s14 816s10
+. 819s13 822s16 830s13 862s10 862s38 864s13 896s13 896s47 898s16 1005s10
+. 1005s44 1011s13 1040s14 1041s17 1100s14 1103s14 1104s17 1199s17 1255s14
+. 1256s17
+316V13*Kind{303E9} 50|567s37 572s37
+345R9*Directory_Entry_Type 517e14 50|264r18
+360R9*Search_Type<11|43R9> 488e14 50|263r18
+365U14*Start_Search 50|272s7
+387U14*End_Search 50|285s7
+394V13*More_Entries{boolean} 50|273s13
+398U14*Get_Next_Entry 50|274s10
+432V13*Simple_Name{string} 50|276s39
+X 9 a-envvar.ads
+19K13*Environment_Variables 69e30 50|11w10 56r18 57r20 200r18 201r20 202r21
+. 203r20
+22V13*Value{string} 50|57s42 201s42 203s42
+34V13*Exists{boolean} 50|56s40 200s40 202s43
+X 16 a-stream.ads
+36K13*Streams 87e16 50|31r10 146r34 214r31 244r31
+X 17 a-ststio.ads
+39K21*Stream_IO 224e26 50|31w18 146r42 214r39 244r39
+42P9*Stream_Access(16|39R9) 50|148r23 219r22 248r22
+44P9*File_Type 50|147r23 218r22 247r22
+47n23*In_File{47E9} 50|150r30 251r27
+47n32*Out_File{47E9} 50|227r29 235r29
+68U14*Create 50|227s11 235s11
+74U14*Open 50|150s14 251s11
+80U14*Close 50|155s14 232s11 240s11 256s11
+92V13*Stream{42P9} 50|151s24 228s21 236s21 252s21
+X 18 a-string.ads
+16K13*Strings 35e16 49|20r10 127r36 130r36 133r35 50|7r10 7r40 8r10 8r40
+. 9r10 1404r15 1441r15
+X 19 a-strbou.ads
+50K21*Bounded 3003e24 49|20w18 127r44 130r44 133r43
+60k12*Generic_Bounded_Length 3001e30 49|127r52 130r52 133r51
+78R12*Bounded_String<24|65R9> 49|128r40[127] 131r40[130] 134r38[133]
+81r7*Null_Bounded_String{78R12[49|127]} 49|144r50[127] 145r50[127] 149r50[130]
+. 152r50[130] 164r50[130] 167r48[133] 172r50[130]
+X 21 a-strfix.ads
+49K21*Fixed 1386e22 50|7w18 7r48
+X 22 a-strmap.ads
+51K21*Maps 650e21 50|8w18 8r48
+X 26 a-strunb.ads
+85K21*Unbounded 772e26 50|9w18 1404r23 1441r23
+120V13*To_String{string} 50|1425s35 1429s41 1466s35 1476s48
+X 29 a-textio.ads
+58K13*Text_IO 785e16 50|4w10 4r40 1152r18
+67P9*File_Type 50|705r24 732r22 733r22 773r22 1153r24
+69n32*Out_File{69E9} 50|707r31 735r29 757r29 775r29 1155r31
+99U14*Create 50|707s10 735s10 757s10 775s10 1155s10
+131U14*Close 50|726s10 755s10 767s10 784s10 1175s10
+284U14*New_Line 50|317s7 610s10 612s10 617s10 623s10 628s10 633s10 639s10
+. 645s10 651s10 658s10 671s7 687s7 787s7 789s7 799s7 813s7 846s10 849s10
+. 908s7 981s7 1002s7 1026s10 1029s10 1045s7 1084s10 1091s7 1108s7 1181s7
+. 1193s7 1238s7 1260s7 1303s7 1309s7 1321s7 1366s7 1373s7 1410s7 1426s10
+. 1447s7 1467s10 1492s13 1502s13 1509s13 1554s10 1559s10 1704s10 1709s10
+. 1726s10 1730s10 1739s7 1749s7 1759s7 1771s13 1782s7 1818s13 1838s13 1843s13
+. 1859s16 1863s16 1883s16 1923s13 1926s13 1936s10 1939s10 1942s10 1945s10
+. 1948s10 2086s19 2088s19 2094s19 2105s19 2107s19 2112s19
+515U14*Put 50|315s10 323s10 325s10 329s10 336s10 338s10 342s10 349s10 351s10
+. 355s10 362s10 366s10 375s10 378s10 408s7 426s7 437s10 439s10
+535U14*Get_Line 50|409s7 428s7 441s7
+555U14*Put_Line 50|708s10 709s10 710s10 711s10 712s10 713s10 714s10 715s10
+. 716s10 717s10 718s10 719s10 720s10 721s10 722s10 723s10 724s10 725s10 736s10
+. 737s10 738s10 739s10 740s10 741s10 742s10 743s10 744s10 745s10 746s10 747s10
+. 748s10 749s10 750s10 751s10 752s10 753s10 754s10 758s10 759s10 760s10 761s10
+. 762s10 763s10 764s10 765s10 766s10 776s10 777s10 778s10 779s10 780s10 781s10
+. 782s10 783s10 1156s10 1157s10 1158s10 1159s10 1160s10 1161s10 1162s10 1163s10
+. 1164s10 1165s10 1166s10 1167s10 1168s10 1169s10 1170s10 1171s10 1172s10
+. 1173s10 1174s10
+565U14*Put_Line 50|268s10 280s16 288s10 299s10 301s7 302s7 303s7 304s7 305s7
+. 306s7 307s7 308s7 309s7 310s7 311s7 312s7 313s7 327s7 340s7 353s7 364s7
+. 381s7 387s10 389s10 391s7 396s7 609s10 611s10 613s10 614s10 615s10 616s10
+. 618s10 619s10 620s10 621s10 622s10 624s10 625s10 626s10 627s10 629s10 630s10
+. 631s10 632s10 634s10 635s10 636s10 637s10 638s10 640s10 641s10 642s10 643s10
+. 644s10 646s10 647s10 648s10 649s10 650s10 652s10 653s10 654s10 655s10 656s10
+. 657s10 659s10 661s10 668s7 669s7 670s7 672s7 673s7 674s7 675s7 676s7 677s7
+. 790s7 791s7 792s7 793s7 794s7 795s7 796s7 797s7 798s7 800s7 801s7 802s7
+. 803s7 838s10 1031s10 1085s10 1086s10 1087s10 1088s10 1124s7 1127s7 1130s7
+. 1138s7 1142s7 1145s7 1239s7 1304s7 1305s7 1306s7 1307s7 1320s7 1340s10
+. 1345s7 1367s7 1368s7 1369s7 1370s7 1371s7 1424s10 1425s10 1465s10 1466s10
+. 1503s13 1504s13 1505s13 1508s13 1514s10 1526s13 1527s13 1528s13 1529s13
+. 1544s13 1545s13 1546s13 1553s10 1555s10 1556s10 1557s10 1558s10 1560s10
+. 1564s10 1587s13 1588s13 1601s16 1602s16 1621s13 1622s13 1627s10 1628s10
+. 1632s10 1662s13 1663s13 1680s13 1681s13 1686s10 1687s10 1688s10 1692s10
+. 1705s10 1706s10 1707s10 1708s10 1711s10 1712s10 1713s10 1717s10 1718s10
+. 1719s10 1725s10 1727s10 1728s10 1729s10 1731s10 1732s10 1741s7 1742s7 1743s7
+. 1751s7 1752s7 1753s7 1767s13 1768s13 1769s13 1770s13 1784s7 1785s7 1839s13
+. 1840s13 1841s13 1842s13 1860s16 1861s16 1862s16 1884s16 1885s16 1886s16
+. 1887s16 1888s16 1889s16 1924s13 1925s13 1935s10 1937s10 1938s10 1940s10
+. 1941s10 1943s10 1944s10 1946s10 1947s10 1949s10 1950s10 1954s10 1983s16
+. 2085s19 2087s19 2089s19 2090s19 2091s19 2092s19 2093s19 2095s19 2096s19
+. 2097s19 2104s19 2106s19 2108s19 2109s19 2110s19 2111s19 2113s19 2114s19
+. 2115s19
+X 32 aegis_u256.ads
+21K9*Aegis_U256 276e15 50|17w6 17r36
+X 33 aegis_vm_types.ads
+21K9*Aegis_VM_Types 280e19 50|16w6 16r36 1406r21 1419r27 1424r35 1443r21
+. 1459r27 1460r27 1465r35
+46r4*U256_Zero{41R9} 50|1419r42 1460r42
+70A9*Contract_Address(31M12)<integer> 50|1406r36 1443r36
+101I9*Gas_Amount<long_integer> 50|1424r50 1459r42 1465r50
+X 34 anubis_address.ads
+55K9*Anubis_Address 323e19 50|23w6 1599r13 1765r10 1770r45 1826r21 1833r13
+. 1856r13 1858r43 1880r13 1889r48 1915r21 1921r13
+137V13*Create_Address{36|89R9} 50|1826s36 1915s36
+138e7 Network{36|37E9} 50|1827r16 1916r16
+139e7 Entity{36|46E9} 50|1828r16 1917r16
+140a7 Public_Key{35|37A9} 50|1829r16 1918r16
+168U14*Format_Address 50|1833s28 1921s28
+198U14*Parse_Address 50|1599s28 1765s25 1856s28 1880s28
+233V13*Validate_Address{boolean} 50|1770s60 1858s58 1889s63
+X 35 anubis_address_derive.ads
+30K9*Anubis_Address_Derive 68e26 50|25w6 1796r16 1797r19 1812r24 1903r24
+37A9*Public_Key_Bytes(47|70M9)<integer> 50|1796r38 1797r41 1812r46 1903r46
+X 36 anubis_address_types.ads
+28K9*Anubis_Address_Types 136e25 50|24w6 24r36 1597r27 1763r19 1767r41 1768r41
+. 1813r24 1814r24 1827r30 1828r30 1840r44 1841r44 1853r27 1860r44 1861r44
+. 1877r27 1885r44 1886r44 1904r24 1905r24 1916r30 1917r30
+40n7*Dev{37E9} 50|1827r51 1916r51
+47n7*User{46E9} 50|1828r51 1917r51
+57A9*Account_ID(47|70M9)<integer>
+86A12*Address_String{string}<integer> 50|1814r45 1905r45
+89R9*Address 94e14 50|1597r48 1763r40 1813r45 1853r48 1877r48 1904r45
+90e7*Network{37E9} 50|1767r85 1840r86 1860r93 1885r93
+91e7*Entity{46E9} 50|1768r84 1841r85 1861r92 1886r92
+92a7*Account{57A9} 50|1602r84 1769r87 1842r88 1888r95
+93b7*Valid{boolean} 50|1600r28 1766r20 1858r28 1882r28
+97V13*Network_String{string} 50|1767s62 1840s65 1860s65 1885s65
+118V13*Entity_String{string} 50|1768s62 1841s65 1861s65 1886s65
+X 38 anubis_mldsa.ads
+38K9*Anubis_MLDSA 241e17 50|21w6 1497r13 1505r59 1506r59 1822r13
+48N4*Public_Key_Bytes 50|1505r72
+49N4*Secret_Key_Bytes 50|1506r72
+121U14*KeyGen 50|1497s26 1822s26
+X 41 anubis_mldsa_types.ads
+14K9*Anubis_MLDSA_Types 64e23 50|22w6 22r36 140r36 142r16 211r14 212r14 243r52
+. 249r18 1487r33 1488r24 1489r24 1523r18 1541r18 1795r15 1809r33 1810r24
+. 1811r24 1902r24
+37A12*Seed{44|14A9}<integer> 50|140r55 142r35 1487r52 1809r52
+57A12*Public_Key{44|14A9}<integer> 50|211r33 243r71 249r37 1488r43 1523r37
+. 1541r37 1795r34 1810r43 1902r43
+58A12*Secret_Key{44|14A9}<integer> 50|212r33 1489r43 1811r43
+X 43 anubis_sha3.ads
+33K9*Anubis_SHA3 298e16 50|26w6 169r25 185r16
+44A12*SHA3_256_Digest{44|14A9}<integer> 50|169r37
+120U14*SHA3_256 50|185s28
+X 44 anubis_types.ads
+5K9*Anubis_Types 40e17 50|20w6 20r36 125r34 153r13 168r25 177r32 182r32 230r10
+. 238r10 254r10 1602r47 1769r55 1842r58 1888r58
+13M12*Byte{47|70M9} 50|153r26 177r45 182r45 230r23 238r23 254r23
+14A9*Byte_Array(13M12)<integer> 50|125r47 168r38 1602r60 1769r68 1842r71
+. 1888r71
+X 45 gnat.ads
+37K9*GNAT 60e9 50|12r6 73r11
+X 46 g-os_lib.ads
+51K14*OS_Lib=51:36 50|12w11 73r16
+X 47 interfac.ads
+38K9*Interfaces 233e15 50|29w6 29r36
+57I9*Integer_64<long_long_integer>
+70M9*Unsigned_8 50|117r30 130r50 1615r34 1644r58 1673r34 1674r34 1675r34
+. 1800r27
+84M9*Unsigned_64 50|167r20 172r21 173r21 174r33 175r33
+96V13*Shift_Right{70M9} 50|120s41
+166V13*Shift_Left{84M9} 50|174s21 175s21
+171V13*Shift_Right{84M9} 50|177s51 182s51
+X 49 khepri_cli.ads
+22K9*Khepri_CLI 325l5 325e15 50|33b14 2156l5 2156t15
 28N4*Version_Major
 29N4*Version_Minor
 30N4*Version_Patch
-31a4*Version_String{string} 29|46r36 400r46
-33a4*Program_Name{string} 29|341r32 391r30 400r17 700r36 717r44 755r44 763r44
-. 771r44 783r44
+31a4*Version_String{string} 50|311r36 668r46 1705r46
+33a4*Program_Name{string} 50|609r32 659r30 668r17 1983r36 2000r44 2038r44
+. 2046r44 2054r44 2066r44 2087r41 2106r41 2122r44 2136r44 2143r44 2150r44
 34a4*Program_Desc{string}
 41N4*Exit_Success
 42N4*Exit_Error
@@ -478,202 +771,471 @@ X 28 khepri_cli.ads
 46N4*Exit_Deploy_Error
 47N4*Exit_Network_Error
 48N4*Exit_Key_Error
-54E9*Command_Kind 95e5 295r49 298r38 29|189r49 245r38 695r25
-56n7*Cmd_None{54E9} 29|241r17 248r15 698r18
-57n7*Cmd_Help{54E9} 29|193r17 249r15 703r18
-58n7*Cmd_Version{54E9} 29|195r17 250r15 710r18
-61n7*Cmd_Init{54E9} 29|197r17 251r15 713r18
-62n7*Cmd_Build{54E9} 29|199r17 252r15 721r18
-63n7*Cmd_Clean{54E9} 29|201r17 253r15 724r18
-66n7*Cmd_Certify{54E9} 29|203r17 254r15 727r18
-67n7*Cmd_Prove{54E9} 29|205r17 255r15 730r18
-68n7*Cmd_WCET{54E9} 29|207r17 256r15 733r18
-69n7*Cmd_Audit{54E9} 29|209r17 257r15 736r18
-72n7*Cmd_Test{54E9} 29|211r17 258r15 739r18
-73n7*Cmd_Coverage{54E9} 29|213r17 259r15 742r18
-74n7*Cmd_Fuzz{54E9} 29|215r17 260r15 745r18
-77n7*Cmd_Deploy{54E9} 29|217r17 261r15 748r18
-78n7*Cmd_Verify{54E9} 29|219r17 262r15 751r18
-79n7*Cmd_Upgrade{54E9} 29|221r17 263r15 790r18
-82n7*Cmd_Call{54E9} 29|223r17 264r15 759r18
-83n7*Cmd_Send{54E9} 29|225r17 265r15 767r18
-84n7*Cmd_Encode{54E9} 29|227r17 266r15 787r18
-85n7*Cmd_Decode{54E9} 29|229r17 267r15 787r31
-88n7*Cmd_Keys{54E9} 29|231r17 268r15 775r18
-91n7*Cmd_Node{54E9} 29|233r17 269r15 793r18
-92n7*Cmd_Block{54E9} 29|235r17 270r15 793r29
-93n7*Cmd_TX{54E9} 29|237r17 271r15 793r41
-94n7*Cmd_Account{54E9} 29|239r17 272r15 793r50
-101E9*Certification_Level 107e5 153r22 301r38 29|276r38
-102n7*Level_None{101E9} 29|279r15
-103n7*Level_Bronze{101E9} 29|280r15
-104n7*Level_Silver{101E9} 29|281r15
-105n7*Level_Gold{101E9} 153r45 29|282r15 728r42
-106n7*Level_Platinum{101E9} 29|283r15
-113E9*Network_Kind 118e5 160r22 304r38 29|287r38
-114n7*Network_Local{113E9} 29|290r15
-115n7*Network_Testnet{113E9} 160r38 29|291r15
-116n7*Network_Mainnet{113E9} 29|292r15
-117n7*Network_Custom{113E9} 29|293r15
-124K12*Path_Strings[14|60] 125r27 141r37 142r37
-125R12*Path_String{14|78R12[124]} 141r22 142r22
-127K12*Name_Strings[14|60] 128r27 146r37 149r37 161r37 169r37
-128R12*Name_String{14|78R12[127]} 146r22 149r22 161r22 169r22
-130K12*Arg_Strings[14|60] 131r26 164r36
-131R12*Arg_String{14|78R12[130]} 164r22
-137R9*Common_Options 143e14
-138b7*Verbose{boolean}
-139b7*Quiet{boolean}
-140b7*No_Color{boolean}
-141r7*Config_File{125R12}
-142r7*Working_Dir{125R12}
-145R9*Build_Options 150e14 199r38 29|538r38
-146r7*Target{128R12}
-147i7*Optimization{natural}
-148b7*Debug_Info{boolean}
-149r7*Profile{128R12}
-152R9*Certify_Options 157e14 205r40 208r38 211r37 29|555r40 576r38 583r37
-153e7*Level{101E9} 29|557r73 573r74 728m33
-154i7*Timeout{natural}
-155i7*Prover_Steps{natural}
-156b7*Force{boolean}
-159R9*Deploy_Options 166e14 226r39 243r17 29|615r39 646r17
-160e7*Network{113E9} 29|617r64
-161r7*Key_Name{128R12}
-162i7*Gas_Limit{natural}
-163i7*Gas_Price{natural}
-164r7*Args{131R12}
-165b7*Dry_Run{boolean} 29|618r18 651r18
-168R9*Test_Options 173e14 217r37 29|596r37
-169r7*Pattern{128R12}
-170b7*Coverage{boolean}
-171b7*Verbose{boolean}
-172i7*Timeout{natural}
-179U14*Main 29|679b14 797l8 797t12
-187U14*Handle_Help 187>27 29|336b14 396l8 396t19 690s10 705s19 707s19
-187a27 Topic{string} 29|336b27 340r10 393r35
-190U14*Handle_Version 29|398b14 410l8 410t22 711s16
-193U14*Handle_Init 194>7 195>7 29|412b14 536l8 536t19 715s19
-194a7 Project_Name{string} 29|413b7 416r66 418r62 422r39 441r47 447r52 467r63
-. 468r40 477r44 481r79 486r40 489r63 490r40 493r49 498r40 507r69 508r50 509r41
-. 511r51 515r45 523r24 525r40 526r40 528r45 533r27
-195a7 Template{string} 29|414b7
-199U14*Handle_Build 199>28 29|538b14 547l8 547t20 722s16
-199r28 Options{145R9} 29|538b28 539r28
-202U14*Handle_Clean 29|549b14 553l8 553t20 725s16
-205U14*Handle_Certify 205>30 29|555b14 574l8 574t22 728s16
-205r30 Options{152R9} 29|555b30 557r65 573r66
-208U14*Handle_Prove 208>28 29|576b14 581l8 581t20 731s16
-208r28 Options{152R9} 29|576b28 577r28
-211U14*Handle_WCET 211>27 29|583b14 588l8 588t19 734s16
-211r27 Options{152R9} 29|583b27 584r28
-214U14*Handle_Audit 29|590b14 594l8 594t20 737s16
-217U14*Handle_Test 217>27 29|596b14 601l8 601t19 740s16
-217r27 Options{168R9} 29|596b27 597r28
-220U14*Handle_Coverage 29|603b14 607l8 607t23 743s16
-223U14*Handle_Fuzz 223>27 29|609b14 613l8 613t19 746s16
-223i27 Iterations{natural} 29|609b27 611r57
-226U14*Handle_Deploy 226>29 29|615b14 623l8 623t21 749s16
-226r29 Options{159R9} 29|615b29 617r56 618r10
-229U14*Handle_Verify 229>29 29|625b14 629l8 629t21 753s19
-229a29 Contract_Address{string} 29|625b29 627r46
-232U14*Handle_Call 233>7 234>7 235>7 29|631b14 640l8 640t19 761s19
-233a7 Contract{string} 29|632b7 638r57
-234a7 Function_Name{string} 29|633b7 638r32
-235a7 Args{string} 29|634b7 636r28
-239U14*Handle_Send 240>7 241>7 242>7 243>7 29|642b14 656l8 656t19 769s19
-240a7 Contract{string} 29|643b7 650r57
-241a7 Function_Name{string} 29|644b7 650r32
-242a7 Args{string} 29|645b7 648r28
-243r7 Options{159R9} 29|646b7 651r10
-247U14*Handle_Keys 247>27 247>48 29|658b14 673l8 673t19 778s22 780s22
-247a27 Subcommand{string} 29|658b27 660r10 663r13 666r13 668r13 671r53
-247a48 Args{string} 29|658b48 661r61 667r40 669r42
-254U14*Print_Banner 29|31b14 53l8 53t20 338s7
-257U14*Print_Success 257>29 29|55b14 66l8 66t21 520s7 546s7 552s7 561s7 564s7
-. 567s7 570s7 573s7 580s7 587s7 593s7 600s7 606s7 612s7 621s10 628s7 654s10
-. 662s10
-257a29 Msg{string} 29|55b29 62r17
-260U14*Print_Error 260>27 29|68b14 79l8 79t19 422s10 671s10 699s16 717s19
-. 755s19 763s19 771s19 783s19
-260a27 Msg{string} 29|68b27 75r17
-263U14*Print_Warning 263>29 29|81b14 92l8 92t21 619s10 652s10
-263a29 Msg{string} 29|81b29 88r17
-266U14*Print_Info 266>26 29|94b14 103l8 103t18 418s7 541s7 551s7 557s7 579s7
-. 586s7 592s7 599s7 605s7 611s7 617s7 627s7 638s7 650s7 661s10 667s10 669s10
-. 788s16 791s16 794s16
-266a26 Msg{string} 29|94b26 99r17
-269U14*Print_Progress 269>30 269>46 269>63 29|105b14 117l8 117t22 428s7 435s7
-. 462s7 503s7 542s7 543s7 544s7 545s7 560s7 563s7 566s7 569s7
-269i30 Step{natural} 29|105b30 106r53
-269i46 Total{natural} 29|105b46 107r53
-269a63 Msg{string} 29|105b63 116r17
-272U14*Print_Table_Header 272>34 29|119b14 127l8 127t26
-272a34 Columns{string} 29|119b34 122r27 124r20 126r23
-275U14*Print_Table_Row 275>31 29|129b14 132l8 132t23
-275a31 Values{string} 29|129b31 131r17
-282V13*Prompt_Confirm{boolean} 282>29 282>43 29|138b13 155l8 155t22
-282a29 Msg{string} 29|138b29 143r12
-282b43 Default{boolean} 29|138b43 141r41 147r17
-285V13*Prompt_Password{string} 285>30 29|157b13 165l8 165t23
-285a30 Msg{string} 29|157b30 161r12
-288V13*Prompt_Input{string} 288>27 288>41 29|167b13 183l8 183t20
-288a27 Msg{string} 29|167b27 172r15 174r15
-288a41 Default{string} 29|167b41 171r10 172r28 179r17
-295V13*Parse_Command{54E9} 295>28 29|189b13 243l8 243t21 695s41
-295a28 Arg{string} 29|189b28 190r48
-298V13*Command_To_String{string} 298>32 29|245b13 274l8 274t25
-298e32 Cmd{54E9} 29|245b32 247r12
-301V13*Level_To_String{string} 301>30 29|276b13 285l8 285t23 557s48 573s49
-301e30 Level{101E9} 29|276b30 278r12
-304V13*Network_To_String{string} 304>32 29|287b13 295l8 295t25 617s37
-304e32 Net{113E9} 29|287b32 289r12
-307V13*File_Exists{boolean} 307>26 29|297b13 300l8 300t19 316s13
-307a26 Path{string} 29|297b26 299r22 299r43
-310V13*Dir_Exists{boolean} 310>25 29|302b13 305l8 305t18 421s10
-310a25 Path{string} 29|302b25 304r22 304r43
-313V13*Get_Current_Dir{string} 29|307b13 310l8 310t23
-316V13*Find_Project_Root{string} 29|312b13 330l8 330t25
-X 29 khepri_cli.adb
-17a4 Reset{string} 50r15 58r39 64r15 71r37 77r15 84r40 90r15 101r15 111r56
-. 122r37
-18a4 Bold{string} 34r27 58r23 71r21 84r24 122r20
-19a4 Red{string} 71r15 71r45
-20a4 Green{string} 58r15 58r47
-21a4 Yellow{string} 84r15 84r48
-22a4 Blue{string} 97r15
-23a4 Cyan{string} 34r20 110r15
-25b4 Use_Color{boolean} 33r10 49r10 57r10 63r10 70r10 76r10 83r10 89r10 96r10
-. 100r10 109r10 121r10 685m13
-106a7 Step_Str{string} 110r28 110r43 113r21 113r36
-107a7 Total_Str{string} 111r15 111r31 114r15 114r31
-139a7 Response{string} 144m17 151r55
-140i7 Last{natural} 144m27 146r10
-141a7 Suffix{string} 143r18
-151e10 First_Char{character} 153r17
-158a7 Password{string} 163m17 164r14
-159i7 Last{natural} 163m27 164r29
-168a7 Response{string} 176m17 182r14
-169i7 Last{natural} 176m27 178r10 182r29
-190a7 Lower_Arg{string} 192r10 192r32 192r52 194r13 194r38 194r58 196r13
-. 198r13 200r13 202r13 204r13 206r13 208r13 210r13 212r13 214r13 216r13 218r13
-. 220r13 222r13 224r13 226r13 228r13 230r13 232r13 234r13 236r13 238r13
-313a7 Current{string} 316r26 317r20 321r63 323r25 327r13
-321a13 Parent{string} 323r16 327r24
-416a7 Project_Dir=416:64{string} 421r22 429r25 430r25 431r25 432r25 439r41
-. 467r39 489r39 507r39
-437p10 Config_File{24|67P9} 439m18 439r18 440r20 441r20 442r20 443r20 444r20
-. 445r20 446r20 447r20 448r20 449r20 450r20 451r20 452r20 453r20 454r20 455r20
-. 456r20 457r20 458m17 458r17
-464p10 Spec_File{24|67P9} 467m18 467r18 468r20 469r20 470r20 471r20 472r20
-. 473r20 474r20 475r20 476r20 477r20 478r20 479r20 480r20 481r20 482r20 483r20
-. 484r20 485r20 486r20 487m17 487r17
-465p10 Body_File{24|67P9} 489m18 489r18 490r20 491r20 492r20 493r20 494r20
-. 495r20 496r20 497r20 498r20 499m17 499r17
-505p10 Test_File{24|67P9} 507m18 507r18 508r20 509r20 510r20 511r20 512r20
-. 513r20 514r20 515r20 516m17 516r17
-680i7 Arg_Count{natural} 683r21 689r10 704r19 714r19 752r19 760r19 768r19
-. 776r19 777r22
-683i11 I{integer} 684r23
-695e10 Cmd{28|54E9} 697r15
+54E9*Command_Kind 98e5 301r49 304r38 50|454r49 512r38 1978r25
+56n7*Cmd_None{54E9} 50|508r17 515r15 1981r18
+57n7*Cmd_Help{54E9} 50|458r17 516r15 1986r18
+58n7*Cmd_Version{54E9} 50|460r17 517r15 1993r18
+61n7*Cmd_Init{54E9} 50|462r17 518r15 1996r18
+62n7*Cmd_Build{54E9} 50|464r17 519r15 2004r18
+63n7*Cmd_Clean{54E9} 50|466r17 520r15 2007r18
+66n7*Cmd_Certify{54E9} 50|468r17 521r15 2010r18
+67n7*Cmd_Prove{54E9} 50|470r17 522r15 2013r18
+68n7*Cmd_WCET{54E9} 50|472r17 523r15 2016r18
+69n7*Cmd_Audit{54E9} 50|474r17 524r15 2019r18
+72n7*Cmd_Test{54E9} 50|476r17 525r15 2022r18
+73n7*Cmd_Coverage{54E9} 50|478r17 526r15 2025r18
+74n7*Cmd_Fuzz{54E9} 50|480r17 527r15 2028r18
+77n7*Cmd_Deploy{54E9} 50|482r17 528r15 2031r18
+78n7*Cmd_Verify{54E9} 50|484r17 529r15 2034r18
+79n7*Cmd_Upgrade{54E9} 50|486r17 530r15 2118r18
+82n7*Cmd_Call{54E9} 50|488r17 531r15 2042r18
+83n7*Cmd_Send{54E9} 50|490r17 532r15 2050r18
+84n7*Cmd_Encode{54E9} 50|492r17 533r15 2081r18
+85n7*Cmd_Decode{54E9} 50|494r17 534r15 2100r18
+88n7*Cmd_Keys{54E9} 50|496r17 535r15 2058r18
+91n7*Cmd_Address{54E9} 50|498r17 536r15 2070r18
+94n7*Cmd_Node{54E9} 50|500r17 537r15 2125r18
+95n7*Cmd_Block{54E9} 50|502r17 538r15 2132r18
+96n7*Cmd_TX{54E9} 50|504r17 539r15 2139r18
+97n7*Cmd_Account{54E9} 50|506r17 540r15 2146r18
+104E9*Certification_Level 110e5 156r22 307r38 50|544r38
+105n7*Level_None{104E9} 50|547r15 887r18 995r18 1078r21
+106n7*Level_Bronze{104E9} 50|548r15 888r18 918r27 996r18 1079r21
+107n7*Level_Silver{104E9} 50|549r15 889r18 934r27 951r27 997r18 1080r21
+108n7*Level_Gold{104E9} 156r45 50|550r15 890r18 966r27 998r18 1081r21 2011r42
+109n7*Level_Platinum{104E9} 50|551r15 891r18 999r18 1082r21
+116E9*Network_Kind 121e5 163r22 310r38 50|555r38
+117n7*Network_Local{116E9} 50|558r15
+118n7*Network_Testnet{116E9} 163r38 50|559r15
+119n7*Network_Mainnet{116E9} 50|560r15
+120n7*Network_Custom{116E9} 50|561r15
+127K12*Path_Strings[19|60] 128r27 144r37 145r37
+128R12*Path_String{19|78R12[127]} 144r22 145r22
+130K12*Name_Strings[19|60] 131r27 149r37 152r37 164r37 172r37
+131R12*Name_String{19|78R12[130]} 149r22 152r22 164r22 172r22
+133K12*Arg_Strings[19|60] 134r26 167r36
+134R12*Arg_String{19|78R12[133]} 167r22
+140R9*Common_Options 146e14
+141b7*Verbose{boolean}
+142b7*Quiet{boolean}
+143b7*No_Color{boolean}
+144r7*Config_File{128R12}
+145r7*Working_Dir{128R12}
+148R9*Build_Options 153e14 202r38 50|806r38
+149r7*Target{131R12}
+150i7*Optimization{natural}
+151b7*Debug_Info{boolean}
+152r7*Profile{131R12}
+155R9*Certify_Options 160e14 208r40 211r38 214r37 50|878r40 989r38 1035r37
+156e7*Level{104E9} 50|886r24 907r73 918r18 934r18 951r18 966r18 983r77 994r24
+. 1077r27 2011m33
+157i7*Timeout{natural} 50|938r65 970r64 1010r36 1016r36
+158i7*Prover_Steps{natural}
+159b7*Force{boolean}
+162R9*Deploy_Options 169e14 229r39 246r17 50|1382r39 1438r17
+163e7*Network{116E9} 50|1384r64
+164r7*Key_Name{131R12}
+165i7*Gas_Limit{natural} 50|1459r62
+166i7*Gas_Price{natural}
+167r7*Args{134R12}
+168b7*Dry_Run{boolean} 50|1385r18 1449r18 1468r21
+171R9*Test_Options 176e14 220r37 50|1185r37
+172r7*Pattern{131R12}
+173b7*Coverage{boolean}
+174b7*Verbose{boolean}
+175i7*Timeout{natural}
+182U14*Main 50|1962b14 2154l8 2154t12
+190U14*Handle_Help 190>27 50|604b14 664l8 664t19 1973s10 1988s19 1990s19
+190a27 Topic{string} 50|604b27 608r10 661r35
+193U14*Handle_Version 50|666b14 678l8 678t22 1994s16
+196U14*Handle_Init 197>7 198>7 50|680b14 804l8 804t19 1998s19
+197a7 Project_Name{string} 50|681b7 684r66 686r62 690r39 709r47 715r52 735r63
+. 736r40 745r44 749r79 754r40 757r63 758r40 761r49 766r40 775r69 776r50 777r41
+. 779r51 783r45 791r24 793r40 794r40 796r45 801r27
+198a7 Template{string} 50|682b7
+202U14*Handle_Build 202>28 50|806b14 853l8 853t20 2005s16
+202r28 Options{148R9} 50|806b28 807r28
+205U14*Handle_Clean 50|855b14 876l8 876t20 2008s16
+208U14*Handle_Certify 208>30 50|878b14 987l8 987t22 2011s16
+208r30 Options{155R9} 50|878b30 886r16 907r65 918r10 934r10 938r57 951r10
+. 966r10 970r56 983r69
+211U14*Handle_Prove 211>28 50|989b14 1033l8 1033t20 2014s16
+211r28 Options{155R9} 50|989b28 994r16 1010r28 1016r28
+214U14*Handle_WCET 214>27 50|1035b14 1093l8 1093t19 2017s16
+214r27 Options{155R9} 50|1035b27 1077r19
+217U14*Handle_Audit 50|1095b14 1183l8 1183t20 2020s16
+220U14*Handle_Test 220>27 50|1185b14 1248l8 1248t19 2023s16
+220r27 Options{171R9} 50|1185b27 1186r28
+223U14*Handle_Coverage 50|1250b14 1311l8 1311t23 2026s16
+226U14*Handle_Fuzz 226>27 50|1313b14 1380l8 1380t19 2029s16
+226i27 Iterations{natural} 50|1313b27 1320r48 1334r42 1340r70 1346r40 1368r50
+229U14*Handle_Deploy 229>29 50|1382b14 1390l8 1390t21 2032s16
+229r29 Options{162R9} 50|1382b29 1384r56 1385r10
+232U14*Handle_Verify 232>29 50|1392b14 1396l8 1396t21 2036s19
+232a29 Contract_Address{string} 50|1392b29 1394r46
+235U14*Handle_Call 236>7 237>7 238>7 50|1398b14 1432l8 1432t19 2044s19
+236a7 Contract{string} 50|1399b7 1409r57 1415r27
+237a7 Function_Name{string} 50|1400b7 1409r32 1416r27
+238a7 Args{string} 50|1401b7 1403r28
+242U14*Handle_Send 243>7 244>7 245>7 246>7 50|1434b14 1479l8 1479t19 2052s19
+243a7 Contract{string} 50|1435b7 1446r57 1456r27
+244a7 Function_Name{string} 50|1436b7 1446r32 1457r27
+245a7 Args{string} 50|1437b7 1440r28
+246r7 Options{162R9} 50|1438b7 1449r10 1459r54 1468r13
+250U14*Handle_Keys 250>27 250>48 50|1481b14 1566l8 1566t19 2061s22 2063s22
+250a27 Subcommand{string} 50|1481b27 1483r10 1483r32 1513r13 1517r13 1535r13
+. 1552r13 1552r32 1563r53
+250a48 Args{string} 50|1481b48 1486r20 1486r41 1518r13 1525r36 1526r41 1532r49
+. 1536r13 1543r36 1544r52 1549r49
+253U14*Handle_Address 253>30 253>51 50|1792b14 1956l8 1956t22 2073s22 2075s22
+. 2078s19
+253a30 Subcommand{string} 50|1792b30 1806r10 1806r37 1847r13 1871r13 1896r13
+. 1934r13 1934r32 1953r56
+253a51 Args{string} 50|1792b51 1848r13 1855r50 1856r43 1872r13 1880r43 1884r44
+. 1897r13 1908r57 1911r36 1924r38 1930r49
+260U14*Print_Banner 50|296b14 318l8 318t20 606s7
+263U14*Print_Success 263>29 50|320b14 331l8 331t21 788s7 847s10 872s10 926s13
+. 929s10 943s13 946s10 958s13 961s10 975s13 978s10 983s10 1027s10 1092s7
+. 1182s7 1243s10 1310s7 1375s10 1388s10 1395s7 1427s10 1473s13 1510s13 1844s13
+. 1864s16 1927s13
+263a29 Msg{string} 50|320b29 327r17
+266U14*Print_Error 266>27 50|333b14 344l8 344t19 690s10 826s13 837s10 850s10
+. 911s10 923s13 1018s10 1048s10 1111s10 1245s10 1263s10 1429s10 1476s10 1519s13
+. 1532s16 1537s13 1549s16 1563s10 1591s16 1604s16 1631s10 1691s10 1774s13
+. 1849s13 1866s16 1873s13 1891s16 1898s13 1930s16 1953s10 1982s16 2000s19
+. 2038s19 2046s19 2054s19 2066s19 2122s19 2136s19 2143s19 2150s19
+266a27 Msg{string} 50|333b27 340r17
+269U14*Print_Warning 269>29 50|346b14 357l8 357t21 874s10 941s13 956s13 973s13
+. 985s10 1030s10 1060s10 1178s13 1200s13 1275s10 1377s10 1386s10 1450s10
+. 1469s13 1710s10 1740s7 1750s7 1772s13 1783s7
+269a29 Msg{string} 50|346b29 353r17
+272U14*Print_Info 272>26 50|359b14 368l8 368t18 686s7 812s7 860s7 907s7 1001s7
+. 1044s7 1107s7 1192s7 1259s7 1319s7 1384s7 1394s7 1409s7 1446s7 1491s13
+. 1703s10 1716s10 1722s10 1738s7 1748s7 1758s7 1781s7 1817s13 1855s13 1879s13
+. 1908s13
+272a26 Msg{string} 50|359b26 364r17
+275U14*Print_Progress 275>30 275>46 275>63 50|370b14 382l8 382t22 696s7 703s7
+. 730s7 771s7 818s10 820s13 823s13 832s10 833s10 843s7 917s7 933s7 950s7
+. 965s7 1006s10 1012s10 1023s7 1054s7 1068s7 1074s7 1117s7 1123s7 1135s7
+. 1141s7 1150s7 1205s10 1213s10 1221s10 1229s10 1269s7 1282s7 1290s7 1298s7
+. 1324s7 1328s7 1344s7 1360s7 1495s13 1496s13 1499s13 1820s13 1821s13 1824s13
+. 1832s13
+275i30 Step{natural} 50|370b30 371r53
+275i46 Total{natural} 50|370b46 372r53
+275a63 Msg{string} 50|370b63 381r17
+278U14*Print_Table_Header 278>34 50|384b14 392l8 392t26
+278a34 Columns{string} 50|384b34 387r27 389r20 391r23
+281U14*Print_Table_Row 281>31 50|394b14 397l8 397t23
+281a31 Values{string} 50|394b31 396r17
+288V13*Prompt_Confirm{boolean} 288>29 288>43 50|403b13 420l8 420t22
+288a29 Msg{string} 50|403b29 408r12
+288b43 Default{boolean} 50|403b43 406r41 412r17
+291V13*Prompt_Password{string} 291>30 50|422b13 430l8 430t23
+291a30 Msg{string} 50|422b30 426r12
+294V13*Prompt_Input{string} 294>27 294>41 50|432b13 448l8 448t20
+294a27 Msg{string} 50|432b27 437r15 439r15
+294a41 Default{string} 50|432b41 436r10 437r28 444r17
+301V13*Parse_Command{54E9} 301>28 50|454b13 510l8 510t21 1978s41
+301a28 Arg{string} 50|454b28 455r48
+304V13*Command_To_String{string} 304>32 50|512b13 542l8 542t25
+304e32 Cmd{54E9} 50|512b32 514r12
+307V13*Level_To_String{string} 307>30 50|544b13 553l8 553t23 907s48 983s52
+307e30 Level{104E9} 50|544b30 546r12
+310V13*Network_To_String{string} 310>32 50|555b13 563l8 563t25 1384s37
+310e32 Net{116E9} 50|555b32 557r12
+313V13*File_Exists{boolean} 313>26 50|565b13 568l8 568t19 584s13
+313a26 Path{string} 50|565b26 567r22 567r43
+316V13*Dir_Exists{boolean} 316>25 50|570b13 573l8 573t18 689s10
+316a25 Path{string} 50|570b25 572r22 572r43
+319V13*Get_Current_Dir{string} 50|575b13 578l8 578t23
+322V13*Find_Project_Root{string} 50|580b13 598l8 598t25
+X 50 khepri_cli.adb
+39a4 Reset{string} 315r15 323r39 329r15 336r37 342r15 349r40 355r15 366r15
+. 376r56 387r37
+40a4 Bold{string} 299r27 323r23 336r21 349r24 387r20
+41a4 Red{string} 336r15 336r45
+42a4 Green{string} 323r15 323r47
+43a4 Yellow{string} 349r15 349r48
+44a4 Blue{string} 362r15
+45a4 Cyan{string} 299r20 375r15
+47b4 Use_Color{boolean} 298r10 314r10 322r10 328r10 335r10 341r10 348r10
+. 354r10 361r10 365r10 374r10 386r10 1968m13
+53V13 Get_AnubisVM_Root{string} 53b13 70l8 70t25 808s37 856s38 879s38 990s38
+. 1036s38 1096s38 1187s38 1251s38 1314s38
+55a7 Home{string} 61r18 62r17 68r17
+72V13 Run_Command{integer} 72b13 72>26 103l8 103t19 108s20 821s26 824s26
+. 834s23 863s23 865s23 868s23 919s23 935s23 952s23 967s23 1007s23 1013s23
+. 1055s20 1062s23 1069s20 1118s20 1125s20 1128s20 1131s20 1136s20 1143s20
+. 1146s20 1206s23 1214s23 1222s23 1230s23 1270s20 1276s23 1283s20 1291s20
+. 1299s20 1325s20 1332s23 1335s26 1361s20
+72a26 Cmd{string} 81r31
+74p7 Args{73|747P12} 79m7 80r7 81r7 85r26 90r16 91r16 93m13 93r13
+75b7 Success{boolean} 86m26 95r10
+76i7 Status{integer}
+90i11 I{integer} 91r22
+105U14 Run_Command_With_Output 105b14 105>39 105<53 109l8 109t31
+105a39 Cmd{string} 108r33
+105i53 Exit_Code{integer} 108m7
+115a4 Hex_Chars{string} 120r21 121r21 1583r33
+117V13 Byte_To_Hex{string} 117b13 117>26 123l8 123t19 130s37 1618s47
+117m26 B{47|70M9} 120r54 121r41
+118a7 Result{string} 120m7 121m7 122r14
+125V13 Bytes_To_Hex{string} 125b13 125>27 134l8 134t20 1504s44 1528s41 1546s23
+. 1602s33 1769s41 1842s44 1888s44
+125a27 Data{44|14A9} 126r29 129r16 130r62
+126a7 Result{string} 130m10 133r14
+127i7 Idx{natural} 130r18 130r25 131m10 131r17
+129i11 I{integer} 130r68
+140V13 Get_System_Seed{41|37A12} 140b13 192l8 192t23 1487s60 1809s60
+142a7 Result{41|37A12} 152r19 153m45 153r45 156r17 186r25 187m19 189r23
+146K18 SIO=146:42 147r19 148r19 150r10 150r26 151r20 155r10
+147p10 File{17|44P9} 150m20 150r20 151r32 155m21 155r21
+148p10 Stream{17|42P9} 151m10 153r37
+152i14 I{integer} 153r53
+162i16 T{3|42I9} 163r50 164r48 165r52 166r50
+163o16 S{duration} 172r34
+164i16 D{3|50I12} 173r34
+165i16 M{3|49I12} 174r46
+166i16 Y{3|48I12} 175r46
+167m16 V{47|84M9} 172m16 177r64 180m16 180r21 182r64
+168a16 Input{44|14A9} 177m19 182m19 185r38
+169a16 Digest{43|44A12} 185m45 187r33
+176i20 I{integer} 177r26 177r67
+181i20 I{integer} 182r26 182r68
+186i20 I{integer} 187r27 187r41
+198V13 Get_Keys_Dir{string} 198b13 207l8 207t20 215s37 245s37 262s37 1508s44
+. 1560s45 1707s35 1718s40
+199a7 Home{string} 206r14
+209U14 Save_Key_Pair 209b14 210>7 211>7 212>7 241l8 241t21 1500s13 1836s13
+210a7 Name{string} 216r54 217r54
+211a7 PK{41|57A12} 229r16 230r43
+212a7 SK{41|58A12} 237r16 238r43
+214K15 SIO=214:39 218r18 219r18 227r7 227r25 228r17 232r7 235r7 235r25 236r17
+. 240r7
+215a7 Keys_Dir{string} 216r37 217r37 222r22 223r28
+216a7 PK_Path=216:59{string} 227r39
+217a7 SK_Path=217:59{string} 235r39
+218p7 File{17|44P9} 227m19 227r19 228r29 232m18 232r18 235m19 235r19 236r29
+. 240m18 240r18
+219p7 Stream{17|42P9} 228m7 230r35 236m7 238r35
+229i11 I{integer} 230r47
+237i11 I{integer} 238r47
+243V13 Load_Public_Key{41|57A12} 243b13 243>30 258l8 258t23 1525s19 1543s19
+. 1911s19
+243a30 Name{string} 246r54
+244K15 SIO=244:39 247r18 248r18 251r7 251r23 252r17 256r7
+245a7 Keys_Dir{string} 246r37
+246a7 PK_Path=246:59{string} 251r36
+247p7 File{17|44P9} 251m17 251r17 252r29 256m18 256r18
+248p7 Stream{17|42P9} 252m7 254r34
+249a7 Result{41|57A12} 253r16 254m42 254r42 257r14
+253i11 I{integer} 254r50
+260U14 List_Keys 260b14 290l8 290t17 1515s10
+262a7 Keys_Dir{string} 267r22 272r29
+263r7 Search{8|360R9} 272m21 272r21 273r27 274m26 274r26 285m19 285r19
+264r7 Dir_Ent{8|345R9} 274m34 276r52
+265i7 Count{natural} 281m16 281r25 287r10
+276a13 Name{string} 279r16 280r33 280r39 280r53
+371a7 Step_Str{string} 375r28 375r43 378r21 378r36
+372a7 Total_Str{string} 376r15 376r31 379r15 379r31
+404a7 Response{string} 409m17 416r55
+405i7 Last{natural} 409m27 411r10
+406a7 Suffix{string} 408r18
+416e10 First_Char{character} 418r17
+423a7 Password{string} 428m17 429r14
+424i7 Last{natural} 428m27 429r29
+433a7 Response{string} 441m17 447r14
+434i7 Last{natural} 441m27 443r10 447r29
+455a7 Lower_Arg{string} 457r10 457r32 457r52 459r13 459r38 459r58 461r13
+. 463r13 465r13 467r13 469r13 471r13 473r13 475r13 477r13 479r13 481r13 483r13
+. 485r13 487r13 489r13 491r13 493r13 495r13 497r13 497r38 499r13 501r13 503r13
+. 505r13
+581a7 Current{string} 584r26 585r20 589r63 591r25 595r13
+589a13 Parent{string} 591r16 595r24
+684a7 Project_Dir=684:64{string} 689r22 697r25 698r25 699r25 700r25 707r41
+. 735r39 757r39 775r39
+705p10 Config_File{29|67P9} 707m18 707r18 708r20 709r20 710r20 711r20 712r20
+. 713r20 714r20 715r20 716r20 717r20 718r20 719r20 720r20 721r20 722r20 723r20
+. 724r20 725r20 726m17 726r17
+732p10 Spec_File{29|67P9} 735m18 735r18 736r20 737r20 738r20 739r20 740r20
+. 741r20 742r20 743r20 744r20 745r20 746r20 747r20 748r20 749r20 750r20 751r20
+. 752r20 753r20 754r20 755m17 755r17
+733p10 Body_File{29|67P9} 757m18 757r18 758r20 759r20 760r20 761r20 762r20
+. 763r20 764r20 765r20 766r20 767m17 767r17
+773p10 Test_File{29|67P9} 775m18 775r18 776r20 777r20 778r20 779r20 780r20
+. 781r20 782r20 783r20 784m17 784r17
+808a7 Root{string} 830r21 834r44
+809a7 Alr_Path{string} 821r39 835r36
+810i7 Exit_Code{integer} 821m13 824m13 834m10 845r10 850r70
+856a7 Root{string} 864r21 865r44
+857a7 Alr_Path{string} 863r36 865r60
+858i7 Exit_Code{integer} 863m10 865m10 868m10 871r10
+879a7 Root{string} 898r24 899r20
+880a7 Alr_Path{string} 920r41 936r41 953r41 968r41
+881i7 Exit_Code{integer} 919m10 922r13 935m10 940r13 952m10 955r13 967m10
+. 972r13
+882b7 All_Passed{boolean} 924m13 982r10
+885a7 Proof_Level{string} 937r54
+894V16 Get_GPR_Path{string} 894b16 903l11 903t23 905s37
+905a7 GPR_Path{string} 910r10 920r21 936r21 953r21 968r21
+990a7 Root{string} 1011r21 1014r21
+991a7 Alr_Path{string} 1008r13 1014r37
+992i7 Exit_Code{integer} 1007m10 1013m10 1025r10 1030r80
+993a7 Level_Str{string} 1001r51 1009r26 1015r26
+1036a7 Root{string} 1041r25 1041r52
+1037a7 Alr_Path{string} 1056r38 1063r41
+1038i7 Exit_Code{integer} 1055m7 1059r10 1062m10 1069m7
+1039a7 GPR_Path{string} 1047r10 1056r18 1063r21 1070r18
+1076i10 Level_Factor{natural} 1087r68 1088r78
+1096a7 Root{string} 1101r16 1104r25 1104r52
+1097a7 Alr_Path{string} 1119r38
+1098i7 Exit_Code{integer} 1118m7 1125m7 1128m7 1131m7 1136m7 1143m7 1146m7
+1099a7 Report_Path{string} 1155r41 1182r51
+1102a7 GPR_Path{string} 1110r10 1119r18 1126r18 1129r18 1132r18 1137r18 1144r18
+. 1147r18
+1153p10 Report_File{29|67P9} 1155m18 1155r18 1156r20 1157r20 1158r20 1159r20
+. 1160r20 1161r20 1162r20 1163r20 1164r20 1165r20 1166r20 1167r20 1168r20
+. 1169r20 1170r20 1171r20 1172r20 1173r20 1174r20 1175m17 1175r17
+1187a7 Root{string} 1197r40
+1188i7 Exit_Code{integer} 1206m10 1207r13 1214m10 1215r13 1222m10 1223r13
+. 1230m10 1231r13
+1189i7 Failed{natural} 1210m13 1210r23 1218m13 1218r23 1226m13 1226r23 1234m13
+. 1234r23 1240r32 1242r10
+1190i7 Passed{natural} 1208m13 1208r23 1216m13 1216r23 1224m13 1224r23 1232m13
+. 1232r23 1239r45
+1197a10 Test_Dir=1197:45{string} 1199r25 1200r61 1206r36 1214r36 1222r36
+. 1230r36
+1251a7 Root{string} 1256r25 1256r52
+1252a7 Alr_Path{string} 1271r38 1277r41
+1253i7 Exit_Code{integer} 1270m7 1274r10 1276m10 1283m7 1291m7 1299m7
+1254a7 GPR_Path{string} 1262r10 1271r18 1277r21 1284r18 1292r18 1300r18
+1314a7 Root{string} 1330r42 1362r18 1371r35
+1315i7 Exit_Code{integer} 1325m7 1332m10 1335m13 1361m7
+1316i7 Crashes{natural} 1354m16 1354r27 1369r50 1374r10 1377r59
+1317i7 Hangs{natural} 1370r50 1374r26 1377r69
+1330a10 Corpus_Dir=1330:47{string} 1332r50 1337r45
+1334i14 I{integer} 1336r67 1338r31
+1346i11 I{integer} 1349r40
+1349i13 Gas{natural} 1353r16
+1405r7 Result{51|25R9} 1420m27 1423r10 1424r68 1425r46 1429r52
+1406a7 From_Addr{33|70A9} 1414r27
+1407a7 Empty_Args{51|21A9} 1417r27
+1442r7 Result{51|25R9} 1461m27 1464r10 1465r68 1466r46 1476r59
+1443a7 From_Addr{33|70A9} 1455r27
+1444a7 Empty_Args{51|21A9} 1458r27
+1485a13 Key_Name{string} 1491r64 1500r28 1503r44 1508r65
+1487a13 Seed{41|37A12} 1497r34
+1488a13 PK{41|57A12} 1497m40 1500r38 1504r58
+1489a13 SK{41|58A12} 1497m44 1500r42
+1523a13 PK{41|57A12} 1525m13 1528r55 1529r57
+1541a13 PK{41|57A12} 1543m13 1545r45 1546r37
+1572U14 Handle_Encode 1572b14 1572>29 1572>49 1634l8 1634t21 2083s19
+1572a29 Data_Type{string} 1574r10 1574r35 1594r13 1594r38 1608r13 1608r37
+. 1625r13 1625r36 1631r42
+1572a49 Value{string} 1581r43 1591r51 1599r43 1611r36 1613r22 1615r63 1616r50
+. 1628r37
+1577i13 V{long_long_integer} 1581m13 1582r19 1583r53 1584m16 1584r21
+1578a13 Hex_Out{string} 1583m16 1588r30
+1579i13 Idx{natural} 1582r29 1583r25 1585m16 1585r23
+1597r13 Parsed_Addr{36|89R9} 1599m50 1600r16 1602r72
+1611a13 Hex_Out{string} 1618m19 1622r30
+1613i17 I{integer} 1615r70 1616r46
+1615m19 B{47|70M9} 1618r60
+1616i19 Idx{natural} 1618r28 1618r35
+1636U14 Handle_Decode 1636b14 1636>29 1636>49 1694l8 1694t21 2102s19
+1636a29 Data_Type{string} 1654r10 1654r35 1666r13 1666r37 1684r13 1684r36
+. 1691r42
+1636a49 Hex_Value{string} 1639r14 1640r14 1640r25 1640r44 1641r16 1641r27
+. 1641r50 1642r16
+1638a7 Hex{string} 1659r22 1660r69 1669r36 1671r27 1673r68 1673r73 1674r68
+. 1674r73 1687r27 1688r50
+1644V16 Hex_Char_To_Nibble{47|70M9} 1644b16 1644>36 1652l11 1652t29 1660s49
+. 1673s48 1674s48
+1644e36 C{character} 1646r15 1647r54 1648r54 1649r54
+1657i13 V{long_long_integer} 1660m16 1660r21 1663r55
+1659i17 I{integer} 1660r74
+1669a13 Str_Out{string} 1677m19 1681r30
+1671i17 I{integer} 1673r85 1674r85 1677r28
+1673m19 Hi{47|70M9} 1675r48
+1674m19 Lo{47|70M9} 1675r58
+1675m19 B{47|70M9} 1677r62
+1700U14 Handle_Node 1700b14 1700>27 1734l8 1734t19 2127s19 2129s19
+1700a27 Subcommand{string} 1702r10 1715r13 1721r13
+1736U14 Handle_Block 1736b14 1736>28 1744l8 1744t20 2134s19
+1736a28 Block_Num{string} 1738r37
+1746U14 Handle_TX_Query 1746b14 1746>31 1754l8 1754t23 2141s19
+1746a31 TX_Hash{string} 1748r43
+1756U14 Handle_Account_Query 1756b14 1756>36 1777l8 1777t28 2148s19
+1756a36 Address{string} 1758r39 1765r40
+1763r10 Parsed{36|89R9} 1765m49 1766r13 1767r78 1768r77 1769r80 1770r78
+1779U14 Handle_Upgrade 1779b14 1779>30 1786l8 1786t22 2120s19
+1779a30 Contract{string} 1781r42
+1794V16 Convert_PK_To_Address_PK{35|37A9} 1794b16 1795>10 1803l11 1803t35
+. 1825s24 1912s24
+1795a10 PK{41|57A12} 1800r39
+1797a10 Result{35|37A9} 1799r19 1800m13 1802r17
+1799i14 I{integer} 1800r21 1800r43
+1809a13 Seed{41|37A12} 1822r34
+1810a13 PK{41|57A12} 1822m40 1825r50 1836r61
+1811a13 SK{41|58A12} 1822m44 1836r65
+1812a13 Addr_PK{35|37A9} 1825m13 1829r30
+1813r13 Addr{36|89R9} 1826m13 1833r44 1840r81 1841r80 1842r83
+1814a13 Addr_Str{36|86A12} 1833m50 1836r41 1839r44
+1815i13 Addr_Len{natural} 1833m60 1839r59
+1853r13 Parsed_Addr{36|89R9} 1856m49 1858r16 1858r76 1860r81 1861r80
+1877r13 Parsed_Addr{36|89R9} 1880m49 1882r16 1885r81 1886r80 1888r83 1889r81
+1902a13 PK{41|57A12} 1911m13 1912r50
+1903a13 Addr_PK{35|37A9} 1912m13 1918r30
+1904r13 Addr{36|89R9} 1915m13 1921r44
+1905a13 Addr_Str{36|86A12} 1921m50 1925r38
+1906i13 Addr_Len{natural} 1921m60 1925r53
+1963i7 Arg_Count{natural} 1966r21 1972r10 1987r19 1997r19 2035r19 2043r19
+. 2051r19 2059r19 2060r22 2071r19 2072r22 2082r19 2101r19 2119r19 2126r19
+. 2133r19 2140r19 2147r19
+1966i11 I{integer} 1967r23
+1978e10 Cmd{49|54E9} 1980r15
+X 51 local_executor.ads
+18K9*Local_Executor 50|15w6 1405r21 1407r21 1413r7 1442r21 1444r21 1454r7
+. 1472r13 51|68e19
+21A9*Arg_Array(26|91R9)<integer> 50|1407r36 1444r36
+25R9*Exec_Result 50|1405r36 1442r36 51|30e14
+26b7*Success{boolean} 50|1423r17 1464r17
+27i7*Gas_Used{33|101I9} 50|1424r75 1465r75
+28r7*Return_Hex{26|91R9} 50|1425r53 1466r53
+29r7*Error{26|91R9} 50|1429r59 1476r66
+46U14*Execute_Local 50|1413s22 1454s22
+47a7 From_Address{33|70A9} 50|1414r10 1455r10
+48a7 Contract_Name{string} 50|1415r10 1456r10
+49a7 Entry_Point{string} 50|1416r10 1457r10
+50a7 Args{21A9} 50|1417r10 1458r10
+51i7 Gas_Limit{33|101I9} 50|1418r10 1459r10
+52r7 Value{33|41R9} 50|1419r10 1460r10
+53r7 Result{25R9} 50|1420r10 1461r10
+60U14*Save_State 50|1472s28
+X 52 system.ads
+67M9*Address
+X 53 s-arit64.ads
+59I12*Int64{47|57I9}
+92V13*Multiply_With_Ovflo_Check64{59I12} 96i<c,__gnat_mulv64>22
+X 72 s-memory.ads
+51V13*Alloc{52|67M9} 101i<c,__gnat_malloc>22
+66U14*Free 102i<c,__gnat_free>22
+74V13*Realloc{52|67M9} 103i<c,__gnat_realloc>22
+X 73 s-os_lib.ads
+69U14*Free=69:62 50|91s10
+71A12*String_List{85|52A9}<integer>
+85P12*String_List_Access{85|53P9}
+91U14*Free=91:69 50|93s7
+742A12*Argument_List{71A12}<integer> 50|79r19
+747P12*Argument_List_Access{85P12} 50|74r17
+869U14*Spawn 50|83s7
+870a7 Program_Name{string} 50|84r10
+871a7 Args{742A12} 50|85r10
+872b7 Success{boolean} 50|86r10
+X 81 s-stalib.adb
+87U14 Break_Start 88i<c,__gnat_break_start>22
+X 85 s-string.ads
+43P9*String_Access(string)
+52A9*String_List(43P9)<integer>
+53P9*String_List_Access(52A9)
 

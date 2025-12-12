@@ -30,7 +30,7 @@ W aegis_u256%s		aegis_u256.adb		aegis_u256.ali
 W interfaces%s		interfac.ads		interfac.ali
 Z system.assertions%s	s-assert.adb		s-assert.ali
 
-U aegis_contract%s	aegis_contract.ads	fefd3fb7 EE NE OO PK
+U aegis_contract%s	aegis_contract.ads	72119993 EE NE OO PK
 W aegis_storage%s	aegis_storage.adb	aegis_storage.ali
 W aegis_vm_types%s	aegis_vm_types.ads	aegis_vm_types.ali
 
@@ -41,7 +41,7 @@ D aegis_contract.ads	20251207191106 f406fabe aegis_contract%s
 D aegis_contract.adb	20251207191105 84ac287f aegis_contract%b
 D aegis_storage.ads	20251207191106 d62ac4d0 aegis_storage%s
 D aegis_u256.ads	20251207191105 ff2dfe4b aegis_u256%s
-D aegis_vm_types.ads	20251207191105 dcd101d9 aegis_vm_types%s
+D aegis_vm_types.ads	20251209080247 503da7fd aegis_vm_types%s
 D interfac.ads		20240808082856 9111f9c1 interfaces%s
 D system.ads		20240808082856 70765b54 system%s
 D s-assert.ads		20240808082856 9c4520c7 system.assertions%s
@@ -208,7 +208,7 @@ X 7 aegis_u256.ads
 168V13*From_Bytes_BE{8|41R9} 5|30s14
 172V13*To_Bytes_BE{8|56A9} 5|16s35
 X 8 aegis_vm_types.ads
-21K9*Aegis_VM_Types 4|3w6 3r26 8|279e19
+21K9*Aegis_VM_Types 4|3w6 3r26 8|280e19
 31M12*Byte{9|70M9} 4|37r48 46r46
 41R9*U256 4|185r23 186r23 206r34 210r56 5|14r34 24r56 8|43e14
 56A9*Hash256(31M12)<integer> 4|74r23 108r21 127r28 140r21 163r23 168r23 235r48

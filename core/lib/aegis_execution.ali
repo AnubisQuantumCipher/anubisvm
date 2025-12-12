@@ -27,7 +27,7 @@ RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
 RV NO_IMPLEMENTATION_PRAGMAS
 RV NO_IMPLICIT_LOOPS
 
-U aegis_execution%b	aegis_execution.adb	eb3e624d NE OO PK
+U aegis_execution%b	aegis_execution.adb	a1699382 NE OO PK
 W aegis_u256%s		aegis_u256.adb		aegis_u256.ali
 W anubis_sha3%s		anubis_sha3.adb		anubis_sha3.ali
 W anubis_types%s	anubis_types.ads	anubis_types.ali
@@ -43,7 +43,7 @@ N A232:7 gnatprove intentional """Ctx.Effects.Changes"" might not be initialized
 N A235:7 gnatprove intentional """Ctx.Sandbox.Effects.Changes"" might not be initialized" "All elements initialized via loop on lines 206-212"
 N A238:7 gnatprove intentional """Ctx.Sandbox.Access_Set.Entries"" might not be initialized" "All elements initialized via loop on lines 214-218"
 
-U aegis_execution%s	aegis_execution.ads	2f3b57ff EE NE OO PK
+U aegis_execution%s	aegis_execution.ads	740b5f54 EE NE OO PK
 W aegis_contract%s	aegis_contract.adb	aegis_contract.ali
 W aegis_gas%s		aegis_gas.adb		aegis_gas.ali
 W aegis_sandbox%s	aegis_sandbox.adb	aegis_sandbox.ali
@@ -57,15 +57,15 @@ D aegis_contract.ads	20251207191106 f406fabe aegis_contract%s
 D aegis_execution.ads	20251207191105 f7650f9d aegis_execution%s
 D aegis_execution.adb	20251207191106 888f23bd aegis_execution%b
 D aegis_gas.ads		20251207191105 2c397305 aegis_gas%s
-D aegis_sandbox.ads	20251207191106 0a9a14d0 aegis_sandbox%s
+D aegis_sandbox.ads	20251209080823 dd46ba5f aegis_sandbox%s
 D aegis_storage.ads	20251207191106 d62ac4d0 aegis_storage%s
 D aegis_u256.ads	20251207191105 ff2dfe4b aegis_u256%s
-D aegis_vm_types.ads	20251207191105 dcd101d9 aegis_vm_types%s
+D aegis_vm_types.ads	20251209080247 503da7fd aegis_vm_types%s
 D anubis_keccak.ads	20251207191105 19b431a9 anubis_keccak%s
 D anubis_sha3.ads	20251207191105 69737d95 anubis_sha3%s
 D anubis_types.ads	20251207191105 4fb35097 anubis_types%s
 D interfac.ads		20240808082856 9111f9c1 interfaces%s
-D khepri_mpt.ads	20251207191105 29e9c0a4 khepri_mpt%s
+D khepri_mpt.ads	20251209030134 63be316b khepri_mpt%s
 D khepri_mpt_types.ads	20251207191105 f5c1a441 khepri_mpt_types%s
 D system.ads		20240808082856 70765b54 system%s
 D s-assert.ads		20240808082856 9c4520c7 system.assertions%s
@@ -106,11 +106,11 @@ G c Z b b [storage_key_to_bytes aegis_execution 36 13 none]
 G c Z b b [u256_to_bytes aegis_execution 69 13 none]
 G c Z b b [bytes_to_u256 aegis_execution 86 13 none]
 G c Z b b [account_balance_key aegis_execution 523 13 none]
-G r s sandbox_context [create_context aegis_execution 75 13 none] [sandbox_contextIP aegis_sandbox 127 9 none]
+G r s sandbox_context [create_context aegis_execution 75 13 none] [sandbox_contextIP aegis_sandbox 158 9 none]
 G r s transaction_effects [create_context aegis_execution 75 13 none] [transaction_effectsIP aegis_storage 119 9 none]
 G r s Tsnapshot_stackB [create_context aegis_execution 75 13 none] [Tsnapshot_stackBIP aegis_storage 212 4 none]
 G r c none [create_context aegis_execution 75 13 none] [initial_gas_context aegis_vm_types 121 13 none]
-G r s call_frame [enter_call aegis_execution 87 14 none] [call_frameIP aegis_sandbox 106 9 none]
+G r s call_frame [enter_call aegis_execution 87 14 none] [call_frameIP aegis_sandbox 137 9 none]
 G r c none [use_gas aegis_execution 141 14 none] [consume_gas_discounted aegis_gas 183 14 none]
 G r c none [gas_remaining aegis_execution 150 13 none] [remaining_gas aegis_gas 192 13 none]
 G r c none [storage_load aegis_execution 165 14 none] [sha3_256 anubis_sha3 57 14 none]
@@ -133,7 +133,7 @@ G r c none [transfer_value aegis_execution 192 14 none] [put khepri_mpt 77 14 no
 G r c none [emit_log aegis_execution 238 14 none] [gas_log aegis_gas 246 13 none]
 G r c none [emit_log aegis_execution 238 14 none] [consume_gas_discounted aegis_gas 183 14 none]
 G r c none [emit_log aegis_execution 238 14 none] [sha3_256 anubis_sha3 57 14 none]
-G r s sandbox_context [execution_contextIP aegis_execution 49 9 none] [sandbox_contextIP aegis_sandbox 127 9 none]
+G r s sandbox_context [execution_contextIP aegis_execution 49 9 none] [sandbox_contextIP aegis_sandbox 158 9 none]
 G r s transaction_effects [execution_contextIP aegis_execution 49 9 none] [transaction_effectsIP aegis_storage 119 9 none]
 G r s Tsnapshot_stackB [execution_contextIP aegis_execution 49 9 none] [Tsnapshot_stackBIP aegis_storage 212 4 none]
 G r c none [ensure_state_trie aegis_execution 23 14 none] [create_trie khepri_mpt 52 14 none]
@@ -165,7 +165,7 @@ X 5 aegis_execution.ads
 54r7*Timestamp{11|41R9} 6|123m11 701r18
 55r7*Chain_ID{11|41R9} 6|124m11 706r18
 58e7*Mode{41E9} 6|125m11 474r14 592r14 730r14
-59r7*Sandbox{8|127R9} 6|130m11 137m11 138m11 139m11 140m11 143m11 144m11
+59r7*Sandbox{8|158R9} 6|130m11 137m11 138m11 139m11 140m11 143m11 144m11
 . 145m11 146m11 147m11 148m11 149m11 150m11 151m11 152m11 153m11 161m11 162m11
 . 163m11 166m11 170r20 171m14 172m14 173m14 174m14 175m14 176m14 177m14 178m14
 . 179m14 180m14 181m14 184r20 185m14 186m14 187m14 188m14 206r20 207m14 208m14
@@ -266,7 +266,7 @@ X 5 aegis_execution.ads
 . 812m13 812r41
 240a7 Topics{4|133A9} 6|715b7 774r28
 241i7 Topic_Count{natural} 247r17 6|716b7 743r22 747r28 767r10 768r25 769r24
-242a7 Data{8|237A9} 6|717b7 785r63
+242a7 Data{8|268A9} 6|717b7 785r63
 243i7 Data_Size{natural} 6|718b7 737r10 744r22 747r41 782r10 783r10 784r24
 . 787r41
 244b7 Success{boolean} 6|719b7 731m10 738m10 754m10 816m7
@@ -325,7 +325,7 @@ X 6 aegis_execution.adb
 198i11 I<short_integer> 199r31 200r31 201r31 202r31 203r31
 206i11 I<short_integer> 207r39 208r39 209r39 210r39 211r39
 214i11 I<short_integer> 215r42 216r42 217r42
-254r7 Frame{8|106R9} 263m7 264m7 265m7 266m7 267m7 268m7 269m7 270m7 271m7
+254r7 Frame{8|137R9} 263m7 264m7 265m7 266m7 267m7 268m7 269m7 270m7 271m7
 . 272m7 277m13 279m13 283r49 285r36
 323r7 Snap{9|204R9} 331m7 332m7 333m7 334m7 336r45 337r13
 346i7 Idx{natural} 350r10 350r44 351r25
@@ -386,43 +386,43 @@ X 7 aegis_gas.ads
 243i4*Max_Log_Data_Length{natural} 6|737r32 744r45
 246V13*Gas_Log{11|101I9} 6|747s19
 X 8 aegis_sandbox.ads
-27K9*Aegis_Sandbox 5|6w6 6r25 8|307e18
-98n7*Sandbox_Running{97E9} 6|137r29
-100n7*Sandbox_Returned{97E9} 6|832r29
-101n7*Sandbox_Reverted{97E9} 6|844r29
-102n7*Sandbox_Error{97E9} 6|857r29
-106R9*Call_Frame 6|254r15 8|118e14
-107a7*Caller{11|70A9} 6|143m33 171m33 263m13 676r40
-108a7*Callee{11|70A9} 6|144m33 172m33 264m13 681r40 761r39 807r55
-109r7*Value{11|41R9} 6|145m33 173m33 265m13 686r40
-110i7*Gas_Limit{11|101I9} 6|146m33 174m33 266m13
-111i7*Gas_Used{11|101I9} 6|147m33 175m33 267m13 297r48
-112a7*Call_Data{11|56A9} 6|148m33 176m33 268m13
-113a7*Return_Data{11|56A9} 6|149m33 177m33 269m13
-114i7*Depth{11|188I9} 6|150m33 178m33 270m13
-115e7*Call_Kind{11|178E9} 6|151m33 179m33 271m13
-116a7*Capabilities{11|263A9} 6|152m33 180m33 277m19 279m19
-117b7*Is_Static{boolean} 6|153m33 181m33 272m13
-124A9*Call_Stack(106R9)<11|188I9>
-127R9*Sandbox_Context 5|59r22 8|151e14
-129e7*Status{97E9} 6|137m19 832m19 844m19 857m19
-130r7*Current_Frame{106R9} 6|143m19 144m19 145m19 146m19 147m19 148m19 149m19
+27K9*Aegis_Sandbox 5|6w6 6r25 8|338e18
+129n7*Sandbox_Running{128E9} 6|137r29
+131n7*Sandbox_Returned{128E9} 6|832r29
+132n7*Sandbox_Reverted{128E9} 6|844r29
+133n7*Sandbox_Error{128E9} 6|857r29
+137R9*Call_Frame 6|254r15 8|149e14
+138a7*Caller{11|70A9} 6|143m33 171m33 263m13 676r40
+139a7*Callee{11|70A9} 6|144m33 172m33 264m13 681r40 761r39 807r55
+140r7*Value{11|41R9} 6|145m33 173m33 265m13 686r40
+141i7*Gas_Limit{11|101I9} 6|146m33 174m33 266m13
+142i7*Gas_Used{11|101I9} 6|147m33 175m33 267m13 297r48
+143a7*Call_Data{11|56A9} 6|148m33 176m33 268m13
+144a7*Return_Data{11|56A9} 6|149m33 177m33 269m13
+145i7*Depth{11|188I9} 6|150m33 178m33 270m13
+146e7*Call_Kind{11|178E9} 6|151m33 179m33 271m13
+147a7*Capabilities{11|264A9} 6|152m33 180m33 277m19 279m19
+148b7*Is_Static{boolean} 6|153m33 181m33 272m13
+155A9*Call_Stack(137R9)<11|188I9>
+158R9*Sandbox_Context 5|59r22 8|182e14
+160e7*Status{128E9} 6|137m19 832m19 844m19 857m19
+161r7*Current_Frame{137R9} 6|143m19 144m19 145m19 146m19 147m19 148m19 149m19
 . 150m19 151m19 152m19 153m19 285m19 297r34 301m25 676r26 681r26 686r26 761r25
 . 807r41
-133a7*Frames{124A9} 6|170r28 171m22 172m22 173m22 174m22 175m22 176m22 177m22
+164a7*Frames{155A9} 6|170r28 171m22 172m22 173m22 174m22 175m22 176m22 177m22
 . 178m22 179m22 180m22 181m22 283m19 302r28
-134i7*Depth{11|188I9} 6|138m19 257r22 270r34 283r39 284m19 284r40 296r22
+165i7*Depth{11|188I9} 6|138m19 257r22 270r34 283r39 284m19 284r40 296r22
 . 298m22 298r43 300r25 302r48 311r26
-137i7*Memory_Size{natural} 6|139m19
-140r7*Gas{11|113R9} 6|130m19 333r36 368m25 384m43 389r41 830r38 842r38 855r38
-143r7*Access_Set{9|232R9} 6|166m19 214r28 215m22 216m22 217m22
-146a7*Snapshots{9|212A9} 6|184r28 185m22 186m22 187m22 188m22
-147i7*Snapshot_Count{natural} 6|140m19
-150r7*Effects{9|119R9} 6|161m19 162m19 163m19 206r28 207m22 208m22 209m22
+168i7*Memory_Size{natural} 6|139m19
+171r7*Gas{11|113R9} 6|130m19 333r36 368m25 384m43 389r41 830r38 842r38 855r38
+174r7*Access_Set{9|232R9} 6|166m19 214r28 215m22 216m22 217m22
+177a7*Snapshots{9|212A9} 6|184r28 185m22 186m22 187m22 188m22
+178i7*Snapshot_Count{natural} 6|140m19
+181r7*Effects{9|119R9} 6|161m19 162m19 163m19 206r28 207m22 208m22 209m22
 . 210m22 211m22
-234N4*Max_Log_Data_Size 6|725r48 782r23
-236I9*Log_Data_Index<short_integer> 6|785r69
-237A9*Log_Data_Buffer(11|31M12)<236I9> 5|242r27 6|717r27
+265N4*Max_Log_Data_Size 6|725r48 782r23
+267I9*Log_Data_Index<short_integer> 6|785r69
+268A9*Log_Data_Buffer(11|31M12)<267I9> 5|242r27 6|717r27
 X 9 aegis_storage.ads
 27K9*Aegis_Storage 5|4w6 4r25 9|259e18
 95n7*Change_Balance{94E9} 6|199r44 207r52 649r26 658r26
@@ -464,7 +464,7 @@ X 10 aegis_u256.ads
 84V13*Sub_Mod{11|41R9} 6|615s19
 X 11 aegis_vm_types.ads
 21K9*Aegis_VM_Types 5|3w6 3r26 6|39r13 43r18 63r24 69r49 70r16 77r38 419r28
-. 468r30 469r30 523r69 526r18 538r24 549r28 586r31 587r31 829r24 11|279e19
+. 468r30 469r30 523r69 526r18 538r24 549r28 586r31 587r31 829r24 11|280e19
 31M12*Byte{15|70M9} 6|63r39 77r53 538r39
 32A9*Byte_Array(31M12)<integer> 6|39r28 43r33 69r64 70r31 419r43 468r45 469r45
 . 523r84 526r33 549r43 586r46 587r46
@@ -510,9 +510,9 @@ X 11 aegis_vm_types.ads
 207e7*Status{195E9} 6|829m14 841m14 854m14
 208i7*Gas_Used{101I9} 6|830m14 842m14 855m14
 209a7*Return_Data{56A9} 6|831m14 843m14 856m14
-263A9*Capability_Mask(boolean)<250E9>
-268a4*Full_Capabilities{263A9} 6|152r49 180r49 279r35
-273a4*Read_Only_Capabilities{263A9} 6|277r35
+264A9*Capability_Mask(boolean)<250E9>
+269a4*Full_Capabilities{264A9} 6|152r49 180r49 279r35
+274a4*Read_Only_Capabilities{264A9} 6|277r35
 X 13 anubis_sha3.ads
 27K9*Anubis_SHA3 6|8w6 42r18 61r7 525r18 536r7 723r18 791r7 13|158e16
 32A12*SHA3_256_Digest{14|14A9}<integer> 6|42r30 525r30 723r30

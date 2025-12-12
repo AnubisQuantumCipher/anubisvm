@@ -1,8 +1,0 @@
-khepri_mpt_types.adb:27:35: warning: condition is always True [-gnatwc]
-khepri_mpt_types.adb:81:35: warning: condition is always True [-gnatwc]
-khepri_mpt_types.adb:139:35: warning: condition is always True [-gnatwc]
-khepri_mpt_types.ads:51:17: warning: array aggregate using () is an obsolescent syntax, use [] instead [-gnatwj]
-khepri_mpt_types.ads:63:38: warning: array aggregate using () is an obsolescent syntax, use [] instead [-gnatwj]
-khepri_mpt_types.ads:98:17: warning: array aggregate using () is an obsolescent syntax, use [] instead [-gnatwj]
-khepri_mpt_types.ads:110:45: warning: array aggregate using () is an obsolescent syntax, use [] instead [-gnatwj]
-clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]

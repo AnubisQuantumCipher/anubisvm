@@ -201,7 +201,7 @@ is
    --  Post: All bytes of key are zero (proven by postcondition)
    procedure Zeroize_Key (Key : in Out AEAD_Key) with
       Global  => null,
-      Depends => (Key => null),
+      Depends => (Key => Key),
       Post    => Key_Is_Zero (Key),
       Always_Terminates;
 
@@ -213,7 +213,7 @@ is
    --  Post: All bytes of nonce are zero (proven by postcondition)
    procedure Zeroize_Nonce (Nonce : in Out AEAD_Nonce) with
       Global  => null,
-      Depends => (Nonce => null),
+      Depends => (Nonce => Nonce),
       Post    => Nonce_Is_Zero (Nonce),
       Always_Terminates;
 

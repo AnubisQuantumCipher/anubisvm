@@ -20,179 +20,248 @@ P SS ZX
 
 RN
 RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_IMPLICIT_CONDITIONALS
 RV NO_SECONDARY_STACK
 RV NO_STANDARD_STORAGE_POOLS
 RV NO_DYNAMIC_SIZED_OBJECTS
 RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
 RV NO_IMPLEMENTATION_PRAGMAS
 
-U anubis_address%b	anubis_address.adb	09f5e292 NE OO PK
+U anubis_address%b	anubis_address.adb	27584579 NE OO PK
 W anubis_address_base32%s  anubis_address_base32.adb  anubis_address_base32.ali
 W anubis_address_checksum%s  anubis_address_checksum.adb  anubis_address_checksum.ali
 Z system.assertions%s	s-assert.adb		s-assert.ali
+Z system.concat_2%s	s-conca2.adb		s-conca2.ali
 Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
 
-U anubis_address%s	anubis_address.ads	4c246da6 EE NE OO PK
+U anubis_address%s	anubis_address.ads	9f80bd29 EE NE OO PK
 W anubis_address_derive%s  anubis_address_derive.adb  anubis_address_derive.ali
 W anubis_address_types%s  anubis_address_types.ads  anubis_address_types.ali
+W interfaces%s		interfac.ads		interfac.ali
 
 D ada.ads		20240808082856 76789da1 ada%s
 D a-assert.ads		20240808082856 ba465f5c ada.assertions%s
 D a-unccon.ads		20240808082856 0e9b276f ada.unchecked_conversion%s
-D anubis_address.ads	20251207191105 be68d99a anubis_address%s
-D anubis_address.adb	20251207191447 e52258e4 anubis_address%b
-D anubis_address_base32.ads  20251207191457 32d1de4f anubis_address_base32%s
+D anubis_address.ads	20251212130555 fcddf0d4 anubis_address%s
+D anubis_address.adb	20251212131716 4f845cb6 anubis_address%b
+D anubis_address_base32.ads  20251211195718 f46f54b8 anubis_address_base32%s
 D anubis_address_checksum.ads  20251207191105 606ebda3 anubis_address_checksum%s
 D anubis_address_derive.ads  20251207191105 10a2d609 anubis_address_derive%s
 D anubis_address_types.ads  20251207191105 e2ee6235 anubis_address_types%s
 D interfac.ads		20240808082856 9111f9c1 interfaces%s
 D system.ads		20240808082856 70765b54 system%s
 D s-assert.ads		20240808082856 9c4520c7 system.assertions%s
+D s-conca2.ads		20240808082856 b5fb73f7 system.concat_2%s
 D s-exctab.ads		20240808082856 91bef6ef system.exception_table%s
 D s-parame.ads		20240808082856 3597fc11 system.parameters%s
 D s-secsta.ads		20240808082856 578279f5 system.secondary_stack%s
 D s-stalib.ads		20240808082856 1c9580f6 system.standard_library%s
 D s-stoele.ads		20240808082856 ccded4e8 system.storage_elements%s
 G a e
-G c Z s b [create_address anubis_address 44 13 none]
-G c Z s b [format_address anubis_address 55 14 none]
-G c Z s b [parse_address anubis_address 67 14 none]
-G c Z s b [validate_address anubis_address 76 13 none]
-G c Z s b [get_chunked_payload anubis_address 81 14 none]
-G c Z s b [get_checksum_string anubis_address 91 14 none]
-G r c none [parse_address anubis_address 67 14 none] [unchunk_payload anubis_address_base32 78 14 none]
-G r c none [parse_address anubis_address 67 14 none] [decode_account_id anubis_address_base32 48 14 none]
-G r c none [parse_address anubis_address 67 14 none] [decode_checksum anubis_address_base32 57 14 none]
-G r c none [parse_address anubis_address 67 14 none] [verify_checksum anubis_address_checksum 41 13 none]
-G r c none [validate_address anubis_address 76 13 none] [encode_account_id anubis_address_base32 30 14 none]
-G r c none [validate_address anubis_address 76 13 none] [compute_checksum anubis_address_checksum 31 14 none]
-G r c none [validate_address anubis_address 76 13 none] [verify_checksum anubis_address_checksum 41 13 none]
+G c Z s b [account_id_from_pk anubis_address 66 13 none]
+G c Z s s [address_well_formed anubis_address 73 13 none]
+G c Z s s [addresses_equal anubis_address 80 13 none]
+G c Z s s [address_deterministic anubis_address 87 13 none]
+G c Z s b [checksum_correct anubis_address 99 13 none]
+G c Z s s [domain_separated anubis_address 104 13 none]
+G c Z s s [format_parse_roundtrip anubis_address 113 13 none]
+G c Z s b [create_address anubis_address 137 13 none]
+G c Z s b [format_address anubis_address 168 14 none]
+G c Z s b [parse_address anubis_address 198 14 none]
+G c Z s b [validate_address anubis_address 233 13 none]
+G c Z s b [get_chunked_payload anubis_address 250 14 none]
+G c Z s b [get_checksum_string anubis_address 273 14 none]
+G c Z s b [lemma_create_valid anubis_address 291 14 none]
+G c Z s b [lemma_domain_separation anubis_address 301 14 none]
+G c Z s b [lemma_roundtrip anubis_address 315 14 none]
+G r c none [account_id_from_pk anubis_address 66 13 none] [derive_account_id anubis_address_derive 41 14 none]
+G r c none [create_address anubis_address 137 13 none] [derive_account_id anubis_address_derive 41 14 none]
+G r c none [lemma_create_valid anubis_address 291 14 none] [derive_account_id anubis_address_derive 41 14 none]
+G r c none [lemma_domain_separation anubis_address 301 14 none] [derive_account_id anubis_address_derive 41 14 none]
 X 4 anubis_address.ads
-38K9*Anubis_Address 100l5 100e19 5|6b14 375l5 375t19
-44V13*Create_Address{9|89R9} 45>7 46>7 47>7 50r17 5|11b13
-45e7 Network{9|37E9} 5|12b7 22r25
-46e7 Entity{9|46E9} 5|13b7 19r26 23r24
-47a7 Public_Key{8|37A9} 5|14b7 19r34
-55U14*Format_Address 56>7 57<7 58<7 5|32b14
-56r7 Addr{9|89R9} 61r17 5|33b7 40r55 41r55 54r26 57r25 57r39
-57a7 Output{9|86A12} 5|34b7 51m7 71m10 75m7 82m10 86m7 90m7 93m7 101m10 108m7
-. 117m10
-58i7 Length{natural} 62r17 5|35b7 121m7
-67U14*Parse_Address 68>7 69<7 5|127b14 305l8 305t21
-68a7 Input{string} 72r17 72r38 5|128b7 136r24 162r10 168r20 168r40 169r40
-. 169r63 174r16 183r40 192r20 192r40 193r40 193r63 198r16 207r20 207r39 215r45
-. 220r33 226r16 226r35 234r20 240r36 254r39 272r12
-69r7 Addr{9|89R9} 5|129b7 156m7 157m7 158m7 159m7 257m13 259m13 261m13 263m13
-. 265m13 273m22 274m22 275m22 276m22 286m39 286r39 298r31 298r45 304m7
-76V13*Validate_Address{boolean} 76>31 5|310b13 325l8 325t24
-76r31 Addr{9|89R9} 5|310b31 316r14 321r26 322r25 322r39 324r31 324r45
-81U14*Get_Chunked_Payload 82>7 83<7 84<7 5|328b14
-82r7 Addr{9|89R9} 87r17 5|329b7 340r26
-83a7 Payload{string} 87r32 5|330b7 337m7 344m10 344r19
-84i7 Length{natural} 88r17 5|331b7 338m7 347m7
-91U14*Get_Checksum_String 92>7 93<7 94<7 5|351b14
-92r7 Addr{9|89R9} 97r17 5|352b7 364r26 365r25 365r39
-93a7 Checksum{string} 97r32 5|353b7 361m7 369m10 369r20
-94i7 Length{natural} 98r17 5|354b7 362m7 372m7
+55K9*Anubis_Address 323l5 323e19 5|6b14 434l5 434t19
+66V13*Account_ID_From_PK{9|57A9} 67>7 68>7 147s49 5|15b13 24l8 24t26
+67e7 Entity{9|46E9} 5|16b7 22r26
+68a7 Public_Key{8|37A9} 5|17b7 22r34
+73V13*Address_Well_Formed{boolean} 73>34 144s17 175s17 236s18 257s17 280s17
+73r34 Addr{9|89R9} 74r8 75r8 76r8
+80V13*Addresses_Equal{boolean} 80>30 80>33 95s8 109s38 118s8 310s21
+80r30 A{9|89R9} 81r8 82r8 83r42
+80r33 B{9|89R9} 81r20 82r19 83r58
+83i17 I{9|56I12} 83r53 83r69
+87V13*Address_Deterministic{boolean} 88>7 88>17 89>7 89>16 90>7 90>12 91>7
+. 91>14
+88e7 Network1{9|37E9} 93r8
+88e17 Network2{9|37E9} 93r19
+89e7 Entity1{9|46E9} 93r32
+89e16 Entity2{9|46E9} 93r42
+90a7 PK1{8|37A9} 94r22 94r35
+90a12 PK2{8|37A9} 94r45
+91r7 Addr1{9|89R9} 95r25
+91r14 Addr2{9|89R9} 95r32
+94i17 I{integer} 94r40 94r50
+99V13*Checksum_Correct{boolean} 99>31 237s18 5|27b13 31l8 31t24
+99r31 Addr{9|89R9} 5|27b31 28r28
+104V13*Domain_Separated{boolean} 105>7 105>16 106>7 107>7 107>14
+105e7 Entity1{9|46E9} 109r8
+105e16 Entity2{9|46E9} 109r18
+106a7 PK{8|37A9}
+107r7 Addr1{9|89R9} 109r55
+107r14 Addr2{9|89R9} 109r62
+113V13*Format_Parse_Roundtrip{boolean} 114>7 115>7
+114r7 Addr_Original{9|89R9} 117r8 118r25
+115r7 Addr_Parsed{9|89R9} 118r40
+137V13*Create_Address{9|89R9} 138>7 139>7 140>7 143r17 144r38 145r17 146r17
+. 147r17 298s17 311s20 312s20 5|70b13
+138e7 Network{9|37E9} 145r49 5|71b7 81r25
+139e7 Entity{9|46E9} 146r48 147r69 5|72b7 78r26 82r24
+140a7 Public_Key{8|37A9} 147r77 5|73b7 78r34
+168U14*Format_Address 169>7 170<7 171<7 5|91b14
+169r7 Addr{9|89R9} 174r17 175r38 5|92b7 99r55 100r55 113r26 116r25 116r39
+170a7 Output{9|86A12} 5|93b7 110m7 130m10 134m7 141m10 145m7 149m7 152m7
+. 160m10 167m7 176m10
+171i7 Length{natural} 176r17 177r17 5|94b7 180m7
+198U14*Parse_Address 199>7 200<7 5|186b14
+199a7 Input{string} 203r17 204r17 205r17 208r10 208r33 212r10 216r10 5|187b7
+. 195r24 221r10 227r20 227r40 228r40 228r63 233r16 242r40 251r20 251r40 252r40
+. 252r63 257r16 266r20 266r39 274r45 279r33 285r16 285r35 293r20 299r36 313r39
+. 331r12
+200r7 Addr{9|89R9} 213r17 217r17 5|188b7 215m7 216m7 217m7 218m7 316m13 318m13
+. 320m13 322m13 324m13 332m22 333m22 334m22 335m22 345m39 345r39 357r31 357r45
+. 363m7
+233V13*Validate_Address{boolean} 233>31 235r18 5|369b13
+233r31 Addr{9|89R9} 236r39 237r36 5|369b31 375r14 380r26 381r25 381r39 383r31
+. 383r45
+250U14*Get_Chunked_Payload 251>7 252<7 253<7 5|387b14
+251r7 Addr{9|89R9} 256r17 257r38 5|388b7 399r26
+252a7 Payload{string} 258r17 260r31 260r48 261r20 5|389b7 396m7 403m10 403r19
+253i7 Length{natural} 259r17 260r64 5|390b7 397m7 406m7
+260i26 I{integer} 261r29
+273U14*Get_Checksum_String 274>7 275<7 276<7 5|410b14
+274r7 Addr{9|89R9} 279r17 280r38 5|411b7 423r26 424r25 424r39
+275a7 Checksum{string} 281r17 283r31 283r49 284r20 5|412b7 420m7 428m10 428r20
+276i7 Length{natural} 282r17 5|413b7 421m7 431m7
+283i26 I{integer} 284r30
+291U14*Lemma_Create_Valid 292>7 293>7 294>7 5|34b14
+292e7 Network{9|37E9} 298r33 5|35b7 39r28
+293e7 Entity{9|46E9} 298r42 5|36b7 39r37
+294a7 Public_Key{8|37A9} 298r50 5|37b7 39r45
+301U14*Lemma_Domain_Separation 302>7 303>7 304>7 305>7 5|45b14
+302e7 Network{9|37E9} 311r36 312r36 5|46b7 51r28
+303e7 Entity1{9|46E9} 309r17 311r45 5|47b7 51r37
+304e7 Entity2{9|46E9} 309r28 312r45 5|48b7 51r46
+305a7 Public_Key{8|37A9} 311r54 312r54 5|49b7 51r55
+315U14*Lemma_Roundtrip 316>7 5|57b14 63l8 63t23
+316r7 Addr{9|89R9} 320r17 5|58b7 60r28
 X 5 anubis_address.adb
-16r7 Result{9|89R9} 19m46 19r46 22m7 23m7 24m7 26r14
-39a7 Algo_Tag{string} 68r16 71r26
-40a7 Net_Str{string} 79r16 82r26
-41e7 Ent_Char{character} 90r23
-43a7 Payload_B32{9|71A9} 54m40 57r52 63r22
-44a7 Chunked{9|76A9} 63m35 101r26
-45a7 Checksum_Val{9|61A9} 57m65 60r24
-46a7 Checksum_B32{9|80A9} 60m38 117r26
-48i7 Pos{natural} 69r33 70r33 70r46 71r18 72m10 72r17 75r15 76m7 76r14 80r33
-. 81r33 81r46 82r18 83m10 83r17 86r15 87m7 87r14 90r15 91m7 91r14 93r15 94m7
-. 94r14 100r33 100r47 101r18 102m10 102r17 106r22 106r36 108r15 109m7 109r14
-. 112r22 112r36 116r33 116r47 117r18 118m10 118r17 121r17
-68i11 I{integer} 69r39 71r36
-79i11 I{integer} 80r43 82r35
-99i11 I{9|75I12} 101r35
-115i11 I{9|79I12} 117r40
-133b7 Success{boolean} 281m54 282r14 286m53 287r14 292m56 293r14
-136i7 Pos{natural} 167r21 168r13 168r47 169r33 169r56 170r33 171m10 171r17
-. 174r10 178r19 179m7 179r14 191r20 192r13 192r47 193r33 193r56 194r33 195m10
-. 195r17 198r10 202r18 203m7 203r14 206r19 207r10 207r46 211m7 211r14 214r24
-. 215r10 223m7 223r14 226r10 226r42 230m7 230r14 233r25 234r10
-139i7 Algo_Start{natural} 167m7 183r47
-139i19 Algo_End{natural} 178m7 183r61
-140i7 Net_Start{natural} 191m7 254r46
-140i18 Net_End{natural} 202m7 254r59
-141i7 Type_Pos{natural} 206m7 272r19
-142i7 Payload_Start{natural} 214m7 220r40
-143i7 Checksum_Start{natural} 233m7 240r43
-146a7 Payload_Chunked{9|76A9} 220m10 281r24
-147a7 Payload_B32{9|71A9} 281m41 286r26 299r31
-148a7 Checksum_B32{9|80A9} 246m13 292r24
-149a7 Checksum_Decoded{9|61A9} 292m38 299r44
-152a7 Checksum_Chars{string} 240m10 245r13 246r33
-183a10 Algo_Str{string} 185r13
-219i11 I{9|75I12} 220r27 220r56
-239i11 I{integer} 240r26 240r60
-244i11 I{9|79I12} 245r29 246r27 246r49
-254a10 Net_Str{string} 256r13 258r16 260r16 262r16 264r16
-313a7 Payload_B32{9|71A9} 321m40 322r52 324r58
-314a7 Checksum_Val{9|61A9} 322m65 324r71
-333a7 Payload_B32{9|71A9} 340m40 341r22
-334a7 Chunked{9|76A9} 341m35 344r41
-343i11 I{9|75I12} 344r35 344r50
-356a7 Payload_B32{9|71A9} 364m40 365r52
-357a7 Checksum_Val{9|61A9} 365m65 366r24
-358a7 Checksum_B32{9|80A9} 366m38 369r43
-368i11 I{9|79I12} 369r37 369r57
+19a7 Result{9|57A9} 22m46 23r14
+75r7 Result{9|89R9} 78m46 78r46 81m7 82m7 83m7 85r14
+98a7 Algo_Tag{string} 127r16 130r26
+99a7 Net_Str{string} 138r16 141r26
+100e7 Ent_Char{character} 149r23
+102a7 Payload_B32{9|71A9} 113m40 116r52 122r22
+103a7 Chunked{9|76A9} 122m35 160r26
+104a7 Checksum_Val{9|61A9} 116m65 119r24
+105a7 Checksum_B32{9|80A9} 119m38 176r26
+107i7 Pos{natural} 128r33 129r33 129r46 130r18 131m10 131r17 134r15 135m7
+. 135r14 139r33 140r33 140r46 141r18 142m10 142r17 145r15 146m7 146r14 149r15
+. 150m7 150r14 152r15 153m7 153r14 159r33 159r47 160r18 161m10 161r17 165r22
+. 165r36 167r15 168m7 168r14 171r22 171r36 175r33 175r47 176r18 177m10 177r17
+. 180r17
+127i11 I{integer} 128r39 130r36
+138i11 I{integer} 139r43 141r35
+158i11 I{9|75I12} 160r35
+174i11 I{9|79I12} 176r40
+192b7 Success{boolean} 340m54 341r14 345m53 346r14 351m56 352r14
+195i7 Pos{natural} 226r21 227r13 227r47 228r33 228r56 229r33 230m10 230r17
+. 233r10 237r19 238m7 238r14 250r20 251r13 251r47 252r33 252r56 253r33 254m10
+. 254r17 257r10 261r18 262m7 262r14 265r19 266r10 266r46 270m7 270r14 273r24
+. 274r10 282m7 282r14 285r10 285r42 289m7 289r14 292r25 293r10
+198i7 Algo_Start{natural} 226m7 242r47
+198i19 Algo_End{natural} 237m7 242r61
+199i7 Net_Start{natural} 250m7 313r46
+199i18 Net_End{natural} 261m7 313r59
+200i7 Type_Pos{natural} 265m7 331r19
+201i7 Payload_Start{natural} 273m7 279r40
+202i7 Checksum_Start{natural} 292m7 299r43
+205a7 Payload_Chunked{9|76A9} 279m10 340r24
+206a7 Payload_B32{9|71A9} 340m41 345r26 358r31
+207a7 Checksum_B32{9|80A9} 305m13 351r24
+208a7 Checksum_Decoded{9|61A9} 351m38 358r44
+211a7 Checksum_Chars{string} 299m10 304r13 305r33
+242a10 Algo_Str{string} 244r13
+278i11 I{9|75I12} 279r27 279r56
+298i11 I{integer} 299r26 299r60
+303i11 I{9|79I12} 304r29 305r27 305r49
+313a10 Net_Str{string} 315r13 317r16 319r16 321r16 323r16
+372a7 Payload_B32{9|71A9} 380m40 381r52 383r58
+373a7 Checksum_Val{9|61A9} 381m65 383r71
+392a7 Payload_B32{9|71A9} 399m40 400r22
+393a7 Chunked{9|76A9} 400m35 403r41
+402i11 I{9|75I12} 403r35 403r50
+415a7 Payload_B32{9|71A9} 423m40 424r52
+416a7 Checksum_Val{9|61A9} 424m65 425r24
+417a7 Checksum_B32{9|80A9} 425m38 428r43
+427i11 I{9|79I12} 428r37 428r57
 X 6 anubis_address_base32.ads
-24K9*Anubis_Address_Base32 5|3w6 3r33 6|102e26
-30U14*Encode_Account_ID 5|54s7 321s7 340s7 364s7
-39U14*Encode_Checksum 5|60s7 366s7
-48U14*Decode_Account_ID 5|286s7
-57U14*Decode_Checksum 5|292s7
-67U14*Chunk_Payload 5|63s7 341s7
-78U14*Unchunk_Payload 5|281s7
+24K9*Anubis_Address_Base32 5|3w6 3r33 6|103e26
+30U14*Encode_Account_ID 5|113s7 380s7 399s7 423s7
+40U14*Encode_Checksum 5|119s7 425s7
+49U14*Decode_Account_ID 5|345s7
+58U14*Decode_Checksum 5|351s7
+68U14*Chunk_Payload 5|122s7 400s7
+79U14*Unchunk_Payload 5|340s7
 X 7 anubis_address_checksum.ads
 24K9*Anubis_Address_Checksum 5|4w6 4r35 7|67e28
-31U14*Compute_Checksum 5|57s7 322s7 365s7
-41V13*Verify_Checksum{boolean} 5|298s14 324s14
+31U14*Compute_Checksum 5|116s7 381s7 424s7
+41V13*Verify_Checksum{boolean} 5|357s14 383s14
 X 8 anubis_address_derive.ads
-30K9*Anubis_Address_Derive 4|4w6 4r33 8|68e26
-37A9*Public_Key_Bytes(10|70M9)<integer> 4|47r20 5|14r20
-41U14*Derive_Account_ID 5|19s7
+30K9*Anubis_Address_Derive 4|7w6 7r33 8|68e26
+37A9*Public_Key_Bytes(10|70M9)<integer> 4|68r20 90r28 106r26 140r20 294r20
+. 305r20 5|17r20 37r20 49r20 73r20
+41U14*Derive_Account_ID 5|22s7 78s7
 X 9 anubis_address_types.ads
-28K9*Anubis_Address_Types 4|3w6 3r32 9|136e25
-34a4*Algorithm_Tag{string} 5|39r39 185r25
-37E9*Network_Type 4|45r20 5|12r20 9|43e5
-38n7*Main{37E9} 5|156r23 257r29
-39n7*Test{37E9} 5|259r29
-40n7*Dev{37E9} 5|261r29
-41n7*Lab{37E9} 5|263r29
-42n7*Staging{37E9} 5|265r29
-46E9*Entity_Type 4|46r20 5|13r20 9|51e5
-47n7*User{46E9} 5|157r22 273r37
-48n7*Contract{46E9} 5|274r37
-49n7*Validator{46E9} 5|275r37
-50n7*System{46E9} 5|276r37
-57A9*Account_ID(10|70M9)<integer>
-61A9*Checksum_Bytes(10|70M9)<integer> 5|45r22 149r26 314r22 357r22
-65E12*Base32_Char{character} 5|245r39
-71A9*Payload_Base32(65E12)<integer> 5|43r22 147r26 313r22 333r21 356r22
-74N4*Chunked_Payload_Length 4|87r50 88r26 5|215r16 223r20 347r17
-75I12*Chunked_Payload_Index{natural} 5|99r16 219r16 343r16
-76A9*Chunked_Payload(character)<integer> 5|44r22 146r26 334r21
-79I12*Checksum_B32_Index{natural} 5|115r16 244r16 368r16
-80A9*Checksum_Base32(65E12)<integer> 5|46r22 148r26 358r22
-85N4*Max_Address_Length 4|62r27
-86A12*Address_String{string}<integer> 4|57r20 5|34r20
-89R9*Address 4|48r13 56r20 69r20 76r38 82r21 92r22 5|15r13 16r16 33r20 129r20
-. 310r38 329r21 352r22 9|94e14
-90e7*Network{37E9} 5|22m14 40r60 57r30 156m12 257m18 259m18 261m18 263m18
-. 265m18 298r36 322r30 324r36 365r30
-91e7*Entity{46E9} 5|23m14 41r60 57r44 157m12 273m27 274m27 275m27 276m27
-. 298r50 322r44 324r50 365r44
-92a7*Account{57A9} 5|19m53 54r31 158m12 286m44 321r31 340r31 364r31
-93b7*Valid{boolean} 4|50r39 61r22 87r22 97r22 5|24m14 159m12 304m12 316r19
-97V13*Network_String{string} 5|40s39
-108V13*Entity_Char{character} 5|41s42
+28K9*Anubis_Address_Types 4|6w6 6r32 9|136e25
+34a4*Algorithm_Tag{string} 5|98r39 244r25
+37E9*Network_Type 4|75r24 88r28 138r20 292r20 302r20 5|35r20 46r20 71r20
+. 9|43e5
+38n7*Main{37E9} 5|215r23 316r29
+39n7*Test{37E9} 5|318r29
+40n7*Dev{37E9} 5|320r29
+41n7*Lab{37E9} 5|322r29
+42n7*Staging{37E9} 5|324r29
+46E9*Entity_Type 4|67r20 76r23 89r28 105r26 139r20 293r20 303r20 304r20 5|16r20
+. 36r20 47r20 48r20 72r20 9|51e5
+47n7*User{46E9} 5|216r22 332r37
+48n7*Contract{46E9} 5|333r37
+49n7*Validator{46E9} 5|334r37
+50n7*System{46E9} 5|335r37
+56I12*Account_ID_Index{natural} 4|83r22
+57A9*Account_ID(10|70M9)<integer> 4|69r13 5|18r13 19r16
+61A9*Checksum_Bytes(10|70M9)<integer> 5|104r22 208r26 373r22 416r22
+65E12*Base32_Char{character} 5|304r39
+71A9*Payload_Base32(65E12)<integer> 5|102r22 206r26 372r22 392r21 415r22
+74N4*Chunked_Payload_Length 4|258r35 259r26 5|274r16 282r20 406r17
+75I12*Chunked_Payload_Index{natural} 5|158r16 278r16 402r16
+76A9*Chunked_Payload(character)<integer> 5|103r22 205r26 393r21
+79I12*Checksum_B32_Index{natural} 5|174r16 303r16 427r16
+80A9*Checksum_Base32(65E12)<integer> 5|105r22 207r26 417r22
+85N4*Max_Address_Length 4|176r27 205r33 208r49 216r25
+86A12*Address_String{string}<integer> 4|170r20 5|93r20
+89R9*Address 4|73r41 80r37 91r28 99r38 107r26 114r23 115r23 141r13 169r20
+. 200r20 233r38 251r21 274r22 316r14 5|27r38 58r14 74r13 75r16 92r20 188r20
+. 369r38 388r21 411r22 9|94e14
+90e7*Network{37E9} 4|75r13 81r10 81r22 145r39 5|81m14 99r60 116r30 215m12
+. 316m18 318m18 320m18 322m18 324m18 357r36 381r30 383r36 424r30
+91e7*Entity{46E9} 4|76r13 82r10 82r21 146r39 5|82m14 100r60 116r44 216m12
+. 332m27 333m27 334m27 335m27 357r50 381r44 383r50 424r44
+92a7*Account{57A9} 4|83r44 83r60 147r39 5|78m53 113r31 217m12 345m44 380r31
+. 399r31 423r31
+93b7*Valid{boolean} 4|74r13 117r22 143r39 174r22 213r22 217r22 256r22 279r22
+. 298r62 320r22 5|83m14 218m12 363m12 375r19
+97V13*Network_String{string} 5|99s39
+108V13*Entity_Char{character} 5|100s42
 X 10 interfac.ads
-70M9*Unsigned_8
+38K9*Interfaces 4|3w6 4r10 10|233e15
+70M9*Unsigned_8 4|4r21
 

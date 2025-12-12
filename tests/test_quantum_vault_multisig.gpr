@@ -1,0 +1,19 @@
+with "../anubisvm.gpr";
+
+project Test_Quantum_Vault_Multisig is
+
+   for Source_Dirs use ("src/integration");
+   for Object_Dir use "obj";
+   for Exec_Dir   use "bin";
+   for Main       use ("test_quantum_vault_multisig.adb");
+
+   package Compiler is
+      for Default_Switches ("Ada") use ("-g", "-O2");
+   end Compiler;
+
+   package Binder is
+      for Default_Switches ("Ada") use ("-E");
+   end Binder;
+
+end Test_Quantum_Vault_Multisig;
+

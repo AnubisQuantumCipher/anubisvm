@@ -26,7 +26,7 @@ RV NO_DYNAMIC_SIZED_OBJECTS
 RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
 RV NO_IMPLEMENTATION_PRAGMAS
 
-U anubis_address_derive%b  anubis_address_derive.adb  fc0fedb6 NE OO PK
+U anubis_address_derive%b  anubis_address_derive.adb  cd6a7113 NE OO PK
 W anubis_sha3%s		anubis_sha3.adb		anubis_sha3.ali
 W anubis_types%s	anubis_types.ads	anubis_types.ali
 Z system.assertions%s	s-assert.adb		s-assert.ali
@@ -42,8 +42,8 @@ D a-unccon.ads		20240808082856 0e9b276f ada.unchecked_conversion%s
 D anubis_address_derive.ads  20251207191105 10a2d609 anubis_address_derive%s
 D anubis_address_derive.adb  20251207191105 ca6d16bd anubis_address_derive%b
 D anubis_address_types.ads  20251207191105 e2ee6235 anubis_address_types%s
-D anubis_keccak.ads	20251207191105 19b431a9 anubis_keccak%s
-D anubis_sha3.ads	20251207191105 69737d95 anubis_sha3%s
+D anubis_keccak.ads	20251211132252 b3b03dd1 anubis_keccak%s
+D anubis_sha3.ads	20251211201618 5816e130 anubis_sha3%s
 D anubis_types.ads	20251207191105 4fb35097 anubis_types%s
 D interfac.ads		20240808082856 9111f9c1 interfaces%s
 D system.ads		20240808082856 70765b54 system%s
@@ -57,7 +57,7 @@ G a e
 G c Z s b [derive_account_id anubis_address_derive 41 14 none]
 G c Z s b [build_domain_separator anubis_address_derive 55 14 none]
 G c Z s s [Tpublic_key_bytesBIP anubis_address_derive 37 4 none]
-G r c none [derive_account_id anubis_address_derive 41 14 none] [sha3_256 anubis_sha3 57 14 none]
+G r c none [derive_account_id anubis_address_derive 41 14 none] [sha3_256 anubis_sha3 120 14 none]
 X 4 anubis_address_derive.ads
 30K9*Anubis_Address_Derive 66E4 68l5 68e26 5|6b14 87l5 87t26
 35N4*MLDSA87_Public_Key_Size 36r51 5|54r62
@@ -83,7 +83,7 @@ X 5 anubis_address_derive.adb
 54N7 Max_Message_Size 56r41 71r53
 56a7 Message{9|14A9} 66m10 72m10 78r17
 57i7 Message_Length{natural} 75m7 78r31
-58a7 Digest{8|32A12} 78m52 83r25
+58a7 Digest{8|44A12} 78m52 83r25
 64i11 I{integer} 65r33 66r19 66r52
 70i11 I{integer} 71r49 72r35 72r53
 81i11 I{6|56I12} 82r33 83r19 83r33
@@ -94,9 +94,9 @@ X 6 anubis_address_types.ads
 57A9*Account_ID(10|70M9)<integer> 4|44r24 5|47r24
 118V13*Entity_String{string} 5|17s37
 X 8 anubis_sha3.ads
-27K9*Anubis_SHA3 5|3w6 3r23 8|158e16
-32A12*SHA3_256_Digest{9|14A9}<integer> 5|58r24
-57U14*SHA3_256 5|78s7
+33K9*Anubis_SHA3 5|3w6 3r23 8|298e16
+44A12*SHA3_256_Digest{9|14A9}<integer> 5|58r24
+120U14*SHA3_256 5|78s7
 X 9 anubis_types.ads
 5K9*Anubis_Types 5|4w6 4r24 9|40e17
 14A9*Byte_Array(13M12)<integer> 5|56r24

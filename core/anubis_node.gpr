@@ -21,6 +21,8 @@ project Anubis_Node is
       "src/primitives",
       "src/aegis",
       "src/state",
+      "src/sdk",
+      "src/auth",
       "src/pqc/dsa",
       "src/pqc/kem",
       "src/pqc/common",

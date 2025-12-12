@@ -1,4 +1,0 @@
-aegis_vm_types.ads:89:13: info: implicit aspect Always_Terminates on "Get_Discount" has been proved, subprogram will terminate
-aegis_vm_types.ads:121:13: info: implicit aspect Always_Terminates on "Initial_Gas_Context" has been proved, subprogram will terminate
-aegis_vm_types.ads:213:13: info: implicit aspect Always_Terminates on "Success_Result" has been proved, subprogram will terminate
-aegis_vm_types.ads:217:13: info: implicit aspect Always_Terminates on "Failure_Result" has been proved, subprogram will terminate

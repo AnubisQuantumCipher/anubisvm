@@ -1,0 +1,144 @@
+--  AnubisVM Embedded Target Configuration
+--  Supports ARM Cortex-M, RISC-V, and other bare-metal targets
+
+project Embedded is
+
+   for Languages use ("Ada");
+   for Source_Dirs use ("core/src/**", "stdlib/src");
+   for Object_Dir use "obj/embedded";
+   for Exec_Dir use "core/bin/embedded";
+   for Create_Missing_Dirs use "True";
+
+   --  Target selection
+   type Target_Type is ("arm-cortex-m0", "arm-cortex-m4", "arm-cortex-m7",
+                        "riscv32", "riscv64", "native-debug");
+   Target : Target_Type := external ("EMBEDDED_TARGET", "native-debug");
+
+   --  Runtime selection based on target
+   type Runtime_Type is ("light", "light-tasking", "embedded", "zfp");
+   Runtime : Runtime_Type := external ("EMBEDDED_RUNTIME", "light");
+
+   case Target is
+      when "arm-cortex-m0" =>
+         for Target use "arm-eabi";
+         for Runtime ("Ada") use "light-cortex-m0";
+
+      when "arm-cortex-m4" =>
+         for Target use "arm-eabi";
+         for Runtime ("Ada") use "light-cortex-m4f";
+
+      when "arm-cortex-m7" =>
+         for Target use "arm-eabi";
+         for Runtime ("Ada") use "light-cortex-m7f";
+
+      when "riscv32" =>
+         for Target use "riscv32-elf";
+         for Runtime ("Ada") use "light-rv32imc";
+
+      when "riscv64" =>
+         for Target use "riscv64-elf";
+         for Runtime ("Ada") use "light-rv64imac";
+
+      when "native-debug" =>
+         --  Native build for testing embedded code paths
+         null;
+   end case;
+
+   package Compiler is
+      --  Common embedded switches - optimize for size
+      Common_Embedded := (
+         "-gnatp",              -- Suppress runtime checks (bare metal)
+         "-gnatwa",             -- Warnings
+         "-gnat2012",           -- Ada 2012
+         "-Os",                 -- Optimize for size
+         "-ffunction-sections", -- Separate functions for GC
+         "-fdata-sections",     -- Separate data for GC
+         "-fno-exceptions",     -- No exception propagation
+         "-fno-rtti"            -- No runtime type info
+      );
+
+      case Target is
+         when "arm-cortex-m0" =>
+            for Default_Switches ("Ada") use Common_Embedded & (
+               "-mcpu=cortex-m0",
+               "-mthumb",
+               "-mfloat-abi=soft"
+            );
+
+         when "arm-cortex-m4" =>
+            for Default_Switches ("Ada") use Common_Embedded & (
+               "-mcpu=cortex-m4",
+               "-mthumb",
+               "-mfloat-abi=hard",
+               "-mfpu=fpv4-sp-d16"
+            );
+
+         when "arm-cortex-m7" =>
+            for Default_Switches ("Ada") use Common_Embedded & (
+               "-mcpu=cortex-m7",
+               "-mthumb",
+               "-mfloat-abi=hard",
+               "-mfpu=fpv5-d16"
+            );
+
+         when "riscv32" =>
+            for Default_Switches ("Ada") use Common_Embedded & (
+               "-march=rv32imc",
+               "-mabi=ilp32"
+            );
+
+         when "riscv64" =>
+            for Default_Switches ("Ada") use Common_Embedded & (
+               "-march=rv64imac",
+               "-mabi=lp64"
+            );
+
+         when "native-debug" =>
+            for Default_Switches ("Ada") use (
+               "-gnatwa",
+               "-gnat2012",
+               "-g",
+               "-O0"
+            );
+      end case;
+   end Compiler;
+
+   package Linker is
+      --  Embedded linker settings
+      case Target is
+         when "arm-cortex-m0" | "arm-cortex-m4" | "arm-cortex-m7" =>
+            for Default_Switches ("Ada") use (
+               "-Wl,--gc-sections",     -- Remove unused sections
+               "-nostartfiles",         -- No standard startup
+               "-nolibc",               -- No standard C library
+               "-T", "linker/arm-cortex.ld"
+            );
+
+         when "riscv32" | "riscv64" =>
+            for Default_Switches ("Ada") use (
+               "-Wl,--gc-sections",
+               "-nostartfiles",
+               "-nolibc",
+               "-T", "linker/riscv.ld"
+            );
+
+         when "native-debug" =>
+            null;
+      end case;
+   end Linker;
+
+   package Builder is
+      for Default_Switches ("Ada") use ("-j0");
+   end Builder;
+
+   --  SPARK proof settings for embedded contracts
+   package Prove is
+      for Proof_Switches ("Ada") use (
+         "--level=2",           -- Lower level for embedded (faster)
+         "--timeout=30",
+         "--prover=cvc5,z3",
+         "--warnings=continue"
+      );
+   end Prove;
+
+end Embedded;

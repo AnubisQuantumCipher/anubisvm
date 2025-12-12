@@ -34,7 +34,7 @@ Z system.assertions%s	s-assert.adb		s-assert.ali
 Z system.exp_int%s	s-expint.ads		s-expint.ali
 Z system.exp_llu%s	s-expllu.ads		s-expllu.ali
 
-U scarab_horus%s	scarab_horus.ads	4b1c6b9d EE NE OO PK
+U scarab_horus%s	scarab_horus.ads	e43453a7 EE NE OO PK
 W anubis_bytes%s	anubis_bytes.adb	anubis_bytes.ali
 W anubis_types%s	anubis_types.ads	anubis_types.ali
 W interfaces%s		interfac.ads		interfac.ali
@@ -46,7 +46,7 @@ D a-numeri.ads		20240808082856 84bea7a3 ada.numerics%s
 D a-nubinu.ads		20240808082856 93f1f3d1 ada.numerics.big_numbers%s
 D a-nbnbig.ads		20240808082856 31ff4aa1 ada.numerics.big_numbers.big_integers_ghost%s
 D a-unccon.ads		20240808082856 0e9b276f ada.unchecked_conversion%s
-D anubis_bytes.ads	20251207191105 9e5d5cad anubis_bytes%s
+D anubis_bytes.ads	20251209124541 31756497 anubis_bytes%s
 D anubis_keccak.ads	20251207191105 19b431a9 anubis_keccak%s
 D anubis_mldsa.ads	20251207191106 df788a13 anubis_mldsa%s
 D anubis_mldsa_config.ads  20251207191106 44e9e9a1 anubis_mldsa_config%s
@@ -119,7 +119,7 @@ G r c none [verify_batch_proof scarab_horus 298 13 none] [sha3_256 anubis_sha3 5
 G r c none [compute_batch_hash scarab_horus 65 14 none] [sha3_256 anubis_sha3 57 14 none]
 G r c none [verify_signature scarab_horus 81 13 none] [sha3_512 anubis_sha3 76 14 none]
 X 8 anubis_bytes.ads
-7K9*Anubis_Bytes 52e17 18|16w6 16r24
+7K9*Anubis_Bytes 57e17 18|16w6 16r24
 X 10 anubis_mldsa.ads
 22K9*Anubis_MLDSA 76e17 19|12w6
 X 14 anubis_sha3.ads

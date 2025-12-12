@@ -1,2 +1,0 @@
-cannot generate code for file maat_optimistic.ads (package spec)
-maat_optimistic.ads:30:06: warning: no entities of "Anubis_Bytes" are referenced [-gnatwu]

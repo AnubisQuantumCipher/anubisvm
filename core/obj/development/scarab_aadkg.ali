@@ -32,7 +32,7 @@ W interfaces%s		interfac.ads		interfac.ali
 Z system.assertions%s	s-assert.adb		s-assert.ali
 Z system.exp_llu%s	s-expllu.ads		s-expllu.ali
 
-U scarab_aadkg%s	scarab_aadkg.ads	5ccd4814 EE NE OO PK
+U scarab_aadkg%s	scarab_aadkg.ads	f3e5702e EE NE OO PK
 W anubis_bytes%s	anubis_bytes.adb	anubis_bytes.ali
 W anubis_types%s	anubis_types.ads	anubis_types.ali
 W interfaces%s		interfac.ads		interfac.ali
@@ -40,7 +40,7 @@ W interfaces%s		interfac.ads		interfac.ali
 D ada.ads		20240808082856 76789da1 ada%s
 D a-assert.ads		20240808082856 ba465f5c ada.assertions%s
 D a-unccon.ads		20240808082856 0e9b276f ada.unchecked_conversion%s
-D anubis_bytes.ads	20251207191105 9e5d5cad anubis_bytes%s
+D anubis_bytes.ads	20251209124541 31756497 anubis_bytes%s
 D anubis_config.ads	20251207191107 19c7b4b2 anubis_config%s
 D anubis_field.ads	20251207191105 ccc1c329 anubis_field%s
 D anubis_keccak.ads	20251207191105 19b431a9 anubis_keccak%s
@@ -115,7 +115,7 @@ G r c none [sign_partial scarab_aadkg 258 14 none] [shake256 anubis_sha3 109 14 
 G r c none [verify_threshold_sig scarab_aadkg 280 13 none] [sha3_256 anubis_sha3 57 14 none]
 G r c none [hash_to_field scarab_aadkg 22 14 none] [sha3_256 anubis_sha3 57 14 none]
 X 4 anubis_bytes.ads
-7K9*Anubis_Bytes 52e17 14|15w6 15r24
+7K9*Anubis_Bytes 57e17 14|15w6 15r24
 X 8 anubis_mlkem.ads
 31K9*Anubis_MLKEM 133e17 15|12w6 224r16 363r19
 67U14*Encaps 15|224s29

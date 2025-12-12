@@ -38,7 +38,7 @@ W anubis_types%s	anubis_types.ads	anubis_types.ali
 Z system.assertions%s	s-assert.adb		s-assert.ali
 Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
 
-U aegis_crypto_api%s	aegis_crypto_api.ads	4fac3ec3 EE NE OO PK
+U aegis_crypto_api%s	aegis_crypto_api.ads	c34098e7 EE NE OO PK
 W aegis_execution%s	aegis_execution.adb	aegis_execution.ali
 W aegis_vm_types%s	aegis_vm_types.ads	aegis_vm_types.ali
 W interfaces%s		interfac.ads		interfac.ali
@@ -51,9 +51,9 @@ D aegis_crypto_api.ads	20251207191105 f509c946 aegis_crypto_api%s
 D aegis_crypto_api.adb	20251207191105 e60d57b9 aegis_crypto_api%b
 D aegis_execution.ads	20251207191105 f7650f9d aegis_execution%s
 D aegis_gas.ads		20251207191105 2c397305 aegis_gas%s
-D aegis_sandbox.ads	20251207191106 0a9a14d0 aegis_sandbox%s
+D aegis_sandbox.ads	20251209080823 dd46ba5f aegis_sandbox%s
 D aegis_storage.ads	20251207191106 d62ac4d0 aegis_storage%s
-D aegis_vm_types.ads	20251207191105 dcd101d9 aegis_vm_types%s
+D aegis_vm_types.ads	20251209080247 503da7fd aegis_vm_types%s
 D anubis_config.ads	20251207191107 19c7b4b2 anubis_config%s
 D anubis_field.ads	20251207191105 ccc1c329 anubis_field%s
 D anubis_keccak.ads	20251207191105 19b431a9 anubis_keccak%s
@@ -276,7 +276,7 @@ X 8 aegis_gas.ads
 218V13*Gas_Hash{11|101I9} 6|52s41 97s41 140s41 194s41 397s41
 X 11 aegis_vm_types.ads
 21K9*Aegis_VM_Types 5|4w6 4r26 6|48r25 84r24 93r25 127r24 136r25 170r24 267r27
-. 378r34 392r27 432r25 443r16 445r14 11|279e19
+. 378r34 392r27 432r25 443r16 445r14 11|280e19
 31M12*Byte{23|70M9} 5|40r58 49r62 59r65 65r67 75r71 81r70 87r71 198r27 6|84r39
 . 127r39 170r39 267r42 378r49 392r42 432r40 445r29
 56A9*Hash256(31M12)<integer> 5|110r25 132r25 210r16 6|48r40 136r40 443r31

@@ -1,7 +1,0 @@
-sphinx_lite_committee.adb:32:40: warning: array aggregate using () is an obsolescent syntax, use [] instead [-gnatwj]
-sphinx_lite_committee.adb:33:39: warning: array aggregate using () is an obsolescent syntax, use [] instead [-gnatwj]
-sphinx_lite_committee.adb:36:04: warning: variable "Chain" is assigned but never read [-gnatwm]
-sphinx_lite_committee.adb:38:32: warning: array aggregate using () is an obsolescent syntax, use [] instead [-gnatwj]
-sphinx_lite_committee.adb:55:25: warning: array aggregate using () is an obsolescent syntax, use [] instead [-gnatwj]
-sphinx_lite_committee.adb:71:28: warning: array aggregate using () is an obsolescent syntax, use [] instead [-gnatwj]
-sphinx_lite_committee.adb:225:28: warning: array aggregate using () is an obsolescent syntax, use [] instead [-gnatwj]

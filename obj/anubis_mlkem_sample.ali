@@ -25,7 +25,7 @@ RV NO_DYNAMIC_SIZED_OBJECTS
 RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
 RV NO_IMPLEMENTATION_PRAGMAS
 
-U anubis_mlkem_sample%b	anubis_mlkem_sample.adb	52a40800 NE OO PK
+U anubis_mlkem_sample%b	anubis_mlkem_sample.adb	63c194a5 NE OO PK
 W anubis_cbd%s		anubis_cbd.adb		anubis_cbd.ali
 W anubis_config%s	anubis_config.ads	anubis_config.ali
 W anubis_field%s	anubis_field.adb	anubis_field.ali
@@ -45,11 +45,11 @@ D a-unccon.ads		20240808082856 0e9b276f ada.unchecked_conversion%s
 D anubis_cbd.ads	20251207191106 98c156db anubis_cbd%s
 D anubis_config.ads	20251207191107 19c7b4b2 anubis_config%s
 D anubis_field.ads	20251207191105 ccc1c329 anubis_field%s
-D anubis_keccak.ads	20251207191105 19b431a9 anubis_keccak%s
+D anubis_keccak.ads	20251211132252 b3b03dd1 anubis_keccak%s
 D anubis_mlkem_sample.ads  20251207191106 761c54ef anubis_mlkem_sample%s
 D anubis_mlkem_sample.adb  20251207191106 911df9fb anubis_mlkem_sample%b
 D anubis_mlkem_types.ads  20251207191106 4cc71de7 anubis_mlkem_types%s
-D anubis_sha3.ads	20251207191105 69737d95 anubis_sha3%s
+D anubis_sha3.ads	20251211201618 5816e130 anubis_sha3%s
 D anubis_types.ads	20251207191105 4fb35097 anubis_types%s
 D interfac.ads		20240808082856 9111f9c1 interfaces%s
 D system.ads		20240808082856 70765b54 system%s
@@ -137,9 +137,9 @@ X 10 anubis_mlkem_types.ads
 69A12*Seed{12|14A9}<integer> 8|40r20 48r20 56r20 65r20 9|78r20 106r20 135r20
 . 173r20
 X 11 anubis_sha3.ads
-27K9*Anubis_SHA3 9|6w6 6r23 11|158e16
-97U14*SHAKE128 9|38s7 50s13
-109U14*SHAKE256 9|151s7
+33K9*Anubis_SHA3 9|6w6 6r23 11|298e16
+196U14*SHAKE128 9|38s7 50s13
+215U14*SHAKE256 9|151s7
 X 12 anubis_types.ads
 5K9*Anubis_Types 8|4w6 4r24 12|40e17
 13M12*Byte{13|70M9} 8|57r20 9|96r31 97r31 124r31 125r31 136r20 185r34

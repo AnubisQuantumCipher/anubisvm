@@ -1619,8 +1619,6 @@ is
       Exec_OK      : Boolean;
       pragma Unreferenced (Is_View);
    begin
-      Ada.Text_IO.Put_Line ("  >>> Execute called, EP=" & EP_Name (1 .. EP_Name_Len));
-
       --  Initialize result
       Ret.Success := False;
       Ret.Gas_Used := 0;
@@ -1664,11 +1662,7 @@ is
          end if;
       end loop;
 
-      Ada.Text_IO.Put_Line ("  Execute: Found_Native=" & Boolean'Image (Found_Native) &
-         ", Native_Count=" & Natural'Image (Exec.Native_Count));
-
       if not Found_Native then
-         Ada.Text_IO.Put_Line ("  Entering auto-registration...");
          --  Auto-register contract
          declare
             Manifest_Name_Str : String (1 .. 32);
@@ -1718,7 +1712,6 @@ is
                end loop;
 
                Kind := Detect_Contract_Type (Manifest_Name_Str (1 .. Manifest_Len));
-               Ada.Text_IO.Put_Line ("  Detected contract kind: " & Contract_Type'Image (Kind));
 
                --  Get entries for this contract type
                case Kind is
@@ -1740,8 +1733,6 @@ is
                   when Contract_Unknown =>
                      New_Count := 0;  -- Will fail on invoke
                end case;
-
-               Ada.Text_IO.Put_Line ("  Entry count from getter: " & Natural'Image (New_Count));
 
                --  Register it
                if Exec.Native_Count < Max_Native_Contracts then

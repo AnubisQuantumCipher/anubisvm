@@ -6,6 +6,9 @@ pragma SPARK_Mode (Off);
 with Aegis_U256; use Aegis_U256;
 with Anubis_Types;
 with Anubis_SHA3;
+with Ada.Streams.Stream_IO;
+with Ada.Directories;
+with Interfaces; use Interfaces;
 
 package body Khepri_State with
    SPARK_Mode => Off,
@@ -536,5 +539,246 @@ is
          Transient_Count := Transient_Count + 1;
       end if;
    end TStore;
+
+   ---------------------------------------------------------------------------
+   --  State Persistence Implementation
+   ---------------------------------------------------------------------------
+
+   --  File format constants
+   State_Magic   : constant String := "ANUB";
+   State_Version : constant Unsigned_32 := 1;
+
+   --  Helper: Write U256 to stream as 32 bytes (big-endian)
+   procedure Write_U256 (
+      Stream : Ada.Streams.Stream_IO.Stream_Access;
+      Value  : Uint256
+   ) is
+      Bytes : constant Bytes32 := To_Bytes_BE (Value);
+   begin
+      for I in Bytes'Range loop
+         Byte'Write (Stream, Bytes (I));
+      end loop;
+   end Write_U256;
+
+   --  Helper: Read U256 from stream as 32 bytes (big-endian)
+   procedure Read_U256 (
+      Stream : Ada.Streams.Stream_IO.Stream_Access;
+      Value  : out Uint256
+   ) is
+      Bytes : Bytes32;
+   begin
+      for I in Bytes'Range loop
+         Byte'Read (Stream, Bytes (I));
+      end loop;
+      Value := From_Bytes_BE (Bytes);
+   end Read_U256;
+
+   --  Helper: Write Address to stream as 32 bytes
+   procedure Write_Address (
+      Stream : Ada.Streams.Stream_IO.Stream_Access;
+      Addr   : Address
+   ) is
+   begin
+      for I in Addr'Range loop
+         Byte'Write (Stream, Addr (I));
+      end loop;
+   end Write_Address;
+
+   --  Helper: Read Address from stream as 32 bytes
+   procedure Read_Address (
+      Stream : Ada.Streams.Stream_IO.Stream_Access;
+      Addr   : out Address
+   ) is
+   begin
+      for I in Addr'Range loop
+         Byte'Read (Stream, Addr (I));
+      end loop;
+   end Read_Address;
+
+   --  Helper: Write Unsigned_32 to stream (little-endian)
+   procedure Write_U32 (
+      Stream : Ada.Streams.Stream_IO.Stream_Access;
+      Value  : Unsigned_32
+   ) is
+   begin
+      Byte'Write (Stream, Byte (Value and 16#FF#));
+      Byte'Write (Stream, Byte (Shift_Right (Value, 8) and 16#FF#));
+      Byte'Write (Stream, Byte (Shift_Right (Value, 16) and 16#FF#));
+      Byte'Write (Stream, Byte (Shift_Right (Value, 24) and 16#FF#));
+   end Write_U32;
+
+   --  Helper: Read Unsigned_32 from stream (little-endian)
+   procedure Read_U32 (
+      Stream : Ada.Streams.Stream_IO.Stream_Access;
+      Value  : out Unsigned_32
+   ) is
+      B0, B1, B2, B3 : Byte;
+   begin
+      Byte'Read (Stream, B0);
+      Byte'Read (Stream, B1);
+      Byte'Read (Stream, B2);
+      Byte'Read (Stream, B3);
+      Value := Unsigned_32 (B0) or
+               Shift_Left (Unsigned_32 (B1), 8) or
+               Shift_Left (Unsigned_32 (B2), 16) or
+               Shift_Left (Unsigned_32 (B3), 24);
+   end Read_U32;
+
+   procedure Save_Storage_State (
+      Path   : in  String;
+      Result : out Persist_Result
+   ) is
+      use Ada.Streams.Stream_IO;
+      File   : File_Type;
+      Stream : Stream_Access;
+      Count  : Unsigned_32 := 0;
+   begin
+      --  Count valid entries
+      for I in 0 .. SDK_Storage_Count - 1 loop
+         if SDK_Storage (I).Valid then
+            Count := Count + 1;
+         end if;
+      end loop;
+
+      --  Create/overwrite file
+      begin
+         Create (File, Out_File, Path);
+      exception
+         when others =>
+            Result := Persist_File_Error;
+            return;
+      end;
+
+      Stream := Ada.Streams.Stream_IO.Stream (File);
+
+      --  Write magic header "ANUB"
+      for C of State_Magic loop
+         Character'Write (Stream, C);
+      end loop;
+
+      --  Write version
+      Write_U32 (Stream, State_Version);
+
+      --  Write entry count
+      Write_U32 (Stream, Count);
+
+      --  Write each valid entry: Contract (32) + Key (32) + Value (32) = 96 bytes
+      for I in 0 .. SDK_Storage_Count - 1 loop
+         if SDK_Storage (I).Valid then
+            Write_Address (Stream, SDK_Storage (I).Contract);
+            Write_U256 (Stream, SDK_Storage (I).Key);
+            Write_U256 (Stream, SDK_Storage (I).Value);
+         end if;
+      end loop;
+
+      Close (File);
+      Result := Persist_OK;
+
+   exception
+      when others =>
+         if Is_Open (File) then
+            Close (File);
+         end if;
+         Result := Persist_File_Error;
+   end Save_Storage_State;
+
+   procedure Load_Storage_State (
+      Path   : in  String;
+      Result : out Persist_Result
+   ) is
+      use Ada.Streams.Stream_IO;
+      use Ada.Directories;
+      File    : File_Type;
+      Stream  : Stream_Access;
+      Magic   : String (1 .. 4);
+      Version : Unsigned_32;
+      Count   : Unsigned_32;
+      Addr    : Address;
+      Key     : Uint256;
+      Value   : Uint256;
+   begin
+      --  Check if file exists
+      if not Exists (Path) then
+         Result := Persist_File_Error;
+         return;
+      end if;
+
+      --  Open file
+      begin
+         Open (File, In_File, Path);
+      exception
+         when others =>
+            Result := Persist_File_Error;
+            return;
+      end;
+
+      Stream := Ada.Streams.Stream_IO.Stream (File);
+
+      --  Read and verify magic header
+      for I in Magic'Range loop
+         Character'Read (Stream, Magic (I));
+      end loop;
+
+      if Magic /= State_Magic then
+         Close (File);
+         Result := Persist_Format_Error;
+         return;
+      end if;
+
+      --  Read and verify version
+      Read_U32 (Stream, Version);
+      if Version /= State_Version then
+         Close (File);
+         Result := Persist_Version_Error;
+         return;
+      end if;
+
+      --  Read entry count
+      Read_U32 (Stream, Count);
+
+      --  Clear existing storage
+      SDK_Storage := (others => (
+         Contract => (others => 0), Key => Zero, Value => Zero, Valid => False));
+      SDK_Storage_Count := 0;
+
+      --  Read entries
+      for I in 1 .. Count loop
+         exit when SDK_Storage_Count >= Max_Storage_Slots;
+
+         Read_Address (Stream, Addr);
+         Read_U256 (Stream, Key);
+         Read_U256 (Stream, Value);
+
+         SDK_Storage (SDK_Storage_Count) := (
+            Contract => Addr,
+            Key      => Key,
+            Value    => Value,
+            Valid    => True
+         );
+         SDK_Storage_Count := SDK_Storage_Count + 1;
+      end loop;
+
+      Close (File);
+      Result := Persist_OK;
+
+   exception
+      when others =>
+         if Is_Open (File) then
+            Close (File);
+         end if;
+         Result := Persist_File_Error;
+   end Load_Storage_State;
+
+   procedure Clear_All_Storage is
+   begin
+      SDK_Storage := (others => (
+         Contract => (others => 0), Key => Zero, Value => Zero, Valid => False));
+      SDK_Storage_Count := 0;
+   end Clear_All_Storage;
+
+   function Get_Storage_Count return Natural is
+   begin
+      return SDK_Storage_Count;
+   end Get_Storage_Count;
 
 end Khepri_State;

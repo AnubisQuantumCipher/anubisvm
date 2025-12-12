@@ -19,236 +19,325 @@ A -fPIC
 P ZX
 
 RN
-RV NO_DIRECT_BOOLEAN_OPERATORS
 RV NO_DYNAMIC_SIZED_OBJECTS
 RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
 RV NO_IMPLEMENTATION_PRAGMAS
-RV NO_IMPLICIT_LOOPS
-RV NO_ELABORATION_CODE
 
-U ats20_token%b		ats20_token.adb		c92910df OO PK
-W aegis_u256%s		aegis_u256.adb		aegis_u256.ali
+U ats20_token%b		ats20_token.adb		b7670bbd NE OO PK
+W interfaces%s		interfac.ads		interfac.ali
 Z system.assertions%s	s-assert.adb		s-assert.ali
 
-U ats20_token%s		ats20_token.ads		dd9ba199 EE NE OO PK
-W aegis_vm_types%s	aegis_vm_types.ads	aegis_vm_types.ali
-W khepri_types%s	khepri_types.adb	khepri_types.ali
+U ats20_token%s		ats20_token.ads		7dedd4d8 EE NE OO PK
+W anubis_types%s	anubis_types.ads	anubis_types.ali
+W cvm_interface%s	cvm_interface.adb	cvm_interface.ali
+W cvm_types%s		cvm_types.ads		cvm_types.ali
+W interfaces%s		interfac.ads		interfac.ali
 
 D ada.ads		20240808082856 76789da1 ada%s
 D a-assert.ads		20240808082856 ba465f5c ada.assertions%s
 D a-unccon.ads		20240808082856 0e9b276f ada.unchecked_conversion%s
-D aegis_u256.ads	20251207191105 ff2dfe4b aegis_u256%s
-D aegis_vm_types.ads	20251207191105 dcd101d9 aegis_vm_types%s
-D ats20_token.ads	20251206202917 07b9226d ats20_token%s
-D ats20_token.adb	20251206022203 31bdccf9 ats20_token%b
+D anubis_types.ads	20251207191105 4fb35097 anubis_types%s
+D ats20_token.ads	20251212030126 020f3962 ats20_token%s
+D ats20_token.adb	20251212030142 2479cb1e ats20_token%b
+D cvm_interface.ads	20251212030117 4f41c95e cvm_interface%s
+D cvm_types.ads		20251212030109 ee018db2 cvm_types%s
 D interfac.ads		20240808082856 9111f9c1 interfaces%s
-D khepri_types.ads	20251207191106 06f3822d khepri_types%s
 D system.ads		20240808082856 70765b54 system%s
 D s-assert.ads		20240808082856 9c4520c7 system.assertions%s
 D s-exctab.ads		20240808082856 91bef6ef system.exception_table%s
 D s-stalib.ads		20240808082856 1c9580f6 system.standard_library%s
 G a e
-G c Z s b [initialize ats20_token 38 14 none]
-G c Z s b [total_supply ats20_token 50 13 none]
-G c Z s b [balance_of ats20_token 54 13 none]
-G c Z s b [allowance ats20_token 58 13 none]
-G c Z s b [owner ats20_token 62 13 none]
-G c Z s b [is_paused ats20_token 66 13 none]
-G c Z s b [get_decimals ats20_token 70 13 none]
-G c Z s b [transfer ats20_token 75 14 none]
-G c Z s b [approve ats20_token 85 14 none]
-G c Z s b [transfer_from ats20_token 95 14 none]
-G c Z s b [mint ats20_token 107 14 none]
-G c Z s b [burn ats20_token 117 14 none]
-G c Z s b [transfer_ownership ats20_token 126 14 none]
-G c Z s b [is_owner ats20_token 136 13 none]
-G c Z b b [token_storageIP ats20_token 16 9 none]
-G c Z b b [balance_entryIP ats20_token 29 9 none]
-G c Z b b [Tbalance_arrayBIP ats20_token 34 4 none]
-G c Z b b [allowance_entryIP ats20_token 37 9 none]
-G c Z b b [Tallowance_arrayBIP ats20_token 43 4 none]
-G c Z b b [find_balance ats20_token 72 13 none]
-G c Z b b [find_or_create_balance ats20_token 83 13 none]
-G c Z b b [find_allow ats20_token 99 13 none]
-G c Z b b [find_or_create_allow ats20_token 113 13 none]
-G r c none [transfer ats20_token 75 14 none] [less_than aegis_u256 36 13 none]
-G r c none [transfer ats20_token 75 14 none] [add aegis_u256 64 14 none]
-G r c none [transfer ats20_token 75 14 none] [sub_mod aegis_u256 84 13 none]
-G r c none [transfer_from ats20_token 95 14 none] [less_than aegis_u256 36 13 none]
-G r c none [transfer_from ats20_token 95 14 none] [add aegis_u256 64 14 none]
-G r c none [transfer_from ats20_token 95 14 none] [sub_mod aegis_u256 84 13 none]
-G r c none [mint ats20_token 107 14 none] [add aegis_u256 64 14 none]
-G r c none [burn ats20_token 117 14 none] [less_than aegis_u256 36 13 none]
-G r c none [burn ats20_token 117 14 none] [sub_mod aegis_u256 84 13 none]
-X 4 aegis_u256.ads
-21K9*Aegis_U256 276e15 7|4w6 4r22
-36V13*Less_Than{boolean} 7|236s10 316s10 323s10 416s10
-64U14*Add 7|243s7 330s7 378s7 386s7
-84V13*Sub_Mod{5|41R9} 7|255s43 343s41 351s44 422s24 426s36
-X 5 aegis_vm_types.ads
-21K9*Aegis_VM_Types 279e19 6|10w6 10r27
-31M12*Byte{8|70M9}
-41R9*U256 43e14 7|224r20 303r20 366r19 368r19
-46r4*U256_Zero{41R9} 7|52r22 60r18 67r21 185r17 195r17
-70A9*Contract_Address(31M12)<integer>
-X 6 ats20_token.ads
-13K9*ATS20_Token 140l5 140e16 7|6b14 458l5 458t16
-15@23*Token_State 16r19 46r28 51r17 55r17 59r17 63r17 67r17 71r17 82r28 92r28
-. 103r28 114r28 123r28 132r28 137r17 7|8r22
-20a4*Zero_Address{9|43A12} 47r26 83r30 93r28 104r28 115r23 133r30
-23R12*Token_Amount{9|34R12} 42r27 50r33 54r51 58r62 78r26 88r24 99r26 110r24
-. 119r24 7|22r21 31r17 40r20 135r27 174r33 179r51 189r62 218r26 222r20 223r20
-. 270r24 296r26 300r20 301r20 302r20 362r24 367r19 407r24 411r20
-26E9*Token_Error 35e5 80r26 90r24 101r26 112r24 121r24 130r26 7|220r26 272r24
-. 298r26 364r24 409r24 438r26
-27n7*Error_None{26E9} 7|263r16 284r19 355r16 401r16 430r16 449r16
-28n7*Error_Insufficient_Balance{26E9} 7|238r19 318r19 418r19
-29n7*Error_Insufficient_Allowance{26E9} 7|325r19
-30n7*Error_Zero_Address{26E9}
-31n7*Error_Not_Owner{26E9} 7|374r19 443r19
-32n7*Error_Overflow{26E9} 7|246r19 287r19 333r19 381r19 389r19
-33n7*Error_Paused{26E9} 7|231r19 311r19
-34n7*Error_Cap_Exceeded{26E9}
-38U14*Initialize 39>7 40>7 41>7 42>7 43>7 44<7 7|131b14 171l8 171t18
-39a7 Name{string} 47r43 7|132b7 147r27 148r21 149r30 149r36
-40a7 Symbol{string} 47r65 7|133b7 153r29 154r21 155r32 155r40
-41i7 Decimals{natural} 7|134b7 158r27
-42r7 Initial_Supply{23R12} 7|135b7 159r24 167r58
-43a7 Owner{9|43A12} 47r17 7|136b7 160r29 165r39 167r41
-44b7 Success{boolean} 7|137b7 142m10 170m7
-50V13*Total_Supply{23R12} 7|174b13 177l8 177t20
-54V13*Balance_Of{23R12} 54>25 7|179b13 187l8 187t18 235s21 242s19 315s19
-. 329s17 385s17 414s21
-54a25 Account{9|43A12} 7|179b25 180r48
-58V13*Allowance{23R12} 58>24 58>36 7|189b13 197l8 197t17 322s16
-58a24 Owner_Addr{9|43A12} 7|189b24 190r46
-58a36 Spender{9|43A12} 7|189b36 190r58
-62V13*Owner{9|43A12} 7|199b13 202l8 202t13
-66V13*Is_Paused{boolean} 7|204b13 207l8 207t17
-70V13*Get_Decimals{natural} 7|209b13 212l8 212t20
-75U14*Transfer 76>7 77>7 78>7 79<7 80<7 7|215b14 264l8 264t16
-76a7 Caller{9|43A12} 7|216b7 235r33 251r46
-77a7 Recipient{9|43A12} 83r17 7|217b7 242r31 252r44 259r46
-78r7 Amount{23R12} 7|218b7 236r33 243r22 255r64
-79b7 Success{boolean} 7|219b7 230m10 237m10 245m10 262m7
-80e7 Error{26E9} 7|220b7 231m10 238m10 246m10 263m7
-85U14*Approve 86>7 87>7 88>7 89<7 90<7 7|267b14 289l8 289t15
-86a7 Caller{9|43A12} 7|268b7 274r56 278r27
-87a7 Spender{9|43A12} 93r17 7|269b7 274r64 279r27
-88r7 Amount{23R12} 7|270b7 280r27
-89b7 Success{boolean} 7|271b7 283m10 286m10
-90e7 Error{26E9} 7|272b7 284m10 287m10
-95U14*Transfer_From 96>7 97>7 98>7 99>7 100<7 101<7 7|292b14 356l8 356t21
-96a7 Caller{9|43A12} 7|293b7 322r38 340r44
-97a7 From_Addr{9|43A12} 7|294b7 315r31 322r27 338r44 340r33
-98a7 To_Addr{9|43A12} 104r17 7|295b7 329r29 339r42 347r44
-99r7 Amount{23R12} 7|296b7 316r31 323r28 330r20 343r60 351r60
-100b7 Success{boolean} 7|297b7 310m10 317m10 324m10 332m10 354m7
-101e7 Error{26E9} 7|298b7 311m10 318m10 325m10 333m10 355m7
-107U14*Mint 108>7 109>7 110>7 111<7 112<7 7|359b14 402l8 402t12
-108a7 Caller{9|43A12} 7|360b7 372r10
-109a7 To{9|43A12} 115r17 7|361b7 385r29 395r39 397r41
-110r7 Amount{23R12} 7|362b7 378r27 386r20
-111b7 Success{boolean} 7|363b7 373m10 380m10 388m10 400m7
-112e7 Error{26E9} 7|364b7 374m10 381m10 389m10 401m7
-117U14*Burn 118>7 119>7 120<7 121<7 7|405b14 431l8 431t12
-118a7 Caller{9|43A12} 7|406b7 414r33 424r29
-119r7 Amount{23R12} 7|407b7 416r33 422r48 426r57
-120b7 Success{boolean} 7|408b7 417m10 429m7
-121e7 Error{26E9} 7|409b7 418m10 430m7
-126U14*Transfer_Ownership 127>7 128>7 129<7 130<7 7|434b14 450l8 450t26
-127a7 Caller{9|43A12} 7|435b7 441r10
-128a7 New_Owner{9|43A12} 133r17 7|436b7 447r29
-129b7 Success{boolean} 7|437b7 442m10 448m7
-130e7 Error{26E9} 7|438b7 443m10 449m7
-136V13*Is_Owner{boolean} 136>23 7|453b13 456l8 456t16
-136a23 Account{9|43A12} 7|453b23 455r14
-X 7 ats20_token.adb
-12N4 Max_Accounts 34r38 166r17 182r17 254r24 258r22 342r22 346r20 396r17
-. 425r17
-13N4 Max_Allowances 43r40 192r17 276r17 350r23
-16R9 Token_Storage 26e14 46r14
-17a7*Name{string} 47m7 149m18
-18i7*Name_Len{natural} 48m7 147m15
-19a7*Symbol{string} 49m7 155m18
-20i7*Symbol_Len{natural} 50m7 153m15
-21i7*Decimals{natural} 51m7 158m15 211r22
-22r7*Total{6|23R12} 52m7 159m15 176r22 378r20 393m15 422m15 422r41
-23a7*Owner_Addr{9|43A12} 53m7 160m15 201r22 372r28 441r28 447m15 455r32
-24b7*Paused{boolean} 54m7 161m15 206r22 229r18 309r18
-25b7*Initialized{boolean} 55m7 141r18 162m15
-29R9 Balance_Entry 33e14 34r59
-30a7*Account{9|43A12} 59m7 75r53 88r29 167m30 259m35 347m33 397m30
-31r7*Amount{6|23R12} 60m7 167m48 183r33 255m33 259m57 343m31 347m53 397m45
-. 426m26
-32b7*Used{boolean} 61m7 75r26 87r26 167m74 259m77 347m71 397m64
-34A9 Balance_Array(29R9)<integer> 58r15
-37R9 Allowance_Entry 42e14 43r63
-38a7*Owner_Addr{9|43A12} 65m7 103r37 118r31 278m13
-39a7*Spender{9|43A12} 66m7 104r37 119r40 279m13
-40r7*Amount{6|23R12} 67m7 193r35 280m13 351m34
-41b7*Used{boolean} 68m7 102r28 117r28 281m13
-43A9 Allowance_Array(37R9)<integer> 64r17
-46r4 Storage{16R9} 8r38 141r10 147m7 149m10 153m7 155m10 158m7 159m7 160m7
-. 161m7 162m7 176r14 201r14 206r14 211r14 229r10 309r10 372r20 378r12 393m7
-. 422m7 422r33 441r20 447m7 455r24
-58a4 Balances{34A9} 8r47 74r16 75r13 75r40 86r16 87r13 88r16 167m10 183r17
-. 255m10 259m10 343m10 347m10 397m10 426m10
-64a4 Allowances{43A9} 8r57 101r16 102r13 103r22 104r22 116r16 117r13 118r16
-. 119r25 193r17 277m10 351m10
-72V13 Find_Balance{natural} 72b13 72>27 80l8 80t20 180s34 424s15
-72a27 Account{9|43A12} 75r63
-74i11 I{integer} 75r23 75r50 76r20
-83V13 Find_Or_Create_Balance{natural} 83b13 83>37 96l8 96t30 165s15 251s22
-. 252s20 338s20 339s18 395s15
-83a37 Account{9|43A12} 88r39
-84i7 Empty{natural} 91r16 92m13 95r14
-86i11 I{integer} 87r23 88r26 89r23 92r22
-99V13 Find_Allow{natural} 99b13 99>25 99>34 110l8 110t18 190s34 340s21
-99a25 Owner_A{9|43A12} 103r50
-99a34 Spender_A{9|43A12} 104r47
-101i11 I{integer} 102r25 103r34 104r34 106r20
-113V13 Find_Or_Create_Allow{natural} 113b13 113>35 113>44 128l8 128t28 274s34
-113a35 Owner_A{9|43A12} 118r44
-113a44 Spender_A{9|43A12} 119r50
-114i7 Empty{natural} 123r16 124m13 127r14
-116i11 I{integer} 117r25 118r28 119r37 121r23 124r22
-139i7 Slot{natural} 165m7 166r10 167r20
-148i11 I{integer} 149r24 149r49
-154i11 I{integer} 155r26 155r55
-180i7 Slot{natural} 182r10 183r27
-190i7 Slot{natural} 192r10 193r29
-222r7 Sender_Bal{6|23R12} 235m7 236r21 255r52
-223r7 Recv_Bal{6|23R12} 242m7 243r12
-224r7 New_Recv{5|41R9} 243m30 259r67
-225b7 Overflow{boolean} 243m40 244r10
-226i7 Sender_Slot{natural} 251m7 254r10 255r20
-227i7 Recv_Slot{natural} 252m7 258r10 259r20
-274i7 Slot{natural} 276r10 277r22
-300r7 From_Bal{6|23R12} 315m7 316r21 343r50
-301r7 To_Bal{6|23R12} 329m7 330r12
-302r7 Allow{6|23R12} 322m7 323r21 351r53
-303r7 New_To{5|41R9} 330m28 347r63
-304b7 Overflow{boolean} 330m36 331r10
-305i7 From_Slot{natural} 338m7 342r10 343r20
-306i7 To_Slot{natural} 339m7 346r10 347r20
-307i7 Allow_Slot{natural} 340m7 350r10 351r22
-366r7 New_Total{5|41R9} 378m35 393r24
-367r7 To_Bal{6|23R12} 385m7 386r12
-368r7 New_Bal{5|41R9} 386m28 397r55
-369b7 Overflow{boolean} 378m46 379r10 386m37 387r10
-370i7 Slot{natural} 395m7 396r10 397r20
-411r7 Caller_Bal{6|23R12} 414m7 416r21 426r45
-412i7 Slot{natural} 424m7 425r10 426r20
-X 8 interfac.ads
-70M9*Unsigned_8
-X 9 khepri_types.ads
-25K9*Khepri_Types 6|11w6 11r27 9|345e17
-34R12*Uint256{5|41R9} 6|23r28
-43A12*Address{5|70A9}<integer> 6|20r28 43r27 54r35 58r46 62r26 76r26 77r26
-. 86r24 87r24 96r26 97r26 98r26 108r24 109r24 118r24 127r26 128r26 136r33
-. 7|23r21 30r17 38r20 39r20 72r37 83r47 99r46 113r56 136r27 179r35 189r46
-. 199r26 216r26 217r26 268r24 269r24 293r26 294r26 295r26 360r24 361r24 406r24
-. 435r26 436r26 453r33
-46a4*Null_Address{43A12} 6|20r39 7|53r22 59r18 65r21 66r21
+G c Z s b [transfer ats20_token 95 14 none]
+G c Z s b [balance_of ats20_token 112 14 none]
+G c Z s b [approve ats20_token 130 14 none]
+G c Z s b [allowance ats20_token 148 14 none]
+G c Z s b [transfer_from ats20_token 167 14 none]
+G c Z s b [total_supply ats20_token 183 14 none]
+G c Z s b [name ats20_token 199 14 none]
+G c Z s b [symbol ats20_token 215 14 none]
+G c Z s b [decimals ats20_token 231 14 none]
+G c Z s b [get_descriptor ats20_token 246 13 none]
+G c Z s b [init ats20_token 259 14 none]
+G c Z s b [execute ats20_token 267 14 none]
+G c Z s b [get_balance_slot ats20_token 282 13 none]
+G c Z s b [get_allowance_slot ats20_token 288 13 none]
+G c Z s b [read_u64 ats20_token 297 13 none]
+G c Z s b [write_u64 ats20_token 301 14 none]
+G c Z s b [selector_match ats20_token 308 13 none]
+G r c none [transfer ats20_token 95 14 none] [is_valid_context cvm_types 208 13 none]
+G r c none [transfer ats20_token 95 14 none] [is_valid_exec_result cvm_types 146 13 none]
+G r c none [balance_of ats20_token 112 14 none] [is_valid_context cvm_types 208 13 none]
+G r c none [balance_of ats20_token 112 14 none] [is_valid_exec_result cvm_types 146 13 none]
+G r c none [approve ats20_token 130 14 none] [is_valid_context cvm_types 208 13 none]
+G r c none [approve ats20_token 130 14 none] [is_valid_exec_result cvm_types 146 13 none]
+G r c none [allowance ats20_token 148 14 none] [is_valid_context cvm_types 208 13 none]
+G r c none [allowance ats20_token 148 14 none] [is_valid_exec_result cvm_types 146 13 none]
+G r c none [transfer_from ats20_token 167 14 none] [is_valid_context cvm_types 208 13 none]
+G r c none [transfer_from ats20_token 167 14 none] [is_valid_exec_result cvm_types 146 13 none]
+G r c none [total_supply ats20_token 183 14 none] [is_valid_context cvm_types 208 13 none]
+G r c none [total_supply ats20_token 183 14 none] [is_valid_exec_result cvm_types 146 13 none]
+G r c none [name ats20_token 199 14 none] [is_valid_context cvm_types 208 13 none]
+G r c none [name ats20_token 199 14 none] [is_valid_exec_result cvm_types 146 13 none]
+G r c none [symbol ats20_token 215 14 none] [is_valid_context cvm_types 208 13 none]
+G r c none [symbol ats20_token 215 14 none] [is_valid_exec_result cvm_types 146 13 none]
+G r c none [decimals ats20_token 231 14 none] [is_valid_context cvm_types 208 13 none]
+G r c none [decimals ats20_token 231 14 none] [is_valid_exec_result cvm_types 146 13 none]
+G r c none [execute ats20_token 267 14 none] [is_valid_context cvm_types 208 13 none]
+G r c none [execute ats20_token 267 14 none] [is_valid_exec_result cvm_types 146 13 none]
+G r c none [execute ats20_token 267 14 none] [error_result cvm_types 170 13 none]
+X 4 anubis_types.ads
+5K9*Anubis_Types 40e17 5|4w6 4r24
+14A9*Byte_Array(13M12)<integer> 5|260r28 6|560r28
+24A12*Address{14A9}<integer> 5|282r38 289r17 290r17 6|13r38 26r17 27r17 89r21
+. 162r21 202r21 242r21 243r21 288r21 289r21 569r22
+27A12*Hash256{14A9}<integer> 5|64r36 66r36 68r36 70r36 72r37 74r36 76r36
+. 78r36 80r38 308r36 6|71r36
+X 5 ats20_token.ads
+41K9*ATS20_Token 282E13 311l5 311e16 6|5b14 682l5 682t16
+50i4*Total_Supply_Slot{8|77I12} 6|391r34 633r25
+51i4*Name_Slot{8|77I12} 6|416r21 422r36 592r17 594r14
+52i4*Symbol_Slot{8|77I12} 6|441r21 447r36 608r17 610r14
+53i4*Decimals_Slot{8|77I12} 6|465r17 466r36 616r14 617r14
+56i4*Balance_Slot_Base{8|77I12} 284r44 285r17 6|22r57
+57N4*Balance_Slot_Count 285r37 6|22r36
+60i4*Allowance_Slot_Base{8|77I12} 293r46 294r17 6|41r59
+61N4*Allowance_Slot_Count 294r39 6|41r36
+64a4*Transfer_Selector{4|27A12} 6|494r22 659r47
+66a4*Balance_Of_Selector{4|27A12} 6|501r22 661r50
+68a4*Approve_Selector{4|27A12} 6|508r22 663r50
+70a4*Allowance_Selector{4|27A12} 6|515r22 665r50
+72a4*Total_Supply_Selector{4|27A12} 6|529r22 669r50
+74a4*Name_Selector{4|27A12} 6|536r22 671r50
+76a4*Symbol_Selector{4|27A12} 6|543r22 673r50
+78a4*Decimals_Selector{4|27A12} 6|550r22 675r50
+80a4*Transfer_From_Selector{4|27A12} 6|522r22 667r50
+95U14*Transfer 96>7 97=7 98<7 6|84b14 660s10
+96r7 Context{8|184R9} 101r30 101r57 102r36 6|85b7 98r10 105r25 111r59 115r38
+97a7 State{8|258A9} 101r39 101r47 101r66 6|86b7 119r29 120r27 145m18 145r18
+. 146m18 146r18
+98r7 Result{8|139R9} 101r19 103r40 6|87b7 99m10 125m10 136m10 150m7
+112U14*Balance_Of 113>7 114=7 115<7 6|157b14 662s10
+113r7 Context{8|184R9} 118r30 119r36 6|158b7 169r10 176r25
+114a7 State{8|258A9} 118r39 118r47 118r56 6|159b7 181r28
+115r7 Result{8|139R9} 118r19 120r40 6|160b7 170m10 190m7
+130U14*Approve 131>7 132=7 133<7 6|197b14 664s10
+131r7 Context{8|184R9} 136r30 136r57 137r36 6|198b7 208r10 215r25 221r59
+. 225r39
+132a7 State{8|258A9} 136r39 136r47 136r66 6|199b7 226m18 226r18
+133r7 Result{8|139R9} 136r19 138r40 6|200b7 209m10 230m7
+148U14*Allowance 149>7 150=7 151<7 6|237b14 666s10
+149r7 Context{8|184R9} 154r30 155r36 6|238b7 250r10 257r23 262r25
+150a7 State{8|258A9} 154r39 154r47 154r56 6|239b7 267r30
+151r7 Result{8|139R9} 154r19 156r40 6|240b7 251m10 276m7
+167U14*Transfer_From 168>7 169=7 170<7 6|283b14 668s10
+168r7 Context{8|184R9} 173r30 173r57 174r36 6|284b7 300r10 307r27 312r25
+. 318r59 322r52
+169a7 State{8|258A9} 173r39 173r47 173r66 6|285b7 323r34 340r29 341r27 366m18
+. 366r18 369m18 369r18 370m18 370r18
+170r7 Result{8|139R9} 173r19 175r40 6|286b7 301m10 327m10 346m10 357m10 374m7
+183U14*Total_Supply 184>7 185=7 186<7 6|381b14 670s10
+184r7 Context{8|184R9} 189r30 190r36 6|382b7 386r28
+185a7 State{8|258A9} 189r39 189r47 189r56 6|383b7 391r27
+186r7 Result{8|139R9} 189r19 191r40 6|384b7 400m7
+199U14*Name 200>7 201=7 202<7 6|407b14 672s10
+200r7 Context{8|184R9} 205r30 206r36 6|408b7 412r28
+201a7 State{8|258A9} 205r39 205r47 205r56 6|409b7 416r14 422r29
+202r7 Result{8|139R9} 205r19 207r40 6|410b7 425m7
+215U14*Symbol 216>7 217=7 218<7 6|432b14 674s10
+216r7 Context{8|184R9} 221r30 222r36 6|433b7 437r28
+217a7 State{8|258A9} 221r39 221r47 221r56 6|434b7 441r14 447r29
+218r7 Result{8|139R9} 221r19 223r40 6|435b7 450m7
+231U14*Decimals 232>7 233=7 234<7 6|457b14 676s10
+232r7 Context{8|184R9} 237r30 238r36 6|458b7 462r28
+233a7 State{8|258A9} 237r39 237r47 237r56 6|459b7 465r10 466r29
+234r7 Result{8|139R9} 237r19 239r40 6|460b7 471m7
+246V13*Get_Descriptor{7|94R9} 6|482b13 557l8 557t22
+259U14*Init 260>7 261<7 262<7 6|559b14 650l8 650t12
+260a7 Init_Params{4|14A9} 6|560b7 564r33 576r10 582r28 585r49 592r41 598r30
+. 601r52 608r43 614r14 620r20 628r38 636r21 642r24
+261a7 State{8|258A9} 6|561b7 573m7 592m10 594m7 608m10 610m7 616m7 617m7
+. 633m18 633r18 647m18 647r18
+262b7 Success{boolean} 6|562b7 577m10 586m10 602m10 621m10 637m10 649m7
+267U14*Execute 268>7 269=7 270<7 6|652b14 680l8 680t15
+268r7 Context{8|184R9} 6|653b7 659r26 660r20 661r29 662r22 663r29 664r19
+. 665r29 666r21 667r29 668r25 669r29 670r24 671r29 672r16 673r29 674r18 675r29
+. 676r20
+269a7 State{8|258A9} 6|654b7 660m29 662m31 664m28 666m30 668m34 670m33 672m25
+. 674m27 676m29
+270r7 Result{8|139R9} 6|655b7 660m36 662m38 664m35 666m37 668m41 670m40 672m32
+. 674m34 676m36 678m10
+282V13 Get_Balance_Slot{8|77I12} 282>31 284r17 6|13b13 115s20 116s18 180s19
+. 336s20 337s18 646s22
+282a31 Addr{4|24A12} 6|13b31 17r16 18r34
+288V13 Get_Allowance_Slot{8|77I12} 289>7 290>7 293r17 6|25b13 225s19 266s19
+. 322s21
+289a7 Owner{4|24A12} 6|26b7 32r16 33r34
+290a7 Spender{4|24A12} 6|27b7 36r16 37r34
+297V13 Read_U64{9|84M9} 297>23 6|44b13 54l8 54t16 119s19 120s17 181s18 267s20
+. 323s24 340s19 341s17 391s17
+297r23 Slot{8|231R9} 6|44b23 47r10 50r62
+301U14 Write_U64 302=7 303>7 6|56b14 69l8 69t17 145s7 146s7 226s7 366s7 369s7
+. 370s7 633s7 647s7
+302r7 Slot{8|231R9} 6|57b7 64m10 67m7 68m7
+303m7 Value{9|84M9} 6|58b7 60r26
+308V13 Selector_Match{boolean} 308>29 308>32 6|71b13 78l8 78t22 659s10 661s13
+. 663s13 665s13 667s13 669s13 671s13 673s13 675s13
+308a29 A{4|27A12} 6|71b29 74r14 75r14 76r14 77r14
+308a32 B{4|27A12} 6|71b32 74r22 75r22 76r22 77r22
+X 6 ats20_token.adb
+14i7 Hash{natural} 18m10 18r18 22r27
+17i11 I{integer} 18r40
+29i7 Hash{natural} 33m10 33r18 37m10 37r18 41r27
+32i11 I{integer} 33r41
+36i11 I{integer} 37r43
+45m7 Result{9|84M9} 50m13 50r35 53r14
+49i14 I{integer} 50r74
+60m7 V{9|84M9} 64r40 65m10 65r28
+63i11 I{integer} 64r22
+89a7 To_Addr{4|24A12} 105m10 116r36
+90m7 Amount{9|84M9} 109m7 111m10 111r32 123r21 134r38 145r48 146r44
+91i7 From_Slot{8|77I12} 115m7 119r36 145r25
+92i7 To_Slot{8|77I12} 116m7 120r34 146r25
+93m7 From_Bal{9|84M9} 119m7 123r10 145r37
+94m7 To_Bal{9|84M9} 120m7 134r10 146r35
+95a7 Return_Data{8|71A12} 124m10 128r28 135m10 139r28 149m7 153r25
+104i11 I{integer} 105r19 105r41
+110i11 I{integer} 111r75
+162a7 Account{4|24A12} 176m10 180r37
+163i7 Slot_Idx{8|77I12} 180m7 181r35
+164m7 Balance{9|84M9} 181m7 184r19
+165a7 Return_Data{8|71A12} 186m10 193r25
+166m7 Bal_Temp{9|84M9} 184m7 186r41 187m10 187r35
+175i11 I{integer} 176r19 176r41
+185i11 I{integer} 186r23
+202a7 Spender{4|24A12} 215m10 225r55
+203m7 Amount{9|84M9} 219m7 221m10 221r32 226r36
+204i7 Slot_Idx{8|77I12} 225m7 226r25
+205a7 Return_Data{8|71A12} 229m7 233r25
+214i11 I{integer} 215r19 215r41
+220i11 I{integer} 221r75
+242a7 Owner{4|24A12} 257m10 266r39
+243a7 Spender{4|24A12} 262m10 266r46
+244i7 Slot_Idx{8|77I12} 266m7 267r37
+245m7 Allow_Val{9|84M9} 267m7 270r15
+246a7 Return_Data{8|71A12} 272m10 279r25
+247m7 Temp{9|84M9} 270m7 272r41 273m10 273r31
+256i11 I{integer} 257r17 257r39
+261i11 I{integer} 262r19 262r41
+271i11 I{integer} 272r23
+288a7 From_Addr{4|24A12} 307m10 322r41 336r38
+289a7 To_Addr{4|24A12} 312m10 337r36
+290m7 Amount{9|84M9} 316m7 318m10 318r32 325r26 344r21 355r38 366r54 369r48
+. 370r44
+291i7 Allow_Slot{8|77I12} 322m7 323r41 366r25
+292i7 From_Slot{8|77I12} 336m7 340r36 369r25
+293i7 To_Slot{8|77I12} 337m7 341r34 370r25
+294m7 Allowance_Val{9|84M9} 323m7 325r10 366r38
+295m7 From_Bal{9|84M9} 340m7 344r10 369r37
+296m7 To_Bal{9|84M9} 341m7 355r10 370r35
+297a7 Return_Data{8|71A12} 326m10 330r28 345m10 349r28 356m10 360r28 373m7
+. 377r25
+306i11 I{integer} 307r21 307r43
+311i11 I{integer} 312r19 312r41
+317i11 I{integer} 318r75
+387m7 Supply{9|84M9} 391m7 394r15
+388a7 Return_Data{8|71A12} 396m10 403r25
+389m7 Temp{9|84M9} 394m7 396r41 397m10 397r31
+395i11 I{integer} 396r23
+413a7 Return_Data{8|71A12} 422m10 428r25
+414i7 Len{natural} 416m7 417r10 418m10 421r21 427r25
+421i11 I{integer} 422r23 422r54
+438a7 Return_Data{8|71A12} 447m10 453r25
+439i7 Len{natural} 441m7 442r10 443m10 446r21 452r25
+446i11 I{integer} 447r23 447r56
+463a7 Return_Data{8|71A12} 466m10 468m10 474r25
+483r7 Desc{7|94R9} 486m7 487m7 488m7 491m7 493m7 500m7 507m7 514m7 521m7
+. 528m7 535m7 542m7 549m7 556r14
+564i7 Idx{natural} 582r41 583m7 583r14 585r32 592r54 595m7 595r14 598r43
+. 599m7 599r14 601r33 608r56 611m7 611r14 614r27 615m7 615r14 620r10 628r51
+. 630m7 630r14 636r10 642r37
+565i7 Name_Len{natural} 582m7 585r10 585r38 591r21 594r35 595r20
+566i7 Symbol_Len{natural} 598m7 601r10 601r39 607r21 610r37 611r20
+567m7 Dec{9|70M9} 614m7 616r42
+568m7 Initial_Sup{9|84M9} 625m7 627m10 627r37 633r45 647r39
+569a7 Holder{4|24A12} 642m10 646r40
+570i7 Holder_Slot{8|77I12} 646m7 647r25
+591i11 I{integer} 592r35 592r60
+607i11 I{integer} 608r37 608r62
+626i11 I{integer} 628r57
+641i11 I{integer} 642r18 642r43
+X 7 cvm_interface.ads
+28K9*CVM_Interface 5|6w6 6r25 7|314e18
+41P9*CVM_Entry_Point
+60a7*Selector{8|274A12} 6|494m10 501m10 508m10 515m10 522m10 529m10 536m10
+. 543m10 550m10
+63p7*Handler{41P9} 6|495m10 502m10 509m10 516m10 523m10 530m10 537m10 544m10
+. 551m10
+66b7*Public{boolean} 6|496m10 503m10 510m10 517m10 524m10 531m10 538m10 545m10
+. 552m10
+69b7*ReadOnly{boolean} 6|497m10 504m10 511m10 518m10 525m10 532m10 539m10
+. 546m10 553m10
+91A9*Entry_Point_Table(58R9)<integer>
+94R9*CVM_Descriptor 5|246r35 6|482r35 483r14 7|103e14
+96r7*Info{8|325R9} 6|486m12 487m12 488m12
+99i7*Entry_Count{natural} 6|491m12
+102a7*Entries{91A9} 6|493m12 500m12 507m12 514m12 521m12 528m12 535m12 542m12
+. 549m12
+117r4*Empty_Descriptor{94R9} 6|483r32
+X 8 cvm_types.ads
+29K9*CVM_Types 5|5w6 5r21 8|356e14
+71A12*Return_Buffer{4|14A9}<integer> 6|95r21 165r21 205r21 246r21 297r21
+. 388r21 413r21 438r21 463r21
+77I12*State_Index{natural} 5|50r33 51r32 52r32 53r32 56r33 60r35 282r54 291r13
+. 6|13r54 22r14 28r13 41r14 91r21 92r21 163r21 204r21 244r21 291r21 292r21
+. 293r21 570r22
+114n7*Success{113E9} 6|126r28 137r28 151r25 191r25 231r25 277r25 328r28 347r28
+. 358r28 375r25 401r25 426r25 451r25 472r25
+116n7*Invalid_Params{113E9} 6|99r34 170r34 209r34 251r34 301r34
+120n7*Unknown_Method{113E9} 6|678r34
+139R9*Exec_Result 5|98r24 115r24 133r24 151r24 170r24 186r24 202r24 218r24
+. 234r24 270r24 6|87r24 160r24 200r24 240r24 286r24 384r24 410r24 435r24
+. 460r24 655r24 8|143e14
+140e7*Status{113E9} 6|126m13 137m13 151m10 191m10 231m10 277m10 328m13 347m13
+. 358m13 375m10 401m10 426m10 451m10 472m10
+141i7*Return_Len{natural} 6|127m13 138m13 152m10 192m10 232m10 278m10 329m13
+. 348m13 359m13 376m10 402m10 427m10 452m10 473m10
+142a7*Return_Data{71A12} 6|128m13 139m13 153m10 193m10 233m10 279m10 330m13
+. 349m13 360m13 377m10 403m10 428m10 453m10 474m10
+146V13*Is_Valid_Exec_Result{boolean} 5|103s18 120s18 138s18 156s18 175s18
+. 191s18 207s18 223s18 239s18
+170V13*Error_Result{139R9} 6|99s20 170s20 209s20 251s20 301s20 678s20
+184R9*Call_Context 5|96r24 113r24 131r24 149r24 168r24 184r24 200r24 216r24
+. 232r24 268r24 6|85r24 158r24 198r24 238r24 284r24 382r24 408r24 433r24
+. 458r24 653r24 8|205e14
+186a7*Caller{45A12} 6|115r46 225r47 322r60
+192a7*Entry_Point{4|27A12} 6|659r34 661r37 663r37 665r37 667r37 669r37 671r37
+. 673r37 675r37
+195i7*Param_Len{natural} 6|98r18 169r18 208r18 250r18 300r18
+198a7*Params{68A12} 6|105r33 111r67 176r33 215r33 221r67 257r31 262r33 307r35
+. 312r33 318r67
+208V13*Is_Valid_Context{boolean} 5|102s18 119s18 137s18 155s18 174s18 190s18
+. 206s18 222s18 238s18
+231R9*State_Slot 5|297r30 302r22 6|44r30 57r22 8|236e14
+233i7*Length{natural} 6|47r15 67m12 416r32 441r34 465r32 594m25 610m27 617m29
+234a7*Value{74A12} 6|50r67 64m15 422r47 447r49 466r51 592m28 608m30 616m29
+235b7*Modified{boolean} 6|68m12
+258A9*State_Array(231R9)<integer> 5|97r24 114r24 132r24 150r24 169r24 185r24
+. 201r24 217r24 233r24 261r28 269r24 6|86r24 159r24 199r24 239r24 285r24
+. 383r24 409r24 434r24 459r24 561r28 654r24
+266a4*Empty_State{258A9} 6|573r16
+293A9*Capability_Set(boolean)<281E9>
+301a4*Default_Capabilities{293A9} 6|487r25
+322A12*CVM_Name{string}<integer>
+333a7*Name{322A12} 6|486m17
+336a7*Caps{293A9} 6|487m17
+339b7*Active{boolean} 6|488m17
+X 9 interfac.ads
+38K9*Interfaces 5|3w6 3r22 6|3w6 3r22 9|233e15
+70M9*Unsigned_8 6|64r28 186r29 272r29 396r29 567r22
+84M9*Unsigned_64 5|297r49 303r15 6|44r49 45r16 50r49 58r15 60r11 90r21 93r21
+. 94r21 111r46 134r19 164r21 166r21 203r21 221r46 245r21 247r21 290r21 294r23
+. 295r21 296r21 318r46 355r19 387r21 389r21 568r22 628r25
+166V13*Shift_Left{84M9} 6|50s23 111s20 221s20 318s20 627s25
+171V13*Shift_Right{84M9} 6|65s15 187s22 273s18 397s18
 

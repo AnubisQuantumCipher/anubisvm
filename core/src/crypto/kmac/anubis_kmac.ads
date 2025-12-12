@@ -178,7 +178,7 @@ is
    --  Post: All bytes of key are zero (proven by postcondition)
    procedure Zeroize_Key (Key : in Out KMAC_Key) with
       Global  => null,
-      Depends => (Key => null),
+      Depends => (Key => Key),
       Post    => Key_Is_Zero (Key),
       Always_Terminates;
 

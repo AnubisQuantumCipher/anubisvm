@@ -1,6 +1,0 @@
-sphinx_lite_iot.adb:26:27: warning: array aggregate using () is an obsolescent syntax, use [] instead [-gnatwj]
-sphinx_lite_iot.adb:349:16: warning: array aggregate using () is an obsolescent syntax, use [] instead [-gnatwj]
-sphinx_lite_iot.ads:26:06: warning: no entities of "Aegis_U256" are referenced [-gnatwu]
-sphinx_lite_iot.ads:26:18: warning: use clause for package "Aegis_U256" has no effect [-gnatwu]
-sphinx_lite_iot.ads:73:27: warning: array aggregate using () is an obsolescent syntax, use [] instead [-gnatwj]
-sphinx_lite_iot.ads:77:27: warning: array aggregate using () is an obsolescent syntax, use [] instead [-gnatwj]

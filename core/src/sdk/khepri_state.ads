@@ -304,6 +304,56 @@ is
    ) with
       Global => (In_Out => Transient_State);
 
+   ---------------------------------------------------------------------------
+   --  State Persistence (for local development)
+   ---------------------------------------------------------------------------
+
+   --  Persistence result type
+   type Persist_Result is (
+      Persist_OK,
+      Persist_File_Error,
+      Persist_Format_Error,
+      Persist_Version_Error
+   );
+
+   --  Maximum path length for state files
+   Max_State_Path : constant := 1024;
+   subtype State_Path_String is String (1 .. Max_State_Path);
+
+   --  Save all storage state to file
+   --  File format: binary with magic header, version, and key-value entries
+   procedure Save_Storage_State (
+      Path   : in  String;
+      Result : out Persist_Result
+   ) with
+      SPARK_Mode => Off,
+      Pre    => Path'Length > 0 and Path'Length <= Max_State_Path;
+
+   --  Load storage state from file
+   --  Replaces current in-memory state
+   procedure Load_Storage_State (
+      Path   : in  String;
+      Result : out Persist_Result
+   ) with
+      SPARK_Mode => Off,
+      Pre    => Path'Length > 0 and Path'Length <= Max_State_Path;
+
+   --  Clear all storage state (reset to empty)
+   procedure Clear_All_Storage with
+      SPARK_Mode => Off;
+
+   --  Get current storage entry count
+   function Get_Storage_Count return Natural with
+      SPARK_Mode => Off;
+
+   --  Set current contract context (for storage isolation)
+   procedure Set_Current_Contract (Addr : Address) with
+      SPARK_Mode => Off;
+
+   --  Clear transient storage (called at end of transaction)
+   procedure Clear_Transient_Storage with
+      SPARK_Mode => Off;
+
 private
 
    --  Internal: Hash for slot calculation (uses Keccak256)

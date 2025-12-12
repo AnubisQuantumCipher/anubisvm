@@ -1,0 +1,22 @@
+[package]
+name = "hello_counter"
+version = "0.1.0"
+authors = ["AnubisVM Team"]
+description = "Simple counter contract demonstrating SPARK verification"
+
+[contract]
+entrypoint = "hello_counter_main"
+target_level = "silver"
+
+[build]
+gpr_file = "hello_counter.gpr"
+optimization = "2"
+
+[prove]
+level = "silver"
+timeout = 60
+checks = ["overflow", "range", "precondition", "postcondition"]
+
+[deploy]
+chain_id = 1
+gas_limit = 100000

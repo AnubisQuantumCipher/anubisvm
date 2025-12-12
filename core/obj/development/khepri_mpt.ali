@@ -27,13 +27,13 @@ RV NO_IMPLEMENTATION_PRAGMAS
 RV NO_IMPLICIT_LOOPS
 RV NO_ELABORATION_CODE
 
-U khepri_mpt%b		khepri_mpt.adb		c2da88e8 OO PK
+U khepri_mpt%b		khepri_mpt.adb		888d7927 OO PK
 W anubis_sha3%s		anubis_sha3.adb		anubis_sha3.ali
 W anubis_types%s	anubis_types.ads	anubis_types.ali
 Z system.assertions%s	s-assert.adb		s-assert.ali
 Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
 
-U khepri_mpt%s		khepri_mpt.ads		91e89cfd EE NE OO PK
+U khepri_mpt%s		khepri_mpt.ads		5753cb16 EE NE OO PK
 W aegis_vm_types%s	aegis_vm_types.ads	aegis_vm_types.ali
 W interfaces%s		interfac.ads		interfac.ali
 W khepri_mpt_types%s	khepri_mpt_types.adb	khepri_mpt_types.ali
@@ -41,12 +41,12 @@ W khepri_mpt_types%s	khepri_mpt_types.adb	khepri_mpt_types.ali
 D ada.ads		20240808082856 76789da1 ada%s
 D a-assert.ads		20240808082856 ba465f5c ada.assertions%s
 D a-unccon.ads		20240808082856 0e9b276f ada.unchecked_conversion%s
-D aegis_vm_types.ads	20251207191105 dcd101d9 aegis_vm_types%s
+D aegis_vm_types.ads	20251209080247 503da7fd aegis_vm_types%s
 D anubis_keccak.ads	20251207191105 19b431a9 anubis_keccak%s
 D anubis_sha3.ads	20251207191105 69737d95 anubis_sha3%s
 D anubis_types.ads	20251207191105 4fb35097 anubis_types%s
 D interfac.ads		20240808082856 9111f9c1 interfaces%s
-D khepri_mpt.ads	20251207191105 29e9c0a4 khepri_mpt%s
+D khepri_mpt.ads	20251209030134 63be316b khepri_mpt%s
 D khepri_mpt.adb	20251207191105 cdf3654e khepri_mpt%b
 D khepri_mpt_types.ads	20251207191105 f5c1a441 khepri_mpt_types%s
 D system.ads		20240808082856 70765b54 system%s
@@ -137,7 +137,7 @@ G r c none [delete_from_node khepri_mpt 1025 14 none] [is_prefix khepri_mpt_type
 G r c none [delete_from_node khepri_mpt 1025 14 none] [remove_prefix khepri_mpt_types 201 13 none]
 G r c none [delete_from_node khepri_mpt 1025 14 none] [keccak_256 anubis_sha3 87 14 none]
 X 4 aegis_vm_types.ads
-21K9*Aegis_VM_Types 279e19 9|17w6 17r30
+21K9*Aegis_VM_Types 280e19 9|17w6 17r30
 32A9*Byte_Array(31M12)<integer> 9|79r24 80r24 91r24 102r24 112r14 144r24
 . 196r24 205r24 217r32 10|134r13 136r16 148r32 172r23 203r23 204r23 236r17
 . 254r24 274r27 313r27 344r34 357r31 363r37 404r24 546r20 587r28 851r24 852r24

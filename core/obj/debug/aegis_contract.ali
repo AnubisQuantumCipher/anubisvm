@@ -29,18 +29,18 @@ W aegis_u256%s		aegis_u256.adb		aegis_u256.ali
 W interfaces%s		interfac.ads		interfac.ali
 Z system.assertions%s	s-assert.adb		s-assert.ali
 
-U aegis_contract%s	aegis_contract.ads	5fafd5de EE NE OO PK
+U aegis_contract%s	aegis_contract.ads	72119993 EE NE OO PK
 W aegis_storage%s	aegis_storage.adb	aegis_storage.ali
 W aegis_vm_types%s	aegis_vm_types.ads	aegis_vm_types.ali
 
 D ada.ads		20240808082856 76789da1 ada%s
 D a-assert.ads		20240808082856 ba465f5c ada.assertions%s
 D a-unccon.ads		20240808082856 0e9b276f ada.unchecked_conversion%s
-D aegis_contract.ads	20251206064439 f406fabe aegis_contract%s
-D aegis_contract.adb	20251206064513 84ac287f aegis_contract%b
-D aegis_storage.ads	20251205184403 77782eb9 aegis_storage%s
-D aegis_u256.ads	20251205185917 ff2dfe4b aegis_u256%s
-D aegis_vm_types.ads	20251205185836 dcd101d9 aegis_vm_types%s
+D aegis_contract.ads	20251207191106 f406fabe aegis_contract%s
+D aegis_contract.adb	20251207191105 84ac287f aegis_contract%b
+D aegis_storage.ads	20251207191106 d62ac4d0 aegis_storage%s
+D aegis_u256.ads	20251207191105 ff2dfe4b aegis_u256%s
+D aegis_vm_types.ads	20251209080247 503da7fd aegis_vm_types%s
 D interfac.ads		20240808082856 9111f9c1 interfaces%s
 D system.ads		20240808082856 70765b54 system%s
 D s-assert.ads		20240808082856 9c4520c7 system.assertions%s
@@ -200,14 +200,14 @@ X 5 aegis_contract.adb
 92i11 I{integer} 93r36 94r20
 120i11 I{integer} 121r26
 X 6 aegis_storage.ads
-27K9*Aegis_Storage 4|4w6 4r25 6|258e18
+27K9*Aegis_Storage 4|4w6 4r25 6|259e18
 68R9*Account_State 4|196r23 6|76e14
 X 7 aegis_u256.ads
 21K9*Aegis_U256 5|4w6 4r22 7|276e15
 168V13*From_Bytes_BE{8|41R9} 5|30s14
 172V13*To_Bytes_BE{8|56A9} 5|16s35
 X 8 aegis_vm_types.ads
-21K9*Aegis_VM_Types 4|3w6 3r26 8|279e19
+21K9*Aegis_VM_Types 4|3w6 3r26 8|280e19
 31M12*Byte{9|70M9} 4|37r48 46r46
 41R9*U256 4|185r23 186r23 206r34 210r56 5|14r34 24r56 8|43e14
 56A9*Hash256(31M12)<integer> 4|74r23 108r21 127r28 140r21 163r23 168r23 235r48

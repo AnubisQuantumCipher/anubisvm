@@ -30,7 +30,7 @@ W interfaces%s		interfac.ads		interfac.ali
 Z system.assertions%s	s-assert.adb		s-assert.ali
 Z system.exp_llu%s	s-expllu.ads		s-expllu.ali
 
-U anubis_whisper%s	anubis_whisper.ads	646c62f6 EE NE OO PK
+U anubis_whisper%s	anubis_whisper.ads	cb445acc EE NE OO PK
 W anubis_bytes%s	anubis_bytes.adb	anubis_bytes.ali
 W anubis_types%s	anubis_types.ads	anubis_types.ali
 W interfaces%s		interfac.ads		interfac.ali
@@ -38,7 +38,7 @@ W interfaces%s		interfac.ads		interfac.ali
 D ada.ads		20240808082856 76789da1 ada%s
 D a-assert.ads		20240808082856 ba465f5c ada.assertions%s
 D a-unccon.ads		20240808082856 0e9b276f ada.unchecked_conversion%s
-D anubis_bytes.ads	20251207191105 9e5d5cad anubis_bytes%s
+D anubis_bytes.ads	20251209124541 31756497 anubis_bytes%s
 D anubis_keccak.ads	20251207191105 19b431a9 anubis_keccak%s
 D anubis_sha3.ads	20251207191105 69737d95 anubis_sha3%s
 D anubis_types.ads	20251207191105 4fb35097 anubis_types%s
@@ -88,7 +88,7 @@ G r c none [scan_output anubis_whisper 220 13 none] [sha3_256 anubis_sha3 57 14 
 G r c none [hash_to_commitment anubis_whisper 21 14 none] [sha3_256 anubis_sha3 57 14 none]
 G r c none [hash_to_commitment anubis_whisper 21 14 none] [shake256 anubis_sha3 109 14 none]
 X 4 anubis_bytes.ads
-7K9*Anubis_Bytes 52e17 8|14w6 14r24
+7K9*Anubis_Bytes 57e17 8|14w6 14r24
 X 6 anubis_sha3.ads
 27K9*Anubis_SHA3 158e16 9|11w6 27r7 30r7 139r10 170r7 257r10 299r10 378r10
 . 445r7 464r10

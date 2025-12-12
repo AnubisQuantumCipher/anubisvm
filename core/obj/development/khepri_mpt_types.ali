@@ -28,14 +28,14 @@ RV NO_ELABORATION_CODE
 U khepri_mpt_types%b	khepri_mpt_types.adb	2d8e4b36 NE OO PK
 Z system.assertions%s	s-assert.adb		s-assert.ali
 
-U khepri_mpt_types%s	khepri_mpt_types.ads	b8015c59 EE OO PK
+U khepri_mpt_types%s	khepri_mpt_types.ads	34edfa7d EE OO PK
 W aegis_vm_types%s	aegis_vm_types.ads	aegis_vm_types.ali
 W interfaces%s		interfac.ads		interfac.ali
 
 D ada.ads		20240808082856 76789da1 ada%s
 D a-assert.ads		20240808082856 ba465f5c ada.assertions%s
 D a-unccon.ads		20240808082856 0e9b276f ada.unchecked_conversion%s
-D aegis_vm_types.ads	20251207191105 dcd101d9 aegis_vm_types%s
+D aegis_vm_types.ads	20251209080247 503da7fd aegis_vm_types%s
 D interfac.ads		20240808082856 9111f9c1 interfaces%s
 D khepri_mpt_types.ads	20251207191105 f5c1a441 khepri_mpt_types%s
 D khepri_mpt_types.adb	20251207191105 d84fef77 khepri_mpt_types%b
@@ -63,7 +63,7 @@ G c Z s s [proof_nodeIP khepri_mpt_types 142 9 none]
 G c Z s s [Tproof_pathBIP khepri_mpt_types 149 4 none]
 G c Z s s [merkle_proofIP khepri_mpt_types 151 9 none]
 X 4 aegis_vm_types.ads
-21K9*Aegis_VM_Types 279e19 6|11w6 11r27
+21K9*Aegis_VM_Types 280e19 6|11w6 11r27
 32A9*Byte_Array(31M12)<integer> 6|180r16 7|13r16
 X 5 interfac.ads
 38K9*Interfaces 233e15 6|10w6 10r27

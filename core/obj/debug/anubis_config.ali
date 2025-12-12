@@ -22,7 +22,7 @@ RV NO_IMPLEMENTATION_PRAGMAS
 
 U anubis_config%s	anubis_config.ads	19c7b4b2 NE OO PU PK
 
-D anubis_config.ads	20251203093747 19c7b4b2 anubis_config%s
+D anubis_config.ads	20251207191107 19c7b4b2 anubis_config%s
 D system.ads		20240808082856 70765b54 system%s
 G a e
 X 1 anubis_config.ads

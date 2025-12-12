@@ -22,14 +22,14 @@ RV NO_DYNAMIC_SIZED_OBJECTS
 RV NO_IMPLEMENTATION_PRAGMAS
 RV NO_IMPLICIT_LOOPS
 
-U aegis_vm_types%s	aegis_vm_types.ads	4dc0f818 NE OO PU PK
+U aegis_vm_types%s	aegis_vm_types.ads	c12c5e3c NE OO PU PK
 W interfaces%s		interfac.ads		interfac.ali
 Z system.assertions%s	s-assert.adb		s-assert.ali
 
 D ada.ads		20240808082856 76789da1 ada%s
 D a-assert.ads		20240808082856 ba465f5c ada.assertions%s
 D a-unccon.ads		20240808082856 0e9b276f ada.unchecked_conversion%s
-D aegis_vm_types.ads	20251205185836 dcd101d9 aegis_vm_types%s
+D aegis_vm_types.ads	20251209080247 503da7fd aegis_vm_types%s
 D interfac.ads		20240808082856 9111f9c1 interfaces%s
 D system.ads		20240808082856 70765b54 system%s
 D s-assert.ads		20240808082856 9c4520c7 system.assertions%s
@@ -45,7 +45,7 @@ G c Z s s [get_discount aegis_vm_types 89 13 none]
 G c Z s s [initial_gas_context aegis_vm_types 121 13 none]
 G c Z s s [success_result aegis_vm_types 213 13 none]
 G c Z s s [failure_result aegis_vm_types 217 13 none]
-G c Z s s [Tcapability_maskBIP aegis_vm_types 263 4 none]
+G c Z s s [Tcapability_maskBIP aegis_vm_types 264 4 none]
 G c Z s s [byte_arrayIP aegis_vm_types 32 9 none]
 G c Z s s [gas_contextIP aegis_vm_types 113 9 none]
 G c Z s s [memory_regionIP aegis_vm_types 139 9 none]
@@ -55,7 +55,7 @@ G c Z s s [execution_resultIP aegis_vm_types 206 9 none]
 G c Z s s [versionIP aegis_vm_types 229 9 none]
 G c Z s s [contract_manifestIP aegis_vm_types 236 9 none]
 X 4 aegis_vm_types.ads
-21K9*Aegis_VM_Types 240r23 279l5 279e19
+21K9*Aegis_VM_Types 240r23 280l5 280e19
 31M12*Byte{5|70M9} 32r51 56r39 59r39 70r48
 32A9*Byte_Array(31M12)<integer>
 34M12*Word32{5|81M9}
@@ -151,20 +151,21 @@ X 4 aegis_vm_types.ads
 240r7*Version{229R9}
 241e7*Certification{84E9}
 242i7*WCET_Bound{101I9}
-250E9*Capability_Type 260e5 263r35
-251n7*Cap_None{250E9} 269r7
-252n7*Cap_Read_Storage{250E9} 274r7
+250E9*Capability_Type 261e5 264r35
+251n7*Cap_None{250E9} 270r7
+252n7*Cap_Read_Storage{250E9} 275r7
 253n7*Cap_Write_Storage{250E9}
-254n7*Cap_Call{250E9} 275r7
+254n7*Cap_Call{250E9} 276r7
 255n7*Cap_Transfer{250E9}
 256n7*Cap_Create{250E9}
 257n7*Cap_Self_Destruct{250E9}
 258n7*Cap_Crypto{250E9}
 259n7*Cap_Event{250E9}
-263A9*Capability_Mask(boolean)<250E9> 266r31 268r33 273r38
-266a4*No_Capabilities{263A9}
-268a4*Full_Capabilities{263A9}
-273a4*Read_Only_Capabilities{263A9}
+260n7*Cap_Privacy{250E9}
+264A9*Capability_Mask(boolean)<250E9> 267r31 269r33 274r38
+267a4*No_Capabilities{264A9}
+269a4*Full_Capabilities{264A9}
+274a4*Read_Only_Capabilities{264A9}
 X 5 interfac.ads
 38K9*Interfaces 4|3w6 3r22 5|233e15
 70M9*Unsigned_8 4|31r20

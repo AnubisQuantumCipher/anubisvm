@@ -24,7 +24,7 @@ RV NO_DYNAMIC_SIZED_OBJECTS
 RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
 RV NO_IMPLEMENTATION_PRAGMAS
 
-U anubis_mldsa_sample%b	anubis_mldsa_sample.adb	a75c1567 NE OO PK
+U anubis_mldsa_sample%b	anubis_mldsa_sample.adb	2c759d38 NE OO PK
 W anubis_sha3%s		anubis_sha3.adb		anubis_sha3.ali
 W interfaces%s		interfac.ads		interfac.ali
 Z system.assertions%s	s-assert.adb		s-assert.ali
@@ -42,13 +42,13 @@ N A79:4 gnatprove terminating rejboundedpoly
 D ada.ads		20240808082856 76789da1 ada%s
 D a-assert.ads		20240808082856 ba465f5c ada.assertions%s
 D a-unccon.ads		20240808082856 0e9b276f ada.unchecked_conversion%s
-D anubis_keccak.ads	20251207191105 19b431a9 anubis_keccak%s
+D anubis_keccak.ads	20251211132252 b3b03dd1 anubis_keccak%s
 D anubis_mldsa_config.ads  20251207191106 44e9e9a1 anubis_mldsa_config%s
 D anubis_mldsa_field.ads  20251207191106 b52aaacb anubis_mldsa_field%s
 D anubis_mldsa_sample.ads  20251207191106 4a597d89 anubis_mldsa_sample%s
-D anubis_mldsa_sample.adb  20251207191106 1567ecba anubis_mldsa_sample%b
+D anubis_mldsa_sample.adb  20251211195339 af2bf840 anubis_mldsa_sample%b
 D anubis_mldsa_types.ads  20251207191106 b08dfc72 anubis_mldsa_types%s
-D anubis_sha3.ads	20251207191105 69737d95 anubis_sha3%s
+D anubis_sha3.ads	20251211201618 5816e130 anubis_sha3%s
 D anubis_types.ads	20251207191105 4fb35097 anubis_types%s
 D interfac.ads		20240808082856 9111f9c1 interfaces%s
 D system.ads		20240808082856 70765b54 system%s
@@ -62,117 +62,117 @@ G c Z s b [expandmask anubis_mldsa_sample 42 14 none]
 G c Z s b [sampleinball anubis_mldsa_sample 52 14 none]
 G c Z s b [rejnttpoly anubis_mldsa_sample 62 14 none]
 G c Z s b [rejboundedpoly anubis_mldsa_sample 72 14 none]
-G r c none [expanda anubis_mldsa_sample 19 14 none] [shake128 anubis_sha3 97 14 none]
-G r c none [expands anubis_mldsa_sample 30 14 none] [shake256 anubis_sha3 109 14 none]
-G r c none [expandmask anubis_mldsa_sample 42 14 none] [shake256 anubis_sha3 109 14 none]
-G r c none [sampleinball anubis_mldsa_sample 52 14 none] [shake256 anubis_sha3 109 14 none]
-G r c none [rejnttpoly anubis_mldsa_sample 62 14 none] [shake128 anubis_sha3 97 14 none]
-G r c none [rejboundedpoly anubis_mldsa_sample 72 14 none] [shake256 anubis_sha3 109 14 none]
+G r c none [expanda anubis_mldsa_sample 19 14 none] [shake128 anubis_sha3 196 14 none]
+G r c none [expands anubis_mldsa_sample 30 14 none] [shake256 anubis_sha3 215 14 none]
+G r c none [expandmask anubis_mldsa_sample 42 14 none] [shake256 anubis_sha3 215 14 none]
+G r c none [sampleinball anubis_mldsa_sample 52 14 none] [shake256 anubis_sha3 215 14 none]
+G r c none [rejnttpoly anubis_mldsa_sample 62 14 none] [shake128 anubis_sha3 196 14 none]
+G r c none [rejboundedpoly anubis_mldsa_sample 72 14 none] [shake256 anubis_sha3 215 14 none]
 X 5 anubis_mldsa_config.ads
 14K9*Anubis_MLDSA_Config 94e24 7|4w6 4r31
-21N4*Q 8|58r19 105r50 114r50 245r53 308r22
-24N4*N 8|35r24 36r44 86r24 100r35 110r35 286r16 286r27
-32N4*Tau 8|286r20
-35N4*Gamma1 8|190r36 240r34
-39N4*Eta 8|102r16 103r50 105r55 111r16 112r50 114r55
+21N4*Q 8|61r19 108r50 117r50 248r53 311r22
+24N4*N 8|38r24 39r44 89r24 103r35 113r35 289r16 289r27
+32N4*Tau 8|289r20
+35N4*Gamma1 8|193r36 243r34
+39N4*Eta 8|105r16 106r50 108r55 114r16 115r50 117r55
 X 6 anubis_mldsa_field.ads
 14K9*Anubis_MLDSA_Field 137e23 7|5w6 5r30
-20M9*Field_Element 8|59r32 103r35 105r35 112r35 114r35 243r29 245r29
+20M9*Field_Element 8|62r32 106r35 108r35 115r35 117r35 246r29 248r29
 X 7 anubis_mldsa_sample.ads
-13K9*Anubis_MLDSA_Sample 81l5 81e24 8|6b14 317l5 317t24
-19U14*ExpandA 20>7 21<7 25r45 8|122b14 143l8 143t15
-20a7 Rho{9|37A12} 8|123b7 130r26
-21a7 A_Hat{9|34A9} 8|124b7 140m35 140r35
-30U14*ExpandS 31>7 32<7 33<7 8|146b14 176l8 176t15
-31a7 Rho_Prime{9|37A12} 8|147b7 156r26
-32a7 S1{9|31A9} 8|148b7 165m46 165r46
-33a7 S2{9|30A9} 8|149b7 174m46 174r46
+13K9*Anubis_MLDSA_Sample 81l5 81e24 8|9b14 320l5 320t24
+19U14*ExpandA 20>7 21<7 25r45 8|125b14 146l8 146t15
+20a7 Rho{9|37A12} 8|126b7 133r26
+21a7 A_Hat{9|34A9} 8|127b7 143m35 143r35
+30U14*ExpandS 31>7 32<7 33<7 8|149b14 179l8 179t15
+31a7 Rho_Prime{9|37A12} 8|150b7 159r26
+32a7 S1{9|31A9} 8|151b7 168m46 168r46
+33a7 S2{9|30A9} 8|152b7 177m46 177r46
 38N4*Max_Kappa 48r23
-42U14*ExpandMask 43>7 44>7 45<7 8|180b14 249l8 249t18
-43a7 Rho_Prime{9|37A12} 8|181b7 197r26
-44i7 Kappa{natural} 48r14 8|182b7 204r43
-45a7 Y{9|31A9} 8|183b7 193m7 243m16 245m16
-52U14*SampleInBall 53>7 54<7 59r45 8|254b14 315l8 315t20
-53a7 Seed_Bytes{11|14A9} 57r14 8|255b7 269r22 272r17
-54a7 C{9|23A9} 8|256b7 266m7 304m10 304r19 308m13 310m13
-62U14*RejNTTPoly 63>7 64<7 69r45 8|15b14 63l8 63t18 140s13
-63a7 Seed_Bytes{11|14A9} 67r14 8|16b7 29r22 32r17 42r23
-64a7 Poly{9|23A9} 8|17b7 26m7 59m13
-72U14*RejBoundedPoly 73>7 74<7 79r45 8|67b14 119l8 119t22 165s10 174s10
-73a7 Seed_Bytes{11|14A9} 77r14 8|68b7 80r22 83r17 88r23
-74a7 Poly{9|23A9} 8|69b7 77m7 103m16 105m16 112m16 114m16
+42U14*ExpandMask 43>7 44>7 45<7 8|183b14 252l8 252t18
+43a7 Rho_Prime{9|37A12} 8|184b7 200r26
+44i7 Kappa{natural} 48r14 8|185b7 207r43
+45a7 Y{9|31A9} 8|186b7 196m7 246m16 248m16
+52U14*SampleInBall 53>7 54<7 59r45 8|257b14 318l8 318t20
+53a7 Seed_Bytes{11|14A9} 57r14 8|258b7 272r22 275r17
+54a7 C{9|23A9} 8|259b7 269m7 307m10 307r19 311m13 313m13
+62U14*RejNTTPoly 63>7 64<7 69r45 8|18b14 66l8 66t18 143s13
+63a7 Seed_Bytes{11|14A9} 67r14 8|19b7 32r22 35r17 45r23
+64a7 Poly{9|23A9} 8|20b7 29m7 62m13
+72U14*RejBoundedPoly 73>7 74<7 79r45 8|70b14 122l8 122t22 168s10 177s10
+73a7 Seed_Bytes{11|14A9} 77r14 8|71b7 83r22 86r17 91r23
+74a7 Poly{9|23A9} 8|72b7 80m7 106m16 108m16 115m16 117m16
 X 8 anubis_mldsa_sample.adb
-11N4 XOF_Buffer_Size 20r47 32r37 37r44 40r23 42r43 47r36 48r40
-20I15 Buf_Index{natural} 21r28
-21a7 Buffer{11|14A9} 32m29 42m35 51r30 52r42 53r42
-22i7 Coef_Idx{natural} 35r13 36r33 59r19 60m13 60r25
-23i7 Buf_Idx{natural} 37r33 40r13 43m13 47r25 48r25 51r38 52r50 53r50 55m10
-. 55r21
-24m7 Val{12|81M9} 51m10 58r13 59r47
-71a7 Buffer{11|14A9} 83m29 88m35 92r15
-72i7 Coef_Idx{natural} 86r13 100r24 103r22 105r22 107m13 107r25 110r24 112r22
-. 114r22 116m13 116r25
-73i7 Buf_Idx{natural} 87r13 89m13 92r23 93m10 93r21
-74m7 B{11|13M12} 92m10 97r25 98r38
-75i7 T0{integer} 97m10 100r13 102r22 103r56 105r61
-75i11 T1{integer} 98m10 110r13 111r22 112r56 114r61
-126a7 XOF_Seed{11|14A9} 130m10 137m13 138m13 140r25
-129i11 I{integer} 130r20 130r31
-134i11 I{9|26I12} 138r36 140r42
-135i14 J{9|27I12} 137r36 140r45
-151a7 XOF_Seed{11|14A9} 156m10 161m10 162m10 165r26 170m10 171m10 174r26
-152i7 Counter{natural} 161r33 162r33 163m10 163r21 170r33 171r33 172m10 172r21
-155i11 I{integer} 156r20 156r37
-160i11 I{9|27I12} 165r50
-169i11 I{9|26I12} 174r50
-185a7 XOF_Seed{11|14A9} 197m10 206m13 207m13 211r20
-186a7 Buffer{11|14A9} 211m40 225r36 226r48 227r48 231r49 232r48 233r48
-187i7 Buf_Idx{natural} 213m10 218r36 219r36 225r44 226r56 227r56 231r57 232r56
-. 233r56 235m16 235r27
-188m7 Val{12|81M9} 225m16 231m16 234m16 234r23 240r53
-189i7 Centered{integer} 240m13 242r16 243r44 245r58
-190N7 Two_Gamma1 240r62
-196i11 I{integer} 197r20 197r37
-200i11 I{9|27I12} 204r51 243r19 245r19
-204i13 Counter{natural} 206r36 207r37
-214i14 J{9|20I12} 218r47 222r16 243r23 245r23
-259a7 Buffer{11|14A9} 272m29 275r29 276r41 277r41 278r41 279r41 280r41 281r41
-. 282r41 296r18
-260m7 Signs{12|84M9} 275m7 307r14 313m10 313r32
-261i7 Buf_Idx{natural} 290r16 296r26 297m13 297r24
-262i7 J{natural} 292m16 299m13 300r23 304r22 308r16 310r16
-263m7 B{11|13M12} 296m13 299r27
-286i11 I{integer} 292r21 300r28 304r13
+14N4 XOF_Buffer_Size 23r47 35r37 40r44 43r23 45r43 50r36 51r40
+23I15 Buf_Index{natural} 24r28
+24a7 Buffer{11|14A9} 35m29 45m35 54r30 55r42 56r42
+25i7 Coef_Idx{natural} 38r13 39r33 62r19 63m13 63r25
+26i7 Buf_Idx{natural} 40r33 43r13 46m13 50r25 51r25 54r38 55r50 56r50 58m10
+. 58r21
+27m7 Val{12|81M9} 54m10 61r13 62r47
+74a7 Buffer{11|14A9} 86m29 91m35 95r15
+75i7 Coef_Idx{natural} 89r13 103r24 106r22 108r22 110m13 110r25 113r24 115r22
+. 117r22 119m13 119r25
+76i7 Buf_Idx{natural} 90r13 92m13 95r23 96m10 96r21
+77m7 B{11|13M12} 95m10 100r25 101r38
+78i7 T0{integer} 100m10 103r13 105r22 106r56 108r61
+78i11 T1{integer} 101m10 113r13 114r22 115r56 117r61
+129a7 XOF_Seed{11|14A9} 133m10 140m13 141m13 143r25
+132i11 I{integer} 133r20 133r31
+137i11 I{9|26I12} 141r36 143r42
+138i14 J{9|27I12} 140r36 143r45
+154a7 XOF_Seed{11|14A9} 159m10 164m10 165m10 168r26 173m10 174m10 177r26
+155i7 Counter{natural} 164r33 165r33 166m10 166r21 173r33 174r33 175m10 175r21
+158i11 I{integer} 159r20 159r37
+163i11 I{9|27I12} 168r50
+172i11 I{9|26I12} 177r50
+188a7 XOF_Seed{11|14A9} 200m10 209m13 210m13 214r20
+189a7 Buffer{11|14A9} 214m40 228r36 229r48 230r48 234r49 235r48 236r48
+190i7 Buf_Idx{natural} 216m10 221r36 222r36 228r44 229r56 230r56 234r57 235r56
+. 236r56 238m16 238r27
+191m7 Val{12|81M9} 228m16 234m16 237m16 237r23 243r53
+192i7 Centered{integer} 243m13 245r16 246r44 248r58
+193N7 Two_Gamma1 243r62
+199i11 I{integer} 200r20 200r37
+203i11 I{9|27I12} 207r51 246r19 248r19
+207i13 Counter{natural} 209r36 210r37
+217i14 J{9|20I12} 221r47 225r16 246r23 248r23
+262a7 Buffer{11|14A9} 275m29 278r29 279r41 280r41 281r41 282r41 283r41 284r41
+. 285r41 299r18
+263m7 Signs{12|84M9} 278m7 310r14 316m10 316r32
+264i7 Buf_Idx{natural} 293r16 299r26 300m13 300r24
+265i7 J{natural} 295m16 302m13 303r23 307r22 311r16 313r16
+266m7 B{11|13M12} 299m13 302r27
+289i11 I{integer} 295r21 303r28 307r13
 X 9 anubis_mldsa_types.ads
 14K9*Anubis_MLDSA_Types 7|6w6 6r30 9|64e23
-20I12*Poly_Index{natural} 8|214r19
-23A9*Polynomial(6|20M9)<integer> 7|54r24 64r24 74r24 8|17r24 69r24 256r24
-26I12*K_Index{natural} 8|134r16 169r16
-27I12*L_Index{natural} 8|135r19 160r16 200r16
-30A9*Poly_Vector_K(23A9)<integer> 7|33r23 8|149r23
-31A9*Poly_Vector_L(23A9)<integer> 7|32r23 45r23 8|148r23 183r23
-34A9*Poly_Matrix(23A9)<integer><integer> 7|21r20 8|124r20
-37A12*Seed{11|14A9}<integer> 7|20r20 31r23 43r23 8|123r20 147r23 181r23
+20I12*Poly_Index{natural} 8|217r19
+23A9*Polynomial(6|20M9)<integer> 7|54r24 64r24 74r24 8|20r24 72r24 259r24
+26I12*K_Index{natural} 8|137r16 172r16
+27I12*L_Index{natural} 8|138r19 163r16 203r16
+30A9*Poly_Vector_K(23A9)<integer> 7|33r23 8|152r23
+31A9*Poly_Vector_L(23A9)<integer> 7|32r23 45r23 8|151r23 186r23
+34A9*Poly_Matrix(23A9)<integer><integer> 7|21r20 8|127r20
+37A12*Seed{11|14A9}<integer> 7|20r20 31r23 43r23 8|126r20 150r23 184r23
 X 10 anubis_sha3.ads
-27K9*Anubis_SHA3 8|4w6 4r23 10|158e16
-97U14*SHAKE128 8|32s7 42s13
-109U14*SHAKE256 8|83s7 88s13 211s10 272s7
+33K9*Anubis_SHA3 8|7w6 7r23 10|298e16
+196U14*SHAKE128 8|35s7 45s13
+215U14*SHAKE256 8|86s7 91s13 214s10 275s7
 X 11 anubis_types.ads
 5K9*Anubis_Types 7|3w6 3r24 11|40e17
-13M12*Byte{12|70M9} 8|74r11 137r30 138r30 161r27 162r27 170r27 171r27 206r30
-. 207r30 263r11
-14A9*Byte_Array(13M12)<integer> 7|53r24 63r24 73r24 8|16r24 21r16 68r24 71r16
-. 126r18 151r18 185r18 186r16 255r24 259r16
+13M12*Byte{12|70M9} 8|77r11 140r30 141r30 164r27 165r27 173r27 174r27 209r30
+. 210r30 266r11
+14A9*Byte_Array(13M12)<integer> 7|53r24 63r24 73r24 8|19r24 24r16 71r24 74r16
+. 129r18 154r18 188r18 189r16 258r24 262r16
 X 12 interfac.ads
-38K9*Interfaces 8|3w6 3r22 12|233e15
+38K9*Interfaces 8|6w6 6r22 12|233e15
 70M9*Unsigned_8
-81M9*Unsigned_32 8|24r13 51r17 52r29 53r29 188r13 225r23 226r35 227r35 231r36
-. 232r35 233r35
-84M9*Unsigned_64 8|260r15 275r16 276r28 277r28 278r28 279r28 280r28 281r28
-. 282r28
-96V13*Shift_Right{70M9} 8|98s25
-141V13*Shift_Left{81M9} 8|52s17 53s17 226s23 227s23 232s23 233s23
-146V13*Shift_Right{81M9} 8|231s23
-166V13*Shift_Left{84M9} 8|276s16 277s16 278s16 279s16 280s16 281s16 282s16
-171V13*Shift_Right{84M9} 8|313s19
+81M9*Unsigned_32 8|27r13 54r17 55r29 56r29 191r13 228r23 229r35 230r35 234r36
+. 235r35 236r35
+84M9*Unsigned_64 8|263r15 278r16 279r28 280r28 281r28 282r28 283r28 284r28
+. 285r28
+96V13*Shift_Right{70M9} 8|101s25
+141V13*Shift_Left{81M9} 8|55s17 56s17 229s23 230s23 235s23 236s23
+146V13*Shift_Right{81M9} 8|234s23
+166V13*Shift_Left{84M9} 8|279s16 280s16 281s16 282s16 283s16 284s16 285s16
+171V13*Shift_Right{84M9} 8|316s19
 

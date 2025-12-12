@@ -77,7 +77,38 @@ is
       Sys_Log1,            -- 0x61: Log with 1 topic
       Sys_Log2,            -- 0x62: Log with 2 topics
       Sys_Log3,            -- 0x63: Log with 3 topics
-      Sys_Log4             -- 0x64: Log with 4 topics
+      Sys_Log4,            -- 0x64: Log with 4 topics
+
+      --  Privacy operations (ANUBIS)
+      Sys_Private_Store,        -- 0x80: SHIELD encrypted store
+      Sys_Private_Load,         -- 0x81: SHIELD encrypted load
+      Sys_Private_Delete,       -- 0x82: SHIELD delete entry
+      Sys_Commit_Amount,        -- 0x83: WHISPER Ajtai commitment
+      Sys_Verify_Range,         -- 0x84: WHISPER range proof verify
+      Sys_Add_Commitments,      -- 0x85: WHISPER homomorphic add
+      Sys_Verify_Balance,       -- 0x86: WHISPER balance proof
+      Sys_Private_Call,         -- 0x87: GATE private execution
+      Sys_Verify_Execution,     -- 0x88: GATE verify proof
+      Sys_Create_Session,       -- 0x89: GATE create session
+      Sys_Close_Session,        -- 0x8A: GATE close session
+      Sys_Create_Disclosure,    -- 0x8B: EYE selective disclosure
+      Sys_Verify_Disclosure,    -- 0x8C: EYE verify disclosure
+      Sys_Derive_View_Key,      -- 0x8D: EYE derive viewing key
+      Sys_Generate_Stealth,     -- 0x8E: EYE stealth address
+      Sys_Ring_Sign,            -- 0x8F: VEIL ring signature
+      Sys_Verify_Ring_Sig,      -- 0x90: VEIL verify ring sig
+      Sys_Compute_Key_Image,    -- 0x91: VEIL compute key image
+      Sys_Check_Spent,          -- 0x92: VEIL check double-spend
+      Sys_ZK_Prove_Range,       -- 0x93: Lattice ZK range proof
+      Sys_ZK_Verify_Range,      -- 0x94: Lattice ZK verify range
+      Sys_ZK_Prove_Linear,      -- 0x95: Lattice ZK linear proof
+      Sys_ZK_Verify_Linear,     -- 0x96: Lattice ZK verify linear
+
+      --  Confidential transfer operations (WHISPER extended)
+      Sys_Confidential_Transfer,    -- 0x97: Confidential value transfer
+      Sys_Create_Transfer_Proof,    -- 0x98: Create transfer balance proof
+      Sys_Verify_Transfer,          -- 0x99: Verify confidential transfer
+      Sys_Scan_Confidential_Output  -- 0x9A: Scan for owned outputs
    );
 
    --  Syscall result

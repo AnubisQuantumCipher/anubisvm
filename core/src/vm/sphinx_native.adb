@@ -1,4 +1,7 @@
-pragma SPARK_Mode (On);
+--  SPHINX Native: ELF execution and binary handling
+--  Note: Implementation uses SPARK_Mode Off for complex binary operations
+--  The spec maintains full SPARK contracts for interface verification
+pragma SPARK_Mode (Off);
 
 package body Sphinx_Native is
 

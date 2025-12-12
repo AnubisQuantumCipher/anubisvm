@@ -25,7 +25,9 @@ with Aegis_VM_Types; use Aegis_VM_Types;
 --  - EIP-2929: Gas cost increases for state access opcodes
 
 package Khepri_State with
-   SPARK_Mode => On
+   SPARK_Mode => On,
+   Abstract_State => (Storage_State, Transient_State),
+   Initializes => (Storage_State, Transient_State)
 is
 
    ---------------------------------------------------------------------------
@@ -61,7 +63,7 @@ is
       Key   : in  Uint256;
       Value : out Uint256
    ) with
-      Global => null;
+      Global => (Input => Storage_State);
 
    --  Write to storage
    --  Gas cost depends on current value (zero/non-zero transitions)
@@ -69,15 +71,15 @@ is
       Key   : in Uint256;
       Value : in Uint256
    ) with
-      Global => null;
+      Global => (In_Out => Storage_State);
 
    --  Check if storage slot has been written
    function Has_Storage (Key : Uint256) return Boolean with
-      Global => null;
+      Global => Storage_State;
 
    --  Clear storage slot (sets to zero, may trigger gas refund)
    procedure Clear_Storage (Key : Uint256) with
-      Global => null;
+      Global => (In_Out => Storage_State);
 
    ---------------------------------------------------------------------------
    --  Map Operations (High-Level Abstraction)
@@ -91,7 +93,7 @@ is
       Base_Slot : Uint256;
       Key       : Uint256
    ) return Uint256 with
-      Global => null;
+      Global => Storage_State;
 
    --  Set value in mapping at base slot
    procedure Map_Set (
@@ -99,21 +101,21 @@ is
       Key       : in Uint256;
       Value     : in Uint256
    ) with
-      Global => null;
+      Global => (In_Out => Storage_State);
 
    --  Check if key exists in mapping
    function Map_Has (
       Base_Slot : Uint256;
       Key       : Uint256
    ) return Boolean with
-      Global => null;
+      Global => Storage_State;
 
    --  Delete key from mapping (set to zero)
    procedure Map_Delete (
       Base_Slot : in Uint256;
       Key       : in Uint256
    ) with
-      Global => null;
+      Global => (In_Out => Storage_State);
 
    ---------------------------------------------------------------------------
    --  Address Map Operations (Balances, Allowances, etc.)
@@ -124,7 +126,7 @@ is
       Base_Slot : Uint256;
       Account   : Address
    ) return Uint256 with
-      Global => null;
+      Global => Storage_State;
 
    --  Set balance for address
    procedure Set_Balance (
@@ -132,23 +134,25 @@ is
       Account   : in Address;
       Amount    : in Uint256
    ) with
-      Global => null;
+      Global => (In_Out => Storage_State);
 
    --  Add to balance (with overflow check)
+   --  Note: SPARK_Mode Off because function has side effects (writes storage)
    function Add_Balance (
       Base_Slot : Uint256;
       Account   : Address;
       Amount    : Uint256
    ) return Result with
-      Global => null;
+      SPARK_Mode => Off;
 
    --  Subtract from balance (with underflow check)
+   --  Note: SPARK_Mode Off because function has side effects (writes storage)
    function Sub_Balance (
       Base_Slot : Uint256;
       Account   : Address;
       Amount    : Uint256
    ) return Result with
-      Global => null;
+      SPARK_Mode => Off;
 
    ---------------------------------------------------------------------------
    --  Nested Map Operations (Allowances: owner -> spender -> amount)
@@ -160,7 +164,7 @@ is
       Owner     : Address;
       Spender   : Address
    ) return Uint256 with
-      Global => null;
+      Global => Storage_State;
 
    --  Set allowance
    procedure Set_Allowance (
@@ -169,7 +173,7 @@ is
       Spender   : in Address;
       Amount    : in Uint256
    ) with
-      Global => null;
+      Global => (In_Out => Storage_State);
 
    ---------------------------------------------------------------------------
    --  Array Operations (Dynamic Arrays in Storage)
@@ -180,14 +184,14 @@ is
 
    --  Get array length
    function Array_Length (Base_Slot : Uint256) return Uint256 with
-      Global => null;
+      Global => Storage_State;
 
    --  Get array element (0-indexed)
    function Array_Get (
       Base_Slot : Uint256;
       Index     : Uint256
    ) return Storage_Result with
-      Global => null;
+      Global => Storage_State;
 
    --  Set array element
    procedure Array_Set (
@@ -195,18 +199,19 @@ is
       Index     : in Uint256;
       Value     : in Uint256
    ) with
-      Global => null;
+      Global => (In_Out => Storage_State);
 
    --  Push element to array end
    procedure Array_Push (
       Base_Slot : in Uint256;
       Value     : in Uint256
    ) with
-      Global => null;
+      Global => (In_Out => Storage_State);
 
    --  Pop element from array end (returns popped value)
+   --  Note: SPARK_Mode Off because function has side effects (writes storage)
    function Array_Pop (Base_Slot : Uint256) return Storage_Result with
-      Global => null;
+      SPARK_Mode => Off;
 
    ---------------------------------------------------------------------------
    --  Packed Storage Operations (Multiple values in one slot)
@@ -218,7 +223,7 @@ is
       High  : in Uint256;  -- Upper 128 bits
       Low   : in Uint256   -- Lower 128 bits
    ) with
-      Global => null;
+      Global => (In_Out => Storage_State);
 
    --  Unpack U256 into two U128 values
    procedure Unpack_U128 (
@@ -226,7 +231,7 @@ is
       High : out Uint256;
       Low  : out Uint256
    ) with
-      Global => null;
+      Global => (Input => Storage_State);
 
    --  Pack four U64 values into one U256 slot
    procedure Pack_U64x4 (
@@ -236,7 +241,7 @@ is
       V2   : in Word64;
       V3   : in Word64
    ) with
-      Global => null;
+      Global => (In_Out => Storage_State);
 
    --  Unpack U256 into four U64 values
    procedure Unpack_U64x4 (
@@ -246,7 +251,7 @@ is
       V2   : out Word64;
       V3   : out Word64
    ) with
-      Global => null;
+      Global => (Input => Storage_State);
 
    ---------------------------------------------------------------------------
    --  Storage Slot Calculation Helpers
@@ -290,14 +295,14 @@ is
       Key   : in  Uint256;
       Value : out Uint256
    ) with
-      Global => null;
+      Global => (Input => Transient_State);
 
    --  Write to transient storage
    procedure TStore (
       Key   : in Uint256;
       Value : in Uint256
    ) with
-      Global => null;
+      Global => (In_Out => Transient_State);
 
 private
 

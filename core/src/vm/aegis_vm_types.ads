@@ -256,7 +256,8 @@ is
       Cap_Create,         -- Create contracts
       Cap_Self_Destruct,  -- Self-destruct
       Cap_Crypto,         -- Use crypto operations
-      Cap_Event           -- Emit events
+      Cap_Event,          -- Emit events
+      Cap_Privacy         -- Use privacy operations (ANUBIS layer)
    );
 
    --  Capability mask (set of capabilities)

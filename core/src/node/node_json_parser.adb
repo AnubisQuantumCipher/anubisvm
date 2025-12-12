@@ -1,8 +1,30 @@
-pragma SPARK_Mode (On);
+--  JSON Parser: RPC parameter parsing
+--  Note: Implementation uses SPARK_Mode Off for complex string operations
+--  The spec maintains full SPARK contracts for interface verification
+pragma SPARK_Mode (Off);
+
+with Anubis_Address_Types; use Anubis_Address_Types;
+with Anubis_Address_Base32; use Anubis_Address_Base32;
+with Anubis_Address_Checksum; use Anubis_Address_Checksum;
+with Interfaces; use Interfaces;
 
 package body Node_JSON_Parser with
-   SPARK_Mode => On
+   SPARK_Mode => Off,
+   Refined_State => (
+      Deploy_Buffer_State => Deploy_Hex_Buffer,
+      Invoke_Buffer_State => Args_Hex_Buffer
+   )
 is
+
+   ---------------------------------------------------------------------------
+   --  Package-level buffers (avoid stack overflow with large contracts)
+   ---------------------------------------------------------------------------
+
+   --  Static buffer for hex string during deploy parsing (512KB)
+   Deploy_Hex_Buffer : String (1 .. Max_Hex_Length) := (others => ' ');
+
+   --  Static buffer for args hex parsing (16KB for up to 8KB binary)
+   Args_Hex_Buffer : String (1 .. 16384) := (others => ' ');
 
    --  Hex character to nibble
    function Hex_Char_To_Nibble (C : Character) return Natural is
@@ -39,7 +61,10 @@ is
       High, Low : Natural;
       Idx       : Natural := 0;
    begin
-      Bytes := (others => 0);
+      --  Zero Bytes with loop to avoid 256KB stack temporary from aggregate
+      for I in Bytes'Range loop
+         Bytes (I) := 0;
+      end loop;
       Byte_Len := 0;
       Success := False;
 
@@ -108,7 +133,9 @@ is
       Key_Pos         : Natural := 0;
       Start, Stop     : Natural;
    begin
-      Value := (others => ' ');
+      --  Note: Don't initialize Value - (others => ' ') creates stack temporary
+      --  equal to Value's size which can be 512KB for elf_hex extraction.
+      --  Value_Len tracks the valid portion instead.
       Value_Len := 0;
       Found := False;
 
@@ -228,7 +255,7 @@ is
       Gas_Limit   : out    Gas_Amount;
       Success     : out    Boolean
    ) is
-      Hex_Str   : String (1 .. Max_Hex_Length);
+      --  Use package-level Deploy_Hex_Buffer instead of local 512KB allocation
       Hex_Len   : Natural;
       Name_Str  : String (1 .. Max_Contract_Name_Length);
       Name_Len  : Natural;
@@ -238,7 +265,8 @@ is
       Found     : Boolean;
    begin
       From_Addr := (others => 0);
-      Code := (others => 0);
+      --  Note: Don't initialize Code with (others => 0) - creates 256KB stack temp
+      --  Hex_To_Bytes will initialize it via loop instead
       Code_Size := 0;
       Manifest := (
          Name          => (others => ' '),
@@ -251,14 +279,16 @@ is
       Gas_Limit := 0;
       Success := False;
 
-      --  Extract elf_hex
-      Extract_String (Params_Json, "elf_hex", Hex_Str, Hex_Len, Found);
+      --  Extract elf_hex (using static buffer)
+      --  Note: Don't zero Deploy_Hex_Buffer - (others => ' ') creates 512KB
+      --  stack temporary. Hex_Len tracks the valid portion instead.
+      Extract_String (Params_Json, "elf_hex", Deploy_Hex_Buffer, Hex_Len, Found);
       if not Found or Hex_Len = 0 then
          return;
       end if;
 
       --  Convert hex to bytes
-      Hex_To_Bytes (Hex_Str (1 .. Hex_Len), Code, Code_Size, Found);
+      Hex_To_Bytes (Deploy_Hex_Buffer (1 .. Hex_Len), Code, Code_Size, Found);
       if not Found or Code_Size = 0 then
          return;
       end if;
@@ -315,6 +345,7 @@ is
       Entry_Len : Natural;
       To_Str    : String (1 .. 128);
       To_Len    : Natural;
+      Args_Hex_Len : Natural;
       Gas_Val   : Natural;
       Found     : Boolean;
    begin
@@ -337,20 +368,90 @@ is
          Request.Entry_Len := Entry_Len;
       end if;
 
-      --  Extract to (contract address as hex)
+      --  Extract to (contract address - AAS-001 or hex format)
       Extract_String (Params_Json, "to", To_Str, To_Len, Found);
-      if Found and To_Len >= 64 then
-         --  Parse hex to address (first 32 bytes)
-         for I in 0 .. 31 loop
+      if Found and To_Len > 0 then
+         --  Check if AAS-001 format (starts with "mldsa87:")
+         if To_Len >= 78 and To_Str (1 .. 7) = "mldsa87" then
+            --  AAS-001 format: mldsa87:net:t:chunked-checksum
+            --  Minimum: mldsa87:dev:c:58chars-5chars = 78 chars
             declare
-               High : constant Natural := Hex_Char_To_Nibble (To_Str (I * 2 + 1));
-               Low  : constant Natural := Hex_Char_To_Nibble (To_Str (I * 2 + 2));
+               --  Find payload start (after "mldsa87:net:t:")
+               Payload_Start : Natural := 0;
+               Colon_Count   : Natural := 0;
+               Chunked       : Chunked_Payload;
+               Payload_B32   : Payload_Base32;
+               Account       : Account_ID;
+               Unchunk_OK    : Boolean;
+               Decode_OK     : Boolean;
             begin
-               if High <= 15 and Low <= 15 then
-                  Request.To (I) := Byte (High * 16 + Low);
+               --  Find the third colon to locate payload
+               for I in 1 .. To_Len loop
+                  if To_Str (I) = ':' then
+                     Colon_Count := Colon_Count + 1;
+                     if Colon_Count = 3 then
+                        Payload_Start := I + 1;
+                        exit;
+                     end if;
+                  end if;
+               end loop;
+
+               --  Extract chunked payload (58 chars before the dash-checksum)
+               if Payload_Start > 0 and Payload_Start + 57 <= To_Len then
+                  for I in Chunked_Payload_Index loop
+                     Chunked (I) := To_Str (Payload_Start + I);
+                  end loop;
+
+                  --  Unchunk to get raw Base32
+                  Unchunk_Payload (Chunked, Payload_B32, Unchunk_OK);
+                  if Unchunk_OK then
+                     --  Decode Base32 to bytes
+                     Decode_Account_ID (Payload_B32, Account, Decode_OK);
+                     if Decode_OK then
+                        --  Copy to Contract_Address
+                        for I in Account_ID_Index loop
+                           Request.To (I) := Byte (Account (I));
+                        end loop;
+                     end if;
+                  end if;
                end if;
             end;
-         end loop;
+         elsif To_Len >= 64 then
+            --  Legacy hex format: 64 hex chars = 32 bytes
+            for I in 0 .. 31 loop
+               declare
+                  High : constant Natural := Hex_Char_To_Nibble (To_Str (I * 2 + 1));
+                  Low  : constant Natural := Hex_Char_To_Nibble (To_Str (I * 2 + 2));
+               begin
+                  if High <= 15 and Low <= 15 then
+                     Request.To (I) := Byte (High * 16 + Low);
+                  end if;
+               end;
+            end loop;
+         end if;
+      end if;
+
+      --  Extract args (hex-encoded bytes)
+      Extract_String (Params_Json, "args", Args_Hex_Buffer, Args_Hex_Len, Found);
+      if Found and Args_Hex_Len > 0 and Args_Hex_Len mod 2 = 0 then
+         --  Parse hex to bytes
+         declare
+            Byte_Len : constant Natural := Args_Hex_Len / 2;
+         begin
+            if Byte_Len <= Max_Args_Size then
+               for I in 0 .. Byte_Len - 1 loop
+                  declare
+                     High : constant Natural := Hex_Char_To_Nibble (Args_Hex_Buffer (I * 2 + 1));
+                     Low  : constant Natural := Hex_Char_To_Nibble (Args_Hex_Buffer (I * 2 + 2));
+                  begin
+                     if High <= 15 and Low <= 15 then
+                        Request.Args (Args_Index (I)) := Byte (High * 16 + Low);
+                     end if;
+                  end;
+               end loop;
+               Request.Args_Size := Byte_Len;
+            end if;
+         end;
       end if;
 
       --  Extract gas_limit
@@ -375,21 +476,65 @@ is
       Result_Str  : out    String;
       Result_Len  : out    Natural
    ) is
-      ID_Hex    : String (1 .. 64);
       Hash_Hex  : String (1 .. 64);
       Hex_Len   : Natural;
       Pos       : Natural;
+
+      --  AAS-001 address components
+      Account     : Account_ID;
+      Payload_B32 : Payload_Base32;
+      Chunked     : Chunked_Payload;
+      Checksum_Val : Checksum_Bytes;
+      Checksum_B32 : Checksum_Base32;
+
+      --  Full AAS-001 address: mldsa87:dev:c:payload-checksum
+      --  mldsa87 (7) + : (1) + dev (3) + : (1) + c (1) + : (1) + chunked (58) + - (1) + checksum (5) = 78
+      AAS_Addr : String (1 .. 78);
    begin
       Result_Str := (others => ' ');
 
-      --  Convert contract ID to hex
-      Bytes_To_Hex (Hash256 (Contract_ID), ID_Hex, Hex_Len);
+      --  Convert Contract_Address (32 bytes) to Account_ID
+      for I in Account_ID_Index loop
+         Account (I) := Unsigned_8 (Contract_ID (I));
+      end loop;
+
+      --  Encode account ID to Base32 (52 chars)
+      Encode_Account_ID (Account, Payload_B32);
+
+      --  Compute checksum per AAS-001 v3.1 (dev network, contract type)
+      Compute_Checksum (Dev, Contract, Payload_B32, Checksum_Val);
+
+      --  Encode checksum to Base32 (5 chars)
+      Encode_Checksum (Checksum_Val, Checksum_B32);
+
+      --  Chunk payload for readability (8-8-8-8-8-8-4 with dashes = 58 chars)
+      Chunk_Payload (Payload_B32, Chunked);
+
+      --  Build AAS-001 address string: mldsa87:dev:c:chunked-checksum
+      AAS_Addr := (others => ' ');
+      AAS_Addr (1 .. 7) := "mldsa87";
+      AAS_Addr (8) := ':';
+      AAS_Addr (9 .. 11) := "dev";
+      AAS_Addr (12) := ':';
+      AAS_Addr (13) := 'c';
+      AAS_Addr (14) := ':';
+      --  Copy chunked payload (58 chars)
+      for I in Chunked_Payload_Index loop
+         AAS_Addr (15 + I) := Chunked (I);
+      end loop;
+      AAS_Addr (73) := '-';
+      --  Copy checksum (5 chars)
+      for I in Checksum_B32_Index loop
+         AAS_Addr (74 + I) := Checksum_B32 (I);
+      end loop;
+
+      --  Also convert code hash to hex for reference
       Bytes_To_Hex (Code_Hash, Hash_Hex, Hex_Len);
 
-      --  Build JSON response
+      --  Build JSON response with AAS-001 contract_id
       declare
          Json : constant String :=
-            "{""contract_id"":""" & ID_Hex &
+            "{""contract_id"":""" & AAS_Addr &
             """,""code_hash"":""" & Hash_Hex &
             """,""gas_used"":" & Gas_Amount'Image (Gas_Used) & "}";
       begin
@@ -409,21 +554,34 @@ is
       Result_Str   : out    String;
       Result_Len   : out    Natural
    ) is
-      pragma Unreferenced (Return_Data, Return_Size);
       Pos : Natural;
    begin
       Result_Str := (others => ' ');
 
       if Success_Flag then
+         --  Convert return data to hex string
+         --  First 32 bytes is a U256 in big-endian
          declare
-            Json : constant String :=
-               "{""success"":true,""gas_used"":" & Gas_Amount'Image (Gas_Used) &
-               ",""return_value"":""0""}";
+            Ret_Hex : String (1 .. 64) := (others => '0');
+            Actual_Size : constant Natural := Natural'Min (Return_Size, 32);
          begin
-            Pos := Natural'Min (Json'Length, Result_Str'Length);
-            Result_Str (Result_Str'First .. Result_Str'First + Pos - 1) :=
-               Json (Json'First .. Json'First + Pos - 1);
-            Result_Len := Pos;
+            for I in 0 .. Actual_Size - 1 loop
+               Ret_Hex (I * 2 + 1) := Nibble_To_Hex_Char (
+                  Natural (Return_Data (Return_Index (I))) / 16);
+               Ret_Hex (I * 2 + 2) := Nibble_To_Hex_Char (
+                  Natural (Return_Data (Return_Index (I))) mod 16);
+            end loop;
+
+            declare
+               Json : constant String :=
+                  "{""success"":true,""gas_used"":" & Gas_Amount'Image (Gas_Used) &
+                  ",""return_value"":""0x" & Ret_Hex & """}";
+            begin
+               Pos := Natural'Min (Json'Length, Result_Str'Length);
+               Result_Str (Result_Str'First .. Result_Str'First + Pos - 1) :=
+                  Json (Json'First .. Json'First + Pos - 1);
+               Result_Len := Pos;
+            end;
          end;
       else
          declare

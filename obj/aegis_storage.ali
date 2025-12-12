@@ -27,13 +27,13 @@ RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
 RV NO_IMPLEMENTATION_PRAGMAS
 RV NO_IMPLICIT_LOOPS
 
-U aegis_storage%b	aegis_storage.adb	940a855e NE OO PK
+U aegis_storage%b	aegis_storage.adb	a56f19fb NE OO PK
 W anubis_sha3%s		anubis_sha3.adb		anubis_sha3.ali
 W anubis_types%s	anubis_types.ads	anubis_types.ali
 W interfaces%s		interfac.ads		interfac.ali
 Z system.assertions%s	s-assert.adb		s-assert.ali
 
-U aegis_storage%s	aegis_storage.ads	0afbc509 EE NE OO PK
+U aegis_storage%s	aegis_storage.ads	8617632d EE NE OO PK
 W aegis_vm_types%s	aegis_vm_types.ads	aegis_vm_types.ali
 
 D ada.ads		20240808082856 76789da1 ada%s
@@ -41,9 +41,9 @@ D a-assert.ads		20240808082856 ba465f5c ada.assertions%s
 D a-unccon.ads		20240808082856 0e9b276f ada.unchecked_conversion%s
 D aegis_storage.ads	20251207191106 d62ac4d0 aegis_storage%s
 D aegis_storage.adb	20251207191105 f5f1954d aegis_storage%b
-D aegis_vm_types.ads	20251207191105 dcd101d9 aegis_vm_types%s
-D anubis_keccak.ads	20251207191105 19b431a9 anubis_keccak%s
-D anubis_sha3.ads	20251207191105 69737d95 anubis_sha3%s
+D aegis_vm_types.ads	20251209080247 503da7fd aegis_vm_types%s
+D anubis_keccak.ads	20251211132252 b3b03dd1 anubis_keccak%s
+D anubis_sha3.ads	20251211201618 5816e130 anubis_sha3%s
 D anubis_types.ads	20251207191105 4fb35097 anubis_types%s
 D interfac.ads		20240808082856 9111f9c1 interfaces%s
 D system.ads		20240808082856 70765b54 system%s
@@ -71,7 +71,7 @@ G c Z s s [Tsnapshot_stackBIP aegis_storage 212 4 none]
 G c Z s s [access_entryIP aegis_storage 222 9 none]
 G c Z s s [Taccess_listBIP aegis_storage 229 4 none]
 G c Z s s [access_setIP aegis_storage 232 9 none]
-G r c none [compute_slot_key aegis_storage 253 13 none] [keccak_256 anubis_sha3 87 14 none]
+G r c none [compute_slot_key aegis_storage 253 13 none] [keccak_256 anubis_sha3 176 14 none]
 X 4 aegis_storage.ads
 27K9*Aegis_Storage 259l5 259e18 5|7b14 73l5 73t18
 36E9*Storage_Access_Mode 41e5
@@ -183,7 +183,7 @@ X 5 aegis_storage.adb
 18i11 I{integer} 20r32 20r56 22r32 22r60
 38r7 Slot_U256{6|41R9} 53r44
 41a7 Preimage{9|14A9} 47m10 56m16 63r31
-42a7 Digest{8|32A12} 63m41 67r30
+42a7 Digest{8|44A12} 63m41 67r30
 43a7 Result{6|56A9} 67m10 70r14
 46i11 I{integer} 47r20 47r54
 51i11 I{integer} 53r65 56r31
@@ -191,7 +191,7 @@ X 5 aegis_storage.adb
 55i17 J{integer} 56r39 57r43
 66i11 I{integer} 67r18 67r38
 X 6 aegis_vm_types.ads
-21K9*Aegis_VM_Types 4|3w6 3r26 6|279e19
+21K9*Aegis_VM_Types 4|3w6 3r26 6|280e19
 31M12*Byte{10|70M9} 4|177r48 5|67r24
 39A9*U256_Limbs(35M12)<integer>
 41R9*U256 4|70r22 108r21 109r21 5|38r28 38r36 6|43e14
@@ -207,9 +207,9 @@ X 6 aegis_vm_types.ads
 162R9*Storage_Value<41R9> 4|46r19 47r19
 187N4*Max_Call_Depth 4|201r35 212r39
 X 8 anubis_sha3.ads
-27K9*Anubis_SHA3 5|5w6 42r18 63r7 8|158e16
-32A12*SHA3_256_Digest{9|14A9}<integer> 5|42r30
-87U14*Keccak_256 5|63s19
+33K9*Anubis_SHA3 5|5w6 42r18 63r7 8|298e16
+44A12*SHA3_256_Digest{9|14A9}<integer> 5|42r30
+176U14*Keccak_256 5|63s19
 X 9 anubis_types.ads
 5K9*Anubis_Types 5|4w6 41r18 47r26 56r45 9|40e17
 13M12*Byte{10|70M9} 5|47r39 56r58

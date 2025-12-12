@@ -29,7 +29,7 @@ U scarab_maat%b		scarab_maat.adb		2ab74abb NE OO PK
 W anubis_sha3%s		anubis_sha3.adb		anubis_sha3.ali
 Z system.assertions%s	s-assert.adb		s-assert.ali
 
-U scarab_maat%s		scarab_maat.ads		483310ff EE NE OO PK
+U scarab_maat%s		scarab_maat.ads		e71b28c5 EE NE OO PK
 W anubis_bytes%s	anubis_bytes.adb	anubis_bytes.ali
 W anubis_stark_field%s	anubis_stark_field.adb	anubis_stark_field.ali
 W anubis_types%s	anubis_types.ads	anubis_types.ali
@@ -38,7 +38,7 @@ W interfaces%s		interfac.ads		interfac.ali
 D ada.ads		20240808082856 76789da1 ada%s
 D a-assert.ads		20240808082856 ba465f5c ada.assertions%s
 D a-unccon.ads		20240808082856 0e9b276f ada.unchecked_conversion%s
-D anubis_bytes.ads	20251207191105 9e5d5cad anubis_bytes%s
+D anubis_bytes.ads	20251209124541 31756497 anubis_bytes%s
 D anubis_keccak.ads	20251207191105 19b431a9 anubis_keccak%s
 D anubis_sha3.ads	20251207191105 69737d95 anubis_sha3%s
 D anubis_stark_field.ads  20251207191105 98d82a71 anubis_stark_field%s
@@ -101,7 +101,7 @@ G r c none [hash_pair scarab_maat 384 13 none] [sha3_256 anubis_sha3 57 14 none]
 G r c none [hash_proof_ref scarab_maat 388 13 none] [sha3_256 anubis_sha3 57 14 none]
 G r c none [compute_challenge scarab_maat 392 13 none] [sha3_256 anubis_sha3 57 14 none]
 X 4 anubis_bytes.ads
-7K9*Anubis_Bytes 52e17 11|18w6 18r24
+7K9*Anubis_Bytes 57e17 11|18w6 18r24
 X 6 anubis_sha3.ads
 27K9*Anubis_SHA3 158e16 12|7w6 58r7 74r7 116r7 376r13 386r7
 57U14*SHA3_256 12|58s19 74s19 116s19 376s25 386s19

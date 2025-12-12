@@ -1,6 +1,0 @@
-anubis_address_types.ads:97:13: info: implicit aspect Always_Terminates on "Network_String" has been proved, subprogram will terminate
-anubis_address_types.ads:105:15: info: postcondition proved
-anubis_address_types.ads:108:13: info: implicit aspect Always_Terminates on "Entity_Char" has been proved, subprogram will terminate
-anubis_address_types.ads:115:15: info: postcondition proved
-anubis_address_types.ads:118:13: info: implicit aspect Always_Terminates on "Entity_String" has been proved, subprogram will terminate
-anubis_address_types.ads:125:15: info: postcondition proved

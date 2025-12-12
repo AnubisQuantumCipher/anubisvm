@@ -52,4 +52,17 @@ package Local_Executor is
       Value         : U256;
       Result        : out Exec_Result);
 
+   ---------------------------------------------------------------------------
+   --  State Management
+   ---------------------------------------------------------------------------
+
+   --  Manually save state to disk (normally happens automatically)
+   procedure Save_State;
+
+   --  Reset executor state (for testing or re-initialization)
+   procedure Reset_State;
+
+   --  Get the state directory path being used
+   function Get_State_Directory return String;
+
 end Local_Executor;

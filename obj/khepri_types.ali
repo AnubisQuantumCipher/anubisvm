@@ -32,7 +32,7 @@ RV NO_OBSOLESCENT_FEATURES
 U khepri_types%b	khepri_types.adb	d0d35279 NE OO PK
 Z system.assertions%s	s-assert.adb		s-assert.ali
 
-U khepri_types%s	khepri_types.ads	b41e847e EE OO PK
+U khepri_types%s	khepri_types.ads	38f2225a EE OO PK
 W aegis_u256%s		aegis_u256.adb		aegis_u256.ali
 W aegis_vm_types%s	aegis_vm_types.ads	aegis_vm_types.ali
 W interfaces%s		interfac.ads		interfac.ali
@@ -41,7 +41,7 @@ D ada.ads		20240808082856 76789da1 ada%s
 D a-assert.ads		20240808082856 ba465f5c ada.assertions%s
 D a-unccon.ads		20240808082856 0e9b276f ada.unchecked_conversion%s
 D aegis_u256.ads	20251207191105 ff2dfe4b aegis_u256%s
-D aegis_vm_types.ads	20251207191105 dcd101d9 aegis_vm_types%s
+D aegis_vm_types.ads	20251209080247 503da7fd aegis_vm_types%s
 D interfac.ads		20240808082856 9111f9c1 interfaces%s
 D khepri_types.ads	20251207191106 06f3822d khepri_types%s
 D khepri_types.adb	20251207191106 d620d054 khepri_types%b
@@ -106,7 +106,7 @@ X 4 aegis_u256.ads
 155V13*From_Word64{5|41R9} 7|60r15 69s39 8|11s14
 163V13*To_Word64{5|35M12} 7|64r15
 X 5 aegis_vm_types.ads
-21K9*Aegis_VM_Types 279e19 7|4w6 4r26
+21K9*Aegis_VM_Types 280e19 7|4w6 4r26
 31M12*Byte{6|70M9} 7|266r51 317r37 318r37 319r39
 35M12*Word64{6|84M9} 7|39r42 39r55 40r43 40r56 59r26 63r41 69r52 8|11r27
 39A9*U256_Limbs(35M12)<integer>

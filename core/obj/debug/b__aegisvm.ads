@@ -16,145 +16,317 @@ package aegisvmmain is
    type Version_32 is mod 2 ** 32;
    u00001 : constant Version_32 := 16#1e96d54b#;
    pragma Export (C, u00001, "aegis_contractB");
-   u00002 : constant Version_32 := 16#5fafd5de#;
+   u00002 : constant Version_32 := 16#72119993#;
    pragma Export (C, u00002, "aegis_contractS");
-   u00003 : constant Version_32 := 16#2f41855d#;
+   u00003 : constant Version_32 := 16#3653b7b7#;
    pragma Export (C, u00003, "aegis_crypto_apiB");
-   u00004 : constant Version_32 := 16#96e8a060#;
+   u00004 : constant Version_32 := 16#c34098e7#;
    pragma Export (C, u00004, "aegis_crypto_apiS");
-   u00005 : constant Version_32 := 16#6136b6c6#;
+   u00005 : constant Version_32 := 16#a1699382#;
    pragma Export (C, u00005, "aegis_executionB");
-   u00006 : constant Version_32 := 16#07e7bc30#;
+   u00006 : constant Version_32 := 16#740b5f54#;
    pragma Export (C, u00006, "aegis_executionS");
-   u00007 : constant Version_32 := 16#ad1da994#;
+   u00007 : constant Version_32 := 16#bd15b208#;
    pragma Export (C, u00007, "aegis_ffiB");
-   u00008 : constant Version_32 := 16#bf8993fa#;
+   u00008 : constant Version_32 := 16#8e7d511d#;
    pragma Export (C, u00008, "aegis_ffiS");
-   u00009 : constant Version_32 := 16#b10d79e2#;
+   u00009 : constant Version_32 := 16#05f00f54#;
    pragma Export (C, u00009, "aegis_gasB");
-   u00010 : constant Version_32 := 16#5e0332b5#;
+   u00010 : constant Version_32 := 16#7c04d4f8#;
    pragma Export (C, u00010, "aegis_gasS");
-   u00011 : constant Version_32 := 16#7d6bbf1a#;
-   pragma Export (C, u00011, "aegis_sandboxB");
-   u00012 : constant Version_32 := 16#5f12e4dc#;
-   pragma Export (C, u00012, "aegis_sandboxS");
-   u00013 : constant Version_32 := 16#6efd4be7#;
-   pragma Export (C, u00013, "aegis_storageB");
-   u00014 : constant Version_32 := 16#aba92f60#;
-   pragma Export (C, u00014, "aegis_storageS");
-   u00015 : constant Version_32 := 16#65cf1bfe#;
-   pragma Export (C, u00015, "aegis_syscallB");
-   u00016 : constant Version_32 := 16#ce3fb1fe#;
-   pragma Export (C, u00016, "aegis_syscallS");
-   u00017 : constant Version_32 := 16#901bfeda#;
-   pragma Export (C, u00017, "aegis_u256B");
-   u00018 : constant Version_32 := 16#b2ed0653#;
-   pragma Export (C, u00018, "aegis_u256S");
-   u00019 : constant Version_32 := 16#4dc0f818#;
-   pragma Export (C, u00019, "aegis_vm_typesS");
-   u00020 : constant Version_32 := 16#dbc4ba97#;
-   pragma Export (C, u00020, "anubis_addressB");
-   u00021 : constant Version_32 := 16#d71534e3#;
-   pragma Export (C, u00021, "anubis_addressS");
-   u00022 : constant Version_32 := 16#90e5681e#;
-   pragma Export (C, u00022, "anubis_address_base32B");
-   u00023 : constant Version_32 := 16#f824be28#;
-   pragma Export (C, u00023, "anubis_address_base32S");
-   u00024 : constant Version_32 := 16#eaa3575e#;
-   pragma Export (C, u00024, "anubis_address_checksumB");
-   u00025 : constant Version_32 := 16#8280df96#;
-   pragma Export (C, u00025, "anubis_address_checksumS");
-   u00026 : constant Version_32 := 16#8c23543e#;
-   pragma Export (C, u00026, "anubis_address_deriveB");
-   u00027 : constant Version_32 := 16#635d4dfd#;
-   pragma Export (C, u00027, "anubis_address_deriveS");
-   u00028 : constant Version_32 := 16#73ff9bf4#;
-   pragma Export (C, u00028, "anubis_address_typesS");
-   u00029 : constant Version_32 := 16#88f42651#;
-   pragma Export (C, u00029, "anubis_cbdB");
-   u00030 : constant Version_32 := 16#027471d7#;
-   pragma Export (C, u00030, "anubis_cbdS");
-   u00031 : constant Version_32 := 16#19c7b4b2#;
-   pragma Export (C, u00031, "anubis_configS");
-   u00032 : constant Version_32 := 16#5ca17633#;
-   pragma Export (C, u00032, "anubis_fieldB");
-   u00033 : constant Version_32 := 16#44178e5a#;
-   pragma Export (C, u00033, "anubis_fieldS");
-   u00034 : constant Version_32 := 16#68d297b3#;
-   pragma Export (C, u00034, "anubis_keccakB");
-   u00035 : constant Version_32 := 16#88a5c868#;
-   pragma Export (C, u00035, "anubis_keccakS");
-   u00036 : constant Version_32 := 16#a5eaf66f#;
-   pragma Export (C, u00036, "anubis_mldsaB");
-   u00037 : constant Version_32 := 16#204626f6#;
-   pragma Export (C, u00037, "anubis_mldsaS");
-   u00038 : constant Version_32 := 16#21404e58#;
-   pragma Export (C, u00038, "anubis_mldsa_configS");
-   u00039 : constant Version_32 := 16#6ab7cbb5#;
-   pragma Export (C, u00039, "anubis_mldsa_encodingB");
-   u00040 : constant Version_32 := 16#4d04fdb4#;
-   pragma Export (C, u00040, "anubis_mldsa_encodingS");
-   u00041 : constant Version_32 := 16#385b5656#;
-   pragma Export (C, u00041, "anubis_mldsa_fieldB");
-   u00042 : constant Version_32 := 16#057b1d52#;
-   pragma Export (C, u00042, "anubis_mldsa_fieldS");
-   u00043 : constant Version_32 := 16#466f55ae#;
-   pragma Export (C, u00043, "anubis_mldsa_nttB");
-   u00044 : constant Version_32 := 16#841d40ff#;
-   pragma Export (C, u00044, "anubis_mldsa_nttS");
-   u00045 : constant Version_32 := 16#2ed11c01#;
-   pragma Export (C, u00045, "anubis_mldsa_polyB");
-   u00046 : constant Version_32 := 16#4731d7ba#;
-   pragma Export (C, u00046, "anubis_mldsa_polyS");
-   u00047 : constant Version_32 := 16#3358749c#;
-   pragma Export (C, u00047, "anubis_mldsa_sampleB");
-   u00048 : constant Version_32 := 16#ea1029ab#;
-   pragma Export (C, u00048, "anubis_mldsa_sampleS");
-   u00049 : constant Version_32 := 16#6b544876#;
-   pragma Export (C, u00049, "anubis_mldsa_typesS");
-   u00050 : constant Version_32 := 16#6d057dff#;
-   pragma Export (C, u00050, "anubis_mlkemB");
-   u00051 : constant Version_32 := 16#0fe851b9#;
-   pragma Export (C, u00051, "anubis_mlkemS");
-   u00052 : constant Version_32 := 16#3175d113#;
-   pragma Export (C, u00052, "anubis_mlkem_compressB");
-   u00053 : constant Version_32 := 16#68bed3d7#;
-   pragma Export (C, u00053, "anubis_mlkem_compressS");
-   u00054 : constant Version_32 := 16#e2f39be5#;
-   pragma Export (C, u00054, "anubis_mlkem_encodingB");
-   u00055 : constant Version_32 := 16#049a9ea1#;
-   pragma Export (C, u00055, "anubis_mlkem_encodingS");
-   u00056 : constant Version_32 := 16#061e731f#;
-   pragma Export (C, u00056, "anubis_mlkem_polyB");
-   u00057 : constant Version_32 := 16#a4cdd192#;
-   pragma Export (C, u00057, "anubis_mlkem_polyS");
-   u00058 : constant Version_32 := 16#5d133190#;
-   pragma Export (C, u00058, "anubis_mlkem_sampleB");
-   u00059 : constant Version_32 := 16#32f9574c#;
-   pragma Export (C, u00059, "anubis_mlkem_sampleS");
-   u00060 : constant Version_32 := 16#4763c32a#;
-   pragma Export (C, u00060, "anubis_mlkem_typesS");
-   u00061 : constant Version_32 := 16#7c55654e#;
-   pragma Export (C, u00061, "anubis_nttB");
-   u00062 : constant Version_32 := 16#d34de1b7#;
-   pragma Export (C, u00062, "anubis_nttS");
-   u00063 : constant Version_32 := 16#1f5fce7b#;
-   pragma Export (C, u00063, "anubis_sha3B");
-   u00064 : constant Version_32 := 16#06c20106#;
-   pragma Export (C, u00064, "anubis_sha3S");
-   u00065 : constant Version_32 := 16#dea2a956#;
-   pragma Export (C, u00065, "anubis_typesS");
+   u00011 : constant Version_32 := 16#4f351f17#;
+   pragma Export (C, u00011, "aegis_privacyB");
+   u00012 : constant Version_32 := 16#9b2ef9c7#;
+   pragma Export (C, u00012, "aegis_privacyS");
+   u00013 : constant Version_32 := 16#5496cef9#;
+   pragma Export (C, u00013, "aegis_sandboxB");
+   u00014 : constant Version_32 := 16#5b51d972#;
+   pragma Export (C, u00014, "aegis_sandboxS");
+   u00015 : constant Version_32 := 16#940a855e#;
+   pragma Export (C, u00015, "aegis_storageB");
+   u00016 : constant Version_32 := 16#8617632d#;
+   pragma Export (C, u00016, "aegis_storageS");
+   u00017 : constant Version_32 := 16#18882280#;
+   pragma Export (C, u00017, "aegis_syscallB");
+   u00018 : constant Version_32 := 16#af9f006b#;
+   pragma Export (C, u00018, "aegis_syscallS");
+   u00019 : constant Version_32 := 16#cfb9f9d9#;
+   pragma Export (C, u00019, "aegis_u256B");
+   u00020 : constant Version_32 := 16#3e01a077#;
+   pragma Export (C, u00020, "aegis_u256S");
+   u00021 : constant Version_32 := 16#c12c5e3c#;
+   pragma Export (C, u00021, "aegis_vm_typesS");
+   u00022 : constant Version_32 := 16#09f5e292#;
+   pragma Export (C, u00022, "anubis_addressB");
+   u00023 : constant Version_32 := 16#4c246da6#;
+   pragma Export (C, u00023, "anubis_addressS");
+   u00024 : constant Version_32 := 16#0383624d#;
+   pragma Export (C, u00024, "anubis_address_base32B");
+   u00025 : constant Version_32 := 16#412e45bb#;
+   pragma Export (C, u00025, "anubis_address_base32S");
+   u00026 : constant Version_32 := 16#d3154af3#;
+   pragma Export (C, u00026, "anubis_address_checksumB");
+   u00027 : constant Version_32 := 16#8280df96#;
+   pragma Export (C, u00027, "anubis_address_checksumS");
+   u00028 : constant Version_32 := 16#fc0fedb6#;
+   pragma Export (C, u00028, "anubis_address_deriveB");
+   u00029 : constant Version_32 := 16#635d4dfd#;
+   pragma Export (C, u00029, "anubis_address_deriveS");
+   u00030 : constant Version_32 := 16#73ff9bf4#;
+   pragma Export (C, u00030, "anubis_address_typesS");
+   u00031 : constant Version_32 := 16#c05471ad#;
+   pragma Export (C, u00031, "anubis_bug_bountyB");
+   u00032 : constant Version_32 := 16#92e803a6#;
+   pragma Export (C, u00032, "anubis_bug_bountyS");
+   u00033 : constant Version_32 := 16#8feff9e3#;
+   pragma Export (C, u00033, "anubis_bytesB");
+   u00034 : constant Version_32 := 16#03933baa#;
+   pragma Export (C, u00034, "anubis_bytesS");
+   u00035 : constant Version_32 := 16#88f42651#;
+   pragma Export (C, u00035, "anubis_cbdB");
+   u00036 : constant Version_32 := 16#027471d7#;
+   pragma Export (C, u00036, "anubis_cbdS");
+   u00037 : constant Version_32 := 16#a9509f79#;
+   pragma Export (C, u00037, "anubis_certificationB");
+   u00038 : constant Version_32 := 16#b91dcb40#;
+   pragma Export (C, u00038, "anubis_certificationS");
+   u00039 : constant Version_32 := 16#c9dac2bb#;
+   pragma Export (C, u00039, "anubis_chacha20B");
+   u00040 : constant Version_32 := 16#0fb3db30#;
+   pragma Export (C, u00040, "anubis_chacha20S");
+   u00041 : constant Version_32 := 16#a6a4c630#;
+   pragma Export (C, u00041, "anubis_chacha20_poly1305B");
+   u00042 : constant Version_32 := 16#cc228313#;
+   pragma Export (C, u00042, "anubis_chacha20_poly1305S");
+   u00043 : constant Version_32 := 16#19c7b4b2#;
+   pragma Export (C, u00043, "anubis_configS");
+   u00044 : constant Version_32 := 16#6dae4d6d#;
+   pragma Export (C, u00044, "anubis_dead_man_switchB");
+   u00045 : constant Version_32 := 16#45de4070#;
+   pragma Export (C, u00045, "anubis_dead_man_switchS");
+   u00046 : constant Version_32 := 16#bc45ef90#;
+   pragma Export (C, u00046, "anubis_developer_rewardsB");
+   u00047 : constant Version_32 := 16#f9966e8a#;
+   pragma Export (C, u00047, "anubis_developer_rewardsS");
+   u00048 : constant Version_32 := 16#09782255#;
+   pragma Export (C, u00048, "anubis_eyeB");
+   u00049 : constant Version_32 := 16#51bf1c0a#;
+   pragma Export (C, u00049, "anubis_eyeS");
+   u00050 : constant Version_32 := 16#5ca17633#;
+   pragma Export (C, u00050, "anubis_fieldB");
+   u00051 : constant Version_32 := 16#44178e5a#;
+   pragma Export (C, u00051, "anubis_fieldS");
+   u00052 : constant Version_32 := 16#563d5644#;
+   pragma Export (C, u00052, "anubis_gateB");
+   u00053 : constant Version_32 := 16#71fa8e0a#;
+   pragma Export (C, u00053, "anubis_gateS");
+   u00054 : constant Version_32 := 16#2d2196d7#;
+   pragma Export (C, u00054, "anubis_genesis_proversB");
+   u00055 : constant Version_32 := 16#72c64f9a#;
+   pragma Export (C, u00055, "anubis_genesis_proversS");
+   u00056 : constant Version_32 := 16#4c38163d#;
+   pragma Export (C, u00056, "anubis_genesis_validatorsB");
+   u00057 : constant Version_32 := 16#c18559bd#;
+   pragma Export (C, u00057, "anubis_genesis_validatorsS");
+   u00058 : constant Version_32 := 16#8a7a0de8#;
+   pragma Export (C, u00058, "anubis_governanceB");
+   u00059 : constant Version_32 := 16#37371a4e#;
+   pragma Export (C, u00059, "anubis_governanceS");
+   u00060 : constant Version_32 := 16#68d297b3#;
+   pragma Export (C, u00060, "anubis_keccakB");
+   u00061 : constant Version_32 := 16#88a5c868#;
+   pragma Export (C, u00061, "anubis_keccakS");
+   u00062 : constant Version_32 := 16#3fa17c03#;
+   pragma Export (C, u00062, "anubis_lattice_zkB");
+   u00063 : constant Version_32 := 16#ef5d3b6d#;
+   pragma Export (C, u00063, "anubis_lattice_zkS");
+   u00064 : constant Version_32 := 16#32e8506f#;
+   pragma Export (C, u00064, "anubis_mldsaB");
+   u00065 : constant Version_32 := 16#204626f6#;
+   pragma Export (C, u00065, "anubis_mldsaS");
+   u00066 : constant Version_32 := 16#44e9e9a1#;
+   pragma Export (C, u00066, "anubis_mldsa_configS");
+   u00067 : constant Version_32 := 16#6ab7cbb5#;
+   pragma Export (C, u00067, "anubis_mldsa_encodingB");
+   u00068 : constant Version_32 := 16#28ad5a4d#;
+   pragma Export (C, u00068, "anubis_mldsa_encodingS");
+   u00069 : constant Version_32 := 16#385b5656#;
+   pragma Export (C, u00069, "anubis_mldsa_fieldB");
+   u00070 : constant Version_32 := 16#60d2baab#;
+   pragma Export (C, u00070, "anubis_mldsa_fieldS");
+   u00071 : constant Version_32 := 16#23c6f257#;
+   pragma Export (C, u00071, "anubis_mldsa_nttB");
+   u00072 : constant Version_32 := 16#841d40ff#;
+   pragma Export (C, u00072, "anubis_mldsa_nttS");
+   u00073 : constant Version_32 := 16#2ed11c01#;
+   pragma Export (C, u00073, "anubis_mldsa_polyB");
+   u00074 : constant Version_32 := 16#22987043#;
+   pragma Export (C, u00074, "anubis_mldsa_polyS");
+   u00075 : constant Version_32 := 16#a75c1567#;
+   pragma Export (C, u00075, "anubis_mldsa_sampleB");
+   u00076 : constant Version_32 := 16#44a49206#;
+   pragma Export (C, u00076, "anubis_mldsa_sampleS");
+   u00077 : constant Version_32 := 16#0efdef8f#;
+   pragma Export (C, u00077, "anubis_mldsa_typesS");
+   u00078 : constant Version_32 := 16#da94e8b8#;
+   pragma Export (C, u00078, "anubis_mlkemB");
+   u00079 : constant Version_32 := 16#0fe851b9#;
+   pragma Export (C, u00079, "anubis_mlkemS");
+   u00080 : constant Version_32 := 16#ed97372f#;
+   pragma Export (C, u00080, "anubis_mlkem_compressB");
+   u00081 : constant Version_32 := 16#b3aa765d#;
+   pragma Export (C, u00081, "anubis_mlkem_compressS");
+   u00082 : constant Version_32 := 16#e2f39be5#;
+   pragma Export (C, u00082, "anubis_mlkem_encodingB");
+   u00083 : constant Version_32 := 16#049a9ea1#;
+   pragma Export (C, u00083, "anubis_mlkem_encodingS");
+   u00084 : constant Version_32 := 16#06718b21#;
+   pragma Export (C, u00084, "anubis_mlkem_polyB");
+   u00085 : constant Version_32 := 16#1754d7ec#;
+   pragma Export (C, u00085, "anubis_mlkem_polyS");
+   u00086 : constant Version_32 := 16#52a40800#;
+   pragma Export (C, u00086, "anubis_mlkem_sampleB");
+   u00087 : constant Version_32 := 16#a06e6e04#;
+   pragma Export (C, u00087, "anubis_mlkem_sampleS");
+   u00088 : constant Version_32 := 16#4763c32a#;
+   pragma Export (C, u00088, "anubis_mlkem_typesS");
+   u00089 : constant Version_32 := 16#7c55654e#;
+   pragma Export (C, u00089, "anubis_nttB");
+   u00090 : constant Version_32 := 16#d34de1b7#;
+   pragma Export (C, u00090, "anubis_nttS");
+   u00091 : constant Version_32 := 16#e7692bd5#;
+   pragma Export (C, u00091, "anubis_poly1305B");
+   u00092 : constant Version_32 := 16#47e519b3#;
+   pragma Export (C, u00092, "anubis_poly1305S");
+   u00093 : constant Version_32 := 16#aaba3ee3#;
+   pragma Export (C, u00093, "anubis_proof_of_buildB");
+   u00094 : constant Version_32 := 16#70808846#;
+   pragma Export (C, u00094, "anubis_proof_of_buildS");
+   u00095 : constant Version_32 := 16#417feaf3#;
+   pragma Export (C, u00095, "anubis_quantum_insuranceB");
+   u00096 : constant Version_32 := 16#8471d094#;
+   pragma Export (C, u00096, "anubis_quantum_insuranceS");
+   u00097 : constant Version_32 := 16#c80d4667#;
+   pragma Export (C, u00097, "anubis_ring_sigB");
+   u00098 : constant Version_32 := 16#6bbc8b93#;
+   pragma Export (C, u00098, "anubis_ring_sigS");
+   u00099 : constant Version_32 := 16#b73b8681#;
+   pragma Export (C, u00099, "anubis_sha3B");
+   u00100 : constant Version_32 := 16#3f741cab#;
+   pragma Export (C, u00100, "anubis_sha3S");
+   u00101 : constant Version_32 := 16#f0372342#;
+   pragma Export (C, u00101, "anubis_shieldB");
+   u00102 : constant Version_32 := 16#5b42bc35#;
+   pragma Export (C, u00102, "anubis_shieldS");
+   u00103 : constant Version_32 := 16#eeca3098#;
+   pragma Export (C, u00103, "anubis_stark_fieldB");
+   u00104 : constant Version_32 := 16#467a8327#;
+   pragma Export (C, u00104, "anubis_stark_fieldS");
+   u00105 : constant Version_32 := 16#ef66e608#;
+   pragma Export (C, u00105, "anubis_stark_friB");
+   u00106 : constant Version_32 := 16#63e48596#;
+   pragma Export (C, u00106, "anubis_stark_friS");
+   u00107 : constant Version_32 := 16#c57bc416#;
+   pragma Export (C, u00107, "anubis_stark_polyB");
+   u00108 : constant Version_32 := 16#e24c520b#;
+   pragma Export (C, u00108, "anubis_stark_polyS");
+   u00109 : constant Version_32 := 16#a0a1ece6#;
+   pragma Export (C, u00109, "anubis_tokenB");
+   u00110 : constant Version_32 := 16#ddddd698#;
+   pragma Export (C, u00110, "anubis_tokenS");
+   u00111 : constant Version_32 := 16#ec82b6b8#;
+   pragma Export (C, u00111, "anubis_treasuryB");
+   u00112 : constant Version_32 := 16#3590a3a2#;
+   pragma Export (C, u00112, "anubis_treasuryS");
+   u00113 : constant Version_32 := 16#dea2a956#;
+   pragma Export (C, u00113, "anubis_typesS");
+   u00114 : constant Version_32 := 16#a983c8a9#;
+   pragma Export (C, u00114, "anubis_vestingB");
+   u00115 : constant Version_32 := 16#34d16235#;
+   pragma Export (C, u00115, "anubis_vestingS");
+   u00116 : constant Version_32 := 16#3ad7d239#;
+   pragma Export (C, u00116, "anubis_whisperB");
+   u00117 : constant Version_32 := 16#cb445acc#;
+   pragma Export (C, u00117, "anubis_whisperS");
+   u00118 : constant Version_32 := 16#7870cd28#;
+   pragma Export (C, u00118, "anubis_wordB");
+   u00119 : constant Version_32 := 16#ec44f66b#;
+   pragma Export (C, u00119, "anubis_wordS");
+   u00120 : constant Version_32 := 16#888d7927#;
+   pragma Export (C, u00120, "khepri_mptB");
+   u00121 : constant Version_32 := 16#5753cb16#;
+   pragma Export (C, u00121, "khepri_mptS");
+   u00122 : constant Version_32 := 16#2d8e4b36#;
+   pragma Export (C, u00122, "khepri_mpt_typesB");
+   u00123 : constant Version_32 := 16#34edfa7d#;
+   pragma Export (C, u00123, "khepri_mpt_typesS");
+   u00124 : constant Version_32 := 16#b82c6a5e#;
+   pragma Export (C, u00124, "khepri_registryB");
+   u00125 : constant Version_32 := 16#280cb180#;
+   pragma Export (C, u00125, "khepri_registryS");
+   u00126 : constant Version_32 := 16#f89b3c6c#;
+   pragma Export (C, u00126, "khepri_storage_trieB");
+   u00127 : constant Version_32 := 16#abafa33c#;
+   pragma Export (C, u00127, "khepri_storage_trieS");
+   u00128 : constant Version_32 := 16#d0d35279#;
+   pragma Export (C, u00128, "khepri_typesB");
+   u00129 : constant Version_32 := 16#38f2225a#;
+   pragma Export (C, u00129, "khepri_typesS");
+   u00130 : constant Version_32 := 16#f203cf20#;
+   pragma Export (C, u00130, "scarab_aadkgB");
+   u00131 : constant Version_32 := 16#f3e5702e#;
+   pragma Export (C, u00131, "scarab_aadkgS");
+   u00132 : constant Version_32 := 16#ddc121d6#;
+   pragma Export (C, u00132, "scarab_horusB");
+   u00133 : constant Version_32 := 16#e43453a7#;
+   pragma Export (C, u00133, "scarab_horusS");
+   u00134 : constant Version_32 := 16#2bdbebe1#;
+   pragma Export (C, u00134, "scarab_khnumB");
+   u00135 : constant Version_32 := 16#25dd1aff#;
+   pragma Export (C, u00135, "scarab_khnumS");
+   u00136 : constant Version_32 := 16#2ab74abb#;
+   pragma Export (C, u00136, "scarab_maatB");
+   u00137 : constant Version_32 := 16#e71b28c5#;
+   pragma Export (C, u00137, "scarab_maatS");
+   u00138 : constant Version_32 := 16#817f3bdb#;
+   pragma Export (C, u00138, "scarab_sebekB");
+   u00139 : constant Version_32 := 16#0c5278c4#;
+   pragma Export (C, u00139, "scarab_sebekS");
+   u00140 : constant Version_32 := 16#088b6518#;
+   pragma Export (C, u00140, "scarab_sekhmetB");
+   u00141 : constant Version_32 := 16#9dd7f00e#;
+   pragma Export (C, u00141, "scarab_sekhmetS");
+   u00142 : constant Version_32 := 16#ca23dbdf#;
+   pragma Export (C, u00142, "scarab_tefnutB");
+   u00143 : constant Version_32 := 16#11d9d1c1#;
+   pragma Export (C, u00143, "scarab_tefnutS");
+   u00144 : constant Version_32 := 16#caf22b74#;
+   pragma Export (C, u00144, "scarab_thothB");
+   u00145 : constant Version_32 := 16#0adc45e2#;
+   pragma Export (C, u00145, "scarab_thothS");
 
    --  BEGIN ELABORATION ORDER
    --  ada%s
    --  interfaces%s
    --  system%s
+   --  system.atomic_operations%s
    --  system.parameters%s
    --  system.parameters%b
    --  system.crtl%s
+   --  interfaces.c_streams%s
+   --  interfaces.c_streams%b
+   --  system.spark%s
+   --  system.spark.cut_operations%s
+   --  system.spark.cut_operations%b
    --  system.storage_elements%s
    --  system.stack_checking%s
    --  system.stack_checking%b
+   --  system.string_hash%s
+   --  system.string_hash%b
+   --  system.htable%s
+   --  system.htable%b
+   --  system.strings%s
+   --  system.strings%b
    --  system.traceback_entries%s
    --  system.traceback_entries%b
    --  system.unsigned_types%s
@@ -164,6 +336,10 @@ package aegisvmmain is
    --  system.wch_jis%b
    --  system.wch_cnv%s
    --  system.wch_cnv%b
+   --  system.concat_2%s
+   --  system.concat_2%b
+   --  system.exp_llu%s
+   --  system.exp_uns%s
    --  system.traceback%s
    --  system.traceback%b
    --  system.secondary_stack%s
@@ -200,12 +376,53 @@ package aegisvmmain is
    --  ada.exceptions%b
    --  ada.assertions%s
    --  ada.assertions%b
+   --  ada.io_exceptions%s
+   --  ada.strings%s
+   --  ada.strings.utf_encoding%s
+   --  ada.strings.utf_encoding%b
+   --  ada.strings.utf_encoding.strings%s
+   --  ada.strings.utf_encoding.strings%b
+   --  ada.strings.utf_encoding.wide_strings%s
+   --  ada.strings.utf_encoding.wide_strings%b
+   --  ada.strings.utf_encoding.wide_wide_strings%s
+   --  ada.strings.utf_encoding.wide_wide_strings%b
    --  interfaces.c%s
    --  interfaces.c%b
    --  interfaces.c.strings%s
    --  interfaces.c.strings%b
+   --  system.atomic_primitives%s
+   --  system.atomic_primitives%b
+   --  system.atomic_operations.test_and_set%s
+   --  system.atomic_operations.test_and_set%b
+   --  system.case_util%s
+   --  system.case_util%b
+   --  system.os_lib%s
+   --  system.os_lib%b
+   --  system.val_util%s
+   --  system.val_util%b
+   --  system.val_llu%s
+   --  ada.tags%s
+   --  ada.tags%b
+   --  ada.strings.text_buffers%s
+   --  ada.strings.text_buffers%b
+   --  ada.strings.text_buffers.utils%s
+   --  ada.strings.text_buffers.utils%b
+   --  system.put_images%s
+   --  system.put_images%b
+   --  ada.streams%s
+   --  ada.streams%b
+   --  system.file_control_block%s
+   --  system.finalization_root%s
+   --  system.finalization_root%b
+   --  ada.finalization%s
+   --  system.file_io%s
+   --  system.file_io%b
+   --  ada.text_io%s
+   --  ada.text_io%b
    --  system.assertions%s
    --  system.assertions%b
+   --  system.exp_int%s
+   --  system.img_llu%s
    --  aegis_vm_types%s
    --  aegis_gas%s
    --  aegis_gas%b
@@ -219,20 +436,38 @@ package aegisvmmain is
    --  anubis_mldsa_field%s
    --  anubis_mldsa_field%b
    --  anubis_types%s
+   --  anubis_chacha20%s
+   --  anubis_chacha20%b
    --  anubis_mldsa_types%s
    --  anubis_mlkem_types%s
-   --  aegis_storage%s
-   --  aegis_storage%b
-   --  aegis_contract%s
-   --  aegis_contract%b
-   --  aegis_sandbox%s
-   --  aegis_sandbox%b
-   --  aegis_execution%s
-   --  aegis_execution%b
+   --  anubis_poly1305%s
+   --  anubis_poly1305%b
+   --  anubis_chacha20_poly1305%s
+   --  anubis_chacha20_poly1305%b
+   --  anubis_stark_field%s
+   --  anubis_stark_field%b
+   --  anubis_word%s
+   --  anubis_word%b
    --  anubis_address_base32%s
    --  anubis_address_base32%b
+   --  anubis_bug_bounty%s
+   --  anubis_bug_bounty%b
+   --  anubis_bytes%s
+   --  anubis_bytes%b
    --  anubis_cbd%s
    --  anubis_cbd%b
+   --  anubis_certification%s
+   --  anubis_certification%b
+   --  anubis_dead_man_switch%s
+   --  anubis_dead_man_switch%b
+   --  anubis_developer_rewards%s
+   --  anubis_developer_rewards%b
+   --  anubis_genesis_provers%s
+   --  anubis_genesis_provers%b
+   --  anubis_genesis_validators%s
+   --  anubis_genesis_validators%b
+   --  anubis_governance%s
+   --  anubis_governance%b
    --  anubis_keccak%s
    --  anubis_keccak%b
    --  anubis_mldsa_encoding%s
@@ -249,28 +484,90 @@ package aegisvmmain is
    --  anubis_ntt%b
    --  anubis_mlkem_poly%s
    --  anubis_mlkem_poly%b
+   --  anubis_proof_of_build%s
+   --  anubis_proof_of_build%b
+   --  anubis_quantum_insurance%s
+   --  anubis_quantum_insurance%b
    --  anubis_sha3%s
    --  anubis_sha3%b
-   --  aegis_ffi%s
-   --  aegis_ffi%b
+   --  aegis_storage%s
+   --  aegis_storage%b
+   --  aegis_contract%s
+   --  aegis_contract%b
+   --  aegis_sandbox%s
+   --  aegis_sandbox%b
    --  anubis_address_checksum%s
    --  anubis_address_checksum%b
    --  anubis_address_derive%s
    --  anubis_address_derive%b
    --  anubis_address%s
    --  anubis_address%b
+   --  anubis_lattice_zk%s
+   --  anubis_lattice_zk%b
    --  anubis_mldsa_sample%s
    --  anubis_mldsa_sample%b
    --  anubis_mldsa%s
    --  anubis_mldsa%b
+   --  anubis_eye%s
+   --  anubis_eye%b
    --  anubis_mlkem_sample%s
    --  anubis_mlkem_sample%b
    --  anubis_mlkem%s
    --  anubis_mlkem%b
+   --  anubis_ring_sig%s
+   --  anubis_ring_sig%b
+   --  anubis_shield%s
+   --  anubis_shield%b
+   --  anubis_stark_poly%s
+   --  anubis_stark_poly%b
+   --  anubis_stark_fri%s
+   --  anubis_stark_fri%b
+   --  anubis_gate%s
+   --  anubis_gate%b
+   --  anubis_token%s
+   --  anubis_token%b
+   --  anubis_treasury%s
+   --  anubis_treasury%b
+   --  anubis_vesting%s
+   --  anubis_vesting%b
+   --  anubis_whisper%s
+   --  anubis_whisper%b
+   --  aegis_privacy%s
+   --  aegis_privacy%b
+   --  khepri_mpt_types%s
+   --  khepri_mpt_types%b
+   --  khepri_mpt%s
+   --  khepri_mpt%b
+   --  aegis_execution%s
+   --  aegis_execution%b
    --  aegis_crypto_api%s
    --  aegis_crypto_api%b
    --  aegis_syscall%s
    --  aegis_syscall%b
+   --  khepri_registry%s
+   --  khepri_registry%b
+   --  khepri_types%s
+   --  khepri_types%b
+   --  khepri_storage_trie%s
+   --  khepri_storage_trie%b
+   --  scarab_aadkg%s
+   --  scarab_aadkg%b
+   --  scarab_horus%s
+   --  scarab_horus%b
+   --  scarab_khnum%s
+   --  scarab_khnum%b
+   --  scarab_maat%s
+   --  scarab_maat%b
+   --  scarab_sebek%s
+   --  scarab_sebek%b
+   --  scarab_sekhmet%s
+   --  scarab_sekhmet%b
+   --  scarab_tefnut%s
+   --  scarab_tefnut%b
+   --  scarab_thoth%s
+   --  scarab_thoth%b
+   --  aegis_ffi%s
+   --  aegis_ffi%b
    --  END ELABORATION ORDER
 
 end aegisvmmain;

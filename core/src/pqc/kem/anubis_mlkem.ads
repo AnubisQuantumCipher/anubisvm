@@ -59,6 +59,7 @@ is
    Ciphertext_Bytes        : constant := 1568;
    Shared_Secret_Bytes     : constant := 32;
    Seed_Bytes              : constant := 32;
+   Message_Bytes           : constant := 32;  --  K-PKE plaintext size
 
    --  Internal K-PKE sizes
    K_PKE_DK_Bytes : constant := K * Encoded_Poly_Bytes;  -- 1536 bytes

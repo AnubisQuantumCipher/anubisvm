@@ -31,7 +31,7 @@ U khepri_storage_trie%b	khepri_storage_trie.adb	f89b3c6c OO PK
 W interfaces%s		interfac.ads		interfac.ali
 Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
 
-U khepri_storage_trie%s	khepri_storage_trie.ads	6d14f4d7 EE NE OO PK
+U khepri_storage_trie%s	khepri_storage_trie.ads	abafa33c EE NE OO PK
 W aegis_u256%s		aegis_u256.adb		aegis_u256.ali
 W aegis_vm_types%s	aegis_vm_types.ads	aegis_vm_types.ali
 W khepri_mpt%s		khepri_mpt.adb		khepri_mpt.ali
@@ -42,9 +42,9 @@ D ada.ads		20240808082856 76789da1 ada%s
 D a-assert.ads		20240808082856 ba465f5c ada.assertions%s
 D a-unccon.ads		20240808082856 0e9b276f ada.unchecked_conversion%s
 D aegis_u256.ads	20251207191105 ff2dfe4b aegis_u256%s
-D aegis_vm_types.ads	20251207191105 dcd101d9 aegis_vm_types%s
+D aegis_vm_types.ads	20251209080247 503da7fd aegis_vm_types%s
 D interfac.ads		20240808082856 9111f9c1 interfaces%s
-D khepri_mpt.ads	20251207191105 29e9c0a4 khepri_mpt%s
+D khepri_mpt.ads	20251209030134 63be316b khepri_mpt%s
 D khepri_mpt_types.ads	20251207191105 f5c1a441 khepri_mpt_types%s
 D khepri_storage_trie.ads  20251207191105 9433ed8d khepri_storage_trie%s
 D khepri_storage_trie.adb  20251207191105 fdb92820 khepri_storage_trie%b
@@ -126,7 +126,7 @@ X 4 aegis_u256.ads
 155V13*From_Word64{5|41R9} 10|112s13
 172V13*To_Bytes_BE{5|56A9} 10|89s34
 X 5 aegis_vm_types.ads
-21K9*Aegis_VM_Types 279e19 9|10w6 10r30
+21K9*Aegis_VM_Types 280e19 9|10w6 10r30
 32A9*Byte_Array(31M12)<integer> 10|87r22 100r35 121r13 122r16 275r19 302r34
 . 321r19 322r19 358r19 385r13 515r15 550r34
 35M12*Word64{6|84M9} 10|112r26

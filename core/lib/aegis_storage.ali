@@ -32,7 +32,7 @@ W anubis_types%s	anubis_types.ads	anubis_types.ali
 W interfaces%s		interfac.ads		interfac.ali
 Z system.assertions%s	s-assert.adb		s-assert.ali
 
-U aegis_storage%s	aegis_storage.ads	0afbc509 EE NE OO PK
+U aegis_storage%s	aegis_storage.ads	8617632d EE NE OO PK
 W aegis_vm_types%s	aegis_vm_types.ads	aegis_vm_types.ali
 
 D ada.ads		20240808082856 76789da1 ada%s
@@ -40,7 +40,7 @@ D a-assert.ads		20240808082856 ba465f5c ada.assertions%s
 D a-unccon.ads		20240808082856 0e9b276f ada.unchecked_conversion%s
 D aegis_storage.ads	20251207191106 d62ac4d0 aegis_storage%s
 D aegis_storage.adb	20251207191105 f5f1954d aegis_storage%b
-D aegis_vm_types.ads	20251207191105 dcd101d9 aegis_vm_types%s
+D aegis_vm_types.ads	20251209080247 503da7fd aegis_vm_types%s
 D anubis_keccak.ads	20251207191105 19b431a9 anubis_keccak%s
 D anubis_sha3.ads	20251207191105 69737d95 anubis_sha3%s
 D anubis_types.ads	20251207191105 4fb35097 anubis_types%s
@@ -190,7 +190,7 @@ X 5 aegis_storage.adb
 55i17 J{integer} 56r39 57r43
 66i11 I{integer} 67r18 67r38
 X 6 aegis_vm_types.ads
-21K9*Aegis_VM_Types 4|3w6 3r26 6|279e19
+21K9*Aegis_VM_Types 4|3w6 3r26 6|280e19
 31M12*Byte{10|70M9} 4|177r48 5|67r24
 39A9*U256_Limbs(35M12)<integer>
 41R9*U256 4|70r22 108r21 109r21 5|38r28 38r36 6|43e14

@@ -24,10 +24,10 @@ RV NO_IMPLEMENTATION_PRAGMAS
 RV NO_IMPLICIT_LOOPS
 RV NO_ELABORATION_CODE
 
-U khepri_registry%b	khepri_registry.adb	b82c6a5e OO PK
+U khepri_registry%b	khepri_registry.adb	63e98690 OO PK
 Z system.assertions%s	s-assert.adb		s-assert.ali
 
-U khepri_registry%s	khepri_registry.ads	a4e017a4 EE NE OO PK
+U khepri_registry%s	khepri_registry.ads	179bb688 EE NE OO PK
 W aegis_u256%s		aegis_u256.adb		aegis_u256.ali
 W aegis_vm_types%s	aegis_vm_types.ads	aegis_vm_types.ali
 W interfaces%s		interfac.ads		interfac.ali
@@ -36,10 +36,10 @@ D ada.ads		20240808082856 76789da1 ada%s
 D a-assert.ads		20240808082856 ba465f5c ada.assertions%s
 D a-unccon.ads		20240808082856 0e9b276f ada.unchecked_conversion%s
 D aegis_u256.ads	20251207191105 ff2dfe4b aegis_u256%s
-D aegis_vm_types.ads	20251207191105 dcd101d9 aegis_vm_types%s
+D aegis_vm_types.ads	20251209080247 503da7fd aegis_vm_types%s
 D interfac.ads		20240808082856 9111f9c1 interfaces%s
-D khepri_registry.ads	20251207191107 160d11f7 khepri_registry%s
-D khepri_registry.adb	20251207191107 ae217ba9 khepri_registry%b
+D khepri_registry.ads	20251211125643 299a16ff khepri_registry%s
+D khepri_registry.adb	20251211125735 4a73906f khepri_registry%b
 D system.ads		20240808082856 70765b54 system%s
 D s-assert.ads		20240808082856 9c4520c7 system.assertions%s
 D s-exctab.ads		20240808082856 91bef6ef system.exception_table%s
@@ -66,19 +66,21 @@ G c Z s b [meets_level khepri_registry 265 13 none]
 G c Z s b [total_registered khepri_registry 277 13 none]
 G c Z s b [count_by_level khepri_registry 282 13 none]
 G c Z s b [total_gas_saved khepri_registry 287 13 none]
-G c Z s b [initialize khepri_registry 296 14 none]
-G c Z s b [is_certifier khepri_registry 300 13 none]
-G c Z s b [add_certifier khepri_registry 305 14 none]
-G c Z s b [remove_certifier khepri_registry 313 14 none]
-G c Z s s [registration_eventIP khepri_registry 324 9 none]
-G c Z s s [certification_eventIP khepri_registry 331 9 none]
-G c Z s s [revocation_eventIP khepri_registry 339 9 none]
-G c Z s s [audit_eventIP khepri_registry 346 9 none]
+G c Z s b [set_current_time khepri_registry 297 14 none]
+G c Z s b [get_current_time khepri_registry 301 13 none]
+G c Z s b [initialize khepri_registry 310 14 none]
+G c Z s b [is_certifier khepri_registry 314 13 none]
+G c Z s b [add_certifier khepri_registry 319 14 none]
+G c Z s b [remove_certifier khepri_registry 327 14 none]
+G c Z s s [registration_eventIP khepri_registry 338 9 none]
+G c Z s s [certification_eventIP khepri_registry 345 9 none]
+G c Z s s [revocation_eventIP khepri_registry 353 9 none]
+G c Z s s [audit_eventIP khepri_registry 360 9 none]
 G c Z b b [Tentry_arrayBIP khepri_registry 15 4 none]
 G c Z b b [Tcertifier_arrayBIP khepri_registry 19 4 none]
-G c Z b b [find_entry khepri_registry 31 13 none]
-G c Z b b [find_empty_slot khepri_registry 46 13 none]
-G c Z b b [level_to_discount khepri_registry 59 13 none]
+G c Z b b [find_entry khepri_registry 34 13 none]
+G c Z b b [find_empty_slot khepri_registry 49 13 none]
+G c Z b b [level_to_discount khepri_registry 62 13 none]
 G r c none [apply_discount khepri_registry 229 13 none] [from_word64 aegis_u256 155 13 none]
 G r c none [apply_discount khepri_registry 229 13 none] [mul aegis_u256 89 14 none]
 G r c none [apply_discount khepri_registry 229 13 none] [div aegis_u256 111 13 none]
@@ -88,237 +90,243 @@ G r c none [record_gas_usage khepri_registry 237 14 none] [add aegis_u256 64 14 
 G r c none [total_gas_saved khepri_registry 287 13 none] [add aegis_u256 64 14 none]
 X 4 aegis_u256.ads
 21K9*Aegis_U256 276e15 7|24w6 24r22
-64U14*Add 8|374s7 380s7 474s13
-84V13*Sub_Mod{5|41R9} 8|355s17
-89U14*Mul 8|351s7
-111V13*Div{5|41R9} 8|352s18
-155V13*From_Word64{5|41R9} 8|351s24 352s32 374s52
+64U14*Add 8|377s7 383s7 477s13
+84V13*Sub_Mod{5|41R9} 8|358s17
+89U14*Mul 8|354s7
+111V13*Div{5|41R9} 8|355s18
+155V13*From_Word64{5|41R9} 8|354s24 355s32 377s52
 X 5 aegis_vm_types.ads
-21K9*Aegis_VM_Types 279e19 7|23w6 23r26
+21K9*Aegis_VM_Types 280e19 7|23w6 23r26
 31M12*Byte{6|70M9}
-35M12*Word64{6|84M9} 8|351r37
+35M12*Word64{6|84M9} 8|354r37
 41R9*U256 43e14 7|81r25 94r25 95r25 157r30 214r70 230r23 232r13 239r26 240r26
-. 287r36 8|135r30 318r70 338r23 340r13 342r18 343r18 344r18 361r26 362r26
-. 365r14 366r14 467r36 468r15 469r15
-46r4*U256_Zero{41R9} 7|105r26 117r26 118r26 8|108r29 120r29 121r29 322r17
-. 468r23
+. 287r36 8|138r30 321r70 341r23 343r13 345r18 346r18 347r18 364r26 365r26
+. 368r14 369r14 470r36 471r15 472r15
+46r4*U256_Zero{41R9} 7|105r26 117r26 118r26 8|111r29 123r29 124r29 325r17
+. 471r23
 56A9*Hash256(31M12)<integer> 7|75r25 80r25 91r25 145r30 156r30 179r30 251r23
-. 326r21 335r21 341r21 8|78r30 134r30 232r30 392r23
-59A9*Hash512(31M12)<integer> 7|64r21 169r30 8|186r30
+. 340r21 349r21 355r21 8|81r30 137r30 235r30 395r23
+59A9*Hash512(31M12)<integer> 7|64r21 169r30 8|189r30
 70A9*Contract_Address(31M12)<integer> 7|63r21 74r25 76r25 144r30 146r30 154r30
 . 158r30 167r30 168r30 170r30 178r30 180r30 191r44 196r40 202r30 209r41 214r45
-. 223r47 231r23 238r26 250r23 258r23 259r23 266r23 300r34 306r24 307r24 314r24
-. 315r24 325r21 327r21 332r21 340r21 342r21 347r21 348r21 8|19r55 25r22 31r41
-. 77r30 79r30 132r30 136r30 184r30 185r30 187r30 231r30 233r30 276r44 281r40
-. 294r30 309r41 318r45 331r47 339r23 360r26 391r23 403r23 404r23 433r23 496r34
-. 512r24 513r24 533r24 534r24
+. 223r47 231r23 238r26 250r23 258r23 259r23 266r23 314r34 320r24 321r24 328r24
+. 329r24 339r21 341r21 346r21 354r21 356r21 361r21 362r21 8|19r55 25r22 34r41
+. 80r30 82r30 135r30 139r30 187r30 188r30 190r30 234r30 236r30 279r44 284r40
+. 297r30 312r41 321r45 334r47 342r23 363r26 394r23 406r23 407r23 436r23 514r34
+. 530r24 531r24 551r24 552r24
 X 6 interfac.ads
 38K9*Interfaces 233e15 7|22w6 22r22
 70M9*Unsigned_8
-84M9*Unsigned_64 7|65r21 88r25 89r25 328r21 336r21 343r21 349r21
+84M9*Unsigned_64 7|65r21 88r25 89r25 297r44 301r37 342r21 350r21 357r21 363r21
+. 8|28r22 490r44 495r37
 X 7 khepri_registry.ads
-26K9*Khepri_Registry 352l5 352e20 8|4b14 553l5 553t20
+26K9*Khepri_Registry 366l5 366e20 8|4b14 571l5 571t20
 28@23*Registry_State 29r19 150r28 162r28 174r28 184r28 192r17 197r17 206r17
 . 210r17 215r17 224r17 233r17 242r28 253r17 261r17 269r17 278r17 283r17 288r17
-. 297r28 301r17 310r28 318r28 8|6r22
-36E9*Certification_Level 42e5 79r25 155r30 196r65 267r23 282r37 333r21 334r21
-. 8|59r40 133r30 281r65 332r24 434r23 436r24 438r14 438r49 450r37
-37n7*Level_None{36E9} 103r26 163r26 8|64r15 106r29 266r44 285r17 288r17
-38n7*Level_Bronze{36E9} 8|65r15
-39n7*Level_Silver{36E9} 8|66r15
-40n7*Level_Gold{36E9} 8|67r15
-41n7*Level_Platinum{36E9} 8|68r15 167r18
-45N4*Gas_Discount_None 8|64r40
-46N4*Gas_Discount_Bronze 8|65r40
-47N4*Gas_Discount_Silver 8|66r40
-48N4*Gas_Discount_Gold 8|67r40
-49N4*Gas_Discount_Platinum 8|68r40
-56N4*Max_Contracts 8|14r35 33r41 48r46 459r24
-59N4*Max_Auditors 69r38 8|212r21 416r44
+. 298r28 302r17 311r28 315r17 324r28 332r28 8|6r22
+36E9*Certification_Level 42e5 79r25 155r30 196r65 267r23 282r37 347r21 348r21
+. 8|62r40 136r30 284r65 335r24 437r23 439r24 441r14 441r49 453r37
+37n7*Level_None{36E9} 103r26 163r26 8|67r15 109r29 269r44 288r17 291r17
+38n7*Level_Bronze{36E9} 8|68r15
+39n7*Level_Silver{36E9} 8|69r15
+40n7*Level_Gold{36E9} 8|70r15
+41n7*Level_Platinum{36E9} 8|71r15 170r18
+45N4*Gas_Discount_None 8|67r40
+46N4*Gas_Discount_Bronze 8|68r40
+47N4*Gas_Discount_Silver 8|69r40
+48N4*Gas_Discount_Gold 8|70r40
+49N4*Gas_Discount_Platinum 8|71r40
+56N4*Max_Contracts 8|14r35 36r41 51r46 462r24
+59N4*Max_Auditors 69r38 8|215r21 419r44
 62R9*Auditor_Attestation 67e14 69r59
-63a7*Auditor{5|70A9} 107m10 8|110m13 219m10 422r54
-64a7*Signature{5|59A9} 108m10 8|111m13 220m10
-65m7*Timestamp{6|84M9} 109m10 8|112m13 221m10
-66b7*Valid{boolean} 110m10 8|113m13 222m10 423r54
+63a7*Auditor{5|70A9} 107m10 8|113m13 222m10 425r54
+64a7*Signature{5|59A9} 108m10 8|114m13 223m10
+65m7*Timestamp{6|84M9} 109m10 8|115m13 224m10
+66b7*Valid{boolean} 110m10 8|116m13 225m10 426r54
 69A9*Auditor_Array(62R9)<integer> 84r25
-72R9*Registry_Entry 96e14 99r26 203r30 8|15r47 295r30
-74a7*Contract_Addr{5|70A9} 100m7 8|37r25 103m10
-75a7*Code_Hash{5|56A9} 101m7 8|104m10
-76a7*Deployer{5|70A9} 102m7 8|105m10
-79e7*Level{36E9} 103m7 8|106m10 175m35 266m35 290r42 456r25
-80a7*Proof_Hash{5|56A9} 104m7 8|107m10 176m35 399r42
-81r7*WCET_Bound{5|41R9} 105m7 8|108m10 177m35 324r42
-84a7*Auditors{69A9} 106m7 8|109m10 218m35 422r41 423r41
-85i7*Auditor_Count{natural} 112m7 8|115m10 168r38 211r46 224m35 413r48
-88m7*Registered_At{6|84M9} 113m7 8|38r25 52r25 116m10 454r25 473r25
-89m7*Updated_At{6|84M9} 114m7 8|117m10 178m35 225m35 267m35
-90b7*Revoked{boolean} 115m7 8|118m10 161r38 205r38 258r38 264m35 287r38 315r42
-. 455r29
-91a7*Revoked_Reason{5|56A9} 116m7 8|119m10 265m35
-94r7*Call_Count{5|41R9} 117m7 8|120m10 374r40 376m38
-95r7*Gas_Saved{5|41R9} 118m7 8|121m10 380r40 382m38 474r37
-99r4*Null_Entry{72R9} 8|21r48 301r23 489r29
-125E9*Registry_Error 136e5 148r30 160r30 172r30 182r30 8|81r30 138r30 189r30
-. 235r30
-126n7*Error_None{125E9} 8|86r16 144r16 195r16 241r16
-127n7*Error_Already_Registered{125E9} 8|90r19
-128n7*Error_Not_Registered{125E9} 8|156r19 200r19 253r19
-129n7*Error_Unauthorized{125E9} 8|149r19 246r19
+72R9*Registry_Entry 96e14 99r26 203r30 8|15r47 298r30
+74a7*Contract_Addr{5|70A9} 100m7 8|40r25 106m10
+75a7*Code_Hash{5|56A9} 101m7 8|107m10
+76a7*Deployer{5|70A9} 102m7 8|108m10
+79e7*Level{36E9} 103m7 8|109m10 178m35 269m35 293r42 459r25
+80a7*Proof_Hash{5|56A9} 104m7 8|110m10 179m35 402r42
+81r7*WCET_Bound{5|41R9} 105m7 8|111m10 180m35 327r42
+84a7*Auditors{69A9} 106m7 8|112m10 221m35 425r41 426r41
+85i7*Auditor_Count{natural} 112m7 8|118m10 171r38 214r46 227m35 416r48
+88m7*Registered_At{6|84M9} 113m7 8|41r25 55r25 119m10 457r25 476r25
+89m7*Updated_At{6|84M9} 114m7 8|120m10 181m35 228m35 270m35
+90b7*Revoked{boolean} 115m7 8|121m10 164r38 208r38 261r38 267m35 290r38 318r42
+. 458r29
+91a7*Revoked_Reason{5|56A9} 116m7 8|122m10 268m35
+94r7*Call_Count{5|41R9} 117m7 8|123m10 377r40 379m38
+95r7*Gas_Saved{5|41R9} 118m7 8|124m10 383r40 385m38 477r37
+99r4*Null_Entry{72R9} 8|21r48 304r23 506r29
+125E9*Registry_Error 136e5 148r30 160r30 172r30 182r30 8|84r30 141r30 192r30
+. 238r30
+126n7*Error_None{125E9} 8|89r16 147r16 198r16 244r16
+127n7*Error_Already_Registered{125E9} 8|93r19
+128n7*Error_Not_Registered{125E9} 8|159r19 203r19 256r19
+129n7*Error_Unauthorized{125E9} 8|152r19 249r19
 130n7*Error_Invalid_Proof{125E9}
 131n7*Error_Invalid_Level{125E9}
-132n7*Error_Already_Revoked{125E9} 8|162r19 206r19 259r19
-133n7*Error_Auditor_Required{125E9} 8|170r19
+132n7*Error_Already_Revoked{125E9} 8|165r19 209r19 262r19
+133n7*Error_Auditor_Required{125E9} 8|173r19
 134n7*Error_Invalid_Signature{125E9}
-135n7*Error_Registry_Full{125E9} 8|97r19 213r19
-143U14*Register 144>7 145>7 146>7 147<7 148<7 8|76b14 129l8 129t16
-144a7 Contract_Addr{5|70A9} 8|77b7 89r22 103r29
-145a7 Code_Hash{5|56A9} 8|78b7 104r29
-146a7 Deployer{5|70A9} 8|79b7 105r29
-147b7 Success{boolean} 8|80b7 85m7 128m7
-148e7 Error{125E9} 8|81b7 86m7 90m10 97m10
-153U14*Set_Certification 154>7 155>7 156>7 157>7 158>7 159<7 160<7 8|131b14
-. 181l8 181t25
-154a7 Contract_Addr{5|70A9} 8|132b7 154r26
-155e7 Level{36E9} 163r17 8|133b7 167r10 175r44
-156a7 Proof_Hash{5|56A9} 8|134b7 176r49
-157r7 WCET_Bound{5|41R9} 8|135b7 177r49
-158a7 Caller{5|70A9} 8|136b7 147r44
-159b7 Success{boolean} 8|137b7 143m7 180m7
-160e7 Error{125E9} 8|138b7 144m7 149m10 156m10 162m10 170m10
-166U14*Add_Auditor 167>7 168>7 169>7 170>7 171<7 172<7 8|183b14 228l8 228t19
-167a7 Contract_Addr{5|70A9} 8|184b7 198r26
-168a7 Auditor{5|70A9} 8|185b7 219r23
-169a7 Signature{5|59A9} 8|186b7 220r23
-170a7 Caller{5|70A9} 8|187b7
-171b7 Success{boolean} 8|188b7 194m7 227m7
-172e7 Error{125E9} 8|189b7 195m7 200m10 206m10 213m10
-177U14*Revoke 178>7 179>7 180>7 181<7 182<7 8|230b14 270l8 270t14
-178a7 Contract_Addr{5|70A9} 8|231b7 251r26
-179a7 Reason{5|56A9} 8|232b7 265r53
-180a7 Caller{5|70A9} 8|233b7 244r44
-181b7 Success{boolean} 8|234b7 240m7 269m7
-182e7 Error{125E9} 8|235b7 241m7 246m10 253m10 259m10
-191V13*Is_Registered{boolean} 191>28 8|276b13 279l8 279t21
-191a28 Contract_Addr{5|70A9} 8|276b28 278r26
-196V13*Get_Level{36E9} 196>24 8|281b13 291l8 291t17 332s47 436s47
-196a24 Contract_Addr{5|70A9} 8|281b24 282r45
-201U14*Get_Registry_Entry 202>7 203<7 204<7 8|293b14 307l8 307t26
-202a7 Contract_Addr{5|70A9} 8|294b7 298r45
-203r7 Reg_Entry{72R9} 8|295b7 301m10 304m10
-204b7 Found{boolean} 8|296b7 302m10 305m10
-209V13*Is_Revoked{boolean} 209>25 8|309b13 316l8 316t18
-209a25 Contract_Addr{5|70A9} 8|309b25 310r45
-214V13*Get_WCET_Bound{5|41R9} 214>29 8|318b13 325l8 325t22
-214a29 Contract_Addr{5|70A9} 8|318b29 319r45
-223V13*Get_Gas_Discount{natural} 223>31 226r17 8|331b13 341s38
-223a31 Contract_Addr{5|70A9} 8|331b31 332r58
-229V13*Apply_Discount{5|41R9} 230>7 231>7 8|337b13 357l8 357t22
-230r7 Gas_Amount{5|41R9} 8|338b7 347r17 351r12 355r26
-231a7 Contract_Addr{5|70A9} 8|339b7 341r56
-237U14*Record_Gas_Usage 238>7 239>7 240>7 8|359b14 384l8 384t24
-238a7 Contract_Addr{5|70A9} 8|360b7 364r45
-239r7 Gas_Used{5|41R9} 8|361b7
-240r7 Gas_Saved{5|41R9} 8|362b7 380r51
-249V13*Verify_Proof{boolean} 250>7 251>7 8|390b13 400l8 400t20
-250a7 Contract_Addr{5|70A9} 8|391b7 394r45
-251a7 Proof_Data{5|56A9} 8|392b7 399r55
-257V13*Verify_Auditor{boolean} 258>7 259>7 8|402b13 430l8 430t22
-258a7 Contract_Addr{5|70A9} 8|403b7 406r45
-259a7 Auditor{5|70A9} 8|404b7 422r64
-265V13*Meets_Level{boolean} 266>7 267>7 8|432b13 439l8 439t19
-266a7 Contract_Addr{5|70A9} 8|433b7 436r58
-267e7 Min_Level{36E9} 8|434b7 438r74
-277V13*Total_Registered{natural} 8|445b13 448l8 448t24
-282V13*Count_By_Level{natural} 282>29 8|450b13 465l8 465t22
-282e29 Level{36E9} 8|450b29 456r33
-287V13*Total_Gas_Saved{5|41R9} 8|467b13 481l8 481t23
-296U14*Initialize 8|487b14 494l8 494t18
-300V13*Is_Certifier{boolean} 300>27 8|147s30 244s30 496b13 509l8 509t20
-300a27 Addr{5|70A9} 8|496b27 498r10 503r30
-305U14*Add_Certifier 306>7 307>7 308<7 8|511b14 530l8 530t21
-306a7 Addr{5|70A9} 8|512b7 527r57
-307a7 Caller{5|70A9} 8|513b7 519r10
-308b7 Success{boolean} 8|514b7 517m7 529m7
-313U14*Remove_Certifier 314>7 315>7 316<7 8|532b14 551l8 551t24
-314a7 Addr{5|70A9} 8|533b7 545r30
-315a7 Caller{5|70A9} 8|534b7 540r10
-316b7 Success{boolean} 8|535b7 538m7 547m13
-324R9*Registration_Event 329e14
-325a7*Contract{5|70A9}
-326a7*Code_Hash{5|56A9}
-327a7*Deployer{5|70A9}
-328m7*Timestamp{6|84M9}
-331R9*Certification_Event 337e14
-332a7*Contract{5|70A9}
-333e7*Old_Level{36E9}
-334e7*New_Level{36E9}
-335a7*Proof_Hash{5|56A9}
-336m7*Timestamp{6|84M9}
-339R9*Revocation_Event 344e14
-340a7*Contract{5|70A9}
-341a7*Reason{5|56A9}
-342a7*Revoker{5|70A9}
-343m7*Timestamp{6|84M9}
-346R9*Audit_Event 350e14
-347a7*Contract{5|70A9}
-348a7*Auditor{5|70A9}
-349m7*Timestamp{6|84M9}
+135n7*Error_Registry_Full{125E9} 8|100r19 216r19
+143U14*Register 144>7 145>7 146>7 147<7 148<7 8|79b14 132l8 132t16
+144a7 Contract_Addr{5|70A9} 8|80b7 92r22 106r29
+145a7 Code_Hash{5|56A9} 8|81b7 107r29
+146a7 Deployer{5|70A9} 8|82b7 108r29
+147b7 Success{boolean} 8|83b7 88m7 131m7
+148e7 Error{125E9} 8|84b7 89m7 93m10 100m10
+153U14*Set_Certification 154>7 155>7 156>7 157>7 158>7 159<7 160<7 8|134b14
+. 184l8 184t25
+154a7 Contract_Addr{5|70A9} 8|135b7 157r26
+155e7 Level{36E9} 163r17 8|136b7 170r10 178r44
+156a7 Proof_Hash{5|56A9} 8|137b7 179r49
+157r7 WCET_Bound{5|41R9} 8|138b7 180r49
+158a7 Caller{5|70A9} 8|139b7 150r44
+159b7 Success{boolean} 8|140b7 146m7 183m7
+160e7 Error{125E9} 8|141b7 147m7 152m10 159m10 165m10 173m10
+166U14*Add_Auditor 167>7 168>7 169>7 170>7 171<7 172<7 8|186b14 231l8 231t19
+167a7 Contract_Addr{5|70A9} 8|187b7 201r26
+168a7 Auditor{5|70A9} 8|188b7 222r23
+169a7 Signature{5|59A9} 8|189b7 223r23
+170a7 Caller{5|70A9} 8|190b7
+171b7 Success{boolean} 8|191b7 197m7 230m7
+172e7 Error{125E9} 8|192b7 198m7 203m10 209m10 216m10
+177U14*Revoke 178>7 179>7 180>7 181<7 182<7 8|233b14 273l8 273t14
+178a7 Contract_Addr{5|70A9} 8|234b7 254r26
+179a7 Reason{5|56A9} 8|235b7 268r53
+180a7 Caller{5|70A9} 8|236b7 247r44
+181b7 Success{boolean} 8|237b7 243m7 272m7
+182e7 Error{125E9} 8|238b7 244m7 249m10 256m10 262m10
+191V13*Is_Registered{boolean} 191>28 8|279b13 282l8 282t21
+191a28 Contract_Addr{5|70A9} 8|279b28 281r26
+196V13*Get_Level{36E9} 196>24 8|284b13 294l8 294t17 335s47 439s47
+196a24 Contract_Addr{5|70A9} 8|284b24 285r45
+201U14*Get_Registry_Entry 202>7 203<7 204<7 8|296b14 310l8 310t26
+202a7 Contract_Addr{5|70A9} 8|297b7 301r45
+203r7 Reg_Entry{72R9} 8|298b7 304m10 307m10
+204b7 Found{boolean} 8|299b7 305m10 308m10
+209V13*Is_Revoked{boolean} 209>25 8|312b13 319l8 319t18
+209a25 Contract_Addr{5|70A9} 8|312b25 313r45
+214V13*Get_WCET_Bound{5|41R9} 214>29 8|321b13 328l8 328t22
+214a29 Contract_Addr{5|70A9} 8|321b29 322r45
+223V13*Get_Gas_Discount{natural} 223>31 226r17 8|334b13 344s38
+223a31 Contract_Addr{5|70A9} 8|334b31 335r58
+229V13*Apply_Discount{5|41R9} 230>7 231>7 8|340b13 360l8 360t22
+230r7 Gas_Amount{5|41R9} 8|341b7 350r17 354r12 358r26
+231a7 Contract_Addr{5|70A9} 8|342b7 344r56
+237U14*Record_Gas_Usage 238>7 239>7 240>7 8|362b14 387l8 387t24
+238a7 Contract_Addr{5|70A9} 8|363b7 367r45
+239r7 Gas_Used{5|41R9} 8|364b7
+240r7 Gas_Saved{5|41R9} 8|365b7 383r51
+249V13*Verify_Proof{boolean} 250>7 251>7 8|393b13 403l8 403t20
+250a7 Contract_Addr{5|70A9} 8|394b7 397r45
+251a7 Proof_Data{5|56A9} 8|395b7 402r55
+257V13*Verify_Auditor{boolean} 258>7 259>7 8|405b13 433l8 433t22
+258a7 Contract_Addr{5|70A9} 8|406b7 409r45
+259a7 Auditor{5|70A9} 8|407b7 425r64
+265V13*Meets_Level{boolean} 266>7 267>7 8|435b13 442l8 442t19
+266a7 Contract_Addr{5|70A9} 8|436b7 439r58
+267e7 Min_Level{36E9} 8|437b7 441r74
+277V13*Total_Registered{natural} 8|448b13 451l8 451t24
+282V13*Count_By_Level{natural} 282>29 8|453b13 468l8 468t22
+282e29 Level{36E9} 8|453b29 459r33
+287V13*Total_Gas_Saved{5|41R9} 8|470b13 484l8 484t23
+297U14*Set_Current_Time 297>32 8|490b14 493l8 493t24
+297m32 Timestamp{6|84M9} 8|490b32 492r23
+301V13*Get_Current_Time{6|84M9} 8|495b13 498l8 498t24
+310U14*Initialize 8|504b14 512l8 512t18
+314V13*Is_Certifier{boolean} 314>27 8|150s30 247s30 514b13 527l8 527t20
+314a27 Addr{5|70A9} 8|514b27 516r10 521r30
+319U14*Add_Certifier 320>7 321>7 322<7 8|529b14 548l8 548t21
+320a7 Addr{5|70A9} 8|530b7 545r57
+321a7 Caller{5|70A9} 8|531b7 537r10
+322b7 Success{boolean} 8|532b7 535m7 547m7
+327U14*Remove_Certifier 328>7 329>7 330<7 8|550b14 569l8 569t24
+328a7 Addr{5|70A9} 8|551b7 563r30
+329a7 Caller{5|70A9} 8|552b7 558r10
+330b7 Success{boolean} 8|553b7 556m7 565m13
+338R9*Registration_Event 343e14
+339a7*Contract{5|70A9}
+340a7*Code_Hash{5|56A9}
+341a7*Deployer{5|70A9}
+342m7*Timestamp{6|84M9}
+345R9*Certification_Event 351e14
+346a7*Contract{5|70A9}
+347e7*Old_Level{36E9}
+348e7*New_Level{36E9}
+349a7*Proof_Hash{5|56A9}
+350m7*Timestamp{6|84M9}
+353R9*Revocation_Event 358e14
+354a7*Contract{5|70A9}
+355a7*Reason{5|56A9}
+356a7*Revoker{5|70A9}
+357m7*Timestamp{6|84M9}
+360R9*Audit_Event 364e14
+361a7*Contract{5|70A9}
+362a7*Auditor{5|70A9}
+363m7*Timestamp{6|84M9}
 X 8 khepri_registry.adb
-14I9 Entry_Index<short_integer> 15r31 36r16 51r16 102r16 161r19 168r19 175r16
-. 176r16 177r16 178r16 205r19 211r27 218r16 224r16 225r16 258r19 264r16 265r16
-. 266r16 267r16 287r19 290r23 304r32 315r23 324r23 374r21 376r19 380r21 382r19
-. 399r23 413r29 422r22 423r22 453r16 472r16
+14I9 Entry_Index<short_integer> 15r31 39r16 54r16 105r16 164r19 171r19 178r16
+. 179r16 180r16 181r16 208r19 214r27 221r16 227r16 228r16 261r19 267r16 268r16
+. 269r16 270r16 290r19 293r23 307r32 318r23 327r23 377r21 379r19 383r21 385r19
+. 402r23 416r29 425r22 426r22 456r16 475r16
 15A9 Entry_Array(7|72R9)<14I9> 21r22
-17N4 Max_Certifiers 18r39 523r29
-18I9 Certifier_Index<short_short_integer> 19r35 502r16 527r19 544r16
+17N4 Max_Certifiers 18r39 541r29
+18I9 Certifier_Index<short_short_integer> 19r35 520r16 545r19 562r16
 19A9 Certifier_Array(5|70A9)<18I9> 23r22
-21a4 Entries{15A9} 7r7 37r13 38r13 52r13 102m7 161r10 168r10 175m7 176m7
-. 177m7 178m7 205r10 211r18 218m7 224m7 225m7 258r10 264m7 265m7 266m7 267m7
-. 287r10 290r14 304r23 315r14 324r14 374r12 376m10 380r12 382m10 399r14 413r20
-. 422r13 423r13 454r13 455r17 456r13 473r13 474r25 489m7
-22i4 Entry_Count{natural} 7r16 125r10 126m10 126r25 447r14 490m7
-23a4 Certifiers{19A9} 7r29 491m7 503r13 527m7 545r13 546m13
-24i4 Certifier_Count{natural} 7r41 492m7 523r10 527r36 528m7 528r26
-25a4 Admin_Addr{5|70A9} 7r58 493m7 498r17 519r20 540r20
-31V13 Find_Entry{natural} 31b13 31>25 32r20 33r20 89s10 154s14 198s14 251s14
-. 278s14 282s33 298s33 310s33 319s33 364s33 394s33 406s33
-31a25 Contract_Addr{5|70A9} 37r41
-36i11 I{14I9} 37r22 38r22 40r29
-46V13 Find_Empty_Slot{natural} 46b13 47r20 48r20 95s15
-51i11 I{14I9} 52r22 53r29
-59V13 Level_To_Discount{natural} 59b13 59>32 60r20 334s14
-59e32 Level{7|36E9} 63r12
-83i7 Slot{natural} 95m7 96r10 102r29
-140i7 Idx{natural} 154m7 155r10 161r32 168r32 175r29 176r29 177r29 178r29
-141b7 Caller_Is_Certifier{boolean} 147m7 148r14
-191i7 Idx{natural} 198m7 199r10 205r32 211r40 218r29 224r29 225r29
-192i7 Aud_Idx{natural} 211m7 212r10 218r45 224r52
-237i7 Idx{natural} 251m7 252r10 258r32 264r29 265r29 266r29 267r29
-238b7 Caller_Is_Certifier{boolean} 244m7 245r14
-282i7 Idx{natural} 284r10 287r32 290r36
-298i7 Idx{natural} 300r10 304r45
-310i7 Idx{natural} 312r10 315r36
-319i7 Idx{natural} 321r10 324r36
-332e7 Level{7|36E9} 334r33
-341i7 Discount{natural} 346r10 351r45
-342r7 Savings{5|41R9} 351m63 352m7 352r23 355r38
-343r7 High{5|41R9} 351m57
-344r7 Result{5|41R9} 355m7 356r14
-364i7 Idx{natural} 369r10 374r34 376r32 380r34 382r32
-365r7 Temp{5|41R9} 374m69 376r52 380m62 382r51
-366r7 High{5|41R9}
-367b7 Oflow{boolean} 374m75 375r14 380m68 381r14
-394i7 Idx{natural} 396r10 399r36
-406i7 Idx{natural} 409r10 413r42 422r35 423r35
-407i7 Aud_Count{natural} 413m7 416r10 416r32 421r21
-421i11 I{integer} 422r51 423r51
-436e7 Level{7|36E9} 438r39
-451i7 Count{natural} 459r16 460m16 460r25 464r14
-453i11 I{14I9} 454r22 455r26 456r22
-468r7 Total{5|41R9} 474r18 476m16 480r14
-469r7 Temp{5|41R9} 474m48 476r25
-470b7 Oflow{boolean} 474m54 475r20
-472i11 I{14I9} 473r22 474r34
-502i11 I{18I9} 503r25
-544i11 I{18I9} 545r25 546r25
+21a4 Entries{15A9} 7r7 40r13 41r13 55r13 105m7 164r10 171r10 178m7 179m7
+. 180m7 181m7 208r10 214r18 221m7 227m7 228m7 261r10 267m7 268m7 269m7 270m7
+. 290r10 293r14 307r23 318r14 327r14 377r12 379m10 383r12 385m10 402r14 416r20
+. 425r13 426r13 457r13 458r17 459r13 476r13 477r25 506m7
+22i4 Entry_Count{natural} 7r16 128r10 129m10 129r25 450r14 507m7
+23a4 Certifiers{19A9} 7r29 508m7 521r13 545m7 563r13 564m13
+24i4 Certifier_Count{natural} 7r41 509m7 541r10 545r36 546m7 546r26
+25a4 Admin_Addr{5|70A9} 7r58 510m7 516r17 537r20 558r20
+28m4 Current_Time{6|84M9} 7r70 119r29 120r29 181r49 224r23 228r49 270r49
+. 492m7 497r14 511m7
+34V13 Find_Entry{natural} 34b13 34>25 35r20 36r20 92s10 157s14 201s14 254s14
+. 281s14 285s33 301s33 313s33 322s33 367s33 397s33 409s33
+34a25 Contract_Addr{5|70A9} 40r41
+39i11 I{14I9} 40r22 41r22 43r29
+49V13 Find_Empty_Slot{natural} 49b13 50r20 51r20 98s15
+54i11 I{14I9} 55r22 56r29
+62V13 Level_To_Discount{natural} 62b13 62>32 63r20 337s14
+62e32 Level{7|36E9} 66r12
+86i7 Slot{natural} 98m7 99r10 105r29
+143i7 Idx{natural} 157m7 158r10 164r32 171r32 178r29 179r29 180r29 181r29
+144b7 Caller_Is_Certifier{boolean} 150m7 151r14
+194i7 Idx{natural} 201m7 202r10 208r32 214r40 221r29 227r29 228r29
+195i7 Aud_Idx{natural} 214m7 215r10 221r45 227r52
+240i7 Idx{natural} 254m7 255r10 261r32 267r29 268r29 269r29 270r29
+241b7 Caller_Is_Certifier{boolean} 247m7 248r14
+285i7 Idx{natural} 287r10 290r32 293r36
+301i7 Idx{natural} 303r10 307r45
+313i7 Idx{natural} 315r10 318r36
+322i7 Idx{natural} 324r10 327r36
+335e7 Level{7|36E9} 337r33
+344i7 Discount{natural} 349r10 354r45
+345r7 Savings{5|41R9} 354m63 355m7 355r23 358r38
+346r7 High{5|41R9} 354m57
+347r7 Result{5|41R9} 358m7 359r14
+367i7 Idx{natural} 372r10 377r34 379r32 383r34 385r32
+368r7 Temp{5|41R9} 377m69 379r52 383m62 385r51
+369r7 High{5|41R9}
+370b7 Oflow{boolean} 377m75 378r14 383m68 384r14
+397i7 Idx{natural} 399r10 402r36
+409i7 Idx{natural} 412r10 416r42 425r35 426r35
+410i7 Aud_Count{natural} 416m7 419r10 419r32 424r21
+424i11 I{integer} 425r51 426r51
+439e7 Level{7|36E9} 441r39
+454i7 Count{natural} 462r16 463m16 463r25 467r14
+456i11 I{14I9} 457r22 458r26 459r22
+471r7 Total{5|41R9} 477r18 479m16 483r14
+472r7 Temp{5|41R9} 477m48 479r25
+473b7 Oflow{boolean} 477m54 478r20
+475i11 I{14I9} 476r22 477r34
+520i11 I{18I9} 521r25
+562i11 I{18I9} 563r25 564r25
 

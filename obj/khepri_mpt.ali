@@ -28,13 +28,13 @@ RV NO_IMPLEMENTATION_PRAGMAS
 RV NO_IMPLICIT_LOOPS
 RV NO_ELABORATION_CODE
 
-U khepri_mpt%b		khepri_mpt.adb		c2da88e8 OO PK
+U khepri_mpt%b		khepri_mpt.adb		7d47ca03 OO PK
 W anubis_sha3%s		anubis_sha3.adb		anubis_sha3.ali
 W anubis_types%s	anubis_types.ads	anubis_types.ali
 Z system.assertions%s	s-assert.adb		s-assert.ali
 Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
 
-U khepri_mpt%s		khepri_mpt.ads		91e89cfd EE NE OO PK
+U khepri_mpt%s		khepri_mpt.ads		3df14bc4 EE NE OO PK
 W aegis_vm_types%s	aegis_vm_types.ads	aegis_vm_types.ali
 W interfaces%s		interfac.ads		interfac.ali
 W khepri_mpt_types%s	khepri_mpt_types.adb	khepri_mpt_types.ali
@@ -42,13 +42,13 @@ W khepri_mpt_types%s	khepri_mpt_types.adb	khepri_mpt_types.ali
 D ada.ads		20240808082856 76789da1 ada%s
 D a-assert.ads		20240808082856 ba465f5c ada.assertions%s
 D a-unccon.ads		20240808082856 0e9b276f ada.unchecked_conversion%s
-D aegis_vm_types.ads	20251207191105 dcd101d9 aegis_vm_types%s
-D anubis_keccak.ads	20251207191105 19b431a9 anubis_keccak%s
-D anubis_sha3.ads	20251207191105 69737d95 anubis_sha3%s
+D aegis_vm_types.ads	20251209080247 503da7fd aegis_vm_types%s
+D anubis_keccak.ads	20251211132252 b3b03dd1 anubis_keccak%s
+D anubis_sha3.ads	20251211201618 5816e130 anubis_sha3%s
 D anubis_types.ads	20251207191105 4fb35097 anubis_types%s
 D interfac.ads		20240808082856 9111f9c1 interfaces%s
-D khepri_mpt.ads	20251207191105 29e9c0a4 khepri_mpt%s
-D khepri_mpt.adb	20251207191105 cdf3654e khepri_mpt%b
+D khepri_mpt.ads	20251211160753 091cb1b9 khepri_mpt%s
+D khepri_mpt.adb	20251211195234 63feca1d khepri_mpt%b
 D khepri_mpt_types.ads	20251207191105 f5c1a441 khepri_mpt_types%s
 D system.ads		20240808082856 70765b54 system%s
 D s-assert.ads		20240808082856 9c4520c7 system.assertions%s
@@ -58,581 +58,581 @@ D s-secsta.ads		20240808082856 578279f5 system.secondary_stack%s
 D s-stalib.ads		20240808082856 1c9580f6 system.standard_library%s
 D s-stoele.ads		20240808082856 ccded4e8 system.storage_elements%s
 G a e
-G c Z s b [create_trie khepri_mpt 52 14 none]
-G c Z s b [load_trie khepri_mpt 59 14 none]
-G c Z s b [destroy_trie khepri_mpt 67 14 none]
-G c Z s b [put khepri_mpt 77 14 none]
-G c Z s b [get khepri_mpt 89 14 none]
-G c Z s b [delete khepri_mpt 100 14 none]
-G c Z s b [contains khepri_mpt 110 13 none]
-G c Z s b [root_hash khepri_mpt 123 13 none]
-G c Z s b [is_empty khepri_mpt 128 13 none]
-G c Z s b [node_count khepri_mpt 133 13 none]
-G c Z s b [generate_proof khepri_mpt 142 14 none]
-G c Z s b [verify_proof khepri_mpt 153 14 none]
-G c Z s b [create_snapshot khepri_mpt 166 14 none]
-G c Z s b [restore_snapshot khepri_mpt 174 14 none]
-G c Z s b [discard_snapshot khepri_mpt 183 14 none]
-G c Z s b [encode_node khepri_mpt 194 14 none]
-G c Z s b [decode_node khepri_mpt 204 14 none]
-G c Z s b [keccak_256 khepri_mpt 217 13 none]
-G c Z s b [hash_node khepri_mpt 221 13 none]
-G c Z s b [begin_iteration khepri_mpt 232 14 none]
-G c Z s b [next khepri_mpt 239 14 none]
-G c Z s s [path_entryIP khepri_mpt 253 9 none]
-G c Z s s [Tpath_stackBIP khepri_mpt 258 4 none]
-G c Z s s [iteratorIP khepri_mpt 260 9 none]
-G c Z b b [trie_entryIP khepri_mpt 26 9 none]
-G c Z b b [Ttrie_arrayBIP khepri_mpt 32 4 none]
-G c Z b b [node_entryIP khepri_mpt 17 9 none]
-G c Z b b [Tnode_arrayBIP khepri_mpt 23 4 none]
-G c Z b b [snapshot_entryIP khepri_mpt 36 9 none]
-G c Z b b [Tsnapshot_arrayBIP khepri_mpt 42 4 none]
-G c Z b b [find_empty_node khepri_mpt 69 13 none]
-G c Z b b [find_empty_trie khepri_mpt 79 13 none]
-G c Z b b [find_empty_snapshot khepri_mpt 89 13 none]
-G c Z b b [allocate_node khepri_mpt 100 14 none]
-G c Z b b [free_node khepri_mpt 119 14 none]
-G c Z b b [node_value_to_bytes khepri_mpt 131 13 none]
-G c Z b b [encode_length khepri_mpt 169 14 none]
-G c Z b b [encode_string khepri_mpt 202 14 none]
-G c Z b b [make_leaf khepri_mpt 544 13 none]
-G c Z b b [make_branch khepri_mpt 561 13 none]
-G c Z b b [make_extension khepri_mpt 569 13 none]
-G c Z b b [insert_into_node khepri_mpt 584 14 none]
-G c Z b b [branch_child_count khepri_mpt 1002 13 none]
-G c Z b b [find_single_child khepri_mpt 1014 13 none]
-G c Z b b [delete_from_node khepri_mpt 1025 14 none]
-G r c none [put khepri_mpt 77 14 none] [bytes_to_nibbles khepri_mpt_types 179 13 none]
-G r c none [put khepri_mpt 77 14 none] [keccak_256 anubis_sha3 87 14 none]
-G r c none [put khepri_mpt 77 14 none] [common_prefix_length khepri_mpt_types 193 13 none]
-G r c none [put khepri_mpt 77 14 none] [remove_prefix khepri_mpt_types 201 13 none]
-G r c none [get khepri_mpt 89 14 none] [bytes_to_nibbles khepri_mpt_types 179 13 none]
-G r c none [get khepri_mpt 89 14 none] [keys_equal khepri_mpt_types 189 13 none]
-G r c none [get khepri_mpt 89 14 none] [is_prefix khepri_mpt_types 197 13 none]
-G r c none [get khepri_mpt 89 14 none] [remove_prefix khepri_mpt_types 201 13 none]
-G r c none [delete khepri_mpt 100 14 none] [bytes_to_nibbles khepri_mpt_types 179 13 none]
-G r c none [delete khepri_mpt 100 14 none] [keys_equal khepri_mpt_types 189 13 none]
-G r c none [delete khepri_mpt 100 14 none] [is_prefix khepri_mpt_types 197 13 none]
-G r c none [delete khepri_mpt 100 14 none] [remove_prefix khepri_mpt_types 201 13 none]
-G r c none [delete khepri_mpt 100 14 none] [keccak_256 anubis_sha3 87 14 none]
-G r c none [contains khepri_mpt 110 13 none] [bytes_to_nibbles khepri_mpt_types 179 13 none]
-G r c none [contains khepri_mpt 110 13 none] [keys_equal khepri_mpt_types 189 13 none]
-G r c none [contains khepri_mpt 110 13 none] [is_prefix khepri_mpt_types 197 13 none]
-G r c none [contains khepri_mpt 110 13 none] [remove_prefix khepri_mpt_types 201 13 none]
-G r c none [root_hash khepri_mpt 123 13 none] [keccak_256 anubis_sha3 87 14 none]
-G r c none [generate_proof khepri_mpt 142 14 none] [bytes_to_nibbles khepri_mpt_types 179 13 none]
-G r c none [generate_proof khepri_mpt 142 14 none] [keys_equal khepri_mpt_types 189 13 none]
-G r c none [generate_proof khepri_mpt 142 14 none] [is_prefix khepri_mpt_types 197 13 none]
-G r c none [generate_proof khepri_mpt 142 14 none] [remove_prefix khepri_mpt_types 201 13 none]
-G r c none [verify_proof khepri_mpt 153 14 none] [keccak_256 anubis_sha3 87 14 none]
-G r c none [keccak_256 khepri_mpt 217 13 none] [keccak_256 anubis_sha3 87 14 none]
-G r c none [hash_node khepri_mpt 221 13 none] [keccak_256 anubis_sha3 87 14 none]
-G r c none [make_leaf khepri_mpt 544 13 none] [keccak_256 anubis_sha3 87 14 none]
-G r c none [make_extension khepri_mpt 569 13 none] [keccak_256 anubis_sha3 87 14 none]
-G r c none [insert_into_node khepri_mpt 584 14 none] [keccak_256 anubis_sha3 87 14 none]
-G r c none [insert_into_node khepri_mpt 584 14 none] [common_prefix_length khepri_mpt_types 193 13 none]
-G r c none [insert_into_node khepri_mpt 584 14 none] [remove_prefix khepri_mpt_types 201 13 none]
-G r c none [delete_from_node khepri_mpt 1025 14 none] [keys_equal khepri_mpt_types 189 13 none]
-G r c none [delete_from_node khepri_mpt 1025 14 none] [is_prefix khepri_mpt_types 197 13 none]
-G r c none [delete_from_node khepri_mpt 1025 14 none] [remove_prefix khepri_mpt_types 201 13 none]
-G r c none [delete_from_node khepri_mpt 1025 14 none] [keccak_256 anubis_sha3 87 14 none]
+G c Z s b [create_trie khepri_mpt 72 14 none]
+G c Z s b [load_trie khepri_mpt 79 14 none]
+G c Z s b [destroy_trie khepri_mpt 87 14 none]
+G c Z s b [put khepri_mpt 97 14 none]
+G c Z s b [get khepri_mpt 109 14 none]
+G c Z s b [delete khepri_mpt 120 14 none]
+G c Z s b [contains khepri_mpt 130 13 none]
+G c Z s b [root_hash khepri_mpt 143 13 none]
+G c Z s b [is_empty khepri_mpt 148 13 none]
+G c Z s b [node_count khepri_mpt 153 13 none]
+G c Z s b [generate_proof khepri_mpt 162 14 none]
+G c Z s b [verify_proof khepri_mpt 173 14 none]
+G c Z s b [create_snapshot khepri_mpt 186 14 none]
+G c Z s b [restore_snapshot khepri_mpt 194 14 none]
+G c Z s b [discard_snapshot khepri_mpt 203 14 none]
+G c Z s b [encode_node khepri_mpt 214 14 none]
+G c Z s b [decode_node khepri_mpt 224 14 none]
+G c Z s b [keccak_256 khepri_mpt 237 13 none]
+G c Z s b [hash_node khepri_mpt 241 13 none]
+G c Z s b [begin_iteration khepri_mpt 252 14 none]
+G c Z s b [next khepri_mpt 259 14 none]
+G c Z s s [path_entryIP khepri_mpt 273 9 none]
+G c Z s s [Tpath_stackBIP khepri_mpt 278 4 none]
+G c Z s s [iteratorIP khepri_mpt 280 9 none]
+G c Z b b [trie_entryIP khepri_mpt 28 9 none]
+G c Z b b [Ttrie_arrayBIP khepri_mpt 34 4 none]
+G c Z b b [node_entryIP khepri_mpt 19 9 none]
+G c Z b b [Tnode_arrayBIP khepri_mpt 25 4 none]
+G c Z b b [snapshot_entryIP khepri_mpt 38 9 none]
+G c Z b b [Tsnapshot_arrayBIP khepri_mpt 44 4 none]
+G c Z b b [find_empty_node khepri_mpt 71 13 none]
+G c Z b b [find_empty_trie khepri_mpt 81 13 none]
+G c Z b b [find_empty_snapshot khepri_mpt 91 13 none]
+G c Z b b [allocate_node khepri_mpt 102 14 none]
+G c Z b b [free_node khepri_mpt 122 14 none]
+G c Z b b [node_value_to_bytes khepri_mpt 134 13 none]
+G c Z b b [encode_length khepri_mpt 182 14 none]
+G c Z b b [encode_string khepri_mpt 215 14 none]
+G c Z b b [make_leaf khepri_mpt 557 13 none]
+G c Z b b [make_branch khepri_mpt 574 13 none]
+G c Z b b [make_extension khepri_mpt 582 13 none]
+G c Z b b [insert_into_node khepri_mpt 597 14 none]
+G c Z b b [branch_child_count khepri_mpt 1015 13 none]
+G c Z b b [find_single_child khepri_mpt 1027 13 none]
+G c Z b b [delete_from_node khepri_mpt 1038 14 none]
+G r c none [put khepri_mpt 97 14 none] [bytes_to_nibbles khepri_mpt_types 179 13 none]
+G r c none [put khepri_mpt 97 14 none] [keccak_256 anubis_sha3 176 14 none]
+G r c none [put khepri_mpt 97 14 none] [common_prefix_length khepri_mpt_types 193 13 none]
+G r c none [put khepri_mpt 97 14 none] [remove_prefix khepri_mpt_types 201 13 none]
+G r c none [get khepri_mpt 109 14 none] [bytes_to_nibbles khepri_mpt_types 179 13 none]
+G r c none [get khepri_mpt 109 14 none] [keys_equal khepri_mpt_types 189 13 none]
+G r c none [get khepri_mpt 109 14 none] [is_prefix khepri_mpt_types 197 13 none]
+G r c none [get khepri_mpt 109 14 none] [remove_prefix khepri_mpt_types 201 13 none]
+G r c none [delete khepri_mpt 120 14 none] [bytes_to_nibbles khepri_mpt_types 179 13 none]
+G r c none [delete khepri_mpt 120 14 none] [keys_equal khepri_mpt_types 189 13 none]
+G r c none [delete khepri_mpt 120 14 none] [is_prefix khepri_mpt_types 197 13 none]
+G r c none [delete khepri_mpt 120 14 none] [remove_prefix khepri_mpt_types 201 13 none]
+G r c none [delete khepri_mpt 120 14 none] [keccak_256 anubis_sha3 176 14 none]
+G r c none [contains khepri_mpt 130 13 none] [bytes_to_nibbles khepri_mpt_types 179 13 none]
+G r c none [contains khepri_mpt 130 13 none] [keys_equal khepri_mpt_types 189 13 none]
+G r c none [contains khepri_mpt 130 13 none] [is_prefix khepri_mpt_types 197 13 none]
+G r c none [contains khepri_mpt 130 13 none] [remove_prefix khepri_mpt_types 201 13 none]
+G r c none [root_hash khepri_mpt 143 13 none] [keccak_256 anubis_sha3 176 14 none]
+G r c none [generate_proof khepri_mpt 162 14 none] [bytes_to_nibbles khepri_mpt_types 179 13 none]
+G r c none [generate_proof khepri_mpt 162 14 none] [keys_equal khepri_mpt_types 189 13 none]
+G r c none [generate_proof khepri_mpt 162 14 none] [is_prefix khepri_mpt_types 197 13 none]
+G r c none [generate_proof khepri_mpt 162 14 none] [remove_prefix khepri_mpt_types 201 13 none]
+G r c none [verify_proof khepri_mpt 173 14 none] [keccak_256 anubis_sha3 176 14 none]
+G r c none [keccak_256 khepri_mpt 237 13 none] [keccak_256 anubis_sha3 176 14 none]
+G r c none [hash_node khepri_mpt 241 13 none] [keccak_256 anubis_sha3 176 14 none]
+G r c none [make_leaf khepri_mpt 557 13 none] [keccak_256 anubis_sha3 176 14 none]
+G r c none [make_extension khepri_mpt 582 13 none] [keccak_256 anubis_sha3 176 14 none]
+G r c none [insert_into_node khepri_mpt 597 14 none] [keccak_256 anubis_sha3 176 14 none]
+G r c none [insert_into_node khepri_mpt 597 14 none] [common_prefix_length khepri_mpt_types 193 13 none]
+G r c none [insert_into_node khepri_mpt 597 14 none] [remove_prefix khepri_mpt_types 201 13 none]
+G r c none [delete_from_node khepri_mpt 1038 14 none] [keys_equal khepri_mpt_types 189 13 none]
+G r c none [delete_from_node khepri_mpt 1038 14 none] [is_prefix khepri_mpt_types 197 13 none]
+G r c none [delete_from_node khepri_mpt 1038 14 none] [remove_prefix khepri_mpt_types 201 13 none]
+G r c none [delete_from_node khepri_mpt 1038 14 none] [keccak_256 anubis_sha3 176 14 none]
 X 4 aegis_vm_types.ads
-21K9*Aegis_VM_Types 279e19 9|17w6 17r30
-32A9*Byte_Array(31M12)<integer> 9|79r24 80r24 91r24 102r24 112r14 144r24
-. 196r24 205r24 217r32 10|134r13 136r16 148r32 172r23 203r23 204r23 236r17
-. 254r24 274r27 313r27 344r34 357r31 363r37 404r24 546r20 587r28 851r24 852r24
-. 909r24 1149r24 1202r14 1268r24 1276r24 1416r24
+21K9*Aegis_VM_Types 280e19 9|36w6 36r30
+32A9*Byte_Array(31M12)<integer> 9|99r24 100r24 111r24 122r24 132r14 164r24
+. 216r24 225r24 237r32 10|137r13 144r19 161r32 185r23 216r23 217r23 249r17
+. 267r24 287r27 326r27 357r34 370r31 376r37 417r24 559r20 600r28 864r24 865r24
+. 922r24 1162r24 1215r14 1281r24 1289r24 1429r24
 X 6 anubis_sha3.ads
-27K9*Anubis_SHA3 158e16 10|5w6 150r16 158r7
-32A12*SHA3_256_Digest{7|14A9}<integer> 10|150r28
-87U14*Keccak_256 10|158s19
+33K9*Anubis_SHA3 298e16 10|7w6 163r16 171r7
+44A12*SHA3_256_Digest{7|14A9}<integer> 10|163r28
+176U14*Keccak_256 10|171s19
 X 7 anubis_types.ads
-5K9*Anubis_Types 40e17 10|4w6 152r17 155r25
-13M12*Byte{8|70M9} 10|155r38
-14A9*Byte_Array(13M12)<integer> 10|152r30
+5K9*Anubis_Types 40e17 10|6w6 165r17 168r25
+13M12*Byte{8|70M9} 10|168r38
+14A9*Byte_Array(13M12)<integer> 10|165r30
 X 8 interfac.ads
-38K9*Interfaces 233e15 9|16w6 16r30
-70M9*Unsigned_8 10|171r23 177r50 181r45 185r45 187r45 192r45 194r45 196r45
-. 215r13 276r28 283r45 284r27 288r41 292r45 293r27 315r28 322r45 323r27 327r41
-. 331r45 332r27 382r52
-73M9*Unsigned_16 10|186r13
-81M9*Unsigned_32 10|188r13 193r13 195r13 197r13
-121V13*Shift_Right{73M9} 10|185s57
-146V13*Shift_Right{81M9} 10|192s57 194s57
+38K9*Interfaces 233e15 9|35w6 35r30
+70M9*Unsigned_8 10|184r23 190r50 194r45 198r45 200r45 205r45 207r45 209r45
+. 228r13 289r28 296r45 297r27 301r41 305r45 306r27 328r28 335r45 336r27 340r41
+. 344r45 345r27 395r52
+73M9*Unsigned_16 10|199r13
+81M9*Unsigned_32 10|201r13 206r13 208r13 210r13
+121V13*Shift_Right{73M9} 10|198s57
+146V13*Shift_Right{81M9} 10|205s57 207s57
 X 9 khepri_mpt.ads
-20K9*Khepri_MPT 253E9 268l5 268e15 10|7b14 32r30 37r18 1727l5 1727t15
-22@23*Trie_State 23r19 56r28 64r28 70r28 84r28 96r17 106r28 114r17 124r17
-. 129r17 134r17 149r17 171r28 180r28 187r28 236r17 245r17 10|9r22
-31N4*Max_Nodes 10|23r35 121r16 604r25 935r27 1038r25 1228r34 1307r27 1600r34
-. 1635r28
-34N4*RLP_Short_String 10|214r41 267r38 346r35 366r52 376r49 420r58 1225r35
-. 1427r34
-35N4*RLP_Long_String 10|223r38
-36N4*RLP_Short_List 10|299r32 338r32 382r35 427r33 435r59
-37N4*RLP_Long_List 10|385r47 434r38 441r44
-44I9*Trie_ID<integer> 45r25 53r21 61r24 68r17 78r24 90r24 101r24 111r14 123r31
-. 128r30 133r32 143r24 167r28 175r28 184r28 233r21 261r19 10|32r41 37r29
-. 79r36 81r16 475r21 478r27 502r24 505r27 529r38 850r24 908r24 1148r24 1201r14
-. 1217r31 1242r30 1254r32 1267r24 1514r28 1539r28 1565r28 1582r21
-45i4*Null_Trie{44I9} 10|82r18 86r14 480r21 481r18 509r21 510r18 531r18 865r17
-. 921r17 1160r17 1219r17 1244r17 1256r17 1290r17 1521r17 1598r18
-52U14*Create_Trie 53<7 54<7 10|474b14 494l8 494t19
-53i7 Trie{44I9} 10|475b7 481m10 492m7
-54b7 Success{boolean} 10|476b7 482m10 493m7
-59U14*Load_Trie 60>7 61<7 62<7 10|500b14 523l8 523t17
-60a7 Root{11|61A9} 10|501b7
-61i7 Trie{44I9} 10|502b7 510m10 521m7
-62b7 Success{boolean} 10|503b7 511m10 522m7
-67U14*Destroy_Trie 68>7 10|529b14 537l8 537t20
-68i7 Trie{44I9} 10|529b28 531r10 531r44 533r17 534r17 535r17
-77U14*Put 78>7 79>7 80>7 81<7 82<7 10|849b14 901l8 901t11
-78i7 Trie{44I9} 10|850b7 865r10 865r46 874r17 881r17 882r17 889r32 898r17
-. 899r17 899r39
-79a7 Key{4|32A9} 85r17 10|851b7 871r43 871r48
-80a7 Value{4|32A9} 86r21 10|852b7 875r49 891r25
-81b7 Success{boolean} 10|853b7 862m7 883m10 893m25 897r10
-82e7 Error{11|163E9} 10|854b7 863m7 866m10 878m13 894m25
-89U14*Get 90>7 91>7 92<7 93<7 94<7 10|907b14 995l8 995t11 1209s7
-90i7 Trie{44I9} 10|908b7 921r10 921r46 926r17 932r29
-91a7 Key{4|32A9} 97r17 10|909b7 931r43 931r48
-92r7 Value{11|92R9} 10|910b7 917m7 946m22 969m25
-93b7 Found{boolean} 10|911b7 918m7 947m22 970m25
-94e7 Error{11|163E9} 10|912b7 919m7 922m10 927m10 941m19 950m22 961m22 972m25
-. 982m28 994m7
-100U14*Delete 101>7 102>7 103<7 104<7 10|1147b14 1194l8 1194t14
-101i7 Trie{44I9} 10|1148b7 1160r10 1160r46 1165r17 1175r32 1185r20 1187r20
-. 1189r20 1190r20 1190r42
-102a7 Key{4|32A9} 107r17 10|1149b7 1171r43 1171r48
-103b7 Success{boolean} 10|1150b7 1157m7 1192m10
-104e7 Error{11|163E9} 10|1151b7 1158m7 1161m10 1166m10 1179m25
-110V13*Contains{boolean} 111>7 112>7 10|1200b13 1211l8 1211t16
-111i7 Trie{44I9} 10|1201b7 1209r12
-112a7 Key{4|32A9} 116r17 10|1202b7 1209r18
-123V13*Root_Hash{11|61A9} 123>24 10|1217b13 1236l8 1236t17
-123i24 Trie{44I9} 10|1217b24 1219r10 1219r46 1223r17 1228r17 1229r29 1230r29
-. 1232r36
-128V13*Is_Empty{boolean} 128>23 10|1242b13 1248l8 1248t16 1586s41
-128i23 Trie{44I9} 10|1242b23 1244r10 1244r46 1247r21
-133V13*Node_Count{natural} 133>25 10|1254b13 1260l8 1260t18
-133i25 Trie{44I9} 10|1254b25 1256r10 1256r46 1259r21
-142U14*Generate_Proof 143>7 144>7 145<7 146<7 147<7 10|1266b14 1402l8 1402t22
-143i7 Trie{44I9} 10|1267b7 1290r10 1290r46 1296r17 1304r29
-144a7 Key{4|32A9} 150r17 10|1268b7 1283r38 1283r43 1303r43 1303r48
-145r7 Proof{11|151R9} 10|1269b7 1280m7 1297m10 1298m10 1323m16 1325m13 1331m19
-. 1332m19 1339m22 1340m22 1342m22 1344m19 1358m22 1359m22 1368m25 1369m25
-. 1371m25 1373m22 1385m28 1386m28 1400m7
-146b7 Success{boolean} 10|1270b7 1287m7 1299m10 1333m19 1345m19 1360m22 1374m22
-. 1387m28 1401m7
-147e7 Error{11|163E9} 10|1271b7 1288m7 1291m10 1317m16
-153U14*Verify_Proof 154>7 155>7 156<7 157<7 10|1408b14 1507l8 1507t20
-154a7 Root{11|61A9} 10|1409b7 1429r16 1454r27 1466r24 1487r33
-155r7 Proof{11|151R9} 10|1410b7 1423r10 1440r19 1448r27 1468r21 1469r22 1479r30
-156b7 Valid{boolean} 10|1411b7 1419m7 1430m16 1506m7
-157e7 Error{11|163E9} 10|1412b7 1420m7 1432m16 1442m10 1455m10 1473m13 1488m16
-166U14*Create_Snapshot 167>7 168<7 169<7 10|1513b14 1536l8 1536t23
-167i7 Trie{44I9} 10|1514b7 1521r10 1521r46 1529r22 1530r29
-168i7 Snapshot_ID{natural} 10|1515b7 1523m10 1534m7
-169b7 Success{boolean} 10|1516b7 1524m10 1535m7
-174U14*Restore_Snapshot 175>7 176>7 177<7 178<7 10|1538b14 1562l8 1562t24
-175i7 Trie{44I9} 10|1539b7 1555r51 1560r14
-176i7 Snapshot_ID{natural} 10|1540b7 1548r10 1549r30 1555r26 1560r48
-177b7 Success{boolean} 10|1541b7 1545m7 1561m7
-178e7 Error{11|163E9} 10|1542b7 1546m7 1551m10 1556m10
-183U14*Discard_Snapshot 184>7 185>7 10|1564b14 1575l8 1575t24
-184i7 Trie{44I9} 10|1565b7 1571r50
-185i7 Snapshot_ID{natural} 10|1566b7 1569r10 1570r26 1571r26 1573r26
-194U14*Encode_Node 195>7 196<7 197<7 198<7 10|240s7 252b14 397l8 397t19 1315s13
-195r7 Node{11|117R9} 10|253b7 264r12 278r19 282r34 283r57 284r39 288r53 291r35
-. 292r57 293r39 303r52 304r19 317r19 321r34 322r57 323r39 327r53 330r35 331r57
-. 332r39 343r19 344r46 362r22 363r49 372r19 373r55 374r22
-196a7 Output{4|32A9} 201r17 10|254b7 260m7 267m13 267r21 299m16 302m61 304m39
-. 338m16 341m61 344m71 346m19 382m19 385m62 390m19
-197i7 Length{natural} 10|255b7 261m7 268m13 306m16 350m16 394m16
-198b7 Success{boolean} 10|256b7 262m7
-204U14*Decode_Node 205>7 206<7 207<7 208<7 10|403b14 468l8 468t19
-205a7 Input{4|32A9} 10|404b7 414r10 420r10 420r36 420r43 427r10 427r17 434r16
-. 434r23 435r37 435r44 441r22 441r29 446r34 446r41
-206r7 Node{11|117R9} 10|405b7 410m7 421m10 457m16 460m16
-207b7 Success{boolean} 10|406b7 411m7 422m10 463m13
-208e7 Error{11|163E9} 10|407b7 412m7 415m10 466m10
-217V13*Keccak_256{11|61A9} 217>25 10|148b13 163l8 163t18 245s14 1225s17 1427s16
-. 1452s24 1483s27
-217a25 Data{4|32A9} 10|148b25 152r42 154r16 155r44
-221V13*Hash_Node{11|61A9} 221>24 10|235b13 246l8 246t17 556s29 578s29 633s42
-. 655s48 691s45 787s45 809s41 830s50 1098s50 1102s50 1131s53 1134s53
-221r24 Node{11|117R9} 10|235b24 240r20
-229R9*Iterator 234r21 240r24 260c9 266e14 10|1583r21 1609r24
-232U14*Begin_Iteration 233>7 234<7 10|1581b14 1606l8 1606t23
-233i7 Trie{44I9} 10|1582b7 1586r51 1589r23 1598r10 1599r17 1600r17 1602r44
-234r7 Iter{229R9} 10|1583b7 1588m7 1597r14 1602m10 1603m10 1604m10
-239U14*Next 240=7 241<7 242<7 243<7 10|1608b14 1725l8 1725t12
-240r7 Iter{229R9} 10|1609b7 1622r10 1622r28 1624m10 1629r13 1629r32 1631r45
-. 1633r25 1637m16 1637r30 1644m22 1644r36 1649r29 1661m22 1661r36 1667r28
-. 1668m28 1668r47 1669m28 1669r51 1673m22 1673r36 1677r59 1682r35 1686m28
-. 1697r40 1698m40 1698r59 1699m40 1699r63 1703m37 1711m34 1711r48 1722m10
-241r7 Key{11|45R9} 10|1610b7 1618m7 1649m22 1652r28 1653m28 1653r38 1654m28
-. 1654r42 1682m28
-242r7 Value{11|92R9} 10|1611b7 1619m7 1657m22 1683m28
-243b7 Done{boolean} 10|1612b7 1620m7 1623m10 1723m10
-253R9 Path_Entry 256e14 258r58
-254i7*Node_Idx{natural} 10|1590m35 1602m25 1633r48
-255i7*Child{natural} 10|1590m50 1603m25 1677r82 1686m51 1703m60
-258A9 Path_Stack(253R9)<integer> 262r19
-261i7*Trie{44I9} 10|1589m10
-262a7*Stack{258A9} 10|1590m10 1602m15 1603m15 1633r30 1677r64 1686m33 1703m42
-263i7*Depth{natural} 10|1591m10 1604m15 1622r33 1629r18 1629r37 1631r50 1637m21
-. 1637r35 1644m27 1644r41 1661m27 1661r41 1673m27 1673r41 1711m39 1711r53
-264r7*Current{11|45R9} 10|1592m10 1649r34 1667r33 1668m33 1668r52 1669m33
-. 1669r56 1682r40 1697r45 1698m45 1698r64 1699m45 1699r68
-265b7*Exhausted{boolean} 10|1593m10 1597r19 1622r15 1624m15 1722m15
+39K9*Khepri_MPT 273E9 288l5 288e15 10|9b14 34r30 39r18 1740l5 1740t15
+41@23*Trie_State 42r19 76r28 84r28 90r28 104r28 116r17 126r28 134r17 144r17
+. 149r17 154r17 169r17 191r28 200r28 207r28 256r17 265r17 10|11r22
+51N4*Max_Nodes 10|25r35 109r46 124r16 617r25 948r27 1051r25 1241r34 1320r27
+. 1613r34 1648r28
+54N4*RLP_Short_String 10|227r41 280r38 359r35 379r52 389r49 433r58 1238r35
+. 1440r34
+55N4*RLP_Long_String 10|236r38
+56N4*RLP_Short_List 10|312r32 351r32 395r35 440r33 448r59
+57N4*RLP_Long_List 10|398r47 447r38 454r44
+64I9*Trie_ID<integer> 65r25 73r21 81r24 88r17 98r24 110r24 121r24 131r14
+. 143r31 148r30 153r32 163r24 187r28 195r28 204r28 253r21 281r19 10|34r41
+. 39r29 81r36 83r16 488r21 491r27 515r24 518r27 542r38 863r24 921r24 1161r24
+. 1214r14 1230r31 1255r30 1267r32 1280r24 1527r28 1552r28 1578r28 1595r21
+65i4*Null_Trie{64I9} 10|84r18 88r14 493r21 494r18 522r21 523r18 544r18 878r17
+. 934r17 1173r17 1232r17 1257r17 1269r17 1303r17 1534r17 1611r18
+72U14*Create_Trie 73<7 74<7 10|487b14 507l8 507t19
+73i7 Trie{64I9} 10|488b7 494m10 505m7
+74b7 Success{boolean} 10|489b7 495m10 506m7
+79U14*Load_Trie 80>7 81<7 82<7 10|513b14 536l8 536t17
+80a7 Root{11|61A9} 10|514b7
+81i7 Trie{64I9} 10|515b7 523m10 534m7
+82b7 Success{boolean} 10|516b7 524m10 535m7
+87U14*Destroy_Trie 88>7 10|542b14 550l8 550t20
+88i7 Trie{64I9} 10|542b28 544r10 544r44 546r17 547r17 548r17
+97U14*Put 98>7 99>7 100>7 101<7 102<7 10|862b14 914l8 914t11
+98i7 Trie{64I9} 10|863b7 878r10 878r46 887r17 894r17 895r17 902r32 911r17
+. 912r17 912r39
+99a7 Key{4|32A9} 105r17 10|864b7 884r43 884r48
+100a7 Value{4|32A9} 106r21 10|865b7 888r49 904r25
+101b7 Success{boolean} 10|866b7 875m7 896m10 906m25 910r10
+102e7 Error{11|163E9} 10|867b7 876m7 879m10 891m13 907m25
+109U14*Get 110>7 111>7 112<7 113<7 114<7 10|920b14 1008l8 1008t11 1222s7
+110i7 Trie{64I9} 10|921b7 934r10 934r46 939r17 945r29
+111a7 Key{4|32A9} 117r17 10|922b7 944r43 944r48
+112r7 Value{11|92R9} 10|923b7 930m7 959m22 982m25
+113b7 Found{boolean} 10|924b7 931m7 960m22 983m25
+114e7 Error{11|163E9} 10|925b7 932m7 935m10 940m10 954m19 963m22 974m22 985m25
+. 995m28 1007m7
+120U14*Delete 121>7 122>7 123<7 124<7 10|1160b14 1207l8 1207t14
+121i7 Trie{64I9} 10|1161b7 1173r10 1173r46 1178r17 1188r32 1198r20 1200r20
+. 1202r20 1203r20 1203r42
+122a7 Key{4|32A9} 127r17 10|1162b7 1184r43 1184r48
+123b7 Success{boolean} 10|1163b7 1170m7 1205m10
+124e7 Error{11|163E9} 10|1164b7 1171m7 1174m10 1179m10 1192m25
+130V13*Contains{boolean} 131>7 132>7 10|1213b13 1224l8 1224t16
+131i7 Trie{64I9} 10|1214b7 1222r12
+132a7 Key{4|32A9} 136r17 10|1215b7 1222r18
+143V13*Root_Hash{11|61A9} 143>24 10|1230b13 1249l8 1249t17
+143i24 Trie{64I9} 10|1230b24 1232r10 1232r46 1236r17 1241r17 1242r29 1243r29
+. 1245r36
+148V13*Is_Empty{boolean} 148>23 10|1255b13 1261l8 1261t16 1599s41
+148i23 Trie{64I9} 10|1255b23 1257r10 1257r46 1260r21
+153V13*Node_Count{natural} 153>25 10|1267b13 1273l8 1273t18
+153i25 Trie{64I9} 10|1267b25 1269r10 1269r46 1272r21
+162U14*Generate_Proof 163>7 164>7 165<7 166<7 167<7 10|1279b14 1415l8 1415t22
+163i7 Trie{64I9} 10|1280b7 1303r10 1303r46 1309r17 1317r29
+164a7 Key{4|32A9} 170r17 10|1281b7 1296r38 1296r43 1316r43 1316r48
+165r7 Proof{11|151R9} 10|1282b7 1293m7 1310m10 1311m10 1336m16 1338m13 1344m19
+. 1345m19 1352m22 1353m22 1355m22 1357m19 1371m22 1372m22 1381m25 1382m25
+. 1384m25 1386m22 1398m28 1399m28 1413m7
+166b7 Success{boolean} 10|1283b7 1300m7 1312m10 1346m19 1358m19 1373m22 1387m22
+. 1400m28 1414m7
+167e7 Error{11|163E9} 10|1284b7 1301m7 1304m10 1330m16
+173U14*Verify_Proof 174>7 175>7 176<7 177<7 10|1421b14 1520l8 1520t20
+174a7 Root{11|61A9} 10|1422b7 1442r16 1467r27 1479r24 1500r33
+175r7 Proof{11|151R9} 10|1423b7 1436r10 1453r19 1461r27 1481r21 1482r22 1492r30
+176b7 Valid{boolean} 10|1424b7 1432m7 1443m16 1519m7
+177e7 Error{11|163E9} 10|1425b7 1433m7 1445m16 1455m10 1468m10 1486m13 1501m16
+186U14*Create_Snapshot 187>7 188<7 189<7 10|1526b14 1549l8 1549t23
+187i7 Trie{64I9} 10|1527b7 1534r10 1534r46 1542r22 1543r29
+188i7 Snapshot_ID{natural} 10|1528b7 1536m10 1547m7
+189b7 Success{boolean} 10|1529b7 1537m10 1548m7
+194U14*Restore_Snapshot 195>7 196>7 197<7 198<7 10|1551b14 1575l8 1575t24
+195i7 Trie{64I9} 10|1552b7 1568r51 1573r14
+196i7 Snapshot_ID{natural} 10|1553b7 1561r10 1562r30 1568r26 1573r48
+197b7 Success{boolean} 10|1554b7 1558m7 1574m7
+198e7 Error{11|163E9} 10|1555b7 1559m7 1564m10 1569m10
+203U14*Discard_Snapshot 204>7 205>7 10|1577b14 1588l8 1588t24
+204i7 Trie{64I9} 10|1578b7 1584r50
+205i7 Snapshot_ID{natural} 10|1579b7 1582r10 1583r26 1584r26 1586r26
+214U14*Encode_Node 215>7 216<7 217<7 218<7 10|253s7 265b14 410l8 410t19 1328s13
+215r7 Node{11|117R9} 10|266b7 277r12 291r19 295r34 296r57 297r39 301r53 304r35
+. 305r57 306r39 316r52 317r19 330r19 334r34 335r57 336r39 340r53 343r35 344r57
+. 345r39 356r19 357r46 375r22 376r49 385r19 386r55 387r22
+216a7 Output{4|32A9} 221r17 10|267b7 273m7 280m13 280r21 312m16 315m61 317m39
+. 351m16 354m61 357m71 359m19 395m19 398m62 403m19
+217i7 Length{natural} 10|268b7 274m7 281m13 319m16 363m16 407m16
+218b7 Success{boolean} 10|269b7 275m7
+224U14*Decode_Node 225>7 226<7 227<7 228<7 10|416b14 481l8 481t19
+225a7 Input{4|32A9} 10|417b7 427r10 433r10 433r36 433r43 440r10 440r17 447r16
+. 447r23 448r37 448r44 454r22 454r29 459r34 459r41
+226r7 Node{11|117R9} 10|418b7 423m7 434m10 470m16 473m16
+227b7 Success{boolean} 10|419b7 424m7 435m10 476m13
+228e7 Error{11|163E9} 10|420b7 425m7 428m10 479m10
+237V13*Keccak_256{11|61A9} 237>25 10|161b13 176l8 176t18 258s14 1238s17 1440s16
+. 1465s24 1496s27
+237a25 Data{4|32A9} 10|161b25 165r42 167r16 168r44
+241V13*Hash_Node{11|61A9} 241>24 10|248b13 259l8 259t17 569s29 591s29 646s42
+. 668s48 704s45 800s45 822s41 843s50 1111s50 1115s50 1144s53 1147s53
+241r24 Node{11|117R9} 10|248b24 253r20
+249R9*Iterator 254r21 260r24 280c9 286e14 10|1596r21 1622r24
+252U14*Begin_Iteration 253>7 254<7 10|1594b14 1619l8 1619t23
+253i7 Trie{64I9} 10|1595b7 1599r51 1602r23 1611r10 1612r17 1613r17 1615r44
+254r7 Iter{249R9} 10|1596b7 1601m7 1610r14 1615m10 1616m10 1617m10
+259U14*Next 260=7 261<7 262<7 263<7 10|1621b14 1738l8 1738t12
+260r7 Iter{249R9} 10|1622b7 1635r10 1635r28 1637m10 1642r13 1642r32 1644r45
+. 1646r25 1650m16 1650r30 1657m22 1657r36 1662r29 1674m22 1674r36 1680r28
+. 1681m28 1681r47 1682m28 1682r51 1686m22 1686r36 1690r59 1695r35 1699m28
+. 1710r40 1711m40 1711r59 1712m40 1712r63 1716m37 1724m34 1724r48 1735m10
+261r7 Key{11|45R9} 10|1623b7 1631m7 1662m22 1665r28 1666m28 1666r38 1667m28
+. 1667r42 1695m28
+262r7 Value{11|92R9} 10|1624b7 1632m7 1670m22 1696m28
+263b7 Done{boolean} 10|1625b7 1633m7 1636m10 1736m10
+273R9 Path_Entry 276e14 278r58
+274i7*Node_Idx{natural} 10|1603m35 1615m25 1646r48
+275i7*Child{natural} 10|1603m50 1616m25 1690r82 1699m51 1716m60
+278A9 Path_Stack(273R9)<integer> 282r19
+281i7*Trie{64I9} 10|1602m10
+282a7*Stack{278A9} 10|1603m10 1615m15 1616m15 1646r30 1690r64 1699m33 1716m42
+283i7*Depth{natural} 10|1604m10 1617m15 1635r33 1642r18 1642r37 1644r50 1650m21
+. 1650r35 1657m27 1657r41 1674m27 1674r41 1686m27 1686r41 1724m39 1724r53
+284r7*Current{11|45R9} 10|1605m10 1662r34 1680r33 1681m33 1681r52 1682m33
+. 1682r56 1695r40 1710r45 1711m45 1711r64 1712m45 1712r68
+285b7*Exhausted{boolean} 10|1606m10 1610r19 1635r15 1637m15 1735m15
 X 10 khepri_mpt.adb
-17R9 Node_Entry 20e14 23r53
-18r7*Node{11|117R9} 55m7 113m29 123m27 609r43 634m41 810m41 831m50 937r69
-. 1043r43 1099m50 1103m50 1132m53 1135m53 1230r45 1232r52 1312r69 1639r46
-19b7*Used{boolean} 56m7 72r32 113m43 122m27 604r72 935r71 1038r72 1229r45
-. 1308r38 1635r72
-23A9 Node_Array(17R9)<integer> 54r17
-26R9 Trie_Entry 30e14 32r53
-27i7*Root_Idx{natural} 49m7 487m10 516m10 534m23 874r23 881m23 889r38 898m23
-. 926r23 932r35 1165r23 1175r38 1185m26 1187m26 1223r23 1228r23 1229r35 1230r35
-. 1232r42 1247r27 1296r23 1304r35 1530r35 1560m20 1600r23 1602r50
-28i7*Count{natural} 50m7 488m10 517m10 535m23 882m23 899m23 899r45 1189r26
-. 1190m26 1190r48 1259r27
-29b7*Used{boolean} 51m7 82r51 489m10 518m10 531r50 533m23 865r52 921r52 1160r52
-. 1219r52 1244r52 1256r52 1290r52 1521r52 1599r23
-32A9 Trie_Array(26R9)<9|44I9> 48r12
-35N4 Max_Snapshots 42r39 1548r25 1569r24
-36R9 Snapshot_Entry 40e14 42r61
-37i7*Trie_Ref{9|44I9} 60m7 1529m10 1555r39 1571r39
-38i7*Root_Idx{natural} 61m7 1530m10 1560r61
-39b7*Used{boolean} 62m7 92r36 1531m10 1549r43 1570r39 1573m39
-42A9 Snapshot_Array(36R9)<integer> 59r21
-48a4 Tries{32A9} 9r37 82r41 486m7 515m7 531r37 533m10 534m10 535m10 865r39
-. 874r10 881m10 882m10 889r25 898m10 899m10 899r32 921r39 926r10 932r22 1160r39
-. 1165r10 1175r25 1185m13 1187m13 1189r13 1190m13 1190r35 1219r39 1223r10
-. 1228r10 1229r22 1230r22 1232r29 1244r39 1247r14 1256r39 1259r14 1290r39
-. 1296r10 1304r22 1521r39 1530r22 1560m7 1599r10 1600r10 1602r37
-54a4 Node_Store{23A9} 9r44 71r16 72r17 113m7 122m10 123m10 604r47 609r18
-. 634m16 810m16 831m25 935r46 937r44 1038r47 1043r18 1099m25 1103m25 1132m28
-. 1135m28 1229r10 1230r10 1232r17 1308r13 1312r44 1635r50 1639r24
-59a4 Snapshot_Store{42A9} 9r56 91r16 92r17 1528m7 1549r14 1555r10 1560r32
-. 1570r10 1571r10 1573m10
-69V13 Find_Empty_Node{natural} 69b13 77l8 77t23 105s34
-71i11 I{integer} 72r29 73r20
-79V13 Find_Empty_Trie{9|44I9} 79b13 87l8 87t23 478s38 505s38
-81i11 I{9|44I9} 82r13 82r48 83r20
-89V13 Find_Empty_Snapshot{natural} 89b13 97l8 97t27 1518s34
-91i11 I{integer} 92r33 93r20
-100U14 Allocate_Node 100b14 101>7 102<7 103<7 116l8 116t21 615s13 657s22
-. 676s22 703s22 711s22 720s19 752s25 772s22 789s16 824s25 876s10
-101r7 Node{11|117R9} 113r37
-102i7 Idx{natural} 108m10 114m7
-103b7 Success{boolean} 109m10 115m7
-105i7 Slot{natural} 107r10 113r19 114r14
-119U14 Free_Node 119b14 119>25 125l8 125t17 620s13 710s22 719s19 788s16 1052s16
-. 1093s25 1126s28
-119i25 Idx{natural} 121r10 122r22 123r22
-131V13 Node_Value_To_Bytes{4|32A9} 131b13 132>7 133>7 142l8 142t27 303s31
-. 373s34
-132a7 NV{11|90A9} 139r24
-133i7 Len{natural} 136r33 138r21
-136a7 Result{4|32A9} 139m10 141r14
-138i11 I{integer} 139r18 139r28
-149a7 Result{11|61A9} 160m10 162r14
-150a7 Digest{6|32A12} 158m40 160r24
-152a7 Message{7|14A9} 155m10 158r31
-154i11 I{integer} 155r19 155r50
-159i11 I{11|60I12} 160r18 160r32
-169U14 Encode_Length 169b14 170>7 171>7 172=7 173=7 200l8 200t21 223s10 385s19
-170i7 Len{natural} 176r10 177r62 179r13 181r57 183r13 186r26 188r26 193r26
-. 195r26 197r26
-171m7 Offset{8|70M9} 177r41 180r41 184r41 191r41
-172a7 Output{4|32A9} 177m10 177r18 180m10 180r18 181m10 181r18 184m10 184r18
-. 185m10 185r18 187m10 187r18 191m10 191r18 192m10 192r18 194m10 194r18 196m10
-. 196r18
-173i7 Pos{natural} 177r33 178m10 178r17 180r33 181r33 182m10 182r17 184r33
-. 185r33 187r33 189m10 189r17 191r33 192r33 194r33 196r33 198m10 198r17
-202U14 Encode_String 202b14 203>7 204=7 205=7 229l8 229t21 302s16 303s16
-. 341s16 344s19 363s22 373s19
-203a7 Data{4|32A9} 208r10 208r35 208r41 210r41 210r47 212r13 215r25 217r19
-. 218r44 223r25 224r19 225r44
-204a7 Output{4|32A9} 210m10 210r18 214m10 214r18 218m13 218r21 223m55 225m13
-. 225r21
-205i7 Pos{natural} 210r33 211m10 211r17 214r33 216m10 216r17 218r36 219m13
-. 219r20 223m63 225r36 226m13 226r20
-217i14 I{integer} 218r50
-224i14 I{integer} 225r50
-236a7 Buffer{4|32A9} 240m26 245r26
-237i7 Len{natural} 240m34 241r25 245r39
-238b7 Success{boolean} 240m39 241r14
-258i7 Pos{natural} 299r24 300m16 300r23 302m69 302r69 304m47 304r47 306r26
-. 338r24 339m16 339r23 341m69 341r69 344m79 344r79 346r27 347m19 347r26 350r26
-. 382r27 383m19 383r26 385m70 385r70 390r27 391m19 391r26 394r26
-274a16 Path_Buf{4|32A9} 280m19 283m22 289m19 292m22 302r31
-275i16 Path_Len{natural} 281m19 283r32 285m22 285r34 290m19 292r32 294m22
-. 294r34 302r46
-276m16 HP_Prefix{8|70M9} 279m19 280r35 288m19 289r35
-282i23 I{integer} 283r72 284r54
-291i23 I{integer} 292r72 293r54
-313a16 Path_Buf{4|32A9} 319m19 322m22 328m19 331m22 341r31
-314i16 Path_Len{natural} 320m19 322r32 324m22 324r34 329m19 331r32 333m22
-. 333r34 341r46
-315m16 HP_Prefix{8|70M9} 318m19 319r35 327m19 328r35
-321i23 I{integer} 322r72 323r54
-330i23 I{integer} 331r72 332r54
-357a16 List_Content{4|32A9} 364m25 364r25 366m22 374m42 374r42 376m19 390r35
-358i16 Content_Len{natural} 364m39 364r39 366r36 367m22 367r37 374m56 374r56
-. 376r33 377m19 377r34 381r19 382r64 385r34 389r30
-361i20 I{11|107I12} 362r37 363r64
-389i20 I{integer} 390r49
-430i13 List_Len{natural} 435m16 443m19 445m22 445r34 455r16
-431i13 Start{natural} 436m16 448m19
-432i13 Elements{natural}
-440i19 Len_Bytes{natural} 444r33 448r32
-444i23 I{integer} 446r55
-478i7 New_Trie{9|44I9} 480r10 486r14 492r15
-505i7 New_Trie{9|44I9} 509r10 515r14 521r15
-544V13 Make_Leaf{11|117R9} 544b13 545>7 546>7 558l8 558t17 614s25 648s47
-. 674s47 770s47 822s48 875s22
-545r7 Key_Suffix{11|45R9} 551r19
-546a7 Val{4|32A9} 552r41 554r34 554r39
-548r7 Node{11|117R9} 550m7 551m7 552m7 553r21 554m10 556m7 556r40 557r14
-553i11 I{integer} 554r28 554r51
-561V13 Make_Branch{11|117R9} 561b13 566l8 566t19 640s31 741s31
-562r7 Node{11|117R9} 564m7 565r14
-569V13 Make_Extension{11|117R9} 569b13 570>7 571>7 580l8 580t22 709s34 750s48
-570r7 Shared_Key{11|45R9} 576r19
-571a7 Child_Hash{11|61A9} 577r37
-573r7 Node{11|117R9} 575m7 576m7 577m7 578m7 578r40 579r14
-584U14 Insert_Into_Node 584b14 585>7 586>7 587>7 588<7 589<7 590<7 843l8
-. 843t24 888s7
-585i7 Current_Idx{natural} 599r18 604r10 604r59 609r30 620r24 634r28 635r27
-. 710r33 719r30 788r27 810r28 811r27 831r37 832r36 889r10
-586r7 Key{11|45R9} 614r36 624r62 626r29 670r32 672r64 673r64 700r45 731r62
-. 766r19 768r64 769r64 803r16 816r63 817r63 890r10
-587a7 Val{4|32A9} 614r41 629r54 631r47 631r52 674r70 685r60 687r53 687r58
-. 770r70 781r60 783r53 783r58 805r53 807r46 807r51 822r69 891r10
-588i7 New_Idx{natural} 599m7 615m38 635m16 711m47 720m47 789m44 811m16 832m25
-. 892r10
-589b7 Success{boolean} 600m7 621m13 636m16 727m16 737m16 794m16 799m16 812m16
-. 833m25 838m22 893r10
-590e7 Error{11|163E9} 601m7 605m10 617m16 659m25 678m25 705m25 713m25 722m22
-. 754m28 774m25 791m19 826m28 894r10
-592r7 Current{11|117R9} 609m7 611r12 624r49 626r57 628r28 643r32 646r25 647r64
-. 648r76 651r36 652r53 654r47 666r40 731r49 733r29 744r61 746r22 749r65 750r74
-. 761r59 805m16 806r30 807m19 809m16 809r52 810r49 819r26 829m25 830m25 830r61
-. 831r58
-593i7 Common_Len{natural} 624m13 626r16 626r44 643r19 646r43 647r77 670r19
-. 672r74 673r69 694r19 698r40 699r36 731m13 733r16 739r19
-594r7 New_Node{11|117R9} 614m13 615r28 628m16 629m16 630r30 631m19 633m16
-. 633r53 634r49 709m22 711r37
-595r7 Branch_Node{11|117R9} 640m16 662m22 666m19 681m22 685m19 686r33 687m22
-. 691m16 691r56 703r37 709r59 720r34 741m16 757m25 761m22 777m22 781m19 782r33
-. 783m22 787m16 787r56 789r31
-596i7 Child_Idx{natural} 657m47 676m47 703m50 752m49 772m47 824m50
-597b7 Alloc_Ok{boolean} 615m47 616r20 657m58 658r29 676m58 677r29 703m61
-. 704r29 711m56 712r29 720m56 721r26 752m60 753r32 772m58 773r29 789m53 790r23
-. 824m61 825r32
-630i20 I{integer} 631r41 631r64
-645i22 Old_Nibble{natural} 662r44
-647r22 Old_Suffix{11|45R9} 648r58
-648r22 Old_Leaf{11|117R9} 652m25 654m22 655m22 655r59 657r37 662r68
-651i26 I{integer} 652r47 652r74
-672i22 New_Nibble{natural} 681r44
-673r22 New_Suffix{11|45R9} 674r58
-674r22 New_Leaf{11|117R9} 676r37 681r68
-686i23 I{integer} 687r47 687r70
-696r22 Ext_Key{11|45R9} 698m22 700m25 709r50
-699i26 I{integer} 700r39 700r55
-744i19 Ext_Nibble{natural} 757r47 761r44
-749r25 Rest_Key{11|45R9} 750r64
-750r25 New_Ext{11|117R9} 752r40 757r71
-768i22 New_Nibble{natural} 777r44
-769r22 New_Suffix{11|45R9} 770r58
-770r22 New_Leaf{11|117R9} 772r37 777r68
-782i23 I{integer} 783r47 783r70
-806i20 I{integer} 807r40 807r63
-816i19 Child_Nibble{natural} 819r44 829r43
-817r19 Rest_Key{11|45R9} 822r59
-822r25 New_Leaf{11|117R9} 824r40 829r69
-856r7 Nibble_Key_Val{11|45R9} 871m7 875r33 890r25
-857r7 New_Node{11|117R9} 875m10 876r25
-858i7 Node_Idx{natural} 876m35 881r35
-859i7 New_Root_Idx{natural} 892m25 898r35
-860b7 Alloc_Success{boolean} 876m45 877r17
-914r7 Nibble_Key_Val{11|45R9} 931m7 945r47 955r46 956m22 957r25 966r22 979r28
-. 985m25 985r58
-915i7 Current_Idx{natural} 932m7 935r13 935r58 937r56
-937r13 Current{11|117R9} 939r18 945r34 946r31 955r33 957r41 968r25 969r34
-. 981r32
-978i25 Child_Idx{natural} 981r50
-1002V13 Branch_Child_Count{natural} 1002b13 1002>33 1011l8 1011t26 1089s56
-. 1122s59
-1002r33 Node{11|117R9} 1006r13
-1003i7 Count{natural} 1007m13 1007r22 1010r14
-1005i11 I{11|107I12} 1006r28
-1014V13 Find_Single_Child{natural} 1014b13 1014>32 1022l8 1022t25
-1014r32 Node{11|117R9} 1017r13
-1016i11 I{11|107I12} 1017r28 1018r20
-1025U14 Delete_From_Node 1025b14 1026>7 1027>7 1028<7 1029<7 1030<7 1145l8
-. 1145t24 1174s7
-1026i7 Current_Idx{natural} 1034r18 1038r10 1038r59 1043r30 1052r27 1093r36
-. 1099r37 1103r37 1126r39 1132r40 1135r40 1175r10
-1027r7 Key{11|45R9} 1050r41 1060r40 1065r59 1081r16 1113r63 1176r10
-1028i7 New_Idx{natural} 1034m7 1053m16 1094m25 1127m28 1177r10
-1029b7 Deleted{boolean} 1035m7 1054m16 1106m19 1138m22 1178r10
-1030e7 Error{11|163E9} 1036m7 1039m10 1047m13 1056m16 1069m22 1073m22 1077m16
-. 1108m19 1140m22 1179r10
-1032r7 Current{11|117R9} 1043m7 1045r12 1050r28 1060r27 1065r64 1083r19 1084m19
-. 1085m19 1089r76 1098m25 1098r61 1099r58 1102m25 1102r61 1103r58 1115r22
-. 1118m22 1122r79 1124r48 1128r51 1131m28 1131r64 1132r61 1134m28 1134r64
-. 1135r61
-1065r19 Rest_Key{11|45R9} 1067r22
-1089i22 Child_Count{natural} 1091r25 1095r28
-1113i19 Child_Nibble{natural} 1115r40 1118r40
-1122i25 Child_Count{natural} 1124r28 1128r31
-1153r7 Nibble_Key_Val{11|45R9} 1171m7 1176r25
-1154i7 New_Root_Idx{natural} 1177m25 1183r13 1187r38
-1155b7 Deleted{boolean} 1178m25 1182r10
-1205r7 Value{11|92R9} 1209m23
-1206b7 Found{boolean} 1209m30 1210r14
-1207e7 Error{11|163E9} 1209m37
-1273r7 Nibble_Key_Val{11|45R9} 1303m7 1338r47 1350r46 1351m22 1352r25 1365r22
-. 1380r28 1390m25 1390r58
-1274i7 Current_Idx{natural} 1304m7 1307r13 1308r25 1312r56
-1275i7 Depth{natural} 1309r13 1323r29 1325r26 1326m13 1326r22 1331r34 1344r34
-. 1358r37 1373r37 1385r43 1400r22
-1276a7 Enc_Buffer{4|32A9} 1315m35 1323r48
-1277i7 Enc_Len{natural} 1315m47 1322r27 1325r43
-1278b7 Enc_Success{boolean} 1315m56 1316r20
-1312r13 Current{11|117R9} 1315r26 1328r18 1338r34 1339r37 1350r33 1352r41
-. 1367r25 1368r40 1383r32
-1322i17 I{integer} 1323r42 1323r60
-1379m25 Child_Nibble{11|38M12} 1381r66
-1381i25 Child_Idx{natural} 1383r50
-1414a7 Computed_Hash{11|61A9} 1452m7 1454r10 1483m10 1487r16 1491r30 1496r30
-1415a7 Expected_Hash{11|61A9} 1466m7 1491m13 1496m13
-1416a7 Node_Data{4|32A9} 1448m10 1452r36 1479m13 1483r39
-1417i7 Node_Len{natural} 1440m7 1441r10 1441r26 1447r21 1452r52 1469m10 1471r13
-. 1478r24 1483r55
-1426a13 Empty_Root{11|61A9} 1429r23
-1447i11 I{integer} 1448r21 1448r49
-1468i11 I{integer} 1469r35 1479r43 1485r13
-1478i14 J{integer} 1479r24 1479r52
-1518i7 Slot{natural} 1520r10 1528r23 1534r22
-1586b7 Empty_Check{boolean} 1593r23
-1614r7 Node{11|117R9} 1639m16 1641r21 1651r36 1653r53 1657r31 1666r36 1668r71
-. 1680r48 1683r37 1695r37
-1615i7 Node_Idx{natural} 1633m13 1635r16 1635r62 1639r36
-1616b7 Found{boolean} 1629r69 1658m22 1684m28 1721r14
-1631i13 Stack_Top{natural} 1633r37 1677r71 1686r40 1703r49
-1651i26 I{integer} 1653r68
-1666i26 I{integer} 1668r86
-1677i25 Start_Child{natural} 1680r28 1691r38 1691r59
-1690i31 Child_Start{natural} 1694r40
-1692b31 Found_Child{boolean} 1704m37 1709r38
-1694i35 C{integer} 1695r52 1698r91 1703r69
+19R9 Node_Entry 22e14 25r53
+20r7*Node{11|117R9} 57m7 116m29 126m27 622r43 647m41 823m41 844m50 950r69
+. 1056r43 1112m50 1116m50 1145m53 1148m53 1243r45 1245r52 1325r69 1652r46
+21b7*Used{boolean} 58m7 74r32 116m43 125m27 617r72 948r71 1051r72 1242r45
+. 1321r38 1648r72
+25A9 Node_Array(19R9)<integer> 56r17
+28R9 Trie_Entry 32e14 34r53
+29i7*Root_Idx{natural} 51m7 500m10 529m10 547m23 887r23 894m23 902r38 911m23
+. 939r23 945r35 1178r23 1188r38 1198m26 1200m26 1236r23 1241r23 1242r35 1243r35
+. 1245r42 1260r27 1309r23 1317r35 1543r35 1573m20 1613r23 1615r50
+30i7*Count{natural} 52m7 501m10 530m10 548m23 895m23 912m23 912r45 1202r26
+. 1203m26 1203r48 1272r27
+31b7*Used{boolean} 53m7 84r51 502m10 531m10 544r50 546m23 878r52 934r52 1173r52
+. 1232r52 1257r52 1269r52 1303r52 1534r52 1612r23
+34A9 Trie_Array(28R9)<9|64I9> 50r12
+37N4 Max_Snapshots 44r39 1561r25 1582r24
+38R9 Snapshot_Entry 42e14 44r61
+39i7*Trie_Ref{9|64I9} 62m7 1542m10 1568r39 1584r39
+40i7*Root_Idx{natural} 63m7 1543m10 1573r61
+41b7*Used{boolean} 64m7 94r36 1544m10 1562r43 1583r39 1586m39
+44A9 Snapshot_Array(38R9)<integer> 61r21
+50a4 Tries{34A9} 11r37 84r41 499m7 528m7 544r37 546m10 547m10 548m10 878r39
+. 887r10 894m10 895m10 902r25 911m10 912m10 912r32 934r39 939r10 945r22 1173r39
+. 1178r10 1188r25 1198m13 1200m13 1202r13 1203m13 1203r35 1232r39 1236r10
+. 1241r10 1242r22 1243r22 1245r29 1257r39 1260r14 1269r39 1272r14 1303r39
+. 1309r10 1317r22 1534r39 1543r22 1573m7 1612r10 1613r10 1615r37
+56a4 Node_Store{25A9} 11r44 73r16 74r17 115r30 116m7 125m10 126m10 617r47
+. 622r18 647m16 823m16 844m25 948r46 950r44 1051r47 1056r18 1112m25 1116m25
+. 1145m28 1148m28 1242r10 1243r10 1245r17 1321r13 1325r44 1648r50 1652r24
+61a4 Snapshot_Store{44A9} 11r56 93r16 94r17 1541m7 1562r14 1568r10 1573r32
+. 1583r10 1584r10 1586m10
+71V13 Find_Empty_Node{natural} 71b13 79l8 79t23 107s34
+73i11 I{integer} 74r29 75r20
+81V13 Find_Empty_Trie{9|64I9} 81b13 89l8 89t23 491s38 518s38
+83i11 I{9|64I9} 84r13 84r48 85r20
+91V13 Find_Empty_Snapshot{natural} 91b13 99l8 99t27 1531s34
+93i11 I{integer} 94r33 95r20
+102U14 Allocate_Node 102b14 103>7 104<7 105<7 119l8 119t21 628s13 670s22
+. 689s22 716s22 724s22 733s19 765s25 785s22 802s16 837s25 889s10
+103r7 Node{11|117R9} 116r37
+104i7 Idx{natural} 110m10 117m7
+105b7 Success{boolean} 111m10 118m7
+107i7 Slot{natural} 109r10 109r38 115r22 116r19 117r14
+122U14 Free_Node 122b14 122>25 128l8 128t17 633s13 723s22 732s19 801s16 1065s16
+. 1106s25 1139s28
+122i25 Idx{natural} 124r10 125r22 126r22
+134V13 Node_Value_To_Bytes{4|32A9} 134b13 135>7 136>7 155l8 155t27 316s31
+. 386s34
+135a7 NV{11|90A9} 148r41 149r21 150r30
+136i7 Len{natural} 140r10 144r36 146r24 147r46
+144a10 Result{4|32A9} 150m16 153r17
+146i14 I{integer} 147r36 148r36 149r16 150r24 150r34
+162a7 Result{11|61A9} 173m10 175r14
+163a7 Digest{6|44A12} 171m40 173r24
+165a7 Message{7|14A9} 168m10 171r31
+167i11 I{integer} 168r19 168r50
+172i11 I{11|60I12} 173r18 173r32
+182U14 Encode_Length 182b14 183>7 184>7 185=7 186=7 213l8 213t21 236s10 398s19
+183i7 Len{natural} 189r10 190r62 192r13 194r57 196r13 199r26 201r26 206r26
+. 208r26 210r26
+184m7 Offset{8|70M9} 190r41 193r41 197r41 204r41
+185a7 Output{4|32A9} 190m10 190r18 193m10 193r18 194m10 194r18 197m10 197r18
+. 198m10 198r18 200m10 200r18 204m10 204r18 205m10 205r18 207m10 207r18 209m10
+. 209r18
+186i7 Pos{natural} 190r33 191m10 191r17 193r33 194r33 195m10 195r17 197r33
+. 198r33 200r33 202m10 202r17 204r33 205r33 207r33 209r33 211m10 211r17
+215U14 Encode_String 215b14 216>7 217=7 218=7 242l8 242t21 315s16 316s16
+. 354s16 357s19 376s22 386s19
+216a7 Data{4|32A9} 221r10 221r35 221r41 223r41 223r47 225r13 228r25 230r19
+. 231r44 236r25 237r19 238r44
+217a7 Output{4|32A9} 223m10 223r18 227m10 227r18 231m13 231r21 236m55 238m13
+. 238r21
+218i7 Pos{natural} 223r33 224m10 224r17 227r33 229m10 229r17 231r36 232m13
+. 232r20 236m63 238r36 239m13 239r20
+230i14 I{integer} 231r50
+237i14 I{integer} 238r50
+249a7 Buffer{4|32A9} 253m26 258r26
+250i7 Len{natural} 253m34 254r25 258r39
+251b7 Success{boolean} 253m39 254r14
+271i7 Pos{natural} 312r24 313m16 313r23 315m69 315r69 317m47 317r47 319r26
+. 351r24 352m16 352r23 354m69 354r69 357m79 357r79 359r27 360m19 360r26 363r26
+. 395r27 396m19 396r26 398m70 398r70 403r27 404m19 404r26 407r26
+287a16 Path_Buf{4|32A9} 293m19 296m22 302m19 305m22 315r31
+288i16 Path_Len{natural} 294m19 296r32 298m22 298r34 303m19 305r32 307m22
+. 307r34 315r46
+289m16 HP_Prefix{8|70M9} 292m19 293r35 301m19 302r35
+295i23 I{integer} 296r72 297r54
+304i23 I{integer} 305r72 306r54
+326a16 Path_Buf{4|32A9} 332m19 335m22 341m19 344m22 354r31
+327i16 Path_Len{natural} 333m19 335r32 337m22 337r34 342m19 344r32 346m22
+. 346r34 354r46
+328m16 HP_Prefix{8|70M9} 331m19 332r35 340m19 341r35
+334i23 I{integer} 335r72 336r54
+343i23 I{integer} 344r72 345r54
+370a16 List_Content{4|32A9} 377m25 377r25 379m22 387m42 387r42 389m19 403r35
+371i16 Content_Len{natural} 377m39 377r39 379r36 380m22 380r37 387m56 387r56
+. 389r33 390m19 390r34 394r19 395r64 398r34 402r30
+374i20 I{11|107I12} 375r37 376r64
+402i20 I{integer} 403r49
+443i13 List_Len{natural} 448m16 456m19 458m22 458r34 468r16
+444i13 Start{natural} 449m16 461m19
+445i13 Elements{natural}
+453i19 Len_Bytes{natural} 457r33 461r32
+457i23 I{integer} 459r55
+491i7 New_Trie{9|64I9} 493r10 499r14 505r15
+518i7 New_Trie{9|64I9} 522r10 528r14 534r15
+557V13 Make_Leaf{11|117R9} 557b13 558>7 559>7 571l8 571t17 627s25 661s47
+. 687s47 783s47 835s48 888s22
+558r7 Key_Suffix{11|45R9} 564r19
+559a7 Val{4|32A9} 565r41 567r34 567r39
+561r7 Node{11|117R9} 563m7 564m7 565m7 566r21 567m10 569m7 569r40 570r14
+566i11 I{integer} 567r28 567r51
+574V13 Make_Branch{11|117R9} 574b13 579l8 579t19 653s31 754s31
+575r7 Node{11|117R9} 577m7 578r14
+582V13 Make_Extension{11|117R9} 582b13 583>7 584>7 593l8 593t22 722s34 763s48
+583r7 Shared_Key{11|45R9} 589r19
+584a7 Child_Hash{11|61A9} 590r37
+586r7 Node{11|117R9} 588m7 589m7 590m7 591m7 591r40 592r14
+597U14 Insert_Into_Node 597b14 598>7 599>7 600>7 601<7 602<7 603<7 856l8
+. 856t24 901s7
+598i7 Current_Idx{natural} 612r18 617r10 617r59 622r30 633r24 647r28 648r27
+. 723r33 732r30 801r27 823r28 824r27 844r37 845r36 902r10
+599r7 Key{11|45R9} 627r36 637r62 639r29 683r32 685r64 686r64 713r45 744r62
+. 779r19 781r64 782r64 816r16 829r63 830r63 903r10
+600a7 Val{4|32A9} 627r41 642r54 644r47 644r52 687r70 698r60 700r53 700r58
+. 783r70 794r60 796r53 796r58 818r53 820r46 820r51 835r69 904r10
+601i7 New_Idx{natural} 612m7 628m38 648m16 724m47 733m47 802m44 824m16 845m25
+. 905r10
+602b7 Success{boolean} 613m7 634m13 649m16 740m16 750m16 807m16 812m16 825m16
+. 846m25 851m22 906r10
+603e7 Error{11|163E9} 614m7 618m10 630m16 672m25 691m25 718m25 726m25 735m22
+. 767m28 787m25 804m19 839m28 907r10
+605r7 Current{11|117R9} 622m7 624r12 637r49 639r57 641r28 656r32 659r25 660r64
+. 661r76 664r36 665r53 667r47 679r40 744r49 746r29 757r61 759r22 762r65 763r74
+. 774r59 818m16 819r30 820m19 822m16 822r52 823r49 832r26 842m25 843m25 843r61
+. 844r58
+606i7 Common_Len{natural} 637m13 639r16 639r44 656r19 659r43 660r77 683r19
+. 685r74 686r69 707r19 711r40 712r36 744m13 746r16 752r19
+607r7 New_Node{11|117R9} 627m13 628r28 641m16 642m16 643r30 644m19 646m16
+. 646r53 647r49 722m22 724r37
+608r7 Branch_Node{11|117R9} 653m16 675m22 679m19 694m22 698m19 699r33 700m22
+. 704m16 704r56 716r37 722r59 733r34 754m16 770m25 774m22 790m22 794m19 795r33
+. 796m22 800m16 800r56 802r31
+609i7 Child_Idx{natural} 670m47 689m47 716m50 765m49 785m47 837m50
+610b7 Alloc_Ok{boolean} 628m47 629r20 670m58 671r29 689m58 690r29 716m61
+. 717r29 724m56 725r29 733m56 734r26 765m60 766r32 785m58 786r29 802m53 803r23
+. 837m61 838r32
+643i20 I{integer} 644r41 644r64
+658i22 Old_Nibble{natural} 675r44
+660r22 Old_Suffix{11|45R9} 661r58
+661r22 Old_Leaf{11|117R9} 665m25 667m22 668m22 668r59 670r37 675r68
+664i26 I{integer} 665r47 665r74
+685i22 New_Nibble{natural} 694r44
+686r22 New_Suffix{11|45R9} 687r58
+687r22 New_Leaf{11|117R9} 689r37 694r68
+699i23 I{integer} 700r47 700r70
+709r22 Ext_Key{11|45R9} 711m22 713m25 722r50
+712i26 I{integer} 713r39 713r55
+757i19 Ext_Nibble{natural} 770r47 774r44
+762r25 Rest_Key{11|45R9} 763r64
+763r25 New_Ext{11|117R9} 765r40 770r71
+781i22 New_Nibble{natural} 790r44
+782r22 New_Suffix{11|45R9} 783r58
+783r22 New_Leaf{11|117R9} 785r37 790r68
+795i23 I{integer} 796r47 796r70
+819i20 I{integer} 820r40 820r63
+829i19 Child_Nibble{natural} 832r44 842r43
+830r19 Rest_Key{11|45R9} 835r59
+835r25 New_Leaf{11|117R9} 837r40 842r69
+869r7 Nibble_Key_Val{11|45R9} 884m7 888r33 903r25
+870r7 New_Node{11|117R9} 888m10 889r25
+871i7 Node_Idx{natural} 889m35 894r35
+872i7 New_Root_Idx{natural} 905m25 911r35
+873b7 Alloc_Success{boolean} 889m45 890r17
+927r7 Nibble_Key_Val{11|45R9} 944m7 958r47 968r46 969m22 970r25 979r22 992r28
+. 998m25 998r58
+928i7 Current_Idx{natural} 945m7 948r13 948r58 950r56
+950r13 Current{11|117R9} 952r18 958r34 959r31 968r33 970r41 981r25 982r34
+. 994r32
+991i25 Child_Idx{natural} 994r50
+1015V13 Branch_Child_Count{natural} 1015b13 1015>33 1024l8 1024t26 1102s56
+. 1135s59
+1015r33 Node{11|117R9} 1019r13
+1016i7 Count{natural} 1020m13 1020r22 1023r14
+1018i11 I{11|107I12} 1019r28
+1027V13 Find_Single_Child{natural} 1027b13 1027>32 1035l8 1035t25
+1027r32 Node{11|117R9} 1030r13
+1029i11 I{11|107I12} 1030r28 1031r20
+1038U14 Delete_From_Node 1038b14 1039>7 1040>7 1041<7 1042<7 1043<7 1158l8
+. 1158t24 1187s7
+1039i7 Current_Idx{natural} 1047r18 1051r10 1051r59 1056r30 1065r27 1106r36
+. 1112r37 1116r37 1139r39 1145r40 1148r40 1188r10
+1040r7 Key{11|45R9} 1063r41 1073r40 1078r59 1094r16 1126r63 1189r10
+1041i7 New_Idx{natural} 1047m7 1066m16 1107m25 1140m28 1190r10
+1042b7 Deleted{boolean} 1048m7 1067m16 1119m19 1151m22 1191r10
+1043e7 Error{11|163E9} 1049m7 1052m10 1060m13 1069m16 1082m22 1086m22 1090m16
+. 1121m19 1153m22 1192r10
+1045r7 Current{11|117R9} 1056m7 1058r12 1063r28 1073r27 1078r64 1096r19 1097m19
+. 1098m19 1102r76 1111m25 1111r61 1112r58 1115m25 1115r61 1116r58 1128r22
+. 1131m22 1135r79 1137r48 1141r51 1144m28 1144r64 1145r61 1147m28 1147r64
+. 1148r61
+1078r19 Rest_Key{11|45R9} 1080r22
+1102i22 Child_Count{natural} 1104r25 1108r28
+1126i19 Child_Nibble{natural} 1128r40 1131r40
+1135i25 Child_Count{natural} 1137r28 1141r31
+1166r7 Nibble_Key_Val{11|45R9} 1184m7 1189r25
+1167i7 New_Root_Idx{natural} 1190m25 1196r13 1200r38
+1168b7 Deleted{boolean} 1191m25 1195r10
+1218r7 Value{11|92R9} 1222m23
+1219b7 Found{boolean} 1222m30 1223r14
+1220e7 Error{11|163E9} 1222m37
+1286r7 Nibble_Key_Val{11|45R9} 1316m7 1351r47 1363r46 1364m22 1365r25 1378r22
+. 1393r28 1403m25 1403r58
+1287i7 Current_Idx{natural} 1317m7 1320r13 1321r25 1325r56
+1288i7 Depth{natural} 1322r13 1336r29 1338r26 1339m13 1339r22 1344r34 1357r34
+. 1371r37 1386r37 1398r43 1413r22
+1289a7 Enc_Buffer{4|32A9} 1328m35 1336r48
+1290i7 Enc_Len{natural} 1328m47 1335r27 1338r43
+1291b7 Enc_Success{boolean} 1328m56 1329r20
+1325r13 Current{11|117R9} 1328r26 1341r18 1351r34 1352r37 1363r33 1365r41
+. 1380r25 1381r40 1396r32
+1335i17 I{integer} 1336r42 1336r60
+1392m25 Child_Nibble{11|38M12} 1394r66
+1394i25 Child_Idx{natural} 1396r50
+1427a7 Computed_Hash{11|61A9} 1465m7 1467r10 1496m10 1500r16 1504r30 1509r30
+1428a7 Expected_Hash{11|61A9} 1479m7 1504m13 1509m13
+1429a7 Node_Data{4|32A9} 1461m10 1465r36 1492m13 1496r39
+1430i7 Node_Len{natural} 1453m7 1454r10 1454r26 1460r21 1465r52 1482m10 1484r13
+. 1491r24 1496r55
+1439a13 Empty_Root{11|61A9} 1442r23
+1460i11 I{integer} 1461r21 1461r49
+1481i11 I{integer} 1482r35 1492r43 1498r13
+1491i14 J{integer} 1492r24 1492r52
+1531i7 Slot{natural} 1533r10 1541r23 1547r22
+1599b7 Empty_Check{boolean} 1606r23
+1627r7 Node{11|117R9} 1652m16 1654r21 1664r36 1666r53 1670r31 1679r36 1681r71
+. 1693r48 1696r37 1708r37
+1628i7 Node_Idx{natural} 1646m13 1648r16 1648r62 1652r36
+1629b7 Found{boolean} 1642r69 1671m22 1697m28 1734r14
+1644i13 Stack_Top{natural} 1646r37 1690r71 1699r40 1716r49
+1664i26 I{integer} 1666r68
+1679i26 I{integer} 1681r86
+1690i25 Start_Child{natural} 1693r28 1704r38 1704r59
+1703i31 Child_Start{natural} 1707r40
+1705b31 Found_Child{boolean} 1717m37 1722r38
+1707i35 C{integer} 1708r52 1711r91 1716r69
 X 11 khepri_mpt_types.ads
-13K9*Khepri_MPT_Types 9|18w6 18r30 11|211e21
-23N4*Max_Key_Bytes 9|85r31 97r31 107r31 116r31 150r31 10|274r44 313r44
-24N4*Max_Key_Nibbles 10|1652r41 1667r50 1697r62
-28N4*Max_Value_Size 9|86r37 10|552r53 629r66 685r72 781r72 805r65
-31N4*Max_Trie_Depth 9|258r35 10|1309r21 1629r46
-38M12*Nibble{8|70M9} 10|1379r49 1698r83
+13K9*Khepri_MPT_Types 9|37w6 37r30 11|211e21
+23N4*Max_Key_Bytes 9|105r31 117r31 127r31 136r31 170r31 10|287r44 326r44
+24N4*Max_Key_Nibbles 10|1665r41 1680r50 1710r62
+28N4*Max_Value_Size 9|106r37 10|565r53 642r66 698r72 794r72 818r65
+31N4*Max_Trie_Depth 9|278r35 10|1322r21 1642r46
+38M12*Nibble{8|70M9} 10|1392r49 1711r83
 42A9*Nibble_Path(38M12)<integer>
-45R9*Nibble_Key 9|241r24 264r19 10|545r20 570r20 586r28 647r35 673r35 696r32
-. 749r36 769r35 817r34 856r24 914r24 1027r28 1065r30 1153r24 1273r24 1610r24
+45R9*Nibble_Key 9|261r24 284r19 10|558r20 583r20 599r28 660r35 686r35 709r32
+. 762r36 782r35 830r34 869r24 927r24 1040r28 1078r30 1166r24 1286r24 1623r24
 . 11|48e14
-46a7*Data{42A9} 10|283r66 284r48 288r62 292r66 293r48 322r66 323r48 327r62
-. 331r66 332r48 646r37 672r68 700m33 700r49 744r73 768r68 816r67 979r43 1113r67
-. 1380r43 1653m32 1653r62 1668m41 1668r80 1698m53
-47i7*Length{natural} 10|278r28 282r43 291r44 317r28 321r43 330r44 626r33
-. 626r69 643r44 670r36 698m30 733r41 746r34 766r23 803r20 957r53 966r37 1065r76
-. 1067r31 1081r20 1352r53 1365r37 1651r45 1652r32 1653r42 1654m32 1654r46
-. 1666r45 1667r41 1668r60 1669m41 1669r64 1697r53 1698r72 1699m53 1699r76
-50r4*Empty_Nibble_Key{45R9} 10|696r46 1592r23 1618r14
-60I12*Hash_Index{natural} 10|159r16
-61A9*Hash_256(8|70M9)<integer> 9|60r24 123r47 154r24 217r51 221r48 10|148r51
-. 149r16 235r48 501r24 571r20 1217r47 1409r24 1414r24 1415r24 1426r35
-63a4*Empty_Hash{61A9} 10|242r17 1220r17 1235r14
-67a7*Data{61A9} 10|344r64 363r67 556m21 577m29 578m21 633m34 655m40 662m60
-. 662r82 681m60 681r82 691m37 709r76 750r95 757m63 757r84 777m60 777r82 787m37
-. 809m33 829m61 829r83 830m42 1098m42 1102m42 1131m45 1134m45 1232r62
-68b7*Valid{boolean} 10|343r37 362r40 556m47 577m49 578m47 633m64 655m70 662m88
-. 681m88 691m70 757m90 777m88 787m70 809m62 819r58 829m89 830m71 981r61 1006r31
-. 1017r31 1098m71 1102m71 1115r54 1118m54 1131m74 1134m74 1230r55 1383r61
-. 1695r55
-82n7*Node_Empty{81E9} 10|265r15 421r23 612r15 940r21 1046r15 1329r21 1642r24
-83n7*Node_Leaf{81E9} 10|270r15 457r29 550r20 623r15 944r21 1049r15 1336r21
-. 1646r24
-84n7*Node_Extension{81E9} 10|309r15 575r20 730r15 954r21 1059r15 1348r21
-. 1663r24
-85n7*Node_Branch{81E9} 10|353r15 460r29 564r20 802r15 965r21 1080r15 1364r21
-. 1675r24
-90A9*Node_Value(8|70M9)<integer> 10|132r13
-92R9*Value_Data 9|92r24 242r24 10|910r24 1205r15 1611r24 11|95e14
-93a7*Bytes{90A9} 10|303r63 373r66 554m21 631m34 652m40 652r67 687m40 783m40
-. 807m33 1085m33
-94i7*Length{natural} 10|304r30 372r30 374r33 552m18 553r32 629m31 630r45
-. 648r90 651r50 654m37 654r61 685m37 686r51 781m37 782r51 805m30 806r44 968r39
-. 1083r33 1084m33 1124r62 1128r65 1367r39 1680r59
-97r4*Empty_Value{92R9} 10|917r16 1284r20 1619r16
-107I12*Child_Index{natural} 10|361r25 1005r16 1016r16
+46a7*Data{42A9} 10|296r66 297r48 301r62 305r66 306r48 335r66 336r48 340r62
+. 344r66 345r48 659r37 685r68 713m33 713r49 757r73 781r68 829r67 992r43 1126r67
+. 1393r43 1666m32 1666r62 1681m41 1681r80 1711m53
+47i7*Length{natural} 10|291r28 295r43 304r44 330r28 334r43 343r44 639r33
+. 639r69 656r44 683r36 711m30 746r41 759r34 779r23 816r20 970r53 979r37 1078r76
+. 1080r31 1094r20 1365r53 1378r37 1664r45 1665r32 1666r42 1667m32 1667r46
+. 1679r45 1680r41 1681r60 1682m41 1682r64 1710r53 1711r72 1712m53 1712r76
+50r4*Empty_Nibble_Key{45R9} 10|709r46 1605r23 1631r14
+60I12*Hash_Index{natural} 10|172r16
+61A9*Hash_256(8|70M9)<integer> 9|80r24 143r47 174r24 237r51 241r48 10|161r51
+. 162r16 248r48 514r24 584r20 1230r47 1422r24 1427r24 1428r24 1439r35
+63a4*Empty_Hash{61A9} 10|255r17 1233r17 1248r14
+67a7*Data{61A9} 10|357r64 376r67 569m21 590m29 591m21 646m34 668m40 675m60
+. 675r82 694m60 694r82 704m37 722r76 763r95 770m63 770r84 790m60 790r82 800m37
+. 822m33 842m61 842r83 843m42 1111m42 1115m42 1144m45 1147m45 1245r62
+68b7*Valid{boolean} 10|356r37 375r40 569m47 590m49 591m47 646m64 668m70 675m88
+. 694m88 704m70 770m90 790m88 800m70 822m62 832r58 842m89 843m71 994r61 1019r31
+. 1030r31 1111m71 1115m71 1128r54 1131m54 1144m74 1147m74 1243r55 1396r61
+. 1708r55
+82n7*Node_Empty{81E9} 10|278r15 434r23 625r15 953r21 1059r15 1342r21 1655r24
+83n7*Node_Leaf{81E9} 10|283r15 470r29 563r20 636r15 957r21 1062r15 1349r21
+. 1659r24
+84n7*Node_Extension{81E9} 10|322r15 588r20 743r15 967r21 1072r15 1361r21
+. 1676r24
+85n7*Node_Branch{81E9} 10|366r15 473r29 577r20 815r15 978r21 1093r15 1377r21
+. 1688r24
+90A9*Node_Value(8|70M9)<integer> 10|135r13
+92R9*Value_Data 9|112r24 262r24 10|923r24 1218r15 1624r24 11|95e14
+93a7*Bytes{90A9} 10|316r63 386r66 567m21 644m34 665m40 665r67 700m40 796m40
+. 820m33 1098m33
+94i7*Length{natural} 10|317r30 385r30 387r33 565m18 566r32 642m31 643r45
+. 661r90 664r50 667m37 667r61 698m37 699r51 794m37 795r51 818m30 819r44 981r39
+. 1096r33 1097m33 1137r62 1141r65 1380r39 1693r59
+97r4*Empty_Value{92R9} 10|930r16 1297r20 1632r16
+107I12*Child_Index{natural} 10|374r25 1018r16 1029r16
 108A9*Child_Array(66R9)<integer>
-117R9*MPT_Node 9|195r24 206r24 221r31 10|18r14 101r24 235r31 253r24 405r24
-. 547r13 548r14 561r32 562r14 572r13 573r14 592r22 594r22 595r22 648r35 674r35
-. 750r36 770r35 822r36 857r24 937r32 1002r40 1014r39 1032r17 1312r32 1614r19
+117R9*MPT_Node 9|215r24 226r24 241r31 10|20r14 103r24 248r31 266r24 418r24
+. 560r13 561r14 574r32 575r14 585r13 586r14 605r22 607r22 608r22 661r35 687r35
+. 763r36 783r35 835r36 870r24 950r32 1015r40 1027r39 1045r17 1325r32 1627r19
 . 11|123e14
-118e7*Kind{81E9} 10|264r17 421m15 457m21 460m21 550m12 564m12 575m12 611r20
-. 939r26 1045r20 1328r26 1641r26
-119r7*Key{45R9} 10|278r24 282r39 283r62 284r44 288r58 291r40 292r62 293r44
-. 317r24 321r39 322r62 323r44 327r58 330r40 331r62 332r44 551m12 576m12 624r57
-. 626r65 643r40 646r33 647r72 731r57 733r37 744r69 746r30 749r73 945r42 955r41
-. 957r49 1050r36 1060r35 1065r72 1338r42 1350r41 1352r49 1651r41 1653r58
-. 1666r41 1668r76
-120r7*Value{92R9} 10|303r57 304r24 372r24 373r60 374r27 552m12 553r26 554m15
-. 629m25 630r39 631m28 648r84 651r44 652m34 652r61 654m31 654r55 666m31 666r48
-. 685m31 686r45 687m34 781m31 782r45 783m34 805m24 806r38 807m27 946r39 968r33
-. 969r42 1083r27 1084m27 1085m27 1124r56 1128r59 1339r45 1367r33 1368r48
-. 1657r36 1680r53 1683r42
-121a7*Children{108A9} 10|343r24 344r51 362r27 363r54 577m12 662m34 681m34
-. 750r82 757m37 761m34 761r67 777m34 819r34 829m33 981r40 1006r18 1017r18
-. 1115r30 1118m30 1383r40 1695r42
-122r7*Hash{66R9} 10|556m12 578m12 633m25 655m31 662r77 681r77 691m28 709r71
-. 757r79 777r77 787m28 809m24 829r78 830m33 1098m33 1102m33 1131m36 1134m36
-. 1230r50 1232r57
-125r4*Empty_Node{117R9} 10|55r15 123r35 410r15 548r26 562r26 573r26
-138N4*Max_Proof_Node_Size 9|201r34 10|236r34 1276r41 1416r41 1441r37
+118e7*Kind{81E9} 10|277r17 434m15 470m21 473m21 563m12 577m12 588m12 624r20
+. 952r26 1058r20 1341r26 1654r26
+119r7*Key{45R9} 10|291r24 295r39 296r62 297r44 301r58 304r40 305r62 306r44
+. 330r24 334r39 335r62 336r44 340r58 343r40 344r62 345r44 564m12 589m12 637r57
+. 639r65 656r40 659r33 660r72 744r57 746r37 757r69 759r30 762r73 958r42 968r41
+. 970r49 1063r36 1073r35 1078r72 1351r42 1363r41 1365r49 1664r41 1666r58
+. 1679r41 1681r76
+120r7*Value{92R9} 10|316r57 317r24 385r24 386r60 387r27 565m12 566r26 567m15
+. 642m25 643r39 644m28 661r84 664r44 665m34 665r61 667m31 667r55 679m31 679r48
+. 698m31 699r45 700m34 794m31 795r45 796m34 818m24 819r38 820m27 959r39 981r33
+. 982r42 1096r27 1097m27 1098m27 1137r56 1141r59 1352r45 1380r33 1381r48
+. 1670r36 1693r53 1696r42
+121a7*Children{108A9} 10|356r24 357r51 375r27 376r54 590m12 675m34 694m34
+. 763r82 770m37 774m34 774r67 790m34 832r34 842m33 994r40 1019r18 1030r18
+. 1128r30 1131m30 1396r40 1708r42
+122r7*Hash{66R9} 10|569m12 591m12 646m25 668m31 675r77 694r77 704m28 722r71
+. 770r79 790r77 800m28 822m24 842r78 843m33 1111m33 1115m33 1144m36 1147m36
+. 1243r50 1245r57
+125r4*Empty_Node{117R9} 10|57r15 126r35 423r15 561r26 575r26 586r26
+138N4*Max_Proof_Node_Size 9|221r34 10|249r34 1289r41 1429r41 1454r37
 140A9*Proof_Node_Data(8|70M9)<integer>
-143a7*Data{140A9} 10|1281m32 1323m36 1448r43 1479r46
-144i7*Length{natural} 10|1281m55 1325m33 1440r35 1469r38
+143a7*Data{140A9} 10|1294m32 1336m36 1461r43 1492r46
+144i7*Length{natural} 10|1294m55 1338m33 1453r35 1482r38
 149A9*Proof_Path(142R9)<integer>
-151R9*Merkle_Proof 9|145r24 155r24 10|1269r24 1410r24 11|157e14
-152a7*Nodes{149A9} 10|1281m10 1323m22 1325m19 1440r25 1448r33 1469r28 1479r36
-153i7*Depth{natural} 10|1282m10 1297m16 1331m25 1344m25 1358m28 1373m28 1385m34
-. 1400m13 1423r16 1468r27
-154r7*Key{45R9} 10|1283m10
-155r7*Value{92R9} 10|1284m10 1339m28 1368m31
-156b7*Exists{boolean} 10|1285m10 1298m16 1332m25 1340m28 1342m28 1359m28
-. 1369m31 1371m31 1386m34
-163E9*MPT_Error 9|82r24 94r24 104r24 147r24 157r24 178r28 208r24 10|407r24
-. 590r28 854r24 912r24 1030r28 1151r24 1207r15 1271r24 1412r24 1542r28 11|172e5
-164n7*Error_None{163E9} 10|412r16 601r16 863r16 919r16 1036r16 1158r16 1288r16
-. 1420r16 1546r16
-165n7*Error_Key_Not_Found{163E9} 10|927r19 941r28 950r31 961r31 972r34 982r37
-. 994r16 1039r19 1047r22 1056r25 1069r31 1073r31 1077r25 1108r28 1140r31
-. 1166r19
-166n7*Error_Invalid_Node{163E9} 10|605r19 866r19 922r19 1161r19 1291r19 1317r25
-. 1551r19 1556r19
-167n7*Error_Invalid_Proof{163E9} 10|1432r25 1442r19 1455r19 1473r22 1488r25
-169n7*Error_Trie_Full{163E9} 10|617r25 659r34 678r34 705r34 713r34 722r31
-. 754r37 774r34 791r28 826r37 878r22
-170n7*Error_Invalid_RLP{163E9} 10|415r19 466r19
-179V13*Bytes_To_Nibbles{45R9} 10|871s25 931s25 1171s25 1283s20 1303s25
-189V13*Keys_Equal{boolean} 10|945s22 1050s16 1338s22
-193V13*Common_Prefix_Length{natural} 10|624s27 731s27
-197V13*Is_Prefix{boolean} 10|955s22 1060s16 1350s22
-201V13*Remove_Prefix{45R9} 10|647s49 673s49 749s50 769s49 817s48 956s40 985s43
-. 1065s44 1351s40 1390s43
+151R9*Merkle_Proof 9|165r24 175r24 10|1282r24 1423r24 11|157e14
+152a7*Nodes{149A9} 10|1294m10 1336m22 1338m19 1453r25 1461r33 1482r28 1492r36
+153i7*Depth{natural} 10|1295m10 1310m16 1344m25 1357m25 1371m28 1386m28 1398m34
+. 1413m13 1436r16 1481r27
+154r7*Key{45R9} 10|1296m10
+155r7*Value{92R9} 10|1297m10 1352m28 1381m31
+156b7*Exists{boolean} 10|1298m10 1311m16 1345m25 1353m28 1355m28 1372m28
+. 1382m31 1384m31 1399m34
+163E9*MPT_Error 9|102r24 114r24 124r24 167r24 177r24 198r28 228r24 10|420r24
+. 603r28 867r24 925r24 1043r28 1164r24 1220r15 1284r24 1425r24 1555r28 11|172e5
+164n7*Error_None{163E9} 10|425r16 614r16 876r16 932r16 1049r16 1171r16 1301r16
+. 1433r16 1559r16
+165n7*Error_Key_Not_Found{163E9} 10|940r19 954r28 963r31 974r31 985r34 995r37
+. 1007r16 1052r19 1060r22 1069r25 1082r31 1086r31 1090r25 1121r28 1153r31
+. 1179r19
+166n7*Error_Invalid_Node{163E9} 10|618r19 879r19 935r19 1174r19 1304r19 1330r25
+. 1564r19 1569r19
+167n7*Error_Invalid_Proof{163E9} 10|1445r25 1455r19 1468r19 1486r22 1501r25
+169n7*Error_Trie_Full{163E9} 10|630r25 672r34 691r34 718r34 726r34 735r31
+. 767r37 787r34 804r28 839r37 891r22
+170n7*Error_Invalid_RLP{163E9} 10|428r19 479r19
+179V13*Bytes_To_Nibbles{45R9} 10|884s25 944s25 1184s25 1296s20 1316s25
+189V13*Keys_Equal{boolean} 10|958s22 1063s16 1351s22
+193V13*Common_Prefix_Length{natural} 10|637s27 744s27
+197V13*Is_Prefix{boolean} 10|968s22 1073s16 1363s22
+201V13*Remove_Prefix{45R9} 10|660s49 686s49 762s50 782s49 830s48 969s40 998s43
+. 1078s44 1364s40 1403s43
 

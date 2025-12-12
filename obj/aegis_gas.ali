@@ -27,7 +27,7 @@ RV NO_IMPLEMENTATION_PRAGMAS
 U aegis_gas%b		aegis_gas.adb		05f00f54 NE OO PK
 Z system.assertions%s	s-assert.adb		s-assert.ali
 
-U aegis_gas%s		aegis_gas.ads		f0e872dc NE OO PU PK
+U aegis_gas%s		aegis_gas.ads		7c04d4f8 NE OO PU PK
 W aegis_vm_types%s	aegis_vm_types.ads	aegis_vm_types.ali
 
 D ada.ads		20240808082856 76789da1 ada%s
@@ -35,7 +35,7 @@ D a-assert.ads		20240808082856 ba465f5c ada.assertions%s
 D a-unccon.ads		20240808082856 0e9b276f ada.unchecked_conversion%s
 D aegis_gas.ads		20251207191105 2c397305 aegis_gas%s
 D aegis_gas.adb		20251207191105 29c97c51 aegis_gas%b
-D aegis_vm_types.ads	20251207191105 dcd101d9 aegis_vm_types%s
+D aegis_vm_types.ads	20251209080247 503da7fd aegis_vm_types%s
 D interfac.ads		20240808082856 9111f9c1 interfaces%s
 D system.ads		20240808082856 70765b54 system%s
 D s-assert.ads		20240808082856 9c4520c7 system.assertions%s
@@ -199,7 +199,7 @@ X 5 aegis_gas.adb
 204i7 Base_Cost{6|101I9} 209m13 211m13 213m13 215m13 217m13 220r14
 205i7 Per_Byte{6|101I9} 220r53
 X 6 aegis_vm_types.ads
-21K9*Aegis_VM_Types 4|3w6 3r26 6|279e19
+21K9*Aegis_VM_Types 4|3w6 3r26 6|280e19
 87I9*Discount_Factor<short_integer> 4|154r18 5|13r18
 101I9*Gas_Amount<long_integer> 4|40r32 43r32 44r32 45r32 46r32 47r32 48r32
 . 49r32 52r32 53r32 54r32 57r32 58r32 59r32 60r32 61r32 62r32 65r32 66r33

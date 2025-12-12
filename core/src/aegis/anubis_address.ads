@@ -106,7 +106,7 @@ is
       PK               : Public_Key_Bytes;
       Addr1, Addr2     : Address
    ) return Boolean is
-      (Entity1 /= Entity2 implies not Addresses_Equal (Addr1, Addr2))
+      (Entity1 = Entity2 or else not Addresses_Equal (Addr1, Addr2))
    with Ghost, Pure_Function;
 
    --  Ghost: Format/Parse round-trip property

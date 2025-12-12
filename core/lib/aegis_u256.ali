@@ -26,7 +26,7 @@ RV NO_IMPLEMENTATION_PRAGMAS
 U aegis_u256%b		aegis_u256.adb		cfb9f9d9 NE OO PK
 Z system.assertions%s	s-assert.adb		s-assert.ali
 
-U aegis_u256%s		aegis_u256.ads		b2ed0653 BN NE OO PU PK
+U aegis_u256%s		aegis_u256.ads		3e01a077 BN NE OO PU PK
 W aegis_vm_types%s	aegis_vm_types.ads	aegis_vm_types.ali
 W interfaces%s		interfac.ads		interfac.ali
 
@@ -35,7 +35,7 @@ D a-assert.ads		20240808082856 ba465f5c ada.assertions%s
 D a-unccon.ads		20240808082856 0e9b276f ada.unchecked_conversion%s
 D aegis_u256.ads	20251207191105 ff2dfe4b aegis_u256%s
 D aegis_u256.adb	20251207191105 30940792 aegis_u256%b
-D aegis_vm_types.ads	20251207191105 dcd101d9 aegis_vm_types%s
+D aegis_vm_types.ads	20251209080247 503da7fd aegis_vm_types%s
 D interfac.ads		20240808082856 9111f9c1 interfaces%s
 D system.ads		20240808082856 70765b54 system%s
 D s-assert.ads		20240808082856 9c4520c7 system.assertions%s
@@ -318,7 +318,7 @@ X 5 aegis_u256.adb
 575r7 E{6|41R9} 581r29 582r14 589m10 589r28
 580i11 Bit{integer}
 X 6 aegis_vm_types.ads
-21K9*Aegis_VM_Types 4|3w6 3r26 6|279e19
+21K9*Aegis_VM_Types 4|3w6 3r26 6|280e19
 31M12*Byte{7|70M9} 5|421r37 456r37
 35M12*Word64{7|84M9} 4|155r30 163r41 184r30 189r43 249r22 251r22 259r24 261r24
 . 269r18 270r18 271r18 5|12r23 14r23 17r13 18r22 29r24 31r24 34r14 35r24

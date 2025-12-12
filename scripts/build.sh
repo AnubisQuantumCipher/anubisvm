@@ -4,21 +4,29 @@
 
 set -e
 
-cd "$(dirname "$0")/.."
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+cd "$SCRIPT_DIR/.."
 
-echo "Building Anubis Node..."
+echo "Building AnubisVM..."
 
-# Build library first
+# Build all binaries
 alr build --profiles='*=release'
 
-# Build node executable
-alr exec -- gprbuild -P core/anubis_node.gpr -XBUILD_MODE=release
+# Fix duplicate RPATH entries on macOS (required for macOS 15.4+)
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    echo ""
+    echo "Fixing RPATH entries for macOS..."
+    "$SCRIPT_DIR/fix_rpath.sh" core/bin
+fi
 
-# Fix rpath issue on macOS
-install_name_tool -delete_rpath /Users/sicarii/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib core/bin/anubis-node 2>/dev/null || true
+echo ""
+echo "Build complete!"
+echo ""
+echo "Binaries available in core/bin/:"
+ls -la core/bin/
 
-SIZE=$(stat -f%z core/bin/anubis-node 2>/dev/null || stat -c%s core/bin/anubis-node)
 echo ""
-echo "Build complete: core/bin/anubis-node ($SIZE bytes)"
-echo ""
-echo "Run with: ./core/bin/anubis-node --port 26659"
+echo "Run with:"
+echo "  ./core/bin/khepri_main --help          # CLI tool"
+echo "  ./core/bin/khepri_local_main --help    # Local executor"
+echo "  ./core/bin/anubis_main                 # Full node"

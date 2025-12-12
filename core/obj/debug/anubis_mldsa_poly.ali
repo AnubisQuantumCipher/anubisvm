@@ -26,7 +26,7 @@ U anubis_mldsa_poly%b	anubis_mldsa_poly.adb	2ed11c01 NE OO PK
 W interfaces%s		interfac.ads		interfac.ali
 Z system.assertions%s	s-assert.adb		s-assert.ali
 
-U anubis_mldsa_poly%s	anubis_mldsa_poly.ads	4731d7ba EE NE OO PK
+U anubis_mldsa_poly%s	anubis_mldsa_poly.ads	22987043 EE NE OO PK
 W anubis_mldsa_config%s	anubis_mldsa_config.ads	anubis_mldsa_config.ali
 W anubis_mldsa_field%s	anubis_mldsa_field.adb	anubis_mldsa_field.ali
 W anubis_mldsa_types%s	anubis_mldsa_types.ads	anubis_mldsa_types.ali
@@ -34,13 +34,13 @@ W anubis_mldsa_types%s	anubis_mldsa_types.ads	anubis_mldsa_types.ali
 D ada.ads		20240808082856 76789da1 ada%s
 D a-assert.ads		20240808082856 ba465f5c ada.assertions%s
 D a-unccon.ads		20240808082856 0e9b276f ada.unchecked_conversion%s
-D anubis_mldsa_config.ads  20251205141650 21404e58 anubis_mldsa_config%s
-D anubis_mldsa_field.ads  20251205160739 b52aaacb anubis_mldsa_field%s
-D anubis_mldsa_field.adb  20251205160731 1c60055c anubis_mldsa_field%b
-D anubis_mldsa_poly.ads	20251205160827 63d6cf5b anubis_mldsa_poly%s
-D anubis_mldsa_poly.adb	20251205161452 dc162a9b anubis_mldsa_poly%b
-D anubis_mldsa_types.ads  20251204160229 b08dfc72 anubis_mldsa_types%s
-D anubis_types.ads	20251203093723 4fb35097 anubis_types%s
+D anubis_mldsa_config.ads  20251207191106 44e9e9a1 anubis_mldsa_config%s
+D anubis_mldsa_field.ads  20251207191106 b52aaacb anubis_mldsa_field%s
+D anubis_mldsa_field.adb  20251207191106 1c60055c anubis_mldsa_field%b
+D anubis_mldsa_poly.ads	20251207191106 63d6cf5b anubis_mldsa_poly%s
+D anubis_mldsa_poly.adb	20251207191106 dc162a9b anubis_mldsa_poly%b
+D anubis_mldsa_types.ads  20251207191106 b08dfc72 anubis_mldsa_types%s
+D anubis_types.ads	20251207191105 4fb35097 anubis_types%s
 D interfac.ads		20240808082856 9111f9c1 interfaces%s
 D system.ads		20240808082856 70765b54 system%s
 D s-assert.ads		20240808082856 9c4520c7 system.assertions%s
@@ -97,7 +97,7 @@ G r c none [vec_makehint_k anubis_mldsa_poly 157 14 none] [makehint anubis_mldsa
 G r c none [vec_usehint_k anubis_mldsa_poly 165 14 none] [freeze anubis_mldsa_field 95 13 none]
 G r c none [vec_usehint_k anubis_mldsa_poly 165 14 none] [usehint anubis_mldsa_field 134 13 none]
 X 4 anubis_mldsa_config.ads
-14K9*Anubis_MLDSA_Config 91e24 7|3w6 3r31
+14K9*Anubis_MLDSA_Config 94e24 7|3w6 3r31
 21N4*Q 7|22r56 31r56 37r51 52r56 8|22r53 39r53 50r44 77r61 78r42 81r53 170r29
 . 174r30 229r38 261r38
 24N4*N 8|298r35

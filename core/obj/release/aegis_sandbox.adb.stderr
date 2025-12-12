@@ -1,2 +1,0 @@
-aegis_sandbox.ads:224:17: warning: array aggregate using () is an obsolescent syntax, use [] instead [-gnatwj]
-clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]

@@ -28,7 +28,7 @@ W anubis_mldsa_field%s	anubis_mldsa_field.adb	anubis_mldsa_field.ali
 W interfaces%s		interfac.ads		interfac.ali
 Z system.assertions%s	s-assert.adb		s-assert.ali
 
-U anubis_mldsa_encoding%s  anubis_mldsa_encoding.ads  4d04fdb4 EE NE OO PK
+U anubis_mldsa_encoding%s  anubis_mldsa_encoding.ads  28ad5a4d EE NE OO PK
 W anubis_mldsa_config%s	anubis_mldsa_config.ads	anubis_mldsa_config.ali
 W anubis_mldsa_types%s	anubis_mldsa_types.ads	anubis_mldsa_types.ali
 W anubis_types%s	anubis_types.ads	anubis_types.ali
@@ -36,13 +36,13 @@ W anubis_types%s	anubis_types.ads	anubis_types.ali
 D ada.ads		20240808082856 76789da1 ada%s
 D a-assert.ads		20240808082856 ba465f5c ada.assertions%s
 D a-unccon.ads		20240808082856 0e9b276f ada.unchecked_conversion%s
-D anubis_mldsa_config.ads  20251205141650 21404e58 anubis_mldsa_config%s
-D anubis_mldsa_encoding.ads  20251205162200 937a1f09 anubis_mldsa_encoding%s
-D anubis_mldsa_encoding.adb  20251205171331 ddf687b6 anubis_mldsa_encoding%b
-D anubis_mldsa_field.ads  20251205160739 b52aaacb anubis_mldsa_field%s
-D anubis_mldsa_field.adb  20251205160731 1c60055c anubis_mldsa_field%b
-D anubis_mldsa_types.ads  20251204160229 b08dfc72 anubis_mldsa_types%s
-D anubis_types.ads	20251203093723 4fb35097 anubis_types%s
+D anubis_mldsa_config.ads  20251207191106 44e9e9a1 anubis_mldsa_config%s
+D anubis_mldsa_encoding.ads  20251207191106 937a1f09 anubis_mldsa_encoding%s
+D anubis_mldsa_encoding.adb  20251207191106 ddf687b6 anubis_mldsa_encoding%b
+D anubis_mldsa_field.ads  20251207191106 b52aaacb anubis_mldsa_field%s
+D anubis_mldsa_field.adb  20251207191106 1c60055c anubis_mldsa_field%b
+D anubis_mldsa_types.ads  20251207191106 b08dfc72 anubis_mldsa_types%s
+D anubis_types.ads	20251207191105 4fb35097 anubis_types%s
 D interfac.ads		20240808082856 9111f9c1 interfaces%s
 D system.ads		20240808082856 70765b54 system%s
 D s-assert.ads		20240808082856 9c4520c7 system.assertions%s
@@ -75,7 +75,7 @@ G r c none [pack_secret_key anubis_mldsa_encoding 104 14 none] [center anubis_ml
 G r c none [pack_signature anubis_mldsa_encoding 128 14 none] [freeze anubis_mldsa_field 95 13 none]
 G r c none [pack_signature anubis_mldsa_encoding 128 14 none] [center anubis_mldsa_field 100 13 none]
 X 4 anubis_mldsa_config.ads
-14K9*Anubis_MLDSA_Config 91e24 5|4w6 4r31
+14K9*Anubis_MLDSA_Config 94e24 5|4w6 4r31
 21N4*Q 6|198r60 272r55 277r59 282r59 287r59 292r59 297r59 302r59 307r59 374r53
 . 385r57
 24N4*N 6|690r26

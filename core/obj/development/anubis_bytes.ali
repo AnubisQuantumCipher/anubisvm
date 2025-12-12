@@ -26,11 +26,11 @@ RV NO_DYNAMIC_SIZED_OBJECTS
 RV NO_IMPLEMENTATION_ATTRIBUTES
 RV NO_IMPLEMENTATION_PRAGMAS
 
-U anubis_bytes%b	anubis_bytes.adb	b811d9f9 NE OO PK
+U anubis_bytes%b	anubis_bytes.adb	8feff9e3 NE OO PK
 Z system.assertions%s	s-assert.adb		s-assert.ali
 Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
 
-U anubis_bytes%s	anubis_bytes.ads	acbb0390 EE NE OO PK
+U anubis_bytes%s	anubis_bytes.ads	03933baa EE NE OO PK
 W anubis_types%s	anubis_types.ads	anubis_types.ali
 W anubis_word%s		anubis_word.adb		anubis_word.ali
 W interfaces%s		interfac.ads		interfac.ali
@@ -38,8 +38,8 @@ W interfaces%s		interfac.ads		interfac.ali
 D ada.ads		20240808082856 76789da1 ada%s
 D a-assert.ads		20240808082856 ba465f5c ada.assertions%s
 D a-unccon.ads		20240808082856 0e9b276f ada.unchecked_conversion%s
-D anubis_bytes.ads	20251207191105 9e5d5cad anubis_bytes%s
-D anubis_bytes.adb	20251207191105 264c8554 anubis_bytes%b
+D anubis_bytes.ads	20251209124541 31756497 anubis_bytes%s
+D anubis_bytes.adb	20251209130659 be9a9d74 anubis_bytes%b
 D anubis_types.ads	20251207191105 4fb35097 anubis_types%s
 D anubis_word.ads	20251207191105 ec44f66b anubis_word%s
 D anubis_word.adb	20251207191105 0525c282 anubis_word%b
@@ -59,10 +59,11 @@ G c Z s b [secure_zero anubis_bytes 35 14 none]
 G c Z s b [ct_is_zero anubis_bytes 39 13 none]
 G c Z s b [xor_arrays anubis_bytes 42 14 none]
 G c Z s b [and_arrays anubis_bytes 49 14 none]
+G c Z s b [encode_le64 anubis_bytes 54 14 none]
 G r c none [ct_less_than anubis_bytes 24 13 none] [ct_lt anubis_word 41 13 none]
 G r c none [ct_less_than anubis_bytes 24 13 none] [ct_gt anubis_word 48 13 none]
 X 4 anubis_bytes.ads
-7K9*Anubis_Bytes 52l5 52e17 5|3b14 150l5 150t17
+7K9*Anubis_Bytes 57l5 57e17 5|3b14 162l5 162t17
 18V13*CT_Equal{boolean} 18>23 18>26 20r15 5|9b13
 18a23 A{6|14A9} 19r14 20r34 5|9b23 12r16 13r38 14r38 16r27 16r47 16r73 18r27
 . 18r55
@@ -92,6 +93,9 @@ X 4 anubis_bytes.ads
 . 143r45 145m10 145r42 146r42
 49a54 A{6|14A9} 50r30 50r43 5|136b54 142r27 142r30 145r24 145r27
 49a57 B{6|14A9} 50r54 5|136b57 143r27 143r30 146r24 146r27
+54U14*Encode_LE64 54>27 54<48 5|151b14 160l8 160t19
+54m27 Value{9|84M9} 5|151b27 152r26
+54a48 Output{6|14A9} 55r14 5|151b48 157m10 157r18
 X 5 anubis_bytes.adb
 10m7 Diff{6|13M12} 15r34 18m10 18r18 22r14
 12i11 I{integer} 13r33 14r33 16r38 18r30 18r51
@@ -119,12 +123,14 @@ X 5 anubis_bytes.adb
 126i41 J{integer} 127r21 127r41 128r41
 138i11 I{integer} 139r33 140r33 141r62 145r18 145r38 146r38
 141i41 J{integer} 142r21 142r41 143r41
+152m7 V{9|84M9} 157r45 158m10 158r28
+155i11 I{integer} 156r33 157r33
 X 6 anubis_types.ads
 5K9*Anubis_Types 4|4w6 4r24 6|40e17
-13M12*Byte{9|70M9} 5|10r14 72r23 72r31 108r13
+13M12*Byte{9|70M9} 5|10r14 72r23 72r31 108r13 157r39
 14A9*Byte_Array(13M12)<integer> 4|18r30 24r34 29r50 29r68 35r38 39r32 42r42
-. 42r61 49r42 49r61 5|9r30 27r34 69r50 69r68 91r38 107r32 121r42 121r61 136r42
-. 136r61
+. 42r61 49r42 49r61 54r61 5|9r30 27r34 69r50 69r68 91r38 107r32 121r42 121r61
+. 136r42 136r61 151r61
 X 7 anubis_word.ads
 3K9*Anubis_Word 4|5w6 5r23 7|102e16
 21M9*Word 4|29r30 5|28r16 29r14 38r31 38r39 39r31 39r39 41r32 42r35 43r32
@@ -134,4 +140,6 @@ X 7 anubis_word.ads
 X 9 interfac.ads
 38K9*Interfaces 4|3w6 3r22 9|233e15
 70M9*Unsigned_8
+84M9*Unsigned_64 4|54r35 5|151r35 152r11
+171V13*Shift_Right{84M9} 5|158s15
 

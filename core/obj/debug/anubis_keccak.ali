@@ -30,8 +30,8 @@ W interfaces%s		interfac.ads		interfac.ali
 D ada.ads		20240808082856 76789da1 ada%s
 D a-assert.ads		20240808082856 ba465f5c ada.assertions%s
 D a-unccon.ads		20240808082856 0e9b276f ada.unchecked_conversion%s
-D anubis_keccak.ads	20251203171810 19b431a9 anubis_keccak%s
-D anubis_keccak.adb	20251203171933 7166a61a anubis_keccak%b
+D anubis_keccak.ads	20251207191105 19b431a9 anubis_keccak%s
+D anubis_keccak.adb	20251207191105 7166a61a anubis_keccak%b
 D interfac.ads		20240808082856 9111f9c1 interfaces%s
 D system.ads		20240808082856 70765b54 system%s
 D s-assert.ads		20240808082856 9c4520c7 system.assertions%s

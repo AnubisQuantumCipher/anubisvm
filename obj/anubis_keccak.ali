@@ -19,96 +19,124 @@ A -fPIC
 P ZX
 
 RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_IMPLICIT_CONDITIONALS
 RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
 RV NO_IMPLEMENTATION_PRAGMAS
 
-U anubis_keccak%b	anubis_keccak.adb	68d297b3 NE OO PK
+U anubis_keccak%b	anubis_keccak.adb	6281107e NE OO PK
 Z system.assertions%s	s-assert.adb		s-assert.ali
 
-U anubis_keccak%s	anubis_keccak.ads	88a5c868 EE NE OO PK
+U anubis_keccak%s	anubis_keccak.ads	22a1c410 NE OO PU PK
 W interfaces%s		interfac.ads		interfac.ali
 
 D ada.ads		20240808082856 76789da1 ada%s
 D a-assert.ads		20240808082856 ba465f5c ada.assertions%s
 D a-unccon.ads		20240808082856 0e9b276f ada.unchecked_conversion%s
-D anubis_keccak.ads	20251207191105 19b431a9 anubis_keccak%s
-D anubis_keccak.adb	20251207191105 7166a61a anubis_keccak%b
+D anubis_keccak.ads	20251211132252 b3b03dd1 anubis_keccak%s
+D anubis_keccak.adb	20251211132508 d1312daf anubis_keccak%b
 D interfac.ads		20240808082856 9111f9c1 interfaces%s
 D system.ads		20240808082856 70765b54 system%s
 D s-assert.ads		20240808082856 9c4520c7 system.assertions%s
 D s-exctab.ads		20240808082856 91bef6ef system.exception_table%s
 D s-stalib.ads		20240808082856 1c9580f6 system.standard_library%s
 G a e
-G c Z s s [Tround_constants_arrayBIP anubis_keccak 29 4 none]
-G c Z s s [Trho_offsets_arrayBIP anubis_keccak 42 4 none]
-G c Z s b [theta anubis_keccak 54 14 none]
-G c Z s b [rho anubis_keccak 61 14 none]
-G c Z s b [pi anubis_keccak 68 14 none]
-G c Z s b [chi anubis_keccak 88 14 none]
-G c Z s b [iota anubis_keccak 95 14 none]
-G c Z s b [keccak_f anubis_keccak 102 14 none]
-G c Z s s [Tstate_arrayBIP anubis_keccak 24 4 none]
+G c Z s s [state_is_valid anubis_keccak 46 13 none]
+G c Z s s [column_parity anubis_keccak 51 13 none]
+G c Z s s [only_lane_00_differs anubis_keccak 56 13 none]
+G c Z s s [iota_result anubis_keccak 63 13 none]
+G c Z s s [Tround_constants_arrayBIP anubis_keccak 72 4 none]
+G c Z s s [Trho_offsets_arrayBIP anubis_keccak 91 4 none]
+G c Z s b [theta anubis_keccak 116 14 none]
+G c Z s b [rho anubis_keccak 132 14 none]
+G c Z s b [pi anubis_keccak 147 14 none]
+G c Z s b [chi anubis_keccak 170 14 none]
+G c Z s b [iota anubis_keccak 188 14 none]
+G c Z s b [keccak_f anubis_keccak 216 14 none]
+G c Z s s [Tstate_arrayBIP anubis_keccak 36 4 none]
 X 4 anubis_keccak.ads
-16K9*Anubis_Keccak 107l5 107e18 5|3b14 150l5 150t18
-22M9*Lane 24r58 29r57 5|12r33 13r33 32r34 32r42 56r32 96r35 119r36 120r37
-. 121r36
-23I9*Lane_Index<short_short_integer> 24r31 24r43 42r37 42r49 5|12r18 13r18
-. 16r16 17r38 23r16 24r38 29r34 30r34 37r22 38r44 48r16 49r38 50r19 51r41
-. 68r16 69r38 70r19 71r41 79r35 79r49 80r35 96r20 98r16 99r38 102r19 103r41
-. 110r19 111r41 114r36 115r36
-24A9*State_Array(22M9)<23I9><23I9> 54r36 61r34 68r33 88r34 95r35 102r39 5|11r36
-. 46r34 65r33 66r14 95r34 131r35 137r39
-28I9*Round_Index<short_short_integer> 29r41 95r56 5|131r56 139r20 140r42
-29A9*Round_Constants_Array(22M9)<28I9> 31r31
-31a4*Round_Constants{29A9} 5|133r40
-42A9*Rho_Offsets_Array(natural)<23I9><23I9> 44r27
-44a4*Rho_Offsets{42A9} 5|54r76
-54U14*Theta 54=21 5|11b14 142s10
-54a21 State{24A9} 5|11b21 18r19 18r36 18r53 19r19 19r36 39m16 39r32
-61U14*Rho 61=19 5|46b14 143s10
-61a19 State{24A9} 5|46b19 53r67 56m16
-68U14*Pi 68=18 5|65b14 144s10
-68a18 State{24A9} 5|65b18 66r29 82m16
-88U14*Chi 88=19 5|95b14 145s10
-88a19 State{24A9} 5|95b19 104r24 124m16
-95U14*Iota 95=20 95>48 5|131b14 146s10
-95a20 State{24A9} 5|131b20 133m7 133r23
-95i48 Round{28I9} 5|131b48 133r57
-102U14*Keccak_F 102=24 5|137b14
-102a24 State{24A9} 5|137b24 142m17 143m15 144m14 145m15 146m16
+22K9*Anubis_Keccak 223l5 223e18 5|3b14 224l5 224t18
+34M9*Lane 36r58 51r68 63r71 72r57 5|21r33 22r33 43r34 43r42 80r32 140r35
+. 165r36 166r37 167r36
+35I9*Lane_Index<short_short_integer> 36r31 36r43 51r49 57r21 58r24 91r37
+. 91r49 5|21r18 22r18 25r16 26r38 33r16 34r38 40r34 41r34 48r22 49r44 70r16
+. 71r38 73r19 74r41 99r16 100r38 102r19 103r41 112r35 112r49 113r35 140r20
+. 142r16 143r38 147r19 148r41 155r19 156r41 160r36 161r36
+36A9*State_Array(34M9)<35I9><35I9> 46r33 51r32 56r50 63r30 116r36 132r34
+. 147r33 170r34 188r35 216r39 5|20r36 68r34 96r33 97r14 139r34 187r35 210r39
+39I9*Round_Index<short_short_integer> 63r51 72r41 188r56 5|187r56 212r20
+. 213r42
+46V13*State_Is_Valid{boolean} 46>29 119s18 120s18 135s18 136s18 150s18 151s18
+. 173s18 174s18 191s18 192s18 219s18 220s18 5|27s33 35s33 50s39 72s33 75s36
+. 101s33 104s36 144s33 157s36 214s33
+46a29 S{36A9}
+51V13*Column_Parity{34M9} 51>28 51>45
+51a28 S{36A9} 52r8 52r21 52r34 52r47 52r60
+51i45 X{35I9} 52r11 52r24 52r37 52r50 52r63
+56V13*Only_Lane_00_Differs{boolean} 56>35 56>42 193s18
+56a35 Old_S{36A9} 59r54
+56a42 New_S{36A9} 59r39
+57i16 X{35I9} 59r17 59r46 59r61
+58i19 Y{35I9} 59r27 59r49 59r64
+63V13*Iota_Result{34M9} 63>26 63>43
+63a26 S{36A9}
+63i43 Round{39I9}
+72A9*Round_Constants_Array(34M9)<39I9> 74r31
+74a4*Round_Constants{72A9} 194r55 5|189r40
+91A9*Rho_Offsets_Array(natural)<35I9><35I9> 93r27
+93a4*Rho_Offsets{91A9} 5|78r76
+116U14*Theta 116=21 5|20b14 216s10
+116a21 State{36A9} 118r19 118r28 119r34 120r34 5|20b21 27r49 28r19 28r36
+. 28r53 29r19 29r36 35r49 50r55 51m16 51r32
+132U14*Rho 132=19 5|68b14 217s10
+132a19 State{36A9} 134r19 134r28 135r34 136r34 5|68b19 72r49 75r52 77r67
+. 80m16
+147U14*Pi 147=18 5|96b14 218s10
+147a18 State{36A9} 149r19 149r28 150r34 151r34 5|96b18 97r29 101r49 104r52
+. 115m16
+170U14*Chi 170=19 5|139b14 219s10
+170a19 State{36A9} 172r19 172r28 173r34 174r34 5|139b19 144r49 149r24 157r52
+. 170m16
+188U14*Iota 188=20 188>48 5|187b14 220s10
+188a20 State{36A9} 190r19 190r29 191r34 192r34 193r40 193r51 194r18 194r34
+. 5|187b20 189m7 189r23
+188i48 Round{39I9} 190r36 194r72 5|187b48 189r57
+216U14*Keccak_F 216=24 5|210b14
+216a24 State{36A9} 218r19 218r28 219r34 220r34 5|210b24 214r49 216m17 217m15
+. 218m14 219m15 220m16
 X 5 anubis_keccak.adb
-12a7 C(4|22M9) 18m10 31r62 34r22
-13a7 D(4|22M9) 34m13 39r49
-16i11 X{4|23I9} 17r33 18r13 18r26 18r43 18r60 19r26 19r43
-23i11 X{4|23I9} 24r33 29r52 29r70 30r52 30r70 34r16 39r23 39r39 39r52
-29i13 X_Minus_1{4|23I9} 34r25
-30i13 X_Plus_1{4|23I9} 31r65
-31m13 C_As_U64{6|84M9} 32r61
-32m13 C_Rotated{4|22M9} 34r40
-37i17 Y{4|23I9} 38r39 39r26 39r42
-48i11 X{4|23I9} 49r33 53r74 54r89 56r23
-50i14 Y{4|23I9} 51r36 53r77 54r92 56r26
-53m16 Lane_As_U64{6|84M9} 54r63
-54m16 Rotated{6|84M9} 56r38
-66a7 Temp{4|24A9} 82r32
-68i11 X{4|23I9} 69r33 78r60 80r49 82r23
-70i14 Y{4|23I9} 71r36 77r59 82r26
-77i16 Three_Y{natural} 78r65
-78i16 X_Prime_Nat{natural} 79r61
-79i16 X_Prime{4|23I9} 82r38
-80i16 Y_Prime{4|23I9} 82r47
-96a7 Row(4|22M9) 104m13 119r48 120r45 124r32
-98i11 Y{4|23I9} 99r33 104r34 124r26
-102i14 X{4|23I9} 103r36 104r18 104r31
-110i14 X{4|23I9} 111r36 114r54 114r72 115r56 124r23 124r37
-114i16 X_Plus_1{4|23I9} 119r53
-115i16 X_Plus_2{4|23I9} 120r50
-119m16 Not_Next{4|22M9} 121r44
-120m16 Next_Next{4|22M9} 121r57
-121m16 Chi_Term{4|22M9} 124r44
-139i11 Round{4|28I9} 140r33 146r23
+21a7 C(4|34M9) 28m10 42r62 45r22
+22a7 D(4|34M9) 45m13 51r49
+25i11 X{4|35I9} 26r33 28r13 28r26 28r43 28r60 29r26 29r43
+33i11 X{4|35I9} 34r33 40r52 40r70 41r52 41r70 45r16 51r23 51r39 51r52
+40i13 X_Minus_1{4|35I9} 45r25
+41i13 X_Plus_1{4|35I9} 42r65
+42m13 C_As_U64{6|84M9} 43r61
+43m13 C_Rotated{4|34M9} 45r40
+48i17 Y{4|35I9} 49r39 51r26 51r42
+70i11 X{4|35I9} 71r33 77r74 78r89 80r23
+73i14 Y{4|35I9} 74r36 77r77 78r92 80r26
+77m16 Lane_As_U64{6|84M9} 78r63
+78m16 Rotated{6|84M9} 80r38
+97a7 Temp{4|36A9} 115r32
+99i11 X{4|35I9} 100r33 111r60 113r49 115r23
+102i14 Y{4|35I9} 103r36 110r59 115r26
+110i16 Three_Y{natural} 111r65
+111i16 X_Prime_Nat{natural} 112r61
+112i16 X_Prime{4|35I9} 115r38
+113i16 Y_Prime{4|35I9} 115r47
+140a7 Row(4|34M9) 149m13 165r48 166r45 170r32
+142i11 Y{4|35I9} 143r33 149r34 170r26
+147i14 X{4|35I9} 148r36 149r18 149r31
+155i14 X{4|35I9} 156r36 160r54 160r72 161r56 170r23 170r37
+160i16 X_Plus_1{4|35I9} 165r53
+161i16 X_Plus_2{4|35I9} 166r50
+165m16 Not_Next{4|34M9} 167r44
+166m16 Next_Next{4|34M9} 167r57
+167m16 Chi_Term{4|34M9} 170r44
+212i11 Round{4|39I9} 213r33 220r23
 X 6 interfac.ads
 38K9*Interfaces 4|3w6 3r22 6|233e15
-84M9*Unsigned_64 5|31r34 31r49 53r39 53r54 54r35
-181V13*Rotate_Left{84M9} 5|32s48 54s50
+84M9*Unsigned_64 5|42r34 42r49 77r39 77r54 78r35
+181V13*Rotate_Left{84M9} 5|43s48 78s50
 

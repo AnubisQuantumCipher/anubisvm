@@ -1,4 +1,0 @@
-khepri_recovery.adb:734:07: warning: formal parameter "Config" is not referenced [-gnatwf]
-khepri_recovery.ads:25:06: warning: no entities of "Anubis_Bytes" are referenced [-gnatwu]
-khepri_recovery.ads:25:20: warning: use clause for package "Anubis_Bytes" has no effect [-gnatwu]
-clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]

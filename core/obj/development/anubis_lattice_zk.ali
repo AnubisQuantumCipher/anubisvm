@@ -30,7 +30,7 @@ U anubis_lattice_zk%b	anubis_lattice_zk.adb	3fa17c03 NE OO PK
 W anubis_sha3%s		anubis_sha3.adb		anubis_sha3.ali
 Z system.assertions%s	s-assert.adb		s-assert.ali
 
-U anubis_lattice_zk%s	anubis_lattice_zk.ads	40750357 EE OO PK
+U anubis_lattice_zk%s	anubis_lattice_zk.ads	ef5d3b6d EE OO PK
 W anubis_bytes%s	anubis_bytes.adb	anubis_bytes.ali
 W anubis_types%s	anubis_types.ads	anubis_types.ali
 W interfaces%s		interfac.ads		interfac.ali
@@ -38,7 +38,7 @@ W interfaces%s		interfac.ads		interfac.ali
 D ada.ads		20240808082856 76789da1 ada%s
 D a-assert.ads		20240808082856 ba465f5c ada.assertions%s
 D a-unccon.ads		20240808082856 0e9b276f ada.unchecked_conversion%s
-D anubis_bytes.ads	20251207191105 9e5d5cad anubis_bytes%s
+D anubis_bytes.ads	20251209124541 31756497 anubis_bytes%s
 D anubis_keccak.ads	20251207191105 19b431a9 anubis_keccak%s
 D anubis_lattice_zk.ads	20251207191105 008af6ac anubis_lattice_zk%s
 D anubis_lattice_zk.adb	20251207191105 5658f73a anubis_lattice_zk%b
@@ -118,7 +118,7 @@ G r c none [expand_matrix anubis_lattice_zk 187 14 none] [sha3_256 anubis_sha3 5
 G r c none [sample_short anubis_lattice_zk 231 14 none] [sha3_256 anubis_sha3 57 14 none]
 G r c none [hash_ring_element anubis_lattice_zk 268 14 none] [sha3_256 anubis_sha3 57 14 none]
 X 4 anubis_bytes.ads
-7K9*Anubis_Bytes 52e17 6|22w6 22r24
+7K9*Anubis_Bytes 57e17 6|22w6 22r24
 X 6 anubis_lattice_zk.ads
 24K9*Anubis_Lattice_ZK 80r20 86r20 104r24 435l5 435e22 7|12b14 1114l5 1114t22
 32N4*N 54r37 388r39 7|20r45 41r21 50r21 59r21 68r21 80r21 81r24 83r24 90r36

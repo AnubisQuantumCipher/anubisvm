@@ -1,7 +1,0 @@
-anubis_chacha20_poly1305.adb:52:19: warning: array aggregate using () is an obsolescent syntax, use [] instead [-gnatwj]
-anubis_chacha20_poly1305.adb:56:35: warning: condition is always True [-gnatwc]
-anubis_chacha20_poly1305.adb:67:35: warning: condition is always True [-gnatwc]
-anubis_chacha20_poly1305.adb:104:21: warning: array aggregate using () is an obsolescent syntax, use [] instead [-gnatwj]
-anubis_chacha20_poly1305.adb:105:14: warning: array aggregate using () is an obsolescent syntax, use [] instead [-gnatwj]
-anubis_chacha20_poly1305.adb:158:20: warning: array aggregate using () is an obsolescent syntax, use [] instead [-gnatwj]
-clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]

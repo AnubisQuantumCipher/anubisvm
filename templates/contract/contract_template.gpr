@@ -1,0 +1,41 @@
+--  Contract Template Project File
+--  Replace "Contract_Template" with your contract name
+
+project Contract_Template is
+
+   for Source_Dirs use (".");
+   for Object_Dir use "obj";
+   for Exec_Dir use "bin";
+
+   --  Main entry point (optional - for standalone testing)
+   --  for Main use ("contract_template_main.adb");
+
+   --  SPARK Mode
+   package Compiler is
+      for Default_Switches ("Ada") use (
+         "-gnat2022",        --  Ada 2022
+         "-gnatwa",          --  All warnings
+         "-gnatwe",          --  Warnings as errors
+         "-gnata",           --  Enable assertions
+         "-gnatVa",          --  All validity checks
+         "-gnato13",         --  Overflow checks
+         "-gnatf",           --  Full error info
+         "-gnatQ"            --  Don't quit on errors
+      );
+   end Compiler;
+
+   --  SPARK Prove configuration
+   package Prove is
+      for Proof_Switches ("Ada") use (
+         "--level=2",
+         "--timeout=60",
+         "--warnings=continue"
+      );
+   end Prove;
+
+   --  Binder configuration
+   package Binder is
+      for Default_Switches ("Ada") use ("-Es");  --  Symbolic stack traces
+   end Binder;
+
+end Contract_Template;

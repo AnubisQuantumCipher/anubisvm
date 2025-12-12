@@ -26,9 +26,7 @@ with CVM_Types; use CVM_Types;
 --  - Return data is properly bounded
 
 package CVM_Interface with
-   SPARK_Mode => On,
-   Pure,
-   Always_Terminates
+   SPARK_Mode => On
 is
 
    ---------------------------------------------------------------------------

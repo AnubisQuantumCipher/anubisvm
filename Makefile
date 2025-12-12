@@ -55,7 +55,8 @@ setup:
 	fi
 	@echo ""
 	@echo "Fetching dependencies..."
-	@$(ALR) build --stop-after=dependency-resolution || true
+	@$(ALR) toolchain --select gnat_native 2>/dev/null || true
+	@$(ALR) update 2>/dev/null || true
 	@echo ""
 	@echo "Setup complete! Run 'make build' to compile."
 

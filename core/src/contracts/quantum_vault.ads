@@ -235,7 +235,7 @@ is
       Result  : out    Exec_Result
    ) with
       Global  => null,
-      Depends => (Result => (Context, State), State => State),
+      Depends => (Result => Context, State => State),
       Pre     => Is_Valid_Context (Context),
       Post    => Is_Valid_Exec_Result (Result);
 
@@ -275,7 +275,7 @@ is
       Result  : out    Exec_Result
    ) with
       Global  => null,
-      Depends => (Result => (Context, State), State => (Context, State)),
+      Depends => (Result => null, State => State, null => Context),
       Pre     => Is_Valid_Context (Context),
       Post    => Is_Valid_Exec_Result (Result);
 
@@ -291,7 +291,7 @@ is
       Result  : out    Exec_Result
    ) with
       Global  => null,
-      Depends => (Result => (Context, State), State => (Context, State)),
+      Depends => (Result => Context, State => (Context, State)),
       Pre     => Is_Valid_Context (Context),
       Post    => Is_Valid_Exec_Result (Result);
 
@@ -317,7 +317,7 @@ is
       Result  : out    Exec_Result
    ) with
       Global  => null,
-      Depends => (Result => (Context, State), State => State),
+      Depends => (Result => State, State => State, null => Context),
       Pre     => Is_Valid_Context (Context),
       Post    => Is_Valid_Exec_Result (Result);
 
@@ -333,14 +333,18 @@ is
       State       : out    State_Array;
       Success     : out    Boolean
    ) with
-      Global => null;
+      Global  => null,
+      Depends => ((State, Success) => Init_Params);
 
    procedure Execute (
       Context : in     Call_Context;
       State   : in Out State_Array;
       Result  : out    Exec_Result
    ) with
-      Global => null;
+      Global  => null,
+      Depends => ((Result, State) => (Context, State)),
+      Pre     => Is_Valid_Context (Context),
+      Post    => Is_Valid_Exec_Result (Result);
 
 private
 

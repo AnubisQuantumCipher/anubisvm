@@ -1,7 +1,0 @@
-aegis_u256.adb:110:14: warning: actuals for this call may be in wrong order [-gnatw.p]
-aegis_u256.adb:197:19: warning: condition can only be False if invalid values present [-gnatwc]
-aegis_u256.adb:197:19: warning: condition is always True [-gnatwc]
-aegis_u256.adb:534:41: warning: redundant conversion, "I" is of type "Natural" [-gnatwr]
-aegis_u256.adb:540:48: warning: redundant conversion, "I" is of type "Natural" [-gnatwr]
-aegis_u256.ads:47:39: warning: actuals for this call may be in wrong order [-gnatw.p]
-clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]

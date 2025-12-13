@@ -1,0 +1,8 @@
+[package]
+name = "sovereign_token"
+version = "0.1.0"
+[contract]
+entrypoint = "sovereign_token_main"
+target_level = "silver"
+[build]
+gpr_file = "sovereign_token.gpr"

@@ -1,7 +1,0 @@
-aegis_execution.adb:348:28: warning: can never be greater than, could replace by "=" [-gnatwc]
-aegis_execution.adb:383:07: warning: formal parameter "Success" is not referenced [-gnatwf]
-aegis_execution.adb:916:07: warning: formal parameter "Return_Data" is not referenced [-gnatwf]
-aegis_execution.ads:151:35: warning: aspect Unreferenced specified for "Ctx_After" [enabled by default]
-aegis_execution.ads:162:34: warning: aspect Unreferenced specified for "Ctx_After" [enabled by default]
-aegis_execution.ads:171:39: warning: aspect Unreferenced specified for "Ctx" [enabled by default]
-clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]

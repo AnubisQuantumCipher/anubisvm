@@ -55,9 +55,16 @@ is
 
    function Get_Deposit_Slot (Addr : Address) return State_Index is
       Hash : Natural := 0;
+      --  Maximum 32 bytes * 255 max byte value = 8160
+      Max_Hash : constant Natural := 8160;
    begin
       for I in Addr'Range loop
-         Hash := Hash + Natural (Addr (I));
+         pragma Loop_Invariant (I in Addr'Range);
+         pragma Loop_Invariant (Hash <= Max_Hash);
+         --  Each byte adds at most 255, guard ensures invariant preserved
+         if Hash <= Max_Hash - 255 then
+            Hash := Hash + Natural (Addr (I));
+         end if;
       end loop;
       return State_Index (Hash mod 96 + Natural (Deposit_Slots_Base));
    end Get_Deposit_Slot;
@@ -80,11 +87,42 @@ is
       Range_Size : Natural
    ) return State_Index is
       Hash : Natural := 0;
+      --  Maximum hash: 32 iterations * 255 * 33 (max I+1) = approx 270K
+      Max_Hash : constant Natural := 270_000;
+      Term : Natural;
    begin
+      --  Compute bounded hash to prevent overflow
       for I in Addr'Range loop
-         Hash := Hash + Natural (Addr (I)) * (I + 1);
+         pragma Loop_Invariant (I in Addr'Range);
+         pragma Loop_Invariant (Hash <= Max_Hash);
+
+         --  Compute term with overflow protection
+         --  I is in 0..31 for Address, so I + 1 <= 32
+         --  Term <= 255 * 32 = 8160
+         Term := Natural (Addr (I)) * ((I mod 32) + 1);
+
+         --  Add with overflow protection, ensuring invariant preserved
+         if Hash <= Max_Hash - 8160 then
+            Hash := Hash + Term;
+         end if;
       end loop;
-      return State_Index (Hash mod Range_Size + Natural (Base));
+
+      --  Compute final slot with bounds check
+      if Range_Size > 0 then
+         declare
+            Offset : constant Natural := Hash mod Range_Size;
+         begin
+            if Natural (Base) <= Natural'Last - Offset and then
+               Natural (Base) + Offset <= Natural (State_Index'Last)
+            then
+               return State_Index (Natural (Base) + Offset);
+            else
+               return Base;
+            end if;
+         end;
+      else
+         return Base;
+      end if;
    end Hash_To_Slot;
 
    procedure Record_Audit (

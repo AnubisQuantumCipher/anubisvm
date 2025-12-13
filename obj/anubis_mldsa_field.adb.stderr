@@ -1,4 +1,0 @@
-anubis_mldsa_field.adb:3:06: warning: redundant with clause in body [-gnatwr]
-anubis_mldsa_field.adb:3:18: warning: "Interfaces" is already use-visible through previous use_clause at anubis_mldsa_field.ads:3 [-gnatwr]
-anubis_mldsa_field.adb:3:18: warning: use clause for package "Interfaces" has no effect [-gnatwu]
-clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]

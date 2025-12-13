@@ -1,2 +1,0 @@
-khepri_state.adb:205:11: warning: "Aegis_U256" is already use-visible through previous use_clause at line 6 [-gnatwr]
-clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]

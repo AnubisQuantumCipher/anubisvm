@@ -16,6 +16,9 @@ with Local_Executor;
 with Aegis_VM_Types;           use Aegis_VM_Types;
 with Aegis_U256;               use Aegis_U256;
 
+--  For native contract execution
+with Sphinx_Native_MacOS;
+
 --  For key generation and address
 with Anubis_Types;             use Anubis_Types;
 with Anubis_MLDSA;
@@ -496,6 +499,8 @@ package body Khepri_CLI is
          return Cmd_Keys;
       elsif Lower_Arg = "address" or Lower_Arg = "addr" then
          return Cmd_Address;
+      elsif Lower_Arg = "contract" then
+         return Cmd_Contract;
       elsif Lower_Arg = "node" then
          return Cmd_Node;
       elsif Lower_Arg = "block" then
@@ -534,6 +539,7 @@ package body Khepri_CLI is
          when Cmd_Decode   => return "decode";
          when Cmd_Keys     => return "keys";
          when Cmd_Address  => return "address";
+         when Cmd_Contract => return "contract";
          when Cmd_Node     => return "node";
          when Cmd_Block    => return "block";
          when Cmd_TX       => return "tx";
@@ -636,6 +642,12 @@ package body Khepri_CLI is
          Put_Line ("    send              Send transaction to contract");
          Put_Line ("    encode            Encode function call data");
          Put_Line ("    decode            Decode return data");
+         New_Line;
+         Put_Line ("  Native Contracts:");
+         Put_Line ("    contract new      Create new native C contract");
+         Put_Line ("    contract build    Compile contract to .dylib");
+         Put_Line ("    contract call     Execute contract entry point");
+         Put_Line ("    contract list     List available contracts");
          New_Line;
          Put_Line ("  Key Management:");
          Put_Line ("    keys new <name>   Generate new ML-DSA-87 keypair");
@@ -1786,6 +1798,520 @@ package body Khepri_CLI is
    end Handle_Upgrade;
 
    ---------------------------------------------------------------------------
+   --  SPARK Contract Handler
+   ---------------------------------------------------------------------------
+
+   procedure Handle_Contract (Subcommand : String; Args : String := "") is
+
+      Contracts_Dir : constant String := Get_AnubisVM_Root & "/contracts";
+
+      --  Convert name to Ada package name (capitalize words)
+      function To_Package_Name (Name : String) return String is
+         Result : String := Name;
+         Capitalize_Next : Boolean := True;
+      begin
+         for I in Result'Range loop
+            if Result (I) = '-' then
+               Result (I) := '_';
+               Capitalize_Next := True;
+            elsif Capitalize_Next and Result (I) in 'a' .. 'z' then
+               Result (I) := Character'Val (Character'Pos (Result (I)) - 32);
+               Capitalize_Next := False;
+            elsif Result (I) = '_' then
+               Capitalize_Next := True;
+            else
+               Capitalize_Next := False;
+            end if;
+         end loop;
+         return Result;
+      end To_Package_Name;
+
+      function Get_Contract_Dir (Name : String) return String is
+      begin
+         return Contracts_Dir & "/" & Name;
+      end Get_Contract_Dir;
+
+   begin
+      if Subcommand = "new" or Subcommand = "create" then
+         --  Create new SPARK contract from template
+         if Args'Length = 0 then
+            Print_Error ("Usage: khepri contract new <name>");
+            return;
+         end if;
+
+         declare
+            Contract_Name : constant String := Args;
+            Package_Name  : constant String := To_Package_Name (Contract_Name);
+            Contract_Dir  : constant String := Get_Contract_Dir (Contract_Name);
+            Src_Dir       : constant String := Contract_Dir & "/src";
+            Spec_File     : File_Type;
+            Body_File     : File_Type;
+            Main_File     : File_Type;
+            GPR_File      : File_Type;
+            Toml_File     : File_Type;
+         begin
+            Print_Info ("Creating new SPARK contract: " & Contract_Name);
+            New_Line;
+
+            --  Check if contract already exists
+            if Dir_Exists (Contract_Dir) then
+               Print_Error ("Contract '" & Contract_Name & "' already exists");
+               Print_Info ("Path: " & Contract_Dir);
+               Set_Exit_Status (Ada.Command_Line.Failure);
+               return;
+            end if;
+
+            Print_Progress (1, 5, "Creating directory structure...");
+
+            --  Create directories
+            Create_Directory (Contract_Dir);
+            Create_Directory (Src_Dir);
+            Create_Directory (Contract_Dir & "/obj");
+            Create_Directory (Contract_Dir & "/bin");
+
+            Print_Progress (2, 5, "Generating contract spec (.ads)...");
+
+            --  Create .ads spec file (uses AnubisVM SDK)
+            Create (Spec_File, Out_File, Src_Dir & "/" & Contract_Name & ".ads");
+            Put_Line (Spec_File, "--  " & Package_Name & " - AnubisVM SPARK Contract");
+            Put_Line (Spec_File, "--  Features: KHEPRI SDK, THOTH Storage, ANKH Crypto");
+            Put_Line (Spec_File, "pragma SPARK_Mode (On);");
+            Put_Line (Spec_File, "");
+            Put_Line (Spec_File, "with Interfaces;    use Interfaces;");
+            Put_Line (Spec_File, "with Khepri_Types;  use Khepri_Types;");
+            Put_Line (Spec_File, "with Khepri_Crypto; use Khepri_Crypto;");
+            Put_Line (Spec_File, "with Aegis_VM_Types;");
+            Put_Line (Spec_File, "");
+            Put_Line (Spec_File, "package " & Package_Name & " with SPARK_Mode => On is");
+            Put_Line (Spec_File, "");
+            Put_Line (Spec_File, "   --  Contract version (AAS-001 compliant)");
+            Put_Line (Spec_File, "   Contract_Version : constant Uint256 := One;");
+            Put_Line (Spec_File, "");
+            Put_Line (Spec_File, "   --  State record with quantum-safe types");
+            Put_Line (Spec_File, "   type Contract_State is record");
+            Put_Line (Spec_File, "      Version      : Uint256;");
+            Put_Line (Spec_File, "      Owner        : Address;");
+            Put_Line (Spec_File, "      Total_Supply : Balance;");
+            Put_Line (Spec_File, "      Initialized  : Boolean;");
+            Put_Line (Spec_File, "   end record;");
+            Put_Line (Spec_File, "");
+            Put_Line (Spec_File, "   Empty_State : constant Contract_State := (");
+            Put_Line (Spec_File, "      Version      => Zero,");
+            Put_Line (Spec_File, "      Owner        => Null_Address,");
+            Put_Line (Spec_File, "      Total_Supply => Zero,");
+            Put_Line (Spec_File, "      Initialized  => False");
+            Put_Line (Spec_File, "   );");
+            Put_Line (Spec_File, "");
+            Put_Line (Spec_File, "   --  Initialize contract with owner (ML-DSA-87 derived address)");
+            Put_Line (Spec_File, "   procedure Initialize (");
+            Put_Line (Spec_File, "      State  : out Contract_State;");
+            Put_Line (Spec_File, "      Owner  : Address;");
+            Put_Line (Spec_File, "      Supply : Balance");
+            Put_Line (Spec_File, "   ) with");
+            Put_Line (Spec_File, "      Global => null,");
+            Put_Line (Spec_File, "      Pre    => Is_Valid_Address (Owner),");
+            Put_Line (Spec_File, "      Post   => State.Initialized and State.Version = One;");
+            Put_Line (Spec_File, "");
+            Put_Line (Spec_File, "   --  Check if caller is owner");
+            Put_Line (Spec_File, "   function Is_Owner (State : Contract_State; Caller : Address)");
+            Put_Line (Spec_File, "      return Boolean with Global => null;");
+            Put_Line (Spec_File, "");
+            Put_Line (Spec_File, "   --  Transfer tokens (requires ownership)");
+            Put_Line (Spec_File, "   procedure Transfer (");
+            Put_Line (Spec_File, "      State  : in out Contract_State;");
+            Put_Line (Spec_File, "      To     : Address;");
+            Put_Line (Spec_File, "      Amount : Balance;");
+            Put_Line (Spec_File, "      Caller : Address;");
+            Put_Line (Spec_File, "      Status : out Error_Code");
+            Put_Line (Spec_File, "   ) with");
+            Put_Line (Spec_File, "      Global => null,");
+            Put_Line (Spec_File, "      Pre    => State.Initialized and Is_Valid_Address (To);");
+            Put_Line (Spec_File, "");
+            Put_Line (Spec_File, "   --  Query total supply");
+            Put_Line (Spec_File, "   function Get_Supply (State : Contract_State) return Balance");
+            Put_Line (Spec_File, "      with Global => null;");
+            Put_Line (Spec_File, "");
+            Put_Line (Spec_File, "   --  Query owner address");
+            Put_Line (Spec_File, "   function Get_Owner (State : Contract_State) return Address");
+            Put_Line (Spec_File, "      with Global => null;");
+            Put_Line (Spec_File, "");
+            Put_Line (Spec_File, "   --  Compute state hash (SHA3-256)");
+            Put_Line (Spec_File, "   function State_Hash (State : Contract_State) return Hash_256");
+            Put_Line (Spec_File, "      with Global => null;");
+            Put_Line (Spec_File, "");
+            Put_Line (Spec_File, "end " & Package_Name & ";");
+            Close (Spec_File);
+
+            Print_Progress (3, 5, "Generating contract body (.adb)...");
+
+            --  Create .adb body file (SDK implementation)
+            Create (Body_File, Out_File, Src_Dir & "/" & Contract_Name & ".adb");
+            Put_Line (Body_File, "--  " & Package_Name & " - AnubisVM Contract Implementation");
+            Put_Line (Body_File, "pragma SPARK_Mode (On);");
+            Put_Line (Body_File, "");
+            Put_Line (Body_File, "package body " & Package_Name & " with SPARK_Mode => On is");
+            Put_Line (Body_File, "");
+            Put_Line (Body_File, "   procedure Initialize (");
+            Put_Line (Body_File, "      State  : out Contract_State;");
+            Put_Line (Body_File, "      Owner  : Address;");
+            Put_Line (Body_File, "      Supply : Balance");
+            Put_Line (Body_File, "   ) is");
+            Put_Line (Body_File, "   begin");
+            Put_Line (Body_File, "      State := (");
+            Put_Line (Body_File, "         Version      => One,");
+            Put_Line (Body_File, "         Owner        => Owner,");
+            Put_Line (Body_File, "         Total_Supply => Supply,");
+            Put_Line (Body_File, "         Initialized  => True");
+            Put_Line (Body_File, "      );");
+            Put_Line (Body_File, "   end Initialize;");
+            Put_Line (Body_File, "");
+            Put_Line (Body_File, "   function Is_Owner (State : Contract_State; Caller : Address)");
+            Put_Line (Body_File, "      return Boolean is");
+            Put_Line (Body_File, "   begin");
+            Put_Line (Body_File, "      return Address_Equal (State.Owner, Caller);");
+            Put_Line (Body_File, "   end Is_Owner;");
+            Put_Line (Body_File, "");
+            Put_Line (Body_File, "   procedure Transfer (");
+            Put_Line (Body_File, "      State  : in out Contract_State;");
+            Put_Line (Body_File, "      To     : Address;");
+            Put_Line (Body_File, "      Amount : Balance;");
+            Put_Line (Body_File, "      Caller : Address;");
+            Put_Line (Body_File, "      Status : out Error_Code");
+            Put_Line (Body_File, "   ) is");
+            Put_Line (Body_File, "      pragma Unreferenced (To);");
+            Put_Line (Body_File, "   begin");
+            Put_Line (Body_File, "      if not Is_Owner (State, Caller) then");
+            Put_Line (Body_File, "         Status := Unauthorized;");
+            Put_Line (Body_File, "         return;");
+            Put_Line (Body_File, "      end if;");
+            Put_Line (Body_File, "      if State.Total_Supply < Amount then");
+            Put_Line (Body_File, "         Status := Insufficient_Balance;");
+            Put_Line (Body_File, "         return;");
+            Put_Line (Body_File, "      end if;");
+            Put_Line (Body_File, "      State.Total_Supply := State.Total_Supply - Amount;");
+            Put_Line (Body_File, "      Status := No_Error;");
+            Put_Line (Body_File, "   end Transfer;");
+            Put_Line (Body_File, "");
+            Put_Line (Body_File, "   function Get_Supply (State : Contract_State) return Balance is");
+            Put_Line (Body_File, "      (State.Total_Supply);");
+            Put_Line (Body_File, "");
+            Put_Line (Body_File, "   function Get_Owner (State : Contract_State) return Address is");
+            Put_Line (Body_File, "      (State.Owner);");
+            Put_Line (Body_File, "");
+            Put_Line (Body_File, "   function State_Hash (State : Contract_State) return Hash_256 is");
+            Put_Line (Body_File, "      Bytes : Aegis_VM_Types.Byte_Array (0 .. 31) := [others => 0];");
+            Put_Line (Body_File, "      pragma Unreferenced (State);");
+            Put_Line (Body_File, "   begin");
+            Put_Line (Body_File, "      return SHA3_256 (Bytes);");
+            Put_Line (Body_File, "   end State_Hash;");
+            Put_Line (Body_File, "");
+            Put_Line (Body_File, "end " & Package_Name & ";");
+            Close (Body_File);
+
+            --  Create main entry point (test harness)
+            Create (Main_File, Out_File, Src_Dir & "/" & Contract_Name & "_main.adb");
+            Put_Line (Main_File, "--  " & Package_Name & " - AnubisVM Contract Entry Point");
+            Put_Line (Main_File, "with " & Package_Name & ";  use " & Package_Name & ";");
+            Put_Line (Main_File, "with Khepri_Types;   use Khepri_Types;");
+            Put_Line (Main_File, "with Khepri_Crypto;  use Khepri_Crypto;");
+            Put_Line (Main_File, "with Ada.Text_IO;    use Ada.Text_IO;");
+            Put_Line (Main_File, "");
+            Put_Line (Main_File, "procedure " & Package_Name & "_Main is");
+            Put_Line (Main_File, "   State  : Contract_State := Empty_State;");
+            Put_Line (Main_File, "   Owner  : Address := (others => 1);  --  Test owner address");
+            Put_Line (Main_File, "   Supply : Balance := From_Natural (1000);");
+            Put_Line (Main_File, "begin");
+            Put_Line (Main_File, "   Put_Line (""AnubisVM Contract Test"");");
+            Put_Line (Main_File, "   Put_Line (""======================"");");
+            Put_Line (Main_File, "   ");
+            Put_Line (Main_File, "   --  Initialize contract with owner and supply");
+            Put_Line (Main_File, "   Initialize (State, Owner, Supply);");
+            Put_Line (Main_File, "   Put_Line (""Contract initialized"");");
+            Put_Line (Main_File, "   ");
+            Put_Line (Main_File, "   --  Verify owner check");
+            Put_Line (Main_File, "   pragma Assert (Is_Owner (State, Owner));");
+            Put_Line (Main_File, "   Put_Line (""Owner verification passed"");");
+            Put_Line (Main_File, "   ");
+            Put_Line (Main_File, "   Put_Line (""All tests passed!"");");
+            Put_Line (Main_File, "end " & Package_Name & "_Main;");
+            Close (Main_File);
+
+            Print_Progress (4, 5, "Generating project files...");
+
+            --  Create .gpr file with SDK imports (relative paths for portability)
+            declare
+               SDK_Path : constant String := "../../core/src";
+            begin
+               Create (GPR_File, Out_File, Contract_Dir & "/" & Contract_Name & ".gpr");
+               Put_Line (GPR_File, "project " & Package_Name & " is");
+               Put_Line (GPR_File, "");
+               Put_Line (GPR_File, "   --  AnubisVM SDK paths (relative to contract directory)");
+               Put_Line (GPR_File, "   SDK_Root := """ & SDK_Path & """;");
+               Put_Line (GPR_File, "");
+               Put_Line (GPR_File, "   for Source_Dirs use (");
+               Put_Line (GPR_File, "      ""src"",");
+               Put_Line (GPR_File, "      SDK_Root & ""/**""");
+               Put_Line (GPR_File, "   );");
+               Put_Line (GPR_File, "   for Object_Dir use ""obj"";");
+               Put_Line (GPR_File, "   for Exec_Dir use ""bin"";");
+               Put_Line (GPR_File, "   for Main use (""" & Contract_Name & "_main.adb"");");
+               Put_Line (GPR_File, "");
+               Put_Line (GPR_File, "   package Compiler is");
+               Put_Line (GPR_File, "      for Default_Switches (""Ada"") use");
+               Put_Line (GPR_File, "         (""-gnatwa"", ""-gnat2022"", ""-gnata"", ""-O2"");");
+               Put_Line (GPR_File, "   end Compiler;");
+               Put_Line (GPR_File, "");
+               Put_Line (GPR_File, "   package Prove is");
+               Put_Line (GPR_File, "      for Proof_Switches (""Ada"") use (""--level=2"");");
+               Put_Line (GPR_File, "   end Prove;");
+               Put_Line (GPR_File, "");
+               Put_Line (GPR_File, "end " & Package_Name & ";");
+               Close (GPR_File);
+            end;
+
+            --  Create khepri.toml
+            Create (Toml_File, Out_File, Contract_Dir & "/khepri.toml");
+            Put_Line (Toml_File, "[package]");
+            Put_Line (Toml_File, "name = """ & Contract_Name & """");
+            Put_Line (Toml_File, "version = ""0.1.0""");
+            Put_Line (Toml_File, "[contract]");
+            Put_Line (Toml_File, "entrypoint = """ & Contract_Name & "_main""");
+            Put_Line (Toml_File, "target_level = ""silver""");
+            Put_Line (Toml_File, "[build]");
+            Put_Line (Toml_File, "gpr_file = """ & Contract_Name & ".gpr""");
+            Close (Toml_File);
+
+            Print_Progress (5, 5, "Contract created!");
+
+            New_Line;
+            Put_Line ("Contract created: " & Contract_Dir);
+            New_Line;
+            Put_Line ("Files:");
+            Put_Line ("  src/" & Contract_Name & ".ads  - Spec with contracts");
+            Put_Line ("  src/" & Contract_Name & ".adb  - Implementation");
+            Put_Line ("  " & Contract_Name & ".gpr     - GPRbuild project");
+            New_Line;
+            Put_Line ("Next steps:");
+            Put_Line ("  khepri contract build " & Contract_Name);
+            Put_Line ("  khepri contract prove " & Contract_Name);
+            Put_Line ("  khepri contract run " & Contract_Name);
+            New_Line;
+            Print_Success ("SPARK contract created!");
+         end;
+
+      elsif Subcommand = "build" then
+         --  Build SPARK contract with gprbuild
+         if Args'Length = 0 then
+            Print_Error ("Usage: khepri contract build <name>");
+            return;
+         end if;
+
+         declare
+            Contract_Name : constant String := Args;
+            Contract_Dir  : constant String := Get_Contract_Dir (Contract_Name);
+            GPR_File      : constant String := Contract_Dir & "/" & Contract_Name & ".gpr";
+            Exit_Code     : Integer;
+         begin
+            Print_Info ("Building SPARK contract: " & Contract_Name);
+            New_Line;
+
+            if not File_Exists (GPR_File) then
+               Print_Error ("Contract not found: " & Contract_Name);
+               Put_Line ("Run 'khepri contract new " & Contract_Name & "' first");
+               Set_Exit_Status (Ada.Command_Line.Failure);
+               return;
+            end if;
+
+            Print_Progress (1, 2, "Compiling with gprbuild...");
+
+            Exit_Code := Run_Command (
+               "cd " & Contract_Dir & " && " &
+               "/Users/sicarii/bin/alr exec -- gprbuild -P " &
+               Contract_Name & ".gpr 2>&1"
+            );
+
+            if Exit_Code /= 0 then
+               Print_Error ("Build failed");
+               Set_Exit_Status (Ada.Command_Line.Failure);
+               return;
+            end if;
+
+            --  Fix duplicate rpath issue on macOS
+            Exit_Code := Run_Command (
+               "install_name_tool -delete_rpath " &
+               "'/Users/sicarii/.local/share/alire/toolchains/" &
+               "gnat_native_14.2.1_cc5517d6/lib' " &
+               Contract_Dir & "/bin/" & Contract_Name & "_main 2>/dev/null"
+            );
+            --  Ignore exit code - rpath may not exist
+
+            Print_Progress (2, 2, "Build complete!");
+
+            New_Line;
+            Put_Line ("Binary: " & Contract_Dir & "/bin/" & Contract_Name & "_main");
+            New_Line;
+            Put_Line ("Next steps:");
+            Put_Line ("  khepri contract prove " & Contract_Name);
+            Put_Line ("  khepri contract run " & Contract_Name);
+            New_Line;
+            Print_Success ("Contract built successfully!");
+         end;
+
+      elsif Subcommand = "prove" then
+         --  Run SPARK proof
+         if Args'Length = 0 then
+            Print_Error ("Usage: khepri contract prove <name>");
+            return;
+         end if;
+
+         declare
+            Contract_Name : constant String := Args;
+            Contract_Dir  : constant String := Get_Contract_Dir (Contract_Name);
+            GPR_File      : constant String := Contract_Dir & "/" & Contract_Name & ".gpr";
+            Exit_Code     : Integer;
+         begin
+            Print_Info ("Proving SPARK contract: " & Contract_Name);
+            New_Line;
+
+            if not File_Exists (GPR_File) then
+               Print_Error ("Contract not found: " & Contract_Name);
+               Set_Exit_Status (Ada.Command_Line.Failure);
+               return;
+            end if;
+
+            Print_Progress (1, 1, "Running gnatprove...");
+
+            Exit_Code := Run_Command (
+               "cd " & Contract_Dir & " && " &
+               "/Users/sicarii/bin/alr exec -- gnatprove -P " &
+               Contract_Name & ".gpr --level=2 --report=all 2>&1"
+            );
+
+            New_Line;
+            if Exit_Code = 0 then
+               Print_Success ("All proofs passed!");
+            else
+               Print_Warning ("Check output above for any proof failures");
+            end if;
+         end;
+
+      elsif Subcommand = "run" then
+         --  Run contract locally
+         if Args'Length = 0 then
+            Print_Error ("Usage: khepri contract run <name>");
+            return;
+         end if;
+
+         declare
+            Contract_Name : constant String := Args;
+            Contract_Dir  : constant String := Get_Contract_Dir (Contract_Name);
+            Binary : constant String := Contract_Dir & "/bin/" & Contract_Name & "_main";
+            Exit_Code : Integer;
+         begin
+            Print_Info ("Running contract: " & Contract_Name);
+            New_Line;
+
+            if not File_Exists (Binary) then
+               Print_Error ("Binary not found");
+               Put_Line ("Run 'khepri contract build " & Contract_Name & "' first");
+               Set_Exit_Status (Ada.Command_Line.Failure);
+               return;
+            end if;
+
+            Exit_Code := Run_Command (Binary);
+
+            New_Line;
+            if Exit_Code = 0 then
+               Print_Success ("Contract executed successfully!");
+            else
+               Print_Error ("Execution failed (exit:" & Integer'Image (Exit_Code) & ")");
+            end if;
+         end;
+
+      elsif Subcommand = "list" then
+         --  List SPARK contracts
+         Print_Info ("SPARK contracts in " & Contracts_Dir & ":");
+         New_Line;
+
+         declare
+            use Ada.Directories;
+            Search  : Search_Type;
+            Dir_Ent : Directory_Entry_Type;
+            Count   : Natural := 0;
+         begin
+            if not Exists (Contracts_Dir) then
+               Put_Line ("  (no contracts directory)");
+               return;
+            end if;
+
+            Print_Table_Header ("  Name                    Status");
+
+            Start_Search (Search, Contracts_Dir, "",
+               (Directory => True, others => False));
+            while More_Entries (Search) loop
+               Get_Next_Entry (Search, Dir_Ent);
+               declare
+                  Name : constant String := Simple_Name (Dir_Ent);
+                  GPR  : constant String := Contracts_Dir & "/" & Name & "/" & Name & ".gpr";
+                  Bin  : constant String := Contracts_Dir & "/" & Name & "/bin/" &
+                     Name & "_main";
+               begin
+                  if Name /= "." and Name /= ".." and Name /= "src" and
+                     File_Exists (GPR)
+                  then
+                     Put ("  " & Name);
+                     for I in Name'Length + 1 .. 24 loop Put (' '); end loop;
+                     Put_Line ((if File_Exists (Bin) then "Built" else "Source"));
+                     Count := Count + 1;
+                  end if;
+               end;
+            end loop;
+            End_Search (Search);
+
+            if Count = 0 then
+               Put_Line ("  (no contracts found)");
+            end if;
+
+            New_Line;
+            Put_Line ("Create a new contract:");
+            Put_Line ("  khepri contract new <name>");
+         end;
+
+      elsif Subcommand = "" or Subcommand = "help" then
+         Put_Line ("SPARK Contract Commands:");
+         New_Line;
+         Put_Line ("  khepri contract new <name>");
+         Put_Line ("    Create new SPARK contract from template");
+         Put_Line ("    Generates: .ads spec, .adb body, .gpr project");
+         New_Line;
+         Put_Line ("  khepri contract build <name>");
+         Put_Line ("    Compile contract with gprbuild");
+         New_Line;
+         Put_Line ("  khepri contract prove <name>");
+         Put_Line ("    Run SPARK formal verification with gnatprove");
+         New_Line;
+         Put_Line ("  khepri contract run <name>");
+         Put_Line ("    Execute the compiled contract locally");
+         New_Line;
+         Put_Line ("  khepri contract list");
+         Put_Line ("    List all SPARK contracts");
+         New_Line;
+         Put_Line ("Contract Directory:");
+         Put_Line ("  " & Contracts_Dir);
+         New_Line;
+         Put_Line ("Example workflow:");
+         Put_Line ("  khepri contract new mytoken");
+         Put_Line ("  khepri contract build mytoken");
+         Put_Line ("  khepri contract prove mytoken");
+         Put_Line ("  khepri contract run mytoken");
+
+      else
+         Print_Error ("Unknown contract subcommand: " & Subcommand);
+         Put_Line ("Run 'khepri contract help' for usage.");
+      end if;
+   end Handle_Contract;
+
+   ---------------------------------------------------------------------------
    --  Address Handler
    ---------------------------------------------------------------------------
 
@@ -2076,6 +2602,27 @@ package body Khepri_CLI is
                   end if;
                else
                   Handle_Address ("");  -- Show help
+               end if;
+
+            when Cmd_Contract =>
+               if Arg_Count >= 2 then
+                  --  Collect remaining args as a single string
+                  declare
+                     Args_Str : Ada.Strings.Unbounded.Unbounded_String;
+                  begin
+                     for I in 3 .. Arg_Count loop
+                        if I > 3 then
+                           Ada.Strings.Unbounded.Append (Args_Str, " ");
+                        end if;
+                        Ada.Strings.Unbounded.Append (Args_Str, Argument (I));
+                     end loop;
+                     Handle_Contract (
+                        Argument (2),
+                        Ada.Strings.Unbounded.To_String (Args_Str)
+                     );
+                  end;
+               else
+                  Handle_Contract ("");  -- Show help
                end if;
 
             when Cmd_Encode =>

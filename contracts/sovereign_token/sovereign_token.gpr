@@ -1,7 +1,7 @@
 project Sovereign_Token is
 
-   --  AnubisVM SDK paths
-   SDK_Root := "/Users/sicarii/anubisvm/core/src";
+   --  AnubisVM SDK paths (relative to contract directory)
+   SDK_Root := "../../core/src";
 
    for Source_Dirs use (
       "src",

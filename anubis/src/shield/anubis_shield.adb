@@ -2,6 +2,8 @@
 pragma SPARK_Mode (On);
 
 with Interfaces; use Interfaces;
+with Anubis_MLKEM;
+with Anubis_MLKEM_Types;
 
 package body Anubis_Shield with
    SPARK_Mode => On
@@ -405,7 +407,7 @@ is
    end Derive_AEAD_Key;
 
    ---------------------------------------------------------------------------
-   --  ML-KEM Stubs (use existing AegisVM implementation)
+   --  ML-KEM Implementation (using Anubis_MLKEM from core)
    ---------------------------------------------------------------------------
 
    procedure ML_KEM_Encapsulate (
@@ -414,18 +416,37 @@ is
       Ciphertext   : out ML_KEM_Ciphertext;
       Shared       : out Shared_Secret
    ) is
+      --  Map to Anubis_MLKEM types
+      EK : Anubis_MLKEM_Types.Encapsulation_Key;
+      Seed_M : Anubis_MLKEM_Types.Seed;
+      CT : Anubis_MLKEM_Types.MLKEM_Ciphertext;
+      SS : Anubis_MLKEM_Types.Shared_Secret;
    begin
-      --  Placeholder: real implementation would call aegis_mlkem_encaps
-      --  For now, derive from randomness and PK
-      Ciphertext := (others => 0);
-      Shared := (others => 0);
-
-      for I in 0 .. 31 loop
-         Shared (I) := Randomness (I) xor PK (I);
+      --  Copy public key to ML-KEM format
+      for I in EK'Range loop
+         EK (I) := PK (PK'First + I);
       end loop;
 
+      --  Extract randomness seed (first 32 bytes)
+      for I in Seed_M'Range loop
+         Seed_M (I) := Randomness (Randomness'First + I);
+      end loop;
+
+      --  Call real ML-KEM encapsulation
+      Anubis_MLKEM.Encaps (
+         EK       => EK,
+         Random_M => Seed_M,
+         SS       => SS,
+         CT       => CT
+      );
+
+      --  Copy results back
       for I in Ciphertext'Range loop
-         Ciphertext (I) := Randomness ((I mod 32) + 32) xor PK (I);
+         Ciphertext (I) := CT (I);
+      end loop;
+
+      for I in Shared'Range loop
+         Shared (I) := SS (I);
       end loop;
    end ML_KEM_Encapsulate;
 
@@ -435,14 +456,37 @@ is
       Shared       : out Shared_Secret;
       Success      : out Boolean
    ) is
+      --  Map to Anubis_MLKEM types
+      DK : Anubis_MLKEM_Types.Decapsulation_Key;
+      CT : Anubis_MLKEM_Types.MLKEM_Ciphertext;
+      SS : Anubis_MLKEM_Types.Shared_Secret;
    begin
-      --  Placeholder: real implementation would call aegis_mlkem_decaps
-      Shared := (others => 0);
-      Success := True;
-
-      for I in 0 .. 31 loop
-         Shared (I) := Ciphertext (I) xor SK (I);
+      --  Copy secret key to ML-KEM format
+      for I in DK'Range loop
+         DK (I) := SK (SK'First + I);
       end loop;
+
+      --  Copy ciphertext to ML-KEM format
+      for I in CT'Range loop
+         CT (I) := Ciphertext (Ciphertext'First + I);
+      end loop;
+
+      --  Call real ML-KEM decapsulation
+      --  Note: ML-KEM Decaps always succeeds (implicit rejection on invalid CT)
+      Anubis_MLKEM.Decaps (
+         DK => DK,
+         CT => CT,
+         SS => SS
+      );
+
+      --  Copy shared secret back
+      for I in Shared'Range loop
+         Shared (I) := SS (I);
+      end loop;
+
+      --  ML-KEM Decaps always succeeds due to implicit rejection
+      --  (invalid ciphertexts produce pseudorandom shared secrets)
+      Success := True;
    end ML_KEM_Decapsulate;
 
    ---------------------------------------------------------------------------
@@ -670,20 +714,72 @@ is
       Seed   : Byte_Array;
       Bundle : out User_Key_Bundle
    ) is
+      --  ML-KEM key generation seeds
+      Random_D : Anubis_MLKEM_Types.Seed;
+      Random_Z : Anubis_MLKEM_Types.Seed;
+      EK : Anubis_MLKEM_Types.Encapsulation_Key;
+      DK : Anubis_MLKEM_Types.Decapsulation_Key;
+
+      --  KDF labels for deriving viewing key and commit seed
+      View_Label : constant Byte_Array := (
+         16#56#, 16#49#, 16#45#, 16#57#, 16#2D#, 16#4B#, 16#45#, 16#59#  -- "VIEW-KEY"
+      );
+      Commit_Label : constant Byte_Array := (
+         16#43#, 16#4F#, 16#4D#, 16#4D#, 16#49#, 16#54#  -- "COMMIT"
+      );
    begin
-      --  Placeholder: real implementation would use proper key generation
+      --  Initialize output
       Bundle.KEM_Public := (others => 0);
       Bundle.KEM_Secret := (others => 0);
       Bundle.Viewing_Key := (others => 0);
       Bundle.Commit_Seed := (others => 0);
 
-      --  Derive keys from seed
-      for I in 0 .. 31 loop
-         Bundle.KEM_Public (I) := Seed (I);
-         Bundle.KEM_Secret (I) := Seed (I + 32);
-         Bundle.Viewing_Key (I) := Seed (I) xor Seed (I + 32);
-         Bundle.Commit_Seed (I) := Seed (I) xor 16#AA#;
+      --  Split 64-byte seed into two 32-byte seeds for ML-KEM KeyGen
+      --  Random_D: first 32 bytes (for key generation)
+      --  Random_Z: last 32 bytes (for implicit rejection)
+      for I in Random_D'Range loop
+         Random_D (I) := Seed (Seed'First + I);
       end loop;
+
+      for I in Random_Z'Range loop
+         Random_Z (I) := Seed (Seed'First + 32 + I);
+      end loop;
+
+      --  Generate ML-KEM-1024 keypair
+      Anubis_MLKEM.KeyGen (
+         Random_D => Random_D,
+         Random_Z => Random_Z,
+         EK       => EK,
+         DK       => DK
+      );
+
+      --  Copy keys to bundle
+      for I in Bundle.KEM_Public'Range loop
+         Bundle.KEM_Public (I) := EK (I);
+      end loop;
+
+      for I in Bundle.KEM_Secret'Range loop
+         Bundle.KEM_Secret (I) := DK (I);
+      end loop;
+
+      --  Derive viewing key from seed using KDF
+      --  This allows viewing key to be regenerated from master seed
+      declare
+         Seed_First_Half : constant Byte_Array (0 .. 31) :=
+            Seed (Seed'First .. Seed'First + 31);
+      begin
+         --  Use first 32 bytes of seed as input to KDF
+         Derive_AEAD_Key (Seed_First_Half, View_Label, Bundle.Viewing_Key);
+      end;
+
+      --  Derive commitment seed from seed using KDF
+      declare
+         Seed_Second_Half : constant Byte_Array (0 .. 31) :=
+            Seed (Seed'First + 32 .. Seed'First + 63);
+      begin
+         --  Use last 32 bytes of seed as input to KDF
+         Derive_AEAD_Key (Seed_Second_Half, Commit_Label, Bundle.Commit_Seed);
+      end;
    end Generate_Key_Bundle;
 
    procedure Serialize_Entry (

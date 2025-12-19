@@ -680,9 +680,14 @@ is
          return;
       end if;
 
-      --  Flash swap implementation would call the callback contract
-      --  and verify k invariant is maintained after callback returns
-      --  For now, this is a placeholder
+      --  Flash swap implementation requires callback contract infrastructure
+      --  Full implementation would:
+      --  1. Transfer requested tokens to recipient
+      --  2. Call callback contract with data parameter
+      --  3. Verify k invariant: (reserve0 + fee0) * (reserve1 + fee1) >= k_before
+      --  4. Revert if invariant violated
+      --
+      --  Not implemented: requires external contract call mechanism
       Error := Error_Flash_Callback_Failed;
    end Flash_Swap;
 
@@ -785,14 +790,19 @@ is
       Success : out    Boolean
    ) is
    begin
-      --  TWAP requires cumulative price tracking across blocks
-      --  Placeholder implementation
+      --  TWAP (Time-Weighted Average Price) requires cumulative price tracking
+      --  Full implementation would:
+      --  1. Store cumulative prices (price0 * timestamp) in pool state
+      --  2. Update on every swap/mint/burn
+      --  3. Calculate TWAP = (cumulative_price_now - cumulative_price_then) / time_elapsed
+      --
+      --  Current implementation returns spot price (reasonable fallback for testing)
       Price0 := U256_Zero;
       Price1 := U256_Zero;
       Success := False;
 
       if Pool /= Null_Pool and then Pools (Pool).Used then
-         --  Simple spot price for now (not true TWAP)
+         --  Return current spot prices (not time-weighted)
          Price0 := Get_Spot_Price (
             Pools (Pool).Reserves.Reserve0,
             Pools (Pool).Reserves.Reserve1

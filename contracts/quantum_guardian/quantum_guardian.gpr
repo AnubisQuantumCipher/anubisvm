@@ -1,0 +1,13 @@
+project Quantum_Guardian is
+   for Source_Dirs use ("src");
+   for Object_Dir use "obj";
+   for Exec_Dir use "bin";
+   for Main use ("quantum_guardian_main.adb");
+   package Compiler is
+      for Default_Switches ("Ada") use
+         ("-gnatwa", "-gnat2022", "-gnata", "-O2");
+   end Compiler;
+   package Prove is
+      for Proof_Switches ("Ada") use ("--level=2");
+   end Prove;
+end Quantum_Guardian;

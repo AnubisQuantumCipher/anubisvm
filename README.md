@@ -57,7 +57,6 @@ khepri version
 |--------|---------|
 | `khepri` | Contract development CLI |
 | `anubis-node` | Full blockchain node |
-| `khepri-local` | Local development node |
 
 Data directory: `~/.anubisvm/`
 
@@ -95,9 +94,6 @@ khepri send <address> <method> --args "<args>" --from <key> --gas <limit>
 ### Node Operations
 
 ```bash
-# Start local development node
-khepri-local
-
 # Initialize full node
 anubis-node init --home ~/.anubisvm
 
@@ -154,13 +150,10 @@ gnatprove -P my_contract.gpr --level=4
 ### Deploy (requires running node)
 
 ```bash
-# Start local node first
-khepri-local &
-
 # Generate deployer key
 khepri keys new deployer
 
-# Deploy contract
+# Deploy contract (connect to a running node)
 khepri deploy ./bin/my_contract_main --from deployer --gas 1000000
 ```
 

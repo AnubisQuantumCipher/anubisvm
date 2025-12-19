@@ -1,5 +1,0 @@
-test_ntt_mul.adb:2:06: warning: no entities of "Interfaces" are referenced [-gnatwu]
-test_ntt_mul.adb:2:18: warning: use clause for package "Interfaces" has no effect [-gnatwu]
-test_ntt_mul.adb:6:06: warning: no entities of "Anubis_MLDSA_Config" are referenced [-gnatwu]
-test_ntt_mul.adb:6:27: warning: use clause for package "Anubis_MLDSA_Config" has no effect [-gnatwu]
-clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]

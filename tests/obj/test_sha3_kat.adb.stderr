@@ -1,4 +1,0 @@
-test_sha3_kat.adb:59:09: warning: type "Test_Vector_256" is not referenced [-gnatwu]
-test_sha3_kat.adb:64:09: warning: type "Test_Vector_384" is not referenced [-gnatwu]
-test_sha3_kat.adb:69:09: warning: type "Test_Vector_512" is not referenced [-gnatwu]
-clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]

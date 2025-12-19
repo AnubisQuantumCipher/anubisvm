@@ -10,7 +10,7 @@ project Test_VM_Crypto is
    for Source_Dirs use (".");
    for Object_Dir use "../obj/tests";
    for Exec_Dir use "../bin";
-   for Main use ("test_vm_crypto_vertical.adb", "test_contract_e2e.adb");
+   for Main use ("test_vm_crypto_vertical.adb", "test_contract_e2e.adb", "test_crypto_syscall_integration.adb", "test_crypto_fuzzing.adb", "test_wcet_benchmark.adb");
 
    package Compiler is
       for Default_Switches ("Ada") use

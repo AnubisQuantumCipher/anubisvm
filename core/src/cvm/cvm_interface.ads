@@ -265,7 +265,9 @@ is
       Len  : Natural
    ) return Exec_Result with
       Global => null,
-      Pre    => Len <= Max_Return_Size and then Data'Length >= Len,
+      Pre    => Len <= Max_Return_Size and then
+                Data'Last < Natural'Last and then
+                Data'Length >= Len,
       Post   => Result_Is_Success (Success_Result'Result) and then
                 Success_Result'Result.Return_Len = Len;
 
@@ -289,9 +291,10 @@ is
       Offset : Natural
    ) with
       Global  => null,
-      Depends => (Buffer => (Value, Offset)),
-      Pre     => Buffer'Length >= Offset + 4 and then
-                 Buffer'Last < Natural'Last,
+      Depends => (Buffer =>+ (Value, Offset)),
+      Pre     => Buffer'Last < Natural'Last and then
+                 Offset <= Natural'Last - 4 and then
+                 Buffer'Length >= Offset + 4,
       Always_Terminates;
 
    --  Unpack_Natural: Deserialize natural from big-endian bytes
@@ -308,7 +311,8 @@ is
       Offset : Natural
    ) return Natural with
       Global => null,
-      Pre    => Buffer'Length >= Offset + 4 and then
-                Buffer'Last < Natural'Last;
+      Pre    => Buffer'Last < Natural'Last and then
+                Offset <= Natural'Last - 4 and then
+                Buffer'Length >= Offset + 4;
 
 end CVM_Interface;

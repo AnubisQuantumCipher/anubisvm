@@ -40,7 +40,7 @@ package ada_main is
    pragma Export (C, main, "main");
 
    type Version_32 is mod 2 ** 32;
-   u00001 : constant Version_32 := 16#0e47f028#;
+   u00001 : constant Version_32 := 16#d45520ed#;
    pragma Export (C, u00001, "test_mlkem_katB");
    u00002 : constant Version_32 := 16#30305195#;
    pragma Export (C, u00002, "system__standard_libraryB");
@@ -252,9 +252,9 @@ package ada_main is
    pragma Export (C, u00105, "system__stringsS");
    u00106 : constant Version_32 := 16#fcdf3530#;
    pragma Export (C, u00106, "system__file_control_blockS");
-   u00107 : constant Version_32 := 16#fe00c146#;
+   u00107 : constant Version_32 := 16#e48e5495#;
    pragma Export (C, u00107, "anubis_mlkemB");
-   u00108 : constant Version_32 := 16#0fe851b9#;
+   u00108 : constant Version_32 := 16#e1e682ac#;
    pragma Export (C, u00108, "anubis_mlkemS");
    u00109 : constant Version_32 := 16#19c7b4b2#;
    pragma Export (C, u00109, "anubis_configS");
@@ -270,9 +270,9 @@ package ada_main is
    pragma Export (C, u00114, "ada__assertionsB");
    u00115 : constant Version_32 := 16#cc3ec2fd#;
    pragma Export (C, u00115, "ada__assertionsS");
-   u00116 : constant Version_32 := 16#3175d113#;
+   u00116 : constant Version_32 := 16#ed97372f#;
    pragma Export (C, u00116, "anubis_mlkem_compressB");
-   u00117 : constant Version_32 := 16#68bed3d7#;
+   u00117 : constant Version_32 := 16#b3aa765d#;
    pragma Export (C, u00117, "anubis_mlkem_compressS");
    u00118 : constant Version_32 := 16#4763c32a#;
    pragma Export (C, u00118, "anubis_mlkem_typesS");
@@ -282,29 +282,29 @@ package ada_main is
    pragma Export (C, u00120, "anubis_mlkem_encodingB");
    u00121 : constant Version_32 := 16#049a9ea1#;
    pragma Export (C, u00121, "anubis_mlkem_encodingS");
-   u00122 : constant Version_32 := 16#061e731f#;
+   u00122 : constant Version_32 := 16#06718b21#;
    pragma Export (C, u00122, "anubis_mlkem_polyB");
-   u00123 : constant Version_32 := 16#a4cdd192#;
+   u00123 : constant Version_32 := 16#1754d7ec#;
    pragma Export (C, u00123, "anubis_mlkem_polyS");
    u00124 : constant Version_32 := 16#7c55654e#;
    pragma Export (C, u00124, "anubis_nttB");
    u00125 : constant Version_32 := 16#d34de1b7#;
    pragma Export (C, u00125, "anubis_nttS");
-   u00126 : constant Version_32 := 16#ce168d29#;
+   u00126 : constant Version_32 := 16#63c194a5#;
    pragma Export (C, u00126, "anubis_mlkem_sampleB");
-   u00127 : constant Version_32 := 16#32f9574c#;
+   u00127 : constant Version_32 := 16#a06e6e04#;
    pragma Export (C, u00127, "anubis_mlkem_sampleS");
-   u00128 : constant Version_32 := 16#88f42651#;
+   u00128 : constant Version_32 := 16#e10ad2c6#;
    pragma Export (C, u00128, "anubis_cbdB");
    u00129 : constant Version_32 := 16#027471d7#;
    pragma Export (C, u00129, "anubis_cbdS");
-   u00130 : constant Version_32 := 16#836bf0a8#;
+   u00130 : constant Version_32 := 16#edb09820#;
    pragma Export (C, u00130, "anubis_sha3B");
-   u00131 : constant Version_32 := 16#95c7bdbf#;
+   u00131 : constant Version_32 := 16#a4158c76#;
    pragma Export (C, u00131, "anubis_sha3S");
-   u00132 : constant Version_32 := 16#68d297b3#;
+   u00132 : constant Version_32 := 16#6281107e#;
    pragma Export (C, u00132, "anubis_keccakB");
-   u00133 : constant Version_32 := 16#88a5c868#;
+   u00133 : constant Version_32 := 16#22a1c410#;
    pragma Export (C, u00133, "anubis_keccakS");
    u00134 : constant Version_32 := 16#8f2423cb#;
    pragma Export (C, u00134, "system__memoryB");
@@ -426,24 +426,24 @@ package ada_main is
    --  anubis_config%s
    --  anubis_field%s
    --  anubis_field%b
-   --  anubis_types%s
-   --  anubis_mlkem_types%s
-   --  anubis_cbd%s
-   --  anubis_cbd%b
    --  anubis_keccak%s
    --  anubis_keccak%b
+   --  anubis_types%s
+   --  anubis_mlkem_types%s
+   --  anubis_sha3%s
+   --  anubis_sha3%b
+   --  anubis_cbd%s
+   --  anubis_cbd%b
    --  anubis_mlkem_compress%s
    --  anubis_mlkem_compress%b
    --  anubis_mlkem_encoding%s
    --  anubis_mlkem_encoding%b
+   --  anubis_mlkem_sample%s
+   --  anubis_mlkem_sample%b
    --  anubis_ntt%s
    --  anubis_ntt%b
    --  anubis_mlkem_poly%s
    --  anubis_mlkem_poly%b
-   --  anubis_sha3%s
-   --  anubis_sha3%b
-   --  anubis_mlkem_sample%s
-   --  anubis_mlkem_sample%b
    --  anubis_mlkem%s
    --  anubis_mlkem%b
    --  test_mlkem_kat%b

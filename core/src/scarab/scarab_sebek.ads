@@ -264,7 +264,17 @@ is
    ) return Boolean with
       Global => null;
 
-   --  Export share (encrypted for backup)
+   --  AEAD constants for share encryption (ChaCha20-Poly1305)
+   Share_Nonce_Size  : constant := 12;  -- 96-bit nonce
+   Share_Tag_Size    : constant := 16;  -- 128-bit auth tag
+   --  Encrypted share format:
+   --    [Nonce(12)] [Ciphertext(32)] [Tag(16)] [Verification(64)]
+   --  Total: 124 bytes minimum
+   Share_Export_Size : constant := Share_Nonce_Size + Share_Size +
+                                   Share_Tag_Size + Commitment_Size;
+
+   --  Export share (encrypted for backup using ChaCha20-Poly1305 AEAD)
+   --  The share value is encrypted; verification data is authenticated but not encrypted
    procedure Export_Share (
       Share          : Key_Share;
       Encryption_Key : Byte_Array;
@@ -273,7 +283,7 @@ is
    ) with
       Global => null,
       Pre => Encryption_Key'Length = 32
-             and Encrypted'Length >= Share_Size + 64;
+             and Encrypted'Length >= Share_Export_Size;
 
    ---------------------------------------------------------------------------
    --  Signing Protocol

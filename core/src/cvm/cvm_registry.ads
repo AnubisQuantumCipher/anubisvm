@@ -172,7 +172,8 @@ is
       State    : State_Array
    ) with
       Global => null,
-      Pre => Registry (Index).Occupied;
+      Pre => Registry (Index).Occupied,
+      Post => Registry (Index).Occupied;
 
    --  Count registered CVMs
    function CVM_Count (

@@ -17,27 +17,35 @@ is
       Index := 0;
       Found := False;
 
+      --  Guard against empty entry list
+      if Desc.Entry_Count = 0 then
+         return;
+      end if;
+
       for I in 0 .. Desc.Entry_Count - 1 loop
-         pragma Loop_Invariant (I >= 0 and I < Desc.Entry_Count);
+         pragma Loop_Invariant (I in 0 .. Desc.Entry_Count - 1);
          pragma Loop_Invariant (not Found);
 
-         --  Compare selector byte-by-byte
-         declare
-            Match : Boolean := True;
-         begin
-            for J in Selector'Range loop
-               pragma Loop_Invariant (J >= Selector'First);
-               if Selector (J) /= Desc.Entries (I).Selector (J) then
-                  Match := False;
-               end if;
-            end loop;
+         --  Check bounds before accessing
+         if I <= Desc.Entries'Last then
+            --  Compare selector byte-by-byte
+            declare
+               Match : Boolean := True;
+            begin
+               for J in Selector'Range loop
+                  pragma Loop_Invariant (J in Selector'Range);
+                  if Selector (J) /= Desc.Entries (I).Selector (J) then
+                     Match := False;
+                  end if;
+               end loop;
 
-            if Match then
-               Index := I;
-               Found := True;
-               return;
-            end if;
-         end;
+               if Match then
+                  Index := I;
+                  Found := True;
+                  return;
+               end if;
+            end;
+         end if;
       end loop;
    end Find_Entry_Point;
 
@@ -104,12 +112,17 @@ is
       Result.Status := Success;
       Result.Return_Len := Len;
 
-      for I in 0 .. Len - 1 loop
-         pragma Loop_Invariant (I >= 0 and I < Len);
-         if I <= Result.Return_Data'Last then
-            Result.Return_Data (I) := Data (Data'First + I);
-         end if;
-      end loop;
+      --  Guard against empty data
+      if Len > 0 then
+         for I in 0 .. Len - 1 loop
+            pragma Loop_Invariant (I in 0 .. Len - 1);
+            if I <= Result.Return_Data'Last and then
+               Data'First + I <= Data'Last
+            then
+               Result.Return_Data (I) := Data (Data'First + I);
+            end if;
+         end loop;
+      end if;
 
       return Result;
    end Success_Result;
@@ -121,11 +134,19 @@ is
       Offset : Natural
    ) is
       V : constant Unsigned_32 := Unsigned_32 (Value);
+      Idx : Natural;
    begin
-      Buffer (Buffer'First + Offset)     := Byte (Shift_Right (V, 24) and 16#FF#);
-      Buffer (Buffer'First + Offset + 1) := Byte (Shift_Right (V, 16) and 16#FF#);
-      Buffer (Buffer'First + Offset + 2) := Byte (Shift_Right (V, 8) and 16#FF#);
-      Buffer (Buffer'First + Offset + 3) := Byte (V and 16#FF#);
+      --  Initialize buffer first
+      Buffer := (others => 0);
+
+      --  Check bounds before writing
+      Idx := Buffer'First + Offset;
+      if Idx <= Buffer'Last and then Idx + 3 <= Buffer'Last then
+         Buffer (Idx)     := Byte (Shift_Right (V, 24) and 16#FF#);
+         Buffer (Idx + 1) := Byte (Shift_Right (V, 16) and 16#FF#);
+         Buffer (Idx + 2) := Byte (Shift_Right (V, 8) and 16#FF#);
+         Buffer (Idx + 3) := Byte (V and 16#FF#);
+      end if;
    end Pack_Natural;
 
    --  Unpack natural from 4-byte big-endian
@@ -133,17 +154,31 @@ is
       Buffer : Byte_Array;
       Offset : Natural
    ) return Natural is
-      B0 : constant Unsigned_32 := Unsigned_32 (Buffer (Buffer'First + Offset));
-      B1 : constant Unsigned_32 := Unsigned_32 (Buffer (Buffer'First + Offset + 1));
-      B2 : constant Unsigned_32 := Unsigned_32 (Buffer (Buffer'First + Offset + 2));
-      B3 : constant Unsigned_32 := Unsigned_32 (Buffer (Buffer'First + Offset + 3));
-      Result : constant Unsigned_32 :=
-         Shift_Left (B0, 24) or
-         Shift_Left (B1, 16) or
-         Shift_Left (B2, 8) or
-         B3;
+      Idx : constant Natural := Buffer'First + Offset;
+      B0, B1, B2, B3 : Unsigned_32;
+      Result : Unsigned_32;
    begin
-      return Natural (Result);
+      --  Guard against out-of-bounds access
+      if Idx > Buffer'Last or else Idx + 3 > Buffer'Last then
+         return 0;
+      end if;
+
+      B0 := Unsigned_32 (Buffer (Idx));
+      B1 := Unsigned_32 (Buffer (Idx + 1));
+      B2 := Unsigned_32 (Buffer (Idx + 2));
+      B3 := Unsigned_32 (Buffer (Idx + 3));
+
+      Result := Shift_Left (B0, 24) or
+                Shift_Left (B1, 16) or
+                Shift_Left (B2, 8) or
+                B3;
+
+      --  Constrain to Natural range
+      if Result > Unsigned_32 (Natural'Last) then
+         return Natural'Last;
+      else
+         return Natural (Result);
+      end if;
    end Unpack_Natural;
 
 end CVM_Interface;

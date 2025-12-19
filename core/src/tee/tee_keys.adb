@@ -7,6 +7,7 @@ with Anubis_MLKEM;
 with Anubis_MLKEM_Types;
 with Anubis_MLDSA;
 with Anubis_MLDSA_Types;
+with Anubis_Secure_Wipe;
 
 package body TEE_Keys with
    SPARK_Mode => On
@@ -26,29 +27,37 @@ is
       Success : out Boolean
    ) is
       Salt : KDF_Salt := Zero_Salt;
-      Attest_Seed : Byte_Array (0 .. 31);
-      KEM_Seed : Byte_Array (0 .. 63);
+      Attest_Seed : Byte_Array (0 .. 31) := (others => 0);
+      KEM_Seed : Byte_Array (0 .. 63) := (others => 0);
+      --  0-indexed copy of entropy for SHAKE256
+      Entropy_Copy : Byte_Array (0 .. Entropy'Length - 1) := (others => 0);
    begin
       Bundle := Empty_Bundle;
       Success := False;
 
+      --  Copy entropy to 0-indexed array (required by SHAKE256)
+      for I in Entropy'Range loop
+         pragma Loop_Invariant (I in Entropy'Range);
+         pragma Loop_Invariant (I - Entropy'First in Entropy_Copy'Range);
+         Entropy_Copy (I - Entropy'First) := Entropy (I);
+      end loop;
+
       --  Extract MSK from entropy using SHAKE256
       declare
-         MSK_Input : constant Byte_Array := Entropy;
          MSK_Out : Byte_Array (0 .. 31);
       begin
-         SHAKE256 (MSK_Input, MSK_Out, 32);
+         SHAKE256 (Entropy_Copy, MSK_Out, 32);
          Bundle.MSK := MSK_Out;
       end;
 
       --  Derive storage key
       Derive_Storage_Key (Bundle.MSK, Bundle.Storage);
 
-      --  Derive attestation key seed
+      --  Derive attestation key seed (using 0-indexed Entropy_Copy)
       Derive_Key (
          Master  => Bundle.MSK,
          Salt    => Salt,
-         Info    => Entropy (32 .. 47),  -- Use part of entropy as info
+         Info    => Entropy_Copy (32 .. 47),
          Context => Domain_Attest,
          Key     => Attest_Seed
       );
@@ -68,17 +77,18 @@ is
 
       --  Derive KEM key seed
       declare
-         KEM_Seed_1 : Byte_Array (0 .. 31);
-         KEM_Seed_2 : Byte_Array (0 .. 31);
+         KEM_Seed_1 : Byte_Array (0 .. 31) := (others => 0);
+         KEM_Seed_2 : Byte_Array (0 .. 31) := (others => 0);
       begin
          Derive_Key (
             Master  => Bundle.MSK,
             Salt    => Salt,
-            Info    => Entropy (48 .. 63),
+            Info    => Entropy_Copy (48 .. 63),
             Context => Domain_KEM,
             Key     => KEM_Seed_1
          );
-         SHAKE256 (Entropy, KEM_Seed_2, 32);
+         --  Use Entropy_Copy (0-indexed) for SHAKE256
+         SHAKE256 (Entropy_Copy, KEM_Seed_2, 32);
          KEM_Seed (0 .. 31) := KEM_Seed_1;
          KEM_Seed (32 .. 63) := KEM_Seed_2;
       end;
@@ -123,31 +133,33 @@ is
       SK       : out DSA_Secret_Key;
       Success  : out Boolean
    ) is
-      DSA_Seed : Anubis_MLDSA_Types.Seed;
-      DSA_PK : Anubis_MLDSA_Types.Public_Key;
-      DSA_SK : Anubis_MLDSA_Types.Secret_Key;
+      DSA_Seed : Anubis_MLDSA_Types.Seed := (others => 0);
+      DSA_PK : Anubis_MLDSA_Types.Public_Key := (others => 0);
+      DSA_SK : Anubis_MLDSA_Types.Secret_Key := (others => 0);
    begin
       PK := (others => 0);
       SK := (others => 0);
       Success := False;
 
-      --  Copy seed
+      --  Copy seed (Pre guarantees Seed'Length = 32)
       for I in DSA_Seed'Range loop
-         pragma Loop_Invariant (I >= DSA_Seed'First);
+         pragma Loop_Invariant (I in DSA_Seed'Range);
+         pragma Loop_Invariant (Seed'First + I <= Seed'Last);
          DSA_Seed (I) := Seed (Seed'First + I);
       end loop;
 
       --  Generate ML-DSA-87 keypair
       Anubis_MLDSA.KeyGen (DSA_Seed, DSA_PK, DSA_SK);
 
-      --  Copy keys to output
+      --  Copy keys to output (PK and DSA_PK have same range 0..2591)
       for I in DSA_PK'Range loop
-         pragma Loop_Invariant (I >= DSA_PK'First);
+         pragma Loop_Invariant (I in DSA_PK'Range);
          PK (I) := DSA_PK (I);
       end loop;
 
+      --  Copy secret key (SK and DSA_SK have same range 0..4031)
       for I in DSA_SK'Range loop
-         pragma Loop_Invariant (I >= DSA_SK'First);
+         pragma Loop_Invariant (I in DSA_SK'Range);
          SK (I) := DSA_SK (I);
       end loop;
 
@@ -161,23 +173,25 @@ is
       DK       : out KEM_Decaps_Key;
       Success  : out Boolean
    ) is
-      KEM_D : Anubis_MLKEM_Types.Seed;
-      KEM_Z : Anubis_MLKEM_Types.Seed;
-      KEM_EK_Out : Anubis_MLKEM_Types.Encapsulation_Key;
-      KEM_DK_Out : Anubis_MLKEM_Types.Decapsulation_Key;
+      KEM_D : Anubis_MLKEM_Types.Seed := (others => 0);
+      KEM_Z : Anubis_MLKEM_Types.Seed := (others => 0);
+      KEM_EK_Out : Anubis_MLKEM_Types.Encapsulation_Key := (others => 0);
+      KEM_DK_Out : Anubis_MLKEM_Types.Decapsulation_Key := (others => 0);
    begin
       EK := (others => 0);
       DK := (others => 0);
       Success := False;
 
-      --  Copy seeds
+      --  Copy seeds (Pre guarantees Seed'Length = 64)
       for I in KEM_D'Range loop
-         pragma Loop_Invariant (I >= KEM_D'First);
+         pragma Loop_Invariant (I in KEM_D'Range);
+         pragma Loop_Invariant (Seed'First + I <= Seed'Last);
          KEM_D (I) := Seed (Seed'First + I);
       end loop;
 
       for I in KEM_Z'Range loop
-         pragma Loop_Invariant (I >= KEM_Z'First);
+         pragma Loop_Invariant (I in KEM_Z'Range);
+         pragma Loop_Invariant (Seed'First + 32 + I <= Seed'Last);
          KEM_Z (I) := Seed (Seed'First + 32 + I);
       end loop;
 
@@ -186,12 +200,12 @@ is
 
       --  Copy keys to output
       for I in KEM_EK_Out'Range loop
-         pragma Loop_Invariant (I >= KEM_EK_Out'First);
+         pragma Loop_Invariant (I in KEM_EK_Out'Range);
          EK (I) := KEM_EK_Out (I);
       end loop;
 
       for I in KEM_DK_Out'Range loop
-         pragma Loop_Invariant (I >= KEM_DK_Out'First);
+         pragma Loop_Invariant (I in KEM_DK_Out'Range);
          DK (I) := KEM_DK_Out (I);
       end loop;
 
@@ -258,25 +272,25 @@ is
       Tag        : out Byte_Array;
       Success    : out Boolean
    ) is
-      Local_Key : Anubis_AEAD.AEAD_Key;
-      Local_Nonce : Anubis_AEAD.AEAD_Nonce;
-      Local_Tag : Anubis_AEAD.AEAD_Tag;
+      Local_Key : Anubis_AEAD.AEAD_Key := (others => 0);
+      Local_Nonce : Anubis_AEAD.AEAD_Nonce := (others => 0);
+      Local_Tag : Anubis_AEAD.AEAD_Tag := (others => 0);
       Empty_AAD : constant Byte_Array (0 .. 0) := (others => 0);
    begin
       Ciphertext := (others => 0);
       Tag := (others => 0);
       Success := False;
 
-      --  Copy key
-      for I in Key'Range loop
-         pragma Loop_Invariant (I >= Key'First);
-         Local_Key (I - Key'First) := Key (I);
+      --  Copy key (Key'Length = 32, Local_Key'Range = 0..31)
+      for I in 0 .. 31 loop
+         pragma Loop_Invariant (I in 0 .. 31);
+         Local_Key (I) := Key (Key'First + I);
       end loop;
 
-      --  Copy nonce
-      for I in Nonce'Range loop
-         pragma Loop_Invariant (I >= Nonce'First);
-         Local_Nonce (I - Nonce'First) := Nonce (I);
+      --  Copy nonce (Nonce'Length = 24, Local_Nonce'Range = 0..23)
+      for I in 0 .. 23 loop
+         pragma Loop_Invariant (I in 0 .. 23);
+         Local_Nonce (I) := Nonce (Nonce'First + I);
       end loop;
 
       --  Encrypt
@@ -289,9 +303,9 @@ is
          Tag        => Local_Tag
       );
 
-      --  Copy tag
-      for I in Local_Tag'Range loop
-         pragma Loop_Invariant (I >= Local_Tag'First);
+      --  Copy tag (Local_Tag'Range = 0..31, Tag'Length = 32)
+      for I in 0 .. 31 loop
+         pragma Loop_Invariant (I in 0 .. 31);
          Tag (Tag'First + I) := Local_Tag (I);
       end loop;
 
@@ -307,29 +321,29 @@ is
       Plaintext  : out Byte_Array;
       Success    : out Boolean
    ) is
-      Local_Key : Anubis_AEAD.AEAD_Key;
-      Local_Nonce : Anubis_AEAD.AEAD_Nonce;
-      Local_Tag : Anubis_AEAD.AEAD_Tag;
+      Local_Key : Anubis_AEAD.AEAD_Key := (others => 0);
+      Local_Nonce : Anubis_AEAD.AEAD_Nonce := (others => 0);
+      Local_Tag : Anubis_AEAD.AEAD_Tag := (others => 0);
       Empty_AAD : constant Byte_Array (0 .. 0) := (others => 0);
    begin
       Plaintext := (others => 0);
       Success := False;
 
-      --  Copy key
-      for I in Key'Range loop
-         pragma Loop_Invariant (I >= Key'First);
-         Local_Key (I - Key'First) := Key (I);
-      end loop;
-
-      --  Copy nonce
-      for I in Nonce'Range loop
-         pragma Loop_Invariant (I >= Nonce'First);
-         Local_Nonce (I - Nonce'First) := Nonce (I);
-      end loop;
-
-      --  Copy tag
+      --  Copy key (Key'Length = 32, Local_Key'Range = 0..31)
       for I in 0 .. 31 loop
-         pragma Loop_Invariant (I >= 0);
+         pragma Loop_Invariant (I in 0 .. 31);
+         Local_Key (I) := Key (Key'First + I);
+      end loop;
+
+      --  Copy nonce (Nonce'Length = 24, Local_Nonce'Range = 0..23)
+      for I in 0 .. 23 loop
+         pragma Loop_Invariant (I in 0 .. 23);
+         Local_Nonce (I) := Nonce (Nonce'First + I);
+      end loop;
+
+      --  Copy tag (Tag'Length = 32, Local_Tag'Range = 0..31)
+      for I in 0 .. 31 loop
+         pragma Loop_Invariant (I in 0 .. 31);
          Local_Tag (I) := Tag (Tag'First + I);
       end loop;
 
@@ -351,20 +365,20 @@ is
       CT : KEM_Ciphertext;
       SS : out KEM_Shared_Secret
    ) is
-      KEM_DK : Anubis_MLKEM_Types.Decapsulation_Key;
-      KEM_CT : Anubis_MLKEM_Types.MLKEM_Ciphertext;
-      KEM_SS : Anubis_MLKEM_Types.Shared_Secret;
+      KEM_DK : Anubis_MLKEM_Types.Decapsulation_Key := (others => 0);
+      KEM_CT : Anubis_MLKEM_Types.MLKEM_Ciphertext := (others => 0);
+      KEM_SS : Anubis_MLKEM_Types.Shared_Secret := (others => 0);
    begin
       SS := (others => 0);
 
-      --  Copy inputs
+      --  Copy inputs (same ranges)
       for I in KEM_DK'Range loop
-         pragma Loop_Invariant (I >= KEM_DK'First);
+         pragma Loop_Invariant (I in KEM_DK'Range);
          KEM_DK (I) := DK (I);
       end loop;
 
       for I in KEM_CT'Range loop
-         pragma Loop_Invariant (I >= KEM_CT'First);
+         pragma Loop_Invariant (I in KEM_CT'Range);
          KEM_CT (I) := CT (I);
       end loop;
 
@@ -373,7 +387,7 @@ is
 
       --  Copy output
       for I in KEM_SS'Range loop
-         pragma Loop_Invariant (I >= KEM_SS'First);
+         pragma Loop_Invariant (I in KEM_SS'Range);
          SS (I) := KEM_SS (I);
       end loop;
    end Decapsulate;
@@ -385,22 +399,24 @@ is
       CT     : out KEM_Ciphertext;
       SS     : out KEM_Shared_Secret
    ) is
-      KEM_EK : Anubis_MLKEM_Types.Encapsulation_Key;
-      KEM_M : Anubis_MLKEM_Types.Seed;
-      KEM_CT : Anubis_MLKEM_Types.MLKEM_Ciphertext;
-      KEM_SS : Anubis_MLKEM_Types.Shared_Secret;
+      KEM_EK : Anubis_MLKEM_Types.Encapsulation_Key := (others => 0);
+      KEM_M : Anubis_MLKEM_Types.Seed := (others => 0);
+      KEM_CT : Anubis_MLKEM_Types.MLKEM_Ciphertext := (others => 0);
+      KEM_SS : Anubis_MLKEM_Types.Shared_Secret := (others => 0);
    begin
       CT := (others => 0);
       SS := (others => 0);
 
-      --  Copy inputs
+      --  Copy inputs (same ranges)
       for I in KEM_EK'Range loop
-         pragma Loop_Invariant (I >= KEM_EK'First);
+         pragma Loop_Invariant (I in KEM_EK'Range);
          KEM_EK (I) := EK (I);
       end loop;
 
+      --  Copy randomness (Pre guarantees Random'Length = 32)
       for I in KEM_M'Range loop
-         pragma Loop_Invariant (I >= KEM_M'First);
+         pragma Loop_Invariant (I in KEM_M'Range);
+         pragma Loop_Invariant (Random'First + I <= Random'Last);
          KEM_M (I) := Random (Random'First + I);
       end loop;
 
@@ -409,12 +425,12 @@ is
 
       --  Copy outputs
       for I in KEM_CT'Range loop
-         pragma Loop_Invariant (I >= KEM_CT'First);
+         pragma Loop_Invariant (I in KEM_CT'Range);
          CT (I) := KEM_CT (I);
       end loop;
 
       for I in KEM_SS'Range loop
-         pragma Loop_Invariant (I >= KEM_SS'First);
+         pragma Loop_Invariant (I in KEM_SS'Range);
          SS (I) := KEM_SS (I);
       end loop;
    end Encapsulate;
@@ -434,44 +450,28 @@ is
       Bundle.Initialized := False;
    end Zeroize_Bundle;
 
-   --  Zeroize MSK
+   --  Zeroize MSK (uses volatile writes to prevent dead-store elimination)
    procedure Zeroize_MSK (Key : in Out Master_Seal_Key) is
    begin
-      for I in Key'Range loop
-         pragma Loop_Invariant (I >= Key'First);
-         pragma Loop_Invariant (for all J in Key'First .. I - 1 => Key (J) = 0);
-         Key (I) := 0;
-      end loop;
+      Anubis_Secure_Wipe.Secure_Wipe_32 (Key);
    end Zeroize_MSK;
 
-   --  Zeroize session key
+   --  Zeroize session key (uses volatile writes)
    procedure Zeroize_Session (Key : in Out Session_Key) is
    begin
-      for I in Key'Range loop
-         pragma Loop_Invariant (I >= Key'First);
-         pragma Loop_Invariant (for all J in Key'First .. I - 1 => Key (J) = 0);
-         Key (I) := 0;
-      end loop;
+      Anubis_Secure_Wipe.Secure_Wipe_32 (Key);
    end Zeroize_Session;
 
-   --  Zeroize DSA secret key
+   --  Zeroize DSA secret key (4896 bytes, uses volatile writes)
    procedure Zeroize_DSA_SK (Key : in Out DSA_Secret_Key) is
    begin
-      for I in Key'Range loop
-         pragma Loop_Invariant (I >= Key'First);
-         pragma Loop_Invariant (for all J in Key'First .. I - 1 => Key (J) = 0);
-         Key (I) := 0;
-      end loop;
+      Anubis_Secure_Wipe.Secure_Wipe (Key);
    end Zeroize_DSA_SK;
 
-   --  Zeroize KEM decapsulation key
+   --  Zeroize KEM decapsulation key (3168 bytes, uses volatile writes)
    procedure Zeroize_KEM_DK (Key : in Out KEM_Decaps_Key) is
    begin
-      for I in Key'Range loop
-         pragma Loop_Invariant (I >= Key'First);
-         pragma Loop_Invariant (for all J in Key'First .. I - 1 => Key (J) = 0);
-         Key (I) := 0;
-      end loop;
+      Anubis_Secure_Wipe.Secure_Wipe (Key);
    end Zeroize_KEM_DK;
 
 end TEE_Keys;

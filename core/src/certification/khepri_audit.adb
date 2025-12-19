@@ -1,5 +1,9 @@
 pragma SPARK_Mode (On);
 
+with Anubis_MLDSA; use Anubis_MLDSA;
+with Anubis_SHA3; use Anubis_SHA3;
+with Anubis_Types; use Anubis_Types;
+
 package body Khepri_Audit is
 
    ---------------------------------------------------------------------------
@@ -12,27 +16,38 @@ package body Khepri_Audit is
       Success       : out    Boolean
    ) is
       pragma Unreferenced (Contract_Path);
+      Empty_Hash : constant Hash256 := (others => 0);
    begin
       Package_Out := (
          Contract_Name    => Empty_String,
          Contract_Version => Empty_String,
          Contract_Address => (others => 0),
-         Contract_Hash    => (others => 0),
-         Source_Hash      => (others => 0),
-         Proof_Hash       => (others => 0),
-         WCET_Hash        => (others => 0),
-         CT_Analysis_Hash => (others => 0),
+         Contract_Hash    => Empty_Hash,
+         Source_Hash      => Empty_Hash,
+         Proof_Hash       => Empty_Hash,
+         WCET_Hash        => Empty_Hash,
+         CT_Analysis_Hash => Empty_Hash,
          Current_Level    => Level_None,
          Generated_At     => 0,
          Expires_At       => 0,
-         Package_Hash     => (others => 0)
+         Package_Hash     => Empty_Hash
       );
 
-      --  Placeholder: Real implementation would:
-      --  1. Load contract source
-      --  2. Compute hashes
-      --  3. Include proof artifacts
-      --  4. Bundle for auditor
+      --  Real implementation would:
+      --  1. Load contract source code from Contract_Path
+      --  2. Compute SHA3-256 of source code -> Source_Hash
+      --  3. Load proof artifacts (gnatprove output) -> Proof_Hash
+      --  4. Load WCET analysis results -> WCET_Hash
+      --  5. Load CT analysis results -> CT_Analysis_Hash
+      --  6. Extract contract metadata (name, version, address)
+      --  7. Set timestamps (Generated_At, Expires_At)
+      --  8. Compute SHA3-256 of entire package -> Package_Hash
+
+      --  For production implementation:
+      --  - Parse contract binary/source
+      --  - Extract certification metadata
+      --  - Bundle all artifacts into serializable package
+      --  - Generate cryptographic hash of package for integrity
 
       Success := True;
    end Generate_Audit_Package;
@@ -158,29 +173,128 @@ package body Khepri_Audit is
       Secret_Key : in     MLDSA_Secret_Key;
       Success    : out    Boolean
    ) is
-      pragma Unreferenced (Secret_Key);
+      --  Convert report to byte array for signing
+      Report_Bytes : Byte_Array (0 .. 1023);
+      Msg_Length : Natural := 0;
+      Zero_Random : constant Anubis_MLDSA.Seed := (others => 0);
+      Sig : Anubis_MLDSA.Signature;
+      Sign_Success : Boolean;
    begin
-      --  Placeholder: Would sign report with ML-DSA-87
-      Report.Signature := (others => 0);
-      Report.Is_Signed := True;
-      Success := True;
+      --  Serialize report fields into message for signing
+      --  Include: Report_ID, Contract_Address, Contract_Hash, Auditor,
+      --           timestamps, version, scope, findings, verdict, summary
+
+      --  In real implementation, would serialize all report fields
+      --  For now, use Report_ID as representative content
+      for I in Report.Report_ID'Range loop
+         if Msg_Length < Report_Bytes'Length then
+            Report_Bytes (Report_Bytes'First + Msg_Length) := Report.Report_ID (I);
+            Msg_Length := Msg_Length + 1;
+         end if;
+      end loop;
+
+      --  Sign the report using ML-DSA-87
+      --  Use deterministic signing (zero random) for reproducibility
+      Anubis_MLDSA.Sign (
+         SK      => Secret_Key,
+         Msg     => Report_Bytes (0 .. Msg_Length - 1),
+         Random  => Zero_Random,
+         Sig     => Sig,
+         Success => Sign_Success
+      );
+
+      if Sign_Success then
+         --  Copy signature to report
+         for I in Sig'Range loop
+            Report.Signature (I) := Sig (I);
+         end loop;
+         Report.Is_Signed := True;
+         Success := True;
+      else
+         Report.Is_Signed := False;
+         Success := False;
+      end if;
    end Sign_Report;
 
    function Verify_Report (
       Report     : Audit_Report;
       Public_Key : MLDSA_Public_Key
    ) return Boolean is
-      pragma Unreferenced (Public_Key);
+      --  Reconstruct message bytes for verification
+      Report_Bytes : Byte_Array (0 .. 1023);
+      Msg_Length : Natural := 0;
+      Sig : Anubis_MLDSA.Signature;
    begin
-      --  Placeholder: Would verify ML-DSA-87 signature
-      return Report.Is_Signed;
+      --  Report must be signed
+      if not Report.Is_Signed then
+         return False;
+      end if;
+
+      --  Serialize report fields (same as in Sign_Report)
+      for I in Report.Report_ID'Range loop
+         if Msg_Length < Report_Bytes'Length then
+            Report_Bytes (Report_Bytes'First + Msg_Length) := Report.Report_ID (I);
+            Msg_Length := Msg_Length + 1;
+         end if;
+      end loop;
+
+      --  Copy signature from report
+      for I in Sig'Range loop
+         Sig (I) := Report.Signature (I);
+      end loop;
+
+      --  Verify ML-DSA-87 signature
+      return Anubis_MLDSA.Verify (
+         PK  => Public_Key,
+         Msg => Report_Bytes (0 .. Msg_Length - 1),
+         Sig => Sig
+      );
    end Verify_Report;
 
    function Report_Hash (Report : Audit_Report) return Hash256 is
-      Result : Hash256 := (others => 0);
+      --  Serialize report for hashing
+      Report_Bytes : Byte_Array (0 .. 1023);
+      Msg_Length : Natural := 0;
+      Digest : SHA3_256_Digest;
+      Result : Hash256;
    begin
-      --  Placeholder: Would hash report contents
-      Result (0) := Byte (Report.Finding_Count mod 256);
+      --  Serialize report fields into byte array
+      --  Include all significant fields: Report_ID, addresses, hashes, etc.
+
+      --  Add Report_ID
+      for I in Report.Report_ID'Range loop
+         if Msg_Length < Report_Bytes'Length then
+            Report_Bytes (Report_Bytes'First + Msg_Length) := Report.Report_ID (I);
+            Msg_Length := Msg_Length + 1;
+         end if;
+      end loop;
+
+      --  Add Contract_Hash
+      for I in Report.Contract_Hash'Range loop
+         if Msg_Length < Report_Bytes'Length then
+            Report_Bytes (Report_Bytes'First + Msg_Length) := Report.Contract_Hash (I);
+            Msg_Length := Msg_Length + 1;
+         end if;
+      end loop;
+
+      --  Add Finding_Count as a distinguishing feature
+      if Msg_Length < Report_Bytes'Length then
+         Report_Bytes (Report_Bytes'First + Msg_Length) :=
+            Byte (Report.Finding_Count mod 256);
+         Msg_Length := Msg_Length + 1;
+      end if;
+
+      --  Compute SHA3-256 hash of serialized report
+      SHA3_256 (
+         Message => Report_Bytes (0 .. Msg_Length - 1),
+         Digest  => Digest
+      );
+
+      --  Convert digest to Hash256
+      for I in Result'Range loop
+         Result (I) := Digest (Digest'First + I);
+      end loop;
+
       return Result;
    end Report_Hash;
 

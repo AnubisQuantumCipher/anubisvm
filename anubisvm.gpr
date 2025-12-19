@@ -5,10 +5,12 @@ project AnubisVM is
    for Object_Dir use "obj";
    for Exec_Dir use "core/bin";
    for Main use ("anubis_main.adb", "khepri_main.adb", "khepri_local_main.adb",
+                 "khepri_rpc_main.adb",
                  "test_ats20_token.adb", "test_quantum_vault.adb",
                  "test_kmac.adb", "test_aead.adb", "test_kdf.adb",
                  "test_cvm.adb", "test_anubis.adb", "test_state.adb",
-                 "test_tee.adb");
+                 "test_tee.adb", "test_sphinx_native.adb", "test_sphinx_macos.adb",
+                 "test_anubis_sovereign.adb", "test_sovereign_v2.adb");
    for Create_Missing_Dirs use "True";
 
    type Build_Mode_Type is ("development", "release", "prove");

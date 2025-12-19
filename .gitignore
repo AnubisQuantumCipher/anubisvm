@@ -1,13 +1,38 @@
 # Build artifacts
 obj/
 bin/
-lib/*.a
-lib/*.dylib
-lib/*.so
+lib/
 *.o
 *.ali
 *.gcda
 *.gcno
+*.cswi
+*.bexch
+*.stderr
+*.stdout
+*.lexch
+b__*.adb
+b__*.ads
+
+# Core library build artifacts
+core/obj/
+core/lib/
+core/bin/
+
+# Tests build artifacts
+tests/obj/
+tests/bin/
+
+# Anubis privacy layer
+anubis/obj/
+anubis/bin/
+
+# GNATprove artifacts
+gnatprove/
+
+# Contract build artifacts
+contracts/*/obj/
+contracts/*/bin/
 
 # Alire
 alire/cache/
@@ -19,6 +44,10 @@ alire/build/
 *.swp
 *.swo
 *~
+*.bak
+
+# AI/Tool artifacts
+.claude/
 
 # macOS
 .DS_Store
@@ -51,3 +80,9 @@ cosmos/aegisd
 .env
 .env.local
 config.local.toml
+
+# Sensitive key files
+BUILDER_KEYPAIR.txt
+*.sk
+*.key
+*_secret*

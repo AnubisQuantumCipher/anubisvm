@@ -149,7 +149,9 @@ is
 
       NFT.Github_PR_Hash := (others => 0);
       NFT.Minted_At := State.Current_Block;
-      NFT.Timestamp := 0;  --  Would be set from external timestamp
+      --  Calculate timestamp from block height (assuming 6-second blocks)
+      --  Estimate: blocks * 6 seconds = Unix timestamp offset from genesis
+      NFT.Timestamp := State.Current_Block * 6;
       NFT.Verified := False;
       NFT.Verifier_PK := (others => 0);
       NFT.Verification_Sig := (others => 0);
@@ -509,7 +511,8 @@ is
          Stats.Avg_VCs_Per_NFT := 0;
       end if;
 
-      Stats.Weekly_Updates := 0;  --  Would count from NFTs
+      --  Count weekly update NFTs from the collection
+      Stats.Weekly_Updates := Unsigned_32 (Weekly_NFT_Counter);
       Stats.Milestones_Hit := Natural (State.Category_Counts (Milestone));
       Stats.First_Mint_Block := State.Genesis_Block;
       Stats.Last_Mint_Block := State.Current_Block;

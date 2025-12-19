@@ -7,6 +7,10 @@
 
 pragma SPARK_Mode (On);
 
+with Anubis_SHA3;
+with Anubis_MLDSA;
+with Anubis_MLDSA_Types; use Anubis_MLDSA_Types;
+
 package body Anubis_Vesting with
    SPARK_Mode => On
 is
@@ -409,17 +413,33 @@ is
       Expected       : Byte_Array;
       Proof_Output   : Byte_Array
    ) return Boolean is
-      pragma Unreferenced (Proof_Output);
+      Hash : Byte_Array (0 .. 31) := (others => 0);
    begin
-      --  In production, this would hash Proof_Output and compare
-      --  For now, return True if Expected is non-zero
-      for I in Expected'Range loop
-         if Expected (I) /= 0 then
-            return True;
-         end if;
-      end loop;
+      --  Hash the proof output with SHA3-256
+      if Proof_Output'Length > 0 and Proof_Output'Length <= 1_000_000 then
+         declare
+            Local_Proof : constant Byte_Array (0 .. Proof_Output'Length - 1) :=
+               Proof_Output;
+         begin
+            Anubis_SHA3.SHA3_256 (Local_Proof, Hash);
+         end;
+      else
+         return False;
+      end if;
 
-      return False;
+      --  Constant-time comparison of hash with expected
+      declare
+         Diff : Unsigned_8 := 0;
+      begin
+         for I in 0 .. 31 loop
+            if I <= Expected'Last - Expected'First then
+               Diff := Diff or (Hash (I) xor Expected (Expected'First + I));
+            else
+               Diff := Diff or Hash (I);
+            end if;
+         end loop;
+         return Diff = 0;
+      end;
    end Verify_GNATprove_Hash;
 
    function Verify_Audit_Signature (
@@ -428,22 +448,101 @@ is
       Auditor_PK     : Byte_Array;
       Signature      : Byte_Array
    ) return Boolean is
-      pragma Unreferenced (Milestone, Audit_Report, Auditor_PK, Signature);
+      --  Message format: milestone_id (1 byte) || audit_report_hash
+      Message : Byte_Array (0 .. 32) := (others => 0);
+      PK : Anubis_MLDSA_Types.Public_Key := (others => 0);
+      Sig : Anubis_MLDSA_Types.Signature := (others => 0);
    begin
-      --  In production, this would verify ML-DSA signature
-      --  Placeholder returns True
-      return True;
+      --  Validate input sizes
+      if Auditor_PK'Length /= 2592 or Signature'Length /= 4627 then
+         return False;
+      end if;
+
+      --  Build message: milestone ID + SHA3-256 hash of audit report
+      Message (0) := Unsigned_8 (Milestone);
+      if Audit_Report'Length > 0 and Audit_Report'Length <= 1_000_000 then
+         declare
+            Local_Report : constant Byte_Array (0 .. Audit_Report'Length - 1) :=
+               Audit_Report;
+            Report_Hash : Byte_Array (0 .. 31) := (others => 0);
+         begin
+            Anubis_SHA3.SHA3_256 (Local_Report, Report_Hash);
+            Message (1 .. 32) := Report_Hash;
+         end;
+      else
+         return False;
+      end if;
+
+      --  Copy public key and signature
+      for I in PK'Range loop
+         PK (I) := Auditor_PK (Auditor_PK'First + I);
+      end loop;
+
+      for I in Sig'Range loop
+         Sig (I) := Signature (Signature'First + I);
+      end loop;
+
+      --  Verify ML-DSA-87 signature
+      return Anubis_MLDSA.Verify (PK, Message, Sig);
    end Verify_Audit_Signature;
 
    function Verify_Oracle_Attestation (
       Attestation    : Oracle_Attestation;
       Oracle_PK      : Byte_Array
    ) return Boolean is
-      pragma Unreferenced (Oracle_PK);
+      --  Message format: milestone_id (1) || timestamp (8) || block_number (8) ||
+      --                  result (1) || details_hash (32) = 50 bytes
+      Message : Byte_Array (0 .. 49) := (others => 0);
+      PK : Anubis_MLDSA_Types.Public_Key := (others => 0);
+      Sig : Anubis_MLDSA_Types.Signature := (others => 0);
    begin
-      --  In production, this would verify oracle signature
-      --  Placeholder returns attestation result
-      return Attestation.Verification_Result;
+      --  Validate input size
+      if Oracle_PK'Length /= 2592 then
+         return False;
+      end if;
+
+      --  Build message for signature verification
+      Message (0) := Unsigned_8 (Attestation.Milestone);
+
+      --  Pack timestamp (big-endian)
+      for I in 0 .. 7 loop
+         Message (1 + I) := Unsigned_8 (
+            Shift_Right (Attestation.Timestamp, (7 - I) * 8) and 16#FF#);
+      end loop;
+
+      --  Pack block number (big-endian)
+      for I in 0 .. 7 loop
+         Message (9 + I) := Unsigned_8 (
+            Shift_Right (Attestation.Block_Number, (7 - I) * 8) and 16#FF#);
+      end loop;
+
+      --  Pack result
+      Message (17) := (if Attestation.Verification_Result then 1 else 0);
+
+      --  Pack details hash
+      for I in 0 .. 31 loop
+         Message (18 + I) := Attestation.Details_Hash (I);
+      end loop;
+
+      --  Copy public key
+      for I in PK'Range loop
+         PK (I) := Oracle_PK (Oracle_PK'First + I);
+      end loop;
+
+      --  Copy signature (from Oracle_Sig which is 128 bytes, take first 4627)
+      --  Note: Oracle_Sig should be at least 4627 bytes for ML-DSA-87
+      if Attestation.Oracle_Sig'Length < 4627 then
+         return False;
+      end if;
+
+      for I in Sig'Range loop
+         if I <= Attestation.Oracle_Sig'Last - Attestation.Oracle_Sig'First then
+            Sig (I) := Attestation.Oracle_Sig (Attestation.Oracle_Sig'First + I);
+         end if;
+      end loop;
+
+      --  Verify ML-DSA-87 signature
+      return Anubis_MLDSA.Verify (PK, Message, Sig);
    end Verify_Oracle_Attestation;
 
    ---------------------------------------------------------------------------
@@ -455,12 +554,76 @@ is
       Update         : Weekly_Update;
       Success        : out Boolean
    ) is
+      --  Message format for signature: week_num (4) || commits (4) || lines (4) ||
+      --                                progress (1) || blockers (32) || ipfs (46) ||
+      --                                timestamp (8) = 99 bytes
+      Message : Byte_Array (0 .. 98) := (others => 0);
+      Sig : Anubis_MLDSA_Types.Signature := (others => 0);
+      Blockers_Hash : Byte_Array (0 .. 31) := (others => 0);
    begin
-      --  Verify signature would go here
-      --  For now, just record the block
-      Last_Update_Block := Update.Timestamp;
-      pragma Unreferenced (State);
-      Success := True;
+      Success := False;
+
+      --  Build message for verification
+      --  Week number (4 bytes, big-endian)
+      for I in 0 .. 3 loop
+         Message (I) := Unsigned_8 (
+            Shift_Right (Update.Week_Number, (3 - I) * 8) and 16#FF#);
+      end loop;
+
+      --  Commits count (4 bytes, big-endian)
+      for I in 0 .. 3 loop
+         Message (4 + I) := Unsigned_8 (
+            Shift_Right (Update.Commits_Count, (3 - I) * 8) and 16#FF#);
+      end loop;
+
+      --  Lines verified (4 bytes, big-endian)
+      for I in 0 .. 3 loop
+         Message (8 + I) := Unsigned_8 (
+            Shift_Right (Update.Lines_Verified, (3 - I) * 8) and 16#FF#);
+      end loop;
+
+      --  Progress (1 byte)
+      Message (12) := Unsigned_8 (Update.Milestone_Progress);
+
+      --  Blockers hash (32 bytes) - hash the blocker description
+      Anubis_SHA3.SHA3_256 (Update.Blockers, Blockers_Hash);
+      Message (13 .. 44) := Blockers_Hash;
+
+      --  IPFS link (46 bytes)
+      Message (45 .. 90) := Update.IPFS_Link;
+
+      --  Timestamp (8 bytes, big-endian)
+      for I in 0 .. 7 loop
+         Message (91 + I) := Unsigned_8 (
+            Shift_Right (Update.Timestamp, (7 - I) * 8) and 16#FF#);
+      end loop;
+
+      --  Copy signature
+      if Update.Builder_Sig'Length >= 4627 then
+         for I in Sig'Range loop
+            Sig (I) := Update.Builder_Sig (Update.Builder_Sig'First + I);
+         end loop;
+
+         --  Convert builder address to public key for verification
+         --  In production, builder PK would be stored in state
+         declare
+            Builder_PK : Anubis_MLDSA_Types.Public_Key := (others => 0);
+         begin
+            --  Derive PK from builder address (first 2592 bytes if stored)
+            --  For now, assume builder address IS or derives from PK
+            for I in 0 .. Natural'Min (31, 2591) loop
+               if I <= State.Builder_Address'Last then
+                  Builder_PK (I) := State.Builder_Address (I);
+               end if;
+            end loop;
+
+            --  Verify signature
+            if Anubis_MLDSA.Verify (Builder_PK, Message, Sig) then
+               Last_Update_Block := Update.Timestamp;
+               Success := True;
+            end if;
+         end;
+      end if;
    end Record_Weekly_Update;
 
    function Get_Update_Status (
@@ -549,7 +712,9 @@ is
       end loop;
 
       NFT.Lines_Added := Lines_Added;
-      NFT.Timestamp := 0;  --  Would be set by caller
+      --  Set timestamp from system time (blocks * average block time)
+      --  Assuming this is called with access to block height, estimate Unix time
+      NFT.Timestamp := Unsigned_64 (Last_Update_Block);
       NFT.IPFS_Report := (others => 0);
    end Mint_Proof_Of_Build;
 

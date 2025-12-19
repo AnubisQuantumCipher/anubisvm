@@ -74,8 +74,18 @@ is
       --  Hash of EK for DK
       H_EK : Seed;
    begin
-      --  (ρ, σ) = G(d)
-      G_Hash (Random_D, Rho, Sigma);
+      --  (ρ, σ) = G(d || k) per FIPS 203 Algorithm 16, line 2
+      --  Domain separation: append k=4 for ML-KEM-1024
+      declare
+         D_K : Byte_Array (0 .. 32);
+      begin
+         for I in 0 .. 31 loop
+            pragma Loop_Invariant (I in 0 .. 31);
+            D_K (I) := Random_D (I);
+         end loop;
+         D_K (32) := Byte (K);  -- K = 4 for ML-KEM-1024
+         G_Hash (D_K, Rho, Sigma);
+      end;
 
       --  Generate matrix A in NTT domain
       Generate_Matrix (Rho, A_Hat);
@@ -354,7 +364,7 @@ is
       end loop;
    end K_PKE_Decrypt;
 
-   --  ML-KEM.Encaps
+   --  ML-KEM.Encaps per FIPS 203 Algorithm 20
    procedure Encaps (
       EK       : in  Encapsulation_Key;
       Random_M : in  Seed;
@@ -362,43 +372,29 @@ is
       CT       : out MLKEM_Ciphertext
    ) is
       --  Hash inputs/outputs
-      M_Hat : Seed;
       H_EK  : Seed;
       G_Input : Byte_Array (0 .. 63) := (others => 0);
       K_Bar, R : Seed;
-
-      --  KDF input
-      KDF_Input : Byte_Array (0 .. 63) := (others => 0);
    begin
-      --  m_hat = H(m)
-      H_Hash (Random_M, M_Hat);
-
       --  H(ek)
       H_Hash (EK, H_EK);
 
-      --  (K_bar, r) = G(m_hat ‖ H(ek))
+      --  (K_bar, r) = G(m ‖ H(ek)) per FIPS 203 Algorithm 20, line 1
+      --  Note: m is used directly, NOT hashed
       for I in 0 .. 31 loop
          pragma Loop_Invariant (I in 0 .. 31);
-         G_Input (I) := M_Hat (I);
+         G_Input (I) := Random_M (I);
          G_Input (32 + I) := H_EK (I);
       end loop;
       G_Hash (G_Input, K_Bar, R);
 
-      --  c = K-PKE.Encrypt(ek, m_hat, r)
-      K_PKE_Encrypt (EK, Message (M_Hat), R, CT);
+      --  c = K-PKE.Encrypt(ek, m, r) per FIPS 203 Algorithm 20, line 2
+      K_PKE_Encrypt (EK, Message (Random_M), R, CT);
 
-      --  K = KDF(K_bar ‖ H(c))
-      declare
-         H_CT : Seed;
-      begin
-         H_Hash (CT, H_CT);
-         for I in 0 .. 31 loop
-            pragma Loop_Invariant (I in 0 .. 31);
-            KDF_Input (I) := K_Bar (I);
-            KDF_Input (32 + I) := H_CT (I);
-         end loop;
-         J_Hash (KDF_Input, SS);
-      end;
+      --  K = K_bar per FIPS 203 Algorithm 20, line 3
+      --  Note: FIPS 203 ML-KEM uses modified FO transform that excludes H(c)
+      --  from the shared secret derivation (unlike original Kyber)
+      SS := Shared_Secret (K_Bar);
    end Encaps;
 
    --  ML-KEM.Decaps
@@ -430,9 +426,10 @@ is
       --  Comparison result
       CT_Match : Boolean;
 
-      --  KDF inputs (initialize to satisfy prover)
-      KDF_Input : Byte_Array (0 .. 63) := (others => 0);
-      H_CT : Seed;
+      --  Implicit rejection key: J(z || c)
+      --  32 bytes for z + Ciphertext_Bytes for c
+      Reject_Input : Byte_Array (0 .. 32 + Ciphertext_Bytes - 1);
+      Reject_Key : Seed;
    begin
       --  Extract components from DK
       for I in 0 .. Encoded_Vector_Bytes - 1 loop
@@ -474,22 +471,28 @@ is
          end if;
       end loop;
 
-      --  H(c)
-      H_Hash (CT, H_CT);
+      --  Compute implicit rejection key: J(z || c)
+      --  Note: Always computed to maintain constant-time behavior
+      for I in 0 .. 31 loop
+         pragma Loop_Invariant (I in 0 .. 31);
+         Reject_Input (I) := Z (I);
+      end loop;
+      for I in 0 .. Ciphertext_Bytes - 1 loop
+         pragma Loop_Invariant (I in 0 .. Ciphertext_Bytes - 1);
+         Reject_Input (32 + I) := CT (I);
+      end loop;
+      J_Hash (Reject_Input, Reject_Key);
 
-      --  K = KDF(K_bar ‖ H(c)) if match, else KDF(z ‖ H(c))
+      --  K = K_bar if match, else J(z || c) for implicit rejection
       --  Use constant-time selection
       for I in 0 .. 31 loop
          pragma Loop_Invariant (I in 0 .. 31);
          if CT_Match then
-            KDF_Input (I) := K_Bar (I);
+            SS (I) := K_Bar (I);
          else
-            KDF_Input (I) := Z (I);
+            SS (I) := Reject_Key (I);
          end if;
-         KDF_Input (32 + I) := H_CT (I);
       end loop;
-
-      J_Hash (KDF_Input, SS);
    end Decaps;
 
    ---------------------------------------------------------------------------

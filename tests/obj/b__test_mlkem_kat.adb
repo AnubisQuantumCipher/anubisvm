@@ -28,13 +28,11 @@ package body ada_main is
    E091 : Short_Integer; pragma Import (Ada, E091, "system__file_io_E");
    E079 : Short_Integer; pragma Import (Ada, E079, "ada__text_io_E");
    E129 : Short_Integer; pragma Import (Ada, E129, "anubis_cbd_E");
-   E133 : Short_Integer; pragma Import (Ada, E133, "anubis_keccak_E");
    E117 : Short_Integer; pragma Import (Ada, E117, "anubis_mlkem_compress_E");
    E121 : Short_Integer; pragma Import (Ada, E121, "anubis_mlkem_encoding_E");
+   E127 : Short_Integer; pragma Import (Ada, E127, "anubis_mlkem_sample_E");
    E125 : Short_Integer; pragma Import (Ada, E125, "anubis_ntt_E");
    E123 : Short_Integer; pragma Import (Ada, E123, "anubis_mlkem_poly_E");
-   E131 : Short_Integer; pragma Import (Ada, E131, "anubis_sha3_E");
-   E127 : Short_Integer; pragma Import (Ada, E127, "anubis_mlkem_sample_E");
    E108 : Short_Integer; pragma Import (Ada, E108, "anubis_mlkem_E");
 
    Sec_Default_Sized_Stacks : array (1 .. 1) of aliased System.Secondary_Stack.SS_Stack (System.Parameters.Runtime_Default_Sec_Stack_Size);
@@ -207,13 +205,11 @@ package body ada_main is
       Ada.Text_Io'Elab_Body;
       E079 := E079 + 1;
       E129 := E129 + 1;
-      E133 := E133 + 1;
       E117 := E117 + 1;
       E121 := E121 + 1;
+      E127 := E127 + 1;
       E125 := E125 + 1;
       E123 := E123 + 1;
-      E131 := E131 + 1;
-      E127 := E127 + 1;
       E108 := E108 + 1;
    end adainit;
 
@@ -254,16 +250,16 @@ package body ada_main is
 --  BEGIN Object file/option list
    --   /Users/sicarii/anubisvm/obj/anubis_config.o
    --   /Users/sicarii/anubisvm/obj/anubis_field.o
+   --   /Users/sicarii/anubisvm/obj/anubis_keccak.o
    --   /Users/sicarii/anubisvm/obj/anubis_types.o
    --   /Users/sicarii/anubisvm/obj/anubis_mlkem_types.o
+   --   /Users/sicarii/anubisvm/obj/anubis_sha3.o
    --   /Users/sicarii/anubisvm/obj/anubis_cbd.o
-   --   /Users/sicarii/anubisvm/obj/anubis_keccak.o
    --   /Users/sicarii/anubisvm/obj/anubis_mlkem_compress.o
    --   /Users/sicarii/anubisvm/obj/anubis_mlkem_encoding.o
+   --   /Users/sicarii/anubisvm/obj/anubis_mlkem_sample.o
    --   /Users/sicarii/anubisvm/obj/anubis_ntt.o
    --   /Users/sicarii/anubisvm/obj/anubis_mlkem_poly.o
-   --   /Users/sicarii/anubisvm/obj/anubis_sha3.o
-   --   /Users/sicarii/anubisvm/obj/anubis_mlkem_sample.o
    --   /Users/sicarii/anubisvm/obj/anubis_mlkem.o
    --   /Users/sicarii/anubisvm/tests/obj/test_mlkem_kat.o
    --   -L/Users/sicarii/anubisvm/tests/obj/

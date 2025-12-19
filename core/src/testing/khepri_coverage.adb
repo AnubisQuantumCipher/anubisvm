@@ -720,12 +720,63 @@ package body Khepri_Coverage is
          Header : constant String := "KHEPRI Coverage Report" & ASCII.LF &
             "======================" & ASCII.LF &
             "Line Coverage: " & ASCII.LF;
+         Pos : Natural := 0;
+
+         --  Helper to append string to output
+         procedure Append_String (S : String) is
+         begin
+            for I in S'Range loop
+               if Pos < Output'Length then
+                  Output (Output'First + Pos) := Byte (Character'Pos (S (I)));
+                  Pos := Pos + 1;
+               end if;
+            end loop;
+         end Append_String;
+
+         --  Helper to append natural as string
+         procedure Append_Natural (N : Natural) is
+            Str : constant String := Natural'Image (N);
+         begin
+            Append_String (Str);
+         end Append_Natural;
+
       begin
-         for I in Header'Range loop
-            Output (Output'First + I - Header'First) :=
-               Byte (Character'Pos (Header (I)));
-         end loop;
-         Size := Header'Length + 200;  --  Placeholder for actual stats
+         --  Generate report with actual statistics
+         --  In a full implementation, this would format based on Format parameter
+         --  and generate detailed coverage data per function/line
+
+         Append_String (Header);
+         Append_String ("  Covered Points: ");
+         Append_Natural (Session.Stats.Covered_Points);
+         Append_String (" / ");
+         Append_Natural (Session.Stats.Total_Points);
+         Append_String (ASCII.LF);
+
+         Append_String ("  Line Coverage:   ");
+         Append_Natural (Session.Stats.Line_Coverage);
+         Append_String ("%" & ASCII.LF);
+
+         Append_String ("  Branch Coverage: ");
+         Append_Natural (Session.Stats.Branch_Coverage);
+         Append_String ("%" & ASCII.LF);
+
+         Append_String ("  Path Coverage:   ");
+         Append_Natural (Session.Stats.Path_Coverage);
+         Append_String ("%" & ASCII.LF);
+
+         Append_String ("  Opcode Coverage: ");
+         Append_Natural (Session.Stats.Opcode_Coverage);
+         Append_String ("%" & ASCII.LF);
+
+         Append_String (ASCII.LF & "Hot Spots: ");
+         Append_Natural (Session.Stats.Hot_Points);
+         Append_String (ASCII.LF);
+
+         Append_String ("Cold Spots: ");
+         Append_Natural (Session.Stats.Cold_Points);
+         Append_String (ASCII.LF);
+
+         Size := Pos;
       end;
 
       Success := Session.Has_Target;

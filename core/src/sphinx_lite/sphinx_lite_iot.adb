@@ -2,6 +2,9 @@
 
 pragma SPARK_Mode (On);
 
+with Anubis_Keccak;  --  For Keccak256 hashing
+with Anubis_Types;   --  For Byte and Byte_Array types
+
 package body Sphinx_Lite_IoT with
    SPARK_Mode => On,
    Refined_State => (IoT_State => (
@@ -21,19 +24,49 @@ is
    --  Internal Helpers
    ---------------------------------------------------------------------------
 
-   --  Compute checkpoint hash (placeholder for Keccak)
+   --  Compute checkpoint hash using Keccak256
+   --  Hash = Keccak256(block_number || block_hash || state_root || timestamp)
    function Compute_Checkpoint_Hash (CP : Checkpoint) return Hash256 is
-      Result : Hash256 := (others => 0);
+      --  Build input: 8 + 32 + 32 + 8 = 80 bytes
+      Input_Size : constant := 80;
+      Input : Anubis_Types.Byte_Array (0 .. Input_Size - 1);
+      Digest : Anubis_Keccak.Keccak256_Digest;
+      Result : Hash256;
+      Pos : Natural := 0;
    begin
-      --  XOR block hash and state root
-      for I in Hash256'Range loop
-         Result (I) := CP.Block_Hash (I) xor CP.State_Root (I);
+      --  Encode block number (little-endian, 8 bytes)
+      for I in 0 .. 7 loop
+         Input (Pos + I) := Anubis_Types.Byte (
+            Shift_Right (CP.Block_Number, I * 8) and 16#FF#
+         );
+      end loop;
+      Pos := Pos + 8;
+
+      --  Encode block hash (32 bytes)
+      for I in CP.Block_Hash'Range loop
+         Input (Pos + I) := Anubis_Types.Byte (CP.Block_Hash (I));
+      end loop;
+      Pos := Pos + 32;
+
+      --  Encode state root (32 bytes)
+      for I in CP.State_Root'Range loop
+         Input (Pos + I) := Anubis_Types.Byte (CP.State_Root (I));
+      end loop;
+      Pos := Pos + 32;
+
+      --  Encode timestamp (little-endian, 8 bytes)
+      for I in 0 .. 7 loop
+         Input (Pos + I) := Anubis_Types.Byte (
+            Shift_Right (CP.Timestamp, I * 8) and 16#FF#
+         );
       end loop;
 
-      --  Mix in block number
-      for I in 0 .. 7 loop
-         Result (I) := Result (I) xor
-            Unsigned_8 (Shift_Right (CP.Block_Number, I * 8) and 16#FF#);
+      --  Compute Keccak256
+      Anubis_Keccak.Keccak256 (Input, Digest);
+
+      --  Convert to Hash256
+      for I in Digest'Range loop
+         Result (I) := Unsigned_8 (Digest (I));
       end loop;
 
       return Result;

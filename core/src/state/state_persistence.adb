@@ -5,6 +5,9 @@ with Anubis_SHA3;
 with Anubis_Types;
 with Interfaces; use Interfaces;
 with State_File_IO;
+with Khepri_MPT;
+with Khepri_MPT_Types;
+with Khepri_State_Manager;
 
 package body State_Persistence with
    SPARK_Mode => On
@@ -32,6 +35,7 @@ is
    is
       V : constant Unsigned_32 := Unsigned_32 (Value);
    begin
+      Bytes := (others => 0);  --  Initialize all bytes first
       Bytes (0) := Local_Byte (V and 16#FF#);
       Bytes (1) := Local_Byte (Shift_Right (V, 8) and 16#FF#);
       Bytes (2) := Local_Byte (Shift_Right (V, 16) and 16#FF#);
@@ -50,7 +54,12 @@ is
            Shift_Left (Unsigned_32 (Bytes (1)), 8) or
            Shift_Left (Unsigned_32 (Bytes (2)), 16) or
            Shift_Left (Unsigned_32 (Bytes (3)), 24);
-      return Natural (V);
+      --  Constrain to Natural range (handles values > Natural'Last)
+      if V > Unsigned_32 (Natural'Last) then
+         return Natural'Last;
+      else
+         return Natural (V);
+      end if;
    end Decode_Natural_LE;
 
    --  Encode U256 to 32 bytes (little-endian)
@@ -61,8 +70,11 @@ is
       Pre => Bytes'Length >= 32 and Bytes'First = 0
    is
    begin
+      Bytes := (others => 0);  --  Initialize all bytes first
       for Limb_Idx in 0 .. 3 loop
          for Byte_Idx in 0 .. 7 loop
+            pragma Loop_Invariant (Limb_Idx in 0 .. 3);
+            pragma Loop_Invariant (Byte_Idx in 0 .. 7);
             Bytes (Limb_Idx * 8 + Byte_Idx) := Local_Byte (
                Shift_Right (Value.Limbs (Limb_Idx), Byte_Idx * 8) and 16#FF#);
          end loop;
@@ -94,44 +106,25 @@ is
       Registry   : in     Registry_State;
       State_Root : out    Hash256
    ) is
-      --  For simplicity, hash the count + all contract IDs
-      --  A real implementation would use a Merkle Patricia Trie
-      Hash_Input_Max : constant := 4 + 32 * Max_Stored_Contracts;
-      Hash_Input : Anubis_Types.Byte_Array (0 .. Hash_Input_Max - 1) := (others => 0);
-      Hash_Pos : Natural := 0;
-      Count_Bytes : Anubis_Types.Byte_Array (0 .. 3);
-      Hash_Output : Anubis_SHA3.SHA3_256_Digest;
+      pragma Unreferenced (Registry);
+      --  Get the actual Merkle Patricia Trie root from Khepri State Manager
+      --  This reflects the true blockchain state including all accounts,
+      --  balances, storage, and code hashes.
+      --
+      --  NOTE: The Registry parameter is kept for API compatibility but is
+      --  not used. The global state root comes from the Khepri MPT which
+      --  stores all account states in a cryptographically-verifiable trie.
+      --
+      --  This is the CORRECT implementation:
+      --  - Uses actual MPT root hash (not naive contract ID hashing)
+      --  - Reflects all account states, storage roots, code hashes
+      --  - Provides cryptographic proof of state integrity
+      --  - Compatible with Ethereum-style state commitment
+      Khepri_Root : constant Khepri_MPT_Types.Hash_256 := Khepri_State_Manager.Get_State_Root;
    begin
-      --  Encode contract count
-      Encode_Natural_LE (Registry.Contract_Count, Count_Bytes);
-      for I in 0 .. 3 loop
-         Hash_Input (Hash_Pos) := Count_Bytes (I);
-         Hash_Pos := Hash_Pos + 1;
-      end loop;
-
-      --  Add each contract ID
-      for I in 0 .. Registry.Contract_Count - 1 loop
-         if Registry.Contracts (Stored_Contract_Index (I)).Is_Valid then
-            for J in Contract_Address'Range loop
-               if Hash_Pos < Hash_Input_Max then
-                  Hash_Input (Hash_Pos) := To_Local (
-                     Registry.Contracts (Stored_Contract_Index (I)).Contract_ID (J));
-                  Hash_Pos := Hash_Pos + 1;
-               end if;
-            end loop;
-         end if;
-      end loop;
-
-      --  Compute SHA3-256
-      if Hash_Pos > 0 then
-         Anubis_SHA3.SHA3_256 (Hash_Input (0 .. Hash_Pos - 1), Hash_Output);
-      else
-         Hash_Output := (others => 0);
-      end if;
-
-      --  Convert to output
-      for I in State_Root'Range loop
-         State_Root (I) := To_VM (Hash_Output (I));
+      --  Convert Hash_256 to Hash256 (both are 32-byte arrays)
+      for I in 0 .. 31 loop
+         State_Root (I) := Aegis_VM_Types.Byte (Khepri_Root (Khepri_MPT_Types.Hash_Index (I)));
       end loop;
    end Compute_State_Root;
 
@@ -909,5 +902,116 @@ is
 
       return True;
    end Registry_File_Valid;
+
+   ---------------------------------------------------------------------------
+   --  Complete State Save/Load (Registry + MPT Hash Map)
+   ---------------------------------------------------------------------------
+
+   procedure Save_State (
+      Registry       : in     Registry_State;
+      Registry_Path  : in     String;
+      Registry_Len   : in     Natural;
+      Hash_Map_Path  : in     String;
+      Hash_Map_Len   : in     Natural;
+      Result         : out    Persist_Result
+   )
+      with SPARK_Mode => Off
+   is
+      Registry_Result : Persist_Result;
+      Hash_Map_Success : Boolean;
+      Actual_Hash_Map_Path : constant String :=
+         Hash_Map_Path (Hash_Map_Path'First .. Hash_Map_Path'First + Hash_Map_Len - 1);
+   begin
+      --  Save registry first
+      Save_Registry (Registry, Registry_Path, Registry_Len, Registry_Result);
+
+      if not Registry_Result.Success then
+         Result := Registry_Result;
+         return;
+      end if;
+
+      --  Save MPT hash map
+      Khepri_MPT.Save_Hash_Map (Actual_Hash_Map_Path, Hash_Map_Success);
+
+      if not Hash_Map_Success then
+         Result := (
+            Success       => False,
+            Error         => Persist_Write_Error,
+            Bytes_Written => Registry_Result.Bytes_Written,
+            Bytes_Read    => 0
+         );
+         return;
+      end if;
+
+      --  Both saved successfully
+      Result := (
+         Success       => True,
+         Error         => Persist_OK,
+         Bytes_Written => Registry_Result.Bytes_Written,
+         Bytes_Read    => 0
+      );
+   end Save_State;
+
+   procedure Load_State (
+      Registry_Path  : in     String;
+      Registry_Len   : in     Natural;
+      Hash_Map_Path  : in     String;
+      Hash_Map_Len   : in     Natural;
+      Registry       : out    Registry_State;
+      Result         : out    Persist_Result
+   )
+      with SPARK_Mode => Off
+   is
+      Registry_Result : Persist_Result;
+      Hash_Map_Success : Boolean;
+      Rebuild_Success : Boolean;
+      Actual_Hash_Map_Path : constant String :=
+         Hash_Map_Path (Hash_Map_Path'First .. Hash_Map_Path'First + Hash_Map_Len - 1);
+   begin
+      --  Load MPT hash map FIRST (before any node lookups)
+      Khepri_MPT.Load_Hash_Map (Actual_Hash_Map_Path, Hash_Map_Success);
+
+      if not Hash_Map_Success then
+         --  If hash map load fails, try to rebuild from Node_Store
+         --  This handles the case where hash map file is missing/corrupt
+         Khepri_MPT.Rebuild_Hash_Map (Rebuild_Success);
+
+         if not Rebuild_Success then
+            --  Can't recover - fail the load
+            Node_Contract_Registry.Initialize (Registry);
+            Result := (
+               Success       => False,
+               Error         => Persist_Read_Error,
+               Bytes_Written => 0,
+               Bytes_Read    => 0
+            );
+            return;
+         end if;
+      end if;
+
+      --  Validate hash map synchronization
+      --  This detects any corruption or programming errors in hash map management
+      if not Khepri_MPT.Validate_Hash_Map then
+         --  Hash map is out of sync - attempt recovery by rebuilding
+         Khepri_MPT.Rebuild_Hash_Map (Rebuild_Success);
+
+         if not Rebuild_Success or else not Khepri_MPT.Validate_Hash_Map then
+            --  Still broken - fail the load
+            Node_Contract_Registry.Initialize (Registry);
+            Result := (
+               Success       => False,
+               Error         => Persist_Hash_Mismatch,
+               Bytes_Written => 0,
+               Bytes_Read    => 0
+            );
+            return;
+         end if;
+      end if;
+
+      --  Now load registry (which may trigger MPT lookups)
+      Load_Registry (Registry_Path, Registry_Len, Registry, Registry_Result);
+
+      Result := Registry_Result;
+   end Load_State;
 
 end State_Persistence;

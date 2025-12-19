@@ -229,10 +229,11 @@ is
       Success       : out Boolean
    ) is
       Content : constant String := (case Template_Type is
-         when Template_Token  => Replace_Name (ADS_Template, Project_Name),
-         when Template_NFT    => Replace_Name (ADS_Template, Project_Name),
-         when Template_Escrow => Replace_Name (ADS_Template, Project_Name),
-         when Template_Empty  => Replace_Name (ADS_Template, Project_Name)
+         when Token_Contract  => Replace_Name (ADS_Template, Project_Name),
+         when NFT_Contract    => Replace_Name (ADS_Template, Project_Name),
+         when Escrow_Contract => Replace_Name (ADS_Template, Project_Name),
+         when Oracle_Contract => Replace_Name (ADS_Template, Project_Name),
+         when Empty_Contract  => Replace_Name (ADS_Template, Project_Name)
       );
       Write_OK : Boolean;
    begin

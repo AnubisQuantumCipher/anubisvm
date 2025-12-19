@@ -11,12 +11,7 @@ is
       Registry : out Registry_Array
    ) is
    begin
-      for I in Registry'Range loop
-         pragma Loop_Invariant (I >= Registry'First);
-         pragma Loop_Invariant
-           (for all J in Registry'First .. I - 1 => not Registry (J).Occupied);
-         Registry (I) := Empty_Entry;
-      end loop;
+      Registry := (others => Empty_Entry);
    end Initialize;
 
    --  Compare addresses (constant-time to prevent timing attacks)

@@ -40,7 +40,7 @@ is
 
    --  ML-DSA-87 key sizes (NIST FIPS 204)
    DSA_PK_Size : constant := 2592;  -- Public key
-   DSA_SK_Size : constant := 4032;  -- Secret key
+   DSA_SK_Size : constant := 4896;  -- Secret key (matches Anubis_MLDSA_Config.Secret_Key_Bytes)
    DSA_SIG_Size : constant := 4627; -- Signature
 
    subtype DSA_Public_Key is Byte_Array (0 .. DSA_PK_Size - 1);
@@ -205,7 +205,9 @@ is
       Pre => Nonce'Length = 24 and then
              Ciphertext'Length = Plaintext'Length and then
              Tag'Length = 32 and then
-             Plaintext'Length <= 1024 * 1024;  -- 1 MB max
+             Plaintext'Length <= 65535 and then   -- AEAD limit
+             Plaintext'Last < Natural'Last and then
+             Ciphertext'Last < Natural'Last;
 
    --  Unseal data (decrypt with storage key)
    --
@@ -227,7 +229,9 @@ is
       Pre => Nonce'Length = 24 and then
              Plaintext'Length = Ciphertext'Length and then
              Tag'Length = 32 and then
-             Ciphertext'Length <= 1024 * 1024;
+             Ciphertext'Length <= 65535 and then   -- AEAD limit
+             Ciphertext'Last < Natural'Last and then
+             Plaintext'Last < Natural'Last;
 
    ---------------------------------------------------------------------------
    --  Key Exchange

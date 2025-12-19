@@ -1,5 +1,8 @@
 pragma SPARK_Mode (On);
 
+with Anubis_SHA3; use Anubis_SHA3;
+with Anubis_Types; use Anubis_Types;
+
 package body Khepri_Manifest is
 
    ---------------------------------------------------------------------------
@@ -102,7 +105,7 @@ package body Khepri_Manifest is
          return;
       end if;
 
-      --  Check magic number (first 4 bytes)
+      --  Check magic number (first 4 bytes, little-endian)
       declare
          Magic : Word32 := 0;
       begin
@@ -119,7 +122,33 @@ package body Khepri_Manifest is
          Manifest.Header.Magic := Magic;
       end;
 
-      --  Placeholder: Full parsing would continue here
+      --  Parse version (bytes 4-7, little-endian)
+      if Data'Length >= 8 then
+         Manifest.Header.Version :=
+            Word32 (Data (Data'First + 4)) or
+            Word32 (Data (Data'First + 5)) * 256 or
+            Word32 (Data (Data'First + 6)) * 65536 or
+            Word32 (Data (Data'First + 7)) * 16777216;
+      end if;
+
+      --  Parse flags (bytes 8-11)
+      if Data'Length >= 12 then
+         Manifest.Header.Flags :=
+            Word32 (Data (Data'First + 8)) or
+            Word32 (Data (Data'First + 9)) * 256 or
+            Word32 (Data (Data'First + 10)) * 65536 or
+            Word32 (Data (Data'First + 11)) * 16777216;
+      end if;
+
+      --  Real implementation would:
+      --  1. Parse complete header (64 bytes)
+      --  2. Read section offsets from header
+      --  3. Parse metadata section (name, version, author, etc.)
+      --  4. Parse ABI section (functions, events, errors)
+      --  5. Parse certification section (proof hashes, WCET bounds)
+      --  6. Parse dependencies section
+      --  7. Verify checksum against parsed content
+
       Success := True;
    end Parse_Manifest;
 
@@ -133,13 +162,36 @@ package body Khepri_Manifest is
       Data := (others => 0);
       Size := 0;
 
-      --  Write magic number
+      --  Write magic number (little-endian, 4 bytes)
       Data (Data'First)     := Byte (Manifest.Header.Magic and 16#FF#);
       Data (Data'First + 1) := Byte ((Manifest.Header.Magic / 256) and 16#FF#);
       Data (Data'First + 2) := Byte ((Manifest.Header.Magic / 65536) and 16#FF#);
       Data (Data'First + 3) := Byte ((Manifest.Header.Magic / 16777216) and 16#FF#);
 
-      --  Placeholder: Full serialization would continue here
+      --  Write version (little-endian, 4 bytes)
+      if Data'Length >= 8 then
+         Data (Data'First + 4) := Byte (Manifest.Header.Version and 16#FF#);
+         Data (Data'First + 5) := Byte ((Manifest.Header.Version / 256) and 16#FF#);
+         Data (Data'First + 6) := Byte ((Manifest.Header.Version / 65536) and 16#FF#);
+         Data (Data'First + 7) := Byte ((Manifest.Header.Version / 16777216) and 16#FF#);
+      end if;
+
+      --  Write flags (little-endian, 4 bytes)
+      if Data'Length >= 12 then
+         Data (Data'First + 8) := Byte (Manifest.Header.Flags and 16#FF#);
+         Data (Data'First + 9) := Byte ((Manifest.Header.Flags / 256) and 16#FF#);
+         Data (Data'First + 10) := Byte ((Manifest.Header.Flags / 65536) and 16#FF#);
+         Data (Data'First + 11) := Byte ((Manifest.Header.Flags / 16777216) and 16#FF#);
+      end if;
+
+      --  Real implementation would serialize:
+      --  1. Complete header (64 bytes total)
+      --  2. Metadata section (name, version, author, timestamps)
+      --  3. ABI section (functions, events, errors with types)
+      --  4. Certification section (status, proof hashes, WCET bounds)
+      --  5. Dependencies section (imported contracts)
+      --  6. Compute and write final checksum
+
       Size := 64;  --  Minimum header size
       Success := True;
    end Serialize_Manifest;
@@ -164,10 +216,59 @@ package body Khepri_Manifest is
    function Calculate_Checksum (
       Manifest : Contract_Manifest
    ) return Hash256 is
-      Result : Hash256 := (others => 0);
+      --  Serialize manifest for checksum calculation
+      Manifest_Bytes : Byte_Array (0 .. 1023);
+      Idx : Natural := 0;
+      Digest : SHA3_256_Digest;
+      Result : Hash256;
    begin
-      --  Placeholder: Would hash manifest contents
-      Result (0) := Byte (Manifest.Header.Magic and 16#FF#);
+      --  Serialize manifest fields into byte array for hashing
+      --  Include all sections except the checksum itself
+
+      --  Add magic number
+      if Idx + 3 < Manifest_Bytes'Length then
+         Manifest_Bytes (Idx) := Byte (Manifest.Header.Magic and 16#FF#);
+         Idx := Idx + 1;
+         Manifest_Bytes (Idx) := Byte ((Manifest.Header.Magic / 256) and 16#FF#);
+         Idx := Idx + 1;
+         Manifest_Bytes (Idx) := Byte ((Manifest.Header.Magic / 65536) and 16#FF#);
+         Idx := Idx + 1;
+         Manifest_Bytes (Idx) := Byte ((Manifest.Header.Magic / 16777216) and 16#FF#);
+         Idx := Idx + 1;
+      end if;
+
+      --  Add version
+      if Idx + 3 < Manifest_Bytes'Length then
+         Manifest_Bytes (Idx) := Byte (Manifest.Header.Version and 16#FF#);
+         Idx := Idx + 1;
+         Manifest_Bytes (Idx) := Byte ((Manifest.Header.Version / 256) and 16#FF#);
+         Idx := Idx + 1;
+      end if;
+
+      --  Add function count
+      if Idx < Manifest_Bytes'Length then
+         Manifest_Bytes (Idx) := Byte (Manifest.ABI.Function_Count mod 256);
+         Idx := Idx + 1;
+      end if;
+
+      --  Real implementation would serialize:
+      --  - All header fields except checksum
+      --  - Metadata fields
+      --  - ABI definition
+      --  - Certification data
+      --  - Dependencies
+
+      --  Compute SHA3-256 checksum
+      SHA3_256 (
+         Message => Manifest_Bytes (0 .. Idx - 1),
+         Digest  => Digest
+      );
+
+      --  Convert digest to Hash256
+      for I in Result'Range loop
+         Result (I) := Digest (Digest'First + I);
+      end loop;
+
       return Result;
    end Calculate_Checksum;
 

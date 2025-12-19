@@ -20,24 +20,28 @@ is
    ) is
       --  Input: key || nonce
       Input_Len : constant Natural := Key_Size + Nonce_Size;
-      Input : Byte_Array (0 .. Input_Len - 1);
+      Input : Byte_Array (0 .. Input_Len - 1) := (others => 0);
    begin
       --  Initialize keystream to zeros
       Keystream := (others => 0);
 
       --  Build input: key || nonce
+      --  Key'Range = 0..31, Input'Range = 0..55
       for I in Key'Range loop
-         pragma Loop_Invariant (I >= Key'First);
+         pragma Loop_Invariant (I in Key'Range);
          Input (I) := Key (I);
       end loop;
 
+      --  Nonce'Range = 0..23, write to Input(32..55)
       for I in Nonce'Range loop
-         pragma Loop_Invariant (I >= Nonce'First);
+         pragma Loop_Invariant (I in Nonce'Range);
+         pragma Loop_Invariant (Key_Size + I <= Input'Last);
          Input (Key_Size + I) := Nonce (I);
       end loop;
 
       --  Generate keystream using SHAKE256
-      if Keystream'Length > 0 and then Keystream'Length <= 65535 then
+      --  Precondition guarantees: Keystream'Length <= 65535 and Keystream'First = 0
+      if Keystream'Length > 0 then
          SHAKE256 (Input, Keystream, Keystream'Length);
       end if;
    end Generate_Keystream;
@@ -56,37 +60,43 @@ is
          Nonce_Size + AAD'Length + Ciphertext'Length + 16;
       Msg : Byte_Array (0 .. Msg_Len - 1) := (others => 0);
       Pos : Natural := 0;
-      KMAC_Key_Copy : KMAC_Key;
+      KMAC_Key_Copy : KMAC_Key := (others => 0);
    begin
       Tag := (others => 0);
 
-      --  Copy nonce
+      --  Copy nonce (Nonce'Range = 0..23)
       for I in Nonce'Range loop
-         pragma Loop_Invariant (I >= Nonce'First);
-         pragma Loop_Invariant (Pos <= Nonce_Size);
+         pragma Loop_Invariant (I in Nonce'Range);
+         pragma Loop_Invariant (Pos = I);
          if Pos <= Msg'Last then
             Msg (Pos) := Nonce (I);
             Pos := Pos + 1;
          end if;
       end loop;
 
-      --  Copy AAD
-      for I in AAD'Range loop
-         pragma Loop_Invariant (Pos <= Msg'Last);
-         if Pos <= Msg'Last then
-            Msg (Pos) := AAD (I);
-            Pos := Pos + 1;
-         end if;
-      end loop;
+      --  Copy AAD (may be empty)
+      if AAD'Length > 0 then
+         for I in AAD'Range loop
+            pragma Loop_Invariant (I in AAD'Range);
+            pragma Loop_Invariant (Pos <= Msg'Length);
+            if Pos <= Msg'Last then
+               Msg (Pos) := AAD (I);
+               Pos := Pos + 1;
+            end if;
+         end loop;
+      end if;
 
-      --  Copy ciphertext
-      for I in Ciphertext'Range loop
-         pragma Loop_Invariant (Pos <= Msg'Last);
-         if Pos <= Msg'Last then
-            Msg (Pos) := Ciphertext (I);
-            Pos := Pos + 1;
-         end if;
-      end loop;
+      --  Copy ciphertext (may be empty)
+      if Ciphertext'Length > 0 then
+         for I in Ciphertext'Range loop
+            pragma Loop_Invariant (I in Ciphertext'Range);
+            pragma Loop_Invariant (Pos <= Msg'Length);
+            if Pos <= Msg'Last then
+               Msg (Pos) := Ciphertext (I);
+               Pos := Pos + 1;
+            end if;
+         end loop;
+      end if;
 
       --  Encode AAD length as LE64
       declare
@@ -94,7 +104,6 @@ is
       begin
          for I in 0 .. 7 loop
             pragma Loop_Invariant (I in 0 .. 7);
-            pragma Loop_Invariant (Pos <= Msg'Last);
             if Pos <= Msg'Last then
                Msg (Pos) := Byte (Shift_Right (AAD_Len_U64, I * 8) and 16#FF#);
                Pos := Pos + 1;
@@ -108,7 +117,6 @@ is
       begin
          for I in 0 .. 7 loop
             pragma Loop_Invariant (I in 0 .. 7);
-            pragma Loop_Invariant (Pos <= Msg'Last);
             if Pos <= Msg'Last then
                Msg (Pos) := Byte (Shift_Right (CT_Len_U64, I * 8) and 16#FF#);
                Pos := Pos + 1;
@@ -116,9 +124,9 @@ is
          end loop;
       end;
 
-      --  Convert AEAD_Key to KMAC_Key (same size)
+      --  Convert AEAD_Key to KMAC_Key (same size, same range 0..31)
       for I in Key'Range loop
-         pragma Loop_Invariant (I >= Key'First);
+         pragma Loop_Invariant (I in Key'Range);
          KMAC_Key_Copy (I) := Key (I);
       end loop;
 
@@ -134,7 +142,7 @@ is
       Diff : Byte := 0;
    begin
       for I in A'Range loop
-         pragma Loop_Invariant (I >= A'First);
+         pragma Loop_Invariant (I in A'Range);
          Diff := Diff or (A (I) xor B (I));
       end loop;
       return Diff = 0;
@@ -149,27 +157,40 @@ is
       Ciphertext : out Byte_Array;
       Tag        : out AEAD_Tag
    ) is
-      Keystream : Byte_Array (Plaintext'Range);
    begin
       --  Initialize outputs
       Ciphertext := (others => 0);
       Tag := (others => 0);
 
-      --  Generate keystream
-      Generate_Keystream (Key, Nonce, Keystream);
+      --  Handle empty plaintext
+      if Plaintext'Length = 0 then
+         --  Just compute tag over empty ciphertext
+         Compute_Tag (Key, Nonce, AAD, Ciphertext, Tag);
+         return;
+      end if;
 
-      --  XOR plaintext with keystream to get ciphertext
-      for I in Plaintext'Range loop
-         pragma Loop_Invariant (I >= Plaintext'First);
-         declare
-            KS_Index : constant Natural := I - Plaintext'First + Keystream'First;
-            CT_Index : constant Natural := I - Plaintext'First + Ciphertext'First;
-         begin
-            if KS_Index <= Keystream'Last and then CT_Index <= Ciphertext'Last then
-               Ciphertext (CT_Index) := Plaintext (I) xor Keystream (KS_Index);
-            end if;
-         end;
-      end loop;
+      --  Generate keystream and encrypt
+      declare
+         Keystream_Len : constant Natural := Plaintext'Length;
+         Keystream : Byte_Array (0 .. Keystream_Len - 1) := (others => 0);
+      begin
+         Generate_Keystream (Key, Nonce, Keystream);
+
+         --  XOR plaintext with keystream to get ciphertext
+         for I in Plaintext'Range loop
+            pragma Loop_Invariant (I in Plaintext'Range);
+            declare
+               Offset : constant Natural := I - Plaintext'First;
+            begin
+               if Offset <= Keystream'Last and then
+                  Ciphertext'First + Offset <= Ciphertext'Last
+               then
+                  Ciphertext (Ciphertext'First + Offset) :=
+                     Plaintext (I) xor Keystream (Offset);
+               end if;
+            end;
+         end loop;
+      end;
 
       --  Compute authentication tag over nonce || AAD || ciphertext
       Compute_Tag (Key, Nonce, AAD, Ciphertext, Tag);
@@ -185,11 +206,11 @@ is
       Plaintext  : out Byte_Array;
       Success    : out Boolean
    ) is
-      Expected_Tag : AEAD_Tag;
-      Keystream : Byte_Array (Ciphertext'Range);
+      Expected_Tag : AEAD_Tag := (others => 0);
    begin
       --  Initialize plaintext to zeros (secure default)
       Plaintext := (others => 0);
+      Success := False;
 
       --  Compute expected tag
       Compute_Tag (Key, Nonce, AAD, Ciphertext, Expected_Tag);
@@ -197,43 +218,76 @@ is
       --  Verify tag (constant-time)
       Success := Constant_Time_Equal (Tag, Expected_Tag);
 
-      if Success then
-         --  Generate keystream
-         Generate_Keystream (Key, Nonce, Keystream);
+      --  Handle empty ciphertext
+      if Ciphertext'Length = 0 then
+         return;
+      end if;
 
-         --  XOR ciphertext with keystream to get plaintext
-         for I in Ciphertext'Range loop
-            pragma Loop_Invariant (I >= Ciphertext'First);
-            declare
-               KS_Index : constant Natural := I - Ciphertext'First + Keystream'First;
-               PT_Index : constant Natural := I - Ciphertext'First + Plaintext'First;
-            begin
-               if KS_Index <= Keystream'Last and then PT_Index <= Plaintext'Last then
-                  Plaintext (PT_Index) := Ciphertext (I) xor Keystream (KS_Index);
-               end if;
-            end;
-         end loop;
+      if Success then
+         --  Generate keystream and decrypt
+         declare
+            Keystream_Len : constant Natural := Ciphertext'Length;
+            Keystream : Byte_Array (0 .. Keystream_Len - 1) := (others => 0);
+         begin
+            Generate_Keystream (Key, Nonce, Keystream);
+
+            --  XOR ciphertext with keystream to get plaintext
+            for I in Ciphertext'Range loop
+               pragma Loop_Invariant (I in Ciphertext'Range);
+               declare
+                  Offset : constant Natural := I - Ciphertext'First;
+               begin
+                  if Offset <= Keystream'Last and then
+                     Plaintext'First + Offset <= Plaintext'Last
+                  then
+                     Plaintext (Plaintext'First + Offset) :=
+                        Ciphertext (I) xor Keystream (Offset);
+                  end if;
+               end;
+            end loop;
+         end;
       end if;
       --  On failure, Plaintext remains zeroed (initialized above)
    end AEAD_Decrypt;
 
-   --  Secure key zeroization
+   --  Secure key zeroization using volatile writes
+   --  The loop with Volatile aspect prevents dead-store elimination
    procedure Zeroize_Key (Key : in Out AEAD_Key) is
+      type Volatile_Byte is mod 2**8 with
+         Size => 8,
+         Volatile_Full_Access => True;
+      type Volatile_Key_Array is array (AEAD_Key'Range) of Volatile_Byte;
+
+      --  Create a volatile view of the key
+      Volatile_View : Volatile_Key_Array with
+         Address => Key'Address,
+         Import;
    begin
-      for I in Key'Range loop
-         pragma Loop_Invariant (I >= Key'First);
-         pragma Loop_Invariant (for all J in Key'First .. I - 1 => Key (J) = 0);
-         Key (I) := 0;
+      for I in Volatile_View'Range loop
+         pragma Loop_Invariant (I >= Volatile_View'First);
+         pragma Loop_Invariant (for all J in Volatile_View'First .. I - 1 =>
+                                Volatile_View (J) = 0);
+         Volatile_View (I) := 0;
       end loop;
    end Zeroize_Key;
 
-   --  Secure nonce zeroization
+   --  Secure nonce zeroization using volatile writes
    procedure Zeroize_Nonce (Nonce : in Out AEAD_Nonce) is
+      type Volatile_Byte is mod 2**8 with
+         Size => 8,
+         Volatile_Full_Access => True;
+      type Volatile_Nonce_Array is array (AEAD_Nonce'Range) of Volatile_Byte;
+
+      --  Create a volatile view of the nonce
+      Volatile_View : Volatile_Nonce_Array with
+         Address => Nonce'Address,
+         Import;
    begin
-      for I in Nonce'Range loop
-         pragma Loop_Invariant (I >= Nonce'First);
-         pragma Loop_Invariant (for all J in Nonce'First .. I - 1 => Nonce (J) = 0);
-         Nonce (I) := 0;
+      for I in Volatile_View'Range loop
+         pragma Loop_Invariant (I >= Volatile_View'First);
+         pragma Loop_Invariant (for all J in Volatile_View'First .. I - 1 =>
+                                Volatile_View (J) = 0);
+         Volatile_View (I) := 0;
       end loop;
    end Zeroize_Nonce;
 

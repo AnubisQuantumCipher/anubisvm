@@ -11,6 +11,7 @@ with Interfaces;   use Interfaces;
 with Anubis_SHA3;
 with Anubis_MLDSA;
 with Anubis_MLDSA_Types;  use Anubis_MLDSA_Types;
+with Anubis_Secure_Wipe;
 
 package body Anubis_Eye with
    SPARK_Mode => On
@@ -525,37 +526,83 @@ is
    --  Zeroization
    ---------------------------------------------------------------------------
 
+   --  Securely zeroize View_Key_Bundle using volatile-resistant wipe
+   --
+   --  Security Rationale:
+   --  ====================
+   --  Viewing keys are CRITICAL secrets that enable:
+   --  1. Decrypting transaction metadata (amounts, addresses, memos)
+   --  2. Scanning blockchain for owned outputs
+   --  3. Proving transaction ownership without spending keys
+   --
+   --  If a viewing key leaks, the attacker can:
+   --  - Completely de-anonymize all transactions for that user
+   --  - Link all inputs and outputs to the user's identity
+   --  - Track balances and payment patterns over time
+   --  - Violate regulatory privacy requirements (GDPR, etc.)
+   --
+   --  Key Hierarchy:
+   --  - Full_Key: Master viewing key (highest privilege)
+   --  - Incoming: Detect incoming payments only
+   --  - Outgoing: Prove sent payments
+   --
+   --  All three must be securely wiped to prevent information leakage.
+   --
+   --  Using Anubis_Secure_Wipe ensures:
+   --  - Volatile writes that cannot be optimized away by compiler
+   --  - Memory barriers to ensure completion before function returns
+   --  - Postcondition proofs that all bytes are zero
    procedure Zeroize_Bundle (Bundle : in Out View_Key_Bundle) is
    begin
-      for I in Bundle.Full_Key'Range loop
-         Bundle.Full_Key (I) := 0;
-      end loop;
-      for I in Bundle.Incoming'Range loop
-         Bundle.Incoming (I) := 0;
-      end loop;
-      for I in Bundle.Outgoing'Range loop
-         Bundle.Outgoing (I) := 0;
-      end loop;
+      --  Secure wipe all viewing keys using volatile writes
+      Anubis_Secure_Wipe.Secure_Wipe_32 (Bundle.Full_Key);
+      Anubis_Secure_Wipe.Secure_Wipe_32 (Bundle.Incoming);
+      Anubis_Secure_Wipe.Secure_Wipe_32 (Bundle.Outgoing);
+
+      --  Reset key type to least privileged (defense in depth)
       Bundle.Key_Type := Existence_View;
    end Zeroize_Bundle;
 
+   --  Securely zeroize Attribute_Credential using volatile-resistant wipe
+   --
+   --  Security Rationale:
+   --  ====================
+   --  Attribute credentials contain sensitive personal information:
+   --  1. User attributes (age, nationality, accreditation status, etc.)
+   --  2. Holder commitment (proves ownership of credential)
+   --  3. Issuer signature (authenticates credential validity)
+   --  4. Issuer public key (links to issuing authority)
+   --
+   --  If a credential leaks:
+   --  - Personal data may be exposed (privacy violation)
+   --  - Credential could be replayed or cloned
+   --  - Linkability attacks across different services
+   --  - Identity theft risks
+   --
+   --  The ML-DSA-87 signature (4627 bytes) is especially critical because:
+   --  - It proves the credential was issued by a specific authority
+   --  - Cannot be forged without the issuer's secret key
+   --  - Must be protected from side-channel analysis
+   --
+   --  Using Anubis_Secure_Wipe ensures complete cryptographic erasure.
    procedure Zeroize_Credential (Cred : in out Attribute_Credential) is
    begin
+      --  Secure wipe all attribute data using volatile writes
       for I in Cred.Attrs'Range loop
-         for J in Cred.Attrs (I)'Range loop
-            Cred.Attrs (I)(J) := 0;
-         end loop;
+         --  Each attribute is 64 bytes
+         Anubis_Secure_Wipe.Secure_Wipe_64 (Cred.Attrs (I));
       end loop;
+
       Cred.Attr_Count := 0;
-      for I in Cred.Holder_Commit'Range loop
-         Cred.Holder_Commit (I) := 0;
-      end loop;
-      for I in Cred.Issuer_PK'Range loop
-         Cred.Issuer_PK (I) := 0;
-      end loop;
-      for I in Cred.Signature'Range loop
-         Cred.Signature (I) := 0;
-      end loop;
+
+      --  Wipe holder commitment (proves ownership)
+      Anubis_Secure_Wipe.Secure_Wipe_64 (Cred.Holder_Commit);
+
+      --  Wipe issuer public key (linkable identity)
+      Anubis_Secure_Wipe.Secure_Wipe (Cred.Issuer_PK);
+
+      --  Wipe ML-DSA-87 signature (4627 bytes - most critical)
+      Anubis_Secure_Wipe.Secure_Wipe (Cred.Signature);
    end Zeroize_Credential;
 
 end Anubis_Eye;

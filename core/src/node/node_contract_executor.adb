@@ -90,12 +90,14 @@ is
    ) is
       Addr : Khepri_Types.Address;
    begin
+      --  Convert Contract_Address (Aegis) to Address (Khepri)
       for I in 0 .. 31 loop
          Addr (I) := Aegis_VM_Types.Byte (Contract_Addr (I));
       end loop;
-      --  Note: Khepri_State internally tracks current contract
-      --  This is a placeholder for proper context switching
-      null;
+
+      --  Set current contract context in Khepri_State
+      --  This ensures SLoad/SStore operations access the correct contract's storage
+      Khepri_State.Set_Current_Contract (Addr);
    end Set_Storage_Context;
 
    ---------------------------------------------------------------------------
@@ -1963,8 +1965,21 @@ is
       Ada.Text_IO.Put_Line ("    Args size: " & Args_Size'Image);
       Ada.Text_IO.Put_Line ("    Gas limit: " & Gas_Limit'Image);
 
-      --  Execute the contract
-      Result := Sphinx_Native.Execute (Contract, Sandbox, Calldata, Gas_Limit);
+      --  Execute the contract with block context from runtime config
+      declare
+         Config : constant Sphinx_Native.Runtime_Config := Sphinx_Native.Get_Block_Context;
+      begin
+         Result := Sphinx_Native.Execute (
+            Contract  => Contract,
+            Sandbox   => Sandbox,
+            Calldata  => Calldata,
+            Gas_Limit => Gas_Limit,
+            Gas_Price => Config.Gas_Price,
+            Block_Num => Config.Block_Num,
+            Timestamp => Config.Timestamp,
+            Chain_ID  => Config.Chain_ID
+         );
+      end;
 
       case Result.Status is
          when Sphinx_Native.Exec_Success =>

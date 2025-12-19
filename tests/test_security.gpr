@@ -1,0 +1,26 @@
+project Test_Security is
+   for Source_Dirs use (".", "../core/src/**");
+   for Object_Dir use "obj";
+   for Exec_Dir use "obj";
+   for Main use ("test_security.adb");
+
+   package Compiler is
+      for Default_Switches ("Ada") use (
+         "-gnatwa",        --  All warnings
+         "-gnatwe",        --  Warnings as errors
+         "-gnatyy",        --  Check style
+         "-gnato",         --  Enable overflow checks
+         "-fstack-check",  --  Stack checking
+         "-g",             --  Debug info
+         "-O2"             --  Optimize
+      );
+   end Compiler;
+
+   package Binder is
+      for Default_Switches ("Ada") use ("-Es");  --  Store traceback
+   end Binder;
+
+   package Builder is
+      for Default_Switches ("Ada") use ("-j0");
+   end Builder;
+end Test_Security;

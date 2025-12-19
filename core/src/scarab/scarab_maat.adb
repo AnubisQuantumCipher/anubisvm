@@ -544,13 +544,172 @@ is
       Tree_Root      : Hash_Value;
       Challenge      : Hash_Value
    ) return Boolean is
-      pragma Unreferenced (Combined, Combined_Len, Challenge);
-      Computed_Root : Hash_Value;
+      --  Parse combined FRI proof structure
+      --  Format:
+      --    0-1:    Num_Proofs (16-bit LE)
+      --    2-...:  FRI_Roots (32 bytes each)
+      --    ...-...:Challenge (32 bytes)
+
+      --  Local array type for FRI roots
+      type FRI_Root_Array is array (0 .. Max_Proofs_Per_Batch - 1) of Hash_Value;
+
+      Idx            : Natural := 0;
+      Num_Proofs     : Natural := 0;
+      Fri_Roots      : FRI_Root_Array := (others => (others => 0));
+      Num_Fri_Roots  : Natural := 0;
+      Computed_Root  : Hash_Value;
    begin
-      --  Recompute root from combined FRI data
-      --  (Simplified - full implementation would rebuild tree)
-      Computed_Root := Tree_Root;  -- Placeholder
-      return Computed_Root = Tree_Root;
+      --  Safety: Check minimum size
+      if Combined_Len < 2 then
+         return False;
+      end if;
+
+      --  Parse header: number of proofs
+      Num_Proofs := Natural (Combined (0)) + Natural (Combined (1)) * 256;
+      Idx := 2;
+
+      --  Verify num_proofs is reasonable
+      if Num_Proofs = 0 or Num_Proofs > Max_Proofs_Per_Batch then
+         return False;
+      end if;
+
+      --  Parse FRI roots (32 bytes each)
+      Num_Fri_Roots := 0;
+      for I in 0 .. Num_Proofs - 1 loop
+         pragma Loop_Invariant (I < Max_Proofs_Per_Batch);
+         pragma Loop_Invariant (Idx <= Max_Proof_Size);
+         pragma Loop_Invariant (Num_Fri_Roots = I);
+
+         --  Check bounds
+         if Idx + Hash_Size > Combined_Len then
+            return False;
+         end if;
+
+         --  Extract FRI root
+         for J in 0 .. Hash_Size - 1 loop
+            pragma Loop_Invariant (J < Hash_Size);
+            pragma Loop_Invariant (Idx + J < Max_Proof_Size);
+            if Idx + J < Max_Proof_Size then
+               Fri_Roots (I) (J) := Combined (Idx + J);
+            end if;
+         end loop;
+
+         Idx := Idx + Hash_Size;
+         Num_Fri_Roots := Num_Fri_Roots + 1;
+      end loop;
+
+      --  Verify challenge is included
+      if Idx + Hash_Size > Combined_Len then
+         return False;
+      end if;
+
+      --  Verify challenge matches
+      for J in 0 .. Hash_Size - 1 loop
+         pragma Loop_Invariant (J < Hash_Size);
+         if Combined (Idx + J) /= Challenge (J) then
+            return False;
+         end if;
+      end loop;
+
+      --  Recompute tree root from FRI roots
+      --  Build Merkle tree from individual FRI roots
+      if Num_Fri_Roots = 0 then
+         return False;
+      elsif Num_Fri_Roots = 1 then
+         --  Single proof: root is just that proof's FRI root
+         Computed_Root := Fri_Roots (0);
+      else
+         --  Multiple proofs: build tree bottom-up
+         declare
+            Tree_Level : array (0 .. Max_Proofs_Per_Batch - 1) of Hash_Value :=
+               (others => (others => 0));
+            Level_Size : Natural := Num_Fri_Roots;
+            Next_Level_Size : Natural;
+         begin
+            --  Initialize with FRI roots
+            for I in 0 .. Num_Fri_Roots - 1 loop
+               pragma Loop_Invariant (I < Max_Proofs_Per_Batch);
+               Tree_Level (I) := Fri_Roots (I);
+            end loop;
+
+            --  Build tree level by level
+            while Level_Size > 1 loop
+               pragma Loop_Invariant (Level_Size > 0);
+               pragma Loop_Invariant (Level_Size <= Max_Proofs_Per_Batch);
+               pragma Loop_Variant (Decreases => Level_Size);
+
+               Next_Level_Size := (Level_Size + 1) / 2;
+
+               for I in 0 .. Next_Level_Size - 1 loop
+                  pragma Loop_Invariant (I < Max_Proofs_Per_Batch);
+                  pragma Loop_Invariant (Next_Level_Size <= Level_Size);
+
+                  if I * 2 + 1 < Level_Size then
+                     --  Pair two nodes
+                     Tree_Level (I) := Hash_Pair (
+                        Tree_Level (I * 2),
+                        Tree_Level (I * 2 + 1)
+                     );
+                  else
+                     --  Odd node, promote as-is
+                     Tree_Level (I) := Tree_Level (I * 2);
+                  end if;
+               end loop;
+
+               Level_Size := Next_Level_Size;
+            end loop;
+
+            --  Root is at index 0
+            Computed_Root := Tree_Level (0);
+         end;
+      end if;
+
+      --  CRITICAL VERIFICATION: Check that computed root matches tree root
+      --  This verifies the structural consistency of the aggregated commitments
+      declare
+         Root_Match : Boolean := True;
+      begin
+         for I in 0 .. Hash_Size - 1 loop
+            pragma Loop_Invariant (I < Hash_Size);
+            if Computed_Root (I) /= Tree_Root (I) then
+               Root_Match := False;
+               exit;
+            end if;
+         end loop;
+
+         if not Root_Match then
+            return False;
+         end if;
+      end;
+
+      --  The challenge binds the FRI roots to the tree root via Fiat-Shamir
+      --  Verify that the FRI roots are consistent with challenge and tree
+      declare
+         Challenge_Input : Byte_Array (0 .. 2 * Hash_Size - 1);
+         Recomputed_Challenge : Hash_Value;
+         Challenge_Match : Boolean := True;
+      begin
+         --  Recompute challenge: Hash(Tree_Root || Computed_FRI_Root)
+         for I in 0 .. Hash_Size - 1 loop
+            pragma Loop_Invariant (I < Hash_Size);
+            Challenge_Input (I) := Tree_Root (I);
+            Challenge_Input (Hash_Size + I) := Computed_Root (I);
+         end loop;
+
+         Anubis_SHA3.SHA3_256 (Challenge_Input, Recomputed_Challenge);
+
+         --  Verify challenge binding (constant-time comparison)
+         for I in 0 .. Hash_Size - 1 loop
+            pragma Loop_Invariant (I < Hash_Size);
+            if Recomputed_Challenge (I) /= Challenge (I) then
+               Challenge_Match := False;
+            end if;
+         end loop;
+
+         --  Structure verified: commitments are consistent and challenge binding is valid
+         return Challenge_Match;
+      end;
+
    end Verify_Combined_FRI;
 
    ---------------------------------------------------------------------------

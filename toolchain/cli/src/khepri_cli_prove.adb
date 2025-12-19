@@ -27,13 +27,21 @@ is
       Success : Boolean;
    begin
       --  Initialize results
+      Results.Total_VCs := 0;
       Results.VCs_Total := 0;
+      Results.Proved := 0;
       Results.VCs_Proven := 0;
+      Results.Not_Proved := 0;
       Results.VCs_Unproven := 0;
+      Results.Timeouts := 0;
+      Results.Errors := 0;
       Results.VCs_Error := 0;
-      Results.Elapsed_Seconds := 0;
-      Results.Level_Achieved := Proof_Flow;
+      Results.Flow_Errors := 0;
+      Results.Time_Total := 0.0;
+      Results.Elapsed_Seconds := 0.0;
+      Results.Success := False;
       Results.Target_Met := False;
+      Results.Level_Achieved := Proof_Flow;
 
       Output.Status := Result_Error;
       Output.Exit_Code := 1;

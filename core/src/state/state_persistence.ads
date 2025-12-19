@@ -170,6 +170,40 @@ is
       Pre => Path_Len > 0 and Path_Len <= Max_Path_Len;
 
    ---------------------------------------------------------------------------
+   --  MPT State Persistence
+   ---------------------------------------------------------------------------
+
+   --  Save complete state including MPT hash map
+   --  Saves both registry and MPT hash map atomically
+   procedure Save_State (
+      Registry       : in     Registry_State;
+      Registry_Path  : in     String;
+      Registry_Len   : in     Natural;
+      Hash_Map_Path  : in     String;
+      Hash_Map_Len   : in     Natural;
+      Result         : out    Persist_Result
+   ) with
+      Global => null,
+      Pre => Registry_Len > 0 and Registry_Len <= Max_Path_Len and
+             Hash_Map_Len > 0 and Hash_Map_Len <= Max_Path_Len and
+             Registry.Is_Initialized;
+
+   --  Load complete state including MPT hash map
+   --  Loads both registry and MPT hash map
+   procedure Load_State (
+      Registry_Path  : in     String;
+      Registry_Len   : in     Natural;
+      Hash_Map_Path  : in     String;
+      Hash_Map_Len   : in     Natural;
+      Registry       : out    Registry_State;
+      Result         : out    Persist_Result
+   ) with
+      Global => null,
+      Pre => Registry_Len > 0 and Registry_Len <= Max_Path_Len and
+             Hash_Map_Len > 0 and Hash_Map_Len <= Max_Path_Len,
+      Post => (if Result.Success then Registry.Is_Initialized);
+
+   ---------------------------------------------------------------------------
    --  Utility Functions
    ---------------------------------------------------------------------------
 

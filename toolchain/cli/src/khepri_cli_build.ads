@@ -18,6 +18,7 @@ is
 
    type Build_Options is record
       Project_File   : String (1 .. 256);
+      GPR_File       : String (1 .. 256);   -- Alias for Project_File
       Output_Dir     : String (1 .. 256);
       Target         : Build_Target;
       Optimization   : Natural range 0 .. 3;
@@ -25,6 +26,9 @@ is
       Runtime        : Runtime_Profile;
       Link_Static    : Boolean;
       Warnings_Error : Boolean;
+      Jobs           : Natural;             -- Parallel build jobs
+      Verbose        : Boolean;             -- Verbose output
+      Force_Rebuild  : Boolean;             -- Force full rebuild
    end record;
 
    type Runtime_Profile is (
@@ -36,13 +40,17 @@ is
 
    Default_Build_Options : constant Build_Options := (
       Project_File   => (others => ' '),
+      GPR_File       => (others => ' '),
       Output_Dir     => (others => ' '),
       Target         => Target_Native,
       Optimization   => 2,
       Debug_Symbols  => False,
       Runtime        => Profile_Khepri,
       Link_Static    => True,
-      Warnings_Error => True
+      Warnings_Error => True,
+      Jobs           => 0,        -- Auto-detect
+      Verbose        => False,
+      Force_Rebuild  => False
    );
 
    ---------------------------------------------------------------------------

@@ -2,6 +2,9 @@
 
 pragma SPARK_Mode (On);
 
+with Anubis_Keccak;  --  For Keccak256 hashing
+with Anubis_Types;   --  For Byte and Byte_Array types
+
 package body Sphinx_Lite_Account with
    SPARK_Mode => On,
    Refined_State => (Account_State => (
@@ -24,33 +27,74 @@ is
    --  Internal Helpers
    ---------------------------------------------------------------------------
 
-   --  Simple hash function placeholder (uses Keccak in production)
+   --  Hash a 20-byte address using Keccak256
    function Simple_Hash (Data : Contract_Address) return Hash256 is
-      Result : Hash256 := (others => 0);
+      Input : Anubis_Types.Byte_Array (0 .. Data'Length - 1);
+      Digest : Anubis_Keccak.Keccak256_Digest;
+      Result : Hash256;
    begin
+      --  Convert input
       for I in Data'Range loop
-         Result (I mod 32) := Result (I mod 32) xor Data (I);
+         Input (I) := Anubis_Types.Byte (Data (I));
       end loop;
+
+      --  Compute Keccak256
+      Anubis_Keccak.Keccak256 (Input, Digest);
+
+      --  Convert result
+      for I in Digest'Range loop
+         Result (I) := Unsigned_8 (Digest (I));
+      end loop;
+
       return Result;
    end Simple_Hash;
 
+   --  Hash a 32-byte hash using Keccak256
    function Simple_Hash_256 (Data : Hash256) return Hash256 is
-      Result : Hash256 := (others => 0);
+      Input : Anubis_Types.Byte_Array (0 .. 31);
+      Digest : Anubis_Keccak.Keccak256_Digest;
+      Result : Hash256;
    begin
+      --  Convert input
       for I in Data'Range loop
-         Result ((I + 1) mod 32) := Result ((I + 1) mod 32) xor Data (I);
+         Input (I) := Anubis_Types.Byte (Data (I));
       end loop;
+
+      --  Compute Keccak256
+      Anubis_Keccak.Keccak256 (Input, Digest);
+
+      --  Convert result
+      for I in Digest'Range loop
+         Result (I) := Unsigned_8 (Digest (I));
+      end loop;
+
       return Result;
    end Simple_Hash_256;
 
-   --  Combine two hashes (for Merkle nodes)
+   --  Combine two hashes for Merkle tree nodes
+   --  Combined = Keccak256(left || right)
    function Combine_Hashes (Left, Right : Hash256) return Hash256 is
+      Input : Anubis_Types.Byte_Array (0 .. 63);
+      Digest : Anubis_Keccak.Keccak256_Digest;
       Result : Hash256;
    begin
-      for I in Hash256'Range loop
-         Result (I) := Left (I) xor Right (I);
+      --  Concatenate left and right hashes
+      for I in Left'Range loop
+         Input (I) := Anubis_Types.Byte (Left (I));
       end loop;
-      return Simple_Hash_256 (Result);
+      for I in Right'Range loop
+         Input (32 + I) := Anubis_Types.Byte (Right (I));
+      end loop;
+
+      --  Compute Keccak256 of concatenation
+      Anubis_Keccak.Keccak256 (Input, Digest);
+
+      --  Convert result
+      for I in Digest'Range loop
+         Result (I) := Unsigned_8 (Digest (I));
+      end loop;
+
+      return Result;
    end Combine_Hashes;
 
    ---------------------------------------------------------------------------

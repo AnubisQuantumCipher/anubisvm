@@ -212,10 +212,7 @@ is
        Ctx.Signer_Index < Ctx.Ring_Keys.Size)
    with Ghost, Pure_Function;
 
-   --  Ghost: Credential is valid (properly issued and well-formed)
-   function Credential_Valid (Cred : Credential) return Boolean is
-      (Cred.Num_Attributes <= Max_Attributes)
-   with Ghost, Pure_Function;
+   --  Note: Credential_Valid ghost function moved after Credential type definition
 
    ---------------------------------------------------------------------------
    --  Lemma Subprograms for Proof Guidance (Platinum)
@@ -552,6 +549,11 @@ is
       Issuer_Sig     : Ring_Signature;
       Holder_PK      : Public_Key;
    end record;
+
+   --  Ghost: Credential is valid (properly issued and well-formed)
+   function Credential_Valid (Cred : Credential) return Boolean is
+      (Cred.Num_Attributes <= Max_Attributes)
+   with Ghost, Pure_Function;
 
    --  Issue credential to holder
    procedure Issue_Credential (

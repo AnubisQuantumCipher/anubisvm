@@ -27,11 +27,9 @@ package body ada_main is
    E090 : Short_Integer; pragma Import (Ada, E090, "ada__finalization_E");
    E089 : Short_Integer; pragma Import (Ada, E089, "system__file_io_E");
    E077 : Short_Integer; pragma Import (Ada, E077, "ada__text_io_E");
-   E127 : Short_Integer; pragma Import (Ada, E127, "anubis_keccak_E");
    E109 : Short_Integer; pragma Import (Ada, E109, "anubis_mldsa_encoding_E");
    E119 : Short_Integer; pragma Import (Ada, E119, "anubis_mldsa_ntt_E");
    E121 : Short_Integer; pragma Import (Ada, E121, "anubis_mldsa_poly_E");
-   E125 : Short_Integer; pragma Import (Ada, E125, "anubis_sha3_E");
    E123 : Short_Integer; pragma Import (Ada, E123, "anubis_mldsa_sample_E");
    E106 : Short_Integer; pragma Import (Ada, E106, "anubis_mldsa_E");
 
@@ -204,11 +202,9 @@ package body ada_main is
       Ada.Text_Io'Elab_Spec;
       Ada.Text_Io'Elab_Body;
       E077 := E077 + 1;
-      E127 := E127 + 1;
       E109 := E109 + 1;
       E119 := E119 + 1;
       E121 := E121 + 1;
-      E125 := E125 + 1;
       E123 := E123 + 1;
       E106 := E106 + 1;
    end adainit;
@@ -248,15 +244,15 @@ package body ada_main is
    end;
 
 --  BEGIN Object file/option list
+   --   /Users/sicarii/anubisvm/obj/anubis_keccak.o
    --   /Users/sicarii/anubisvm/obj/anubis_mldsa_config.o
    --   /Users/sicarii/anubisvm/obj/anubis_mldsa_field.o
    --   /Users/sicarii/anubisvm/obj/anubis_types.o
    --   /Users/sicarii/anubisvm/obj/anubis_mldsa_types.o
-   --   /Users/sicarii/anubisvm/obj/anubis_keccak.o
+   --   /Users/sicarii/anubisvm/obj/anubis_sha3.o
    --   /Users/sicarii/anubisvm/obj/anubis_mldsa_encoding.o
    --   /Users/sicarii/anubisvm/obj/anubis_mldsa_ntt.o
    --   /Users/sicarii/anubisvm/obj/anubis_mldsa_poly.o
-   --   /Users/sicarii/anubisvm/obj/anubis_sha3.o
    --   /Users/sicarii/anubisvm/obj/anubis_mldsa_sample.o
    --   /Users/sicarii/anubisvm/obj/anubis_mldsa.o
    --   /Users/sicarii/anubisvm/tests/obj/test_mldsa.o

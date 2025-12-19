@@ -117,16 +117,15 @@ is
 
    --  Generate attestation report
    --
-   --  TEE_Code     : Hash of TEE binary
-   --  TEE_Config   : Hash of configuration
-   --  State_Root   : Current state root hash
-   --  CVM_Hashes   : Array of CVM code hashes
-   --  CVM_Addresses: Array of CVM addresses
-   --  CVM_Active   : Array of CVM active flags
-   --  CVM_Count    : Number of CVMs
-   --  Nonce        : Verifier-provided nonce (32 bytes)
-   --  Attest_PK    : Attestation public key
-   --  Report       : Output attestation report
+   --  TEE_Code      : Hash of TEE binary
+   --  TEE_Config    : Hash of configuration
+   --  State_Root    : Current state root hash
+   --  CVM_Hashes    : Array of CVM code hashes
+   --  CVM_Count     : Number of CVMs
+   --  Nonce         : Verifier-provided nonce (32 bytes)
+   --  Block_Time    : Current block timestamp (Unix seconds)
+   --  Attest_PK     : Attestation public key
+   --  Report        : Output attestation report
    procedure Generate_Report (
       TEE_Code      : Measurement;
       TEE_Config    : Measurement;
@@ -134,6 +133,7 @@ is
       CVM_Hashes    : CVM_Measurement_Array;
       CVM_Count     : Natural;
       Nonce         : Byte_Array;
+      Block_Time    : Word64;
       Attest_PK     : DSA_Public_Key;
       Report        : out Attestation_Report
    ) with
@@ -249,18 +249,152 @@ is
       Global => null,
       Pre => Report.Valid;
 
-   --  Get current timestamp
-   procedure Get_Timestamp (
-      Timestamp : out Byte_Array
-   ) with
-      Global => null,
-      Pre => Timestamp'Length = 8;
-
    --  Compare measurements (constant-time)
    function Equal_Measurements (
       A : Measurement;
       B : Measurement
    ) return Boolean with
       Global => null;
+
+   ---------------------------------------------------------------------------
+   --  Measurement Chain Verification
+   ---------------------------------------------------------------------------
+
+   --  Verify measurement chain integrity
+   --
+   --  Ensures that a sequence of measurements forms a valid attestation chain:
+   --  1. Each measurement is a valid SHA3-256 hash
+   --  2. Chain is properly ordered (no gaps or duplicates)
+   --  3. Final measurement matches expected root
+   --
+   --  This proves the entire execution path from boot to current state.
+   --
+   --  Chain         : Array of measurements (chronological order)
+   --  Chain_Length  : Number of valid measurements in chain
+   --  Expected_Root : Expected final root measurement
+   --
+   --  Returns: True if chain is valid and matches expected root
+   function Verify_Measurement_Chain (
+      Chain         : CVM_Measurement_Array;
+      Chain_Length  : Natural;
+      Expected_Root : Measurement
+   ) return Boolean with
+      Global => null,
+      Pre => Chain_Length <= Max_CVM_Measurements;
+
+   --  Extend measurement chain (hash extension)
+   --
+   --  Computes: New_Measurement = SHA3-256(Previous || Current)
+   --
+   --  This creates a tamper-evident chain where changing any prior
+   --  measurement invalidates all subsequent measurements.
+   --
+   --  Previous       : Previous measurement in chain
+   --  Current        : New measurement to add
+   --  New_Measurement: Output extended measurement
+   procedure Extend_Measurement (
+      Previous        : Measurement;
+      Current         : Measurement;
+      New_Measurement : out Measurement
+   ) with
+      Global => null;
+
+   --  Verify CVM measurement is valid
+   --
+   --  Checks that:
+   --  1. Address is not all zeros
+   --  2. Code hash is not all zeros
+   --  3. CVM is marked as active
+   --
+   --  M : CVM measurement to verify
+   --
+   --  Returns: True if measurement is valid
+   function Verify_CVM_Measurement (
+      M : CVM_Measurement
+   ) return Boolean with
+      Global => null;
+
+   --  Compute measurement chain root
+   --
+   --  Computes the root hash of all CVM measurements:
+   --  Root = SHA3-256(M[0] || M[1] || ... || M[n-1])
+   --
+   --  Measurements : Array of CVM measurements
+   --  Count        : Number of measurements to include
+   --  Root         : Output root hash
+   procedure Compute_Chain_Root (
+      Measurements : CVM_Measurement_Array;
+      Count        : Natural;
+      Root         : out Measurement
+   ) with
+      Global => null,
+      Pre => Count <= Max_CVM_Measurements;
+
+   ---------------------------------------------------------------------------
+   --  Hardware Attestation Support
+   ---------------------------------------------------------------------------
+
+   --  Hardware attestation type (for platform-specific attestation)
+   type Hardware_Attestation_Type is (
+      None,                --  No hardware attestation
+      Software_Only,       --  Software-based attestation only
+      TPM_2_0,             --  Trusted Platform Module 2.0
+      Intel_SGX,           --  Intel SGX remote attestation
+      AMD_SEV_SNP,         --  AMD SEV-SNP attestation
+      ARM_TrustZone,       --  ARM TrustZone
+      Apple_Secure_Enclave --  Apple Secure Enclave
+   );
+
+   --  Hardware attestation evidence
+   type Hardware_Attestation_Evidence is record
+      Attestation_Type : Hardware_Attestation_Type;
+      Platform_Data    : Byte_Array (0 .. 255);  --  Platform-specific data
+      Data_Length      : Natural;
+      Valid            : Boolean;
+   end record;
+
+   --  Empty hardware evidence
+   Empty_Hardware_Evidence : constant Hardware_Attestation_Evidence := (
+      Attestation_Type => None,
+      Platform_Data    => (others => 0),
+      Data_Length      => 0,
+      Valid            => False
+   );
+
+   --  Verify hardware attestation evidence
+   --
+   --  Validates platform-specific attestation evidence.
+   --  The verification logic is platform-dependent but always
+   --  produces a deterministic True/False result.
+   --
+   --  Evidence      : Hardware attestation evidence
+   --  Expected_Type : Expected attestation type
+   --
+   --  Returns: True if evidence is valid for the platform
+   function Verify_Hardware_Attestation (
+      Evidence      : Hardware_Attestation_Evidence;
+      Expected_Type : Hardware_Attestation_Type
+   ) return Boolean with
+      Global => null,
+      Pre => Evidence.Data_Length <= 256;
+
+   --  Create hardware attestation evidence from report
+   --
+   --  Packages a TEE attestation report with platform-specific
+   --  hardware evidence (e.g., TPM quote, SGX report, etc.)
+   --
+   --  Report          : TEE attestation report
+   --  Attestation_Type: Type of hardware attestation
+   --  Platform_Data   : Platform-specific attestation data
+   --  Evidence        : Output combined evidence
+   procedure Create_Hardware_Evidence (
+      Report           : Attestation_Report;
+      Attestation_Type : Hardware_Attestation_Type;
+      Platform_Data    : Byte_Array;
+      Evidence         : out Hardware_Attestation_Evidence
+   ) with
+      Global => null,
+      Pre => Report.Valid and Platform_Data'Length <= 256,
+      Post => Evidence.Valid and Evidence.Data_Length = Platform_Data'Length;
 
 end TEE_Attestation;

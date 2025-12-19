@@ -2,6 +2,7 @@ pragma SPARK_Mode (On);
 
 with Anubis_MLKEM; use Anubis_MLKEM;
 with Anubis_SHA3; use Anubis_SHA3;
+with Anubis_Secure_Wipe;
 
 package body Anubis_Session with
    SPARK_Mode => On
@@ -139,29 +140,22 @@ is
       end loop;
    end Generate_Nonce;
 
-   --  Zeroize session key (constant-time)
+   --  Zeroize session key (uses volatile writes to prevent dead-store elimination)
    procedure Zeroize_Session_Key (Key : in Out Session_Key) is
    begin
-      for I in Key'Range loop
-         pragma Loop_Invariant (for all J in Key'First .. I - 1 => Key (J) = 0);
-         Key (I) := 0;
-      end loop;
+      Anubis_Secure_Wipe.Secure_Wipe_32 (Key);
    end Zeroize_Session_Key;
 
-   --  Zeroize recipient context (including secret key)
+   --  Zeroize recipient context (including secret key, uses volatile writes)
    procedure Zeroize_Recipient_Context (Ctx : in Out Recipient_Context) is
    begin
-      --  Zeroize secret key
-      for I in Ctx.KEM_SK'Range loop
-         Ctx.KEM_SK (I) := 0;
-      end loop;
+      --  Zeroize secret key (decapsulation key, 3168 bytes)
+      Anubis_Secure_Wipe.Secure_Wipe (Ctx.KEM_SK);
 
-      --  Zeroize public key
-      for I in Ctx.KEM_PK'Range loop
-         Ctx.KEM_PK (I) := 0;
-      end loop;
+      --  Zeroize public key (encapsulation key, 1568 bytes)
+      Anubis_Secure_Wipe.Secure_Wipe (Ctx.KEM_PK);
 
-      --  Zeroize session key
+      --  Zeroize session key (32 bytes)
       Zeroize_Session_Key (Ctx.Session_Key);
 
       Ctx.Established := False;

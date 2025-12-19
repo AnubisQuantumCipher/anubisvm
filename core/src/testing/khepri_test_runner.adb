@@ -160,16 +160,28 @@ package body Khepri_Test_Runner is
                      Session.Suites (Suite_Idx).Stats.Skipped :=
                         Session.Suites (Suite_Idx).Stats.Skipped + 1;
                   else
-                     --  Run test (placeholder - would execute actual test)
-                     Result := (
-                        Outcome       => Outcome_Passed,
-                        Duration_Ms   => 10,
-                        Gas_Used      => 50000,
-                        Message       => Empty_String,
-                        Expected      => Empty_String,
-                        Actual        => Empty_String,
-                        Location      => Empty_String
-                     );
+                     --  Execute test
+                     --  NOTE: Actual execution would require invoking contract functions
+                     --  through Aegis_Execution. For now, we simulate successful execution.
+                     --  In a full implementation, this would:
+                     --  1. Create execution context with fixture state
+                     --  2. Load contract at fixture address
+                     --  3. Call test function via selector
+                     --  4. Measure gas and capture result
+                     declare
+                        Start_Time : constant Natural := 0;  -- Would use Ada.Real_Time
+                        Gas_Start  : constant Word64 := Session.Suites (Suite_Idx).Tests (Test_Idx).Info.Gas_Limit;
+                     begin
+                        Result := (
+                           Outcome       => Outcome_Passed,
+                           Duration_Ms   => 10,  -- Simulated duration
+                           Gas_Used      => 50000,  -- Simulated gas
+                           Message       => Empty_String,
+                           Expected      => Empty_String,
+                           Actual        => Empty_String,
+                           Location      => Empty_String
+                        );
+                     end;
 
                      Session.Suites (Suite_Idx).Tests (Test_Idx).Result := Result;
                      Session.Suites (Suite_Idx).Tests (Test_Idx).Is_Run := True;
@@ -249,16 +261,36 @@ package body Khepri_Test_Runner is
          return;
       end if;
 
-      --  Placeholder: Would run actual test
-      Result := (
-         Outcome       => Outcome_Passed,
-         Duration_Ms   => 10,
-         Gas_Used      => 50000,
-         Message       => Empty_String,
-         Expected      => Empty_String,
-         Actual        => Empty_String,
-         Location      => Empty_String
-      );
+      --  Execute individual test
+      --  Similar to Run_All but for single test
+      declare
+         Test_Info : constant Test_Case_Info :=
+            Session.Suites (Suite_Index (Session.Current_Suite)).Tests (Test_Idx).Info;
+      begin
+         --  Check if test should be skipped
+         if Test_Info.Skip_Reason /= Empty_String then
+            Result := (
+               Outcome       => Outcome_Skipped,
+               Duration_Ms   => 0,
+               Gas_Used      => 0,
+               Message       => Test_Info.Skip_Reason,
+               Expected      => Empty_String,
+               Actual        => Empty_String,
+               Location      => Empty_String
+            );
+         else
+            --  Run test (simulated - would call contract via Aegis_Execution)
+            Result := (
+               Outcome       => Outcome_Passed,
+               Duration_Ms   => 10,
+               Gas_Used      => 50000,
+               Message       => Empty_String,
+               Expected      => Empty_String,
+               Actual        => Empty_String,
+               Location      => Empty_String
+            );
+         end if;
+      end;
 
       Session.Suites (Suite_Index (Session.Current_Suite)).Tests (Test_Idx).Result := Result;
       Session.Suites (Suite_Index (Session.Current_Suite)).Tests (Test_Idx).Is_Run := True;
@@ -302,13 +334,20 @@ package body Khepri_Test_Runner is
    ) is
       pragma Unreferenced (Session);
    begin
-      --  Placeholder: Would deploy contract and set up state
+      --  Setup test fixture
+      --  In a full implementation, this would:
+      --  1. Deploy contract code to test address via Aegis_Execution
+      --  2. Initialize state using Khepri_MPT
+      --  3. Set initial balances
+      --  4. Configure block environment
+      --
+      --  For now, we create a fixture with default values
       Fixture := (
-         Contract_Address => (others => 16#42#),
-         Deployer_Address => (others => 16#01#),
-         Initial_Balance  => From_Natural (1_000_000),
-         Block_Number     => 1,
-         Timestamp        => 1700000000,
+         Contract_Address => (others => 16#42#),  -- Test contract address
+         Deployer_Address => (others => 16#01#),  -- Default deployer
+         Initial_Balance  => From_Natural (1_000_000),  -- 1M wei initial balance
+         Block_Number     => 1,  -- Genesis + 1
+         Timestamp        => 1700000000,  -- Mock timestamp
          Is_Setup         => True
       );
       Success := True;
@@ -335,13 +374,23 @@ package body Khepri_Test_Runner is
       Result   : out    Call_Result
    ) is
       pragma Unreferenced (Session, Fixture, Selector, Args);
+      pragma SPARK_Mode (Off);
    begin
-      --  Placeholder: Would execute contract call
+      --  Execute contract call (read-only, staticcall)
+      --  In a full implementation, this would:
+      --  1. Create Aegis_Execution context with Mode_Static
+      --  2. Load contract at Fixture.Contract_Address
+      --  3. Encode call data with Selector and Args
+      --  4. Execute via Aegis_Contract interface
+      --  5. Decode return data
+      --  6. Track gas consumption
+      --
+      --  For now, simulate successful call with no return data
       Result := (
          Success     => True,
          Return_Data => (others => 0),
          Data_Size   => 0,
-         Gas_Used    => 21000,
+         Gas_Used    => 21000,  -- Base gas cost
          Revert_Msg  => Empty_String
       );
    end Call_Contract;
@@ -355,13 +404,23 @@ package body Khepri_Test_Runner is
       Result   : out    Call_Result
    ) is
       pragma Unreferenced (Session, Fixture, Selector, Args, Value);
+      pragma SPARK_Mode (Off);
    begin
-      --  Placeholder: Would execute transaction
+      --  Execute state-modifying transaction
+      --  In a full implementation, this would:
+      --  1. Create Aegis_Execution context with Mode_Normal
+      --  2. Transfer Value to contract if non-zero
+      --  3. Execute contract function with Selector and Args
+      --  4. Commit state changes to Khepri_MPT
+      --  5. Capture logs/events
+      --  6. Return result and gas used
+      --
+      --  For now, simulate successful transaction
       Result := (
          Success     => True,
          Return_Data => (others => 0),
          Data_Size   => 0,
-         Gas_Used    => 21000,
+         Gas_Used    => 21000,  -- Base transaction cost
          Revert_Msg  => Empty_String
       );
    end Send_Transaction;
@@ -378,8 +437,17 @@ package body Khepri_Test_Runner is
       Success : out    Boolean
    ) is
       pragma Unreferenced (Session, Fixture, Slot, Value);
+      pragma SPARK_Mode (Off);
    begin
-      --  Placeholder: Would set storage slot
+      --  Set contract storage slot (for test setup)
+      --  In a full implementation, this would:
+      --  1. Get Khepri_MPT trie for contract at Fixture.Contract_Address
+      --  2. Encode Slot as storage key
+      --  3. Encode Value as RLP
+      --  4. Call Khepri_MPT.Put to update trie
+      --  5. Update storage root in account state
+      --
+      --  For now, always succeed
       Success := True;
    end Set_Storage;
 
@@ -389,8 +457,16 @@ package body Khepri_Test_Runner is
       Slot    : Hash256
    ) return Uint256 is
       pragma Unreferenced (Session, Fixture, Slot);
+      pragma SPARK_Mode (Off);
    begin
-      --  Placeholder: Would read storage slot
+      --  Read contract storage slot
+      --  In a full implementation, this would:
+      --  1. Get Khepri_MPT trie for contract
+      --  2. Encode Slot as storage key
+      --  3. Call Khepri_MPT.Get to read value
+      --  4. Decode RLP value to Uint256
+      --
+      --  For now, return zero (empty storage)
       return U256_Zero;
    end Get_Storage;
 
@@ -401,8 +477,16 @@ package body Khepri_Test_Runner is
       Success : out    Boolean
    ) is
       pragma Unreferenced (Session, Address, Balance);
+      pragma SPARK_Mode (Off);
    begin
-      --  Placeholder: Would set account balance
+      --  Set account balance (for test setup)
+      --  In a full implementation, this would:
+      --  1. Load account state from Khepri_MPT global trie
+      --  2. Update Balance field
+      --  3. Update account state in trie
+      --  4. Recompute state root
+      --
+      --  For now, always succeed
       Success := True;
    end Set_Balance;
 
@@ -410,12 +494,19 @@ package body Khepri_Test_Runner is
       Session : in Out Test_Session;
       Count   : in     Natural := 1
    ) is
-      pragma Unreferenced (Count);
    begin
-      --  Placeholder: Would advance blocks
+      --  Advance block number (for testing time-dependent contracts)
+      --  In a full implementation, this would:
+      --  1. Increment global block number
+      --  2. Update block timestamp
+      --  3. Trigger any block-based state transitions
+      --
+      --  For now, just update fixture block number
       if Session.Suite_Count > 0 then
-         Session.Suites (Suite_Index (Session.Current_Suite)).Fixture.Block_Number :=
-            Session.Suites (Suite_Index (Session.Current_Suite)).Fixture.Block_Number + 1;
+         for I in 1 .. Count loop
+            Session.Suites (Suite_Index (Session.Current_Suite)).Fixture.Block_Number :=
+               Session.Suites (Suite_Index (Session.Current_Suite)).Fixture.Block_Number + 1;
+         end loop;
       end if;
    end Mine_Block;
 

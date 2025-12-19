@@ -342,8 +342,43 @@ package body Khepri_Fuzzer is
             end;
          end if;
 
-         --  Execute (placeholder - would run contract)
-         --  Check for crashes (placeholder)
+         --  Execute contract with generated input
+         --  In a full implementation, this would:
+         --  1. Create Aegis_Execution context
+         --  2. Call target contract with Session.Target_Sel and Input
+         --  3. Monitor for crashes, hangs, assertion failures
+         --  4. Collect coverage data via Khepri_Coverage
+         --  5. Save interesting inputs to corpus
+         --  6. Record crashes with full input + error info
+         declare
+            Execution_OK : Boolean := True;
+            Gas_Used     : Word64 := 0;
+            pragma Unreferenced (Gas_Used);
+         begin
+            --  Simulated execution (would call Aegis_Execution)
+            --  Check for various failure modes:
+            --  - Out of gas
+            --  - Invalid opcode
+            --  - Stack overflow
+            --  - Assertion failure
+            --  - Timeout (execution time > Config.Timeout_Ms)
+
+            --  For now, assume execution succeeds
+            Execution_OK := True;
+
+            --  If crash detected, record it
+            if not Execution_OK and Session.Crash_Count < Natural (Max_Crashes) then
+               Session.Crashes (Crash_Index (Session.Crash_Count)) := (
+                  Input        => Input,
+                  Input_Size   => Input_Size,
+                  Crash_Type   => 0,  -- 0=crash, would classify type
+                  Error_Msg    => Empty_String,  -- Would capture actual error
+                  Coverage     => 0
+               );
+               Session.Crash_Count := Session.Crash_Count + 1;
+               Session.Stats.Unique_Crashes := Session.Crash_Count;
+            end if;
+         end;
 
          Session.Stats.Iterations := Iter;
       end loop;
@@ -441,7 +476,42 @@ package body Khepri_Fuzzer is
       Iterations : in     Natural;
       Check      : out    Property_Check
    ) is
+      Input : Byte_Array (0 .. 255) := (others => 0);
+      Input_Size : Natural;
+      Property_Violated : Boolean := False;
    begin
+      --  Property-based testing loop
+      --  In a full implementation, this would:
+      --  1. Generate random inputs for property
+      --  2. Execute contract with inputs
+      --  3. Check postconditions/invariants
+      --  4. If property violated, save counterexample
+      --  5. Optionally shrink counterexample to minimal case
+      --
+      --  For now, simulate property holding
+
+      for I in 1 .. Iterations loop
+         --  Generate random input
+         Generate_Bounded (Session.RNG, 4, 256, Input_Size);
+         Generate_Bytes (Session.RNG, Input, Input_Size);
+
+         --  Execute and check property (simulated)
+         --  Would call contract and verify postconditions
+         --  If property fails, record counterexample
+
+         if Property_Violated then
+            Check := (
+               Result       => Property_Violated,
+               Iterations   => I,
+               Counter_Ex   => Input,
+               Counter_Size => Input_Size,
+               Message      => Empty_String  -- Would include property description
+            );
+            return;
+         end if;
+      end loop;
+
+      --  Property held for all iterations
       Check := (
          Result       => Property_Holds,
          Iterations   => Iterations,
@@ -449,8 +519,6 @@ package body Khepri_Fuzzer is
          Counter_Size => 0,
          Message      => Empty_String
       );
-
-      --  Placeholder: Would run property-based tests
    end Test_Property;
 
    ---------------------------------------------------------------------------

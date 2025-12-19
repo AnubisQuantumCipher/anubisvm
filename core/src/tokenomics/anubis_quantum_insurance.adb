@@ -7,6 +7,10 @@
 
 pragma SPARK_Mode (On);
 
+with Anubis_SHA3;
+with Anubis_MLDSA;
+with Anubis_MLDSA_Types; use Anubis_MLDSA_Types;
+
 package body Anubis_Quantum_Insurance with
    SPARK_Mode => On
 is
@@ -91,17 +95,51 @@ is
       Attestation    : Oracle_Attestation;
       Oracle_PK      : Byte_Array
    ) return Boolean is
-      pragma Unreferenced (Oracle_PK);
+      --  Message format: timestamp (8) || block (8) || threat_level (1) ||
+      --                  evidence_hash (32) || ipfs (46) = 95 bytes
+      Message : Byte_Array (0 .. 94) := (others => 0);
+      PK : Public_Key := (others => 0);
+      Sig : Signature := (others => 0);
    begin
-      --  In production, would verify ML-DSA signature
-      --  Check attestation has valid data
-      for I in Attestation.Evidence_Hash'Range loop
-         if Attestation.Evidence_Hash (I) /= 0 then
-            return True;
-         end if;
+      --  Validate input size
+      if Oracle_PK'Length /= 2592 or Attestation.Signature'Length < 4627 then
+         return False;
+      end if;
+
+      --  Build message for signature verification
+      --  Timestamp (8 bytes, big-endian)
+      for I in 0 .. 7 loop
+         Message (I) := Unsigned_8 (
+            Shift_Right (Attestation.Timestamp, (7 - I) * 8) and 16#FF#);
       end loop;
 
-      return False;
+      --  Block number (8 bytes, big-endian)
+      for I in 0 .. 7 loop
+         Message (8 + I) := Unsigned_8 (
+            Shift_Right (Attestation.Block_Number, (7 - I) * 8) and 16#FF#);
+      end loop;
+
+      --  Threat level (1 byte)
+      Message (16) := Quantum_Threat_Level'Pos (Attestation.Threat_Level);
+
+      --  Evidence hash (32 bytes)
+      Message (17 .. 48) := Attestation.Evidence_Hash;
+
+      --  IPFS evidence (46 bytes)
+      Message (49 .. 94) := Attestation.IPFS_Evidence;
+
+      --  Copy public key
+      for I in PK'Range loop
+         PK (I) := Oracle_PK (Oracle_PK'First + I);
+      end loop;
+
+      --  Copy signature
+      for I in Sig'Range loop
+         Sig (I) := Attestation.Signature (Attestation.Signature'First + I);
+      end loop;
+
+      --  Verify ML-DSA-87 signature
+      return Anubis_MLDSA.Verify (PK, Message, Sig);
    end Verify_Oracle_Signature;
 
    function Get_Threat_Level (
@@ -301,13 +339,19 @@ is
          return;
       end if;
 
-      --  Execute release
+      --  Execute release - transfer tokens to recipient
+      --  In production, this would interact with the token contract
+      --  For now, update state to reflect the transfer
       State.Current_Balance :=
          State.Current_Balance - State.Active_Proposal.Amount;
       State.Total_Released :=
          State.Total_Released + State.Active_Proposal.Amount;
       State.Active_Proposal.Executed := True;
       State.Has_Active_Proposal := False;
+
+      --  Actual token transfer would happen here via CVM token operations
+      --  The transfer would send State.Active_Proposal.Amount tokens to
+      --  State.Active_Proposal.Recipient address
 
       Result := Released;
    end Execute_Release;

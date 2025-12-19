@@ -23,8 +23,12 @@ is
       Steps          : Natural;       -- Max proof steps
       Parallel       : Natural;       -- Parallel jobs (0 = auto)
       Prover         : Prover_Choice;
+      Provers        : String (1 .. 64);  -- Prover name string
       Report_Mode    : Report_Mode;
+      Report         : Report_Mode;   -- Alias for Report_Mode
+      Output_Format  : String (1 .. 32);
       Warnings       : Warning_Mode;
+      Warnings_As_Errors : Boolean;
       Debug_Mode     : Boolean;
    end record;
 
@@ -55,8 +59,12 @@ is
       Steps          => 0,  -- Default
       Parallel       => 0,  -- Auto
       Prover         => Prover_All,
+      Provers        => (others => ' '),
       Report_Mode    => Report_All,
+      Report         => Report_All,
+      Output_Format  => (others => ' '),
       Warnings       => Warnings_Continue,
+      Warnings_As_Errors => False,
       Debug_Mode     => False
    );
 
@@ -102,13 +110,19 @@ is
 
    type Proof_Results is record
       Total_VCs      : Natural;
+      VCs_Total      : Natural;  -- Alias
       Proved         : Natural;
+      VCs_Proven     : Natural;  -- Alias
       Not_Proved     : Natural;
+      VCs_Unproven   : Natural;  -- Alias
       Timeouts       : Natural;
       Errors         : Natural;
+      VCs_Error      : Natural;  -- Alias
       Flow_Errors    : Natural;
       Time_Total     : Float;
+      Elapsed_Seconds : Float;  -- Alias
       Success        : Boolean;
+      Target_Met     : Boolean;  -- Alias
       Level_Achieved : Proof_Level;
    end record;
 

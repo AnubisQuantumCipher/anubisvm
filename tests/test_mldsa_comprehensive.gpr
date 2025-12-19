@@ -1,0 +1,30 @@
+--  GPR project file for comprehensive ML-DSA-87 tests
+
+project Test_MLDSA_Comprehensive is
+
+   for Source_Dirs use (".", "src", "../core/src/**");
+   for Object_Dir use "obj";
+   for Exec_Dir use "bin";
+   for Main use ("test_mldsa_comprehensive.adb");
+
+   package Compiler is
+      for Default_Switches ("Ada") use (
+         "-gnatwa",        --  All warnings
+         "-gnatwe",        --  Warnings as errors
+         "-gnatyy",        --  Style checks
+         "-gnato",         --  Overflow checks
+         "-fstack-check",  --  Stack checking
+         "-g",             --  Debug info
+         "-O2"             --  Optimize
+      );
+   end Compiler;
+
+   package Binder is
+      for Default_Switches ("Ada") use ("-Es");  --  Symbolic traceback
+   end Binder;
+
+   package Linker is
+      for Default_Switches ("Ada") use ("-g");
+   end Linker;
+
+end Test_MLDSA_Comprehensive;

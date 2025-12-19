@@ -11,9 +11,14 @@ with System;
 with System.Storage_Elements; use System.Storage_Elements;
 with Anubis_Types;
 with Anubis_SHA3;
+with Anubis_MLDSA;
+with Anubis_MLDSA_Types;
+with Anubis_MLKEM;
+with Anubis_MLKEM_Types;
 
 use type System.Address;
 use type Interfaces.C.int;
+use type Interfaces.C.size_t;
 use type Interfaces.C.Strings.chars_ptr;
 
 package body Sphinx_Native_MacOS is
@@ -51,9 +56,6 @@ package body Sphinx_Native_MacOS is
    ---------------------------------------------------------------------------
 
    type C_Account_ID is array (0 .. 31) of Unsigned_8
-   with Convention => C;
-
-   type C_Hash256 is array (0 .. 31) of Unsigned_8
    with Convention => C;
 
    type C_Syscall_Table;
@@ -172,6 +174,15 @@ package body Sphinx_Native_MacOS is
    ) return Interfaces.C.int
       with Export, Convention => C, External_Name => "sphinx_mldsa_verify";
 
+   function VM_MLKEM_Decaps_Impl (
+      Ciphertext  : System.Address;
+      CT_Len      : Interfaces.C.size_t;
+      Secret_Key  : System.Address;
+      SK_Len      : Interfaces.C.size_t;
+      Shared_Sec  : System.Address
+   ) return Interfaces.C.int
+      with Export, Convention => C, External_Name => "sphinx_mlkem_decaps";
+
    procedure VM_Get_Caller_Impl (Addr : System.Address)
       with Export, Convention => C, External_Name => "sphinx_get_caller";
 
@@ -289,7 +300,7 @@ package body Sphinx_Native_MacOS is
       end if;
    end VM_SHA3_Impl;
 
-   --  ANKH: ML-DSA-87 Verify (stub - returns 1 for now)
+   --  ANKH: ML-DSA-87 Verify (FIPS 204 Level 5)
    function VM_MLDSA_Verify_Impl (
       Message   : System.Address;
       Msg_Len   : Interfaces.C.size_t;
@@ -298,12 +309,185 @@ package body Sphinx_Native_MacOS is
       Pub_Key   : System.Address
    ) return Interfaces.C.int
    is
-      pragma Unreferenced (Message, Msg_Len, Signature, Sig_Len, Pub_Key);
+      use Anubis_MLDSA;
+
+      --  ML-DSA-87 signature size per FIPS 204 (4627 bytes)
+      Expected_Sig_Len : constant := Signature_Bytes;
+
+      Msg_Len_Nat : Natural;
+      Result      : Boolean;
    begin
-      --  TODO: Wire to real ML-DSA-87 verification
-      --  For now, return success
-      return 1;
+      --  Validate signature length
+      if Sig_Len /= Interfaces.C.size_t (Expected_Sig_Len) then
+         Ada.Text_IO.Put_Line ("  [MLDSA] Invalid signature length: " &
+            Interfaces.C.size_t'Image (Sig_Len) & " (expected" &
+            Natural'Image (Expected_Sig_Len) & ")");
+         return 0;
+      end if;
+
+      --  Validate message length (bounded by Max_Msg_Length)
+      if Msg_Len > Interfaces.C.size_t (Max_Msg_Length) then
+         Ada.Text_IO.Put_Line ("  [MLDSA] Message too long");
+         return 0;
+      end if;
+
+      Msg_Len_Nat := Natural (Msg_Len);
+
+      --  Handle null pointers
+      if Message = System.Null_Address or else
+         Signature = System.Null_Address or else
+         Pub_Key = System.Null_Address
+      then
+         Ada.Text_IO.Put_Line ("  [MLDSA] Null pointer in verify");
+         return 0;
+      end if;
+
+      --  Copy data from C pointers to Ada arrays
+      declare
+         --  Local arrays for verification
+         Msg_Data : Anubis_Types.Byte_Array (0 .. Msg_Len_Nat - 1);
+         Sig_Data : Anubis_MLDSA_Types.Signature;
+         PK_Data  : Anubis_MLDSA_Types.Public_Key;
+
+         --  Array access types for bulk copy
+         type Msg_Array_Ptr is access all Anubis_Types.Byte_Array (0 .. Msg_Len_Nat - 1);
+         type Sig_Array_Ptr is access all Anubis_MLDSA_Types.Signature;
+         type PK_Array_Ptr is access all Anubis_MLDSA_Types.Public_Key;
+
+         function To_Msg_Ptr is new Ada.Unchecked_Conversion (
+            System.Address, Msg_Array_Ptr);
+         function To_Sig_Ptr is new Ada.Unchecked_Conversion (
+            System.Address, Sig_Array_Ptr);
+         function To_PK_Ptr is new Ada.Unchecked_Conversion (
+            System.Address, PK_Array_Ptr);
+      begin
+         --  Copy message bytes
+         if Msg_Len_Nat > 0 then
+            Msg_Data := To_Msg_Ptr (Message).all;
+         end if;
+
+         --  Copy signature bytes
+         Sig_Data := To_Sig_Ptr (Signature).all;
+
+         --  Copy public key bytes
+         PK_Data := To_PK_Ptr (Pub_Key).all;
+
+         --  Call real ML-DSA-87 verification
+         Ada.Text_IO.Put_Line ("  [MLDSA] Verifying signature (" &
+            Natural'Image (Msg_Len_Nat) & " byte message)...");
+
+         Result := Anubis_MLDSA.Verify (
+            PK  => PK_Data,
+            Msg => Msg_Data,
+            Sig => Sig_Data
+         );
+
+         if Result then
+            Ada.Text_IO.Put_Line ("  [MLDSA] Signature VALID");
+            return 1;
+         else
+            Ada.Text_IO.Put_Line ("  [MLDSA] Signature INVALID");
+            return 0;
+         end if;
+      end;
+
+   exception
+      when E : others =>
+         Ada.Text_IO.Put_Line ("  [MLDSA] Verification exception: " &
+            Ada.Exceptions.Exception_Message (E));
+         return 0;
    end VM_MLDSA_Verify_Impl;
+
+   --  ANKH: ML-KEM-1024 Decapsulation (FIPS 203 Level 5)
+   function VM_MLKEM_Decaps_Impl (
+      Ciphertext  : System.Address;
+      CT_Len      : Interfaces.C.size_t;
+      Secret_Key  : System.Address;
+      SK_Len      : Interfaces.C.size_t;
+      Shared_Sec  : System.Address
+   ) return Interfaces.C.int
+   is
+      use Anubis_MLKEM;
+
+      --  ML-KEM-1024 sizes per FIPS 203
+      Expected_CT_Len : constant := Ciphertext_Bytes;   --  1568
+      Expected_SK_Len : constant := Decapsulation_Key_Bytes;  --  3168
+   begin
+      --  Validate ciphertext length
+      if CT_Len /= Interfaces.C.size_t (Expected_CT_Len) then
+         Ada.Text_IO.Put_Line ("  [MLKEM] Invalid ciphertext length: " &
+            Interfaces.C.size_t'Image (CT_Len) & " (expected" &
+            Natural'Image (Expected_CT_Len) & ")");
+         return 0;
+      end if;
+
+      --  Validate secret key length
+      if SK_Len /= Interfaces.C.size_t (Expected_SK_Len) then
+         Ada.Text_IO.Put_Line ("  [MLKEM] Invalid decapsulation key length: " &
+            Interfaces.C.size_t'Image (SK_Len) & " (expected" &
+            Natural'Image (Expected_SK_Len) & ")");
+         return 0;
+      end if;
+
+      --  Handle null pointers
+      if Ciphertext = System.Null_Address or else
+         Secret_Key = System.Null_Address or else
+         Shared_Sec = System.Null_Address
+      then
+         Ada.Text_IO.Put_Line ("  [MLKEM] Null pointer in decapsulation");
+         return 0;
+      end if;
+
+      --  Copy data and perform decapsulation
+      declare
+         CT_Data : Anubis_MLKEM_Types.MLKEM_Ciphertext;
+         DK_Data : Anubis_MLKEM_Types.Decapsulation_Key;
+         SS_Data : Anubis_MLKEM_Types.Shared_Secret;
+
+         type CT_Array_Ptr is access all Anubis_MLKEM_Types.MLKEM_Ciphertext;
+         type DK_Array_Ptr is access all Anubis_MLKEM_Types.Decapsulation_Key;
+         type SS_Array_Ptr is access all Anubis_MLKEM_Types.Shared_Secret;
+
+         function To_CT_Ptr is new Ada.Unchecked_Conversion (
+            System.Address, CT_Array_Ptr);
+         function To_DK_Ptr is new Ada.Unchecked_Conversion (
+            System.Address, DK_Array_Ptr);
+         function To_SS_Ptr is new Ada.Unchecked_Conversion (
+            System.Address, SS_Array_Ptr);
+      begin
+         --  Copy ciphertext
+         CT_Data := To_CT_Ptr (Ciphertext).all;
+
+         --  Copy decapsulation key
+         DK_Data := To_DK_Ptr (Secret_Key).all;
+
+         --  Perform decapsulation
+         Ada.Text_IO.Put_Line ("  [MLKEM] Decapsulating...");
+
+         Anubis_MLKEM.Decaps (
+            DK => DK_Data,
+            CT => CT_Data,
+            SS => SS_Data
+         );
+
+         --  Copy shared secret to output
+         To_SS_Ptr (Shared_Sec).all := SS_Data;
+
+         --  Zeroize local copy of shared secret
+         for I in SS_Data'Range loop
+            SS_Data (I) := 0;
+         end loop;
+
+         Ada.Text_IO.Put_Line ("  [MLKEM] Decapsulation complete");
+         return 1;
+      end;
+
+   exception
+      when E : others =>
+         Ada.Text_IO.Put_Line ("  [MLKEM] Decapsulation exception: " &
+            Ada.Exceptions.Exception_Message (E));
+         return 0;
+   end VM_MLKEM_Decaps_Impl;
 
    procedure VM_Get_Caller_Impl (Addr : System.Address)
    is
@@ -349,7 +533,7 @@ package body Sphinx_Native_MacOS is
       SStore        => VM_SStore_Impl'Access,
       SHA3          => VM_SHA3_Impl'Access,
       MLDSA_Verify  => VM_MLDSA_Verify_Impl'Access,
-      MLKEM_Decaps  => null,  -- TODO
+      MLKEM_Decaps  => VM_MLKEM_Decaps_Impl'Access,
       Get_Caller    => VM_Get_Caller_Impl'Access,
       Get_Self      => VM_Get_Self_Impl'Access,
       Get_Timestamp => VM_Get_Timestamp_Impl'Access,

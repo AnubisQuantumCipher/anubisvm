@@ -47,8 +47,8 @@ procedure Test_TEE is
                    Key_Size = 32);
       Report_Test ("Keys: DSA_PK_Size is 2592 bytes (ML-DSA-87)",
                    DSA_PK_Size = 2592);
-      Report_Test ("Keys: DSA_SK_Size is 4032 bytes (ML-DSA-87)",
-                   DSA_SK_Size = 4032);
+      Report_Test ("Keys: DSA_SK_Size is 4896 bytes (ML-DSA-87)",
+                   DSA_SK_Size = 4896);
       Report_Test ("Keys: DSA_SIG_Size is 4627 bytes (ML-DSA-87)",
                    DSA_SIG_Size = 4627);
       Report_Test ("Keys: KEM_EK_Size is 1568 bytes (ML-KEM-1024)",
@@ -75,8 +75,8 @@ procedure Test_TEE is
                    Session_Key'Length = 32);
       Report_Test ("Keys: DSA_Public_Key is 2592 bytes",
                    DSA_Public_Key'Length = 2592);
-      Report_Test ("Keys: DSA_Secret_Key is 4032 bytes",
-                   DSA_Secret_Key'Length = 4032);
+      Report_Test ("Keys: DSA_Secret_Key is 4896 bytes",
+                   DSA_Secret_Key'Length = 4896);
       Report_Test ("Keys: DSA_Signature is 4627 bytes",
                    DSA_Signature'Length = 4627);
       Report_Test ("Keys: KEM_Encaps_Key is 1568 bytes",

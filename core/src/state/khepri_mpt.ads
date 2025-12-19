@@ -242,6 +242,38 @@ is
       Global => null;
 
    ---------------------------------------------------------------------------
+   --  State Persistence
+   ---------------------------------------------------------------------------
+
+   --  Save hash map to file (binary format)
+   --  Format: [4B count][32B hash][4B index][1B valid] repeated
+   procedure Save_Hash_Map (
+      File_Path : in     String;
+      Success   : out    Boolean
+   ) with
+      Global => Trie_State,
+      Pre    => File_Path'Length > 0 and File_Path'Length <= 256;
+
+   --  Load hash map from file
+   procedure Load_Hash_Map (
+      File_Path : in     String;
+      Success   : out    Boolean
+   ) with
+      Global => (In_Out => Trie_State),
+      Pre    => File_Path'Length > 0 and File_Path'Length <= 256;
+
+   --  Rebuild hash map from Node_Store (use after loading nodes)
+   procedure Rebuild_Hash_Map (
+      Success : out Boolean
+   ) with
+      Global => (In_Out => Trie_State);
+
+   --  Validate hash map is synchronized with Node_Store
+   --  Returns true if all node hashes in Node_Store are correctly mapped
+   function Validate_Hash_Map return Boolean with
+      Global => Trie_State;
+
+   ---------------------------------------------------------------------------
    --  Iteration
    ---------------------------------------------------------------------------
 

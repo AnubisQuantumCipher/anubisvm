@@ -25,11 +25,14 @@ is
 
    type CLI_Command is (
       Cmd_Init,      -- Initialize project
+      Cmd_New,       -- Create new project from template (alias for init)
       Cmd_Build,     -- Build contract
       Cmd_Prove,     -- Run proofs
       Cmd_Certify,   -- Generate certification
       Cmd_Deploy,    -- Deploy to chain
       Cmd_Test,      -- Run tests
+      Cmd_Verify,    -- Verify deployed contract
+      Cmd_Address,   -- Address utilities
       Cmd_Help,      -- Show help
       Cmd_Version,   -- Show version
       Cmd_Unknown    -- Unknown command
@@ -51,6 +54,14 @@ is
       Level_Gold,    -- With WCET analysis
       Level_Max      -- Maximum proof level
    );
+
+   --  Proof target (aliasing for compatibility)
+   subtype Proof_Target is Proof_Level;
+   Proof_Flow   : constant Proof_Target := Level_Flow;
+   Proof_Bronze : constant Proof_Target := Level_Bronze;
+   Proof_Silver : constant Proof_Target := Level_Silver;
+   Proof_Gold   : constant Proof_Target := Level_Gold;
+   Proof_Max    : constant Proof_Target := Level_Max;
 
    --  Certification target
    type Cert_Target is (
@@ -118,7 +129,7 @@ is
    type CLI_Output is record
       Status         : Command_Result;
       Message        : String (1 .. 1024);
-      Message_Len    : Natural;
+      Message_Length : Natural;
       Exit_Code      : Integer;
    end record;
 

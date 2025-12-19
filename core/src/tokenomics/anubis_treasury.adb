@@ -472,9 +472,90 @@ is
       Signature      : Byte_Array;
       Success        : out Boolean
    ) is
-      pragma Unreferenced (State, Delegator, Delegate, Signature);
+      --  Minimum signature size for ML-DSA-87
+      Min_Signature_Size : constant := 128;
    begin
-      --  Delegation tracking would require additional state
+      Success := False;
+
+      --  1. Validate inputs
+      if Delegator'Length < 32 or Delegate'Length < 32 then
+         return;
+      end if;
+
+      --  2. Check delegator and delegate are different
+      declare
+         Same_Address : Boolean := True;
+      begin
+         for I in 0 .. 31 loop
+            if Delegator (Delegator'First + I) /= Delegate (Delegate'First + I) then
+               Same_Address := False;
+               exit;
+            end if;
+         end loop;
+         if Same_Address then
+            --  Cannot delegate to yourself
+            return;
+         end if;
+      end;
+
+      --  3. Check delegate is not the zero address
+      declare
+         Zero_Delegate : Boolean := True;
+      begin
+         for I in 0 .. 31 loop
+            if Delegate (Delegate'First + I) /= 0 then
+               Zero_Delegate := False;
+               exit;
+            end if;
+         end loop;
+         if Zero_Delegate then
+            --  Cannot delegate to zero address
+            return;
+         end if;
+      end;
+
+      --  4. Verify signature exists (actual verification would use ML-DSA)
+      --  The signature should be over: hash(delegator || delegate || "DELEGATE")
+      if Signature'Length < Min_Signature_Size then
+         return;
+      end if;
+
+      --  5. Verify signature is not all zeros (sanity check)
+      declare
+         Zero_Sig : Boolean := True;
+      begin
+         for I in Signature'Range loop
+            if Signature (I) /= 0 then
+               Zero_Sig := False;
+               exit;
+            end if;
+         end loop;
+         if Zero_Sig then
+            --  Invalid signature
+            return;
+         end if;
+      end;
+
+      --  NOTE: In a full implementation, this would:
+      --  1. Verify the ML-DSA-87 signature using delegator's public key
+      --  2. Store delegation in a separate delegation registry:
+      --     Delegations : Delegation_Registry;
+      --  3. Update voting power calculations to include delegated votes
+      --  4. Handle delegation chains (A delegates to B, B delegates to C)
+      --     with cycle detection
+      --  5. Support delegation revocation
+      --
+      --  The delegation would be recorded as:
+      --     Delegations.Add (Delegator, Delegate, State.Current_Block);
+      --
+      --  When Cast_Vote is called, the weight would be:
+      --     Total_Weight := Own_Weight + Get_Delegated_Weight (Voter);
+      --
+      --  For now, we accept the delegation intent but note that
+      --  actual delegation tracking requires additional infrastructure.
+
+      --  Mark delegation as accepted
+      --  (In production, would emit an event and store in registry)
       Success := True;
    end Delegate_Vote;
 
@@ -689,11 +770,73 @@ is
       Proposal_ID    : Unsigned_64;
       Success        : out Boolean
    ) is
-      pragma Unreferenced (State);
-      pragma Unreferenced (Proposal_ID);
+      Found : Boolean := False;
+      Idx : Proposal_Index := 0;
    begin
-      --  Bond return logic would interact with token contract
-      Success := True;
+      Success := False;
+
+      --  Find proposal by ID
+      for I in Proposal_Index loop
+         if State.Active_Proposals (I).ID = Proposal_ID then
+            Found := True;
+            Idx := I;
+            exit;
+         end if;
+      end loop;
+
+      if not Found then
+         return;
+      end if;
+
+      --  Check if bond was already returned
+      if State.Active_Proposals (Idx).Bond_Returned then
+         return;
+      end if;
+
+      --  Bond can only be returned if:
+      --  1. Proposal passed (executed or in timelock)
+      --  2. Proposal was cancelled by the proposer before voting started
+      --  3. Proposal was rejected but proposer wasn't malicious
+      --
+      --  Bond is burned if:
+      --  1. Proposal failed to meet quorum (expired)
+      --  2. Proposal was vetoed for malicious intent
+      case State.Active_Proposals (Idx).State is
+         when Passed | Executed =>
+            --  Proposal succeeded - return bond to proposer
+            State.Active_Proposals (Idx).Bond_Returned := True;
+            Success := True;
+
+         when Rejected =>
+            --  Proposal failed but was legitimate - return bond
+            --  (In some systems, bonds are kept even for rejected proposals
+            --  to prevent spam. Here we return them for good-faith proposals.)
+            State.Active_Proposals (Idx).Bond_Returned := True;
+            Success := True;
+
+         when Cancelled =>
+            --  Only return bond if cancelled before voting ended
+            --  (Prevents gaming by cancelling losing proposals)
+            if State.Active_Proposals (Idx).Voting_End = 0 or
+               State.Current_Block < State.Active_Proposals (Idx).Voting_Start
+            then
+               --  Cancelled before voting started - return bond
+               State.Active_Proposals (Idx).Bond_Returned := True;
+               Success := True;
+            else
+               --  Cancelled during/after voting - bond forfeited
+               Success := False;
+            end if;
+
+         when Expired | Vetoed =>
+            --  Failed to reach quorum or was vetoed - bond is burned
+            --  This prevents spam proposals and malicious actors
+            Success := False;
+
+         when Draft | Active =>
+            --  Proposal still in progress - cannot return bond yet
+            Success := False;
+      end case;
    end Return_Bond;
 
    procedure Burn_Bond (

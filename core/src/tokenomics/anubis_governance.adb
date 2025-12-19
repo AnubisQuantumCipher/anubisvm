@@ -7,6 +7,10 @@
 
 pragma SPARK_Mode (On);
 
+with Anubis_SHA3;
+with Anubis_MLDSA;
+with Anubis_MLDSA_Types; use Anubis_MLDSA_Types;
+
 package body Anubis_Governance with
    SPARK_Mode => On
 is
@@ -423,14 +427,43 @@ is
       Message_Hash   : Byte_Array;
       Signatures     : Byte_Array
    ) return Boolean is
-      pragma Unreferenced (Message_Hash, Signatures);
       Valid_Sigs : Natural := 0;
+      Sig_Offset : Natural := 0;
    begin
-      --  In production, would verify actual signatures
-      --  For now, check we have enough active members
+      --  Each signature is 4627 bytes (ML-DSA-87)
+      --  Verify signatures from council members
       for I in Council_Index loop
-         if State.Council (I).Active then
-            Valid_Sigs := Valid_Sigs + 1;
+         if State.Council (I).Active and then
+            Sig_Offset + 4627 <= Signatures'Length
+         then
+            --  Extract this member's signature
+            declare
+               Member_Sig : Signature := (others => 0);
+               Member_PK : Public_Key := (others => 0);
+               Message : Byte_Array (0 .. Message_Hash'Length - 1) := Message_Hash;
+            begin
+               --  Copy signature
+               for J in Member_Sig'Range loop
+                  if Sig_Offset + J <= Signatures'Last then
+                     Member_Sig (J) := Signatures (Signatures'First + Sig_Offset + J);
+                  end if;
+               end loop;
+
+               --  Derive PK from council member PK hash (stored as 32 bytes)
+               --  In production, full PK would be stored or looked up
+               for J in 0 .. Natural'Min (31, 2591) loop
+                  if J <= State.Council (I).PK_Hash'Last then
+                     Member_PK (J) := State.Council (I).PK_Hash (J);
+                  end if;
+               end loop;
+
+               --  Verify signature
+               if Anubis_MLDSA.Verify (Member_PK, Message, Member_Sig) then
+                  Valid_Sigs := Valid_Sigs + 1;
+               end if;
+            end;
+
+            Sig_Offset := Sig_Offset + 4627;
          end if;
       end loop;
 
@@ -523,15 +556,157 @@ is
              State.Privileges (Privilege).Current_Holder = DAO;
    end Requires_DAO_Vote;
 
+   --  Global vote registry for cross-module verification
+   --  In production, this would be stored in persistent blockchain state
+   type Vote_Registry_Entry is record
+      Vote_ID        : Unsigned_64;
+      Proposal_Hash  : Byte_Array (0 .. 31);
+      Votes_For      : Unsigned_64;
+      Votes_Against  : Unsigned_64;
+      Total_Votes    : Unsigned_64;
+      Voting_End     : Unsigned_64;
+      Current_Block  : Unsigned_64;
+      Is_Passed      : Boolean;
+      Is_Executed    : Boolean;
+   end record;
+
+   Max_Registry_Entries : constant := 100;
+   subtype Registry_Index is Natural range 0 .. Max_Registry_Entries - 1;
+   type Vote_Registry_Array is array (Registry_Index) of Vote_Registry_Entry;
+
+   --  Global vote registry (would be stored in state trie in production)
+   Vote_Registry : Vote_Registry_Array := (others => (
+      Vote_ID        => 0,
+      Proposal_Hash  => (others => 0),
+      Votes_For      => 0,
+      Votes_Against  => 0,
+      Total_Votes    => 0,
+      Voting_End     => 0,
+      Current_Block  => 0,
+      Is_Passed      => False,
+      Is_Executed    => False
+   ));
+   Registry_Count : Natural := 0;
+
+   --  Register a vote for later verification
+   --  Called by treasury when a vote passes
+   procedure Register_DAO_Vote (
+      Vote_ID        : Unsigned_64;
+      Proposal_Hash  : Byte_Array;
+      Votes_For      : Unsigned_64;
+      Votes_Against  : Unsigned_64;
+      Voting_End     : Unsigned_64;
+      Current_Block  : Unsigned_64
+   ) is
+   begin
+      if Registry_Count >= Max_Registry_Entries then
+         --  Registry full - would need cleanup or expansion
+         return;
+      end if;
+
+      Vote_Registry (Registry_Count).Vote_ID := Vote_ID;
+      for I in 0 .. 31 loop
+         if I + Proposal_Hash'First <= Proposal_Hash'Last then
+            Vote_Registry (Registry_Count).Proposal_Hash (I) :=
+               Proposal_Hash (I + Proposal_Hash'First);
+         end if;
+      end loop;
+      Vote_Registry (Registry_Count).Votes_For := Votes_For;
+      Vote_Registry (Registry_Count).Votes_Against := Votes_Against;
+      Vote_Registry (Registry_Count).Total_Votes := Votes_For + Votes_Against;
+      Vote_Registry (Registry_Count).Voting_End := Voting_End;
+      Vote_Registry (Registry_Count).Current_Block := Current_Block;
+      Vote_Registry (Registry_Count).Is_Passed := True;
+      Vote_Registry (Registry_Count).Is_Executed := False;
+
+      Registry_Count := Registry_Count + 1;
+   end Register_DAO_Vote;
+
+   --  Mark a vote as executed (prevents replay)
+   procedure Mark_Vote_Executed (Vote_ID : Unsigned_64) is
+   begin
+      for I in 0 .. Registry_Count - 1 loop
+         if Vote_Registry (I).Vote_ID = Vote_ID then
+            Vote_Registry (I).Is_Executed := True;
+            return;
+         end if;
+      end loop;
+   end Mark_Vote_Executed;
+
    function Verify_DAO_Vote (
       Vote_ID        : Unsigned_64;
       Required_Quorum: Unsigned_64;
       Required_Threshold: Natural
    ) return Boolean is
-      pragma Unreferenced (Vote_ID, Required_Quorum, Required_Threshold);
+      Found : Boolean := False;
+      Entry_Idx : Natural := 0;
+      Threshold_Met : Boolean;
    begin
-      --  In production, would query on-chain vote result
-      --  Placeholder returns True
+      --  Safety check: Vote ID 0 is invalid
+      if Vote_ID = 0 then
+         return False;
+      end if;
+
+      --  Look up vote in registry
+      for I in 0 .. Registry_Count - 1 loop
+         exit when I >= Max_Registry_Entries;
+         if Vote_Registry (I).Vote_ID = Vote_ID then
+            Found := True;
+            Entry_Idx := I;
+            exit;
+         end if;
+      end loop;
+
+      --  Vote not found in registry
+      if not Found then
+         return False;
+      end if;
+
+      --  Check vote hasn't been executed (prevents replay)
+      if Vote_Registry (Entry_Idx).Is_Executed then
+         return False;
+      end if;
+
+      --  Check vote is marked as passed
+      if not Vote_Registry (Entry_Idx).Is_Passed then
+         return False;
+      end if;
+
+      --  Check voting period has ended
+      if Vote_Registry (Entry_Idx).Current_Block <
+         Vote_Registry (Entry_Idx).Voting_End
+      then
+         return False;
+      end if;
+
+      --  Check quorum was met
+      if Vote_Registry (Entry_Idx).Total_Votes < Required_Quorum then
+         return False;
+      end if;
+
+      --  Check threshold was met
+      --  Threshold is in basis points (e.g., 5100 = 51%)
+      --  votes_for * 10000 >= total_votes * threshold_bp
+      if Vote_Registry (Entry_Idx).Total_Votes > 0 then
+         declare
+            Scaled_For : constant Unsigned_64 :=
+               Vote_Registry (Entry_Idx).Votes_For * 10_000;
+            Required_Votes : constant Unsigned_64 :=
+               Vote_Registry (Entry_Idx).Total_Votes *
+               Unsigned_64 (Required_Threshold);
+         begin
+            Threshold_Met := Scaled_For >= Required_Votes;
+         end;
+      else
+         Threshold_Met := False;
+      end if;
+
+      if not Threshold_Met then
+         return False;
+      end if;
+
+      --  All checks passed - mark as executed and return True
+      Vote_Registry (Entry_Idx).Is_Executed := True;
       return True;
    end Verify_DAO_Vote;
 

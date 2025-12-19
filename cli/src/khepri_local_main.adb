@@ -67,15 +67,205 @@ procedure Khepri_Local_Main is
       return Addr;
    end Hex_To_Address;
 
+   --  Sugar command handlers
+   procedure Handle_Sugar_Command (Cmd : String) is
+      Res : Local_Executor.Exec_Result;
+   begin
+      --  deposit <amount> → SimpleVault Deposit
+      if Cmd = "deposit" and Argument_Count >= 2 then
+         declare
+            Amt : constant String := Argument (2);
+            Args : Local_Executor.Arg_Array (0 .. 0);
+         begin
+            Args (0) := To_Unbounded_String ("0x" & Amt);
+            Local_Executor.Execute_Local
+              (From_Zero, "SimpleVault", "Deposit", Args, 1_000_000, U256_Zero, Res);
+            if Res.Success then
+               Put_Line ("✓ Deposited " & Amt & " wei");
+               Put_Line ("  Total: 0x" & To_String (Res.Return_Hex));
+            else
+               Put_Line ("✗ Deposit failed: " & To_String (Res.Error));
+            end if;
+         end;
+
+      --  withdraw <amount> → SimpleVault Withdraw
+      elsif Cmd = "withdraw" and Argument_Count >= 2 then
+         declare
+            Amt : constant String := Argument (2);
+            Args : Local_Executor.Arg_Array (0 .. 0);
+         begin
+            Args (0) := To_Unbounded_String ("0x" & Amt);
+            Local_Executor.Execute_Local
+              (From_Zero, "SimpleVault", "Withdraw", Args, 1_000_000, U256_Zero, Res);
+            if Res.Success then
+               Put_Line ("✓ Withdrew " & Amt & " wei");
+            else
+               Put_Line ("✗ Withdraw failed: " & To_String (Res.Error));
+            end if;
+         end;
+
+      --  balance [address] → SimpleVault BalanceOf or TotalDeposits
+      elsif Cmd = "balance" then
+         if Argument_Count >= 2 then
+            declare
+               Addr : constant String := Argument (2);
+               Args : Local_Executor.Arg_Array (0 .. 0);
+            begin
+               Args (0) := To_Unbounded_String (Addr);
+               Local_Executor.Execute_Local
+                 (From_Zero, "SimpleVault", "BalanceOf", Args, 1_000_000, U256_Zero, Res);
+               if Res.Success then
+                  Put_Line ("Balance: 0x" & To_String (Res.Return_Hex));
+               else
+                  Put_Line ("✗ Query failed: " & To_String (Res.Error));
+               end if;
+            end;
+         else
+            declare
+               Empty_Args : Local_Executor.Arg_Array (0 .. -1);
+            begin
+               Local_Executor.Execute_Local
+                 (From_Zero, "SimpleVault", "TotalDeposits", Empty_Args, 1_000_000, U256_Zero, Res);
+               if Res.Success then
+                  Put_Line ("Total Vault Balance: 0x" & To_String (Res.Return_Hex));
+               else
+                  Put_Line ("✗ Query failed: " & To_String (Res.Error));
+               end if;
+            end;
+         end if;
+
+      --  transfer <to> <amount> → SimpleToken Transfer
+      elsif (Cmd = "transfer" or Cmd = "send") and Argument_Count >= 3 then
+         declare
+            To_Addr : constant String := Argument (2);
+            Amt     : constant String := Argument (3);
+            Args : Local_Executor.Arg_Array (0 .. 1);
+         begin
+            Args (0) := To_Unbounded_String (To_Addr);
+            Args (1) := To_Unbounded_String ("0x" & Amt);
+            Local_Executor.Execute_Local
+              (From_Zero, "SimpleToken", "Transfer", Args, 1_000_000, U256_Zero, Res);
+            if Res.Success then
+               Put_Line ("✓ Transferred " & Amt & " tokens to " & To_Addr);
+            else
+               Put_Line ("✗ Transfer failed: " & To_String (Res.Error));
+            end if;
+         end;
+
+      --  tokens [address] → SimpleToken BalanceOf
+      elsif Cmd = "tokens" then
+         if Argument_Count >= 2 then
+            declare
+               Addr : constant String := Argument (2);
+               Args : Local_Executor.Arg_Array (0 .. 0);
+            begin
+               Args (0) := To_Unbounded_String (Addr);
+               Local_Executor.Execute_Local
+                 (From_Zero, "SimpleToken", "BalanceOf", Args, 1_000_000, U256_Zero, Res);
+               if Res.Success then
+                  Put_Line ("Token Balance: 0x" & To_String (Res.Return_Hex));
+               else
+                  Put_Line ("✗ Query failed: " & To_String (Res.Error));
+               end if;
+            end;
+         else
+            declare
+               Empty_Args : Local_Executor.Arg_Array (0 .. -1);
+            begin
+               Local_Executor.Execute_Local
+                 (From_Zero, "SimpleToken", "TotalSupply", Empty_Args, 1_000_000, U256_Zero, Res);
+               if Res.Success then
+                  Put_Line ("Total Token Supply: 0x" & To_String (Res.Return_Hex));
+               else
+                  Put_Line ("✗ Query failed: " & To_String (Res.Error));
+               end if;
+            end;
+         end if;
+
+      --  count → HelloCounter Get_Count
+      elsif Cmd = "count" then
+         declare
+            Empty_Args : Local_Executor.Arg_Array (0 .. -1);
+         begin
+            Local_Executor.Execute_Local
+              (From_Zero, "HelloCounter", "Get_Count", Empty_Args, 1_000_000, U256_Zero, Res);
+            if Res.Success then
+               Put_Line ("Counter: 0x" & To_String (Res.Return_Hex));
+            else
+               Put_Line ("✗ Query failed: " & To_String (Res.Error));
+            end if;
+         end;
+
+      --  inc [amount] → HelloCounter Increment or Increment_By
+      elsif Cmd = "inc" then
+         if Argument_Count >= 2 then
+            declare
+               Amt : constant String := Argument (2);
+               Args : Local_Executor.Arg_Array (0 .. 0);
+            begin
+               Args (0) := To_Unbounded_String ("0x" & Amt);
+               Local_Executor.Execute_Local
+                 (From_Zero, "HelloCounter", "Increment_By", Args, 1_000_000, U256_Zero, Res);
+            end;
+         else
+            declare
+               Empty_Args : Local_Executor.Arg_Array (0 .. -1);
+            begin
+               Local_Executor.Execute_Local
+                 (From_Zero, "HelloCounter", "Increment", Empty_Args, 1_000_000, U256_Zero, Res);
+            end;
+         end if;
+         if Res.Success then
+            Put_Line ("✓ Counter: 0x" & To_String (Res.Return_Hex));
+         else
+            Put_Line ("✗ Increment failed: " & To_String (Res.Error));
+         end if;
+
+      else
+         Put_Line ("Unknown sugar command: " & Cmd);
+         Put_Line ("Available: deposit, withdraw, balance, transfer, send, tokens, count, inc");
+      end if;
+   end Handle_Sugar_Command;
+
 begin
    if Argument_Count = 0 then
       Put_Line ("Usage:");
-      Put_Line ("  khepri-local [--from 0xADDR] [--gas N] [--value 0xAMOUNT] <contract> <entry> [arg1_hex [arg2_hex ...]]");
+      Put_Line ("  khepri-local [--from 0xADDR] [--gas N] [--value 0xAMOUNT] <contract> <entry> [args...]");
+      Put_Line ("");
+      Put_Line ("Quick commands:");
+      Put_Line ("  khepri-local deposit <amount>           Deposit to vault");
+      Put_Line ("  khepri-local withdraw <amount>          Withdraw from vault");
+      Put_Line ("  khepri-local balance [address]          Check vault balance");
+      Put_Line ("  khepri-local transfer <to> <amount>     Transfer tokens");
+      Put_Line ("  khepri-local tokens [address]           Check token balance");
+      Put_Line ("  khepri-local count                      Get counter value");
+      Put_Line ("  khepri-local inc [amount]               Increment counter");
+      Put_Line ("");
       Put_Line ("Examples:");
+      Put_Line ("  khepri-local deposit 100");
       Put_Line ("  khepri-local HelloCounter Increment");
       Put_Line ("  khepri-local SimpleToken Transfer 0x<to> 0x<amount>");
       return;
    end if;
+
+   --  Check for sugar commands (single lowercase word)
+   declare
+      First_Arg : constant String := Argument (1);
+   begin
+      if First_Arg'Length > 0 and then
+         First_Arg (First_Arg'First) in 'a' .. 'z' and then
+         First_Arg /= "HelloCounter" and then
+         First_Arg /= "SimpleToken" and then
+         First_Arg /= "SimpleVault" and then
+         First_Arg /= "QuantumDID" and then
+         First_Arg /= "Staking" and then
+         First_Arg /= "Governance" and then
+         First_Arg /= "QuantumVault"
+      then
+         Handle_Sugar_Command (First_Arg);
+         return;
+      end if;
+   end;
 
    declare
       From_Addr  : Contract_Address := From_Zero;

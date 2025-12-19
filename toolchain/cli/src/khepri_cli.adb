@@ -22,6 +22,8 @@ is
       --  Match command strings
       if Arg = "init" then
          return Cmd_Init;
+      elsif Arg = "new" then
+         return Cmd_New;
       elsif Arg = "build" then
          return Cmd_Build;
       elsif Arg = "prove" then
@@ -32,6 +34,10 @@ is
          return Cmd_Deploy;
       elsif Arg = "test" then
          return Cmd_Test;
+      elsif Arg = "verify" then
+         return Cmd_Verify;
+      elsif Arg = "address" then
+         return Cmd_Address;
       elsif Arg = "help" or Arg = "--help" or Arg = "-h" then
          return Cmd_Help;
       elsif Arg = "version" or Arg = "--version" or Arg = "-v" then

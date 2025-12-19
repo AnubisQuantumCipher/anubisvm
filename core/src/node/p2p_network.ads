@@ -42,6 +42,7 @@ pragma SPARK_Mode (On);
 with Interfaces; use Interfaces;
 with Aegis_VM_Types; use Aegis_VM_Types;
 with Anubis_MLDSA_Types;
+with P2P_Secure_Channel;
 
 package P2P_Network with
    SPARK_Mode => On
@@ -175,6 +176,7 @@ is
       Is_Inbound      : Boolean;
       Public_Key      : Anubis_MLDSA_Types.Public_Key;
       Socket_FD       : Integer;  -- Socket file descriptor (-1 if not connected)
+      Secure_Channel  : P2P_Secure_Channel.Secure_Channel;  -- Post-quantum encrypted channel
    end record;
 
    --  Peer storage
@@ -204,15 +206,17 @@ is
    ---------------------------------------------------------------------------
 
    type Network_Stats is record
-      Peers_Connected    : Natural;
-      Peers_Connecting   : Natural;
-      Peers_Banned       : Natural;
-      Messages_Sent      : Natural;
-      Messages_Received  : Natural;
-      TX_Gossiped        : Natural;
-      Blocks_Gossiped    : Natural;
-      Bytes_Sent         : Unsigned_64;
-      Bytes_Received     : Unsigned_64;
+      Peers_Connected      : Natural;
+      Peers_Connecting     : Natural;
+      Peers_Banned         : Natural;
+      Messages_Sent        : Natural;
+      Messages_Received    : Natural;
+      TX_Gossiped          : Natural;
+      Blocks_Gossiped      : Natural;
+      Bytes_Sent           : Unsigned_64;
+      Bytes_Received       : Unsigned_64;
+      Connections_Received : Natural;
+      Last_Update_Time     : Unsigned_64;
    end record;
 
    ---------------------------------------------------------------------------

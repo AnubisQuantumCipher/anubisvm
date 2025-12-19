@@ -189,11 +189,11 @@ is
       Global => null,
       Pre    => Msg'Length <= Max_Msg_Length and then
                 Msg'First = 0,
-      Post   => (Verify'Result = True) =
-                (Signature_Well_Formed (Sig) and then
-                 --  Valid signature implies it was created with matching SK
-                 --  (This is the correctness property)
-                 True);  -- Full specification would require SK ghost parameter
+      Post   => (Verify'Result = True) <=
+                Signature_Well_Formed (Sig);
+      --  Note: Converse does not hold - a well-formed signature may still
+      --  fail verification if message/key don't match. Full correctness
+      --  specification would require ghost SK parameter.
 
    ---------------------------------------------------------------------------
    --  Lemma Subprograms for Proof Guidance (Platinum)

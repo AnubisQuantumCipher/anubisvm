@@ -13,8 +13,8 @@ library project Aegisvm is
    type Library_Type_Type is ("relocatable", "static");
    Library_Type : Library_Type_Type := external ("LIBRARY_TYPE", "relocatable");
 
-   -- Source directories
-   for Source_Dirs use ("src/**", "src/ffi");
+   -- Source directories (pure SPARK, no FFI)
+   for Source_Dirs use ("src/**");
 
    -- Object directory
    for Object_Dir use "obj/" & Build_Mode;
@@ -24,8 +24,7 @@ library project Aegisvm is
    for Library_Dir use "lib";
    for Library_Kind use Library_Type;
    for Library_Interface use
-     ("Aegis_FFI",
-      "Aegis_Crypto_API",
+     ("Aegis_Crypto_API",
       "Aegis_VM_Types",
       "Aegis_Execution",
       "Aegis_Syscall",
@@ -40,6 +39,16 @@ library project Aegisvm is
       "Anubis_Address",
       "Anubis_Address_Types",
       "Anubis_Address_Derive",
+      "Anubis_Address_Checksum",
+      "Anubis_Address_Base32",
+      "Aegis_Account_State",
+      --  Post-quantum cryptography
+      "Anubis_MLDSA",
+      "Anubis_MLDSA_Types",
+      "Anubis_MLDSA_Config",
+      "Anubis_MLKEM",
+      "Anubis_MLKEM_Types",
+      "Anubis_Secure_Wipe",
       --  Tokenomics modules
       "Anubis_Token",
       "Anubis_Vesting",
@@ -52,7 +61,10 @@ library project Aegisvm is
       "Anubis_Bug_Bounty",
       "Anubis_Governance",
       "Anubis_Certification",
-      "Anubis_Proof_Of_Build");
+      "Anubis_Proof_Of_Build",
+      --  Toolchain modules
+      "Khepri_Types",
+      "Khepri_RPC_Client");
 
    -- Common compiler switches
    Common_Switches := ("-gnat2022",     -- Ada 2022

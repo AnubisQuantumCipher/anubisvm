@@ -142,11 +142,15 @@ is
       Tag        : out AEAD_Tag
    ) with
       Global  => null,
-      Depends => ((Ciphertext, Tag) => (Key, Nonce, Plaintext, AAD)),
+      Depends => (Ciphertext =>+ (Key, Nonce, Plaintext),
+                  Tag => (Key, Nonce, Plaintext, AAD, Ciphertext)),
       Pre     => Message_Bounds_Safe (Plaintext) and then
                  AAD_Bounds_Safe (AAD) and then
                  Ciphertext'Length = Plaintext'Length and then
-                 Ciphertext'Last < Natural'Last,
+                 Ciphertext'Last < Natural'Last and then
+                 Plaintext'Length <= 65535 and then
+                 Nonce_Size + AAD'Length + Plaintext'Length + 16 <=
+                    Max_Message_Length,
       Post    => Is_Valid_Tag (Tag),
       Always_Terminates;
 
@@ -181,11 +185,15 @@ is
       Success    : out Boolean
    ) with
       Global  => null,
-      Depends => ((Plaintext, Success) => (Key, Nonce, Ciphertext, AAD, Tag)),
+      Depends => (Plaintext =>+ (Key, Nonce, Ciphertext, AAD, Tag),
+                  Success => (Key, Nonce, Ciphertext, AAD, Tag)),
       Pre     => Message_Bounds_Safe (Ciphertext) and then
                  AAD_Bounds_Safe (AAD) and then
                  Plaintext'Length = Ciphertext'Length and then
-                 Plaintext'Last < Natural'Last,
+                 Plaintext'Last < Natural'Last and then
+                 Ciphertext'Length <= 65535 and then
+                 Nonce_Size + AAD'Length + Ciphertext'Length + 16 <=
+                    Max_Message_Length,
       Post    => (if not Success then Buffer_Is_Zero (Plaintext)),
       Always_Terminates;
 
@@ -201,7 +209,7 @@ is
    --  Post: All bytes of key are zero (proven by postcondition)
    procedure Zeroize_Key (Key : in Out AEAD_Key) with
       Global  => null,
-      Depends => (Key => Key),
+      Depends => (Key => null, null => Key),
       Post    => Key_Is_Zero (Key),
       Always_Terminates;
 
@@ -213,7 +221,7 @@ is
    --  Post: All bytes of nonce are zero (proven by postcondition)
    procedure Zeroize_Nonce (Nonce : in Out AEAD_Nonce) with
       Global  => null,
-      Depends => (Nonce => Nonce),
+      Depends => (Nonce => null, null => Nonce),
       Post    => Nonce_Is_Zero (Nonce),
       Always_Terminates;
 
@@ -229,15 +237,17 @@ private
    --    SHAKE256(key || nonce || counter, len)
    --  where counter increments for each rate-block of output.
    --
-   --  Pre: Keystream bounds safe
+   --  Pre: Keystream bounds safe and starts at index 0
    procedure Generate_Keystream (
       Key       : AEAD_Key;
       Nonce     : AEAD_Nonce;
       Keystream : out Byte_Array
    ) with
       Global  => null,
-      Depends => (Keystream => (Key, Nonce)),
-      Pre     => Message_Bounds_Safe (Keystream);
+      Depends => (Keystream =>+ (Key, Nonce)),
+      Pre     => Keystream'Length <= Max_Message_Length and then
+                 Keystream'Length <= 65535 and then
+                 Keystream'First = 0;
 
    --  Compute_Tag: Compute authentication tag using KMAC256
    --
@@ -246,7 +256,7 @@ private
    --
    --  This binds all inputs to the tag, providing integrity.
    --
-   --  Pre: AAD and ciphertext bounds safe
+   --  Pre: AAD and ciphertext bounds safe, combined length fits KMAC bounds
    procedure Compute_Tag (
       Key        : AEAD_Key;
       Nonce      : AEAD_Nonce;
@@ -256,7 +266,10 @@ private
    ) with
       Global  => null,
       Depends => (Tag => (Key, Nonce, AAD, Ciphertext)),
-      Pre     => AAD_Bounds_Safe (AAD) and then Message_Bounds_Safe (Ciphertext);
+      Pre     => AAD_Bounds_Safe (AAD) and then
+                 Message_Bounds_Safe (Ciphertext) and then
+                 Nonce_Size + AAD'Length + Ciphertext'Length + 16 <=
+                    Max_Message_Length;
 
    --  Constant_Time_Equal: Compare two tags in constant time
    --

@@ -1,4 +1,0 @@
-anubis_address_derive.adb:56:66: warning: array aggregate using () is an obsolescent syntax, use [] instead [-gnatwj]
-anubis_address_derive.adb:82:35: warning: explicit membership test may be optimized away [enabled by default]
-anubis_address_derive.adb:82:35: warning: use 'Valid attribute instead [enabled by default]
-clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]

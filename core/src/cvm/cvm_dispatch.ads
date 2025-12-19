@@ -120,7 +120,8 @@ is
       Result      : out Exec_Result
    ) with
       Global => null,
-      Pre => DState.Depth < Max_Call_Depth;
+      Pre => DState.Depth < Max_Call_Depth and then
+             Param_Len <= Max_Param_Size;
 
    --  Validate call context
    --
@@ -132,7 +133,8 @@ is
       Registry : Registry_Array;
       Context  : Call_Context
    ) return Exec_Status with
-      Global => null;
+      Global => null,
+      Pre => Is_Valid_Context (Context);
 
    --  Get current call depth
    function Current_Depth (
@@ -167,7 +169,7 @@ is
       Registry : in Out Registry_Array
    ) with
       Global => null,
-      Pre => DState.Depth > 0,
+      Pre => DState.Depth > 0 and then DState.Depth <= Max_Call_Depth,
       Post => DState.Depth = DState.Depth'Old - 1;
 
    --  Commit state changes

@@ -5,31 +5,31 @@ with Aegis_VM_Types; use Aegis_VM_Types;
 with Aegis_Sandbox;
 with Anubis_Types;
 with Anubis_SHA3;
+with Anubis_Address_Types;
 
---  SPHINX Native: Native ELF Execution for KHEPRI Contracts
+--  SPHINX Native: Native ELF Execution Engine
 --
---  This package implements the native execution layer for KHEPRI smart
---  contracts. Unlike traditional VMs that interpret bytecode, KHEPRI
---  contracts are compiled to native ARM/x86 ELF binaries and executed
---  directly with hardware-level sandboxing.
+--  EXECUTION MODEL:
+--  ================
+--  This package implements native contract execution using ELF binaries.
+--  Contracts are loaded via mmap and executed directly on the host CPU.
 --
---  Key Features:
---  - ELF binary loading and validation
---  - Memory region isolation (stack, heap, code)
---  - Syscall interception and metering
---  - WCET-based gas accounting
---  - Hardware-assisted sandboxing (when available)
+--  Supported Architectures:
+--  ------------------------
+--    - ARM64 (AArch64) - Full native execution support
+--    - x86-64 (AMD64) - Full native execution support
 --
---  Security Model:
---  - W^X enforcement (write XOR execute)
---  - Stack canaries
---  - Address space layout randomization (ASLR)
---  - Capability-based syscall filtering
+--  Execution Flow:
+--  ---------------
+--    1. Parse ELF headers and validate structure
+--    2. Map segments with appropriate permissions (mmap/mprotect)
+--    3. Apply relocations for position-independent code
+--    4. Execute entry point with runtime context
+--    5. Handle syscalls via Aegis_Syscall dispatcher
 --
 --  References:
---  - KHEPRI Blueprint v1.0, Section 8: SPHINX Native Execution
+--  - KHEPRI Blueprint v1.0, Section 8: SPHINX Execution Model
 --  - ELF Specification (Tool Interface Standard)
---  - ARM/x86 ABI Specifications
 
 package Sphinx_Native with
    SPARK_Mode => On
@@ -48,11 +48,10 @@ is
    --  ELF class (32 or 64 bit)
    type ELF_Class is (ELF_32, ELF_64);
 
-   --  Target architecture
+   --  Target architecture for native ELF execution
    type Target_Arch is (
-      Arch_ARM64,   -- AArch64
-      Arch_X86_64,  -- AMD64
-      Arch_RISCV64  -- RISC-V 64
+      Arch_ARM64,   -- AArch64 (native execution)
+      Arch_X86_64   -- AMD64 (native execution)
    );
 
    --  Binary buffer
@@ -126,8 +125,8 @@ is
       BSS_Base   => 0,
       BSS_Size   => 0,
       Entry_Addr => 0,
-      Arch       => Arch_ARM64,
-      Class      => ELF_64,
+      Arch       => Arch_ARM64,    -- Default to ARM64
+      Class      => ELF_64,        -- Default to 64-bit ELF
       Is_Valid   => False,
       Has_Proof  => False,
       WCET_Bound => 0
@@ -140,13 +139,14 @@ is
    type Load_Error is (
       Load_Success,
       Load_Invalid_Magic,         -- Not an ELF file
-      Load_Unsupported_Class,     -- Wrong ELF class
-      Load_Unsupported_Arch,      -- Unsupported architecture
+      Load_Unsupported_Class,     -- Wrong ELF class (must be ELF32 for RV32)
+      Load_Unsupported_Arch,      -- Not RISC-V 32-bit
       Load_Too_Large,             -- Exceeds Max_Binary_Size
       Load_Invalid_Sections,      -- Malformed section headers
       Load_Missing_Entry,         -- No entry point found
-      Load_Security_Violation,    -- W^X or other security issue
-      Load_Memory_Error           -- Failed to allocate memory
+      Load_Security_Violation,    -- Malformed binary
+      Load_Memory_Error,          -- Failed to allocate memory
+      Load_Not_RISCV32            -- Binary is not RISC-V 32-bit (required)
    );
 
    type Load_Result is record
@@ -187,20 +187,21 @@ is
       Global => null;
 
    ---------------------------------------------------------------------------
-   --  Contract Execution
+   --  Contract Execution (via RISC-V Interpreter)
    ---------------------------------------------------------------------------
 
    --  Execution result
+   --  NOTE: Execution uses Sphinx_RISCV interpreter, NOT native host execution
    type Exec_Status is (
-      Exec_Success,
-      Exec_Reverted,
-      Exec_Out_Of_Gas,
-      Exec_Security_Violation,
-      Exec_Invalid_Syscall,
-      Exec_Stack_Overflow,
-      Exec_Segmentation_Fault,
-      Exec_Illegal_Instruction,
-      Exec_Timeout
+      Exec_Success,           -- Contract halted cleanly (EBREAK)
+      Exec_Reverted,          -- Contract called Sys_Revert
+      Exec_Out_Of_Gas,        -- Gas limit exceeded
+      Exec_Security_Violation, -- Invalid syscall or capability violation
+      Exec_Invalid_Syscall,   -- Unknown syscall number
+      Exec_Stack_Overflow,    -- Guest stack overflow
+      Exec_Segmentation_Fault, -- Guest memory access violation
+      Exec_Illegal_Instruction, -- Invalid RISC-V instruction
+      Exec_Timeout            -- Execution took too long (if timeout enabled)
    );
 
    type Exec_Result is record
@@ -209,26 +210,40 @@ is
       Return_Data  : Hash256;   -- Hash of return data
    end record;
 
-   --  Execute loaded contract
+   --  Execute loaded contract via RISC-V interpreter
+   --  SECURITY: Contract code is executed by Sphinx_RISCV interpreter.
+   --  No native host execution occurs. All instructions are interpreted.
    function Execute (
       Contract    : Loaded_Contract;
       Sandbox     : Aegis_Sandbox.Sandbox_Context;
       Calldata    : Byte_Array;
-      Gas_Limit   : Gas_Amount
+      Gas_Limit   : Gas_Amount;
+      Gas_Price   : Word64;
+      Block_Num   : Word64;
+      Timestamp   : Word64;
+      Chain_ID    : Word64
    ) return Exec_Result with
       Global => null,
-      Pre    => Contract.Is_Valid and Calldata'Length <= 65536;
+      Pre    => Contract.Is_Valid
+                and then (Contract.Arch = Arch_ARM64 or Contract.Arch = Arch_X86_64)
+                and then Calldata'Length <= 65536;
 
-   --  Execute with specific function selector
+   --  Execute with specific function selector via native execution
    function Execute_Function (
       Contract    : Loaded_Contract;
       Sandbox     : Aegis_Sandbox.Sandbox_Context;
       Selector    : Word32;
       Args        : Byte_Array;
-      Gas_Limit   : Gas_Amount
+      Gas_Limit   : Gas_Amount;
+      Gas_Price   : Word64;
+      Block_Num   : Word64;
+      Timestamp   : Word64;
+      Chain_ID    : Word64
    ) return Exec_Result with
       Global => null,
-      Pre    => Contract.Is_Valid and Args'Length <= 65536;
+      Pre    => Contract.Is_Valid
+                and then (Contract.Arch = Arch_ARM64 or Contract.Arch = Arch_X86_64)
+                and then Args'Length <= 65536;
 
    ---------------------------------------------------------------------------
    --  Security Validation
@@ -343,6 +358,60 @@ is
       Address  : Word64
    ) return String with
       Global => null;
+
+   ---------------------------------------------------------------------------
+   --  Contract Library Management (for native execution)
+   ---------------------------------------------------------------------------
+
+   --  Load and register a contract library from path
+   procedure Load_Contract_From_Path (
+      Path     : in     String;
+      Code_ID  : in     Word64;
+      Success  : out    Boolean
+   );
+
+   --  Execute a registered contract by code ID
+   procedure Execute_Registered (
+      Code_ID     : in     Word64;
+      Calldata    : in     Byte_Array;
+      Gas_Limit   : in     Gas_Amount;
+      Return_Data :    out Byte_Array;
+      Return_Len  :    out Natural;
+      Gas_Used    :    out Gas_Amount;
+      Status      :    out Exec_Status
+   );
+
+   ---------------------------------------------------------------------------
+   --  Runtime Configuration (Block Context)
+   ---------------------------------------------------------------------------
+   --
+   --  CRITICAL SECURITY: Node operators MUST call Set_Block_Context before
+   --  executing any contracts. Failure to do so will result in execution
+   --  failure and security violations.
+   --
+   --  The runtime configuration includes:
+   --  - Gas price (for transaction cost calculation)
+   --  - Block number and timestamp (for time-dependent contracts)
+   --  - Chain ID (prevents replay attacks across chains)
+   --  - Coinbase, gas limit, base fee (EIP-1559 support)
+
+   type Runtime_Config is record
+      Gas_Price   : Word64;  --  Wei per gas unit
+      Block_Num   : Word64;  --  Current block number
+      Timestamp   : Word64;  --  Block timestamp (Unix epoch)
+      Chain_ID    : Word64;  --  Chain identifier (prevents replay attacks)
+      Coinbase    : Anubis_Address_Types.Account_ID;  --  Block miner/validator
+      Gas_Limit   : Word64;  --  Block gas limit
+      Base_Fee    : Word64;  --  EIP-1559 base fee per gas
+      Difficulty  : Word64;  --  Block difficulty (PoW) or 0 (PoS)
+   end record;
+
+   --  Set block context before contract execution
+   --  MUST be called by node with each new block or before transaction execution
+   procedure Set_Block_Context (Config : Runtime_Config);
+
+   --  Get current block context
+   function Get_Block_Context return Runtime_Config;
 
 private
 

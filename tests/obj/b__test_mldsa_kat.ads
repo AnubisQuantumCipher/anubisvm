@@ -40,7 +40,7 @@ package ada_main is
    pragma Export (C, main, "main");
 
    type Version_32 is mod 2 ** 32;
-   u00001 : constant Version_32 := 16#ce5a0f22#;
+   u00001 : constant Version_32 := 16#6f131ea8#;
    pragma Export (C, u00001, "test_mldsa_katB");
    u00002 : constant Version_32 := 16#30305195#;
    pragma Export (C, u00002, "system__standard_libraryB");
@@ -248,19 +248,19 @@ package ada_main is
    pragma Export (C, u00103, "system__stringsS");
    u00104 : constant Version_32 := 16#fcdf3530#;
    pragma Export (C, u00104, "system__file_control_blockS");
-   u00105 : constant Version_32 := 16#36ef4ad6#;
+   u00105 : constant Version_32 := 16#fa4f98e8#;
    pragma Export (C, u00105, "anubis_mldsaB");
-   u00106 : constant Version_32 := 16#204626f6#;
+   u00106 : constant Version_32 := 16#101ecebd#;
    pragma Export (C, u00106, "anubis_mldsaS");
-   u00107 : constant Version_32 := 16#21404e58#;
+   u00107 : constant Version_32 := 16#44e9e9a1#;
    pragma Export (C, u00107, "anubis_mldsa_configS");
-   u00108 : constant Version_32 := 16#6ab7cbb5#;
+   u00108 : constant Version_32 := 16#9efa439a#;
    pragma Export (C, u00108, "anubis_mldsa_encodingB");
-   u00109 : constant Version_32 := 16#4d04fdb4#;
+   u00109 : constant Version_32 := 16#28ad5a4d#;
    pragma Export (C, u00109, "anubis_mldsa_encodingS");
    u00110 : constant Version_32 := 16#385b5656#;
    pragma Export (C, u00110, "anubis_mldsa_fieldB");
-   u00111 : constant Version_32 := 16#057b1d52#;
+   u00111 : constant Version_32 := 16#60d2baab#;
    pragma Export (C, u00111, "anubis_mldsa_fieldS");
    u00112 : constant Version_32 := 16#e259c480#;
    pragma Export (C, u00112, "system__assertionsB");
@@ -270,29 +270,29 @@ package ada_main is
    pragma Export (C, u00114, "ada__assertionsB");
    u00115 : constant Version_32 := 16#cc3ec2fd#;
    pragma Export (C, u00115, "ada__assertionsS");
-   u00116 : constant Version_32 := 16#6b544876#;
+   u00116 : constant Version_32 := 16#0efdef8f#;
    pragma Export (C, u00116, "anubis_mldsa_typesS");
    u00117 : constant Version_32 := 16#dea2a956#;
    pragma Export (C, u00117, "anubis_typesS");
-   u00118 : constant Version_32 := 16#466f55ae#;
+   u00118 : constant Version_32 := 16#ea1f3e1c#;
    pragma Export (C, u00118, "anubis_mldsa_nttB");
    u00119 : constant Version_32 := 16#841d40ff#;
    pragma Export (C, u00119, "anubis_mldsa_nttS");
    u00120 : constant Version_32 := 16#2ed11c01#;
    pragma Export (C, u00120, "anubis_mldsa_polyB");
-   u00121 : constant Version_32 := 16#4731d7ba#;
+   u00121 : constant Version_32 := 16#22987043#;
    pragma Export (C, u00121, "anubis_mldsa_polyS");
-   u00122 : constant Version_32 := 16#a05dc825#;
+   u00122 : constant Version_32 := 16#2c759d38#;
    pragma Export (C, u00122, "anubis_mldsa_sampleB");
-   u00123 : constant Version_32 := 16#ea1029ab#;
+   u00123 : constant Version_32 := 16#44a49206#;
    pragma Export (C, u00123, "anubis_mldsa_sampleS");
-   u00124 : constant Version_32 := 16#836bf0a8#;
+   u00124 : constant Version_32 := 16#edb09820#;
    pragma Export (C, u00124, "anubis_sha3B");
-   u00125 : constant Version_32 := 16#95c7bdbf#;
+   u00125 : constant Version_32 := 16#a4158c76#;
    pragma Export (C, u00125, "anubis_sha3S");
-   u00126 : constant Version_32 := 16#68d297b3#;
+   u00126 : constant Version_32 := 16#6281107e#;
    pragma Export (C, u00126, "anubis_keccakB");
-   u00127 : constant Version_32 := 16#88a5c868#;
+   u00127 : constant Version_32 := 16#22a1c410#;
    pragma Export (C, u00127, "anubis_keccakS");
    u00128 : constant Version_32 := 16#ca878138#;
    pragma Export (C, u00128, "system__concat_2B");
@@ -421,21 +421,21 @@ package ada_main is
    --  ada.text_io%b
    --  system.assertions%s
    --  system.assertions%b
+   --  anubis_keccak%s
+   --  anubis_keccak%b
    --  anubis_mldsa_config%s
    --  anubis_mldsa_field%s
    --  anubis_mldsa_field%b
    --  anubis_types%s
    --  anubis_mldsa_types%s
-   --  anubis_keccak%s
-   --  anubis_keccak%b
+   --  anubis_sha3%s
+   --  anubis_sha3%b
    --  anubis_mldsa_encoding%s
    --  anubis_mldsa_encoding%b
    --  anubis_mldsa_ntt%s
    --  anubis_mldsa_ntt%b
    --  anubis_mldsa_poly%s
    --  anubis_mldsa_poly%b
-   --  anubis_sha3%s
-   --  anubis_sha3%b
    --  anubis_mldsa_sample%s
    --  anubis_mldsa_sample%b
    --  anubis_mldsa%s

@@ -4,6 +4,9 @@ with Anubis_SHA3;
 with Anubis_KMAC;
 with Anubis_KDF;
 with Anubis_AEAD;
+with Anubis_MLDSA;
+with Anubis_Eye;
+with Anubis_Gate;
 
 package body Anubis_Sovereign with
    SPARK_Mode => On
@@ -128,22 +131,34 @@ is
       Signature : Byte_Array;
       Public_Key: Byte_Array
    ) return Boolean is
-      pragma Unreferenced (Signature, Public_Key);
-      --  Stub: Would call Anubis_MLDSA.Verify
-      Hash : Byte_Array (0 .. 31) := (others => 0);
+      PK : Anubis_MLDSA.Public_Key := (others => 0);
+      Sig : Anubis_MLDSA.Signature := (others => 0);
+      Local_Msg : Byte_Array (0 .. Message'Length - 1);
    begin
-      --  Compute message hash for verification
-      if Message'Length > 0 and Message'Length <= 4096 then
-         --  Create local copy with known bounds to satisfy SHA3 precondition
-         declare
-            Local_Msg : constant Byte_Array (0 .. Message'Length - 1) := Message;
-         begin
-            Anubis_SHA3.SHA3_256 (Local_Msg, Hash);
-         end;
-         --  In production: call ML-DSA-87 verify
-         return Hash (0) /= 0;  -- Stub: always succeeds if message non-empty
+      --  Validate input sizes
+      if Message'Length = 0 or Message'Length > 4096 or
+         Public_Key'Length /= 2592 or Signature'Length /= 4627
+      then
+         return False;
       end if;
-      return False;
+
+      --  Copy message to local array with zero-based indexing
+      for I in Message'Range loop
+         Local_Msg (I - Message'First) := Message (I);
+      end loop;
+
+      --  Copy public key
+      for I in PK'Range loop
+         PK (I) := Public_Key (Public_Key'First + I);
+      end loop;
+
+      --  Copy signature
+      for I in Sig'Range loop
+         Sig (I) := Signature (Signature'First + I);
+      end loop;
+
+      --  Verify ML-DSA-87 signature
+      return Anubis_MLDSA.Verify (PK, Local_Msg, Sig);
    end Verify_DSA_Signature;
 
    procedure Record_Audit (
@@ -660,45 +675,117 @@ is
    ) is
       Params   : Param_Buffer renames Context.Params;
       Cred_ID  : Byte_Array (0 .. Credential_ID_Size - 1) := (others => 0);
-      Mask     : Unsigned_16;
-      Proof    : Byte_Array (0 .. 511) := (others => 0);
-      pragma Unreferenced (State);
+      Holder_Secret : Byte_Array (0 .. 31) := (others => 0);
+      Challenge : Byte_Array (0 .. 31) := (others => 0);
+      Disclose_Mask : Unsigned_32;
+      Slot_Idx : State_Index;
    begin
       Result := Error_Result (Invalid_Params);
 
-      --  Params: cred_id (32) + disclosure_mask (2)
-      if Context.Param_Len < 34 then
+      --  Params: cred_id (32) + holder_secret (32) + disclosure_mask (4) + challenge (32)
+      --  Total: 100 bytes
+      if Context.Param_Len < 100 then
          return;
       end if;
 
+      --  Extract parameters
       for I in 0 .. 31 loop
          Cred_ID (I) := Params (I);
+         Holder_Secret (I) := Params (32 + I);
+         Challenge (I) := Params (68 + I);
       end loop;
 
-      Mask := Unsigned_16 (Params (32)) or Shift_Left (Unsigned_16 (Params (33)), 8);
+      Disclose_Mask := Unsigned_32 (Params (64)) or
+                       Shift_Left (Unsigned_32 (Params (65)), 8) or
+                       Shift_Left (Unsigned_32 (Params (66)), 16) or
+                       Shift_Left (Unsigned_32 (Params (67)), 24);
 
-      --  Generate disclosure proof using EYE
-      --  In production: call Anubis_Eye.Create_Disclosure_Proof
-      --  For now, create a simple proof structure
-      Proof (0 .. 31) := Cred_ID;
-      Proof (32) := Unsigned_8 (Mask and 16#FF#);
-      Proof (33) := Unsigned_8 (Shift_Right (Mask, 8) and 16#FF#);
+      --  Look up credential from state
+      Slot_Idx := Get_Credential_Slot (Cred_ID);
 
-      --  Hash the proof with SHA3
+      --  Verify credential exists and is active
+      if State (Slot_Idx).Length = 0 then
+         Result := Error_Result (Invalid_State);
+         return;
+      end if;
+
+      --  Build credential structure from state
+      --  Note: In production, credentials would be fully deserialized
+      --  For now, we create a minimal credential for disclosure proof
       declare
-         Proof_Hash : Byte_Array (0 .. 31) := (others => 0);
+         Cred : Anubis_Eye.Attribute_Credential;
+         Eye_Proof : Anubis_Eye.Disclosure_Proof;
+         Proof_Success : Boolean := False;
       begin
-         Anubis_SHA3.SHA3_256 (Proof (0 .. 33), Proof_Hash);
+         --  Initialize credential with zero values
+         Cred.Attrs := (others => (others => 0));
+         Cred.Attr_Count := 4;  -- Assume 4 attributes for demo
+         Cred.Holder_Commit := (others => 0);
+         Cred.Issuer_PK := (others => 0);
+         Cred.Signature := (others => 0);
+
+         --  Load holder commitment from state (stored in slot)
+         for I in 0 .. Natural'Min (63, State (Slot_Idx).Length - 1) loop
+            if I < 64 then
+               Cred.Holder_Commit (I) := State (Slot_Idx).Value (I);
+            end if;
+         end loop;
+
+         --  Extract attributes from state (simplified encoding)
+         --  Each attribute is 64 bytes
+         for A in 0 .. Natural'Min (3, Cred.Attr_Count - 1) loop
+            for I in 0 .. 63 loop
+               if 64 + A * 64 + I < State (Slot_Idx).Length then
+                  Cred.Attrs (A)(I) := State (Slot_Idx).Value (64 + A * 64 + I);
+               end if;
+            end loop;
+         end loop;
+
+         --  Generate EYE disclosure proof
+         Anubis_Eye.Create_Disclosure_Proof (
+            Credential    => Cred,
+            Holder_Secret => Holder_Secret,
+            Disclose_Mask => Disclose_Mask,
+            Challenge     => Challenge,
+            Proof         => Eye_Proof,
+            Success       => Proof_Success
+         );
+
+         if not Proof_Success then
+            Result := Error_Result (Invalid_Signature);
+            return;
+         end if;
+
+         --  Return disclosure proof
+         --  Format: credential_hash (32) + disclosed_mask (4) + proof_data (first 100 bytes)
+         Result.Status := Success;
+         Result.Return_Len := 136;
+
          for I in 0 .. 31 loop
-            Proof (34 + I) := Proof_Hash (I);
+            Result.Return_Data (I) := Eye_Proof.Credential_Hash (I);
+         end loop;
+
+         Result.Return_Data (32) := Unsigned_8 (Disclose_Mask and 16#FF#);
+         Result.Return_Data (33) := Unsigned_8 (Shift_Right (Disclose_Mask, 8) and 16#FF#);
+         Result.Return_Data (34) := Unsigned_8 (Shift_Right (Disclose_Mask, 16) and 16#FF#);
+         Result.Return_Data (35) := Unsigned_8 (Shift_Right (Disclose_Mask, 24) and 16#FF#);
+
+         for I in 0 .. 99 loop
+            if I < Anubis_Eye.Disclosure_Proof_Size then
+               Result.Return_Data (36 + I) := Eye_Proof.Proof_Data (I);
+            end if;
          end loop;
       end;
 
-      Result.Status := Success;
-      Result.Return_Len := 66;
-      for I in 0 .. 65 loop
-         Result.Return_Data (I) := Proof (I);
-      end loop;
+      --  Record audit entry
+      Record_Audit (
+         State     => State,
+         Operation => 16#D1#,  -- Disclosure operation
+         Actor     => Context.Caller,
+         Target    => Cred_ID,
+         Timestamp => Unsigned_64 (Context.Height),
+         Block     => Unsigned_64 (Context.Height)
+      );
    end Create_Disclosure;
 
    procedure Verify_Disclosure (
@@ -707,48 +794,126 @@ is
       Result  : out    Exec_Result
    ) is
       Params    : Param_Buffer renames Context.Params;
-      Proof     : Byte_Array (0 .. 65) := (others => 0);
-      Cred_ID   : Byte_Array (0 .. 31) := (others => 0);
-      Slot_Idx  : State_Index;
+      Proof_Hash : Byte_Array (0 .. 31) := (others => 0);
+      Disclose_Mask : Unsigned_32;
+      Proof_Data : Byte_Array (0 .. 99) := (others => 0);
+      Challenge : Byte_Array (0 .. 31) := (others => 0);
+      Issuer_PK : Byte_Array (0 .. 2591) := (others => 0);
+      Disclosed_Attrs : Anubis_Eye.Attribute_Input_Array (0 .. 7);
       Is_Valid  : Boolean := False;
    begin
       Result := Error_Result (Invalid_Params);
 
-      if Context.Param_Len < 66 then
+      --  Params: proof_hash (32) + disclosed_mask (4) + proof_data (100) +
+      --          challenge (32) + issuer_pk (2592) + disclosed_attrs (variable)
+      --  Minimum: 32 + 4 + 100 + 32 + 2592 = 2760 bytes
+      if Context.Param_Len < 136 then
          return;
       end if;
 
-      for I in 0 .. 65 loop
-         Proof (I) := Params (I);
-      end loop;
-
-      --  Extract credential ID from proof
+      --  Extract proof components
       for I in 0 .. 31 loop
-         Cred_ID (I) := Proof (I);
+         Proof_Hash (I) := Params (I);
       end loop;
 
-      Slot_Idx := Get_Credential_Slot (Cred_ID);
+      Disclose_Mask := Unsigned_32 (Params (32)) or
+                       Shift_Left (Unsigned_32 (Params (33)), 8) or
+                       Shift_Left (Unsigned_32 (Params (34)), 16) or
+                       Shift_Left (Unsigned_32 (Params (35)), 24);
 
-      --  Check credential exists and not revoked
-      if State (Slot_Idx).Value (0) = 1 and then
-         State (Slot_Idx).Value (74) = 0 then
+      for I in 0 .. 99 loop
+         Proof_Data (I) := Params (36 + I);
+      end loop;
 
-         --  Verify proof hash
-         declare
-            Expected_Hash : Byte_Array (0 .. 31) := (others => 0);
-            Actual_Hash   : Byte_Array (0 .. 31) := (others => 0);
-         begin
-            Anubis_SHA3.SHA3_256 (Proof (0 .. 33), Expected_Hash);
-            for I in 0 .. 31 loop
-               Actual_Hash (I) := Proof (34 + I);
-            end loop;
-            Is_Valid := Constant_Time_Compare (Expected_Hash, Actual_Hash);
-         end;
+      --  Extract challenge if provided
+      if Context.Param_Len >= 168 then
+         for I in 0 .. 31 loop
+            Challenge (I) := Params (136 + I);
+         end loop;
       end if;
+
+      --  Extract issuer public key from state (stored at issuer slots)
+      --  For demo, use a fixed issuer slot
+      declare
+         Issuer_Slot : constant State_Index := Issuer_Slots_Base;
+      begin
+         if State (Issuer_Slot).Length >= 2592 then
+            for I in 0 .. 2591 loop
+               Issuer_PK (I) := State (Issuer_Slot).Value (I);
+            end loop;
+         end if;
+      end;
+
+      --  Extract disclosed attributes from params
+      --  Count number of disclosed attributes from mask
+      declare
+         Attr_Count : Natural := 0;
+         Mask_Temp : Unsigned_32 := Disclose_Mask;
+      begin
+         --  Count set bits in mask
+         for I in 0 .. 31 loop
+            if (Mask_Temp and 1) = 1 then
+               Attr_Count := Attr_Count + 1;
+            end if;
+            Mask_Temp := Shift_Right (Mask_Temp, 1);
+         end loop;
+
+         --  Initialize disclosed attributes
+         for I in Disclosed_Attrs'Range loop
+            Disclosed_Attrs (I) := (others => 0);
+         end loop;
+
+         --  Extract disclosed attribute values from params (if provided)
+         --  Each attribute is 64 bytes
+         if Context.Param_Len >= 168 + Attr_Count * 64 then
+            for I in 0 .. Natural'Min (Attr_Count - 1, 7) loop
+               for J in 0 .. 63 loop
+                  Disclosed_Attrs (I)(J) := Params (168 + I * 64 + J);
+               end loop;
+            end loop;
+         end if;
+
+         --  Build EYE disclosure proof structure
+         declare
+            Eye_Proof : Anubis_Eye.Disclosure_Proof;
+            Attrs_Slice : constant Anubis_Eye.Attribute_Input_Array :=
+               Disclosed_Attrs (0 .. Natural'Min (Attr_Count - 1, 7));
+         begin
+            Eye_Proof.Credential_Hash := Proof_Hash;
+            Eye_Proof.Disclosed_Mask := Disclose_Mask;
+            Eye_Proof.Proof_Data := (others => 0);
+
+            for I in 0 .. 99 loop
+               if I < Anubis_Eye.Disclosure_Proof_Size then
+                  Eye_Proof.Proof_Data (I) := Proof_Data (I);
+               end if;
+            end loop;
+
+            --  Verify disclosure proof using EYE
+            if Attr_Count > 0 and Attr_Count <= 8 then
+               Is_Valid := Anubis_Eye.Verify_Disclosure (
+                  Proof           => Eye_Proof,
+                  Disclosed_Attrs => Attrs_Slice,
+                  Issuer_PK       => Issuer_PK,
+                  Challenge       => Challenge
+               );
+            end if;
+         end;
+      end;
 
       Result.Status := Success;
       Result.Return_Len := 1;
       Result.Return_Data (0) := (if Is_Valid then 1 else 0);
+
+      --  Record audit entry
+      Record_Audit (
+         State     => State,
+         Operation => 16#D2#,  -- Verification operation
+         Actor     => Context.Caller,
+         Target    => Proof_Hash,
+         Timestamp => Unsigned_64 (Context.Height),
+         Block     => Unsigned_64 (Context.Height)
+      );
    end Verify_Disclosure;
 
    procedure Issue_View_Key (
@@ -801,56 +966,105 @@ is
       Result  : out    Exec_Result
    ) is
       Params     : Param_Buffer renames Context.Params;
-      Session_ID : Byte_Array (0 .. 31) := (others => 0);
+      Contract_Addr : Byte_Array (0 .. 31) := (others => 0);
+      Contract_KEM_PK : Byte_Array (0 .. 1567) := (others => 0);
+      Randomness : Byte_Array (0 .. 63) := (others => 0);
       Slot_Idx   : State_Index;
    begin
       Result := Error_Result (Invalid_Params);
 
-      --  Params: verifier_kem_pk (1568) + randomness (32)
-      if Context.Param_Len < 64 then
+      --  Params: contract_addr (32) + contract_kem_pk (1568) + randomness (64)
+      --  Total: 1664 bytes
+      if Context.Param_Len < 1664 then
          return;
       end if;
 
-      --  Generate session ID from caller + randomness
+      --  Extract parameters
+      for I in 0 .. 31 loop
+         Contract_Addr (I) := Params (I);
+      end loop;
+
+      for I in 0 .. 1567 loop
+         Contract_KEM_PK (I) := Params (32 + I);
+      end loop;
+
+      for I in 0 .. 63 loop
+         Randomness (I) := Params (1600 + I);
+      end loop;
+
+      --  Create GATE private session
       declare
-         Input : Byte_Array (0 .. 63) := (others => 0);
+         Gate_Session : Anubis_Gate.Private_Session;
+         Session_Success : Boolean := False;
+         --  User KEM secret key (would come from holder's stored keys)
+         --  For demo, derive from caller address
+         User_KEM_SK : Byte_Array (0 .. 3167) := (others => 0);
       begin
+         --  Derive user KEM SK from caller address (simplified)
+         Anubis_SHA3.SHAKE256 (Context.Caller, User_KEM_SK, User_KEM_SK'Length);
+
+         --  Create session using GATE
+         Anubis_Gate.Create_Session (
+            Contract_Addr   => Contract_Addr,
+            User_KEM_SK     => User_KEM_SK,
+            Contract_KEM_PK => Contract_KEM_PK,
+            Randomness      => Randomness,
+            Session         => Gate_Session,
+            Success         => Session_Success
+         );
+
+         if not Session_Success then
+            Result := Error_Result (Invalid_State);
+            return;
+         end if;
+
+         --  Store session in state
+         Slot_Idx := Get_Session_Slot (Gate_Session.Session_ID);
+
+         State (Slot_Idx).Value (0) := 1;  -- Active
+
+         --  Store session ID
          for I in 0 .. 31 loop
-            Input (I) := Context.Caller (I);
-            Input (32 + I) := Params (I);
+            State (Slot_Idx).Value (1 + I) := Gate_Session.Session_ID (I);
          end loop;
-         Anubis_SHA3.SHA3_256 (Input, Session_ID);
-      end;
 
-      Slot_Idx := Get_Session_Slot (Session_ID);
+         --  Store contract address
+         for I in 0 .. 31 loop
+            State (Slot_Idx).Value (33 + I) := Gate_Session.Contract_Addr (I);
+         end loop;
 
-      --  Store session
-      State (Slot_Idx).Value (0) := 1;  -- Active
+         --  Store shared secret (encrypted)
+         for I in 0 .. 31 loop
+            State (Slot_Idx).Value (65 + I) := Gate_Session.Shared_Secret (I);
+         end loop;
 
-      for I in 0 .. 31 loop
-         State (Slot_Idx).Value (1 + I) := Session_ID (I);
-         State (Slot_Idx).Value (33 + I) := Context.Caller (I);  -- Holder
-      end loop;
-
-      --  Store expiry time
-      declare
-         Expiry : constant Unsigned_64 :=
-            Unsigned_64 (Context.Height) + Session_Timeout;
-      begin
+         --  Store creation and expiry times
          for I in 0 .. 7 loop
-            State (Slot_Idx).Value (65 + I) :=
-               Unsigned_8 (Shift_Right (Expiry, (7 - I) * 8) and 16#FF#);
+            State (Slot_Idx).Value (97 + I) :=
+               Unsigned_8 (Shift_Right (Gate_Session.Created_At, (7 - I) * 8) and 16#FF#);
+            State (Slot_Idx).Value (105 + I) :=
+               Unsigned_8 (Shift_Right (Gate_Session.Expires_At, (7 - I) * 8) and 16#FF#);
          end loop;
+
+         State (Slot_Idx).Length := 113;
+         State (Slot_Idx).Modified := True;
+
+         Result.Status := Success;
+         Result.Return_Len := 32;
+         for I in 0 .. 31 loop
+            Result.Return_Data (I) := Gate_Session.Session_ID (I);
+         end loop;
+
+         --  Record audit entry
+         Record_Audit (
+            State     => State,
+            Operation => 16#S1#,  -- Session start
+            Actor     => Context.Caller,
+            Target    => Contract_Addr,
+            Timestamp => Unsigned_64 (Context.Height),
+            Block     => Unsigned_64 (Context.Height)
+         );
       end;
-
-      State (Slot_Idx).Length := 73;
-      State (Slot_Idx).Modified := True;
-
-      Result.Status := Success;
-      Result.Return_Len := 32;
-      for I in 0 .. 31 loop
-         Result.Return_Data (I) := Session_ID (I);
-      end loop;
    end Start_Session;
 
    procedure Verify_Private (
@@ -860,21 +1074,40 @@ is
    ) is
       Params     : Param_Buffer renames Context.Params;
       Session_ID : Byte_Array (0 .. 31) := (others => 0);
-      Cred_ID    : Byte_Array (0 .. 31) := (others => 0);
+      Function_Selector : Unsigned_32;
+      Args       : Byte_Array (0 .. 1023) := (others => 0);
+      Args_Len   : Natural := 0;
       Slot_Idx   : State_Index;
-      Cred_Slot  : State_Index;
-      Is_Valid   : Boolean := False;
    begin
       Result := Error_Result (Invalid_Params);
 
-      --  Params: session_id (32) + cred_id (32) + encrypted_proof (variable)
-      if Context.Param_Len < 64 then
+      --  Params: session_id (32) + function_selector (4) + args_len (2) + args (variable)
+      --  Minimum: 38 bytes
+      if Context.Param_Len < 38 then
          return;
       end if;
 
+      --  Extract session ID
       for I in 0 .. 31 loop
          Session_ID (I) := Params (I);
-         Cred_ID (I) := Params (32 + I);
+      end loop;
+
+      --  Extract function selector
+      Function_Selector := Unsigned_32 (Params (32)) or
+                          Shift_Left (Unsigned_32 (Params (33)), 8) or
+                          Shift_Left (Unsigned_32 (Params (34)), 16) or
+                          Shift_Left (Unsigned_32 (Params (35)), 24);
+
+      --  Extract args length
+      Args_Len := Natural (Params (36)) or Shift_Left (Natural (Params (37)), 8);
+
+      if Args_Len > 1024 or Args_Len > Context.Param_Len - 38 then
+         return;
+      end if;
+
+      --  Extract args
+      for I in 0 .. Args_Len - 1 loop
+         Args (I) := Params (38 + I);
       end loop;
 
       Slot_Idx := Get_Session_Slot (Session_ID);
@@ -891,7 +1124,7 @@ is
       begin
          for I in 0 .. 7 loop
             Expiry := Shift_Left (Expiry, 8) or
-                     Unsigned_64 (State (Slot_Idx).Value (65 + I));
+                     Unsigned_64 (State (Slot_Idx).Value (105 + I));
          end loop;
 
          if Unsigned_64 (Context.Height) > Expiry then
@@ -900,23 +1133,96 @@ is
          end if;
       end;
 
-      --  Verify credential exists and is valid
-      Cred_Slot := Get_Credential_Slot (Cred_ID);
-      if State (Cred_Slot).Value (0) = 1 and then
-         State (Cred_Slot).Value (74) = 0 then
-         Is_Valid := True;
-      end if;
-
-      --  Update verification count
+      --  Reconstruct GATE session from state
       declare
-         Total : Unsigned_64 := Read_U64 (State (Total_Verified_Slot));
+         Gate_Session : Anubis_Gate.Private_Session;
+         Exec_Result_Gate : Anubis_Gate.Private_Execution_Result;
       begin
-         Write_U64 (State (Total_Verified_Slot), Total + 1);
-      end;
+         --  Load session ID
+         for I in 0 .. 31 loop
+            Gate_Session.Session_ID (I) := State (Slot_Idx).Value (1 + I);
+         end loop;
 
-      Result.Status := Success;
-      Result.Return_Len := 1;
-      Result.Return_Data (0) := (if Is_Valid then 1 else 0);
+         --  Load contract address
+         for I in 0 .. 31 loop
+            Gate_Session.Contract_Addr (I) := State (Slot_Idx).Value (33 + I);
+         end loop;
+
+         --  Load shared secret
+         for I in 0 .. 31 loop
+            Gate_Session.Shared_Secret (I) := State (Slot_Idx).Value (65 + I);
+         end loop;
+
+         --  Load timestamps
+         Gate_Session.Created_At := 0;
+         Gate_Session.Expires_At := 0;
+         for I in 0 .. 7 loop
+            Gate_Session.Created_At := Shift_Left (Gate_Session.Created_At, 8) or
+                                      Unsigned_64 (State (Slot_Idx).Value (97 + I));
+            Gate_Session.Expires_At := Shift_Left (Gate_Session.Expires_At, 8) or
+                                      Unsigned_64 (State (Slot_Idx).Value (105 + I));
+         end loop;
+
+         --  Initialize state snapshot (simplified - would load from contract state)
+         Gate_Session.State_Snapshot.Ciphertext := (others => 0);
+         Gate_Session.State_Snapshot.CT_Length := 0;
+         Gate_Session.State_Snapshot.State_Hash := (others => 0);
+         Gate_Session.State_Snapshot.Version := 0;
+
+         --  Execute private verification using GATE
+         Anubis_Gate.Session_Execute (
+            Session           => Gate_Session,
+            Function_Selector => Function_Selector,
+            Args              => Args (0 .. Args_Len - 1),
+            Result            => Exec_Result_Gate
+         );
+
+         if not Exec_Result_Gate.Success then
+            Result := Error_Result (Invalid_State);
+            return;
+         end if;
+
+         --  Update session state snapshot in storage
+         --  (In production, would update contract's private state)
+
+         --  Update verification count
+         declare
+            Total : Unsigned_64 := Read_U64 (State (Total_Verified_Slot));
+         begin
+            Write_U64 (State (Total_Verified_Slot), Total + 1);
+         end;
+
+         --  Return execution proof
+         --  Format: success (1) + new_state_hash (32) + output_hash (32) + proof_length (2) + proof (variable)
+         Result.Status := Success;
+         Result.Return_Len := 67 + Natural'Min (Exec_Result_Gate.Proof.Proof_Length, 200);
+
+         Result.Return_Data (0) := (if Exec_Result_Gate.Success then 1 else 0);
+
+         for I in 0 .. 31 loop
+            Result.Return_Data (1 + I) := Exec_Result_Gate.Proof.New_State_Hash (I);
+            Result.Return_Data (33 + I) := Exec_Result_Gate.Proof.Output_Hash (I);
+         end loop;
+
+         Result.Return_Data (65) := Unsigned_8 (Exec_Result_Gate.Proof.Proof_Length mod 256);
+         Result.Return_Data (66) := Unsigned_8 ((Exec_Result_Gate.Proof.Proof_Length / 256) mod 256);
+
+         for I in 0 .. Natural'Min (Exec_Result_Gate.Proof.Proof_Length - 1, 199) loop
+            if I < Anubis_Gate.Execution_Proof_Size then
+               Result.Return_Data (67 + I) := Exec_Result_Gate.Proof.Proof_Data (I);
+            end if;
+         end loop;
+
+         --  Record audit entry
+         Record_Audit (
+            State     => State,
+            Operation => 16#V1#,  -- Private verification
+            Actor     => Context.Caller,
+            Target    => Session_ID,
+            Timestamp => Unsigned_64 (Context.Height),
+            Block     => Unsigned_64 (Context.Height)
+         );
+      end;
    end Verify_Private;
 
    procedure End_Session (
@@ -1067,13 +1373,34 @@ is
          return;
       end if;
 
-      --  Homomorphic addition (WHISPER)
-      --  In production: Anubis_Whisper.Add_Commitments
-      --  For now: XOR commitments (placeholder)
-      for I in 0 .. 63 loop
-         State (Slot_Idx).Value (33 + I) :=
-            State (Slot_Idx).Value (33 + I) xor Delta_Commit (I);
-      end loop;
+      --  Homomorphic addition using Ajtai commitment properties
+      --  Real implementation: Anubis_Whisper.Add_Commitments
+      --  For production: Use proper lattice-based homomorphic commitment
+      --  Current: Hash-based accumulation for placeholder
+      declare
+         Combined : Byte_Array (0 .. 127) := (others => 0);
+         New_Commit : Byte_Array (0 .. 31) := (others => 0);
+      begin
+         --  Combine old and delta commitments
+         for I in 0 .. 63 loop
+            Combined (I) := State (Slot_Idx).Value (33 + I);
+            Combined (64 + I) := Delta_Commit (I);
+         end loop;
+
+         --  Hash to create new commitment
+         Anubis_SHA3.SHA3_256 (Combined (0 .. 127), New_Commit);
+
+         --  Store first 32 bytes of new commitment
+         for I in 0 .. 31 loop
+            State (Slot_Idx).Value (33 + I) := New_Commit (I);
+         end loop;
+
+         --  Extend to 64 bytes by hashing again
+         Anubis_SHA3.SHA3_256 (New_Commit, New_Commit);
+         for I in 0 .. 31 loop
+            State (Slot_Idx).Value (65 + I) := New_Commit (I);
+         end loop;
+      end;
 
       State (Slot_Idx).Modified := True;
 

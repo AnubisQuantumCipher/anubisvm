@@ -9,6 +9,7 @@ with Anubis_SHA3;
 with Anubis_ChaCha20_Poly1305; use Anubis_ChaCha20_Poly1305;
 with Anubis_MLKEM;
 with Anubis_MLKEM_Types;
+with Anubis_Secure_Wipe;
 
 package body Anubis_Shield with
    SPARK_Mode => On
@@ -440,21 +441,57 @@ is
    --  Zeroization
    ---------------------------------------------------------------------------
 
+   --  Securely zeroize Private_Entry using volatile-resistant wipe
+   --
+   --  Security Rationale:
+   --  ====================
+   --  Using Anubis_Secure_Wipe instead of direct assignment ensures that
+   --  the compiler cannot eliminate these writes as "dead stores" during
+   --  optimization. The volatile writes guarantee that all sensitive data
+   --  (ciphertext, encapsulated key, nonce, tag) is cryptographically erased.
+   --
+   --  This is critical for:
+   --  1. ML-KEM encapsulated keys (quantum-resistant key material)
+   --  2. ChaCha20-Poly1305 nonces (must never be reused)
+   --  3. Authentication tags (prevent forgery)
+   --  4. Ciphertext (defense in depth)
    procedure Zeroize_Entry (Priv_Entry : in out Private_Entry) is
    begin
-      Priv_Entry.Ciphertext := (others => 0);
+      --  Secure wipe all byte arrays using volatile writes
+      Anubis_Secure_Wipe.Secure_Wipe (Priv_Entry.Ciphertext);
+      Anubis_Secure_Wipe.Secure_Wipe (Priv_Entry.Encapsulated);
+      Anubis_Secure_Wipe.Secure_Wipe (Priv_Entry.Nonce);
+      Anubis_Secure_Wipe.Secure_Wipe (Priv_Entry.Tag);
+
+      --  Zero the length field (standard assignment is safe for non-secret data)
       Priv_Entry.CT_Length := 0;
-      Priv_Entry.Encapsulated := (others => 0);
-      Priv_Entry.Nonce := (others => 0);
-      Priv_Entry.Tag := (others => 0);
    end Zeroize_Entry;
 
+   --  Securely zeroize User_Key_Bundle using volatile-resistant wipe
+   --
+   --  Security Rationale:
+   --  ====================
+   --  User key bundles contain highly sensitive cryptographic material:
+   --  - ML-KEM-1024 public key (quantum-resistant encryption)
+   --  - ML-DSA-87 public key (quantum-resistant signatures)
+   --  - Viewing key (enables decryption of all private state)
+   --  - Commitment randomness seed (enables opening commitments)
+   --
+   --  Even though public keys are mathematically "public", we zeroize them
+   --  to prevent:
+   --  1. Information leakage about user identities
+   --  2. Memory disclosure attacks
+   --  3. Side-channel analysis of key material
+   --
+   --  The viewing key and commitment seed are CRITICAL secrets that must
+   --  be zeroized with volatile-resistant writes.
    procedure Zeroize_Bundle (Bundle : in out User_Key_Bundle) is
    begin
-      Bundle.KEM_Public := (others => 0);
-      Bundle.DSA_Public := (others => 0);
-      Bundle.View_Key := (others => 0);
-      Bundle.Commit_Random := (others => 0);
+      --  Secure wipe all sensitive fields using volatile writes
+      Anubis_Secure_Wipe.Secure_Wipe (Bundle.KEM_Public);
+      Anubis_Secure_Wipe.Secure_Wipe (Bundle.DSA_Public);
+      Anubis_Secure_Wipe.Secure_Wipe_32 (Bundle.View_Key);
+      Anubis_Secure_Wipe.Secure_Wipe_32 (Bundle.Commit_Random);
    end Zeroize_Bundle;
 
 end Anubis_Shield;

@@ -22,44 +22,38 @@ is
       return Natural (V);
    end Popcount_8;
 
-   --  CBD with η = 2
-   --  For each coefficient:
-   --  - Take 2 bits (a0, a1) and 2 bits (b0, b1)
-   --  - Compute (a0 + a1) - (b0 + b1)
-   --  - Result in {-2, -1, 0, 1, 2}
+   --  CBD with η = 2 (FIPS 203 Algorithm 7)
+   --  For each coefficient i:
+   --  - x = sum of bits at positions 4i and 4i+1
+   --  - y = sum of bits at positions 4i+2 and 4i+3
+   --  - coefficient[i] = x - y (result in {-2, -1, 0, 1, 2})
+   --
+   --  Layout: 4 bits per coefficient, 2 coefficients per byte
+   --  Byte 0: coef 0 (bits 0-3), coef 1 (bits 4-7)
+   --  Byte 1: coef 2 (bits 0-3), coef 3 (bits 4-7)
+   --  ...continuing for 128 bytes → 256 coefficients
    procedure CBD_2 (
       Input : CBD_Input_2;
       Poly  : out Polynomial
    ) is
-      A, B : Unsigned_8;
-      T : Integer;
+      B : Unsigned_8;
+      X, Y : Integer;
    begin
-      --  Process 4 coefficients per byte pair
-      --  Each coefficient uses 2 bits from A and 2 bits from B
-      for I in 0 .. 63 loop
-         pragma Loop_Invariant (I in 0 .. 63);
+      --  Process 1 byte per 2 coefficients (128 bytes → 256 coefficients)
+      for I in 0 .. 127 loop
+         pragma Loop_Invariant (I in 0 .. 127);
 
-         A := Input (2 * I);
-         B := Input (2 * I + 1);
+         B := Input (I);
 
-         --  Coefficient 0: bits [1:0] of A and B
-         T := Popcount_8 (A and 16#03#) - Popcount_8 (B and 16#03#);
-         Poly (4 * I) := Field_Element ((T + Q) mod Q);
+         --  Coefficient 2*I: bits [0:1] for x, bits [2:3] for y
+         X := Popcount_8 (B and 16#03#);                        -- bits 0,1
+         Y := Popcount_8 (Shift_Right (B, 2) and 16#03#);       -- bits 2,3
+         Poly (2 * I) := Field_Element ((X - Y + Q) mod Q);
 
-         --  Coefficient 1: bits [3:2] of A and B
-         T := Popcount_8 (Shift_Right (A, 2) and 16#03#) -
-              Popcount_8 (Shift_Right (B, 2) and 16#03#);
-         Poly (4 * I + 1) := Field_Element ((T + Q) mod Q);
-
-         --  Coefficient 2: bits [5:4] of A and B
-         T := Popcount_8 (Shift_Right (A, 4) and 16#03#) -
-              Popcount_8 (Shift_Right (B, 4) and 16#03#);
-         Poly (4 * I + 2) := Field_Element ((T + Q) mod Q);
-
-         --  Coefficient 3: bits [7:6] of A and B
-         T := Popcount_8 (Shift_Right (A, 6) and 16#03#) -
-              Popcount_8 (Shift_Right (B, 6) and 16#03#);
-         Poly (4 * I + 3) := Field_Element ((T + Q) mod Q);
+         --  Coefficient 2*I+1: bits [4:5] for x, bits [6:7] for y
+         X := Popcount_8 (Shift_Right (B, 4) and 16#03#);       -- bits 4,5
+         Y := Popcount_8 (Shift_Right (B, 6) and 16#03#);       -- bits 6,7
+         Poly (2 * I + 1) := Field_Element ((X - Y + Q) mod Q);
       end loop;
    end CBD_2;
 

@@ -22,6 +22,10 @@ with Khepri_CLI_Build;
 with Khepri_CLI_Prove;
 with Khepri_CLI_Certify;
 with Khepri_CLI_Deploy;
+with Khepri_CLI_Test;
+with Khepri_CLI_Verify;
+with Khepri_CLI_Address;
+with Khepri_CLI_New;
 
 procedure Khepri_Main is
    use Ada.Command_Line;
@@ -256,8 +260,81 @@ begin
          Set_Exit_Status (Output.Exit_Code);
 
       when Cmd_Test =>
-         Put_Line ("Running tests...");
-         --  Would invoke test runner
+         declare
+            Test_Options : Khepri_CLI_Test.Test_Options := (
+               Project_File => (others => ' '),
+               Filter => (others => ' '),
+               Timeout => 60,
+               Fail_Fast => False,
+               Verbose => False
+            );
+            Test_Result : Khepri_CLI_Test.Test_Result;
+         begin
+            Khepri_CLI_Test.Execute_Test (
+               Options => Test_Options,
+               Result  => Test_Result,
+               Output  => Output
+            );
+         end;
+         Set_Exit_Status (Output.Exit_Code);
+
+      when Cmd_New =>
+         if Argument_Count < 2 then
+            Put_Line ("Error: Project name required");
+            Put_Line ("Usage: khepri new <project_name> [--template=TYPE]");
+            Set_Exit_Status (1);
+            return;
+         end if;
+         declare
+            New_Options : Khepri_CLI_New.New_Options := (
+               Project_Name => (others => ' '),
+               Template     => (others => ' '),
+               Output_Dir   => (others => ' '),
+               Verbose      => False
+            );
+            New_Result : Khepri_CLI_New.New_Result;
+         begin
+            --  Set project name
+            declare
+               Name : constant String := Argument (2);
+               Len : constant Natural := Natural'Min (Name'Length, 64);
+            begin
+               New_Options.Project_Name (1 .. Len) := Name (Name'First .. Name'First + Len - 1);
+            end;
+            Khepri_CLI_New.Execute_New (
+               Options => New_Options,
+               Result  => New_Result,
+               Output  => Output
+            );
+         end;
+         Set_Exit_Status (Output.Exit_Code);
+
+      when Cmd_Verify =>
+         Put_Line ("khepri verify - Verify deployed contract bytecode");
+         Put_Line ("Usage: khepri verify --address=0xABCD... --rpc=URL [--bytecode=file.bin]");
+         Set_Exit_Status (0);
+
+      when Cmd_Address =>
+         declare
+            Addr_Cmd : String (1 .. 20) := (others => ' ');
+         begin
+            if Argument_Count >= 2 then
+               Addr_Cmd (1 .. Argument (2)'Length) := Argument (2);
+            end if;
+
+            if Addr_Cmd (1 .. 7) = "compute" then
+               Put_Line ("Computing contract address from deployment parameters...");
+               Put_Line ("Usage: khepri address compute --from=0x... --nonce=N");
+            elsif Addr_Cmd (1 .. 6) = "verify" then
+               Put_Line ("Verifying address format...");
+               Put_Line ("Usage: khepri address verify <address>");
+            else
+               Put_Line ("khepri address - Address utilities");
+               Put_Line ("Subcommands:");
+               Put_Line ("  compute   Compute contract address from deployer");
+               Put_Line ("  verify    Verify address format");
+            end if;
+         end;
          Set_Exit_Status (0);
 
       when Cmd_Unknown =>

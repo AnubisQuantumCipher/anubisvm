@@ -187,10 +187,11 @@ is
       OKM     : out Byte_Array
    ) with
       Global  => null,
-      Depends => (OKM => (Prk, Info, Context)),
-      Pre     => Info_Bounds_Safe (Info) and then
-                 Context_Bounds_Safe (Context) and then
-                 Output_Bounds_Safe (OKM),
+      Depends => (OKM =>+ (Prk, Info, Context)),
+      Pre     => Info'Length <= Max_Info_Size and then
+                 Context'Length <= Max_Context_Length and then
+                 OKM'Length <= Max_Output_Size and then
+                 OKM'Length > 0,
       Always_Terminates;
 
    --  Derive_Key: One-step key derivation (Extract + Expand)
@@ -215,8 +216,8 @@ is
    ) with
       Global  => null,
       Depends => (Key => (Master, Salt, Info, Context)),
-      Pre     => Info_Bounds_Safe (Info) and then
-                 Context_Bounds_Safe (Context),
+      Pre     => Info'Length <= Max_Info_Size and then
+                 Context'Length <= Max_Context_Length,
       Post    => Is_Valid_Derived (Key),
       Always_Terminates;
 
@@ -330,7 +331,7 @@ is
    --  Post: All bytes of key are zero (proven by postcondition)
    procedure Zeroize_Key (Key : in Out Derived_Key) with
       Global  => null,
-      Depends => (Key => Key),
+      Depends => (Key => null, null => Key),
       Post    => Key_Is_Zero (Key),
       Always_Terminates;
 
@@ -342,7 +343,7 @@ is
    --  Post: All bytes of master key are zero (proven by postcondition)
    procedure Zeroize_Master (Key : in Out Master_Key) with
       Global  => null,
-      Depends => (Key => Key),
+      Depends => (Key => null, null => Key),
       Post    => Master_Is_Zero (Key),
       Always_Terminates;
 

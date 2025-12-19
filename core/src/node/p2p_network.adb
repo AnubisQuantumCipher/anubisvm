@@ -8,12 +8,39 @@ pragma SPARK_Mode (Off);
 
 with P2P_Sockets; use P2P_Sockets;
 with Ada.Text_IO;
+with Ada.Calendar;
 
 package body P2P_Network is
 
    ---------------------------------------------------------------------------
    --  Internal Helpers
    ---------------------------------------------------------------------------
+
+   --  Get current timestamp in seconds since epoch
+   --  Used for ping timestamps, ban expiry, peer last seen tracking
+   function Get_Current_Time return Unsigned_64 is
+      use Ada.Calendar;
+      Now : constant Time := Clock;
+      Epoch : constant Time := Time_Of (1970, 1, 1);
+      Seconds : constant Duration := Now - Epoch;
+   begin
+      return Unsigned_64 (Seconds);
+   exception
+      when others =>
+         return 0;
+   end Get_Current_Time;
+
+   --  Create socket handle from file descriptor
+   --  This is a compatibility bridge for working with stored FDs
+   function Create_Handle_From_FD (FD : Integer) return P2P_Sockets.Socket_Handle is
+      Handle : P2P_Sockets.Socket_Handle;
+   begin
+      --  In production, this would reconstruct a Socket_Handle from the FD
+      --  For now, return a default handle since the actual socket management
+      --  is handled internally by P2P_Sockets
+      pragma Unreferenced (FD);
+      return Handle;
+   end Create_Handle_From_FD;
 
    --  Initialize empty peer info
    procedure Initialize_Peer_Info (Info : out Peer_Info) is
@@ -63,6 +90,82 @@ package body P2P_Network is
       Header.Timestamp := 0;
       Header.Sender_ID := (others => 0);
    end Initialize_Message_Header;
+
+   --  Parse message header from byte buffer
+   --  Header layout (52 bytes total):
+   --    Bytes 0-3:   Magic (Unsigned_32, little-endian)
+   --    Bytes 4-5:   Version (Unsigned_16, little-endian)
+   --    Bytes 6-7:   Msg_Type (Unsigned_16 -> enum)
+   --    Bytes 8-11:  Payload_Len (Unsigned_32, little-endian)
+   --    Bytes 12-19: Timestamp (Unsigned_64, little-endian)
+   --    Bytes 20-51: Sender_ID (Hash256)
+   procedure Parse_Message_Header (
+      Buffer  : in  Payload_Buffer;
+      Length  : in  Natural;
+      Header  : out Message_Header;
+      Success : out Boolean
+   )
+   is
+      Magic_Val    : Unsigned_32;
+      Version_Val  : Unsigned_16;
+      Msg_Type_Val : Unsigned_16;
+   begin
+      Success := False;
+      Initialize_Message_Header (Header);
+
+      --  Check minimum size
+      if Length < 52 then
+         return;
+      end if;
+
+      --  Parse Magic (little-endian)
+      Magic_Val := Unsigned_32 (Buffer (Buffer'First)) +
+                   Unsigned_32 (Buffer (Buffer'First + 1)) * 256 +
+                   Unsigned_32 (Buffer (Buffer'First + 2)) * 65536 +
+                   Unsigned_32 (Buffer (Buffer'First + 3)) * 16777216;
+
+      --  Validate magic number
+      if Magic_Val /= Network_Magic then
+         return;
+      end if;
+      Header.Magic := Magic_Val;
+
+      --  Parse Version (little-endian)
+      Version_Val := Unsigned_16 (Buffer (Buffer'First + 4)) +
+                     Unsigned_16 (Buffer (Buffer'First + 5)) * 256;
+      Header.Version := Version_Val;
+
+      --  Parse Msg_Type (little-endian, convert to enum)
+      Msg_Type_Val := Unsigned_16 (Buffer (Buffer'First + 6)) +
+                      Unsigned_16 (Buffer (Buffer'First + 7)) * 256;
+      if Natural (Msg_Type_Val) > Message_Type'Pos (Message_Type'Last) then
+         return;  --  Invalid message type
+      end if;
+      Header.Msg_Type := Message_Type'Val (Natural (Msg_Type_Val));
+
+      --  Parse Payload_Len (little-endian)
+      Header.Payload_Len := Unsigned_32 (Buffer (Buffer'First + 8)) +
+                            Unsigned_32 (Buffer (Buffer'First + 9)) * 256 +
+                            Unsigned_32 (Buffer (Buffer'First + 10)) * 65536 +
+                            Unsigned_32 (Buffer (Buffer'First + 11)) * 16777216;
+
+      --  Parse Timestamp (little-endian)
+      Header.Timestamp := Unsigned_64 (Buffer (Buffer'First + 12)) +
+                          Unsigned_64 (Buffer (Buffer'First + 13)) * 256 +
+                          Unsigned_64 (Buffer (Buffer'First + 14)) * 65536 +
+                          Unsigned_64 (Buffer (Buffer'First + 15)) * 16777216 +
+                          Unsigned_64 (Buffer (Buffer'First + 16)) * 4294967296 +
+                          Unsigned_64 (Buffer (Buffer'First + 17)) * 1099511627776 +
+                          Unsigned_64 (Buffer (Buffer'First + 18)) * 281474976710656 +
+                          Unsigned_64 (Buffer (Buffer'First + 19)) * 72057594037927936;
+
+      --  Copy Sender_ID (32 bytes)
+      for I in 0 .. 31 loop
+         Header.Sender_ID (I) := Buffer (Buffer'First + 20 + I);
+      end loop;
+
+      Success := True;
+   end Parse_Message_Header;
 
    --  Initialize empty message
    procedure Initialize_Message (Msg : out P2P_Message) is
@@ -228,15 +331,17 @@ package body P2P_Network is
 
       --  Initialize stats
       Net.Stats := (
-         Peers_Connected   => 0,
-         Peers_Connecting  => 0,
-         Peers_Banned      => 0,
-         Messages_Sent     => 0,
-         Messages_Received => 0,
-         TX_Gossiped       => 0,
-         Blocks_Gossiped   => 0,
-         Bytes_Sent        => 0,
-         Bytes_Received    => 0
+         Peers_Connected      => 0,
+         Peers_Connecting     => 0,
+         Peers_Banned         => 0,
+         Messages_Sent        => 0,
+         Messages_Received    => 0,
+         TX_Gossiped          => 0,
+         Blocks_Gossiped      => 0,
+         Bytes_Sent           => 0,
+         Bytes_Received       => 0,
+         Connections_Received => 0,
+         Last_Update_Time     => 0
       );
 
       --  Initialize listener state
@@ -434,11 +539,11 @@ package body P2P_Network is
          Ban_Idx := 0;
       end if;
 
-      --  Add ban entry
+      --  Add ban entry with current time
       Net.Ban_List (Ban_Idx).Is_Valid := True;
       Net.Ban_List (Ban_Idx).Node_ID := Node_ID;
-      Net.Ban_List (Ban_Idx).Ban_Time := 0;  -- Would use current time
-      Net.Ban_List (Ban_Idx).Ban_Until := Duration;
+      Net.Ban_List (Ban_Idx).Ban_Time := Get_Current_Time;
+      Net.Ban_List (Ban_Idx).Ban_Until := Get_Current_Time + Duration;
       Net.Ban_List (Ban_Idx).Reason := Reason;
 
       Net.Ban_Count := Net.Ban_Count + 1;
@@ -918,7 +1023,7 @@ package body P2P_Network is
       Msg.Header.Version := Protocol_Version;
       Msg.Header.Msg_Type := Msg_Ping;
       Msg.Header.Sender_ID := Net.Node_ID;
-      Msg.Header.Timestamp := 0;  -- Would use current time
+      Msg.Header.Timestamp := Get_Current_Time;
       Msg.Payload_Size := 0;
       Msg.Header.Payload_Len := 0;
       Msg.Is_Valid := True;
@@ -1122,14 +1227,226 @@ package body P2P_Network is
    procedure Process_Events (
       Net : in Out Network_State
    ) is
+      Current_Time  : constant Unsigned_64 := Get_Current_Time;
+      Recv_Buffer   : Payload_Buffer;
+      Recv_Length   : Natural;
+      Recv_Result   : P2P_Sockets.Socket_Result;
+      Sock          : P2P_Sockets.Socket_Handle;
+      Msg           : P2P_Message;
+      Peer_Addr     : Peer_Address;
+      Accept_Result : P2P_Sockets.Socket_Result;
    begin
-      --  In a real implementation, this would:
-      --  1. Accept incoming connections
-      --  2. Read incoming messages
-      --  3. Process message queue
-      --  4. Handle disconnections
-      --  5. Update peer states
-      null;
+      if not Net.Is_Running then
+         return;
+      end if;
+
+      --  1. Try to accept incoming connections (non-blocking)
+      --  The listener is managed internally by P2P_Sockets
+      declare
+         Listener : P2P_Sockets.Listener_State;
+      begin
+         --  Try accept (non-blocking) - will return Would_Block if no pending
+         P2P_Sockets.Accept_Connection (
+            Listener  => Listener,
+            Sock      => Sock,
+            Peer_Addr => Peer_Addr,
+            Result    => Accept_Result
+         );
+
+         if Accept_Result = P2P_Sockets.Socket_OK then
+            --  New incoming connection
+            Ada.Text_IO.Put_Line ("Accepted incoming connection");
+
+            --  Set socket to non-blocking
+            P2P_Sockets.Set_Non_Blocking (Sock);
+
+            --  Find empty peer slot
+            for I in Net.Peers'Range loop
+               if not Net.Peers (I).Is_Valid then
+                  Net.Peers (I).Is_Valid := True;
+                  Net.Peers (I).Address := Peer_Addr;
+                  Net.Peers (I).State := Peer_Connecting;
+                  Net.Peers (I).Connected_Time := Current_Time;
+                  Net.Peers (I).Last_Seen := Current_Time;
+                  Net.Peers (I).Is_Inbound := True;
+                  Net.Peers (I).Socket_FD := P2P_Sockets.Get_FD (Sock);
+                  Net.Peer_Count := Net.Peer_Count + 1;
+                  Net.Stats.Connections_Received := Net.Stats.Connections_Received + 1;
+                  exit;
+               end if;
+            end loop;
+         end if;
+      end;
+
+      --  2. Read incoming messages from all connected peers
+      for I in Net.Peers'Range loop
+         if Net.Peers (I).Is_Valid and
+            Net.Peers (I).State = Peer_Connected
+         then
+            --  Create socket handle from stored FD
+            Sock := P2P_Sockets.Create_Handle_From_FD (Net.Peers (I).Socket_FD);
+
+            --  Try to receive data (non-blocking)
+            P2P_Sockets.Receive (
+               Sock   => Sock,
+               Data   => Recv_Buffer,
+               Length => Recv_Length,
+               Result => Recv_Result
+            );
+
+            case Recv_Result is
+               when P2P_Sockets.Socket_OK =>
+                  --  Data received, parse message
+                  if Recv_Length >= 52 then  -- Minimum header size
+                     Parse_Message_Header (
+                        Buffer  => Recv_Buffer,
+                        Length  => Recv_Length,
+                        Header  => Msg.Header,
+                        Success => Msg.Is_Valid
+                     );
+
+                     if Msg.Is_Valid then
+                        --  Copy payload
+                        Msg.Payload_Size := Natural'Min (
+                           Natural (Msg.Header.Payload_Len),
+                           Recv_Length - 52
+                        );
+                        if Msg.Payload_Size > 0 then
+                           Msg.Payload (0 .. Msg.Payload_Size - 1) :=
+                              Recv_Buffer (52 .. 51 + Msg.Payload_Size);
+                        end if;
+
+                        --  Update peer state
+                        Net.Peers (I).Last_Seen := Current_Time;
+                        Net.Stats.Messages_Received := Net.Stats.Messages_Received + 1;
+
+                        --  Process message based on type
+                        case Msg.Header.Msg_Type is
+                           when Msg_Ping =>
+                              --  Respond with pong
+                              declare
+                                 Pong_Msg : P2P_Message;
+                                 Send_Result : Network_Result;
+                              begin
+                                 Create_Pong (Net, Msg, Pong_Msg);
+                                 Send_To_Peer (Net, Net.Peers (I).Node_ID, Pong_Msg, Send_Result);
+                              end;
+
+                           when Msg_Pong =>
+                              --  Calculate latency
+                              declare
+                                 Latency : constant Unsigned_64 :=
+                                    Current_Time - Msg.Header.Timestamp;
+                              begin
+                                 Net.Peers (I).Ping_Latency_Ms := Natural (Latency mod 10000);
+                              end;
+
+                           when Msg_Handshake =>
+                              --  Update peer info from handshake
+                              Net.Peers (I).Node_ID := Msg.Header.Sender_ID;
+                              Net.Peers (I).State := Peer_Connected;
+
+                              --  Parse chain info from payload (chain_id + height + best_block)
+                              if Msg.Payload_Size >= 96 then
+                                 --  Extract height from bytes 32-63
+                                 Net.Peers (I).Chain_Height.Limbs (0) :=
+                                    Unsigned_64 (Msg.Payload (32)) +
+                                    Unsigned_64 (Msg.Payload (33)) * 256 +
+                                    Unsigned_64 (Msg.Payload (34)) * 65536 +
+                                    Unsigned_64 (Msg.Payload (35)) * 16777216;
+                                 --  Extract best block from bytes 64-95
+                                 Net.Peers (I).Best_Block := (others => 0);
+                                 for J in 0 .. 31 loop
+                                    Net.Peers (I).Best_Block (J) := Msg.Payload (64 + J);
+                                 end loop;
+                              end if;
+
+                           when Msg_TX_Announce =>
+                              Net.Peers (I).TX_Received := Net.Peers (I).TX_Received + 1;
+                              --  Note: Would trigger mempool update via callback
+
+                           when Msg_Block_Announce =>
+                              Net.Peers (I).Blocks_Received := Net.Peers (I).Blocks_Received + 1;
+                              --  Note: Would trigger sync check via callback
+
+                           when Msg_Peer_Request =>
+                              --  Send list of known peers
+                              declare
+                                 Peer_List_Msg : P2P_Message;
+                                 Send_Result : Network_Result;
+                                 Offset : Natural := 0;
+                              begin
+                                 Initialize_Message (Peer_List_Msg);
+                                 Peer_List_Msg.Header.Msg_Type := Msg_Peer_Response;
+                                 Peer_List_Msg.Header.Sender_ID := Net.Node_ID;
+
+                                 --  Add up to 10 connected peers to payload
+                                 for J in Net.Peers'Range loop
+                                    if Net.Peers (J).Is_Valid and
+                                       Net.Peers (J).State = Peer_Connected and
+                                       J /= I and  -- Don't send back requesting peer
+                                       Offset + 22 < Max_Payload_Len
+                                    then
+                                       --  Copy address (20 bytes) + port (2 bytes)
+                                       for K in 0 .. 19 loop
+                                          if K < Net.Peers (J).Address.Addr_Len then
+                                             Peer_List_Msg.Payload (Offset + K) :=
+                                                Aegis_VM_Types.Byte (Character'Pos (
+                                                   Net.Peers (J).Address.Address (K + 1)));
+                                          else
+                                             Peer_List_Msg.Payload (Offset + K) := 0;
+                                          end if;
+                                       end loop;
+                                       Peer_List_Msg.Payload (Offset + 20) :=
+                                          Aegis_VM_Types.Byte (Net.Peers (J).Address.Port mod 256);
+                                       Peer_List_Msg.Payload (Offset + 21) :=
+                                          Aegis_VM_Types.Byte (Net.Peers (J).Address.Port / 256);
+                                       Offset := Offset + 22;
+                                    end if;
+                                 end loop;
+
+                                 Peer_List_Msg.Payload_Size := Offset;
+                                 Peer_List_Msg.Header.Payload_Len := Unsigned_32 (Offset);
+                                 Peer_List_Msg.Is_Valid := True;
+
+                                 Send_To_Peer (Net, Net.Peers (I).Node_ID, Peer_List_Msg, Send_Result);
+                              end;
+
+                           when others =>
+                              --  Other message types handled by application layer
+                              null;
+                        end case;
+                     end if;
+                  end if;
+
+               when P2P_Sockets.Socket_Closed =>
+                  --  Peer disconnected
+                  Ada.Text_IO.Put_Line ("Peer disconnected");
+                  Net.Peers (I).State := Peer_Disconnected;
+                  Net.Peers (I).Is_Valid := False;
+                  if Net.Peer_Count > 0 then
+                     Net.Peer_Count := Net.Peer_Count - 1;
+                  end if;
+
+               when P2P_Sockets.Socket_Would_Block | P2P_Sockets.Socket_Timeout =>
+                  --  No data available, continue
+                  null;
+
+               when others =>
+                  --  Socket error, disconnect peer
+                  Net.Peers (I).State := Peer_Disconnected;
+                  Net.Peers (I).Is_Valid := False;
+                  if Net.Peer_Count > 0 then
+                     Net.Peer_Count := Net.Peer_Count - 1;
+                  end if;
+            end case;
+         end if;
+      end loop;
+
+      --  3. Check for peer timeouts (handled by Expire_Stale_Peers)
+      --  4. Update network stats
+      Net.Stats.Last_Update_Time := Current_Time;
+
    end Process_Events;
 
    procedure Send_Keepalives (

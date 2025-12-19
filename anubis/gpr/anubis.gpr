@@ -7,6 +7,8 @@
 --  - Eye: Selective disclosure
 --  - Gate: Private execution
 
+with "../../core/aegisvm.gpr";
+
 project Anubis is
 
    for Languages use ("Ada");

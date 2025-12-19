@@ -67,8 +67,9 @@ is
       end if;
 
       --  Encode value in big-endian into temp buffer
-      while Value > 0 loop
+      while Value > 0 and N < 8 loop
          pragma Loop_Invariant (N <= 7);
+         pragma Loop_Invariant (N < 8);
          pragma Loop_Variant (Decreases => Value);
          Temp (7 - N) := Byte (Value mod 256);
          Value := Value / 256;
@@ -102,8 +103,9 @@ is
       end if;
 
       --  Encode value in big-endian into temp buffer
-      while Value > 0 loop
+      while Value > 0 and N < 8 loop
          pragma Loop_Invariant (N <= 7);
+         pragma Loop_Invariant (N < 8);
          pragma Loop_Variant (Decreases => Value);
          Temp (7 - N) := Byte (Value mod 256);
          Value := Value / 256;
@@ -129,6 +131,7 @@ is
    ) with
       Global => null,
       Pre => Rate >= 8 and then Rate <= 200 and then Rate mod 8 = 0
+             and then Block'Last < Natural'Last
              and then Block'Length = Rate
    is
       Num_Lanes : constant Positive := Rate / 8;
@@ -155,7 +158,8 @@ is
       Rate   : Positive
    ) with
       Global => null,
-      Pre => Output'Length = Rate and then Rate >= 8 and then
+      Pre => Output'Last < Natural'Last and then
+             Output'Length = Rate and then Rate >= 8 and then
              Rate <= 200 and then Rate mod 8 = 0
    is
       Num_Lanes : constant Positive := Rate / 8;
@@ -190,6 +194,7 @@ is
       Global => null,
       Pre => Message'Length <= Max_Message_Length and then
              Custom'Length <= Max_Custom_Length and then
+             Output'Last < Natural'Last and then
              Output'Length = Output_Length and then
              Output_Length <= 64
    is
@@ -220,7 +225,7 @@ is
       --  Start bytepad with left_encode(136)
       for I in 0 .. Enc_Rate.Length - 1 loop
          pragma Loop_Invariant (I >= 0 and I < Enc_Rate.Length);
-         pragma Loop_Invariant (Pad_Pos <= Rate_256 - 1);
+         pragma Loop_Invariant (Pad_Pos <= Rate_256);
          if Pad_Pos <= Rate_256 - 1 then
             Bytepad_Block (Pad_Pos) := Enc_Rate.Data (I);
             Pad_Pos := Pad_Pos + 1;
@@ -230,7 +235,7 @@ is
       --  encode_string("KMAC"): left_encode(32) || "KMAC"
       for I in 0 .. Enc_Name_Len.Length - 1 loop
          pragma Loop_Invariant (I >= 0 and I < Enc_Name_Len.Length);
-         pragma Loop_Invariant (Pad_Pos <= Rate_256 - 1);
+         pragma Loop_Invariant (Pad_Pos <= Rate_256);
          if Pad_Pos <= Rate_256 - 1 then
             Bytepad_Block (Pad_Pos) := Enc_Name_Len.Data (I);
             Pad_Pos := Pad_Pos + 1;
@@ -238,7 +243,7 @@ is
       end loop;
 
       for I in KMAC_Name'Range loop
-         pragma Loop_Invariant (Pad_Pos <= Rate_256 - 1);
+         pragma Loop_Invariant (Pad_Pos <= Rate_256);
          if Pad_Pos <= Rate_256 - 1 then
             Bytepad_Block (Pad_Pos) := KMAC_Name (I);
             Pad_Pos := Pad_Pos + 1;
@@ -250,7 +255,7 @@ is
 
       for I in 0 .. Enc_Custom_Len.Length - 1 loop
          pragma Loop_Invariant (I >= 0 and I < Enc_Custom_Len.Length);
-         pragma Loop_Invariant (Pad_Pos <= Rate_256 - 1);
+         pragma Loop_Invariant (Pad_Pos <= Rate_256);
          if Pad_Pos <= Rate_256 - 1 then
             Bytepad_Block (Pad_Pos) := Enc_Custom_Len.Data (I);
             Pad_Pos := Pad_Pos + 1;
@@ -259,7 +264,7 @@ is
 
       --  Copy customization string bytes
       for I in Custom'Range loop
-         pragma Loop_Invariant (Pad_Pos <= Rate_256 - 1);
+         pragma Loop_Invariant (Pad_Pos <= Rate_256);
          if Pad_Pos <= Rate_256 - 1 then
             Bytepad_Block (Pad_Pos) := Byte (Character'Pos (Custom (I)));
             Pad_Pos := Pad_Pos + 1;
@@ -279,7 +284,7 @@ is
       --  left_encode(136)
       for I in 0 .. Enc_Rate.Length - 1 loop
          pragma Loop_Invariant (I >= 0 and I < Enc_Rate.Length);
-         pragma Loop_Invariant (Pad_Pos <= Rate_256 - 1);
+         pragma Loop_Invariant (Pad_Pos <= Rate_256);
          if Pad_Pos <= Rate_256 - 1 then
             Bytepad_Block (Pad_Pos) := Enc_Rate.Data (I);
             Pad_Pos := Pad_Pos + 1;
@@ -289,7 +294,7 @@ is
       --  encode_string(K): left_encode(|K|*8) || K
       for I in 0 .. Enc_Key_Len.Length - 1 loop
          pragma Loop_Invariant (I >= 0 and I < Enc_Key_Len.Length);
-         pragma Loop_Invariant (Pad_Pos <= Rate_256 - 1);
+         pragma Loop_Invariant (Pad_Pos <= Rate_256);
          if Pad_Pos <= Rate_256 - 1 then
             Bytepad_Block (Pad_Pos) := Enc_Key_Len.Data (I);
             Pad_Pos := Pad_Pos + 1;
@@ -297,7 +302,7 @@ is
       end loop;
 
       for I in Key'Range loop
-         pragma Loop_Invariant (Pad_Pos <= Rate_256 - 1);
+         pragma Loop_Invariant (Pad_Pos <= Rate_256);
          if Pad_Pos <= Rate_256 - 1 then
             Bytepad_Block (Pad_Pos) := Key (I);
             Pad_Pos := Pad_Pos + 1;
@@ -338,7 +343,7 @@ is
             --  Copy remaining message bytes
             for I in 0 .. Remaining - 1 loop
                pragma Loop_Invariant (I >= 0 and I < Remaining);
-               pragma Loop_Invariant (Final_Pos <= Rate_256 - 1);
+               pragma Loop_Invariant (Final_Pos <= Rate_256);
                if Final_Pos <= Rate_256 - 1 then
                   Final_Block (Final_Pos) := Message (Message'First + Msg_Pos + I);
                   Final_Pos := Final_Pos + 1;
@@ -348,7 +353,7 @@ is
             --  Append right_encode(L) where L = output length in bits
             for I in 0 .. Enc_Output_Bits.Length - 1 loop
                pragma Loop_Invariant (I >= 0 and I < Enc_Output_Bits.Length);
-               pragma Loop_Invariant (Final_Pos <= Rate_256 - 1);
+               pragma Loop_Invariant (Final_Pos <= Rate_256);
                if Final_Pos <= Rate_256 - 1 then
                   Final_Block (Final_Pos) := Enc_Output_Bits.Data (I);
                   Final_Pos := Final_Pos + 1;
@@ -411,9 +416,18 @@ is
    ) return Boolean is
       Diff : Byte := 0;
    begin
-      for I in 0 .. A'Length - 1 loop
-         pragma Loop_Invariant (I >= 0 and I < A'Length);
-         Diff := Diff or (A (A'First + I) xor B (B'First + I));
+      if A'Length = 0 then
+         return True;  -- Both must be empty since A'Length = B'Length (precondition)
+      end if;
+      for I in A'Range loop
+         pragma Loop_Invariant (I in A'Range);
+         declare
+            Offset : constant Natural := I - A'First;
+         begin
+            if B'First + Offset <= B'Last then
+               Diff := Diff or (A (I) xor B (B'First + Offset));
+            end if;
+         end;
       end loop;
       return Diff = 0;
    end Constant_Time_Equal;
@@ -432,12 +446,23 @@ is
    end Verify_KMAC256;
 
    --  Secure key zeroization using volatile writes
+   --  The loop with Volatile aspect prevents dead-store elimination
    procedure Zeroize_Key (Key : in Out KMAC_Key) is
+      type Volatile_Byte is mod 2**8 with
+         Size => 8,
+         Volatile_Full_Access => True;
+      type Volatile_Key_Array is array (KMAC_Key'Range) of Volatile_Byte;
+
+      --  Create a volatile view of the key
+      Volatile_View : Volatile_Key_Array with
+         Address => Key'Address,
+         Import;
    begin
-      for I in Key'Range loop
-         pragma Loop_Invariant (I >= Key'First);
-         pragma Loop_Invariant (for all J in Key'First .. I - 1 => Key (J) = 0);
-         Key (I) := 0;
+      for I in Volatile_View'Range loop
+         pragma Loop_Invariant (I >= Volatile_View'First);
+         pragma Loop_Invariant (for all J in Volatile_View'First .. I - 1 =>
+                                Volatile_View (J) = 0);
+         Volatile_View (I) := 0;
       end loop;
    end Zeroize_Key;
 

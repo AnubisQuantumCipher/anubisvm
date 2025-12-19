@@ -60,6 +60,12 @@ is
       Code_Hash   : Measurement;  -- Hash of TEE binary
       Config_Hash : Measurement;  -- Hash of configuration
 
+      --  State root from Khepri MPT (updated after block commits)
+      State_Root : Measurement;
+
+      --  Current timestamp (Unix seconds, updated by block processing)
+      Timestamp : Word64;
+
       --  Block height (for time-based logic)
       Height : Natural;
 
@@ -75,6 +81,8 @@ is
       Dispatch    => Initial_Dispatch_State,
       Code_Hash   => (others => 0),
       Config_Hash => (others => 0),
+      State_Root  => (others => 0),
+      Timestamp   => 0,
       Height      => 0,
       Error_Code  => 0
    );
@@ -209,6 +217,30 @@ is
       Global => null,
       Pre => State.Status = Running;
 
+   --  Update state root (called after Khepri MPT commits)
+   --  This integrates with Khepri_State_Trie.State_Root externally
+   procedure Set_State_Root (
+      State     : in Out TEE_State;
+      New_Root  : in     Measurement
+   ) with
+      Global => null,
+      Pre => State.Status = Running,
+      Post => Get_State_Root (State) = New_Root;
+
+   --  Get current timestamp
+   function Get_Timestamp (
+      State : TEE_State
+   ) return Word64 with
+      Global => null;
+
+   --  Update timestamp (called by block processing)
+   procedure Set_Timestamp (
+      State         : in Out TEE_State;
+      New_Timestamp : in     Word64
+   ) with
+      Global => null,
+      Post => Get_Timestamp (State) = New_Timestamp;
+
    --  Advance block height
    procedure Advance_Height (
       State : in Out TEE_State
@@ -224,15 +256,208 @@ is
       Global => null;
 
    ---------------------------------------------------------------------------
+   --  Memory Isolation Verification
+   ---------------------------------------------------------------------------
+
+   --  Memory region type
+   type Memory_Region is record
+      Base_Address : Word64;     --  Base address of region
+      Size         : Word64;     --  Size in bytes
+      Read_Only    : Boolean;    --  Region is read-only
+      Executable   : Boolean;    --  Region is executable
+      Isolated     : Boolean;    --  Region is isolated from host
+      Valid        : Boolean;    --  Region is valid
+   end record;
+
+   --  Zero memory region
+   Zero_Region : constant Memory_Region := (
+      Base_Address => 0,
+      Size         => 0,
+      Read_Only    => False,
+      Executable   => False,
+      Isolated     => False,
+      Valid        => False
+   );
+
+   --  Maximum memory regions
+   Max_Memory_Regions : constant := 16;
+
+   --  Memory region array
+   type Memory_Region_Array is array (0 .. Max_Memory_Regions - 1) of Memory_Region;
+
+   --  Memory isolation state
+   type Memory_Isolation_State is record
+      Regions       : Memory_Region_Array;
+      Region_Count  : Natural;
+      Verified      : Boolean;  --  Isolation verified
+   end record;
+
+   --  Initial isolation state
+   Initial_Isolation : constant Memory_Isolation_State := (
+      Regions      => (others => Zero_Region),
+      Region_Count => 0,
+      Verified     => False
+   );
+
+   --  Verify memory isolation
+   --
+   --  Checks that all memory regions are properly isolated:
+   --  1. No overlapping regions
+   --  2. Code regions are read-only and executable
+   --  3. Data regions are not executable
+   --  4. All regions are marked as isolated from host
+   --
+   --  Isolation : Memory isolation state to verify
+   --
+   --  Returns: True if all regions are properly isolated
+   function Verify_Memory_Isolation (
+      Isolation : Memory_Isolation_State
+   ) return Boolean with
+      Global => null,
+      Pre => Isolation.Region_Count <= Max_Memory_Regions;
+
+   --  Add memory region to isolation state
+   --
+   --  State   : Memory isolation state
+   --  Region  : Memory region to add
+   --  Success : True if region added successfully
+   procedure Add_Memory_Region (
+      Isolation : in out Memory_Isolation_State;
+      Region    : Memory_Region;
+      Success   : out Boolean
+   ) with
+      Global => null,
+      Pre => Isolation.Region_Count <= Max_Memory_Regions and Region.Valid,
+      Post => (if Success then Isolation.Region_Count = Isolation.Region_Count'Old + 1);
+
+   --  Check if two memory regions overlap
+   function Regions_Overlap (
+      A : Memory_Region;
+      B : Memory_Region
+   ) return Boolean with
+      Global => null,
+      Pre => A.Valid and B.Valid;
+
+   ---------------------------------------------------------------------------
+   --  Enclave Lifecycle Management
+   ---------------------------------------------------------------------------
+
+   --  Enclave lifecycle state
+   type Enclave_Lifecycle is (
+      Uninitialized,  --  Enclave not created
+      Created,        --  Enclave created but not initialized
+      Initialized,    --  Enclave initialized and ready
+      Attested,       --  Enclave has been attested
+      Running,        --  Enclave is running and processing
+      Suspended,      --  Enclave is temporarily suspended
+      Terminating,    --  Enclave is shutting down
+      Destroyed       --  Enclave has been destroyed
+   );
+
+   --  Enclave metadata
+   type Enclave_Metadata is record
+      Lifecycle     : Enclave_Lifecycle;
+      Creation_Time : Word64;            --  When enclave was created
+      Last_Attest   : Word64;            --  Last attestation time
+      Measurement   : TEE_Attestation.Measurement;  --  Current measurement
+      Sealed        : Boolean;           --  State is sealed
+      Valid         : Boolean;           --  Metadata is valid
+   end record;
+
+   --  Initial enclave metadata
+   Initial_Enclave : constant Enclave_Metadata := (
+      Lifecycle     => Uninitialized,
+      Creation_Time => 0,
+      Last_Attest   => 0,
+      Measurement   => (others => 0),
+      Sealed        => False,
+      Valid         => False
+   );
+
+   --  Verify enclave lifecycle state transition is valid
+   --
+   --  Checks that state transitions follow valid paths:
+   --  Uninitialized -> Created -> Initialized -> Attested -> Running
+   --  Running <-> Suspended
+   --  Any state -> Terminating -> Destroyed
+   --
+   --  Current : Current lifecycle state
+   --  Next    : Proposed next state
+   --
+   --  Returns: True if transition is valid
+   function Valid_Lifecycle_Transition (
+      Current : Enclave_Lifecycle;
+      Next    : Enclave_Lifecycle
+   ) return Boolean with
+      Global => null;
+
+   --  Update enclave lifecycle state
+   --
+   --  Metadata   : Enclave metadata
+   --  New_State  : New lifecycle state
+   --  Timestamp  : Current timestamp
+   --  Success    : True if state updated successfully
+   procedure Update_Enclave_State (
+      Metadata   : in out Enclave_Metadata;
+      New_State  : Enclave_Lifecycle;
+      Timestamp  : Word64;
+      Success    : out Boolean
+   ) with
+      Global => null,
+      Pre => Metadata.Valid,
+      Post => (if Success then
+                 Metadata.Lifecycle = New_State and
+                 Metadata.Valid);
+
+   --  Verify enclave measurement matches expected
+   --
+   --  Metadata  : Enclave metadata
+   --  Expected  : Expected measurement
+   --
+   --  Returns: True if measurement matches
+   function Verify_Enclave_Measurement (
+      Metadata : Enclave_Metadata;
+      Expected : Measurement
+   ) return Boolean with
+      Global => null,
+      Pre => Metadata.Valid;
+
+   --  Seal enclave state
+   --
+   --  Marks enclave state as sealed (persistent storage)
+   --
+   --  Metadata : Enclave metadata
+   procedure Seal_Enclave_State (
+      Metadata : in out Enclave_Metadata
+   ) with
+      Global => null,
+      Pre => Metadata.Valid and Metadata.Lifecycle = Running,
+      Post => Metadata.Sealed;
+
+   --  Unseal enclave state
+   --
+   --  Marks enclave state as unsealed (loaded from storage)
+   --
+   --  Metadata : Enclave metadata
+   procedure Unseal_Enclave_State (
+      Metadata : in out Enclave_Metadata
+   ) with
+      Global => null,
+      Pre => Metadata.Valid and Metadata.Sealed,
+      Post => not Metadata.Sealed;
+
+   ---------------------------------------------------------------------------
    --  Error Handling
    ---------------------------------------------------------------------------
 
    --  Error codes
-   Not_Initialized     : constant := 1;
-   Key_Generation_Fail : constant := 2;
-   CVM_Register_Fail   : constant := 3;
-   Attestation_Fail    : constant := 4;
-   Execution_Fail      : constant := 5;
+   Not_Initialized      : constant := 1;
+   Key_Generation_Fail  : constant := 2;
+   CVM_Register_Fail    : constant := 3;
+   Attestation_Fail     : constant := 4;
+   Execution_Fail       : constant := 5;
+   Memory_Isolation_Fail: constant := 6;
+   Lifecycle_Error      : constant := 7;
 
    --  Get error code
    function Get_Error (

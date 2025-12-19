@@ -31,6 +31,7 @@ is
    end record;
 
    Empty_Code_Hash : constant Hash_256;  --  Keccak256 of empty
+   Empty_Storage_Root : constant Hash_256;  --  Keccak256 of RLP null
 
    Empty_Account : constant Account_State;
 

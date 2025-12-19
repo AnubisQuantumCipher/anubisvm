@@ -31,14 +31,14 @@ is
       Salt : KDF_Salt;
       Prk  : out KDF_PRK
    ) is
-      KMAC_Key : Anubis_KMAC.KMAC_Key;
+      KMAC_Key : Anubis_KMAC.KMAC_Key := (others => 0);
    begin
       Prk := (others => 0);
 
-      --  Use salt as KMAC key
+      --  Use salt as KMAC key (same range 0..31)
       for I in Salt'Range loop
-         pragma Loop_Invariant (I >= Salt'First);
-         KMAC_Key (I - Salt'First) := Salt (I);
+         pragma Loop_Invariant (I in Salt'Range);
+         KMAC_Key (I) := Salt (I);
       end loop;
 
       --  PRK = KMAC256(salt, IKM, "kdf-extract")
@@ -50,31 +50,38 @@ is
    --  For each 32-byte block i (1 to ceil(L/32)):
    --    T(i) = KMAC256(PRK, T(i-1) || info || counter || context, "kdf-expand")
    --  OKM = first L bytes of T(1) || T(2) || ...
+
+   --  Maximum message buffer: Key_Size (32) + Max_Info_Size (256) + 4 = 292
+   Max_Msg_Size : constant := 292;
+   subtype Expand_Msg_Buffer is Byte_Array (0 .. Max_Msg_Size - 1);
+
    procedure Expand (
       Prk     : KDF_PRK;
       Info    : Byte_Array;
       Context : String;
       OKM     : out Byte_Array
    ) is
-      KMAC_Key : Anubis_KMAC.KMAC_Key;
+      KMAC_Key : Anubis_KMAC.KMAC_Key := (others => 0);
       T_Prev : Anubis_KMAC.KMAC256_Tag := (others => 0);
-      T_Curr : Anubis_KMAC.KMAC256_Tag;
+      T_Curr : Anubis_KMAC.KMAC256_Tag := (others => 0);
       Num_Blocks : Natural;
       Pos : Natural := 0;
 
-      --  Message for each iteration: T_prev || info || counter (4 bytes)
-      Msg_Len : Natural;
-      Counter_Bytes : Byte_Array (0 .. 3);
+      --  Fixed-size message buffer
+      Msg : Expand_Msg_Buffer := (others => 0);
+      Msg_Len : Natural := 0;
+      Counter_Bytes : Byte_Array (0 .. 3) := (others => 0);
 
       --  Build full domain: "kdf-expand-" || context
-      Full_Domain : String (1 .. Expand_Domain_Base'Length + Context'Length);
+      Full_Domain : String (1 .. Expand_Domain_Base'Length + Context'Length) :=
+         (others => ' ');
    begin
       OKM := (others => 0);
 
-      --  Copy PRK to KMAC key
+      --  Copy PRK to KMAC key (same range 0..31)
       for I in Prk'Range loop
-         pragma Loop_Invariant (I >= Prk'First);
-         KMAC_Key (I - Prk'First) := Prk (I);
+         pragma Loop_Invariant (I in Prk'Range);
+         KMAC_Key (I) := Prk (I);
       end loop;
 
       --  Build full domain string
@@ -93,70 +100,63 @@ is
          --  Later blocks: T(i) = KMAC256(PRK, T(i-1) || info || counter, domain)
 
          Natural_To_BE32 (Block, Counter_Bytes);
+         Msg := (others => 0);
+         Msg_Len := 0;
 
          if Block = 1 then
             --  First block: message = info || counter
-            Msg_Len := Info'Length + 4;
-            declare
-               Msg : Byte_Array (0 .. Msg_Len - 1) := (others => 0);
-               Msg_Pos : Natural := 0;
-            begin
-               --  Copy info
-               for I in Info'Range loop
-                  pragma Loop_Invariant (Msg_Pos <= Msg'Last);
-                  if Msg_Pos <= Msg'Last then
-                     Msg (Msg_Pos) := Info (I);
-                     Msg_Pos := Msg_Pos + 1;
-                  end if;
-               end loop;
+            --  Copy info (at most 256 bytes)
+            for I in Info'Range loop
+               pragma Loop_Invariant (Msg_Len <= Max_Msg_Size);
+               if Msg_Len < Max_Msg_Size then
+                  Msg (Msg_Len) := Info (I);
+                  Msg_Len := Msg_Len + 1;
+               end if;
+            end loop;
 
-               --  Append counter
-               for I in Counter_Bytes'Range loop
-                  pragma Loop_Invariant (Msg_Pos <= Msg'Last);
-                  if Msg_Pos <= Msg'Last then
-                     Msg (Msg_Pos) := Counter_Bytes (I);
-                     Msg_Pos := Msg_Pos + 1;
-                  end if;
-               end loop;
-
-               Anubis_KMAC.KMAC256 (KMAC_Key, Msg, Full_Domain, T_Curr);
-            end;
+            --  Append counter (4 bytes)
+            for I in Counter_Bytes'Range loop
+               pragma Loop_Invariant (Msg_Len <= Max_Msg_Size);
+               if Msg_Len < Max_Msg_Size then
+                  Msg (Msg_Len) := Counter_Bytes (I);
+                  Msg_Len := Msg_Len + 1;
+               end if;
+            end loop;
          else
             --  Later blocks: message = T_prev || info || counter
-            Msg_Len := Key_Size + Info'Length + 4;
-            declare
-               Msg : Byte_Array (0 .. Msg_Len - 1) := (others => 0);
-               Msg_Pos : Natural := 0;
-            begin
-               --  Copy T_prev
-               for I in T_Prev'Range loop
-                  pragma Loop_Invariant (Msg_Pos <= Msg'Last);
-                  if Msg_Pos <= Msg'Last then
-                     Msg (Msg_Pos) := T_Prev (I);
-                     Msg_Pos := Msg_Pos + 1;
-                  end if;
-               end loop;
+            --  Copy T_prev (32 bytes)
+            for I in T_Prev'Range loop
+               pragma Loop_Invariant (Msg_Len <= Max_Msg_Size);
+               if Msg_Len < Max_Msg_Size then
+                  Msg (Msg_Len) := T_Prev (I);
+                  Msg_Len := Msg_Len + 1;
+               end if;
+            end loop;
 
-               --  Copy info
-               for I in Info'Range loop
-                  pragma Loop_Invariant (Msg_Pos <= Msg'Last);
-                  if Msg_Pos <= Msg'Last then
-                     Msg (Msg_Pos) := Info (I);
-                     Msg_Pos := Msg_Pos + 1;
-                  end if;
-               end loop;
+            --  Copy info (at most 256 bytes)
+            for I in Info'Range loop
+               pragma Loop_Invariant (Msg_Len <= Max_Msg_Size);
+               if Msg_Len < Max_Msg_Size then
+                  Msg (Msg_Len) := Info (I);
+                  Msg_Len := Msg_Len + 1;
+               end if;
+            end loop;
 
-               --  Append counter
-               for I in Counter_Bytes'Range loop
-                  pragma Loop_Invariant (Msg_Pos <= Msg'Last);
-                  if Msg_Pos <= Msg'Last then
-                     Msg (Msg_Pos) := Counter_Bytes (I);
-                     Msg_Pos := Msg_Pos + 1;
-                  end if;
-               end loop;
+            --  Append counter (4 bytes)
+            for I in Counter_Bytes'Range loop
+               pragma Loop_Invariant (Msg_Len <= Max_Msg_Size);
+               if Msg_Len < Max_Msg_Size then
+                  Msg (Msg_Len) := Counter_Bytes (I);
+                  Msg_Len := Msg_Len + 1;
+               end if;
+            end loop;
+         end if;
 
-               Anubis_KMAC.KMAC256 (KMAC_Key, Msg, Full_Domain, T_Curr);
-            end;
+         --  Call KMAC with the actual message portion
+         if Msg_Len > 0 then
+            Anubis_KMAC.KMAC256 (KMAC_Key, Msg (0 .. Msg_Len - 1), Full_Domain, T_Curr);
+         else
+            Anubis_KMAC.KMAC256 (KMAC_Key, Msg (0 .. 0), Full_Domain, T_Curr);
          end if;
 
          --  Copy this block's output to OKM
@@ -164,13 +164,16 @@ is
             Remaining : constant Natural := OKM'Length - Pos;
             Copy_Len : constant Natural := Natural'Min (Key_Size, Remaining);
          begin
-            for I in 0 .. Copy_Len - 1 loop
-               pragma Loop_Invariant (I >= 0 and I < Copy_Len);
-               pragma Loop_Invariant (Pos + I <= OKM'Last);
-               if Pos + I <= OKM'Last then
-                  OKM (OKM'First + Pos + I) := T_Curr (I);
-               end if;
-            end loop;
+            if Copy_Len > 0 then
+               for I in 0 .. Copy_Len - 1 loop
+                  pragma Loop_Invariant (I in 0 .. Copy_Len - 1);
+                  if OKM'First + Pos + I <= OKM'Last and then
+                     I <= T_Curr'Last
+                  then
+                     OKM (OKM'First + Pos + I) := T_Curr (I);
+                  end if;
+               end loop;
+            end if;
             Pos := Pos + Copy_Len;
          end;
 
@@ -240,23 +243,44 @@ is
       Derive_Key (Master, Salt, Value_ID, Context_Whisper, Key);
    end Derive_Whisper_Key;
 
-   --  Secure key zeroization
+   --  Secure key zeroization using volatile writes
+   --  The loop with Volatile aspect prevents dead-store elimination
    procedure Zeroize_Key (Key : in Out Derived_Key) is
+      type Volatile_Byte is mod 2**8 with
+         Size => 8,
+         Volatile_Full_Access => True;
+      type Volatile_Key_Array is array (Derived_Key'Range) of Volatile_Byte;
+
+      --  Create a volatile view of the key
+      Volatile_View : Volatile_Key_Array with
+         Address => Key'Address,
+         Import;
    begin
-      for I in Key'Range loop
-         pragma Loop_Invariant (I >= Key'First);
-         pragma Loop_Invariant (for all J in Key'First .. I - 1 => Key (J) = 0);
-         Key (I) := 0;
+      for I in Volatile_View'Range loop
+         pragma Loop_Invariant (I >= Volatile_View'First);
+         pragma Loop_Invariant (for all J in Volatile_View'First .. I - 1 =>
+                                Volatile_View (J) = 0);
+         Volatile_View (I) := 0;
       end loop;
    end Zeroize_Key;
 
-   --  Secure master key zeroization
+   --  Secure master key zeroization using volatile writes
    procedure Zeroize_Master (Key : in Out Master_Key) is
+      type Volatile_Byte is mod 2**8 with
+         Size => 8,
+         Volatile_Full_Access => True;
+      type Volatile_Master_Array is array (Master_Key'Range) of Volatile_Byte;
+
+      --  Create a volatile view of the master key
+      Volatile_View : Volatile_Master_Array with
+         Address => Key'Address,
+         Import;
    begin
-      for I in Key'Range loop
-         pragma Loop_Invariant (I >= Key'First);
-         pragma Loop_Invariant (for all J in Key'First .. I - 1 => Key (J) = 0);
-         Key (I) := 0;
+      for I in Volatile_View'Range loop
+         pragma Loop_Invariant (I >= Volatile_View'First);
+         pragma Loop_Invariant (for all J in Volatile_View'First .. I - 1 =>
+                                Volatile_View (J) = 0);
+         Volatile_View (I) := 0;
       end loop;
    end Zeroize_Master;
 

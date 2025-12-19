@@ -36,6 +36,7 @@ pragma SPARK_Mode (On);
 
 with Interfaces; use Interfaces;
 with Aegis_VM_Types; use Aegis_VM_Types;
+with Anubis_MLDSA_Types;
 with Block_Builder;
 with P2P_Network;
 
@@ -237,6 +238,17 @@ is
    ) with
       Global => null,
       Pre    => Sync.Is_Initialized;
+
+   ---------------------------------------------------------------------------
+   --  Validator Key Management
+   ---------------------------------------------------------------------------
+
+   --  Register a validator's ML-DSA public key for block signature verification
+   procedure Register_Validator_Key (
+      Address : in     Contract_Address;
+      PK      : in     Anubis_MLDSA_Types.Public_Key;
+      Success : out    Boolean
+   );
 
    ---------------------------------------------------------------------------
    --  Sync Control

@@ -46,9 +46,6 @@ alire/build/
 *~
 *.bak
 
-# AI/Tool artifacts
-.claude/
-
 # macOS
 .DS_Store
 ._*

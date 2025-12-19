@@ -237,4 +237,89 @@ is
       return WCET_Gas <= Gas_Limit;
    end Validate_WCET_Bound;
 
+   ---------------------------------------------------------------------------
+   --  Lemma Subprogram Bodies
+   ---------------------------------------------------------------------------
+
+   procedure Lemma_Discount_Reduces_Cost (
+      Base_Gas : Gas_Amount;
+      Discount : Discount_Factor
+   ) is
+      pragma Unreferenced (Base_Gas, Discount);
+   begin
+      --  Proof: Discount/10000 <= 1 always, so result <= Base_Gas
+      null;
+   end Lemma_Discount_Reduces_Cost;
+
+   procedure Lemma_Higher_Cert_Lower_Gas (
+      Base_Gas : Gas_Amount;
+      Disc_Low : Discount_Factor;
+      Disc_High : Discount_Factor
+   ) is
+      pragma Unreferenced (Base_Gas, Disc_Low, Disc_High);
+   begin
+      --  Proof: Lower discount factor means lower multiplier
+      null;
+   end Lemma_Higher_Cert_Lower_Gas;
+
+   procedure Lemma_Gas_Monotonic (
+      Ctx    : Gas_Context;
+      Amount : Gas_Amount
+   ) is
+      pragma Unreferenced (Ctx, Amount);
+   begin
+      --  Proof: Addition is monotonic for non-negative values
+      null;
+   end Lemma_Gas_Monotonic;
+
+   procedure Lemma_Remaining_Decreases (
+      Ctx_Before : Gas_Context;
+      Ctx_After  : Gas_Context;
+      Amount     : Gas_Amount
+   ) is
+      pragma Unreferenced (Ctx_Before, Ctx_After, Amount);
+   begin
+      --  Proof: Available = Limit - Used, and Used increases by Amount
+      null;
+   end Lemma_Remaining_Decreases;
+
+   procedure Lemma_Valid_Preserves_Valid (
+      Ctx    : Gas_Context;
+      Amount : Gas_Amount
+   ) is
+      pragma Unreferenced (Ctx, Amount);
+   begin
+      --  Proof: Has_Capacity implies new Gas_Used <= Gas_Limit
+      null;
+   end Lemma_Valid_Preserves_Valid;
+
+   procedure Lemma_Refund_Restores_Capacity (
+      Ctx    : Gas_Context;
+      Amount : Gas_Amount
+   ) is
+      pragma Unreferenced (Ctx, Amount);
+   begin
+      --  Proof: Refund_Valid ensures Gas_Used >= Amount
+      null;
+   end Lemma_Refund_Restores_Capacity;
+
+   procedure Lemma_Hash_Gas_Formula (
+      Byte_Length : Natural
+   ) is
+      pragma Unreferenced (Byte_Length);
+   begin
+      --  Proof: Max Words = Natural'Last/32, result bounded
+      null;
+   end Lemma_Hash_Gas_Formula;
+
+   procedure Lemma_Log_Gas_Formula (
+      Topic_Count : Natural;
+      Data_Length : Natural
+   ) is
+      pragma Unreferenced (Topic_Count, Data_Length);
+   begin
+      --  Proof: Bounded by preconditions, max is 8_001_875
+      null;
+   end Lemma_Log_Gas_Formula;
+
 end Aegis_Gas;

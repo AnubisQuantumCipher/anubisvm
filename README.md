@@ -135,20 +135,33 @@ my_contract/
 cd contracts/my_contract
 
 # Build
-alr build
+gprbuild -P my_contract.gpr
 
 # Verify with SPARK (level 2)
-alr exec -- gnatprove -P my_contract.gpr --level=2
+gnatprove -P my_contract.gpr --level=2
 
 # Full verification (level 4)
-alr exec -- gnatprove -P my_contract.gpr --level=4
+gnatprove -P my_contract.gpr --level=4
 ```
 
-### Deploy
+### Run Contract Tests
 
 ```bash
+# Run the contract test binary
+./bin/my_contract_main
+```
+
+### Deploy (requires running node)
+
+```bash
+# Start local node first
+khepri-local &
+
+# Generate deployer key
 khepri keys new deployer
-khepri deploy contracts/my_contract/obj/my_contract --from deployer --gas 1000000
+
+# Deploy contract
+khepri deploy ./bin/my_contract_main --from deployer --gas 1000000
 ```
 
 ## Cryptographic Primitives

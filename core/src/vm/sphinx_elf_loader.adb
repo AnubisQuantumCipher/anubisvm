@@ -9,7 +9,7 @@ with Ada.Text_IO;
 with Ada.Unchecked_Conversion;
 with Ada.Exceptions;
 with Interfaces.C; use type Interfaces.C.int; use type Interfaces.C.size_t;
-                   use type Interfaces.C.unsigned;
+                   use type Interfaces.C.unsigned; use type Interfaces.C.long;
 with System; use System;
 with System.Storage_Elements; use System.Storage_Elements;
 with Anubis_Types;
@@ -137,6 +137,50 @@ package body Sphinx_ELF_Loader is
    begin
       return Ptr.all;
    end Read_Mem_U64;
+
+   ---------------------------------------------------------------------------
+   --  Virtual to Mapped Address Translation
+   --
+   --  Translates a virtual address (as it appears in the ELF) to the actual
+   --  mapped address in memory. This is critical because segments are mapped
+   --  at kernel-chosen addresses (mmap with Null_Address), not at their
+   --  original virtual addresses.
+   ---------------------------------------------------------------------------
+
+   function Virtual_To_Mapped (
+      Image   : ELF_Image;
+      Virt    : Word64;
+      Mapped  : out System.Address;
+      Success : out Boolean
+   ) return Boolean is
+   begin
+      Success := False;
+      Mapped := System.Null_Address;
+
+      --  Find which segment contains this virtual address
+      for I in 0 .. Image.Segment_Count - 1 loop
+         declare
+            Seg : Memory_Segment renames Image.Segments (Segment_Index (I));
+         begin
+            if Seg.Is_Loaded and then
+               Virt >= Seg.Virtual_Addr and then
+               Virt < Seg.Virtual_Addr + Seg.Memory_Size
+            then
+               --  Found the segment - calculate mapped address
+               declare
+                  Offset_In_Seg : constant Word64 := Virt - Seg.Virtual_Addr;
+               begin
+                  Mapped := Seg.Mapped_Addr + Storage_Offset (Offset_In_Seg);
+                  Success := True;
+                  return True;
+               end;
+            end if;
+         end;
+      end loop;
+
+      --  Virtual address not found in any loaded segment
+      return False;
+   end Virtual_To_Mapped;
 
    ---------------------------------------------------------------------------
    --  Load ELF Binary
@@ -443,12 +487,62 @@ package body Sphinx_ELF_Loader is
          return Result;
       end if;
 
-      --  Adjust entry point for PIE
-      if Image.Is_PIE then
-         Image.Entry_Point := Image.Base_Address + Image.Entry_Point;
-         Ada.Text_IO.Put_Line ("  [ELF] Adjusted entry point: 0x" &
-            Word64'Image (Image.Entry_Point));
-      end if;
+      --  Step 7: Calculate actual entry point based on mapped addresses
+      --  The entry point in the ELF is a virtual address, but we mapped
+      --  segments at kernel-chosen addresses. We need to translate.
+      declare
+         Entry_Virtual : Word64;
+         Entry_Found   : Boolean := False;
+      begin
+         --  For PIE, entry point is relative to base 0
+         --  For EXEC, entry point is absolute virtual address
+         if Image.Is_PIE then
+            Entry_Virtual := Image.Entry_Point;  --  Already relative to 0
+         else
+            Entry_Virtual := Image.Entry_Point;
+         end if;
+
+         Ada.Text_IO.Put_Line ("  [ELF] Resolving entry point 0x" &
+            Word64'Image (Entry_Virtual) & " to mapped address...");
+
+         --  Find which segment contains the entry point
+         for I in 0 .. Image.Segment_Count - 1 loop
+            declare
+               Seg : Memory_Segment renames Image.Segments (Segment_Index (I));
+            begin
+               if Seg.Is_Loaded and then
+                  Entry_Virtual >= Seg.Virtual_Addr and then
+                  Entry_Virtual < Seg.Virtual_Addr + Seg.Memory_Size
+               then
+                  --  Entry point is in this segment
+                  --  Calculate offset within segment
+                  declare
+                     Offset_In_Seg : constant Word64 :=
+                        Entry_Virtual - Seg.Virtual_Addr;
+                     Mapped_Entry : constant System.Address :=
+                        Seg.Mapped_Addr + Storage_Offset (Offset_In_Seg);
+                  begin
+                     --  Store the actual mapped entry address
+                     Image.Entry_Point := Word64 (
+                        System.Storage_Elements.To_Integer (Mapped_Entry));
+                     Entry_Found := True;
+                     Ada.Text_IO.Put_Line ("  [ELF]   Entry in segment " &
+                        Natural'Image (I) & " at offset 0x" &
+                        Word64'Image (Offset_In_Seg));
+                     Ada.Text_IO.Put_Line ("  [ELF]   Mapped entry point: 0x" &
+                        Word64'Image (Image.Entry_Point));
+                  end;
+                  exit;
+               end if;
+            end;
+         end loop;
+
+         if not Entry_Found then
+            Ada.Text_IO.Put_Line ("  [ELF] ERROR: Entry point not in any segment");
+            Result.Error := ELF_Invalid_Type;
+            return Result;
+         end if;
+      end;
 
       Image.Is_Valid := True;
       Result.Image := Image;
@@ -617,17 +711,34 @@ package body Sphinx_ELF_Loader is
                                        R_Offset < Target_Seg.Virtual_Addr +
                                                   Target_Seg.Memory_Size
                                     then
-                                       --  Apply relocation: *ptr = base + addend
+                                       --  Apply relocation: *ptr = mapped(addend)
+                                       --  R_Addend is a virtual address that must be
+                                       --  translated to the actual mapped address
                                        declare
                                           Target_Addr : constant System.Address :=
                                              Target_Seg.Mapped_Addr +
                                              Storage_Offset (R_Offset -
                                                 Target_Seg.Virtual_Addr);
-                                          New_Value : constant Word64 :=
-                                             Image.Base_Address + R_Addend;
+                                          Addend_Mapped : System.Address;
+                                          Addend_OK     : Boolean;
+                                          Dummy         : Boolean;
                                        begin
-                                          Write_U64_LE (Target_Addr, New_Value);
-                                          Reloc_Count := Reloc_Count + 1;
+                                          Dummy := Virtual_To_Mapped (
+                                             Image, R_Addend, Addend_Mapped, Addend_OK);
+                                          if Addend_OK then
+                                             --  Write the translated mapped address
+                                             Write_U64_LE (Target_Addr, Word64 (
+                                                System.Storage_Elements.To_Integer (
+                                                   Addend_Mapped)));
+                                             Reloc_Count := Reloc_Count + 1;
+                                          else
+                                             --  Addend points outside loaded segments
+                                             --  This might be a special case (e.g., PLT)
+                                             Ada.Text_IO.Put_Line (
+                                                "  [ELF]   Warning: addend 0x" &
+                                                Word64'Image (R_Addend) &
+                                                " not in loaded segments");
+                                          end if;
                                        end;
                                        exit;
                                     end if;
@@ -715,17 +826,29 @@ package body Sphinx_ELF_Loader is
                                                    R_Offset < Target_Seg.Virtual_Addr +
                                                               Target_Seg.Memory_Size
                                                 then
+                                                   --  Translate R_Addend virtual address
+                                                   --  to actual mapped address
                                                    declare
                                                       Target_Addr : constant
                                                          System.Address :=
                                                          Target_Seg.Mapped_Addr +
                                                          Storage_Offset (R_Offset -
                                                             Target_Seg.Virtual_Addr);
-                                                      New_Value : constant Word64 :=
-                                                         Image.Base_Address + R_Addend;
+                                                      Addend_Mapped : System.Address;
+                                                      Addend_OK     : Boolean;
+                                                      Dummy         : Boolean;
                                                    begin
-                                                      Write_U64_LE (Target_Addr, New_Value);
-                                                      Reloc_Count := Reloc_Count + 1;
+                                                      Dummy := Virtual_To_Mapped (
+                                                         Image, R_Addend,
+                                                         Addend_Mapped, Addend_OK);
+                                                      if Addend_OK then
+                                                         Write_U64_LE (Target_Addr,
+                                                            Word64 (
+                                                               System.Storage_Elements
+                                                                  .To_Integer (
+                                                                     Addend_Mapped)));
+                                                         Reloc_Count := Reloc_Count + 1;
+                                                      end if;
                                                    end;
                                                    exit;
                                                 end if;
@@ -829,7 +952,64 @@ package body Sphinx_ELF_Loader is
    end Apply_Page_Protections;
 
    ---------------------------------------------------------------------------
-   --  Execute ELF
+   --  Gas Enforcement Constants
+   ---------------------------------------------------------------------------
+
+   --  Gas to time conversion: ~1M gas = 1 second (conservative estimate)
+   --  This provides a hard ceiling on execution time
+   Gas_Per_Second : constant := 1_000_000;
+
+   --  Minimum timeout (prevent very short timeouts for small gas limits)
+   Min_Timeout_Seconds : constant := 1;
+
+   --  Maximum timeout (prevent absurdly long executions)
+   Max_Timeout_Seconds : constant := 300;  -- 5 minutes
+
+   ---------------------------------------------------------------------------
+   --  POSIX Timer/Signal Support
+   ---------------------------------------------------------------------------
+
+   --  Signal handler state (volatile for signal safety)
+   Execution_Timed_Out : Boolean := False
+      with Volatile;
+
+   --  Set execution timeout using POSIX setitimer
+   function C_setitimer (
+      Which    : Interfaces.C.int;
+      New_Val  : System.Address;
+      Old_Val  : System.Address
+   ) return Interfaces.C.int
+   with Import => True, Convention => C, External_Name => "setitimer";
+
+   --  Get current time for timing measurement
+   function C_clock_gettime (
+      Clock_ID : Interfaces.C.int;
+      Timespec : System.Address
+   ) return Interfaces.C.int
+   with Import => True, Convention => C, External_Name => "clock_gettime";
+
+   --  itimerval structure for setitimer
+   type Timeval is record
+      Tv_Sec  : Interfaces.C.long;
+      Tv_Usec : Interfaces.C.long;
+   end record with Convention => C;
+
+   type ITimerval is record
+      It_Interval : Timeval;
+      It_Value    : Timeval;
+   end record with Convention => C;
+
+   --  timespec for clock_gettime
+   type Timespec is record
+      Tv_Sec  : Interfaces.C.long;
+      Tv_Nsec : Interfaces.C.long;
+   end record with Convention => C;
+
+   ITIMER_REAL : constant := 0;  -- SIGALRM timer
+   CLOCK_MONOTONIC : constant := 1;
+
+   ---------------------------------------------------------------------------
+   --  Execute ELF with Gas Enforcement
    ---------------------------------------------------------------------------
 
    function Execute_ELF (
@@ -861,29 +1041,76 @@ package body Sphinx_ELF_Loader is
 
       Entry_Addr : System.Address;
       Entry_Fn   : Entry_Function;
+
+      --  Timing measurement
+      Start_Time : aliased Timespec;
+      End_Time   : aliased Timespec;
+      Elapsed_Ns : Long_Long_Integer;
+      Time_Based_Gas : Gas_Amount;
+
+      --  Timeout calculation
+      Timeout_Seconds : Interfaces.C.long;
+      Timer_Val       : aliased ITimerval;
+      Disarm_Timer    : aliased ITimerval;
+      Timer_Res       : Interfaces.C.int;
+      pragma Unreferenced (Timer_Res);
    begin
       Ada.Text_IO.Put_Line ("  [ELF] Executing ELF at entry point 0x" &
          Word64'Image (Image.Entry_Point));
+      Ada.Text_IO.Put_Line ("  [ELF]   Gas limit: " & Gas_Amount'Image (Gas_Limit));
 
       if not Image.Is_Valid then
          Ada.Text_IO.Put_Line ("  [ELF] ERROR: Invalid ELF image");
          return Result;
       end if;
 
+      --  Calculate timeout based on gas limit
+      Timeout_Seconds := Interfaces.C.long (Gas_Limit / Gas_Per_Second);
+      if Timeout_Seconds < Interfaces.C.long (Min_Timeout_Seconds) then
+         Timeout_Seconds := Interfaces.C.long (Min_Timeout_Seconds);
+      elsif Timeout_Seconds > Interfaces.C.long (Max_Timeout_Seconds) then
+         Timeout_Seconds := Interfaces.C.long (Max_Timeout_Seconds);
+      end if;
+
+      Ada.Text_IO.Put_Line ("  [ELF]   Execution timeout: " &
+         Interfaces.C.long'Image (Timeout_Seconds) & " seconds");
+
       --  Convert entry point to function pointer
-      --  This is the core of direct ELF execution
       Entry_Addr := System.Storage_Elements.To_Address (
          System.Storage_Elements.Integer_Address (Image.Entry_Point));
       Entry_Fn := To_Entry_Fn (Entry_Addr);
 
-      Ada.Text_IO.Put_Line ("  [ELF] Jumping to entry point...");
+      --  Reset timeout flag
+      Execution_Timed_Out := False;
+
+      --  Set up execution timer (SIGALRM will terminate process on timeout)
+      Timer_Val := (
+         It_Interval => (Tv_Sec => 0, Tv_Usec => 0),  -- Don't repeat
+         It_Value    => (Tv_Sec => Timeout_Seconds, Tv_Usec => 0)
+      );
+
+      --  Disarm timer structure
+      Disarm_Timer := (
+         It_Interval => (Tv_Sec => 0, Tv_Usec => 0),
+         It_Value    => (Tv_Sec => 0, Tv_Usec => 0)
+      );
+
+      Ada.Text_IO.Put_Line ("  [ELF] Jumping to entry point (timer armed)...");
 
       declare
          Return_Buf    : aliased Byte_Array (0 .. 4095) := (others => 0);
          Return_Len    : aliased Interfaces.C.size_t := 0;
          Gas_Used_Val  : aliased Unsigned_64 := 0;
          Exit_Code     : Interfaces.C.int;
+         Clock_Res     : Interfaces.C.int;
+         pragma Unreferenced (Clock_Res);
       begin
+         --  Record start time for gas metering
+         Clock_Res := C_clock_gettime (CLOCK_MONOTONIC, Start_Time'Address);
+
+         --  Arm the execution timer
+         Timer_Res := C_setitimer (ITIMER_REAL, Timer_Val'Address, System.Null_Address);
+
          --  Call the entry point with contract ABI
          Exit_Code := Entry_Fn (
             Calldata_Ptr => (if Calldata'Length > 0 then
@@ -896,13 +1123,55 @@ package body Sphinx_ELF_Loader is
             Gas_Used_Out => Gas_Used_Val'Access
          );
 
-         Result.Exit_Code := Integer (Exit_Code);
-         Result.Gas_Used := Gas_Amount (Gas_Used_Val);
-         Result.Success := (Exit_Code = 0);
+         --  Immediately disarm timer after execution
+         Timer_Res := C_setitimer (ITIMER_REAL, Disarm_Timer'Address, System.Null_Address);
+
+         --  Record end time
+         Clock_Res := C_clock_gettime (CLOCK_MONOTONIC, End_Time'Address);
+
+         --  Calculate elapsed time in nanoseconds
+         Elapsed_Ns := Long_Long_Integer (End_Time.Tv_Sec - Start_Time.Tv_Sec) * 1_000_000_000 +
+                       Long_Long_Integer (End_Time.Tv_Nsec - Start_Time.Tv_Nsec);
+
+         --  Convert time to gas (1 second = Gas_Per_Second gas)
+         Time_Based_Gas := Gas_Amount (Elapsed_Ns / 1000);  -- ns -> microseconds as gas proxy
 
          Ada.Text_IO.Put_Line ("  [ELF] Execution completed:");
-         Ada.Text_IO.Put_Line ("  [ELF]   Exit code: " & Integer'Image (Result.Exit_Code));
-         Ada.Text_IO.Put_Line ("  [ELF]   Gas used: " & Gas_Amount'Image (Result.Gas_Used));
+         Ada.Text_IO.Put_Line ("  [ELF]   Exit code: " & Integer'Image (Integer (Exit_Code)));
+         Ada.Text_IO.Put_Line ("  [ELF]   Contract reported gas: " &
+            Unsigned_64'Image (Gas_Used_Val));
+         Ada.Text_IO.Put_Line ("  [ELF]   Time-based gas estimate: " &
+            Gas_Amount'Image (Time_Based_Gas));
+         Ada.Text_IO.Put_Line ("  [ELF]   Execution time: " &
+            Long_Long_Integer'Image (Elapsed_Ns / 1_000_000) & " ms");
+
+         --  GAS ENFORCEMENT: Use the MAXIMUM of reported and time-based gas
+         --  This prevents contracts from lying about gas usage
+         if Gas_Amount (Gas_Used_Val) > Time_Based_Gas then
+            --  Contract reported higher - use that (honest contract)
+            Result.Gas_Used := Gas_Amount (Gas_Used_Val);
+         else
+            --  Contract reported lower than actual - use time-based (dishonest)
+            Result.Gas_Used := Time_Based_Gas;
+            if Time_Based_Gas > Gas_Amount (Gas_Used_Val) + 1000 then
+               --  Significant discrepancy - flag as potential gas manipulation
+               Ada.Text_IO.Put_Line ("  [ELF]   WARNING: Contract underreported gas!");
+            end if;
+         end if;
+
+         --  Enforce gas limit
+         if Result.Gas_Used > Gas_Limit then
+            Ada.Text_IO.Put_Line ("  [ELF]   GAS EXCEEDED: Charging full limit");
+            Result.Gas_Used := Gas_Limit;
+            Result.Success := False;
+            Result.Exit_Code := -2;  -- Gas exceeded error code
+         else
+            Result.Exit_Code := Integer (Exit_Code);
+            Result.Success := (Exit_Code = 0);
+         end if;
+
+         Ada.Text_IO.Put_Line ("  [ELF]   Final gas charged: " &
+            Gas_Amount'Image (Result.Gas_Used));
          Ada.Text_IO.Put_Line ("  [ELF]   Return length: " &
             Interfaces.C.size_t'Image (Return_Len));
 
@@ -925,10 +1194,14 @@ package body Sphinx_ELF_Loader is
          end if;
       exception
          when E : others =>
+            --  Disarm timer on exception
+            Timer_Res := C_setitimer (ITIMER_REAL, Disarm_Timer'Address, System.Null_Address);
+
             Ada.Text_IO.Put_Line ("  [ELF] EXCEPTION during execution: " &
                Ada.Exceptions.Exception_Message (E));
             Result.Success := False;
             Result.Gas_Used := Gas_Limit;  --  Charge full gas on crash
+            Result.Exit_Code := -3;  -- Exception error code
       end;
 
       return Result;

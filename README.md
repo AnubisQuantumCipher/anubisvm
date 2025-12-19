@@ -342,9 +342,8 @@ mkdir -p contracts/my_contract
 # Build with debug symbols
 make build
 
-# Run individual test with output
-DYLD_LIBRARY_PATH=core/lib:~/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/adalib \
-  core/bin/test_cvm
+# Run individual test
+core/bin/test_cvm
 ```
 
 ## License

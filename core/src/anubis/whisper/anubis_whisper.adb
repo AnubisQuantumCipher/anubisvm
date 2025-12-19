@@ -808,7 +808,7 @@ is
    --  - Memory barriers to ensure completion
    --  - Postcondition proof that all bytes are zero
    --
-   --  This matches the Gold-level requirement from CLAUDE.md:
+   --  This matches the Gold-level SPARK verification requirement:
    --  "Zeroization: sensitive buffers cleared; postconditions assert all bytes
    --   are zero after Zeroize."
    procedure Zeroize_Blinding (B : in out Blinding_Factor) is

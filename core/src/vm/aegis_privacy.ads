@@ -182,17 +182,21 @@ is
    );
 
    --  Error codes
-   Privacy_Error_None             : constant := 0;
-   Privacy_Error_Invalid_Key      : constant := 1;
-   Privacy_Error_Decryption_Failed : constant := 2;
-   Privacy_Error_Invalid_Proof    : constant := 3;
-   Privacy_Error_Session_Expired  : constant := 4;
-   Privacy_Error_Permission       : constant := 5;
-   Privacy_Error_Out_Of_Gas       : constant := 6;
+   Privacy_Error_None               : constant := 0;
+   Privacy_Error_Invalid_Key        : constant := 1;
+   Privacy_Error_Decryption_Failed  : constant := 2;
+   Privacy_Error_Invalid_Proof      : constant := 3;
+   Privacy_Error_Session_Expired    : constant := 4;
+   Privacy_Error_Permission         : constant := 5;
+   Privacy_Error_Out_Of_Gas         : constant := 6;
    Privacy_Error_Invalid_Commitment : constant := 7;
-   Privacy_Error_Range_Violation  : constant := 8;
-   Privacy_Error_Key_Image_Spent  : constant := 9;
-   Privacy_Error_Ring_Too_Small   : constant := 10;
+   Privacy_Error_Range_Violation    : constant := 8;
+   Privacy_Error_Key_Image_Spent    : constant := 9;
+   Privacy_Error_Ring_Too_Small     : constant := 10;
+   Privacy_Error_Ring_Too_Large     : constant := 11;
+   Privacy_Error_Signing_Failed     : constant := 12;
+   Privacy_Error_Invalid_Signature  : constant := 13;
+   Privacy_Error_Key_Image_Mismatch : constant := 14;
 
    ---------------------------------------------------------------------------
    --  Private State Operations (SHIELD)

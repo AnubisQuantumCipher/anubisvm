@@ -149,26 +149,8 @@ is
       Global => null,
       Pre    => Data_Size <= Max_Hash_Input;
 
-   --  MLDSA_VERIFY: ML-DSA-87 signature verification
-   procedure Sys_Handle_MLDSA_Verify (
-      Ctx       : in Out Execution_Context;
-      Msg_Hash  : in     Hash256;
-      Msg_Len   : in     Natural;
-      Sig_Hash  : in     Hash256;  -- Hash of signature data
-      PK_Hash   : in     Hash256;  -- Hash of public key
-      Result    : out    Syscall_Return
-   ) with
-      Global => null,
-      Pre    => Msg_Len <= Max_Hash_Input;
-
-   --  MLKEM_DECAPS: ML-KEM-1024 decapsulation
-   procedure Sys_Handle_MLKEM_Decaps (
-      Ctx       : in Out Execution_Context;
-      CT_Hash   : in     Hash256;  -- Hash of ciphertext
-      DK_Hash   : in     Hash256;  -- Hash of decapsulation key
-      Result    : out    Syscall_Return
-   ) with
-      Global => null;
+   --  Note: MLDSA_Verify and MLKEM_Decaps are handled inline in Dispatch
+   --  loading real data from calldata via Sphinx_Runtime.Load_Calldata
 
    ---------------------------------------------------------------------------
    --  Environment Syscalls
@@ -246,44 +228,6 @@ is
    procedure Sys_Handle_SelfBalance (
       Ctx    : in     Execution_Context;
       Result : out    Syscall_Return
-   ) with
-      Global => null;
-
-   ---------------------------------------------------------------------------
-   --  Call Syscalls
-   ---------------------------------------------------------------------------
-
-   --  CALL: Call another contract
-   procedure Sys_Handle_Call (
-      Ctx       : in Out Execution_Context;
-      Target    : in     Contract_Address;
-      Value     : in     U256;
-      Gas_Limit : in     Gas_Amount;
-      Data_Hash : in     Hash256;
-      Data_Size : in     Natural;
-      Result    : out    Syscall_Return
-   ) with
-      Global => null;
-
-   --  STATICCALL: Read-only call
-   procedure Sys_Handle_StaticCall (
-      Ctx       : in Out Execution_Context;
-      Target    : in     Contract_Address;
-      Gas_Limit : in     Gas_Amount;
-      Data_Hash : in     Hash256;
-      Data_Size : in     Natural;
-      Result    : out    Syscall_Return
-   ) with
-      Global => null;
-
-   --  DELEGATECALL: Delegate call (preserve context)
-   procedure Sys_Handle_DelegateCall (
-      Ctx       : in Out Execution_Context;
-      Target    : in     Contract_Address;
-      Gas_Limit : in     Gas_Amount;
-      Data_Hash : in     Hash256;
-      Data_Size : in     Natural;
-      Result    : out    Syscall_Return
    ) with
       Global => null;
 

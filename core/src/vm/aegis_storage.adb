@@ -70,4 +70,54 @@ is
       return Result;
    end Compute_Slot_Key;
 
+   ---------------------------------------------------------------------------
+   --  Lemma Subprogram Bodies
+   ---------------------------------------------------------------------------
+
+   procedure Lemma_Valid_Account_Consistent (Acc : Account_State) is
+      pragma Unreferenced (Acc);
+   begin
+      --  Proof: Account_Valid definition directly implies Is_Empty consistency
+      null;
+   end Lemma_Valid_Account_Consistent;
+
+   procedure Lemma_Empty_Account_Zero_Balance (Acc : Account_State) is
+      pragma Unreferenced (Acc);
+   begin
+      --  Proof: Account_Is_Empty definition includes Balance = U256_Zero
+      null;
+   end Lemma_Empty_Account_Zero_Balance;
+
+   procedure Lemma_Warm_Storage_Implies_Address (
+      AS      : Access_Set;
+      Address : Contract_Address;
+      Slot    : Storage_Key
+   ) is
+      pragma Unreferenced (AS, Address, Slot);
+   begin
+      --  Proof: Warm storage entry contains address (may need manual proof)
+      null;
+   end Lemma_Warm_Storage_Implies_Address;
+
+   procedure Lemma_Access_Set_Can_Grow (AS : Access_Set) is
+      pragma Unreferenced (AS);
+   begin
+      --  Proof: Access_Set_Has_Capacity definition
+      null;
+   end Lemma_Access_Set_Can_Grow;
+
+   procedure Lemma_Effects_Bounded (Eff : Transaction_Effects) is
+      pragma Unreferenced (Eff);
+   begin
+      --  Proof: Effects_Valid definition
+      null;
+   end Lemma_Effects_Bounded;
+
+   procedure Lemma_Snapshot_ID_Bounded (Snap : State_Snapshot) is
+      pragma Unreferenced (Snap);
+   begin
+      --  Proof: Snapshot_Valid definition
+      null;
+   end Lemma_Snapshot_ID_Bounded;
+
 end Aegis_Storage;

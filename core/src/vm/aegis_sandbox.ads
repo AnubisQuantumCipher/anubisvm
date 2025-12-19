@@ -25,7 +25,8 @@ with Aegis_Storage; use Aegis_Storage;
 --  - KHEPRI Blueprint v1.0, Section 5: SPHINX Sandbox
 
 package Aegis_Sandbox with
-   SPARK_Mode => On
+   SPARK_Mode => On,
+   Always_Terminates
 is
 
    ---------------------------------------------------------------------------
@@ -293,6 +294,153 @@ is
    end record;
 
    ---------------------------------------------------------------------------
+   --  Ghost Functions for Formal Verification
+   ---------------------------------------------------------------------------
+
+   --  Ghost: Syscall is state-modifying (not safe in static context)
+   function Is_State_Modifying (Syscall : Syscall_Number) return Boolean is
+      (Syscall in Sys_SStore | Sys_Call | Sys_DelegateCall |
+                 Sys_Create | Sys_Create2 | Sys_SelfDestruct |
+                 Sys_Log0 | Sys_Log1 | Sys_Log2 | Sys_Log3 | Sys_Log4 |
+                 Sys_Private_Store | Sys_Private_Delete |
+                 Sys_Confidential_Transfer)
+   with Ghost, Pure_Function;
+
+   --  Ghost: Syscall requires specific capability
+   function Requires_Capability (
+      Syscall : Syscall_Number;
+      Cap     : Capability_Type
+   ) return Boolean is
+      (case Syscall is
+         when Sys_SLoad | Sys_Private_Load => Cap = Cap_Read_Storage,
+         when Sys_SStore | Sys_Private_Store | Sys_Private_Delete =>
+            Cap = Cap_Write_Storage,
+         when Sys_Call | Sys_StaticCall | Sys_DelegateCall | Sys_Private_Call =>
+            Cap = Cap_Call,
+         when Sys_Create | Sys_Create2 => Cap = Cap_Create,
+         when Sys_SelfDestruct => Cap = Cap_Self_Destruct,
+         when Sys_Log0 | Sys_Log1 | Sys_Log2 | Sys_Log3 | Sys_Log4 =>
+            Cap = Cap_Event,
+         when Sys_SHA3 | Sys_Keccak256 | Sys_MLDSA_Verify | Sys_MLKEM_Decaps =>
+            Cap = Cap_Crypto,
+         when Sys_Commit_Amount | Sys_Verify_Range | Sys_Add_Commitments |
+              Sys_Verify_Balance | Sys_Verify_Execution |
+              Sys_Create_Session | Sys_Close_Session |
+              Sys_Create_Disclosure | Sys_Verify_Disclosure |
+              Sys_Derive_View_Key | Sys_Generate_Stealth |
+              Sys_Ring_Sign | Sys_Verify_Ring_Sig |
+              Sys_Compute_Key_Image | Sys_Check_Spent |
+              Sys_ZK_Prove_Range | Sys_ZK_Verify_Range |
+              Sys_ZK_Prove_Linear | Sys_ZK_Verify_Linear |
+              Sys_Confidential_Transfer | Sys_Create_Transfer_Proof |
+              Sys_Verify_Transfer | Sys_Scan_Confidential_Output =>
+            Cap = Cap_Privacy,
+         when others => False)
+   with Ghost, Pure_Function;
+
+   --  Ghost: Call frame validity - gas bounds, depth bounds
+   function Frame_Valid (Frame : Call_Frame) return Boolean is
+      (Frame.Gas_Used <= Frame.Gas_Limit and then
+       Frame.Depth < Max_Call_Depth and then
+       Frame.Capabilities (Cap_None) = False)
+   with Ghost, Pure_Function;
+
+   --  Ghost: Gas context within sandbox is valid
+   function Sandbox_Gas_Valid (Ctx : Sandbox_Context) return Boolean is
+      (Ctx.Gas.Gas_Used <= Ctx.Gas.Gas_Limit and then
+       Ctx.Gas.Gas_Limit <= Max_Gas_Per_Tx)
+   with Ghost, Pure_Function;
+
+   --  Ghost: Sandbox depth within bounds
+   function Sandbox_Depth_Valid (Ctx : Sandbox_Context) return Boolean is
+      (Ctx.Depth < Max_Call_Depth and then
+       Ctx.Snapshot_Count <= Natural (Max_Call_Depth))
+   with Ghost, Pure_Function;
+
+   --  Ghost: Sandbox memory within bounds
+   function Sandbox_Memory_Valid (Ctx : Sandbox_Context) return Boolean is
+      (Ctx.Memory_Size <= Max_Heap_Size / 8)
+   with Ghost, Pure_Function;
+
+   --  Ghost: Sandbox status is consistent with frame
+   function Sandbox_Status_Consistent (Ctx : Sandbox_Context) return Boolean is
+      (Ctx.Status /= Sandbox_Running or else Frame_Valid (Ctx.Current_Frame))
+   with Ghost, Pure_Function;
+
+   --  Ghost: Sandbox context is in valid state - all invariants hold
+   function Sandbox_Valid (Ctx : Sandbox_Context) return Boolean is
+      (Sandbox_Gas_Valid (Ctx) and then
+       Sandbox_Depth_Valid (Ctx) and then
+       Sandbox_Memory_Valid (Ctx) and then
+       Sandbox_Status_Consistent (Ctx))
+   with Ghost, Pure_Function;
+
+   --  Ghost: All required capabilities are present
+   function Has_Required_Capabilities (
+      Frame   : Call_Frame;
+      Syscall : Syscall_Number
+   ) return Boolean is
+      (for all Cap in Capability_Type =>
+         (if Requires_Capability (Syscall, Cap) then Frame.Capabilities (Cap)))
+   with Ghost, Pure_Function;
+
+   --  Ghost: Static context allows syscall
+   function Static_Context_Allows (
+      Frame   : Call_Frame;
+      Syscall : Syscall_Number
+   ) return Boolean is
+      (not Frame.Is_Static or else not Is_State_Modifying (Syscall))
+   with Ghost, Pure_Function;
+
+   --  Ghost: Syscall can be validated successfully
+   function Syscall_Can_Succeed (
+      Ctx     : Sandbox_Context;
+      Syscall : Syscall_Number
+   ) return Boolean is
+      (Static_Context_Allows (Ctx.Current_Frame, Syscall) and then
+       Has_Required_Capabilities (Ctx.Current_Frame, Syscall) and then
+       Ctx.Gas.Gas_Used < Ctx.Gas.Gas_Limit)
+   with Ghost, Pure_Function;
+
+   --  Ghost: Memory access is within bounds
+   function Memory_Access_In_Bounds (
+      Ctx    : Sandbox_Context;
+      Offset : Natural;
+      Size   : Natural
+   ) return Boolean is
+      (Offset <= Natural'Last - Size and then
+       Offset + Size <= Ctx.Memory_Size)
+   with Ghost, Pure_Function;
+
+   --  Ghost: Call stack is consistent
+   function Stack_Consistent (Ctx : Sandbox_Context) return Boolean is
+      (Ctx.Depth = 0 or else
+       (for all I in 0 .. Call_Depth'Min (Ctx.Depth - 1, Max_Call_Depth - 1) =>
+          Frame_Valid (Ctx.Frames (Call_Frame_Index (I)))))
+   with Ghost, Pure_Function;
+
+   ---------------------------------------------------------------------------
+   --  Model Functions for State Abstraction
+   ---------------------------------------------------------------------------
+
+   --  Model: Total gas consumed
+   function Model_Total_Gas_Used (Ctx : Sandbox_Context) return Gas_Amount is
+      (Ctx.Gas.Gas_Used)
+   with Ghost, Pure_Function;
+
+   --  Model: Effective capability mask
+   function Model_Effective_Capabilities (
+      Ctx : Sandbox_Context
+   ) return Capability_Mask is
+      (Ctx.Current_Frame.Capabilities)
+   with Ghost, Pure_Function;
+
+   --  Model: Current execution is in static mode
+   function Model_Is_Static_Execution (Ctx : Sandbox_Context) return Boolean is
+      (Ctx.Current_Frame.Is_Static)
+   with Ghost, Pure_Function;
+
+   ---------------------------------------------------------------------------
    --  Capability Checking
    ---------------------------------------------------------------------------
 
@@ -306,24 +454,35 @@ is
 
    --  Check if call is allowed from static context
    function Is_Static_Safe (Syscall : Syscall_Number) return Boolean with
-      Global => null;
+      Global => null,
+      Post   => Is_Static_Safe'Result = not Is_State_Modifying (Syscall);
 
    --  Get required capabilities for syscall
    function Required_Capabilities (
       Syscall : Syscall_Number
    ) return Capability_Mask with
-      Global => null;
+      Global => null,
+      Post   => (for all Cap in Capability_Type =>
+                   Required_Capabilities'Result (Cap) =
+                      Requires_Capability (Syscall, Cap));
 
    ---------------------------------------------------------------------------
    --  Sandbox Validation
    ---------------------------------------------------------------------------
 
    --  Validate syscall against context
+   --
+   --  Returns Syscall_OK only when all validation checks pass:
+   --  - Static context allows the syscall
+   --  - Required capabilities are present
+   --  - Sufficient gas remains
    function Validate_Syscall (
       Context : Sandbox_Context;
       Syscall : Syscall_Number
    ) return Syscall_Result with
-      Global => null;
+      Global => null,
+      Post   => (Validate_Syscall'Result = Syscall_OK) =
+                   Syscall_Can_Succeed (Context, Syscall);
 
    --  Check if memory access is valid
    function Validate_Memory_Access (
@@ -333,6 +492,65 @@ is
       Mode    : Memory_Access
    ) return Boolean with
       Global => null,
-      Pre    => Offset <= Natural'Last - Size;
+      Pre    => Offset <= Natural'Last - Size,
+      Post   => (if Validate_Memory_Access'Result then
+                    Memory_Access_In_Bounds (Context, Offset, Size));
+
+   ---------------------------------------------------------------------------
+   --  Lemma Subprograms for Proof Guidance
+   ---------------------------------------------------------------------------
+
+   --  Lemma: Static call denies state-modifying syscalls
+   procedure Lemma_Static_Denies_Modifying (
+      Frame   : Call_Frame;
+      Syscall : Syscall_Number
+   ) with
+      Ghost,
+      Global => null,
+      Pre  => Frame.Is_Static and then Is_State_Modifying (Syscall),
+      Post => not Static_Context_Allows (Frame, Syscall);
+
+   --  Lemma: Capability check is sound
+   procedure Lemma_Capability_Sound (
+      Frame   : Call_Frame;
+      Syscall : Syscall_Number;
+      Cap     : Capability_Type
+   ) with
+      Ghost,
+      Global => null,
+      Pre  => Requires_Capability (Syscall, Cap) and then not Frame.Capabilities (Cap),
+      Post => not Has_Required_Capabilities (Frame, Syscall);
+
+   --  Lemma: Valid sandbox preserves gas bounds
+   procedure Lemma_Valid_Sandbox_Gas_Bounds (
+      Ctx : Sandbox_Context
+   ) with
+      Ghost,
+      Global => null,
+      Pre  => Sandbox_Valid (Ctx),
+      Post => Ctx.Gas.Gas_Used <= Ctx.Gas.Gas_Limit and then
+              Ctx.Gas.Gas_Limit <= Max_Gas_Per_Tx;
+
+   --  Lemma: Memory access validity is decidable
+   procedure Lemma_Memory_Access_Decidable (
+      Ctx    : Sandbox_Context;
+      Offset : Natural;
+      Size   : Natural
+   ) with
+      Ghost,
+      Global => null,
+      Pre  => Offset <= Natural'Last - Size,
+      Post => Memory_Access_In_Bounds (Ctx, Offset, Size) or else
+              not Memory_Access_In_Bounds (Ctx, Offset, Size);
+
+   --  Lemma: Stack depth preserves frame validity
+   procedure Lemma_Stack_Frame_Valid (
+      Ctx : Sandbox_Context;
+      Idx : Call_Frame_Index
+   ) with
+      Ghost,
+      Global => null,
+      Pre  => Stack_Consistent (Ctx) and then Natural (Idx) < Natural (Ctx.Depth),
+      Post => Frame_Valid (Ctx.Frames (Idx));
 
 end Aegis_Sandbox;

@@ -90,6 +90,9 @@ package Khepri_CLI is
       --  Address operations
       Cmd_Address,
 
+      --  Native contract management
+      Cmd_Contract,
+
       --  Network
       Cmd_Node,
       Cmd_Block,
@@ -160,12 +163,13 @@ package Khepri_CLI is
    end record;
 
    type Deploy_Options is record
-      Network      : Network_Kind := Network_Testnet;
-      Key_Name     : Name_String := Name_Strings.Null_Bounded_String;
-      Gas_Limit    : Natural := 1_000_000;
-      Gas_Price    : Natural := 1;
-      Args         : Arg_String := Arg_Strings.Null_Bounded_String;
-      Dry_Run      : Boolean := False;
+      Contract_Name : Name_String := Name_Strings.Null_Bounded_String;
+      Network       : Network_Kind := Network_Testnet;
+      Key_Name      : Name_String := Name_Strings.Null_Bounded_String;
+      Gas_Limit     : Natural := 1_000_000;
+      Gas_Price     : Natural := 1;
+      Args          : Arg_String := Arg_Strings.Null_Bounded_String;
+      Dry_Run       : Boolean := False;
    end record;
 
    type Test_Options is record
@@ -252,6 +256,9 @@ package Khepri_CLI is
 
    procedure Handle_Address (Subcommand : String; Args : String := "");
    --  Address operations: generate, validate, info, from-key
+
+   procedure Handle_Contract (Subcommand : String; Args : String := "");
+   --  Native contract management: new, build, deploy, call, list
 
    ---------------------------------------------------------------------------
    --  Output Formatting

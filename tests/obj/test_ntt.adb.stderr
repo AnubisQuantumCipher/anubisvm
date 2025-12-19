@@ -1,3 +1,0 @@
-test_ntt.adb:125:07: warning: variable "F_Original" is assigned but never read [-gnatwm]
-test_ntt.adb:125:19: warning: variable "G_Original" is assigned but never read [-gnatwm]
-clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]

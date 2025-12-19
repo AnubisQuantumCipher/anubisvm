@@ -8,13 +8,13 @@ Contracts compile to native ELF binaries. All cryptography proven memory-safe vi
 
 | Component | Subprograms | Status |
 |-----------|-------------|--------|
-| VM Core (aegis_*) | 149 | Platinum - 100% proven |
-| Cryptographic Primitives | 89 | Platinum - 100% proven |
-| CVM Runtime | 56 | Platinum - 100% proven |
-| State Management | 34 | Platinum - 100% proven |
+| VM Core (aegis_*) | 149 | 100% proven |
+| Cryptographic Primitives | 89 | 100% proven |
+| CVM Runtime | 56 | 100% proven |
+| State Management | 34 | 100% proven |
 | **Total** | **493** | **100% verified** |
 
-Platinum certification includes: ghost functions, model abstractions, lemma subprograms, biconditional postconditions, and full NRTE (No Run-Time Errors) proofs.
+Verification includes: ghost functions, model abstractions, lemma subprograms, postconditions, and NRTE (No Run-Time Errors) proofs.
 
 ## Installation
 
@@ -165,9 +165,9 @@ khepri deploy ./bin/my_contract_main --from deployer --gas 1000000
 | ML-KEM-1024 | NIST FIPS 203 | Pure SPARK, KAT verified |
 | SHA3-256/512 | NIST FIPS 202 | Pure SPARK, KAT verified |
 | SHAKE128/256 | NIST FIPS 202 | Pure SPARK, KAT verified |
-| KMAC256 | NIST SP 800-185 | Pure SPARK, Platinum proven |
-| AEAD | ChaCha20-Poly1305 | Platinum proven |
-| KDF | HKDF-SHA3-256 | Platinum proven |
+| KMAC256 | NIST SP 800-185 | Pure SPARK, verified |
+| AEAD | ChaCha20-Poly1305 | Pure SPARK, verified |
+| KDF | HKDF-SHA3-256 | Pure SPARK, verified |
 
 All cryptographic code passes NIST Known Answer Tests (KAT) for interoperability.
 
@@ -269,12 +269,14 @@ anubisvm/
 
 ### Certification Discounts
 
+Contracts receive gas discounts based on verification level:
+
 | Level | Discount | Requirements |
 |-------|----------|--------------|
 | Bronze | 5% | Basic SPARK mode |
 | Silver | 10% | Flow analysis clean |
 | Gold | 20% | Level 2 proofs |
-| Platinum | 30% | Level 4 proofs, functional contracts |
+| Level 4 | 30% | Full proofs, functional contracts |
 
 ### Syscall Interface
 
@@ -314,9 +316,9 @@ cat obj/gnatprove/gnatprove.out
 | 3 | Extended proofs | Pre-release |
 | 4 | Full proofs | Production/audit |
 
-### Platinum Contracts
+### Verified Core Packages
 
-VM core packages with Platinum certification:
+VM core packages with full verification:
 
 - `aegis_execution.ads` - Execution context management
 - `aegis_gas.ads` - Gas metering with lemma subprograms

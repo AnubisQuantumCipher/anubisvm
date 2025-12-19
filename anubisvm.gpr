@@ -4,8 +4,7 @@ project AnubisVM is
    for Source_Dirs use ("core/src/**", "stdlib/src", "cli/src", "examples/**", "tests");
    for Object_Dir use "obj";
    for Exec_Dir use "core/bin";
-   for Main use ("anubis_main.adb", "khepri_main.adb", "khepri_local_main.adb",
-                 "khepri_rpc_main.adb",
+   for Main use ("anubis_main.adb", "khepri_main.adb", "khepri_rpc_main.adb",
                  "test_ats20_token.adb", "test_quantum_vault.adb",
                  "test_kmac.adb", "test_aead.adb", "test_kdf.adb",
                  "test_cvm.adb", "test_anubis.adb", "test_state.adb",

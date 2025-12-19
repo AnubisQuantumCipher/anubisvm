@@ -143,16 +143,14 @@ install: build fix-rpath
 	@echo "Installing AnubisVM..."
 	@mkdir -p $(INSTALL_DIR)
 	@mkdir -p $(DATA_DIR)/keys $(DATA_DIR)/state $(DATA_DIR)/contracts
-	@rm -f $(INSTALL_DIR)/khepri $(INSTALL_DIR)/anubis-node $(INSTALL_DIR)/khepri-local
+	@rm -f $(INSTALL_DIR)/khepri $(INSTALL_DIR)/anubis-node
 	@cp $(BIN_DIR)/khepri_main $(INSTALL_DIR)/khepri
 	@cp $(BIN_DIR)/anubis_main $(INSTALL_DIR)/anubis-node
-	@cp $(BIN_DIR)/khepri_local_main $(INSTALL_DIR)/khepri-local
-	@chmod +x $(INSTALL_DIR)/khepri $(INSTALL_DIR)/anubis-node $(INSTALL_DIR)/khepri-local
+	@chmod +x $(INSTALL_DIR)/khepri $(INSTALL_DIR)/anubis-node
 	@echo ""
 	@echo "Installed:"
 	@echo "  $(INSTALL_DIR)/khepri        - Smart contract CLI"
 	@echo "  $(INSTALL_DIR)/anubis-node   - Full node"
-	@echo "  $(INSTALL_DIR)/khepri-local  - Local development node"
 	@echo ""
 	@echo "Data directory: $(DATA_DIR)"
 	@echo ""
@@ -169,7 +167,6 @@ install: build fix-rpath
 uninstall:
 	@rm -f $(INSTALL_DIR)/khepri
 	@rm -f $(INSTALL_DIR)/anubis-node
-	@rm -f $(INSTALL_DIR)/khepri-local
 	@echo "Uninstalled from $(INSTALL_DIR)"
 	@echo "Data directory preserved at $(DATA_DIR)"
 

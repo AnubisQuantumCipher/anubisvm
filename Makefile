@@ -64,6 +64,12 @@ setup:
 build: check-deps
 	@echo "Building AnubisVM..."
 	@$(ALR) build
+	@echo "Building KAT tests..."
+	@mkdir -p tests/bin
+	@$(ALR) exec -- gprbuild -P tests/test_sha3.gpr -p 2>/dev/null || true
+	@$(ALR) exec -- gprbuild -P tests/test_mldsa.gpr -p 2>/dev/null || true
+	@$(ALR) exec -- gprbuild -P tests/test_mlkem_kat.gpr -p 2>/dev/null || true
+	@$(ALR) exec -- gprbuild -P tests/test_address.gpr -p 2>/dev/null || true
 
 build-release: check-deps
 	@echo "Building AnubisVM (release)..."

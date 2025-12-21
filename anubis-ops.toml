@@ -1,0 +1,123 @@
+# ANUBIS OPS Configuration for AnubisVM
+# Post-quantum smart contract virtual machine
+
+[workspace]
+# Directories where the agent can create/modify files
+allowed_write_dirs = [
+    "core/src",
+    "core/tests",
+    "core/docs",
+    "contracts",
+    "toolchain",
+    "tests",
+    "docs",
+    "scripts",
+    ".github",
+]
+
+# File patterns that are always blocked from writes
+blocked_write_globs = [
+    ".git/**",
+    "**/*.key",
+    "**/*.pem",
+    "**/.env*",
+    "**/secrets/**",
+    "**/*.secret",
+    "**/private/**",
+    "core/bin/**",
+    "core/lib/**",
+    "core/obj/**",
+]
+
+[commands]
+# Allowed commands with argument patterns (regex)
+allow = [
+    # Alire (Ada package manager)
+    { bin = "alr", args = "^(build|test|run|exec|clean|printenv)( .*)?$" },
+
+    # GNATprove (SPARK verification)
+    { bin = "gnatprove", args = "^.*$" },
+
+    # GPRbuild (Ada build)
+    { bin = "gprbuild", args = "^.*$" },
+
+    # GNAT tools
+    { bin = "gnatmake", args = "^.*$" },
+    { bin = "gnatcheck", args = "^.*$" },
+    { bin = "gnattest", args = "^.*$" },
+
+    # Python (testing only)
+    { bin = "python", args = "^(-m pytest|-m unittest)( .*)?$" },
+    { bin = "python3", args = "^(-m pytest|-m unittest)( .*)?$" },
+
+    # Git (safe operations)
+    { bin = "git", args = "^(status|diff|log|branch|checkout|switch|add|show|rev-parse)( .*)?$" },
+
+    # Search tools
+    { bin = "rg", args = "^.*$" },
+    { bin = "grep", args = "^.*$" },
+    { bin = "find", args = "^.*$" },
+
+    # File inspection
+    { bin = "ls", args = "^.*$" },
+    { bin = "cat", args = "^.*$" },
+    { bin = "head", args = "^.*$" },
+    { bin = "tail", args = "^.*$" },
+    { bin = "wc", args = "^.*$" },
+    { bin = "file", args = "^.*$" },
+
+    # AnubisVM tools
+    { bin = "khepri", args = "^.*$" },
+    { bin = "make", args = "^(build|test|prove|clean|install|help)?( .*)?$" },
+
+    # Test binaries (read-only execution)
+    { bin = "./core/bin/test_sha3_kat", args = "^.*$" },
+    { bin = "./core/bin/test_mldsa", args = "^.*$" },
+    { bin = "./core/bin/test_mlkem_kat", args = "^.*$" },
+    { bin = "./core/bin/test_address", args = "^.*$" },
+    { bin = "./core/bin/test_kmac", args = "^.*$" },
+    { bin = "./core/bin/test_aead", args = "^.*$" },
+    { bin = "./core/bin/test_kdf", args = "^.*$" },
+    { bin = "./core/bin/test_cvm", args = "^.*$" },
+    { bin = "./core/bin/test_anubis", args = "^.*$" },
+    { bin = "./core/bin/test_tee", args = "^.*$" },
+]
+
+# Binaries that are always denied
+deny_bins = [
+    "rm",
+    "rmdir",
+    "sudo",
+    "chmod",
+    "chown",
+    "curl",
+    "wget",
+    "scp",
+    "ssh",
+    "nc",
+    "dd",
+]
+
+[gnatprove]
+# Default GNATprove settings for AnubisVM
+project = "anubisvm.gpr"
+level = 2
+timeout = 120
+jobs = 0  # Use all cores
+extra_args = ["--report=all", "--warnings=continue"]
+
+# For thorough proofs (Gold level)
+[gnatprove.gold]
+level = 4
+timeout = 300
+extra_args = ["--proof=all", "--report=all"]
+
+[test]
+# Test configuration
+suites = ["core", "contracts", "crypto"]
+timeout = 300
+
+[audit]
+# Security audit configuration
+areas = ["crypto", "vm", "state", "tee"]
+severity_threshold = "medium"

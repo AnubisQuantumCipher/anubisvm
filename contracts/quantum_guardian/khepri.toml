@@ -1,0 +1,8 @@
+[package]
+name = "quantum_guardian"
+version = "0.1.0"
+[contract]
+entrypoint = "quantum_guardian_main"
+target_level = "silver"
+[build]
+gpr_file = "quantum_guardian.gpr"

@@ -296,6 +296,45 @@ is
    procedure Unload_ELF (Image : in out ELF_Image);
 
    ---------------------------------------------------------------------------
+   --  Secure Sandboxed Execution
+   ---------------------------------------------------------------------------
+
+   --  Execution isolation modes
+   type Isolation_Mode is (
+      Isolation_None,       --  Direct in-process (DANGEROUS: development only)
+      Isolation_Subprocess  --  Fork + sandbox (RECOMMENDED: production)
+   );
+
+   --  Sandboxed execution result with additional security info
+   type Secure_Execution_Result is record
+      Exit_Code     : Integer;
+      Gas_Used      : Gas_Amount;
+      Return_Data   : Hash256;
+      Success       : Boolean;
+      Isolation     : Isolation_Mode;  --  What isolation was used
+      Wall_Time_Ms  : Natural;         --  Actual wall clock time
+      Killed        : Boolean;         --  True if killed by timeout/signal
+      Signal_Number : Integer;         --  Signal that killed process (if any)
+   end record;
+
+   --  Execute ELF in subprocess sandbox (SECURE - recommended for production)
+   --
+   --  Security properties:
+   --  1. Contract runs in isolated child process (fork)
+   --  2. Resource limits enforced by kernel (setrlimit)
+   --  3. Sandbox restricts syscalls (Seatbelt on macOS)
+   --  4. Parent enforces hard timeout via SIGKILL (cannot be blocked)
+   --  5. Parent process never at risk from malicious contract
+   --
+   --  This is the recommended execution method for untrusted contracts.
+   function Execute_ELF_Sandboxed (
+      Image     : ELF_Image;
+      Calldata  : access constant Byte_Array;
+      Gas_Limit : Gas_Amount
+   ) return Secure_Execution_Result with
+      Global => null;
+
+   ---------------------------------------------------------------------------
    --  Relocation Processing
    ---------------------------------------------------------------------------
 

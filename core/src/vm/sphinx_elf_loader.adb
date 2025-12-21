@@ -14,6 +14,7 @@ with System; use System;
 with System.Storage_Elements; use System.Storage_Elements;
 with Anubis_Types;
 with Anubis_SHA3;
+with Sphinx_Subprocess;
 
 package body Sphinx_ELF_Loader is
 
@@ -1269,5 +1270,116 @@ package body Sphinx_ELF_Loader is
 
       return False;
    end Is_Valid_Address;
+
+   ---------------------------------------------------------------------------
+   --  Execute ELF in Subprocess Sandbox
+   ---------------------------------------------------------------------------
+
+   function Execute_ELF_Sandboxed (
+      Image     : ELF_Image;
+      Calldata  : access constant Byte_Array;
+      Gas_Limit : Gas_Amount
+   ) return Secure_Execution_Result
+   is
+      use Sphinx_Subprocess;
+
+      Result : Secure_Execution_Result := (
+         Exit_Code     => -1,
+         Gas_Used      => 0,
+         Return_Data   => (others => 0),
+         Success       => False,
+         Isolation     => Isolation_Subprocess,
+         Wall_Time_Ms  => 0,
+         Killed        => False,
+         Signal_Number => 0
+      );
+
+      Entry_Addr : System.Address;
+      Sub_Result : Sphinx_Subprocess.Subprocess_Result;
+   begin
+      Ada.Text_IO.Put_Line ("  [ELF] Sandboxed execution at entry point 0x" &
+         Word64'Image (Image.Entry_Point));
+      Ada.Text_IO.Put_Line ("  [ELF]   Gas limit: " & Gas_Amount'Image (Gas_Limit));
+      Ada.Text_IO.Put_Line ("  [ELF]   Mode: SUBPROCESS SANDBOX (secure)");
+
+      if not Image.Is_Valid then
+         Ada.Text_IO.Put_Line ("  [ELF] ERROR: Invalid ELF image");
+         return Result;
+      end if;
+
+      --  Convert entry point to address
+      Entry_Addr := System.Storage_Elements.To_Address (
+         System.Storage_Elements.Integer_Address (Image.Entry_Point));
+
+      --  Execute in sandboxed subprocess
+      Sub_Result := Sphinx_Subprocess.Execute_Sandboxed_Default (
+         Entry_Point => Entry_Addr,
+         Calldata    => Calldata,
+         Gas_Limit   => Gas_Limit
+      );
+
+      --  Convert subprocess result to our result type
+      Result.Gas_Used := Sub_Result.Gas_Used;
+      Result.Return_Data := Sub_Result.Return_Data;
+      Result.Wall_Time_Ms := Sub_Result.Wall_Time_Ms;
+      Result.Signal_Number := Sub_Result.Signal_Number;
+
+      case Sub_Result.Reason is
+         when Sphinx_Subprocess.Exit_Success =>
+            Result.Success := True;
+            Result.Exit_Code := Sub_Result.Exit_Code;
+            Result.Killed := False;
+
+         when Sphinx_Subprocess.Exit_Failure =>
+            Result.Success := False;
+            Result.Exit_Code := Sub_Result.Exit_Code;
+            Result.Killed := False;
+
+         when Sphinx_Subprocess.Exit_Timeout =>
+            Result.Success := False;
+            Result.Exit_Code := -2;  --  Timeout error code
+            Result.Killed := True;
+            Ada.Text_IO.Put_Line ("  [ELF] Contract killed: TIMEOUT");
+
+         when Sphinx_Subprocess.Exit_CPU_Limit =>
+            Result.Success := False;
+            Result.Exit_Code := -3;  --  CPU limit error code
+            Result.Killed := True;
+            Ada.Text_IO.Put_Line ("  [ELF] Contract killed: CPU_LIMIT");
+
+         when Sphinx_Subprocess.Exit_Memory_Limit =>
+            Result.Success := False;
+            Result.Exit_Code := -4;  --  Memory limit error code
+            Result.Killed := True;
+            Ada.Text_IO.Put_Line ("  [ELF] Contract killed: MEMORY_LIMIT");
+
+         when Sphinx_Subprocess.Exit_Crashed =>
+            Result.Success := False;
+            Result.Exit_Code := -5;  --  Crash error code
+            Result.Killed := True;
+            Ada.Text_IO.Put_Line ("  [ELF] Contract crashed: signal " &
+               Integer'Image (Sub_Result.Signal_Number));
+
+         when Sphinx_Subprocess.Exit_Sandbox_Deny =>
+            Result.Success := False;
+            Result.Exit_Code := -6;  --  Sandbox violation
+            Result.Killed := True;
+            Ada.Text_IO.Put_Line ("  [ELF] Contract killed: SANDBOX_VIOLATION");
+
+         when others =>
+            Result.Success := False;
+            Result.Exit_Code := -99;  --  Unknown error
+            Result.Killed := True;
+            Ada.Text_IO.Put_Line ("  [ELF] Contract failed: unknown reason");
+      end case;
+
+      Ada.Text_IO.Put_Line ("  [ELF] Sandboxed execution complete:");
+      Ada.Text_IO.Put_Line ("  [ELF]   Success: " & Boolean'Image (Result.Success));
+      Ada.Text_IO.Put_Line ("  [ELF]   Gas used: " & Gas_Amount'Image (Result.Gas_Used));
+      Ada.Text_IO.Put_Line ("  [ELF]   Wall time: " &
+         Natural'Image (Result.Wall_Time_Ms) & " ms");
+
+      return Result;
+   end Execute_ELF_Sandboxed;
 
 end Sphinx_ELF_Loader;

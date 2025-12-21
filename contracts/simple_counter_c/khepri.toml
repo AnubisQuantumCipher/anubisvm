@@ -1,0 +1,8 @@
+[package]
+name = "simple_counter_c"
+version = "0.1.0"
+[contract]
+entrypoint = "simple_counter_c_main"
+target_level = "silver"
+[build]
+gpr_file = "simple_counter_c.gpr"

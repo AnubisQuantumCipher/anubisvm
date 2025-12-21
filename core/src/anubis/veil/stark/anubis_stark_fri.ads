@@ -86,6 +86,9 @@ is
       Commits        : Hash_Array;
       Num_Rounds     : Natural;
 
+      --  Initial domain (for verification)
+      Initial_Domain : Anubis_STARK_Poly.Domain;
+
       --  Final polynomial (small, sent in clear)
       Final_Poly     : Polynomial;
 
@@ -141,11 +144,12 @@ is
       Post => Prover.Num_Layers = Prover.Num_Layers'Old + 1,
       Always_Terminates;
 
-   --  Complete commit phase, return all roots
+   --  Complete commit phase, return all roots and folding alphas
    procedure FRI_Complete_Commit (
       Prover     : in out FRI_Prover;
       Transcript : Byte_Array;  -- For Fiat-Shamir
       Roots      : out Hash_Array;
+      Alphas     : out Alpha_Array;
       Num_Roots  : out Natural
    ) with
       Global => null,
@@ -219,10 +223,12 @@ is
       Commits      : Hash_Array;
       Alphas       : Alpha_Array;
       Num_Rounds   : Natural;
+      Initial_Dom  : Anubis_STARK_Poly.Domain;
       Final_Poly   : Polynomial
    ) return Boolean with
       Global => null,
-      Pre => Num_Rounds <= Max_FRI_Rounds;
+      Pre => Num_Rounds <= Max_FRI_Rounds
+             and then Initial_Dom.Log_Size <= Anubis_STARK_Poly.Max_Log_Degree;
 
    --  Verify Merkle path
    function Verify_Merkle_Path (

@@ -18,7 +18,7 @@ is
       A, B   : Field_Element;
       Result : out Hash_Value
    ) is
-      Data : Byte_Array (0 .. 15);
+      Data : Byte_Array (0 .. 15) := (others => 0);
       A_Bytes : constant Anubis_STARK_Field.Byte_Array_8 :=
          Anubis_STARK_Field.To_Bytes (A);
       B_Bytes : constant Anubis_STARK_Field.Byte_Array_8 :=
@@ -81,7 +81,7 @@ is
             --  Build next level
             for I in 0 .. New_Size - 1 loop
                declare
-                  Combined : Byte_Array (0 .. 63);
+                  Combined : Byte_Array (0 .. 63) := (others => 0);
                begin
                   Combined (0 .. 31) := Tree (Levels) (I * 2);
                   Combined (32 .. 63) := Tree (Levels) (I * 2 + 1);
@@ -113,7 +113,11 @@ is
       Dom        : Anubis_STARK_Poly.Domain;
       Blowup     : Positive
    ) is
-      Layer_Evals : Anubis_STARK_Poly.Evaluations;
+      Layer_Evals : Anubis_STARK_Poly.Evaluations := (
+         Values => (others => 0),
+         Count  => 0,
+         Dom    => Dom
+      );
    begin
       Prover.Initial_Domain := Dom;
       Prover.Current_Poly := Poly;
@@ -159,7 +163,11 @@ is
 
       New_Size   : constant Natural := Curr_Dom.Size / Folding_Factor;
       New_Dom    : Anubis_STARK_Poly.Domain;
-      New_Evals  : Anubis_STARK_Poly.Evaluations;
+      New_Evals  : Anubis_STARK_Poly.Evaluations := (
+         Values => (others => 0),
+         Count  => 0,
+         Dom    => Curr_Dom
+      );
    begin
       --  Create folded domain
       New_Dom := Fold_Domain (Curr_Dom);
@@ -189,12 +197,16 @@ is
       Prover     : in Out FRI_Prover;
       Transcript : Byte_Array;
       Roots      : out Hash_Array;
+      Alphas     : out Alpha_Array;
       Num_Roots  : out Natural
    ) is
       Alpha      : Field_Element;
       Alpha_Seed : Byte_Array (0 .. 31);
+      Round_Transcript : Byte_Array (0 .. 63) := (others => 0);
    begin
       Num_Roots := 0;
+      Alphas := (others => 0);
+      Roots := (others => (others => 0));
 
       --  Initial commitment
       FRI_Commit_Layer (Prover, Roots (0));
@@ -207,14 +219,23 @@ is
          pragma Loop_Variant (Decreases =>
             Prover.Layers (Prover.Num_Layers).Dom.Size);
 
-         --  Derive alpha from transcript (Fiat-Shamir)
+         --  Derive alpha from transcript + current root (Fiat-Shamir)
+         --  Include the round number and current commitment for binding
+         Round_Transcript (0 .. 31) := Roots (Num_Roots - 1);
+         for I in 0 .. Natural'Min (31, Transcript'Length - 1) loop
+            Round_Transcript (32 + I) := Transcript (Transcript'First + I);
+         end loop;
+
          Anubis_SHA3.SHA3_256 (
-            Transcript,
+            Round_Transcript,
             Alpha_Seed
          );
          Alpha := Anubis_STARK_Field.From_Bytes (
             Anubis_STARK_Field.Byte_Array_8 (Alpha_Seed (0 .. 7))
          );
+
+         --  Store alpha for verification
+         Alphas (Num_Roots - 1) := Alpha;
 
          --  Fold
          FRI_Fold (Prover, Alpha);
@@ -300,20 +321,27 @@ is
    ) is
       Prover     : FRI_Prover;
       Roots      : Hash_Array;
+      Alphas     : Alpha_Array;
       Num_Roots  : Natural;
       Indices    : Query_Index_Array;
    begin
       --  Initialize
       FRI_Init (Prover, Poly, Dom, Blowup);
 
-      --  Commit phase
-      FRI_Complete_Commit (Prover, Transcript, Roots, Num_Roots);
+      --  Commit phase - now returns alphas for verification
+      FRI_Complete_Commit (Prover, Transcript, Roots, Alphas, Num_Roots);
 
       --  Copy commitments
       Proof.Num_Rounds := Num_Roots;
       for I in 0 .. Num_Roots - 1 loop
          Proof.Commits (I) := Roots (I);
       end loop;
+
+      --  Copy folding alphas (critical for verification)
+      Proof.Alphas := Alphas;
+
+      --  Copy initial domain (for proper evaluation point computation)
+      Proof.Initial_Domain := Dom;
 
       --  Copy final polynomial
       Proof.Final_Poly := Prover.Current_Poly;
@@ -338,17 +366,20 @@ is
       Transcript : Byte_Array
    ) return Boolean is
       Indices : Query_Index_Array;
-      --  Compute domain size from proof"s number of rounds
-      --  Initial domain size = Final_Degree * 2^Num_Rounds
-      Domain_Size : constant Natural :=
-         Final_Degree * (2 ** Natural'Min (Proof.Num_Rounds, Max_FRI_Rounds));
+      --  Use initial domain from proof for proper verification
+      Domain_Size : constant Natural := Proof.Initial_Domain.Size;
    begin
       --  Verify commitment matches first layer
       if Proof.Num_Rounds > 0 and then Commitment /= Proof.Commits (0) then
          return False;
       end if;
 
-      --  Generate query indices based on actual domain size
+      --  Validate initial domain is sensible
+      if Domain_Size = 0 or Proof.Initial_Domain.Log_Size > Anubis_STARK_Poly.Max_Log_Degree then
+         return False;
+      end if;
+
+      --  Generate query indices based on initial domain size
       FRI_Generate_Queries (Transcript, Domain_Size, Indices);
 
       --  Verify each query
@@ -358,6 +389,7 @@ is
             Proof.Commits,
             Proof.Alphas,
             Proof.Num_Rounds,
+            Proof.Initial_Domain,
             Proof.Final_Poly
          ) then
             return False;
@@ -372,6 +404,7 @@ is
       Commits      : Hash_Array;
       Alphas       : Alpha_Array;
       Num_Rounds   : Natural;
+      Initial_Dom  : Anubis_STARK_Poly.Domain;
       Final_Poly   : Polynomial
    ) return Boolean is
       Expected : Field_Element;
@@ -426,20 +459,33 @@ is
             Final_Layer  : constant Natural := Query.Num_Layers - 1;
             Final_Index  : constant Natural := Query.Responses (Final_Layer).Index;
             Final_Value  : constant Field_Element := Query.Responses (Final_Layer).Value;
-            --  Compute evaluation point from index (simplified: use index as point)
-            Eval_Point   : constant Field_Element := Field_Element (Final_Index);
-            Poly_Eval    : Field_Element;
+
+            --  Compute the evaluation point from folded domain
+            --  After k folds: domain root becomes root^(2^k), offset becomes offset^(2^k)
+            --  Evaluation point = folded_offset * folded_root^index
+            Folded_Root   : Field_Element := Initial_Dom.Root;
+            Folded_Offset : Field_Element := Initial_Dom.Offset;
+            Eval_Point    : Field_Element;
+            Poly_Eval     : Field_Element;
          begin
-            --  Evaluate final polynomial at the query point
+            --  Apply k squarings to get folded domain parameters
+            for K in 1 .. Query.Num_Layers loop
+               Folded_Root := Anubis_STARK_Field.Sqr (Folded_Root);
+               Folded_Offset := Anubis_STARK_Field.Sqr (Folded_Offset);
+            end loop;
+
+            --  Compute evaluation point: offset * root^index
+            Eval_Point := Anubis_STARK_Field.Mul (
+               Folded_Offset,
+               Anubis_STARK_Field.Exp (Folded_Root, Unsigned_64 (Final_Index))
+            );
+
+            --  Evaluate final polynomial at the correctly computed point
             Poly_Eval := Anubis_STARK_Poly.Poly_Eval (Final_Poly, Eval_Point);
 
             --  Verify the final folded value matches polynomial evaluation
-            --  Note: Due to folding transformations, we check consistency
-            --  rather than exact equality. For production, would need proper
-            --  domain mapping from folded index to evaluation point.
-            if Final_Poly.Degree <= Final_Degree then
-               --  Final polynomial is small enough - trust the folding chain
-               return True;
+            if Poly_Eval /= Final_Value then
+               return False;
             end if;
          end;
       end if;
@@ -462,7 +508,7 @@ is
       --  Walk up the path
       for I in 0 .. Path.Length - 1 loop
          declare
-            Combined : Byte_Array (0 .. 63);
+            Combined : Byte_Array (0 .. 63) := (others => 0);
          begin
             if Idx mod 2 = 0 then
                Combined (0 .. 31) := Current;
@@ -547,7 +593,10 @@ is
       Layer_Evals : Anubis_STARK_Poly.Evaluations
    ) return Hash_Value is
       Result : Hash_Value;
-      Data   : Byte_Array (0 .. Layer_Evals.Count * 8 - 1);
+      --  Use fixed-size buffer (max possible size) for SPARK compatibility
+      Max_Data_Size : constant := Anubis_STARK_Poly.Max_Degree * 8;
+      Data   : Byte_Array (0 .. Max_Data_Size - 1) := (others => 0);
+      Actual_Size : constant Natural := Layer_Evals.Count * 8;
    begin
       for I in 0 .. Layer_Evals.Count - 1 loop
          declare
@@ -558,7 +607,8 @@ is
          end;
       end loop;
 
-      Anubis_SHA3.SHA3_256 (Data, Result);
+      --  Hash only the actual data portion
+      Anubis_SHA3.SHA3_256 (Data (0 .. Actual_Size - 1), Result);
       return Result;
    end Hash_Layer;
 

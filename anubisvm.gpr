@@ -9,7 +9,8 @@ project AnubisVM is
                  "test_kmac.adb", "test_aead.adb", "test_kdf.adb",
                  "test_cvm.adb", "test_anubis.adb", "test_state.adb",
                  "test_tee.adb", "test_sphinx_native.adb", "test_sphinx_macos.adb",
-                 "test_anubis_sovereign.adb", "test_sovereign_v2.adb");
+                 "test_anubis_sovereign.adb", "test_sovereign_v2.adb",
+                 "sphinx_rv32_test.adb");
    for Create_Missing_Dirs use "True";
 
    type Build_Mode_Type is ("development", "release", "prove");

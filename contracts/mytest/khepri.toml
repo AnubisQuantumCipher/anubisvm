@@ -1,0 +1,8 @@
+[package]
+name = "mytest"
+version = "0.1.0"
+[contract]
+entrypoint = "mytest_main"
+target_level = "silver"
+[build]
+gpr_file = "mytest.gpr"

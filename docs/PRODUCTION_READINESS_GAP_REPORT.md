@@ -32,38 +32,35 @@ Rationale:
 
 ### 1.1 Complete Sandbox Enforcement
 **Files**: `sphinx_subprocess.adb`
-**Status**: Implemented but needs hardening
+**Status**: COMPLETED (macOS), PENDING (Linux)
 
 | Item | Current | Required |
 |------|---------|----------|
 | Fork isolation | Yes | Yes |
-| Seatbelt profile (macOS) | Basic | Comprehensive deny-by-default |
+| Seatbelt profile (macOS) | **DONE - Strict deny-by-default** | Comprehensive deny-by-default |
 | seccomp-bpf (Linux) | Stubbed | Full implementation |
 | Resource limits | Yes (rlimit) | Yes |
-| Syscall allowlist | Implicit | Explicit minimal set |
+| Syscall allowlist | **DONE - Explicit in Seatbelt** | Explicit minimal set |
 
-**Action Items**:
-```ada
--- sphinx_subprocess.adb: Harden sandbox profile
--- 1. Replace permissive Seatbelt with strict deny-all + explicit allows
--- 2. Implement seccomp-bpf filter for Linux (BPF program)
--- 3. Add syscall allowlist: only read/write on IPC pipes, exit, clock_gettime
-```
+**Completed** (commit 68799b3):
+- Strict Seatbelt profile with DENY-BY-DEFAULT
+- Explicit denies: process-exec, process-fork, network*, signal, ipc-*, system*
+- Minimal allows: sysctl-read, /dev/urandom, /dev/null, pipe I/O, process-exit
+
+**Remaining**:
+- Implement seccomp-bpf filter for Linux
 
 ### 1.2 Symbol Resolution Policy Enforcement
-**Files**: `sphinx_elf_loader.adb:881-902`
-**Status**: Fixed - now explicitly fails
+**Files**: `sphinx_native.adb`, `sphinx_elf_loader.adb`
+**Status**: COMPLETED
 
-The policy is now clear: **contracts MUST be statically linked**. However, we need
-to validate this during Load_ELF:
+The policy is now enforced: **contracts MUST be statically linked**.
 
-**Action Items**:
-```ada
--- Add to Load_ELF section parsing:
--- 1. Check for PT_DYNAMIC segment -> reject
--- 2. Check for DT_NEEDED entries -> reject
--- 3. Check for unresolved symbols in .dynsym -> reject
-```
+**Completed** (commit 68799b3):
+- PT_DYNAMIC program headers scanned for DT_NEEDED entries
+- SHT_DYNAMIC sections rejected
+- SHT_DYNSYM (dynamic symbol table) rejected
+- Contracts with external dependencies fail at load time
 
 ### 1.3 Entry Function ABI Validation
 **Files**: `sphinx_elf_loader.adb:~849`
@@ -100,7 +97,7 @@ int entry(void* calldata, size_t len, void* ret_buf, size_t* ret_len,
 | ML_KEM_Dec | 0x31 | Implemented |
 | LOG0-4 | 0x40-0x44 | Partial |
 | REVERT | 0x50 | Implemented |
-| RETURN | 0x51 | Missing |
+| RETURN | 0x51 | **Implemented** |
 | CALL | 0x60 | Missing (cross-contract) |
 | DELEGATECALL | 0x61 | Missing |
 | STATICCALL | 0x62 | Missing |
@@ -226,44 +223,53 @@ Before deploying even for testing with untrusted contracts:
 - [x] W^X enforcement on memory pages
 - [x] Process isolation (fork)
 - [x] Resource limits (rlimit)
-- [ ] Strict syscall allowlist (seccomp/Seatbelt)
-- [ ] Dynamic symbol rejection
+- [x] Strict syscall allowlist (Seatbelt on macOS) **DONE**
+- [x] Dynamic symbol rejection **DONE**
 - [ ] Entry ABI validation
 - [x] Execution timeout
 - [x] Gas metering (basic)
 - [ ] State rollback on failure
+- [ ] seccomp-bpf (Linux only)
 
 ---
 
 ## Recommended Next Steps
 
-1. **Immediate** (this week):
-   - Add DT_NEEDED / dynamic symbol rejection to Load_ELF
-   - Implement strict Seatbelt profile for macOS
-   - Add RETURN syscall handler
+1. **Immediate** (COMPLETED 2025-12-22):
+   - ~~Add DT_NEEDED / dynamic symbol rejection to Load_ELF~~ DONE
+   - ~~Implement strict Seatbelt profile for macOS~~ DONE
+   - ~~Add RETURN syscall handler~~ DONE
 
-2. **Short-term** (next 2 weeks):
-   - Implement seccomp-bpf for Linux
+2. **Short-term** (next priority):
+   - Implement seccomp-bpf for Linux (critical for Linux deployment)
    - Add CALL/STATICCALL syscalls for cross-contract calls
    - Create malicious contract test suite
+   - Add entry function ABI validation
 
-3. **Medium-term** (next month):
+3. **Medium-term**:
    - Replace privacy layer placeholders
    - Implement full state commitment via MPT
+   - Add remaining blockchain syscalls (BALANCE, TIMESTAMP, CHAINID)
    - Prepare for security audit
 
 ---
 
 ## Conclusion
 
-AnubisVM has a solid foundation with the right security architecture. The subprocess
-sandbox with syscall IPC is the correct design choice. Key gaps are:
+AnubisVM has made significant progress on security hardening. The subprocess
+sandbox with syscall IPC is the correct design choice.
 
-1. **Sandbox hardening** - The OS-level enforcement needs to be strict deny-by-default
-2. **Contract validation** - Static linking must be enforced at load time
-3. **Syscall completeness** - Cross-contract calls and balance queries are missing
-4. **Privacy layer** - Current implementation has placeholders
+**Completed (Priority 1)**:
+1. Sandbox hardening (macOS) - Strict deny-by-default Seatbelt profile
+2. Contract validation - Static linking enforced at load time
+3. RETURN syscall - Contracts can now return data properly
 
-With focused effort on Priority 1 items, the VM could be ready for controlled testing
-within a reasonable timeframe. Production deployment requires completing Priority 2 items
-and passing a security audit.
+**Remaining gaps**:
+1. **Linux support** - seccomp-bpf filter not yet implemented
+2. **Syscall completeness** - Cross-contract calls and balance queries missing
+3. **Privacy layer** - Current implementation has placeholders
+4. **Entry ABI validation** - Contract entry signature not yet validated
+
+The VM is now suitable for controlled testing on macOS with statically-linked
+contracts. Production deployment requires completing Linux support and passing
+a security audit.

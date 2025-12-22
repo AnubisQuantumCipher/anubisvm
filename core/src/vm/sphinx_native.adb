@@ -700,6 +700,73 @@ package body Sphinx_Native is
          return (Error => Load_Missing_Entry, Contract => Invalid_Contract);
       end if;
 
+      --  =====================================================================
+      --  ENTRY POINT ABI VALIDATION
+      --  =====================================================================
+      --  The contract entry function must conform to the AnubisVM ABI:
+      --
+      --    int32_t contract_entry(
+      --       const uint8_t* calldata,    -- Input data pointer
+      --       size_t         calldata_len, -- Input data length
+      --       uint8_t*       return_buf,   -- Return buffer (4096 bytes)
+      --       size_t*        return_len,   -- Pointer to return length
+      --       uint64_t       gas_limit,    -- Gas limit for execution
+      --       uint64_t*      gas_used      -- Pointer to gas used counter
+      --    );
+      --
+      --  We validate:
+      --  1. Entry point is within the code section
+      --  2. Entry point is properly aligned for the architecture
+      --  3. Entry point is not at a suspicious low address
+      --
+      declare
+         Entry_Addr_64 : constant Word64 := Word64 (Contract.Entry_Addr);
+      begin
+         Ada.Text_IO.Put_Line ("  [SPHINX]   Entry point: 0x" & Word64'Image (Entry_Addr_64));
+
+         --  Check 1: Entry point should be within code section (or at least reasonable)
+         if Contract.Code_Base > 0 and Contract.Code_Size > 0 then
+            if Entry_Addr_64 < Contract.Code_Base or
+               Entry_Addr_64 >= Contract.Code_Base + Contract.Code_Size
+            then
+               Ada.Text_IO.Put_Line ("  [SPHINX] WARNING: Entry point outside code section");
+               Ada.Text_IO.Put_Line ("  [SPHINX]   Code: 0x" & Word64'Image (Contract.Code_Base) &
+                  " - 0x" & Word64'Image (Contract.Code_Base + Contract.Code_Size));
+               --  This is a warning, not an error - some ELFs have entry in .init
+            else
+               Ada.Text_IO.Put_Line ("  [SPHINX]   Entry point within code section: OK");
+            end if;
+         end if;
+
+         --  Check 2: Entry point alignment
+         case Contract.Arch is
+            when Arch_ARM64 =>
+               --  ARM64 instructions must be 4-byte aligned
+               if (Entry_Addr_64 mod 4) /= 0 then
+                  Ada.Text_IO.Put_Line ("  [SPHINX] ERROR: ARM64 entry point not 4-byte aligned");
+                  return (Error => Load_Security_Violation, Contract => Invalid_Contract);
+               end if;
+               Ada.Text_IO.Put_Line ("  [SPHINX]   ARM64 alignment (4-byte): OK");
+
+            when Arch_X86_64 =>
+               --  x86-64 has no strict alignment, but entry at odd address is suspicious
+               if (Entry_Addr_64 mod 2) /= 0 then
+                  Ada.Text_IO.Put_Line ("  [SPHINX] WARNING: x86-64 entry at odd address");
+               end if;
+               Ada.Text_IO.Put_Line ("  [SPHINX]   x86-64 alignment: OK");
+         end case;
+
+         --  Check 3: Suspicious low addresses (likely invalid or attack attempt)
+         if Entry_Addr_64 < 16#1000# then
+            Ada.Text_IO.Put_Line ("  [SPHINX] ERROR: Entry point in first page (< 0x1000)");
+            Ada.Text_IO.Put_Line ("  [SPHINX]   This is likely a null pointer or attack");
+            return (Error => Load_Security_Violation, Contract => Invalid_Contract);
+         end if;
+         Ada.Text_IO.Put_Line ("  [SPHINX]   Entry point address range: OK");
+
+         Ada.Text_IO.Put_Line ("  [SPHINX]   Entry point validation: PASSED");
+      end;
+
       --  Log loaded sections
       Ada.Text_IO.Put_Line ("  [SPHINX] Load_ELF: ELF loaded successfully");
       Ada.Text_IO.Put_Line ("  [SPHINX]   Code: 0x" & Word64'Image (Contract.Code_Base) &

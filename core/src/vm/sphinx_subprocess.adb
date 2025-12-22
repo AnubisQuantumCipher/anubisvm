@@ -1469,6 +1469,214 @@ package body Sphinx_Subprocess is
                --  Minimal gas for return syscall
                Syscall_Gas := 100;
 
+            --  =================================================================
+            --  BLOCKCHAIN CONTEXT SYSCALLS
+            --  =================================================================
+            --  These syscalls provide read-only access to blockchain state.
+            --  Values come from the execution context set by the node.
+            --
+            --  NOTE: In subprocess execution, these values must be passed from
+            --  the parent process. For now, we return placeholder values.
+            --  TODO: Wire these to actual block context from parent.
+
+            when Syscall_Timestamp =>
+               --  Get current block timestamp (Unix seconds)
+               --  Response: [timestamp (8 bytes, little-endian)]
+               Ada.Text_IO.Put_Line ("  [Parent] TIMESTAMP syscall");
+
+               --  TODO: Get actual timestamp from execution context
+               --  For now, return current Unix time as placeholder
+               declare
+                  --  Placeholder: would come from block context
+                  Timestamp : constant Word64 := 1734879600;  --  Example timestamp
+               begin
+                  Response_Data (0) := Byte (Timestamp and 16#FF#);
+                  Response_Data (1) := Byte (Shift_Right (Timestamp, 8) and 16#FF#);
+                  Response_Data (2) := Byte (Shift_Right (Timestamp, 16) and 16#FF#);
+                  Response_Data (3) := Byte (Shift_Right (Timestamp, 24) and 16#FF#);
+                  Response_Data (4) := Byte (Shift_Right (Timestamp, 32) and 16#FF#);
+                  Response_Data (5) := Byte (Shift_Right (Timestamp, 40) and 16#FF#);
+                  Response_Data (6) := Byte (Shift_Right (Timestamp, 48) and 16#FF#);
+                  Response_Data (7) := Byte (Shift_Right (Timestamp, 56) and 16#FF#);
+               end;
+
+               Resp_Status := Syscall_OK;
+               Resp_Len := 8;
+               Syscall_Gas := 2;  --  Very cheap read
+
+            when Syscall_BlockNumber =>
+               --  Get current block number
+               --  Response: [block_number (8 bytes, little-endian)]
+               Ada.Text_IO.Put_Line ("  [Parent] BLOCKNUMBER syscall");
+
+               declare
+                  --  Placeholder: would come from block context
+                  Block_Num : constant Word64 := 1000000;  --  Example block number
+               begin
+                  Response_Data (0) := Byte (Block_Num and 16#FF#);
+                  Response_Data (1) := Byte (Shift_Right (Block_Num, 8) and 16#FF#);
+                  Response_Data (2) := Byte (Shift_Right (Block_Num, 16) and 16#FF#);
+                  Response_Data (3) := Byte (Shift_Right (Block_Num, 24) and 16#FF#);
+                  Response_Data (4) := Byte (Shift_Right (Block_Num, 32) and 16#FF#);
+                  Response_Data (5) := Byte (Shift_Right (Block_Num, 40) and 16#FF#);
+                  Response_Data (6) := Byte (Shift_Right (Block_Num, 48) and 16#FF#);
+                  Response_Data (7) := Byte (Shift_Right (Block_Num, 56) and 16#FF#);
+               end;
+
+               Resp_Status := Syscall_OK;
+               Resp_Len := 8;
+               Syscall_Gas := 2;  --  Very cheap read
+
+            when Syscall_ChainID =>
+               --  Get chain ID (for replay protection)
+               --  Response: [chain_id (8 bytes, little-endian)]
+               Ada.Text_IO.Put_Line ("  [Parent] CHAINID syscall");
+
+               declare
+                  --  AnubisVM mainnet chain ID: 0x414E5542 ("ANUB" in hex)
+                  Chain_ID : constant Word64 := 16#414E5542#;
+               begin
+                  Response_Data (0) := Byte (Chain_ID and 16#FF#);
+                  Response_Data (1) := Byte (Shift_Right (Chain_ID, 8) and 16#FF#);
+                  Response_Data (2) := Byte (Shift_Right (Chain_ID, 16) and 16#FF#);
+                  Response_Data (3) := Byte (Shift_Right (Chain_ID, 24) and 16#FF#);
+                  Response_Data (4) := Byte (Shift_Right (Chain_ID, 32) and 16#FF#);
+                  Response_Data (5) := Byte (Shift_Right (Chain_ID, 40) and 16#FF#);
+                  Response_Data (6) := Byte (Shift_Right (Chain_ID, 48) and 16#FF#);
+                  Response_Data (7) := Byte (Shift_Right (Chain_ID, 56) and 16#FF#);
+               end;
+
+               Resp_Status := Syscall_OK;
+               Resp_Len := 8;
+               Syscall_Gas := 2;  --  Very cheap read
+
+            when Syscall_Balance =>
+               --  Get account balance
+               --  Request: [address (32 bytes)]
+               --  Response: [balance (32 bytes, U256 little-endian)]
+               Ada.Text_IO.Put_Line ("  [Parent] BALANCE syscall");
+
+               if Request_Header.Data_Length >= 32 then
+                  --  TODO: Look up actual balance from state
+                  --  For now, return 0 balance as placeholder
+                  Ada.Text_IO.Put_Line ("  [Parent]   Address query received");
+
+                  for I in 0 .. 31 loop
+                     Response_Data (I) := 0;
+                  end loop;
+
+                  Resp_Status := Syscall_OK;
+                  Resp_Len := 32;
+                  Syscall_Gas := 100;  --  Cold storage access
+               else
+                  Ada.Text_IO.Put_Line ("  [Parent]   Invalid address length");
+                  Resp_Status := Syscall_Invalid_Args;
+                  Resp_Len := 0;
+                  Syscall_Gas := 0;
+               end if;
+
+            when Syscall_SelfBalance =>
+               --  Get own contract balance (cheaper than BALANCE)
+               --  Request: (none)
+               --  Response: [balance (32 bytes, U256 little-endian)]
+               Ada.Text_IO.Put_Line ("  [Parent] SELFBALANCE syscall");
+
+               --  TODO: Look up contract's own balance
+               --  For now, return 0 as placeholder
+               for I in 0 .. 31 loop
+                  Response_Data (I) := 0;
+               end loop;
+
+               Resp_Status := Syscall_OK;
+               Resp_Len := 32;
+               Syscall_Gas := 5;  --  Cheaper than BALANCE (warm access)
+
+            when Syscall_BlockHash =>
+               --  Get block hash for recent block (last 256 blocks only)
+               --  Request: [block_number (8 bytes)]
+               --  Response: [block_hash (32 bytes)] or error if too old
+               Ada.Text_IO.Put_Line ("  [Parent] BLOCKHASH syscall");
+
+               if Request_Header.Data_Length >= 8 then
+                  --  TODO: Look up actual block hash from chain
+                  --  For now, return zeros (indicates block not available)
+                  Ada.Text_IO.Put_Line ("  [Parent]   Block number query received");
+
+                  for I in 0 .. 31 loop
+                     Response_Data (I) := 0;
+                  end loop;
+
+                  Resp_Status := Syscall_OK;
+                  Resp_Len := 32;
+                  Syscall_Gas := 20;  --  Relatively cheap
+               else
+                  Ada.Text_IO.Put_Line ("  [Parent]   Invalid block number length");
+                  Resp_Status := Syscall_Invalid_Args;
+                  Resp_Len := 0;
+                  Syscall_Gas := 0;
+               end if;
+
+            when Syscall_GasPrice =>
+               --  Get current gas price
+               --  Response: [gas_price (8 bytes, little-endian)]
+               Ada.Text_IO.Put_Line ("  [Parent] GASPRICE syscall");
+
+               declare
+                  --  Placeholder: 1 gwei = 10^9 wei
+                  Gas_Price_Val : constant Word64 := 1_000_000_000;
+               begin
+                  Response_Data (0) := Byte (Gas_Price_Val and 16#FF#);
+                  Response_Data (1) := Byte (Shift_Right (Gas_Price_Val, 8) and 16#FF#);
+                  Response_Data (2) := Byte (Shift_Right (Gas_Price_Val, 16) and 16#FF#);
+                  Response_Data (3) := Byte (Shift_Right (Gas_Price_Val, 24) and 16#FF#);
+                  Response_Data (4) := Byte (Shift_Right (Gas_Price_Val, 32) and 16#FF#);
+                  Response_Data (5) := Byte (Shift_Right (Gas_Price_Val, 40) and 16#FF#);
+                  Response_Data (6) := Byte (Shift_Right (Gas_Price_Val, 48) and 16#FF#);
+                  Response_Data (7) := Byte (Shift_Right (Gas_Price_Val, 56) and 16#FF#);
+               end;
+
+               Resp_Status := Syscall_OK;
+               Resp_Len := 8;
+               Syscall_Gas := 2;
+
+            when Syscall_GasLimit =>
+               --  Get block gas limit
+               --  Response: [gas_limit (8 bytes, little-endian)]
+               Ada.Text_IO.Put_Line ("  [Parent] GASLIMIT syscall");
+
+               declare
+                  --  Placeholder: 30M gas limit (similar to Ethereum)
+                  Gas_Lim : constant Word64 := 30_000_000;
+               begin
+                  Response_Data (0) := Byte (Gas_Lim and 16#FF#);
+                  Response_Data (1) := Byte (Shift_Right (Gas_Lim, 8) and 16#FF#);
+                  Response_Data (2) := Byte (Shift_Right (Gas_Lim, 16) and 16#FF#);
+                  Response_Data (3) := Byte (Shift_Right (Gas_Lim, 24) and 16#FF#);
+                  Response_Data (4) := Byte (Shift_Right (Gas_Lim, 32) and 16#FF#);
+                  Response_Data (5) := Byte (Shift_Right (Gas_Lim, 40) and 16#FF#);
+                  Response_Data (6) := Byte (Shift_Right (Gas_Lim, 48) and 16#FF#);
+                  Response_Data (7) := Byte (Shift_Right (Gas_Lim, 56) and 16#FF#);
+               end;
+
+               Resp_Status := Syscall_OK;
+               Resp_Len := 8;
+               Syscall_Gas := 2;
+
+            when Syscall_Coinbase =>
+               --  Get block proposer/validator address
+               --  Response: [address (32 bytes)]
+               Ada.Text_IO.Put_Line ("  [Parent] COINBASE syscall");
+
+               --  TODO: Get actual coinbase from block context
+               --  For now, return zeros as placeholder
+               for I in 0 .. 31 loop
+                  Response_Data (I) := 0;
+               end loop;
+
+               Resp_Status := Syscall_OK;
+               Resp_Len := 32;
+               Syscall_Gas := 2;
+
             when Syscall_Revert =>
                --  Contract is reverting
                Ada.Text_IO.Put_Line ("  [Parent] REVERT syscall");

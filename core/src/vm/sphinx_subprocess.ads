@@ -265,6 +265,18 @@ is
    Syscall_ML_KEM_Dec  : constant Word32 := 16#31#;  --  ML-KEM-1024 decapsulate
    Syscall_Log         : constant Word32 := 16#40#;  --  Emit event log
    Syscall_Return      : constant Word32 := 16#51#;  --  Successful return with data
+
+   --  Blockchain context syscalls
+   Syscall_Balance     : constant Word32 := 16#80#;  --  Get account balance
+   Syscall_SelfBalance : constant Word32 := 16#81#;  --  Get own contract balance
+   Syscall_Timestamp   : constant Word32 := 16#90#;  --  Get block timestamp
+   Syscall_BlockNumber : constant Word32 := 16#91#;  --  Get block number
+   Syscall_ChainID     : constant Word32 := 16#92#;  --  Get chain ID
+   Syscall_BlockHash   : constant Word32 := 16#93#;  --  Get block hash (recent blocks only)
+   Syscall_Coinbase    : constant Word32 := 16#94#;  --  Get block proposer address
+   Syscall_GasPrice    : constant Word32 := 16#95#;  --  Get current gas price
+   Syscall_GasLimit    : constant Word32 := 16#96#;  --  Get block gas limit
+
    Syscall_Revert      : constant Word32 := 16#FF#;  --  Revert execution
 
    --  Maximum syscall data size

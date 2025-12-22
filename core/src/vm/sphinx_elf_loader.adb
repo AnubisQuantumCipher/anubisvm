@@ -1311,12 +1311,30 @@ package body Sphinx_ELF_Loader is
       Entry_Addr := System.Storage_Elements.To_Address (
          System.Storage_Elements.Integer_Address (Image.Entry_Point));
 
-      --  Execute in sandboxed subprocess
-      Sub_Result := Sphinx_Subprocess.Execute_Sandboxed_Default (
-         Entry_Point => Entry_Addr,
-         Calldata    => Calldata,
-         Gas_Limit   => Gas_Limit
-      );
+      --  Calculate timeout from gas limit (~1M gas = 1 second, min 5s, max 5min)
+      declare
+         Timeout_Ms : Natural := Natural (Gas_Limit / 1000);
+      begin
+         if Timeout_Ms < 5000 then
+            Timeout_Ms := 5000;
+         elsif Timeout_Ms > 300_000 then
+            Timeout_Ms := 300_000;
+         end if;
+
+         Ada.Text_IO.Put_Line ("  [ELF]   Timeout: " &
+            Natural'Image (Timeout_Ms) & " ms");
+         Ada.Text_IO.Put_Line ("  [ELF]   Syscall IPC: ENABLED");
+
+         --  Execute in sandboxed subprocess with syscall IPC support
+         Sub_Result := Sphinx_Subprocess.Execute_With_Syscalls (
+            Entry_Point => Entry_Addr,
+            Calldata    => Calldata,
+            Gas_Limit   => Gas_Limit,
+            Timeout_Ms  => Timeout_Ms,
+            Sandbox     => Sphinx_Subprocess.Recommended_Sandbox_Level,
+            Limits      => Sphinx_Subprocess.Strict_Limits
+         );
+      end;
 
       --  Convert subprocess result to our result type
       Result.Gas_Used := Sub_Result.Gas_Used;

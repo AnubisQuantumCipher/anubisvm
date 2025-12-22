@@ -19,6 +19,24 @@ use type Sphinx_ELF_Loader.ELF_Load_Error;
 package body Sphinx_Native is
 
    ---------------------------------------------------------------------------
+   --  Execution Mode State
+   ---------------------------------------------------------------------------
+
+   Current_Execution_Mode : Execution_Mode := Exec_Mode_InProcess;
+
+   procedure Set_Default_Execution_Mode (Mode : Execution_Mode) is
+   begin
+      Current_Execution_Mode := Mode;
+      Ada.Text_IO.Put_Line ("  [SPHINX] Execution mode set to: " &
+         Execution_Mode'Image (Mode));
+   end Set_Default_Execution_Mode;
+
+   function Get_Default_Execution_Mode return Execution_Mode is
+   begin
+      return Current_Execution_Mode;
+   end Get_Default_Execution_Mode;
+
+   ---------------------------------------------------------------------------
    --  Internal Helpers
    ---------------------------------------------------------------------------
 
@@ -844,68 +862,255 @@ package body Sphinx_Native is
                Word64'Image (ELF_Entry.ELF_Image.Base_Address));
             Ada.Text_IO.Put_Line ("  [SPHINX]   Segments: " &
                Natural'Image (ELF_Entry.ELF_Image.Segment_Count));
+            Ada.Text_IO.Put_Line ("  [SPHINX]   Execution mode: " &
+               Execution_Mode'Image (Current_Execution_Mode));
 
+            --  Aliased copy of Calldata for execution
             declare
-               Exec_Result : Sphinx_ELF_Loader.Execution_Result;
-               --  Aliased copy of Calldata for Execute_ELF
                Calldata_Copy : aliased Byte_Array := Calldata;
                Refund_Amount : Gas_Amount;
             begin
-               --  Execute via true ELF loader (mmap-based, no dlopen)
-               Exec_Result := Sphinx_ELF_Loader.Execute_ELF (
-                  Image     => ELF_Entry.ELF_Image,
-                  Calldata  => Calldata_Copy'Access,
-                  Gas_Limit => Gas_Limit
-               );
+               --  Choose execution path based on mode
+               case Current_Execution_Mode is
+                  when Exec_Mode_InProcess =>
+                     --  ==========================================================
+                     --  IN-PROCESS EXECUTION (fast, full syscall support)
+                     --  ==========================================================
+                     Ada.Text_IO.Put_Line ("  [SPHINX]   Mode: IN-PROCESS (direct)");
 
-               if Exec_Result.Success then
-                  Ada.Text_IO.Put_Line ("  [SPHINX] Execute: TRUE ELF EXECUTION SUCCESS");
-                  Ada.Text_IO.Put_Line ("  [SPHINX]   Exit code: " &
-                     Integer'Image (Exec_Result.Exit_Code));
-                  Ada.Text_IO.Put_Line ("  [SPHINX]   Gas used: " &
-                     Gas_Amount'Image (Exec_Result.Gas_Used));
+                     declare
+                        Exec_Result : Sphinx_ELF_Loader.Execution_Result;
+                     begin
+                        --  Execute via true ELF loader (mmap-based, no dlopen)
+                        Exec_Result := Sphinx_ELF_Loader.Execute_ELF (
+                           Image     => ELF_Entry.ELF_Image,
+                           Calldata  => Calldata_Copy'Access,
+                           Gas_Limit => Gas_Limit
+                        );
 
-                  Gas_Used := Exec_Result.Gas_Used;
-                  Result_Hash := Exec_Result.Return_Data;
+                        if Exec_Result.Success then
+                           Ada.Text_IO.Put_Line ("  [SPHINX] Execute: IN-PROCESS SUCCESS");
+                           Ada.Text_IO.Put_Line ("  [SPHINX]   Exit code: " &
+                              Integer'Image (Exec_Result.Exit_Code));
+                           Ada.Text_IO.Put_Line ("  [SPHINX]   Gas used: " &
+                              Gas_Amount'Image (Exec_Result.Gas_Used));
 
-                  --  Success - clean up and return
-                  Refund_Amount := Gas_Limit - Gas_Used;
-                  Sphinx_Runtime.Pop_Frame (
-                     Runtime     => RT,
-                     Success     => True,
-                     Return_Data => Byte_Array'(0 .. -1 => 0),
-                     Gas_Refund  => Refund_Amount
-                  );
-                  Sphinx_Runtime.Finalize_Runtime (RT);
-                  Sphinx_Runtime.Set_Runtime (null);
+                           Gas_Used := Exec_Result.Gas_Used;
+                           Result_Hash := Exec_Result.Return_Data;
 
-                  return (
-                     Status      => Exec_Success,
-                     Gas_Used    => Gas_Used,
-                     Return_Data => Result_Hash
-                  );
-               else
-                  Ada.Text_IO.Put_Line ("  [SPHINX] Execute: TRUE ELF EXECUTION FAILED");
-                  Ada.Text_IO.Put_Line ("  [SPHINX]   Exit code: " &
-                     Integer'Image (Exec_Result.Exit_Code));
+                           --  Success - clean up and return
+                           Refund_Amount := Gas_Limit - Gas_Used;
+                           Sphinx_Runtime.Pop_Frame (
+                              Runtime     => RT,
+                              Success     => True,
+                              Return_Data => Byte_Array'(0 .. -1 => 0),
+                              Gas_Refund  => Refund_Amount
+                           );
+                           Sphinx_Runtime.Finalize_Runtime (RT);
+                           Sphinx_Runtime.Set_Runtime (null);
 
-                  --  Execution failed - revert
-                  Refund_Amount := Gas_Used;
-                  Sphinx_Runtime.Pop_Frame (
-                     Runtime     => RT,
-                     Success     => False,
-                     Return_Data => Byte_Array'(0 .. -1 => 0),
-                     Gas_Refund  => Refund_Amount
-                  );
-                  Sphinx_Runtime.Finalize_Runtime (RT);
-                  Sphinx_Runtime.Set_Runtime (null);
+                           return (
+                              Status      => Exec_Success,
+                              Gas_Used    => Gas_Used,
+                              Return_Data => Result_Hash
+                           );
+                        else
+                           Ada.Text_IO.Put_Line ("  [SPHINX] Execute: IN-PROCESS FAILED");
+                           Ada.Text_IO.Put_Line ("  [SPHINX]   Exit code: " &
+                              Integer'Image (Exec_Result.Exit_Code));
 
-                  return (
-                     Status      => Exec_Reverted,
-                     Gas_Used    => Exec_Result.Gas_Used,
-                     Return_Data => Hash256_Zero
-                  );
-               end if;
+                           --  Execution failed - revert
+                           Refund_Amount := Gas_Used;
+                           Sphinx_Runtime.Pop_Frame (
+                              Runtime     => RT,
+                              Success     => False,
+                              Return_Data => Byte_Array'(0 .. -1 => 0),
+                              Gas_Refund  => Refund_Amount
+                           );
+                           Sphinx_Runtime.Finalize_Runtime (RT);
+                           Sphinx_Runtime.Set_Runtime (null);
+
+                           return (
+                              Status      => Exec_Reverted,
+                              Gas_Used    => Exec_Result.Gas_Used,
+                              Return_Data => Hash256_Zero
+                           );
+                        end if;
+                     end;
+
+                  when Exec_Mode_Sandboxed =>
+                     --  ==========================================================
+                     --  SANDBOXED EXECUTION (secure, limited syscall support)
+                     --  ==========================================================
+                     --
+                     --  WARNING: Sandboxed mode currently does NOT support syscalls.
+                     --  Contracts using SLOAD/SSTORE/SHA3/ML-DSA/ML-KEM will fail.
+                     --  This mode is for pure computation contracts only until
+                     --  bidirectional IPC for syscall proxying is implemented.
+                     --
+                     Ada.Text_IO.Put_Line ("  [SPHINX]   Mode: SANDBOXED (subprocess)");
+                     Ada.Text_IO.Put_Line ("  [SPHINX]   WARNING: Syscalls not supported in sandbox mode");
+
+                     declare
+                        Sandboxed_Result : Sphinx_ELF_Loader.Secure_Execution_Result;
+                     begin
+                        --  Execute in sandboxed subprocess
+                        Sandboxed_Result := Sphinx_ELF_Loader.Execute_ELF_Sandboxed (
+                           Image     => ELF_Entry.ELF_Image,
+                           Calldata  => Calldata_Copy'Access,
+                           Gas_Limit => Gas_Limit
+                        );
+
+                        if Sandboxed_Result.Success then
+                           Ada.Text_IO.Put_Line ("  [SPHINX] Execute: SANDBOXED SUCCESS");
+                           Ada.Text_IO.Put_Line ("  [SPHINX]   Exit code: " &
+                              Integer'Image (Sandboxed_Result.Exit_Code));
+                           Ada.Text_IO.Put_Line ("  [SPHINX]   Gas used: " &
+                              Gas_Amount'Image (Sandboxed_Result.Gas_Used));
+                           Ada.Text_IO.Put_Line ("  [SPHINX]   Wall time: " &
+                              Natural'Image (Sandboxed_Result.Wall_Time_Ms) & " ms");
+
+                           if Sandboxed_Result.Killed then
+                              Ada.Text_IO.Put_Line ("  [SPHINX]   Note: Process was killed");
+                           end if;
+
+                           Gas_Used := Sandboxed_Result.Gas_Used;
+                           Result_Hash := Sandboxed_Result.Return_Data;
+
+                           --  Success - clean up and return
+                           Refund_Amount := Gas_Limit - Gas_Used;
+                           Sphinx_Runtime.Pop_Frame (
+                              Runtime     => RT,
+                              Success     => True,
+                              Return_Data => Byte_Array'(0 .. -1 => 0),
+                              Gas_Refund  => Refund_Amount
+                           );
+                           Sphinx_Runtime.Finalize_Runtime (RT);
+                           Sphinx_Runtime.Set_Runtime (null);
+
+                           return (
+                              Status      => Exec_Success,
+                              Gas_Used    => Gas_Used,
+                              Return_Data => Result_Hash
+                           );
+                        else
+                           Ada.Text_IO.Put_Line ("  [SPHINX] Execute: SANDBOXED FAILED");
+                           Ada.Text_IO.Put_Line ("  [SPHINX]   Exit code: " &
+                              Integer'Image (Sandboxed_Result.Exit_Code));
+
+                           if Sandboxed_Result.Killed then
+                              Ada.Text_IO.Put_Line ("  [SPHINX]   Process killed - signal: " &
+                                 Integer'Image (Sandboxed_Result.Signal_Number));
+
+                              --  No refund on sandbox termination
+                              Refund_Amount := 0;
+
+                              --  Map sandbox exit codes to execution status
+                              case Sandboxed_Result.Exit_Code is
+                                 when -2 =>  --  Timeout
+                                    Ada.Text_IO.Put_Line ("  [SPHINX]   Reason: TIMEOUT");
+                                    Sphinx_Runtime.Pop_Frame (
+                                       Runtime     => RT,
+                                       Success     => False,
+                                       Return_Data => Byte_Array'(0 .. -1 => 0),
+                                       Gas_Refund  => Refund_Amount
+                                    );
+                                    Sphinx_Runtime.Finalize_Runtime (RT);
+                                    Sphinx_Runtime.Set_Runtime (null);
+                                    return (
+                                       Status      => Exec_Timeout,
+                                       Gas_Used    => Sandboxed_Result.Gas_Used,
+                                       Return_Data => Hash256_Zero
+                                    );
+
+                                 when -3 =>  --  CPU limit
+                                    Ada.Text_IO.Put_Line ("  [SPHINX]   Reason: CPU_LIMIT");
+                                    Sphinx_Runtime.Pop_Frame (
+                                       Runtime     => RT,
+                                       Success     => False,
+                                       Return_Data => Byte_Array'(0 .. -1 => 0),
+                                       Gas_Refund  => Refund_Amount
+                                    );
+                                    Sphinx_Runtime.Finalize_Runtime (RT);
+                                    Sphinx_Runtime.Set_Runtime (null);
+                                    return (
+                                       Status      => Exec_Out_Of_Gas,
+                                       Gas_Used    => Sandboxed_Result.Gas_Used,
+                                       Return_Data => Hash256_Zero
+                                    );
+
+                                 when -4 =>  --  Memory limit
+                                    Ada.Text_IO.Put_Line ("  [SPHINX]   Reason: MEMORY_LIMIT");
+                                    Sphinx_Runtime.Pop_Frame (
+                                       Runtime     => RT,
+                                       Success     => False,
+                                       Return_Data => Byte_Array'(0 .. -1 => 0),
+                                       Gas_Refund  => Refund_Amount
+                                    );
+                                    Sphinx_Runtime.Finalize_Runtime (RT);
+                                    Sphinx_Runtime.Set_Runtime (null);
+                                    return (
+                                       Status      => Exec_Stack_Overflow,
+                                       Gas_Used    => Sandboxed_Result.Gas_Used,
+                                       Return_Data => Hash256_Zero
+                                    );
+
+                                 when -5 =>  --  Crashed
+                                    Ada.Text_IO.Put_Line ("  [SPHINX]   Reason: CRASHED");
+                                    Sphinx_Runtime.Pop_Frame (
+                                       Runtime     => RT,
+                                       Success     => False,
+                                       Return_Data => Byte_Array'(0 .. -1 => 0),
+                                       Gas_Refund  => Refund_Amount
+                                    );
+                                    Sphinx_Runtime.Finalize_Runtime (RT);
+                                    Sphinx_Runtime.Set_Runtime (null);
+                                    return (
+                                       Status      => Exec_Segmentation_Fault,
+                                       Gas_Used    => Sandboxed_Result.Gas_Used,
+                                       Return_Data => Hash256_Zero
+                                    );
+
+                                 when -6 =>  --  Sandbox violation
+                                    Ada.Text_IO.Put_Line ("  [SPHINX]   Reason: SANDBOX_VIOLATION");
+                                    Sphinx_Runtime.Pop_Frame (
+                                       Runtime     => RT,
+                                       Success     => False,
+                                       Return_Data => Byte_Array'(0 .. -1 => 0),
+                                       Gas_Refund  => Refund_Amount
+                                    );
+                                    Sphinx_Runtime.Finalize_Runtime (RT);
+                                    Sphinx_Runtime.Set_Runtime (null);
+                                    return (
+                                       Status      => Exec_Security_Violation,
+                                       Gas_Used    => Sandboxed_Result.Gas_Used,
+                                       Return_Data => Hash256_Zero
+                                    );
+
+                                 when others =>
+                                    null;  --  Fall through to general revert
+                              end case;
+                           end if;
+
+                           --  General failure - revert (no refund)
+                           Refund_Amount := 0;
+                           Sphinx_Runtime.Pop_Frame (
+                              Runtime     => RT,
+                              Success     => False,
+                              Return_Data => Byte_Array'(0 .. -1 => 0),
+                              Gas_Refund  => Refund_Amount
+                           );
+                           Sphinx_Runtime.Finalize_Runtime (RT);
+                           Sphinx_Runtime.Set_Runtime (null);
+
+                           return (
+                              Status      => Exec_Reverted,
+                              Gas_Used    => Sandboxed_Result.Gas_Used,
+                              Return_Data => Hash256_Zero
+                           );
+                        end if;
+                     end;
+               end case;
             end;
          end if;
       end;

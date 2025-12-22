@@ -382,6 +382,44 @@ is
    );
 
    ---------------------------------------------------------------------------
+   --  Execution Mode Configuration
+   ---------------------------------------------------------------------------
+   --
+   --  AnubisVM supports two execution modes for native ELF contracts:
+   --
+   --  1. IN_PROCESS (Exec_Mode_InProcess)
+   --     - Contract executes in the same process as the VM
+   --     - Faster execution (no fork overhead)
+   --     - Syscalls work directly via Sphinx_Runtime
+   --     - Less isolation (crash affects VM process)
+   --     - Use for: trusted contracts, development, testing
+   --
+   --  2. OUT_OF_PROCESS (Exec_Mode_Sandboxed)
+   --     - Contract executes in a forked child process
+   --     - Strong OS-level isolation (Seatbelt/seccomp)
+   --     - Resource limits enforced by kernel
+   --     - Contract crash cannot affect parent VM
+   --     - Use for: production, untrusted contracts
+   --
+   --  NOTE: Sandboxed mode currently does NOT support syscalls (SLOAD/SSTORE/
+   --  SHA3/ML-DSA/ML-KEM). Contracts requiring storage or crypto operations
+   --  must use in-process mode until syscall IPC is implemented.
+
+   type Execution_Mode is (
+      Exec_Mode_InProcess,   --  Direct execution (fast, less isolation)
+      Exec_Mode_Sandboxed    --  Subprocess sandbox (secure, syscalls limited)
+   );
+
+   --  Default execution mode (can be changed at runtime)
+   Default_Execution_Mode : Execution_Mode := Exec_Mode_InProcess;
+
+   --  Set the default execution mode for all contracts
+   procedure Set_Default_Execution_Mode (Mode : Execution_Mode);
+
+   --  Get the current default execution mode
+   function Get_Default_Execution_Mode return Execution_Mode;
+
+   ---------------------------------------------------------------------------
    --  Runtime Configuration (Block Context)
    ---------------------------------------------------------------------------
    --

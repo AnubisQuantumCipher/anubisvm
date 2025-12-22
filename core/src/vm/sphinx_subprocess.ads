@@ -232,6 +232,109 @@ is
    IPC_Magic   : constant Word32 := 16#5051_5047#;  --  "PQPG"
    IPC_Version : constant Word32 := 1;
 
+   ---------------------------------------------------------------------------
+   --  Syscall IPC Protocol
+   ---------------------------------------------------------------------------
+   --
+   --  For out-of-process (sandboxed) execution, syscalls must be proxied
+   --  from the child process to the parent. This is done via bidirectional
+   --  pipes:
+   --
+   --    Child Process                Parent Process
+   --    =============                ==============
+   --    Contract calls VM_SLoad  -->  Receives syscall request
+   --    Blocks waiting...             Executes SLOAD in storage
+   --    Receives response         <--  Sends response data
+   --    Returns to contract           Continues monitoring
+   --
+   --  Syscall Request (Child -> Parent):
+   --    Header: Magic, syscall number, data length
+   --    Data:   Syscall-specific arguments (e.g., storage key for SLOAD)
+   --
+   --  Syscall Response (Parent -> Child):
+   --    Header: Magic, status, data length
+   --    Data:   Syscall result (e.g., storage value for SLOAD)
+
+   --  Syscall numbers (must match aegis_syscall.ads)
+   Syscall_SLoad       : constant Word32 := 16#01#;  --  Storage load
+   Syscall_SStore      : constant Word32 := 16#02#;  --  Storage store
+   Syscall_SHA3        : constant Word32 := 16#10#;  --  SHA3-256 hash
+   Syscall_ML_DSA_Sign : constant Word32 := 16#20#;  --  ML-DSA-87 sign
+   Syscall_ML_DSA_Vrfy : constant Word32 := 16#21#;  --  ML-DSA-87 verify
+   Syscall_ML_KEM_Enc  : constant Word32 := 16#30#;  --  ML-KEM-1024 encapsulate
+   Syscall_ML_KEM_Dec  : constant Word32 := 16#31#;  --  ML-KEM-1024 decapsulate
+   Syscall_Log         : constant Word32 := 16#40#;  --  Emit event log
+   Syscall_Revert      : constant Word32 := 16#FF#;  --  Revert execution
+
+   --  Maximum syscall data size
+   Max_Syscall_Data : constant := 8 * 1024;  --  8 KB max per syscall
+
+   --  Syscall request header (Child -> Parent)
+   type Syscall_Request_Header is record
+      Magic        : Word32;      --  0x53595343 "SYSC" for validation
+      Syscall_Num  : Word32;      --  Syscall number
+      Data_Length  : Word32;      --  Length of following data
+      Gas_Budget   : Word64;      --  Gas available for this syscall
+   end record with
+      Convention => C;
+
+   Syscall_Request_Magic : constant Word32 := 16#5359_5343#;  --  "SYSC"
+
+   --  Syscall response status
+   type Syscall_Status is (
+      Syscall_OK,              --  Success
+      Syscall_Error,           --  General error
+      Syscall_Out_Of_Gas,      --  Not enough gas
+      Syscall_Invalid_Args,    --  Bad arguments
+      Syscall_Not_Found,       --  Key not found (SLOAD)
+      Syscall_Denied           --  Operation denied by sandbox
+   );
+   for Syscall_Status use (
+      Syscall_OK           => 0,
+      Syscall_Error        => 1,
+      Syscall_Out_Of_Gas   => 2,
+      Syscall_Invalid_Args => 3,
+      Syscall_Not_Found    => 4,
+      Syscall_Denied       => 5
+   );
+
+   --  Syscall response header (Parent -> Child)
+   type Syscall_Response_Header is record
+      Magic        : Word32;      --  0x52455350 "RESP" for validation
+      Status       : Word32;      --  Syscall_Status as Word32
+      Data_Length  : Word32;      --  Length of following data
+      Gas_Used     : Word64;      --  Gas consumed by this syscall
+   end record with
+      Convention => C;
+
+   Syscall_Response_Magic : constant Word32 := 16#5245_5350#;  --  "RESP"
+
+   ---------------------------------------------------------------------------
+   --  Syscall-Enabled Subprocess Execution
+   ---------------------------------------------------------------------------
+
+   --  Execute contract with syscall proxying support
+   --
+   --  This is the recommended function for production use. It:
+   --  1. Creates bidirectional pipes for syscall IPC
+   --  2. Forks child with sandbox and resource limits
+   --  3. Child sets up syscall handlers to use IPC
+   --  4. Parent handles syscall requests in event loop
+   --  5. Returns final result when child exits
+   --
+   --  NOTE: This function is more complex than Execute_Sandboxed but
+   --  supports contracts that use storage, crypto, and logging syscalls.
+   --
+   function Execute_With_Syscalls (
+      Entry_Point   : System.Address;
+      Calldata      : access constant Byte_Array;
+      Gas_Limit     : Gas_Amount;
+      Timeout_Ms    : Natural;
+      Sandbox       : Sandbox_Level;
+      Limits        : Resource_Limits
+   ) return Subprocess_Result with
+      Global => null;
+
 private
 
    ---------------------------------------------------------------------------

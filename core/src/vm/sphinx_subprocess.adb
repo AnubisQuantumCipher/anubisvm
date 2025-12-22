@@ -93,7 +93,7 @@ package body Sphinx_Subprocess is
    end record with Convention => C;
 
    function C_poll (
-      Fds     : access Pollfd;
+      Fds     : System.Address;
       Nfds    : Interfaces.C.unsigned_long;
       Timeout : Interfaces.C.int
    ) return Interfaces.C.int
@@ -595,7 +595,7 @@ package body Sphinx_Subprocess is
 
          --  Child still running, poll for 100ms
          Pfd := (Fd => Read_Fd, Events => POLLIN, Revents => 0);
-         Poll_Res := C_poll (Pfd'Access, 1, 100);
+         Poll_Res := C_poll (Pfd'Address, 1, 100);
 
          if Poll_Res > 0 and then
             (Unsigned_16 (Pfd.Revents) and Unsigned_16 (POLLIN)) /= 0
@@ -776,5 +776,699 @@ package body Sphinx_Subprocess is
       end loop;
       return Profile;
    end Get_Contract_Seatbelt_Profile;
+
+   ---------------------------------------------------------------------------
+   --  Syscall IPC Global State (for child process)
+   ---------------------------------------------------------------------------
+   --
+   --  These globals are used by the child process to communicate syscalls
+   --  to the parent. They are set after fork() in the child.
+
+   Syscall_Request_Fd  : Interfaces.C.int := -1;
+   Syscall_Response_Fd : Interfaces.C.int := -1;
+
+   ---------------------------------------------------------------------------
+   --  Send Syscall Request (Child -> Parent)
+   ---------------------------------------------------------------------------
+
+   procedure Send_Syscall_Request (
+      Syscall_Num : Word32;
+      Data        : Byte_Array;
+      Gas_Budget  : Gas_Amount;
+      Response    : out Byte_Array;
+      Resp_Len    : out Natural;
+      Status      : out Syscall_Status;
+      Gas_Used    : out Gas_Amount
+   )
+   is
+      Request_Header : aliased Syscall_Request_Header;
+      Response_Header : aliased Syscall_Response_Header;
+      Written : Interfaces.C.long;
+      Bytes_Read : Interfaces.C.long;
+   begin
+      --  Initialize outputs
+      Resp_Len := 0;
+      Status := Syscall_Error;
+      Gas_Used := 0;
+      Response := (others => 0);
+
+      --  Check if syscall IPC is available
+      if Syscall_Request_Fd < 0 or Syscall_Response_Fd < 0 then
+         Ada.Text_IO.Put_Line ("  [Syscall] ERROR: IPC not initialized");
+         return;
+      end if;
+
+      --  Build request header
+      Request_Header := (
+         Magic       => Syscall_Request_Magic,
+         Syscall_Num => Syscall_Num,
+         Data_Length => Word32 (Data'Length),
+         Gas_Budget  => Word64 (Gas_Budget)
+      );
+
+      --  Send request header
+      Written := C_write (Syscall_Request_Fd, Request_Header'Address,
+         Interfaces.C.size_t (Request_Header'Size / 8));
+
+      if Written /= Interfaces.C.long (Request_Header'Size / 8) then
+         Ada.Text_IO.Put_Line ("  [Syscall] ERROR: Failed to write request header");
+         return;
+      end if;
+
+      --  Send request data
+      if Data'Length > 0 then
+         Written := C_write (Syscall_Request_Fd, Data (Data'First)'Address,
+            Interfaces.C.size_t (Data'Length));
+         if Written /= Interfaces.C.long (Data'Length) then
+            Ada.Text_IO.Put_Line ("  [Syscall] ERROR: Failed to write request data");
+            return;
+         end if;
+      end if;
+
+      --  Wait for response header
+      Bytes_Read := C_read (Syscall_Response_Fd, Response_Header'Address,
+         Interfaces.C.size_t (Response_Header'Size / 8));
+
+      if Bytes_Read /= Interfaces.C.long (Response_Header'Size / 8) then
+         Ada.Text_IO.Put_Line ("  [Syscall] ERROR: Failed to read response header");
+         return;
+      end if;
+
+      --  Validate response
+      if Response_Header.Magic /= Syscall_Response_Magic then
+         Ada.Text_IO.Put_Line ("  [Syscall] ERROR: Invalid response magic");
+         return;
+      end if;
+
+      --  Extract status and gas
+      Status := Syscall_Status'Val (Integer (Response_Header.Status));
+      Gas_Used := Gas_Amount (Response_Header.Gas_Used);
+
+      --  Read response data
+      if Response_Header.Data_Length > 0 then
+         declare
+            Data_Len : constant Natural := Natural (Response_Header.Data_Length);
+         begin
+            if Data_Len <= Response'Length then
+               Bytes_Read := C_read (Syscall_Response_Fd, Response (Response'First)'Address,
+                  Interfaces.C.size_t (Data_Len));
+               if Bytes_Read = Interfaces.C.long (Data_Len) then
+                  Resp_Len := Data_Len;
+               end if;
+            else
+               Ada.Text_IO.Put_Line ("  [Syscall] ERROR: Response too large");
+            end if;
+         end;
+      end if;
+   end Send_Syscall_Request;
+
+   ---------------------------------------------------------------------------
+   --  Execute Contract with Syscall Support in Child
+   ---------------------------------------------------------------------------
+
+   procedure Execute_With_Syscalls_Child (
+      Entry_Point   : System.Address;
+      Calldata      : access constant Byte_Array;
+      Gas_Limit     : Gas_Amount;
+      Result_Fd     : Interfaces.C.int;
+      Request_Fd    : Interfaces.C.int;
+      Response_Fd   : Interfaces.C.int;
+      Sandbox       : Sandbox_Level;
+      Limits        : Resource_Limits
+   )
+   is
+      --  Contract entry function type
+      type Entry_Function is access function (
+         Calldata_Ptr : System.Address;
+         Calldata_Len : Interfaces.C.size_t;
+         Return_Ptr   : System.Address;
+         Return_Len   : access Interfaces.C.size_t;
+         Gas_Limit_In : Unsigned_64;
+         Gas_Used_Out : access Unsigned_64
+      ) return Interfaces.C.int
+      with Convention => C;
+
+      function To_Entry_Fn is new Ada.Unchecked_Conversion (
+         System.Address, Entry_Function);
+
+      Entry_Fn      : constant Entry_Function := To_Entry_Fn (Entry_Point);
+      Return_Buf    : aliased Byte_Array (0 .. Max_Return_Data - 1) := (others => 0);
+      Return_Len    : aliased Interfaces.C.size_t := 0;
+      Gas_Used_Val  : aliased Unsigned_64 := 0;
+      Exit_Code     : Interfaces.C.int;
+
+      --  IPC result
+      Header : aliased IPC_Header;
+      Written : Interfaces.C.long;
+      Res : Interfaces.C.int;
+      pragma Unreferenced (Written, Res);
+   begin
+      Ada.Text_IO.Put_Line ("  [Child] Starting syscall-enabled execution...");
+
+      --  Set up global syscall IPC file descriptors
+      Syscall_Request_Fd := Request_Fd;
+      Syscall_Response_Fd := Response_Fd;
+
+      --  Step 1: Apply resource limits
+      Apply_Resource_Limits (Limits);
+
+      --  Step 2: Apply sandbox (if requested)
+      case Sandbox is
+         when Sandbox_None =>
+            Ada.Text_IO.Put_Line ("  [Child] WARNING: No sandbox active!");
+         when Sandbox_Rlimit =>
+            Ada.Text_IO.Put_Line ("  [Child] Resource limits only");
+         when Sandbox_Seatbelt =>
+            if not Apply_Seatbelt_Sandbox then
+               Ada.Text_IO.Put_Line ("  [Child] Seatbelt failed, aborting");
+               Header := (
+                  Magic       => IPC_Magic,
+                  Version     => IPC_Version,
+                  Exit_Code   => -100,
+                  Gas_Used    => 0,
+                  Return_Len  => 0,
+                  Checksum    => 0
+               );
+               Written := C_write (Result_Fd, Header'Address,
+                  Interfaces.C.size_t (Header'Size / 8));
+               C_exit (Interfaces.C.int (1));
+               return;
+            end if;
+         when Sandbox_Seccomp =>
+            Ada.Text_IO.Put_Line ("  [Child] Seccomp not yet implemented");
+      end case;
+
+      --  Step 3: Execute contract
+      --  NOTE: The contract's syscall handlers should use Send_Syscall_Request
+      --  to proxy syscalls to the parent. This requires the contract runtime
+      --  to be aware of the subprocess execution mode.
+      Ada.Text_IO.Put_Line ("  [Child] Calling entry point (syscall IPC enabled)...");
+
+      Exit_Code := Entry_Fn (
+         Calldata_Ptr => (if Calldata'Length > 0 then
+                           Calldata (Calldata'First)'Address
+                        else System.Null_Address),
+         Calldata_Len => Interfaces.C.size_t (Calldata'Length),
+         Return_Ptr   => Return_Buf (Return_Buf'First)'Address,
+         Return_Len   => Return_Len'Access,
+         Gas_Limit_In => Unsigned_64 (Gas_Limit),
+         Gas_Used_Out => Gas_Used_Val'Access
+      );
+
+      Ada.Text_IO.Put_Line ("  [Child] Contract returned: " &
+         Interfaces.C.int'Image (Exit_Code));
+      Ada.Text_IO.Put_Line ("  [Child] Gas used: " &
+         Unsigned_64'Image (Gas_Used_Val));
+
+      --  Step 4: Write result to IPC pipe
+      Header := (
+         Magic       => IPC_Magic,
+         Version     => IPC_Version,
+         Exit_Code   => Integer (Exit_Code),
+         Gas_Used    => Gas_Used_Val,
+         Return_Len  => Word32 (Return_Len),
+         Checksum    => 0
+      );
+
+      Written := C_write (Result_Fd, Header'Address,
+         Interfaces.C.size_t (Header'Size / 8));
+
+      if Return_Len > 0 then
+         Written := C_write (Result_Fd, Return_Buf (Return_Buf'First)'Address,
+            Return_Len);
+      end if;
+
+      --  Close pipes and exit
+      Res := C_close (Result_Fd);
+      Res := C_close (Request_Fd);
+      Res := C_close (Response_Fd);
+      Ada.Text_IO.Put_Line ("  [Child] Exiting normally");
+      C_exit (Exit_Code);
+
+   exception
+      when others =>
+         Ada.Text_IO.Put_Line ("  [Child] EXCEPTION during execution");
+         Header := (
+            Magic       => IPC_Magic,
+            Version     => IPC_Version,
+            Exit_Code   => -99,
+            Gas_Used    => Unsigned_64 (Gas_Limit),
+            Return_Len  => 0,
+            Checksum    => 0
+         );
+         Written := C_write (Result_Fd, Header'Address,
+            Interfaces.C.size_t (Header'Size / 8));
+         Res := C_close (Result_Fd);
+         Res := C_close (Request_Fd);
+         Res := C_close (Response_Fd);
+         C_exit (Interfaces.C.int (99));
+   end Execute_With_Syscalls_Child;
+
+   ---------------------------------------------------------------------------
+   --  Handle Syscall Request (Parent Process)
+   ---------------------------------------------------------------------------
+
+   procedure Handle_Syscall_Request (
+      Request_Fd  : Interfaces.C.int;
+      Response_Fd : Interfaces.C.int;
+      Total_Gas   : in out Gas_Amount;
+      Success     : out Boolean
+   )
+   is
+      Request_Header : aliased Syscall_Request_Header;
+      Response_Header : aliased Syscall_Response_Header;
+      Request_Data : Byte_Array (0 .. Max_Syscall_Data - 1) := (others => 0);
+      Response_Data : Byte_Array (0 .. Max_Syscall_Data - 1) := (others => 0);
+      Bytes_Read : Interfaces.C.long;
+      Written : Interfaces.C.long;
+      Syscall_Gas : Gas_Amount := 0;
+      pragma Unreferenced (Written);
+   begin
+      Success := False;
+
+      --  Read request header
+      Bytes_Read := C_read (Request_Fd, Request_Header'Address,
+         Interfaces.C.size_t (Request_Header'Size / 8));
+
+      if Bytes_Read /= Interfaces.C.long (Request_Header'Size / 8) then
+         Ada.Text_IO.Put_Line ("  [Parent] Failed to read syscall request header");
+         return;
+      end if;
+
+      --  Validate magic
+      if Request_Header.Magic /= Syscall_Request_Magic then
+         Ada.Text_IO.Put_Line ("  [Parent] Invalid syscall request magic");
+         return;
+      end if;
+
+      Ada.Text_IO.Put_Line ("  [Parent] Syscall request: " &
+         Word32'Image (Request_Header.Syscall_Num));
+
+      --  Read request data
+      if Request_Header.Data_Length > 0 and
+         Natural (Request_Header.Data_Length) <= Max_Syscall_Data
+      then
+         Bytes_Read := C_read (Request_Fd, Request_Data (Request_Data'First)'Address,
+            Interfaces.C.size_t (Request_Header.Data_Length));
+         if Bytes_Read /= Interfaces.C.long (Request_Header.Data_Length) then
+            Ada.Text_IO.Put_Line ("  [Parent] Failed to read syscall request data");
+            return;
+         end if;
+      end if;
+
+      --  Process syscall
+      --  NOTE: This is where we would dispatch to the actual syscall handlers
+      --  (Aegis_Syscall, storage, crypto, etc.) and get the result.
+      --  For now, we return a "not implemented" response.
+
+      declare
+         Resp_Status : Syscall_Status := Syscall_OK;
+         Resp_Len : Word32 := 0;
+      begin
+         case Request_Header.Syscall_Num is
+            when Syscall_SLoad =>
+               --  TODO: Call actual storage load
+               Ada.Text_IO.Put_Line ("  [Parent] SLOAD syscall - returning zeros");
+               Syscall_Gas := 200;  --  Base SLOAD cost
+               Resp_Len := 32;  --  32-byte value
+               Response_Data (0 .. 31) := (others => 0);
+
+            when Syscall_SStore =>
+               --  TODO: Call actual storage store
+               Ada.Text_IO.Put_Line ("  [Parent] SSTORE syscall - storing");
+               Syscall_Gas := 20000;  --  Base SSTORE cost
+               Resp_Len := 0;
+
+            when Syscall_SHA3 =>
+               --  TODO: Call actual SHA3 hash
+               Ada.Text_IO.Put_Line ("  [Parent] SHA3 syscall");
+               Syscall_Gas := 30 + Gas_Amount (Request_Header.Data_Length) * 6;
+               Resp_Len := 32;  --  32-byte hash
+               --  Compute hash using Anubis_SHA3
+               declare
+                  use Anubis_Types;
+                  use Anubis_SHA3;
+                  Input : Anubis_Types.Byte_Array (0 .. Natural (Request_Header.Data_Length) - 1);
+                  Digest : SHA3_256_Digest;
+               begin
+                  for I in Input'Range loop
+                     Input (I) := Anubis_Types.Byte (Request_Data (I));
+                  end loop;
+                  SHA3_256 (Input, Digest);
+                  for I in 0 .. 31 loop
+                     Response_Data (I) := Aegis_VM_Types.Byte (Digest (I));
+                  end loop;
+               end;
+
+            when Syscall_Log =>
+               --  TODO: Log event
+               Ada.Text_IO.Put_Line ("  [Parent] LOG syscall");
+               Syscall_Gas := 375 + Gas_Amount (Request_Header.Data_Length) * 8;
+               Resp_Len := 0;
+
+            when Syscall_Revert =>
+               --  Contract is reverting
+               Ada.Text_IO.Put_Line ("  [Parent] REVERT syscall");
+               Resp_Status := Syscall_Error;
+               Resp_Len := 0;
+
+            when others =>
+               Ada.Text_IO.Put_Line ("  [Parent] Unknown syscall: " &
+                  Word32'Image (Request_Header.Syscall_Num));
+               Resp_Status := Syscall_Denied;
+               Syscall_Gas := 0;
+               Resp_Len := 0;
+         end case;
+
+         --  Charge gas
+         Total_Gas := Total_Gas + Syscall_Gas;
+
+         --  Build response
+         Response_Header := (
+            Magic       => Syscall_Response_Magic,
+            Status      => Word32 (Syscall_Status'Pos (Resp_Status)),
+            Data_Length => Resp_Len,
+            Gas_Used    => Word64 (Syscall_Gas)
+         );
+
+         --  Send response header
+         Written := C_write (Response_Fd, Response_Header'Address,
+            Interfaces.C.size_t (Response_Header'Size / 8));
+
+         --  Send response data
+         if Resp_Len > 0 then
+            Written := C_write (Response_Fd, Response_Data (Response_Data'First)'Address,
+               Interfaces.C.size_t (Resp_Len));
+         end if;
+
+         Success := True;
+      end;
+   end Handle_Syscall_Request;
+
+   ---------------------------------------------------------------------------
+   --  Execute with Syscall Support (Main Entry Point)
+   ---------------------------------------------------------------------------
+
+   function Execute_With_Syscalls (
+      Entry_Point   : System.Address;
+      Calldata      : access constant Byte_Array;
+      Gas_Limit     : Gas_Amount;
+      Timeout_Ms    : Natural;
+      Sandbox       : Sandbox_Level;
+      Limits        : Resource_Limits
+   ) return Subprocess_Result
+   is
+      Result : Subprocess_Result := Failed_Result;
+
+      --  Result pipe: child -> parent (for final execution result)
+      Result_Pipe : aliased array (0 .. 1) of Interfaces.C.int := (others => -1);
+
+      --  Syscall request pipe: child -> parent (for syscall requests)
+      Request_Pipe : aliased array (0 .. 1) of Interfaces.C.int := (others => -1);
+
+      --  Syscall response pipe: parent -> child (for syscall responses)
+      Response_Pipe : aliased array (0 .. 1) of Interfaces.C.int := (others => -1);
+
+      --  Process tracking
+      Child_Pid : Interfaces.C.int;
+      Wait_Status : aliased Interfaces.C.int := 0;
+      Wait_Result : Interfaces.C.int;
+
+      --  Timing
+      Start_Time   : aliased Timespec;
+      Current_Time : aliased Timespec;
+      Elapsed_Ms   : Natural;
+      Clock_Res    : Interfaces.C.int;
+      pragma Unreferenced (Clock_Res);
+
+      --  Poll for syscall requests
+      Pfds : aliased array (0 .. 1) of Pollfd;
+      Poll_Res : Interfaces.C.int;
+
+      --  IPC data
+      Header : aliased IPC_Header;
+      Bytes_Read : Interfaces.C.long;
+      Return_Buf : aliased Byte_Array (0 .. Max_Return_Data - 1) := (others => 0);
+
+      --  Syscall tracking
+      Total_Syscall_Gas : Gas_Amount := 0;
+      Syscall_OK : Boolean;
+
+      Res : Interfaces.C.int;
+      pragma Unreferenced (Res);
+   begin
+      Ada.Text_IO.Put_Line ("  [Subprocess] Starting syscall-enabled execution...");
+      Ada.Text_IO.Put_Line ("  [Subprocess]   Gas limit: " & Gas_Amount'Image (Gas_Limit));
+      Ada.Text_IO.Put_Line ("  [Subprocess]   Timeout: " & Natural'Image (Timeout_Ms) & " ms");
+      Ada.Text_IO.Put_Line ("  [Subprocess]   Syscall IPC: ENABLED");
+
+      --  Record start time
+      Clock_Res := C_clock_gettime (CLOCK_MONOTONIC, Start_Time'Access);
+
+      --  Create pipes
+      if C_pipe (Result_Pipe (0)'Address) /= 0 then
+         Ada.Text_IO.Put_Line ("  [Subprocess] ERROR: result pipe() failed");
+         Result.Reason := Exit_IPC_Error;
+         return Result;
+      end if;
+
+      if C_pipe (Request_Pipe (0)'Address) /= 0 then
+         Ada.Text_IO.Put_Line ("  [Subprocess] ERROR: request pipe() failed");
+         Res := C_close (Result_Pipe (0));
+         Res := C_close (Result_Pipe (1));
+         Result.Reason := Exit_IPC_Error;
+         return Result;
+      end if;
+
+      if C_pipe (Response_Pipe (0)'Address) /= 0 then
+         Ada.Text_IO.Put_Line ("  [Subprocess] ERROR: response pipe() failed");
+         Res := C_close (Result_Pipe (0));
+         Res := C_close (Result_Pipe (1));
+         Res := C_close (Request_Pipe (0));
+         Res := C_close (Request_Pipe (1));
+         Result.Reason := Exit_IPC_Error;
+         return Result;
+      end if;
+
+      Ada.Text_IO.Put_Line ("  [Subprocess] Pipes created:");
+      Ada.Text_IO.Put_Line ("    Result:   read=" &
+         Interfaces.C.int'Image (Result_Pipe (0)) & " write=" &
+         Interfaces.C.int'Image (Result_Pipe (1)));
+      Ada.Text_IO.Put_Line ("    Request:  read=" &
+         Interfaces.C.int'Image (Request_Pipe (0)) & " write=" &
+         Interfaces.C.int'Image (Request_Pipe (1)));
+      Ada.Text_IO.Put_Line ("    Response: read=" &
+         Interfaces.C.int'Image (Response_Pipe (0)) & " write=" &
+         Interfaces.C.int'Image (Response_Pipe (1)));
+
+      --  Fork child process
+      Child_Pid := C_fork;
+
+      if Child_Pid < 0 then
+         --  Fork failed
+         Ada.Text_IO.Put_Line ("  [Subprocess] ERROR: fork() failed");
+         Res := C_close (Result_Pipe (0));
+         Res := C_close (Result_Pipe (1));
+         Res := C_close (Request_Pipe (0));
+         Res := C_close (Request_Pipe (1));
+         Res := C_close (Response_Pipe (0));
+         Res := C_close (Response_Pipe (1));
+         Result.Reason := Exit_Fork_Failed;
+         return Result;
+
+      elsif Child_Pid = 0 then
+         --  ========== CHILD PROCESS ==========
+         --  Close parent ends of pipes
+         Res := C_close (Result_Pipe (0));    --  Parent reads result
+         Res := C_close (Request_Pipe (0));   --  Parent reads requests
+         Res := C_close (Response_Pipe (1));  --  Parent writes responses
+
+         --  Execute contract in sandbox with syscall IPC
+         Execute_With_Syscalls_Child (
+            Entry_Point   => Entry_Point,
+            Calldata      => Calldata,
+            Gas_Limit     => Gas_Limit,
+            Result_Fd     => Result_Pipe (1),
+            Request_Fd    => Request_Pipe (1),
+            Response_Fd   => Response_Pipe (0),
+            Sandbox       => Sandbox,
+            Limits        => Limits
+         );
+
+         --  Should never reach here
+         C_exit (Interfaces.C.int (127));
+         return Result;
+      end if;
+
+      --  ========== PARENT PROCESS ==========
+      Ada.Text_IO.Put_Line ("  [Subprocess] Forked child PID: " &
+         Interfaces.C.int'Image (Child_Pid));
+
+      --  Close child ends of pipes
+      Res := C_close (Result_Pipe (1));    --  Child writes result
+      Res := C_close (Request_Pipe (1));   --  Child writes requests
+      Res := C_close (Response_Pipe (0));  --  Child reads responses
+
+      --  Event loop: handle syscall requests and monitor child
+      loop
+         --  Check elapsed time
+         Clock_Res := C_clock_gettime (CLOCK_MONOTONIC, Current_Time'Access);
+         Elapsed_Ms := Natural (
+            (Current_Time.Tv_Sec - Start_Time.Tv_Sec) * 1000 +
+            (Current_Time.Tv_Nsec - Start_Time.Tv_Nsec) / 1_000_000);
+
+         if Elapsed_Ms >= Timeout_Ms then
+            --  Timeout! Kill the child
+            Ada.Text_IO.Put_Line ("  [Subprocess] TIMEOUT after " &
+               Natural'Image (Elapsed_Ms) & " ms");
+            Res := C_kill (Child_Pid, SIGKILL);
+            Wait_Result := C_waitpid (Child_Pid, Wait_Status'Access, 0);
+            --  Wait_Result intentionally ignored here
+
+            Result.Reason := Exit_Timeout;
+            Result.Gas_Used := Gas_Limit;
+            Result.Wall_Time_Ms := Elapsed_Ms;
+            Result.Success := False;
+
+            Res := C_close (Result_Pipe (0));
+            Res := C_close (Request_Pipe (0));
+            Res := C_close (Response_Pipe (1));
+            return Result;
+         end if;
+
+         --  Check if child is done (non-blocking)
+         Wait_Result := C_waitpid (Child_Pid, Wait_Status'Access, WNOHANG);
+
+         if Wait_Result > 0 then
+            --  Child exited
+            Ada.Text_IO.Put_Line ("  [Subprocess] Child exited, status: " &
+               Interfaces.C.int'Image (Wait_Status));
+            exit;
+         elsif Wait_Result < 0 then
+            --  Error in waitpid
+            Ada.Text_IO.Put_Line ("  [Subprocess] ERROR in waitpid");
+            Result.Reason := Exit_Unknown;
+            Result.Gas_Used := Gas_Limit;
+            Res := C_close (Result_Pipe (0));
+            Res := C_close (Request_Pipe (0));
+            Res := C_close (Response_Pipe (1));
+            return Result;
+         end if;
+
+         --  Poll for syscall requests and result (100ms timeout)
+         Pfds (0) := (Fd => Result_Pipe (0), Events => POLLIN, Revents => 0);
+         Pfds (1) := (Fd => Request_Pipe (0), Events => POLLIN, Revents => 0);
+         Poll_Res := C_poll (Pfds (0)'Address, 2, 100);
+
+         if Poll_Res > 0 then
+            --  Check for syscall request
+            if (Unsigned_16 (Pfds (1).Revents) and Unsigned_16 (POLLIN)) /= 0 then
+               Ada.Text_IO.Put_Line ("  [Subprocess] Handling syscall request...");
+               Handle_Syscall_Request (
+                  Request_Fd  => Request_Pipe (0),
+                  Response_Fd => Response_Pipe (1),
+                  Total_Gas   => Total_Syscall_Gas,
+                  Success     => Syscall_OK
+               );
+               if not Syscall_OK then
+                  Ada.Text_IO.Put_Line ("  [Subprocess] Syscall handling failed");
+               end if;
+            end if;
+
+            --  Result pipe data will be read after loop
+         end if;
+      end loop;
+
+      --  Decode exit status
+      declare
+         Exit_Reason : Sphinx_Subprocess.Exit_Reason;
+         Exit_Code   : Integer;
+         Signal_Num  : Integer;
+      begin
+         Decode_Wait_Status (Wait_Status, Exit_Reason, Exit_Code, Signal_Num);
+         Result.Reason := Exit_Reason;
+         Result.Exit_Code := Exit_Code;
+         Result.Signal_Number := Signal_Num;
+      end;
+
+      --  Read final result from IPC pipe
+      Bytes_Read := C_read (Result_Pipe (0), Header'Address,
+         Interfaces.C.size_t (Header'Size / 8));
+
+      if Bytes_Read = Interfaces.C.long (Header'Size / 8) then
+         if Header.Magic = IPC_Magic and Header.Version = IPC_Version then
+            Ada.Text_IO.Put_Line ("  [Subprocess] IPC header valid");
+            Ada.Text_IO.Put_Line ("  [Subprocess]   Contract gas: " &
+               Word64'Image (Header.Gas_Used));
+            Ada.Text_IO.Put_Line ("  [Subprocess]   Syscall gas: " &
+               Gas_Amount'Image (Total_Syscall_Gas));
+
+            --  Total gas = contract gas + syscall gas
+            Result.Gas_Used := Gas_Amount (Header.Gas_Used) + Total_Syscall_Gas;
+            Result.Return_Length := Natural (Header.Return_Len);
+
+            --  Read return data if any
+            if Header.Return_Len > 0 and
+               Natural (Header.Return_Len) <= Max_Return_Data
+            then
+               Bytes_Read := C_read (Result_Pipe (0), Return_Buf (Return_Buf'First)'Address,
+                  Interfaces.C.size_t (Header.Return_Len));
+
+               if Bytes_Read = Interfaces.C.long (Header.Return_Len) then
+                  declare
+                     use Anubis_Types;
+                     use Anubis_SHA3;
+                     Data : Anubis_Types.Byte_Array (0 .. Natural (Header.Return_Len) - 1);
+                     Digest : SHA3_256_Digest;
+                  begin
+                     for I in 0 .. Natural (Header.Return_Len) - 1 loop
+                        Data (I) := Anubis_Types.Byte (Return_Buf (I));
+                     end loop;
+                     SHA3_256 (Data, Digest);
+                     for I in 0 .. 31 loop
+                        Result.Return_Data (I) := Aegis_VM_Types.Byte (Digest (I));
+                     end loop;
+                  end;
+               end if;
+            end if;
+
+            if Result.Reason = Exit_Success or
+               (Result.Reason = Exit_Failure and Header.Exit_Code = 0)
+            then
+               Result.Success := True;
+               Result.Reason := Exit_Success;
+            else
+               Result.Success := False;
+            end if;
+         else
+            Ada.Text_IO.Put_Line ("  [Subprocess] IPC header invalid!");
+            Result.Reason := Exit_IPC_Error;
+            Result.Gas_Used := Gas_Limit;
+         end if;
+      else
+         Ada.Text_IO.Put_Line ("  [Subprocess] Failed to read IPC header");
+         Result.Gas_Used := Gas_Limit;
+      end if;
+
+      --  Calculate wall time
+      Clock_Res := C_clock_gettime (CLOCK_MONOTONIC, Current_Time'Access);
+      Result.Wall_Time_Ms := Natural (
+         (Current_Time.Tv_Sec - Start_Time.Tv_Sec) * 1000 +
+         (Current_Time.Tv_Nsec - Start_Time.Tv_Nsec) / 1_000_000);
+
+      --  Close pipes
+      Res := C_close (Result_Pipe (0));
+      Res := C_close (Request_Pipe (0));
+      Res := C_close (Response_Pipe (1));
+
+      Ada.Text_IO.Put_Line ("  [Subprocess] Syscall-enabled execution complete");
+      Ada.Text_IO.Put_Line ("  [Subprocess]   Wall time: " &
+         Natural'Image (Result.Wall_Time_Ms) & " ms");
+      Ada.Text_IO.Put_Line ("  [Subprocess]   Total gas: " &
+         Gas_Amount'Image (Result.Gas_Used));
+      Ada.Text_IO.Put_Line ("  [Subprocess]   Success: " & Boolean'Image (Result.Success));
+
+      return Result;
+   end Execute_With_Syscalls;
 
 end Sphinx_Subprocess;

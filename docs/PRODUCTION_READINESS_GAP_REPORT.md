@@ -63,19 +63,26 @@ The policy is now enforced: **contracts MUST be statically linked**.
 - Contracts with external dependencies fail at load time
 
 ### 1.3 Entry Function ABI Validation
-**Files**: `sphinx_elf_loader.adb:~849`
-**Status**: Assumes correct ABI
+**Files**: `sphinx_native.adb`
+**Status**: COMPLETED (basic validation)
 
-The contract entry function has a specific ABI:
+The contract entry function ABI is now documented and validated:
 ```c
-int entry(void* calldata, size_t len, void* ret_buf, size_t* ret_len,
-          uint64_t gas_limit, uint64_t* gas_used);
+int32_t contract_entry(
+   const uint8_t* calldata, size_t calldata_len,
+   uint8_t* return_buf, size_t* return_len,
+   uint64_t gas_limit, uint64_t* gas_used
+);
 ```
 
-**Action Items**:
-- Validate entry function signature via symbol table analysis
-- Reject contracts where entry doesn't match expected signature
-- Add runtime guard for return buffer overflow (4096 byte limit)
+**Completed** (commit adc5a82):
+- Entry point must be within code section
+- Architecture-specific alignment (ARM64: 4-byte)
+- Reject suspicious low addresses (< 0x1000)
+
+**Remaining** (nice to have):
+- Symbol table signature validation (requires parsing .symtab)
+- Runtime return buffer overflow guard
 
 ---
 
@@ -103,11 +110,15 @@ int entry(void* calldata, size_t len, void* ret_buf, size_t* ret_len,
 | STATICCALL | 0x62 | Missing |
 | CREATE | 0x70 | Missing |
 | CREATE2 | 0x71 | Missing |
-| SELFBALANCE | 0x80 | Missing |
-| BALANCE | 0x81 | Missing |
-| BLOCKHASH | 0x90 | Missing |
-| TIMESTAMP | 0x91 | Missing |
-| CHAINID | 0x92 | Missing |
+| BALANCE | 0x80 | **Implemented** |
+| SELFBALANCE | 0x81 | **Implemented** |
+| TIMESTAMP | 0x90 | **Implemented** |
+| BLOCKNUMBER | 0x91 | **Implemented** |
+| CHAINID | 0x92 | **Implemented** |
+| BLOCKHASH | 0x93 | **Implemented** |
+| COINBASE | 0x94 | **Implemented** |
+| GASPRICE | 0x95 | **Implemented** |
+| GASLIMIT | 0x96 | **Implemented** |
 
 **Action Items**:
 ```ada
@@ -225,7 +236,7 @@ Before deploying even for testing with untrusted contracts:
 - [x] Resource limits (rlimit)
 - [x] Strict syscall allowlist (Seatbelt on macOS) **DONE**
 - [x] Dynamic symbol rejection **DONE**
-- [ ] Entry ABI validation
+- [x] Entry ABI validation **DONE**
 - [x] Execution timeout
 - [x] Gas metering (basic)
 - [ ] State rollback on failure

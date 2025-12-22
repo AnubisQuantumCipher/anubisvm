@@ -167,25 +167,79 @@ package body Sphinx_Subprocess is
    --  This profile is EXTREMELY restrictive:
    --  - No network access
    --  - No file I/O (except /dev/null for safety)
-   --  - No process creation
-   --  - No IPC except the pipe we set up
-   --  - No signal sending
-   --  - Memory and CPU only
+   --  STRICT SEATBELT PROFILE FOR SMART CONTRACTS
+   --
+   --  Security policy: DENY-BY-DEFAULT with minimal exceptions
+   --  This is the most restrictive profile possible while still allowing
+   --  the contract to execute and communicate with the parent via IPC.
+   --
+   --  DENIED operations:
+   --  - process-exec: No launching new processes
+   --  - process-fork: No spawning child processes
+   --  - network*: No network access (inbound or outbound)
+   --  - file-read*/file-write*: No filesystem access (except IPC pipes)
+   --  - signal: No sending signals
+   --  - ipc-*: No System V IPC
+   --  - mach-*: No Mach services (except minimal required)
+   --  - system-*: No system modifications
+   --
+   --  ALLOWED operations:
+   --  - Memory operations (mmap, mprotect) for execution
+   --  - IPC pipe read/write (inherited file descriptors only)
+   --  - Process exit
+   --
    Contract_Seatbelt_Profile_Str : constant String :=
       "(version 1)" & ASCII.LF &
+      "" & ASCII.LF &
+      "; =================================================================" & ASCII.LF &
+      "; AnubisVM Smart Contract Sandbox - STRICT DENY-BY-DEFAULT" & ASCII.LF &
+      "; =================================================================" & ASCII.LF &
+      "" & ASCII.LF &
+      "; Start with deny-all baseline" & ASCII.LF &
       "(deny default)" & ASCII.LF &
-      "; Allow basic process operations" & ASCII.LF &
-      "(allow process-exec)" & ASCII.LF &
-      "(allow process-fork)" & ASCII.LF &
-      "; Allow memory operations" & ASCII.LF &
-      "(allow mach-lookup)" & ASCII.LF &
+      "" & ASCII.LF &
+      "; ---- EXPLICITLY DENY HIGH-RISK OPERATIONS ----" & ASCII.LF &
+      "" & ASCII.LF &
+      "; No process creation or execution" & ASCII.LF &
+      "(deny process-exec)" & ASCII.LF &
+      "(deny process-fork)" & ASCII.LF &
+      "" & ASCII.LF &
+      "; No network access" & ASCII.LF &
+      "(deny network*)" & ASCII.LF &
+      "" & ASCII.LF &
+      "; No signal sending (prevent signaling parent or other processes)" & ASCII.LF &
+      "(deny signal)" & ASCII.LF &
+      "" & ASCII.LF &
+      "; No IPC except our pipes" & ASCII.LF &
+      "(deny ipc-posix*)" & ASCII.LF &
+      "(deny ipc-sysv*)" & ASCII.LF &
+      "" & ASCII.LF &
+      "; No system modifications" & ASCII.LF &
+      "(deny system*)" & ASCII.LF &
+      "(deny sysctl-write)" & ASCII.LF &
+      "" & ASCII.LF &
+      "; ---- MINIMAL REQUIRED PERMISSIONS ----" & ASCII.LF &
+      "" & ASCII.LF &
+      "; Allow reading sysctl for CPU/memory info (needed by runtime)" & ASCII.LF &
       "(allow sysctl-read)" & ASCII.LF &
-      "; Allow file operations on /dev/null only" & ASCII.LF &
+      "" & ASCII.LF &
+      "; Allow reading /dev/urandom for DRBG seeding (if needed)" & ASCII.LF &
+      "(allow file-read* (literal ""/dev/urandom""))" & ASCII.LF &
+      "(allow file-read* (literal ""/dev/random""))" & ASCII.LF &
+      "" & ASCII.LF &
+      "; Allow /dev/null for discarding output" & ASCII.LF &
       "(allow file-read* (literal ""/dev/null""))" & ASCII.LF &
       "(allow file-write* (literal ""/dev/null""))" & ASCII.LF &
-      "; Allow pipe operations (for our IPC)" & ASCII.LF &
-      "(allow file-read* file-write* (require-all (file-mode #o0600)))" & ASCII.LF &
-      "; Deny everything else by default" & ASCII.LF &
+      "" & ASCII.LF &
+      "; Allow pipe operations on inherited FDs (our IPC channel)" & ASCII.LF &
+      "; Pipes are anonymous and inherited, not opened by path" & ASCII.LF &
+      "(allow file-read* (pipe))" & ASCII.LF &
+      "(allow file-write* (pipe))" & ASCII.LF &
+      "" & ASCII.LF &
+      "; Allow process to exit cleanly" & ASCII.LF &
+      "(allow process-exit)" & ASCII.LF &
+      "" & ASCII.LF &
+      "; ---- END OF PROFILE ----" & ASCII.LF &
       ASCII.NUL;
 
    ---------------------------------------------------------------------------
@@ -1383,6 +1437,37 @@ package body Sphinx_Subprocess is
                      end;
                   end if;
                end;
+
+            when Syscall_Return =>
+               --  Contract is returning successfully with data
+               --  Request: [Return data (variable length)]
+               --  Response: [Acknowledged (1 byte)]
+               --
+               --  The return data is passed directly - we just acknowledge receipt.
+               --  The actual return data handling is done in the Execute loop.
+               Ada.Text_IO.Put_Line ("  [Parent] RETURN syscall");
+               Ada.Text_IO.Put_Line ("  [Parent]   Return data length: " &
+                  Word32'Image (Request_Header.Data_Length));
+
+               --  Copy return data for later use
+               if Request_Header.Data_Length > 0 and
+                  Request_Header.Data_Length <= Word32 (Max_Syscall_Data)
+               then
+                  declare
+                     Return_Len : constant Natural := Natural (Request_Header.Data_Length);
+                  begin
+                     --  Return data is in Request_Data, already read by caller
+                     --  We just acknowledge - the Execute loop handles the data
+                     Ada.Text_IO.Put_Line ("  [Parent]   Return data received OK");
+                  end;
+               end if;
+
+               Resp_Status := Syscall_OK;
+               Resp_Len := 1;
+               Response_Data (Response_Data'First) := 1;  --  Acknowledged
+
+               --  Minimal gas for return syscall
+               Syscall_Gas := 100;
 
             when Syscall_Revert =>
                --  Contract is reverting

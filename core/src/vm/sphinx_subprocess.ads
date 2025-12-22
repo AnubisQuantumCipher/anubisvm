@@ -264,6 +264,7 @@ is
    Syscall_ML_KEM_Enc  : constant Word32 := 16#30#;  --  ML-KEM-1024 encapsulate
    Syscall_ML_KEM_Dec  : constant Word32 := 16#31#;  --  ML-KEM-1024 decapsulate
    Syscall_Log         : constant Word32 := 16#40#;  --  Emit event log
+   Syscall_Return      : constant Word32 := 16#51#;  --  Successful return with data
    Syscall_Revert      : constant Word32 := 16#FF#;  --  Revert execution
 
    --  Maximum syscall data size

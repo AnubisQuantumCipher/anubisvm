@@ -521,6 +521,92 @@ package body Sphinx_Native is
       Contract.Class := ELF_64;
       Contract.Entry_Addr := Get_Entry_Point (Binary, Size);
 
+      --  =====================================================================
+      --  SECURITY CHECK: Reject dynamically linked binaries
+      --  =====================================================================
+      --  AnubisVM contracts MUST be statically linked. Dynamic linking would:
+      --  1. Require loading external libraries (attack surface)
+      --  2. Break determinism (host-dependent symbol resolution)
+      --  3. Bypass sandbox isolation
+      --
+      --  We check for:
+      --  - PT_DYNAMIC program header (type 2)
+      --  - SHT_DYNAMIC section (type 6) - checked in section loop below
+      --  - DT_NEEDED entries in dynamic section
+      Ada.Text_IO.Put_Line ("  [SPHINX] Load_ELF: Checking for dynamic linking...");
+      declare
+         --  ELF64 header offsets
+         PH_Off     : constant Word64 := Read_LE64 (Binary, 32);  -- e_phoff
+         PH_Entsize : constant Word32 := Read_LE16 (Binary, 54);  -- e_phentsize
+         PH_Num     : constant Word32 := Read_LE16 (Binary, 56);  -- e_phnum
+         Current_PH : Natural;
+
+         --  Program header type constants
+         PT_DYNAMIC : constant Word32 := 2;
+
+         --  Dynamic section info (if found)
+         Dyn_Offset : Word64 := 0;
+         Dyn_Size   : Word64 := 0;
+      begin
+         Ada.Text_IO.Put_Line ("  [SPHINX]   Program headers: " & Word32'Image (PH_Num) &
+            " at offset " & Word64'Image (PH_Off));
+
+         if PH_Off > 0 and PH_Num > 0 and PH_Entsize >= 56 then
+            Current_PH := Natural (PH_Off);
+
+            for I in 0 .. PH_Num - 1 loop
+               if Current_PH + Natural (PH_Entsize) <= Size then
+                  declare
+                     P_Type   : constant Word32 := Read_LE32 (Binary, Current_PH);
+                     P_Offset : constant Word64 := Read_LE64 (Binary, Current_PH + 8);
+                     P_Filesz : constant Word64 := Read_LE64 (Binary, Current_PH + 32);
+                  begin
+                     if P_Type = PT_DYNAMIC then
+                        Ada.Text_IO.Put_Line ("  [SPHINX] SECURITY: PT_DYNAMIC segment found!");
+                        Ada.Text_IO.Put_Line ("  [SPHINX]   Dynamic section at offset " &
+                           Word64'Image (P_Offset) & ", size " & Word64'Image (P_Filesz));
+
+                        Dyn_Offset := P_Offset;
+                        Dyn_Size := P_Filesz;
+
+                        --  Check for DT_NEEDED entries in dynamic section
+                        if Dyn_Offset > 0 and Dyn_Size >= 16 then
+                           declare
+                              DT_NULL   : constant Word64 := 0;
+                              DT_NEEDED : constant Word64 := 1;
+                              Dyn_Pos   : Natural := Natural (Dyn_Offset);
+                              Dyn_End   : constant Natural :=
+                                 Natural'Min (Natural (Dyn_Offset + Dyn_Size), Size - 16);
+                              D_Tag     : Word64;
+                           begin
+                              while Dyn_Pos <= Dyn_End loop
+                                 D_Tag := Read_LE64 (Binary, Dyn_Pos);
+
+                                 if D_Tag = DT_NULL then
+                                    exit;  -- End of dynamic section
+                                 elsif D_Tag = DT_NEEDED then
+                                    Ada.Text_IO.Put_Line ("  [SPHINX] ERROR: DT_NEEDED entry found!");
+                                    Ada.Text_IO.Put_Line ("  [SPHINX]   Contract requires external library");
+                                    Ada.Text_IO.Put_Line ("  [SPHINX]   Contracts MUST be statically linked");
+                                    return (Error => Load_Security_Violation, Contract => Invalid_Contract);
+                                 end if;
+
+                                 Dyn_Pos := Dyn_Pos + 16;  -- Elf64_Dyn is 16 bytes
+                              end loop;
+
+                              Ada.Text_IO.Put_Line ("  [SPHINX]   No DT_NEEDED entries (PIE binary OK)");
+                           end;
+                        end if;
+                     end if;
+                  end;
+               end if;
+               Current_PH := Current_PH + Natural (PH_Entsize);
+            end loop;
+         end if;
+
+         Ada.Text_IO.Put_Line ("  [SPHINX]   Dynamic linking check passed");
+      end;
+
       --  Parse section headers to get code/data segments
       --  Section header offset at offset 40 for ELF64
       Ada.Text_IO.Put_Line ("  [SPHINX] Load_ELF: Parsing section headers...");
@@ -552,7 +638,19 @@ package body Sphinx_Native is
                   Sh_Size   : constant Word64 := Read_LE64 (Binary, Current_Off + 32);
                begin
                   --  Check section type and flags
-                  if Sh_Type = 1 then  -- SHT_PROGBITS
+                  --  Section type constants
+                  --  SHT_PROGBITS = 1, SHT_DYNAMIC = 6, SHT_NOBITS = 8, SHT_DYNSYM = 11
+
+                  --  Security: Reject dynamic sections (additional check to PT_DYNAMIC)
+                  if Sh_Type = 6 then  -- SHT_DYNAMIC
+                     Ada.Text_IO.Put_Line ("  [SPHINX] ERROR: SHT_DYNAMIC section found");
+                     Ada.Text_IO.Put_Line ("  [SPHINX]   Contracts must be statically linked");
+                     return (Error => Load_Security_Violation, Contract => Invalid_Contract);
+                  elsif Sh_Type = 11 then  -- SHT_DYNSYM
+                     Ada.Text_IO.Put_Line ("  [SPHINX] ERROR: SHT_DYNSYM section found");
+                     Ada.Text_IO.Put_Line ("  [SPHINX]   Contracts must not have dynamic symbols");
+                     return (Error => Load_Security_Violation, Contract => Invalid_Contract);
+                  elsif Sh_Type = 1 then  -- SHT_PROGBITS
                      if (Sh_Flags and 4) /= 0 then  -- SHF_EXECINSTR
                         --  This is code (.text)
                         Contract.Code_Base := Sh_Addr;

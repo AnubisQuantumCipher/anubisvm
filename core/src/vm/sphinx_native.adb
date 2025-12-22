@@ -1549,12 +1549,11 @@ package body Sphinx_Native is
       --  - Should be called from Load_ELF after section parsing
       --
       --  CURRENT STATUS:
-      --  Syscall scanning function is implemented but not yet integrated into
-      --  Load_ELF. To complete integration:
-      --  1. Store binary buffer in Load_ELF scope
-      --  2. After parsing sections, call Scan_For_Syscalls with code section offset
-      --  3. If syscalls detected, return Load_Security_Violation
-      --  4. Set Contract.Has_Direct_Syscalls := True/False (requires spec update)
+      --  Syscall scanning IS integrated into Load_ELF (lines ~581-596):
+      --  - Code section offset/length extracted during section parsing
+      --  - Scan_For_Syscalls called before contract is marked valid
+      --  - If syscalls detected, returns Load_Security_Violation immediately
+      --  This prevents contracts with direct syscalls from even being loaded.
       --
       --  DEFENSE IN DEPTH:
       --  Even without syscall scanning, contracts are protected by:

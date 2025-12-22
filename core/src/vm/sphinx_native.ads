@@ -210,9 +210,13 @@ is
       Return_Data  : Hash256;   -- Hash of return data
    end record;
 
-   --  Execute loaded contract via RISC-V interpreter
-   --  SECURITY: Contract code is executed by Sphinx_RISCV interpreter.
-   --  No native host execution occurs. All instructions are interpreted.
+   --  Execute loaded contract via native ELF execution or subprocess sandbox
+   --  SECURITY MODEL (choose via Set_Default_Execution_Mode):
+   --    Exec_Mode_InProcess  - Direct native execution (fast, requires trust)
+   --    Exec_Mode_Sandboxed  - Fork+sandbox subprocess (secure, syscall IPC)
+   --  WARNING: Native execution runs real machine code. Use Exec_Mode_Sandboxed
+   --  for untrusted contracts. Sandbox provides: process isolation, Seatbelt/
+   --  seccomp, resource limits (CPU, memory, file descriptors), syscall proxy.
    function Execute (
       Contract    : Loaded_Contract;
       Sandbox     : Aegis_Sandbox.Sandbox_Context;

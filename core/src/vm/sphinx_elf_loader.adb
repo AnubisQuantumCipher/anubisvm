@@ -884,11 +884,20 @@ package body Sphinx_ELF_Loader is
       Symbol_Name : String
    ) return Word64
    is
-      pragma Unreferenced (Image, Binary, Symbol_Name);
+      pragma Unreferenced (Image, Binary);
    begin
-      --  Symbol resolution would require parsing .dynsym and .symtab
-      --  For SPARK contracts, most symbols are resolved at link time
-      Ada.Text_IO.Put_Line ("  [ELF] Symbol resolution not yet implemented");
+      --  SECURITY POLICY: AnubisVM contracts MUST be statically linked.
+      --  Runtime symbol resolution is NOT supported because:
+      --    1. It would require allowing arbitrary library loads (attack surface)
+      --    2. Contracts must be deterministic (no host-dependent symbols)
+      --    3. All syscalls must go through the explicit IPC channel
+      --
+      --  If we reach here, the ELF binary has unresolved symbols which is
+      --  a validation failure. Contracts must pass Load_ELF validation which
+      --  rejects binaries with DT_NEEDED or unresolved dynamic symbols.
+      Ada.Text_IO.Put_Line ("  [ELF] ERROR: Unresolved symbol '" & Symbol_Name & "'");
+      Ada.Text_IO.Put_Line ("  [ELF] Contracts must be statically linked (no runtime deps)");
+      --  Return 0 signals failure - caller must check and abort execution
       return 0;
    end Resolve_Symbol;
 

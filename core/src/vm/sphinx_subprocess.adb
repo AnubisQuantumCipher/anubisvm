@@ -37,6 +37,10 @@ with System; use System;
 with System.Storage_Elements; use System.Storage_Elements;
 with Anubis_Types;
 with Anubis_SHA3;
+with Anubis_MLDSA;
+with Anubis_MLDSA_Types;
+with Anubis_MLKEM;
+with Anubis_MLKEM_Types;
 
 package body Sphinx_Subprocess is
 
@@ -1121,10 +1125,264 @@ package body Sphinx_Subprocess is
                end;
 
             when Syscall_Log =>
-               --  TODO: Log event
+               --  Emit event log
                Ada.Text_IO.Put_Line ("  [Parent] LOG syscall");
                Syscall_Gas := 375 + Gas_Amount (Request_Header.Data_Length) * 8;
                Resp_Len := 0;
+
+            when Syscall_ML_DSA_Sign =>
+               --  ML-DSA-87 Sign syscall
+               --  Request format: [SK (4896 bytes)] [Random (32 bytes)] [Msg (variable)]
+               --  Response: [Sig (4627 bytes)] [Success (1 byte)]
+               Ada.Text_IO.Put_Line ("  [Parent] ML-DSA-87 SIGN syscall");
+               declare
+                  use Anubis_MLDSA;
+                  use Anubis_MLDSA_Types;
+
+                  SK_Size    : constant := Secret_Key_Bytes;    -- 4896
+                  Seed_Size  : constant := Seed_Bytes;           -- 32
+                  Sig_Size   : constant := Signature_Bytes;      -- 4627
+                  Min_Req    : constant := SK_Size + Seed_Size;  -- 4928
+                  Data_Len   : constant Natural := Natural (Request_Header.Data_Length);
+               begin
+                  if Data_Len < Min_Req then
+                     Ada.Text_IO.Put_Line ("  [Parent]   ERROR: Insufficient data for ML-DSA Sign");
+                     Resp_Status := Syscall_Invalid_Args;
+                     Resp_Len := 0;
+                  else
+                     declare
+                        SK : Secret_Key;
+                        Random_Seed : Seed;
+                        Msg_Len : constant Natural := Data_Len - Min_Req;
+                        Msg : Anubis_Types.Byte_Array (0 .. (if Msg_Len > 0 then Msg_Len - 1 else 0));
+                        Sig : Signature;
+                        Sign_Success : Boolean;
+                     begin
+                        --  Extract SK
+                        for I in 0 .. SK_Size - 1 loop
+                           SK (I) := Anubis_Types.Byte (Request_Data (I));
+                        end loop;
+
+                        --  Extract Random seed
+                        for I in 0 .. Seed_Size - 1 loop
+                           Random_Seed (I) := Anubis_Types.Byte (Request_Data (SK_Size + I));
+                        end loop;
+
+                        --  Extract message
+                        for I in Msg'Range loop
+                           Msg (I) := Anubis_Types.Byte (Request_Data (Min_Req + I));
+                        end loop;
+
+                        --  Sign the message
+                        Anubis_MLDSA.Sign (
+                           SK      => SK,
+                           Msg     => Msg,
+                           Random  => Random_Seed,
+                           Sig     => Sig,
+                           Success => Sign_Success
+                        );
+
+                        if Sign_Success then
+                           --  Copy signature to response
+                           for I in 0 .. Sig_Size - 1 loop
+                              Response_Data (I) := Aegis_VM_Types.Byte (Sig (I));
+                           end loop;
+                           Response_Data (Sig_Size) := 1;  --  Success = 1
+                           Resp_Len := Word32 (Sig_Size + 1);
+                           Ada.Text_IO.Put_Line ("  [Parent]   Sign SUCCESS");
+                        else
+                           Response_Data (0) := 0;  --  Success = 0
+                           Resp_Len := 1;
+                           Resp_Status := Syscall_Error;
+                           Ada.Text_IO.Put_Line ("  [Parent]   Sign FAILED (rejection sampling)");
+                        end if;
+
+                        --  Gas: Base cost + per-byte message cost
+                        Syscall_Gas := 50000 + Gas_Amount (Msg_Len) * 10;
+                     end;
+                  end if;
+               end;
+
+            when Syscall_ML_DSA_Vrfy =>
+               --  ML-DSA-87 Verify syscall
+               --  Request format: [PK (2592 bytes)] [Sig (4627 bytes)] [Msg (variable)]
+               --  Response: [Valid (1 byte)]
+               Ada.Text_IO.Put_Line ("  [Parent] ML-DSA-87 VERIFY syscall");
+               declare
+                  use Anubis_MLDSA;
+                  use Anubis_MLDSA_Types;
+
+                  PK_Size   : constant := Public_Key_Bytes;     -- 2592
+                  Sig_Size  : constant := Signature_Bytes;       -- 4627
+                  Min_Req   : constant := PK_Size + Sig_Size;   -- 7219
+                  Data_Len  : constant Natural := Natural (Request_Header.Data_Length);
+               begin
+                  if Data_Len < Min_Req then
+                     Ada.Text_IO.Put_Line ("  [Parent]   ERROR: Insufficient data for ML-DSA Verify");
+                     Resp_Status := Syscall_Invalid_Args;
+                     Resp_Len := 0;
+                  else
+                     declare
+                        PK : Public_Key;
+                        Sig : Signature;
+                        Msg_Len : constant Natural := Data_Len - Min_Req;
+                        Msg : Anubis_Types.Byte_Array (0 .. (if Msg_Len > 0 then Msg_Len - 1 else 0));
+                        Valid : Boolean;
+                     begin
+                        --  Extract PK
+                        for I in 0 .. PK_Size - 1 loop
+                           PK (I) := Anubis_Types.Byte (Request_Data (I));
+                        end loop;
+
+                        --  Extract Signature
+                        for I in 0 .. Sig_Size - 1 loop
+                           Sig (I) := Anubis_Types.Byte (Request_Data (PK_Size + I));
+                        end loop;
+
+                        --  Extract message
+                        for I in Msg'Range loop
+                           Msg (I) := Anubis_Types.Byte (Request_Data (Min_Req + I));
+                        end loop;
+
+                        --  Verify the signature
+                        Valid := Anubis_MLDSA.Verify (
+                           PK  => PK,
+                           Msg => Msg,
+                           Sig => Sig
+                        );
+
+                        if Valid then
+                           Response_Data (0) := 1;  --  Valid = 1
+                           Ada.Text_IO.Put_Line ("  [Parent]   Verify: VALID");
+                        else
+                           Response_Data (0) := 0;  --  Valid = 0
+                           Ada.Text_IO.Put_Line ("  [Parent]   Verify: INVALID");
+                        end if;
+                        Resp_Len := 1;
+
+                        --  Gas: Base cost + per-byte message cost
+                        Syscall_Gas := 30000 + Gas_Amount (Msg_Len) * 5;
+                     end;
+                  end if;
+               end;
+
+            when Syscall_ML_KEM_Enc =>
+               --  ML-KEM-1024 Encapsulate syscall
+               --  Request format: [EK (1568 bytes)] [Random (32 bytes)]
+               --  Response: [SS (32 bytes)] [CT (1568 bytes)]
+               Ada.Text_IO.Put_Line ("  [Parent] ML-KEM-1024 ENCAPSULATE syscall");
+               declare
+                  use Anubis_MLKEM_Types;
+
+                  EK_Size   : constant := Anubis_MLKEM.Encapsulation_Key_Bytes;  -- 1568
+                  Rand_Size : constant := Anubis_MLKEM.Seed_Bytes;                -- 32
+                  SS_Size   : constant := Anubis_MLKEM.Shared_Secret_Bytes;       -- 32
+                  CT_Size   : constant := Anubis_MLKEM.Ciphertext_Bytes;          -- 1568
+                  Req_Size  : constant := EK_Size + Rand_Size;                    -- 1600
+                  Data_Len  : constant Natural := Natural (Request_Header.Data_Length);
+               begin
+                  if Data_Len < Req_Size then
+                     Ada.Text_IO.Put_Line ("  [Parent]   ERROR: Insufficient data for ML-KEM Encaps");
+                     Resp_Status := Syscall_Invalid_Args;
+                     Resp_Len := 0;
+                  else
+                     declare
+                        EK : Encapsulation_Key;
+                        Random_M : Anubis_MLKEM_Types.Seed;
+                        SS : Shared_Secret;
+                        CT : MLKEM_Ciphertext;
+                     begin
+                        --  Extract EK
+                        for I in 0 .. EK_Size - 1 loop
+                           EK (I) := Anubis_Types.Byte (Request_Data (I));
+                        end loop;
+
+                        --  Extract Random
+                        for I in 0 .. Rand_Size - 1 loop
+                           Random_M (I) := Anubis_Types.Byte (Request_Data (EK_Size + I));
+                        end loop;
+
+                        --  Encapsulate
+                        Anubis_MLKEM.Encaps (
+                           EK       => EK,
+                           Random_M => Random_M,
+                           SS       => SS,
+                           CT       => CT
+                        );
+
+                        --  Copy SS to response (first 32 bytes)
+                        for I in 0 .. SS_Size - 1 loop
+                           Response_Data (I) := Aegis_VM_Types.Byte (SS (I));
+                        end loop;
+
+                        --  Copy CT to response (next 1568 bytes)
+                        for I in 0 .. CT_Size - 1 loop
+                           Response_Data (SS_Size + I) := Aegis_VM_Types.Byte (CT (I));
+                        end loop;
+
+                        Resp_Len := Word32 (SS_Size + CT_Size);  --  1600 bytes
+                        Ada.Text_IO.Put_Line ("  [Parent]   Encapsulate SUCCESS");
+
+                        --  Gas cost for ML-KEM encapsulation
+                        Syscall_Gas := 25000;
+                     end;
+                  end if;
+               end;
+
+            when Syscall_ML_KEM_Dec =>
+               --  ML-KEM-1024 Decapsulate syscall
+               --  Request format: [DK (3168 bytes)] [CT (1568 bytes)]
+               --  Response: [SS (32 bytes)]
+               Ada.Text_IO.Put_Line ("  [Parent] ML-KEM-1024 DECAPSULATE syscall");
+               declare
+                  use Anubis_MLKEM_Types;
+
+                  DK_Size   : constant := Anubis_MLKEM.Decapsulation_Key_Bytes;  -- 3168
+                  CT_Size   : constant := Anubis_MLKEM.Ciphertext_Bytes;          -- 1568
+                  SS_Size   : constant := Anubis_MLKEM.Shared_Secret_Bytes;       -- 32
+                  Req_Size  : constant := DK_Size + CT_Size;                      -- 4736
+                  Data_Len  : constant Natural := Natural (Request_Header.Data_Length);
+               begin
+                  if Data_Len < Req_Size then
+                     Ada.Text_IO.Put_Line ("  [Parent]   ERROR: Insufficient data for ML-KEM Decaps");
+                     Resp_Status := Syscall_Invalid_Args;
+                     Resp_Len := 0;
+                  else
+                     declare
+                        DK : Decapsulation_Key;
+                        CT : MLKEM_Ciphertext;
+                        SS : Shared_Secret;
+                     begin
+                        --  Extract DK
+                        for I in 0 .. DK_Size - 1 loop
+                           DK (I) := Anubis_Types.Byte (Request_Data (I));
+                        end loop;
+
+                        --  Extract CT
+                        for I in 0 .. CT_Size - 1 loop
+                           CT (I) := Anubis_Types.Byte (Request_Data (DK_Size + I));
+                        end loop;
+
+                        --  Decapsulate
+                        Anubis_MLKEM.Decaps (
+                           DK => DK,
+                           CT => CT,
+                           SS => SS
+                        );
+
+                        --  Copy SS to response
+                        for I in 0 .. SS_Size - 1 loop
+                           Response_Data (I) := Aegis_VM_Types.Byte (SS (I));
+                        end loop;
+
+                        Resp_Len := Word32 (SS_Size);  --  32 bytes
+                        Ada.Text_IO.Put_Line ("  [Parent]   Decapsulate SUCCESS");
+
+                        --  Gas cost for ML-KEM decapsulation
+                        Syscall_Gas := 30000;
+                     end;
+                  end if;
+               end;
 
             when Syscall_Revert =>
                --  Contract is reverting
